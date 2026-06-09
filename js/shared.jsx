@@ -24,6 +24,7 @@ function NavBar({ current }) {
   }, [open]);
 
   return (
+    <>
     <header className={"tb-nav" + (open ? " is-open" : "")}>
       <a href="index.html" className="tb-nav__wm">
         <img src="assets/2birds-wordmark.png" alt="2birds" />
@@ -51,20 +52,24 @@ function NavBar({ current }) {
           <span></span><span></span><span></span>
         </button>
       </div>
-      <div className={"tb-nav__drawer" + (open ? " is-open" : "")} aria-hidden={!open}>
-        <nav className="tb-nav__drawerMenu">
-          {items.map((it) =>
-          <a key={it.id}
-          href={it.href}
-          className={"tb-nav__drawerLink" + (current === it.id ? " is-active" : "")}
-          onClick={() => setOpen(false)}>
-            {it.label}
-          </a>
-          )}
-          <a className="tb-nav__drawerLink" href="contact.html" onClick={() => setOpen(false)}>Make an enquiry</a>
-        </nav>
-      </div>
-    </header>);
+    </header>
+    {/* Drawer is a SIBLING of the header (not a child): the header's
+        backdrop-filter would otherwise trap this position:fixed panel inside
+        the nav bar instead of letting it cover the screen. */}
+    <div className={"tb-nav__drawer" + (open ? " is-open" : "")} aria-hidden={!open}>
+      <nav className="tb-nav__drawerMenu">
+        {items.map((it) =>
+        <a key={it.id}
+        href={it.href}
+        className={"tb-nav__drawerLink" + (current === it.id ? " is-active" : "")}
+        onClick={() => setOpen(false)}>
+          {it.label}
+        </a>
+        )}
+        <a className="tb-nav__drawerLink" href="contact.html" onClick={() => setOpen(false)}>Make an enquiry</a>
+      </nav>
+    </div>
+    </>);
 
 }
 
