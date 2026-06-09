@@ -178,10 +178,16 @@ function Footer() {
           </div>
         </div>
         <div className="tb-footer__legal">
-          <span>© <strong style={{ fontWeight: 600 }}>2BIRDS PRIVATE LIMITED</strong> · Singapore · All rights reserved.</span>
-          <span className="tb-footer__legalRight">
-            <a href="privacy.html">Privacy Policy</a> · <a href="engagement.html">Engagement</a> · <a href="terms.html">Legal Statement</a>
+          <span className="tb-footer__legalCo">
+            <span>© <strong style={{ fontWeight: 600 }}>2BIRDS PRIVATE LIMITED</strong></span>
+            <span className="tb-footer__uen">UEN 202625717Z</span>
           </span>
+          <span className="tb-footer__legalRight">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="engagement.html">Engagement</a>
+            <a href="terms.html">Legal Statement</a>
+          </span>
+          <span className="tb-footer__rightsEnd">2026 © · All rights reserved.</span>
         </div>
       </div>
     </footer>);

@@ -250,6 +250,7 @@ h1, h2, h3, h4, h5, h6 {
    Buttons — single height (42px), pill (full), 14/600 button text
    ========================================================================= */
 .btn {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;

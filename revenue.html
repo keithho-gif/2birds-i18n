@@ -258,7 +258,7 @@
   /* Client roster — monochrome wordmarks */
   .tb-mkt-clients {
     margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--hairline);
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 34px;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 0;
   }
   .tb-mkt-clients__cap {
     flex: 0 0 100%;
@@ -273,6 +273,19 @@
     transition: opacity var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard);
   }
   .tb-mkt-client:hover { opacity: 1; color: var(--ink); }
+  /* A slim divider sits after each company (kept inside the element so it never
+     wraps to the start of a line); the last one is omitted. */
+  .tb-mkt-client:not(:last-child)::after {
+    content: "|";
+    display: inline-block;
+    margin: 0 18px;
+    font-size: 0.62em;
+    font-family: var(--font-sans);
+    color: var(--olive-deep);
+    opacity: 0.4;
+    filter: none;
+    transform: translateY(-2px);
+  }
 
   /* Sample works — monochrome, mirrors the video reel */
   .tb-mkt-works {
@@ -487,8 +500,8 @@ function App() {
           <div className="container">
             <SectionHead
               eyebrow="§ I · What we do"
-              title={<>Three kinds of work, <em>commissioned</em> by you.</>}
-              sub="The marketing work a registered training provider is free to commission. These are our services, each made to the same standard as the rest of the practice." />
+              title={<>Three kinds of work, <em>made for you</em>.</>}
+              sub="The marketing a registered training provider is free to run: messaging and campaigns, event planning, and creative design — each made to the same standard as the rest of the practice." />
 
             <div className="tb-economies">
               {PILLARS.map((p, i) =>

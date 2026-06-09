@@ -390,7 +390,6 @@ body { padding-top: 108px; }
   border: 1px solid var(--hairline);
   padding: 40px 48px;
 }
-.tb-mkt-collab__card { grid-template-columns: 120px 1fr; }
 .tb-mkt-spotlight__media { margin: 0; }
 .tb-mkt-spotlight__media img {
   width: 120px;
@@ -2675,6 +2674,21 @@ image-slot::part(placeholder) {
   .tb-cta__cal { justify-content: flex-start; }
 }
 
+/* Calendar on phones — let it take the full column and keep the day cells
+   square. The base rule fixes each cell at height:32px while the seven columns
+   stretch with the screen, so on a phone the round day markers became wide,
+   squashed ovals (the "squeezed" look). aspect-ratio ties height to the column
+   width so the circles stay round at any size, and the widget fills its column. */
+@media (max-width: 600px) {
+  .tb-cta__inner--split { padding: 40px 18px !important; }
+  .tb-cta__cal { justify-content: stretch; }
+  .tb-cal { max-width: 100%; padding: 18px 16px 16px; }
+  .tb-cal__grid { row-gap: 2px; }
+  .tb-cal__day { height: auto; aspect-ratio: 1 / 1; font-size: 12px; }
+  .tb-cal__slots-grid { gap: 5px; }
+  .tb-cal__slot { padding: 10px 4px; font-size: 11px; }
+}
+
 /* =========================================================================
    Contact form (Contact page)
    ========================================================================= */
@@ -2899,19 +2913,26 @@ image-slot::part(placeholder) {
   margin-top: 80px;
   padding-top: 28px;
   border-top: 1px solid rgba(250, 248, 242, 0.08);
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 22px;
   font-family: var(--font-sans); font-size: 11px; font-weight: 300;
   color: rgba(250, 248, 242, 0.48);
   letter-spacing: 0.10em;
   text-transform: uppercase;
 }
+.tb-footer__legalCo { display: flex; flex-direction: column; gap: 7px; }
+.tb-footer__uen { color: rgba(250, 248, 242, 0.40); letter-spacing: 0.14em; }
 .tb-footer__legal strong { font-weight: 500 !important; color: rgba(250, 248, 242, 0.72); letter-spacing: 0.14em; }
+.tb-footer__legalRight {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 9px;
+}
 .tb-footer__legalRight a {
-  color: rgba(250, 248, 242, 0.48); text-decoration: none; padding: 0 10px;
+  color: rgba(250, 248, 242, 0.48); text-decoration: none; padding: 0;
   letter-spacing: 0.10em;
   transition: color var(--dur-base) var(--ease-standard);
 }
 .tb-footer__legalRight a:hover { color: var(--olive-light); }
+.tb-footer__rightsEnd { color: rgba(250, 248, 242, 0.40); }
 
 /* =========================================================================
    Small-screen reflow
@@ -4613,7 +4634,7 @@ image-slot::part(placeholder) {
 @media (max-width: 980px) {
   .tb-nav { z-index: 60; height: 72px; }
   body { padding-top: 72px; }
-  .tb-nav__wm img { height: 28px; width: auto; }
+  .tb-nav__wm img { height: 38px; width: auto; }
   .tb-nav__burger { display: inline-flex; }
   .tb-nav__cta { display: none; }
   .tb-nav__right { gap: 12px; }
@@ -4776,7 +4797,7 @@ image-slot::part(placeholder) {
   /* NAV header height fix for drawer offset */
   .tb-nav { height: 64px; padding: 0 var(--space-lg) !important; }
   body { padding-top: 64px; }
-  .tb-nav__wm img { height: 24px; width: auto; }
+  .tb-nav__wm img { height: 32px; width: auto; }
   .tb-nav__drawer { top: 64px; }
 
   /* dl grids -> stack labels */
@@ -6520,7 +6541,7 @@ a.tb-standing__name:hover .tb-standing__ext { opacity: 1; }
   .tb-footer__legal {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 18px;
     letter-spacing: 0.05em;
     line-height: 1.75;
   }

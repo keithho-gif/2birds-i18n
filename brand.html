@@ -28,25 +28,51 @@
 
 <script type="text/babel">
 
-const PAIR_WING = (
-  <svg viewBox="0 0 64 40" width="66" height="42" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-    <path d="M2 30 C 14 8, 26 8, 32 24 C 38 8, 50 8, 62 30" />
+const ICON_SVG = (paths) => (
+  <svg viewBox="0 0 64 40" width="62" height="39" fill="none" stroke="currentColor"
+       strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+    {paths}
   </svg>
 );
+
+/* The draft — three birds in echelon, each riding the upwash of the one ahead. */
+const ICON_DRAFT = ICON_SVG(<>
+  <path d="M8 13 C 11 7.5, 14 7.5, 16 12 C 18 7.5, 21 7.5, 24 13" />
+  <path d="M22 22 C 25 16.5, 28 16.5, 30 21 C 32 16.5, 35 16.5, 38 22" />
+  <path d="M36 31 C 39 25.5, 42 25.5, 44 30 C 46 25.5, 49 25.5, 52 31" />
+</>);
+
+/* The watch — two birds over a still horizon, one aloft reading the distance. */
+const ICON_WATCH = ICON_SVG(<>
+  <path d="M9 31 C 24 28, 40 28, 55 31" />
+  <path d="M15 16 C 17.5 11.5, 20.5 11.5, 22 15 C 23.5 11.5, 26.5 11.5, 29 16" />
+  <path d="M37 24 C 39 20.5, 41.5 20.5, 43 23.5 C 44.5 20.5, 47 20.5, 49 24" />
+</>);
+
+/* The bond — a mirrored pair, necks curving together for the long crossing. */
+const ICON_BOND = ICON_SVG(<>
+  <path d="M14 33 C 12 21, 19 14, 32 20" />
+  <path d="M50 33 C 52 21, 45 14, 32 20" />
+  <circle cx="14" cy="33" r="1.7" fill="currentColor" stroke="none" />
+  <circle cx="50" cy="33" r="1.7" fill="currentColor" stroke="none" />
+</>);
 
 const PAIR_PRINCIPLES = [
   {
     title: "The draft",
+    icon: ICON_DRAFT,
     nature: "A bird in formation rides the upwash of the one ahead and saves real energy on every wingbeat. The lead takes the hardest air, and the pair shares the burden by turns.",
     practice: "We fly at the front of the regulatory headwind, so your team reaches the work itself with energy still to spare.",
   },
   {
     title: "The watch",
+    icon: ICON_WATCH,
     nature: "Two birds keep watch in turns. While one feeds, the other reads the horizon, and little reaches the pair unseen.",
     practice: "Two sets of eyes review every submission. What one of us would miss, the other is placed to catch, well before SSG ever does.",
   },
   {
     title: "The bond",
+    icon: ICON_BOND,
     nature: "Many species pair for life, navigating, defending and returning together. The bond is not ornament; it is how they survive the long crossings.",
     practice: "We stay paired with you for the whole crossing, not the first leg, because the engagements that succeed are the ones nobody flew alone.",
   },
@@ -230,7 +256,7 @@ function App() {
             <div className="tb-pair__grid">
               {PAIR_PRINCIPLES.map((p, i) => (
                 <article key={i} className="tb-pair__card">
-                  <span className="tb-pair__glyph" aria-hidden="true">{PAIR_WING}</span>
+                  <span className="tb-pair__glyph" aria-hidden="true">{p.icon}</span>
                   <h3 className="tb-pair__card-title">{p.title}</h3>
                   <div className="tb-pair__row">
                     <span className="tb-pair__tag">In nature</span>
