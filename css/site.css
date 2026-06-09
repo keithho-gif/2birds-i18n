@@ -6495,3 +6495,15 @@ a.tb-standing__name:hover .tb-standing__ext { opacity: 1; }
    so drop the services' top rule too. */
 .tb-heritage { padding-bottom: var(--space-xl); }
 .tb-services { padding-top: var(--space-xxl); border-top: 0; }
+
+/* Contact "A short note" textarea — align it cleanly with the single-line
+   inputs (flush-left, first line top-aligned) and give it a proportionate
+   height so it doesn't read as a tall, empty, misaligned box. Desktop + mobile. */
+.tb-field__textarea {
+  padding: 12px 0 0;
+  text-indent: 0;
+  margin: 0;
+  min-height: 92px;
+  line-height: 1.6;
+  vertical-align: top;
+}

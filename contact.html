@@ -131,7 +131,7 @@ function TextArea({ label, required, value, onChange, placeholder }) {
         {required && <em className="tb-field__req"> *</em>}
       </span>
       <textarea
-        rows={5}
+        rows={3}
         className={"tb-field__input tb-field__textarea" + (focused ? " is-focused" : "")}
         value={value}
         onChange={onChange}
