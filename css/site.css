@@ -6507,3 +6507,23 @@ a.tb-standing__name:hover .tb-standing__ext { opacity: 1; }
   line-height: 1.6;
   vertical-align: top;
 }
+
+/* Contact: the single-column fields (Practice area, A short note) used
+   .tb-field-block, which had no margin, so they sat tighter than the 28px
+   two-column rows. Give them the same rhythm so the whole form is even. */
+.tb-field-block { margin-bottom: 28px; }
+
+/* Footer legal strip — tidy on narrower screens: stack the copyright above the
+   links, ease the letter-spacing so the uppercase line doesn't break mid-phrase,
+   and keep each link whole instead of wrapping across lines. */
+@media (max-width: 980px) {
+  .tb-footer__legal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    letter-spacing: 0.05em;
+    line-height: 1.75;
+  }
+  .tb-footer__legalRight { text-align: left; }
+  .tb-footer__legalRight a { white-space: nowrap; }
+}
