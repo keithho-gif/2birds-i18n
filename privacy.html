@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Privacy Policy, 2birds</title>
+
+<link rel="icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="apple-touch-icon" href="assets/favicon.png?v=6" />
+<link rel="stylesheet" href="css/foundations.css" />
+<link rel="stylesheet" href="css/site.css" />
+<link rel="stylesheet" href="css/i18n.css" />
+<link rel="stylesheet" href="css/premium.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="js/transition.js"></script>
+<script src="js/i18n.js"></script>
+</head>
+<body class="is-premium" data-screen-label="07 Privacy">
+<div id="root"></div>
+
+<script type="text/babel" src="js/shared.jsx"></script>
+
+<script type="text/babel">
+function Clause({ num, children }) {
+  return (
+    <div className="tb-legal__clause">
+      <span className="tb-legal__clause-num">{num}</span>
+      <div className="tb-legal__clause-body">{children}</div>
+    </div>
+  );
+}
+
+function Article({ num, title, children }) {
+  return (
+    <section className="tb-legal__article">
+      <header className="tb-legal__art-head">
+        <span className="tb-legal__art-num">{num}</span>
+        <h2 className="tb-legal__art-title">{title}</h2>
+      </header>
+      {children}
+    </section>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <NavBar current="" />
+      <main>
+
+        <section className="tb-legal">
+          <div className="container">
+            <div className="tb-legal__shell">
+
+              <h1 className="tb-legal__title">Privacy Policy</h1>
+              <div className="tb-legal__sub">2birds · Singapore</div>
+
+              {/* Document metadata */}
+              <div className="tb-legal__meta">
+                <div className="tb-legal__meta-cell">
+                  <span className="tb-legal__meta-label">Effective</span>
+                  <span className="tb-legal__meta-value">15 May 2026</span>
+                </div>
+                <div className="tb-legal__meta-cell">
+                  <span className="tb-legal__meta-label">Version</span>
+                  <span className="tb-legal__meta-value">1.0</span>
+                </div>
+                <div className="tb-legal__meta-cell">
+                  <span className="tb-legal__meta-label">Jurisdiction</span>
+                  <span className="tb-legal__meta-value">Singapore</span>
+                </div>
+              </div>
+
+              {/* Preamble / recitals */}
+              <div className="tb-legal__preamble">
+                <p>
+                  This Privacy Notice (the <em>"Notice"</em>) is issued by 2birds,
+                  an unincorporated community of independent practitioners based at
+                  7 Temasek Boulevard, #12-07 Suntec Tower One, Singapore 038987
+                  (hereinafter <em>"2birds"</em>, <em>"we"</em>,
+                  <em>"us"</em> or <em>"our"</em>).
+                </p>
+                <p>
+                  This Notice records the manner in which personal data submitted to
+                  2birds, whether through this website (<em>"the Website"</em>),
+                  by correspondence, or by telephone, is collected, used, retained
+                  and disclosed by 2birds, in accordance with the Personal Data
+                  Protection Act 2012 (No. 26 of 2012) of Singapore (the
+                  <em> "PDPA"</em>) and its subsidiary legislation.
+                </p>
+                <p>
+                  <strong>By submitting personal data to 2birds, the User
+                  acknowledges receipt of this Notice and consents to the collection,
+                  use and disclosure of such data on the terms herein set forth.</strong>
+                </p>
+              </div>
+
+              {/* Article 1, Definitions */}
+              <Article num="I." title="Definitions and Interpretation">
+                <Clause num="1.1">
+                  In this Notice, unless the context otherwise requires, the following
+                  expressions shall have the meanings ascribed to them: <em>"Personal
+                  Data"</em> bears the meaning given to it under section 2(1) of the
+                  PDPA; <em>"User"</em> means any natural person who submits Personal
+                  Data to 2birds; <em>"Engagement"</em> means a written instruction
+                  to 2birds for the provision of professional services.
+                </Clause>
+                <Clause num="1.2">
+                  References to the singular include the plural and vice versa; words
+                  importing one gender shall include all genders; and references to
+                  any statute or statutory provision shall include any subsequent
+                  amendment, re-enactment or substitution thereof.
+                </Clause>
+              </Article>
+
+              {/* Article 2 */}
+              <Article num="II." title="Collection of Personal Data">
+                <Clause num="2.1">
+                  2birds collects Personal Data only where the User has voluntarily
+                  furnished the same, whether by submitting an enquiry through the
+                  Website, by transmitting correspondence to{" "}
+                  <a href="mailto:hello@2birds.asia">hello@2birds.asia</a>, or by
+                  telephoning 2birds on +65 8595 3945.
+                </Clause>
+                <Clause num="2.2">
+                  The Personal Data so collected typically comprises the User's
+                  full name, electronic mail address, telephone number, name of
+                  employer or instructing organisation (if any), and the substance
+                  of the User's communication, together with the date and time of
+                  receipt thereof.
+                </Clause>
+                <Clause num="2.3">
+                  The Website employs no analytics, advertising or third-party
+                  tracking cookies. No information is collected passively from the
+                  User's browsing of the Website.
+                </Clause>
+              </Article>
+
+              {/* Article 3 */}
+              <Article num="III." title="Purposes of Use">
+                <Clause num="3.1">
+                  Personal Data collected pursuant to Article II shall be used solely
+                  for the following purposes (the <em>"Permitted Purposes"</em>):
+                  (a) responding to the User's enquiry; (b) preparing a fee quotation
+                  or scope of work; (c) carrying out the Engagement if one is
+                  concluded; (d) maintaining the working records of the practice;
+                  and (e) compliance with any obligation imposed on 2birds by law,
+                  regulation or professional rule.
+                </Clause>
+                <Clause num="3.2">
+                  2birds shall not use Personal Data for any purpose materially
+                  beyond the Permitted Purposes without first obtaining the User's
+                  prior written consent.
+                </Clause>
+              </Article>
+
+              {/* Article 4 */}
+              <Article num="IV." title="Disclosure to Third Parties">
+                <Clause num="4.1">
+                  2birds shall not sell, rent or transfer Personal Data to third
+                  parties for those third parties' own marketing or commercial
+                  purposes.
+                </Clause>
+                <Clause num="4.2">
+                  Incidental access to Personal Data may be afforded to providers of
+                  the electronic mail, document storage, accounting and payment
+                  processing services on which 2birds relies in the ordinary
+                  course of its practice, each of which is bound by its own
+                  contractual obligations of confidentiality and data protection.
+                </Clause>
+                <Clause num="4.3">
+                  Personal Data may be disclosed where required by an order of a
+                  court of competent jurisdiction, or by any law, regulation or
+                  professional-conduct rule binding upon 2birds.
+                </Clause>
+              </Article>
+
+              {/* Article 5 */}
+              <Article num="V." title="Retention of Personal Data">
+                <Clause num="5.1">
+                  Where the User's communication does not result in an Engagement,
+                  2birds shall close the relevant file no later than twelve (12)
+                  months after the last substantive correspondence, and shall remove
+                  personally identifying particulars from its active records no
+                  later than twenty-four (24) months thereafter.
+                </Clause>
+                <Clause num="5.2">
+                  Where the User's communication results in an Engagement, 2birds
+                  shall retain the Engagement file for the period required by
+                  Singapore tax, accounting and professional-conduct rules,
+                  presently five (5) years from the closure of the Engagement.
+                </Clause>
+              </Article>
+
+              {/* Article 6 */}
+              <Article num="VI." title="Rights of the User">
+                <Clause num="6.1">
+                  The User shall have the right, exercisable at any time by written
+                  request to 2birds, to: (a) be informed of the Personal Data held
+                  about the User by 2birds; (b) request the correction of any
+                  inaccuracy therein; and (c) request the deletion of such data,
+                  subject to any retention obligation set forth in Article V or
+                  imposed upon 2birds by law.
+                </Clause>
+                <Clause num="6.2">
+                  2birds shall respond to any such request within a reasonable
+                  period, ordinarily not exceeding ten (10) working days from the
+                  date of receipt thereof.
+                </Clause>
+                <Clause num="6.3">
+                  In the event of dissatisfaction with the manner in which 2birds
+                  has handled Personal Data, the User may refer the matter to the
+                  Personal Data Protection Commission of Singapore at{" "}
+                  <a href="https://www.pdpc.gov.sg" target="_blank" rel="noopener">www.pdpc.gov.sg</a>.
+                </Clause>
+              </Article>
+
+              {/* Article 7 */}
+              <Article num="VII." title="Amendments to this Notice">
+                <Clause num="7.1">
+                  2birds reserves the right to amend this Notice from time to time
+                  to reflect changes in its practice or in the law. The version then
+                  in force shall be that published on the Website. Earlier versions
+                  shall be made available on written request to{" "}
+                  <a href="mailto:hello@2birds.asia">hello@2birds.asia</a>.
+                </Clause>
+              </Article>
+
+              {/* Article 8 */}
+              <Article num="VIII." title="Governing Law and Enquiries">
+                <Clause num="8.1">
+                  This Notice and any matter arising out of or in connection with it
+                  shall be governed by and construed in accordance with the laws of
+                  the Republic of Singapore.
+                </Clause>
+                <Clause num="8.2">
+                  Enquiries concerning this Notice, or the practices described herein,
+                  may be addressed to the Data Protection Contact at{" "}
+                  <a href="mailto:hello@2birds.asia">hello@2birds.asia</a>.
+                </Clause>
+              </Article>
+
+              {/* Signature block */}
+              <div className="tb-legal__sig">
+                <div className="tb-legal__sig-block">
+                  <div className="tb-legal__sig-label">Issued for and on behalf of</div>
+                  <div className="tb-legal__sig-name">2birds</div>
+                  <div className="tb-legal__sig-role">Practice · Singapore</div>
+                </div>
+                <div className="tb-legal__sig-block">
+                  <div className="tb-legal__sig-label">Data Protection Contact</div>
+                  <div className="tb-legal__sig-name">Keith Ho</div>
+                  <div className="tb-legal__sig-role">Founder · hello@2birds.asia</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

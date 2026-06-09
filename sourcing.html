@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Trainers and SMEs Sourcing, 2birds</title>
+
+<link rel="icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="apple-touch-icon" href="assets/favicon.png?v=6" />
+<link rel="stylesheet" href="css/foundations.css" />
+<link rel="stylesheet" href="css/site.css" />
+<link rel="stylesheet" href="css/i18n.css" />
+<link rel="stylesheet" href="css/premium.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="js/transition.js"></script>
+<script src="js/i18n.js"></script>
+</head>
+<body class="is-premium" data-screen-label="03 Trainers and SMEs Sourcing">
+<div id="root"></div>
+
+<script src="js/sector-areas.js"></script>
+<script type="text/babel" src="js/shared.jsx"></script>
+
+<script type="text/babel">
+
+
+// SSG's three priority economies, with the sectors in which we currently practise
+const ECONOMIES = [
+{
+  roman: "I",
+  title: <>The <em>Care</em> economy</>,
+  body: "Sectors that serve a growing and ageing population. Demand is steady and SSG funding well-established for both WSQ and non-WSQ certifiable courses.",
+  sectors: ["Healthcare"]
+},
+{
+  roman: "II",
+  title: <>The <em>Digital</em> economy</>,
+  body: "Sectors driving the transition to data, cloud and AI. Skills are listed under the Course Approval Skills List and qualify for the higher SSG funding tier where eligible.",
+  sectors: ["Artificial Intelligence", "Digital Marketing"]
+},
+{
+  roman: "III",
+  title: <>The <em>Green</em> economy</>,
+  body: "Sectors built around sustainability, decarbonisation and the built environment. The framework here is younger and our network of SMEs in this area is still being assembled.",
+  sectors: ["Sustainability"]
+}];
+
+
+// SVG glyphs for the per-sector cursor effect, each renders inside the floating badge
+const SECTOR_ICONS = {
+  healthcare: <path fill="currentColor" d="M10 3h4v4h4v4h-4v4h-4v-4H6V7h4V3z" />,
+  ai: <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5" /><rect x="9.5" y="9.5" width="5" height="5" /><path d="M9 4v2.5M12 4v2.5M15 4v2.5M9 17.5V20M12 17.5V20M15 17.5V20M4 9h2.5M4 12h2.5M4 15h2.5M17.5 9H20M17.5 12H20M17.5 15H20" /></g>,
+  marketing: <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round"><path d="M4 9v6l11 4V5L4 9z" fill="currentColor" fillOpacity="0.15" /><path d="M15 7l5-2v14l-5-2" /><path d="M8 15v3a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2.5" /></g>,
+  sustainability: <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 4c-9 0-14 4-14 11 0 1.5.3 2.8.8 4M5 20c5-9 11-12 15-12" /></g>,
+  food: <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M7 3v8a2 2 0 0 0 2 2v7M7 3v4M9 3v4M11 3v4M11 7c0 2-1 4-2 4" /><path d="M16 3c-1.5 0-2 1.5-2 3.5S15 13 16 13v7" /></g>,
+  hr: <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="8" r="2.5" /><circle cx="16" cy="9" r="2" /><path d="M4.5 18c.5-3 2.5-4.5 4.5-4.5s4 1.5 4.5 4.5M14 18c.4-2.4 1.8-3.5 3-3.5s2.4 1.1 2.8 3" /></g>,
+  leadership: <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M6 21V4M6 4l9 1.5L13 9l2 3.5L6 14" fill="currentColor" fillOpacity="0.18" /></g>,
+  risk: <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l7 2.5v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9v-6L12 3z" fill="currentColor" fillOpacity="0.12" /><path d="M9.5 12l2 2 3.5-4" /></g>,
+  legal: <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v17M5 20h14" /><path d="M5 8h6M13 7l6 1" /><path d="M4 13l3-5 3 5c0 1.5-1.4 2.5-3 2.5S4 14.5 4 13zM14 13.5l3-5 3 5c0 1.5-1.4 2.5-3 2.5s-3-1-3-2.5z" /></g>
+};
+
+// The sectors in which we currently practise, plainly stated
+const SECTORS = [
+{ eb: "Care", title: "Healthcare", sub: "First aid, occupational health, allied health and community care", hot: "Standard First Aid with CPR + AED", icon: "healthcare" },
+{ eb: "Digital", title: "Artificial Intelligence", sub: "Applied AI, data literacy, prompt and workflow design", hot: "Generative AI at Work · Prompting and Productivity", icon: "ai" },
+{ eb: "Digital", title: "Digital Marketing", sub: "Social platforms, short-form content, paid and organic growth", hot: "Short-Form Video for TikTok and Instagram Reels", icon: "marketing" },
+{ eb: "Green", title: "Sustainability", sub: "ESG fundamentals, decarbonisation, climate-related disclosures", hot: "ESG Reporting under IFRS S1 and S2", icon: "sustainability" },
+{ eb: "Industry", title: "Food Services", sub: "Culinary, food and beverage operations, service standards", hot: "Food Safety Course Level 1 (WSQ)", icon: "food" },
+{ eb: "Cross-cutting", title: "Human Resource", sub: "Talent, learning and development, organisational development", hot: "Performance Management and Difficult Conversations", icon: "hr" },
+{ eb: "Cross-cutting", title: "Leadership", sub: "Supervisory, people management and executive development", hot: "Coaching for the First-Time Manager", icon: "leadership" },
+{ eb: "Cross-cutting", title: "Risk Management", sub: "Enterprise risk, compliance, controls and audit readiness", hot: "Anti-Money Laundering and Counter-Financing of Terrorism", icon: "risk" },
+{ eb: "Cross-cutting", title: "Legal", sub: "Regulatory awareness, contracts, compliance and ethics training", hot: "Workplace Fairness and Anti-Harassment (TAFEP)", icon: "legal" }];
+
+
+// Per-sector floating cursor badge, follows the mouse over the sectors grid
+function SectorsCursor({ gridRef, sectors }) {
+  const [state, setState] = React.useState({ visible: false, x: 0, y: 0, icon: null, label: "" });
+
+  React.useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    const tiles = Array.from(grid.querySelectorAll(".tb-sector"));
+    const handlers = [];
+
+    const onMove = (e, sector) => {
+      const rect = grid.getBoundingClientRect();
+      setState({ visible: true, x: e.clientX - rect.left, y: e.clientY - rect.top, icon: sector.icon, label: sector.title });
+    };
+    const onLeave = () => setState((s) => ({ ...s, visible: false }));
+
+    tiles.forEach((tile, i) => {
+      const sector = sectors[i];
+      const move = (e) => onMove(e, sector);
+      tile.addEventListener("mousemove", move);
+      tile.addEventListener("mouseleave", onLeave);
+      handlers.push([tile, move]);
+    });
+    return () => {
+      handlers.forEach(([tile, move]) => {
+        tile.removeEventListener("mousemove", move);
+        tile.removeEventListener("mouseleave", onLeave);
+      });
+    };
+  }, [gridRef, sectors]);
+
+  return (
+    <div
+      className={"tb-sectors__cursor" + (state.visible ? " is-visible" : "")}
+      style={{ transform: `translate(${state.x}px, ${state.y}px) translate(-50%, -50%)` }}
+      aria-hidden="true">
+      
+      <span className="tb-sectors__cursor-ring"></span>
+      <svg className="tb-sectors__cursor-icon" viewBox="0 0 24 24" width="26" height="26">
+        {state.icon ? SECTOR_ICONS[state.icon] : null}
+      </svg>
+      <span className="tb-sectors__cursor-label">{state.label}</span>
+    </div>);
+
+}
+
+// =========================================================================
+// Join the community form, replaces the old "two doors" CTA
+// =========================================================================
+const SECTOR_AREAS_MAP = window.SECTOR_AREAS || {};
+const SECTOR_NAMES = Object.keys(SECTOR_AREAS_MAP).sort();
+const QUALIFICATIONS = ["ACTA", "ACLP", "DACE", "DDDLP"];
+const HIGHEST_QUALS = [
+"GCE 'O' / 'N' Levels",
+"GCE 'A' Levels / Diploma",
+"Bachelor's Degree",
+"Master's Degree",
+"Doctorate / PhD",
+"Professional Qualification",
+"Other"];
+
+
+function JoinForm() {
+  const [form, setForm] = React.useState({
+    role: [], quals: [], name: "", email: "", mobile: "",
+    highest: "", sector: "", area: "", availability: ""
+  });
+  const [sent, setSent] = React.useState(false);
+
+  const toggle = (key, value) => {
+    setForm((f) => {
+      const next = new Set(f[key]);
+      if (next.has(value)) next.delete(value);else next.add(value);
+      return { ...f, [key]: [...next] };
+    });
+  };
+  const set = (key, value) => {
+    setForm((f) => {
+      if (key === "sector") return { ...f, sector: value, area: "" };
+      return { ...f, [key]: value };
+    });
+  };
+
+  const areas = form.sector ? SECTOR_AREAS_MAP[form.sector] || [] : [];
+
+  const submit = (e) => {
+    e.preventDefault();
+    const lines = [
+    "2birds, Community application",
+    "",
+    "Role: " + (form.role.join(", ") || ", "),
+    "Professional qualifications: " + (form.quals.join(", ") || ", "),
+    "",
+    "Name: " + form.name,
+    "Email: " + form.email,
+    "Mobile: " + form.mobile,
+    "Highest qualification: " + form.highest,
+    "",
+    "Sector: " + form.sector,
+    "Practice area: " + form.area,
+    "Availability: " + form.availability];
+
+    const body = encodeURIComponent(lines.join("\n"));
+    const subject = encodeURIComponent("Community application, " + (form.name || "Practitioner"));
+    window.location.href = `mailto:keith.ho@2birds.asia?subject=${subject}&body=${body}`;
+    setSent(true);
+  };
+
+  return (
+    <section className="tb-join">
+      <div className="tb-join__bar" aria-hidden="true" />
+      <div className="tb-join__atmos" aria-hidden="true" />
+      <div className="container tb-join__inner">
+        <div className="tb-join__intro">
+          <EyebrowLockup>Join the community</EyebrowLockup>
+          <h2 className="tb-join__title">
+            Write to us, and we will <em>write back</em>.
+          </h2>
+          <p className="tb-join__lede">
+            If you are a certified adult educator or a subject matter expert with
+            standing in your sector, leave us a short note. We read every
+            submission and reply within five working days. There is no fee, no
+            obligation, and no exclusivity.
+          </p>
+          <ul className="tb-join__notes">
+            <li><span>I.</span> All information is held in confidence and used only to assess fit.</li>
+            <li><span>II.</span> Joining the community is by invitation; submission is not acceptance.</li>
+            <li><span>III.</span> We are equally glad to hear from practitioners outside this list of sectors.</li>
+          </ul>
+        </div>
+
+        <form className="tb-join__form" onSubmit={submit}>
+          <div className="tb-join__field tb-join__field--full">
+            <label className="tb-join__label">I would like to join as</label>
+            <div className="tb-join__chips">
+              {["Trainer", "Subject Matter Expert", "Both"].map((r) =>
+              <label key={r} className={"tb-join__chip" + (form.role.includes(r) ? " is-on" : "")}>
+                  <input type="checkbox" checked={form.role.includes(r)} onChange={() => toggle("role", r)} />
+                  <span>{r}</span>
+                </label>
+              )}
+            </div>
+          </div>
+
+          <div className="tb-join__field tb-join__field--full">
+            <label className="tb-join__label">Professional qualifications <span className="tb-join__hint">(select all that apply)</span></label>
+            <div className="tb-join__chips">
+              {QUALIFICATIONS.map((q) =>
+              <label key={q} className={"tb-join__chip" + (form.quals.includes(q) ? " is-on" : "")}>
+                  <input type="checkbox" checked={form.quals.includes(q)} onChange={() => toggle("quals", q)} />
+                  <span>{q}</span>
+                </label>
+              )}
+            </div>
+          </div>
+
+          <div className="tb-join__field">
+            <label className="tb-join__label" htmlFor="join-name">Name</label>
+            <input id="join-name" className="tb-join__input" type="text" required value={form.name} onChange={(e) => set("name", e.target.value)} />
+          </div>
+          <div className="tb-join__field">
+            <label className="tb-join__label" htmlFor="join-email">Email</label>
+            <input id="join-email" className="tb-join__input" type="email" required value={form.email} onChange={(e) => set("email", e.target.value)} />
+          </div>
+          <div className="tb-join__field">
+            <label className="tb-join__label" htmlFor="join-mobile">Mobile</label>
+            <input id="join-mobile" className="tb-join__input" type="tel" required value={form.mobile} onChange={(e) => set("mobile", e.target.value)} placeholder="+65 …" />
+          </div>
+          <div className="tb-join__field">
+            <label className="tb-join__label" htmlFor="join-highest">Highest qualification</label>
+            <select id="join-highest" className="tb-join__select" required value={form.highest} onChange={(e) => set("highest", e.target.value)}>
+              <option value="">Select…</option>
+              {HIGHEST_QUALS.map((q) => <option key={q} value={q}>{q}</option>)}
+            </select>
+          </div>
+          <div className="tb-join__field">
+            <label className="tb-join__label" htmlFor="join-sector">Sector</label>
+            <select id="join-sector" className="tb-join__select" required value={form.sector} onChange={(e) => set("sector", e.target.value)}>
+              <option value="">Select…</option>
+              {SECTOR_NAMES.map((s) => <option key={s} value={s}>{s}</option>)}
+            </select>
+          </div>
+          <div className="tb-join__field">
+            <label className="tb-join__label" htmlFor="join-area">Practice area</label>
+            <select id="join-area" className="tb-join__select" required disabled={!form.sector} value={form.area} onChange={(e) => set("area", e.target.value)}>
+              <option value="">{form.sector ? "Select…" : "Select a sector first"}</option>
+              {areas.map((a) => <option key={a} value={a}>{a}</option>)}
+            </select>
+          </div>
+
+          <div className="tb-join__field tb-join__field--full">
+            <label className="tb-join__label">Availability</label>
+            <div className="tb-join__chips">
+              {["Weekdays", "Weekends", "Both"].map((a) =>
+              <label key={a} className={"tb-join__chip" + (form.availability === a ? " is-on" : "")}>
+                  <input type="radio" name="availability" checked={form.availability === a} onChange={() => set("availability", a)} />
+                  <span>{a}</span>
+                </label>
+              )}
+            </div>
+          </div>
+
+          <div className="tb-join__actions">
+            <button type="submit" className="btn btn-on-dark">
+              {sent ? "Sent, thank you" : "Submit application"}
+            </button>
+            <span className="tb-join__finePrint">By submitting, you consent to 2birds contacting you in respect of this application.</span>
+          </div>
+        </form>
+      </div>
+    </section>);
+
+}
+
+function App() {
+  const sectorsGridRef = React.useRef(null);
+  return (
+    <>
+      <NavBar current="sourcing" />
+      <main>
+
+        <PageHero
+          location="Practice · II"
+          eyebrow="Trainers and SMEs Sourcing"
+          title={<>A community of <em>practitioners</em>, on call.</>}
+          lede="The toughest part of most curriculum development is finding the subject-matter expert. We keep a working community of practitioners across the sectors in which we currently practise, pair them to the engagement at no cost to the training provider, and warmly invite trainers and subject-matter experts in other sectors to work with us." />
+        {/* WIDE EDITORIAL FIGURE, premium recompose */}
+        <section className="premium-section premium-section--paper" style={{ paddingTop: 0, paddingBottom: 96 }}>
+          <div className="container">
+            <figure className="premium-figure premium-figure--16x9 premium-figure--wide premium-figure--photo">
+              <img src="assets/sourcing-arch.jpg" alt="A pale arched sculpture lying against a single dark stem and bloom, a study in restraint." />
+              <span className="premium-figure__ratio">16 : 9</span>
+              <div className="premium-figure__brief">
+                <span className="premium-figure__brief-label">A working metaphor</span>
+                <p className="premium-figure__brief-text">
+                  An arch holds quietly because every stone is set in its right place. A community of practitioners works the same way, matched to the engagement, no more, no less.
+                </p>
+              </div>
+            </figure>
+            <p className="premium-figure-caption">
+              The shape of a community · still life · restraint as a working principle.
+            </p>
+          </div>
+        </section>
+
+        
+        {/* ---------- THE THREE ECONOMIES ---------- */}
+        <section className="tb-numerals">
+          <div className="container">
+            <SectionHead
+              eyebrow="§ I · Where we practise"
+              title={<>The three <em>economies</em> shaping Singapore's skills demand.</>}
+              sub="SSG's Skills Demand for the Future Economy report organises Singapore's sectoral demand around three priority economies. Our community currently practises within parts of each, and grows by invitation rather than by overreach." />
+            
+            <div className="tb-economies">
+              {ECONOMIES.map((e, i) =>
+              <article key={i} className="tb-economy">
+                  <div className="tb-economy__roman">{e.roman}</div>
+                  <h3 className="tb-economy__title">{e.title}</h3>
+                  <p className="tb-economy__body">{e.body}</p>
+                  <ul className="tb-economy__list">
+                    {e.sectors.map((s, j) => <li key={j}>{s}</li>)}
+                  </ul>
+                </article>
+              )}
+            </div>
+          </div>
+        </section>
+
+        
+        {/* PULL QUOTE, Deep Olive */}
+        <section className="premium-quote premium-quote--bone">
+          <div className="premium-quote__inner">
+            <span className="premium-quote__mark" aria-hidden="true">“</span>
+            <p className="premium-quote__text">
+              Curriculum rarely fails for want of a writer. It fails for want of the one person who has actually done the work, and finding that person is the real engagement.
+            </p>
+            <div className="premium-quote__cite">From the practice · Sourcing</div>
+          </div>
+        </section>
+
+        {/* ---------- SECTORS GRID ---------- */}
+        <section className="tb-sectors">
+          <div className="tb-sectors__bg" aria-hidden="true"></div>
+          <div className="container">
+            <SectionHead
+              eyebrow="§ II · The sectors we currently practise in"
+              title={<>Where we have <em>practised</em>.</>}
+              sub={<strong>These are the sectors in which our community is presently engaged. Where an engagement falls outside this list, we will tell you so plainly, and, where appropriate, introduce you to a practitioner from outside our community on a best-endeavours basis.</strong>} />
+            
+            <div className="tb-sectors__grid" ref={sectorsGridRef}>
+              {SECTORS.map((s, i) =>
+              <article key={i} className="tb-sector">
+                  <div className="tb-sector__num">{s.eb}</div>
+                  <h3 className="tb-sector__title">
+                    <span className="tb-sector__glyph" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="22" height="22">
+                        {SECTOR_ICONS[s.icon]}
+                      </svg>
+                    </span>
+                    <span>{s.title}</span>
+                  </h3>
+                  <p className="tb-sector__sub">{s.sub}</p>
+                  <div className="tb-sector__hot">
+                    <span className="tb-sector__hot-label">In demand courses</span>
+                    <span className="tb-sector__hot-topic">{s.hot}</span>
+                  </div>
+                </article>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- HOW PAIRING WORKS ---------- */}
+        <section className="tb-twocol">
+          <div className="container tb-twocol__grid">
+            <div className="tb-twocol__head">
+              <EyebrowLockup>§ III · The pairing</EyebrowLockup>
+              <h2 className="tb-twocol__title">
+                Paired to your engagement, at <em>no cost</em> to you, and none to the learner.
+              </h2>
+            </div>
+            <div className="tb-twocol__body">
+              <p>
+                The toughest part of most curriculum development is the subject-matter expert.
+                Without one, the Course Proposal Form cannot be submitted; with the wrong
+                one, the courseware will not survive the Course Quality Check. We keep a
+                working community, prepared and ready, drawn from practitioners who have
+                committed time to the community on the same understanding that we have:
+                that good training ought not to be priced out of reach.
+              </p>
+              <p>
+                Where your engagement can be matched from our community, the pairing is <em>free</em>.
+                We do not levy a finder's fee, a placement margin or a per-hour markup on
+                top of the SME's own rate. Where our practitioners cannot match the engagement, we
+                source through the usual recruitment channels (Jobstreet and the
+                like) and recover only the direct costs of the search and administrative costs.
+              </p>
+              <p>
+                A short note on what we are not: 2birds is not a recruitment agency.
+                We do not hold a recruitment licence and we do not place candidates into
+                employment. We make introductions; we do not negotiate contracts on
+                anyone's behalf.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- INTERLUDE: JOIN THE COMMUNITY ---------- */}
+        <section className="tb-interlude tb-interlude--withfig on-dark">
+          <div className="tb-interlude__bar" aria-hidden="true" />
+          <div className="tb-interlude__atmos" aria-hidden="true" />
+          <div className="container tb-interlude__inner tb-interlude__split">
+            <div className="tb-interlude__body">
+              <EyebrowLockup dark>An invitation</EyebrowLockup>
+              <blockquote className="tb-interlude__quote">
+                If you are a certified adult educator or a subject-matter expert with
+                standing in your sector, <em>write to us.</em> Our community is open by
+                invitation, and we are always glad to be in correspondence with
+                practitioners we have not yet met.
+              </blockquote>
+              <div className="tb-interlude__cite">– A standing invitation to the practice</div>
+            </div>
+            <figure className="tb-interlude__fig" aria-hidden="true">
+              <div className="tb-interlude__fig-frame">
+                <img src="assets/invitation-skyline.jpg" alt="" />
+                <div className="tb-interlude__fig-vignette"></div>
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        {/* ---------- JOIN / ENGAGE FORM ---------- */}
+        <JoinForm />
+
+      </main>
+      <Footer />
+    </>);
+
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

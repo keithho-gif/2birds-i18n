@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Legal Statement, 2birds</title>
+
+<link rel="icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="apple-touch-icon" href="assets/favicon.png?v=6" />
+<link rel="stylesheet" href="css/foundations.css" />
+<link rel="stylesheet" href="css/site.css" />
+<link rel="stylesheet" href="css/i18n.css" />
+<link rel="stylesheet" href="css/premium.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="js/transition.js"></script>
+<script src="js/i18n.js"></script>
+</head>
+<body class="is-premium" data-screen-label="08 Legal Statement">
+<div id="root"></div>
+
+<script type="text/babel" src="js/shared.jsx"></script>
+
+<script type="text/babel">
+
+
+function Clause({ num, children }) {
+  return (
+    <div className="tb-legal__clause">
+      <span className="tb-legal__clause-num">{num}</span>
+      <div className="tb-legal__clause-body">{children}</div>
+    </div>);
+
+}
+
+function Article({ num, title, children }) {
+  return (
+    <section className="tb-legal__article">
+      <header className="tb-legal__art-head">
+        <span className="tb-legal__art-num">{num}</span>
+        <h2 className="tb-legal__art-title">{title}</h2>
+      </header>
+      {children}
+    </section>);
+
+}
+
+function App() {
+  return (
+    <>
+      <NavBar current="" />
+      <main>
+
+        <section className="tb-legal">
+          <div className="container">
+            <div className="tb-legal__shell">
+
+              <h1 className="tb-legal__title">Legal Statement</h1>
+              <div className="tb-legal__sub">2birds · Singapore</div>
+
+              <div className="tb-legal__meta">
+                <div className="tb-legal__meta-cell">
+                  <span className="tb-legal__meta-label">Effective</span>
+                  <span className="tb-legal__meta-value">15 May 2026</span>
+                </div>
+                <div className="tb-legal__meta-cell">
+                  <span className="tb-legal__meta-label">Version</span>
+                  <span className="tb-legal__meta-value">1.0</span>
+                </div>
+                <div className="tb-legal__meta-cell">
+                  <span className="tb-legal__meta-label">Governing law</span>
+                  <span className="tb-legal__meta-value">Singapore</span>
+                </div>
+              </div>
+
+              <div className="tb-legal__preamble">
+                <p>
+                  These Terms of Use (the <em>"Terms"</em>) constitute a binding
+                  agreement between 2birds, an unincorporated community of
+                  independent practitioners based at 7 Temasek Boulevard,
+                  #12-07 Suntec Tower One, Singapore 038987 (hereinafter
+                  <em> "2birds"</em>, <em>"we"</em>, <em>"us"</em> or <em>"our"</em>),
+                  and the natural or juridical person accessing the website published
+                  at 2birds.asia (the <em>"Website"</em>, and such person, the
+                  <em> "User"</em>).
+                </p>
+                <p>
+                  <strong>By accessing the Website, the User shall be deemed to have
+                  read, understood and agreed to be bound by these Terms.</strong>
+                </p>
+                <p>
+                  Where the User does not agree to these Terms, the User must refrain from accessing the Website.
+                </p>
+                <p>
+                  Nothing in these Terms or on the Website shall constitute the
+                  giving of legal, accounting, regulatory or other professional
+                  advice in respect of any specific matter. 2birds is a community
+                  of independent practitioners and does not itself render
+                  professional advisory services; where curriculum development,
+                  compliance or related services are engaged, those services are
+                  undertaken by an individual practitioner within the 2birds
+                  community, pursuant to a separate engagement letter executed
+                  between such practitioner and the client (the <em>"Engagement
+                  Letter"</em>).
+                </p>
+              </div>
+
+              <Article num="I." title="Purpose and Scope of the Website">
+                <Clause num="1.1">
+                  The Website is published for the purposes of (a) introducing
+                  2birds and its practice areas, (b) inviting correspondence from
+                  prospective clients, candidates and members of the public, and
+                  (c) furnishing general information concerning the regulatory and
+                  educational frameworks within which 2birds operates.
+                </Clause>
+                <Clause num="1.2">
+                  No content on the Website shall be construed as an offer to
+                  contract, a representation of fact in respect of any particular
+                  matter, or an undertaking to provide services other than upon the
+                  execution of an Engagement Letter.
+                </Clause>
+              </Article>
+
+              <Article num="II." title="Permitted Use">
+                <Clause num="2.1">
+                  The User is granted a limited, non-exclusive, non-transferable and
+                  revocable licence to access the Website, to read its contents, and
+                  to link to any of its pages, in each case for the User's own
+                  lawful, non-commercial purposes.
+                </Clause>
+                <Clause num="2.2">
+                  The User may quote short passages of text appearing on the Website,
+                  in correspondence, articles or training materials of the User's
+                  own preparation, provided that each such quotation: (a) is limited
+                  to such length as is necessary for the purpose; (b) is reproduced
+                  faithfully and not out of context; and (c) is attributed to
+                  <em> "2birds, Singapore"</em>, with a working hyperlink to the
+                  source page on the Website.
+                </Clause>
+                <Clause num="2.3">
+                  The User shall not republish, reproduce or otherwise exploit the
+                  Website in whole, or any substantial part thereof, without the
+                  prior written consent of 2birds.
+                </Clause>
+              </Article>
+
+              <Article num="III." title="Intellectual Property">
+                <Clause num="3.1">
+                  All right, title and interest in and to the Website, including
+                  without limitation the text, images, mark, monogram, typographic
+                  system, editorial voice, and underlying source code, shall remain
+                  vested in 2birds or its licensors.
+                </Clause>
+                <Clause num="3.2">
+                  The wordmark, the monogram and the trade dress of 2birds are
+                  not licensed for use by third parties. Any proposed reference to
+                  2birds by reproduction of its mark shall be the subject of prior
+                  written application to 2birds at{" "}
+                  <a href="mailto:hello@2birds.asia">hello@2birds.asia</a>, who shall
+                  furnish the correct lockup and a permitted-use note.
+                </Clause>
+                <Clause num="3.3">
+                  <strong>The User shall not copy, reproduce, transcribe, screenshot,
+                  scrape, download (other than by means of ordinary browser caching),
+                  republish, redistribute, broadcast, modify, adapt, translate,
+                  prepare derivative works of, or commercially exploit</strong> the
+                  Website or any part thereof, whether in printed, electronic or any
+                  other form, without the prior express written consent of 2birds.
+                </Clause>
+                <Clause num="3.4">
+                  The User shall not use the Website or any of its contents to train,
+                  fine-tune, evaluate or otherwise inform any machine-learning model,
+                  large language model or other automated system, save with the prior
+                  express written consent of 2birds.
+                </Clause>
+                <Clause num="3.5">
+                  Any unauthorised copying, reproduction or exploitation of the
+                  Website constitutes an infringement of the intellectual property
+                  rights of 2birds and shall entitle 2birds to seek all remedies
+                  available to it at law and in equity, including injunctive relief,
+                  damages and an account of profits.
+                </Clause>
+              </Article>
+
+              <Article num="IV." title="Accuracy, Currency and External Links">
+                <Clause num="4.1">
+                  The notes, summaries, references to legislation and references to
+                  regulatory frameworks appearing on the Website are prepared with
+                  reasonable care, but the law, the SSG framework and related
+                  professional rules are subject to amendment from time to time.
+                  2birds does not warrant that the contents of the Website are
+                  current as at the date of any particular access.
+                </Clause>
+                <Clause num="4.2">
+                  Where a decision or course of action depends upon the position of
+                  the law as it stands as at the date thereof, the User shall apply
+                  to 2birds in writing for confirmation, and shall not rely on the
+                  Website to that end.
+                </Clause>
+                <Clause num="4.3">
+                  Links to external websites are provided for the User's convenience
+                  only. 2birds is not responsible for the content of any linked
+                  site, and the inclusion of a link shall not constitute an
+                  endorsement thereof.
+                </Clause>
+              </Article>
+
+              <Article num="V." title="Disclaimer and Limitation of Liability">
+                <Clause num="5.1">
+                  The Website is provided on an <em>"as is"</em> and
+                  <em> "as available"</em> basis. To the maximum extent permitted by
+                  the laws of Singapore, 2birds excludes all conditions,
+                  warranties and representations, whether express or implied,
+                  statutory or otherwise, in connection with the Website and its
+                  contents.
+                </Clause>
+                <Clause num="5.2">
+                  2birds, its principals, partners, employees and contractors
+                  shall not be liable to the User in contract, in tort (including
+                  negligence), under statute or otherwise for any direct, indirect,
+                  consequential or punitive loss, cost or damage arising out of or
+                  in connection with the User's access to or use of the Website.
+                </Clause>
+                <Clause num="5.3">
+                  Liability for services rendered by any individual practitioner
+                  within the 2birds community is governed exclusively by the
+                  Engagement Letter in respect of those services, and not by these
+                  Terms.
+                </Clause>
+                <Clause num="5.4">
+                  Nothing in this Article V shall operate to exclude or limit any
+                  liability which cannot lawfully be excluded or limited, including
+                  liability for fraud, fraudulent misrepresentation, or personal
+                  injury caused by negligence.
+                </Clause>
+              </Article>
+
+              <Article num="VI." title="Indemnity">
+                <Clause num="6.1">
+                  The User shall indemnify and hold harmless 2birds against all
+                  liabilities, costs, expenses, damages and losses (including any
+                  reasonable legal costs and expenses) suffered or incurred by
+                  2birds arising out of or in connection with any breach by the
+                  User of these Terms.
+                </Clause>
+              </Article>
+
+              <Article num="VII." title="Amendments">
+                <Clause num="7.1">
+                  2birds reserves the right to amend these Terms from time to
+                  time. The version then in force shall be that published on the
+                  Website. The User's continued access to the Website following any
+                  such amendment shall constitute acceptance thereof.
+                </Clause>
+              </Article>
+
+              <Article num="VIII." title="Governing Law and Jurisdiction">
+                <Clause num="8.1">
+                  These Terms, and any dispute or claim (whether contractual or
+                  non-contractual) arising out of or in connection with them or
+                  their subject matter or formation, shall be governed by and
+                  construed in accordance with the laws of the Republic of
+                  Singapore.
+                </Clause>
+                <Clause num="8.2">
+                  The courts of the Republic of Singapore shall have exclusive
+                  jurisdiction to settle any dispute or claim arising out of or in
+                  connection with these Terms, save that 2birds reserves the
+                  right to bring proceedings against the User for breach of these
+                  Terms in the country of the User's residence or in any other
+                  relevant country.
+                </Clause>
+              </Article>
+
+              <div className="tb-legal__sig">
+                <div className="tb-legal__sig-block">
+                  <div className="tb-legal__sig-label">Issued for and on behalf of</div>
+                  <div className="tb-legal__sig-name">2birds</div>
+                  <div className="tb-legal__sig-role">Practice · Singapore</div>
+                </div>
+                <div className="tb-legal__sig-block">
+                  <div className="tb-legal__sig-label">Correspondence</div>
+                  <div className="tb-legal__sig-name">Keith Ho</div>
+                  <div className="tb-legal__sig-role">Founder · hello@2birds.asia</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </main>
+      <Footer />
+    </>);
+
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

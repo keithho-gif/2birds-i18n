@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Sourcing and ATO Setup, 2birds</title>
+
+<link rel="icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="apple-touch-icon" href="assets/favicon.png?v=6" />
+<link rel="stylesheet" href="css/foundations.css" />
+<link rel="stylesheet" href="css/site.css" />
+<link rel="stylesheet" href="css/i18n.css" />
+<link rel="stylesheet" href="css/premium.css" />
+<link rel="stylesheet" href="css/or.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  /* Hero — give the lede the full width so it reads, rather than a cramped column */
+  body[data-screen-label="05 Sourcing and ATO Setup"] .tb-pagehero__inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 30px;
+  }
+  body[data-screen-label="05 Sourcing and ATO Setup"] .tb-pagehero__lede {
+    max-width: 80ch;
+    font-size: 20px;
+    line-height: 1.62;
+  }
+</style>
+<script src="js/transition.js"></script>
+<script src="js/i18n.js"></script>
+</head>
+<body class="is-premium" data-screen-label="05 Sourcing and ATO Setup">
+<div id="root"></div>
+
+<script src="js/or-list.js"></script>
+<script type="text/babel" src="js/shared.jsx"></script>
+<script type="text/babel" src="js/or-dashboard.jsx"></script>
+
+<script type="text/babel">
+
+
+// SSG's three priority economies, where our community currently practises
+const ECONOMIES = [
+{
+  roman: "I",
+  title: <>The <em>Care</em> economy</>,
+  body: "Sectors that serve a growing and ageing population. Demand is steady and SSG funding well-established for both WSQ and non-WSQ certifiable courses."
+},
+{
+  roman: "II",
+  title: <>The <em>Digital</em> economy</>,
+  body: "Sectors driving the transition to data, cloud and AI. Skills are listed under the Course Approval Skills List and qualify for the higher SSG funding tier where eligible."
+},
+{
+  roman: "III",
+  title: <>The <em>Green</em> economy</>,
+  body: "Sectors built around sustainability, decarbonisation and the built environment. The framework here is younger and our network of SMEs in this area is still being assembled."
+}];
+
+// The sectors in which our community currently practises
+const SECTORS = [
+{ eb: "Care", title: "Healthcare", sub: "First aid, occupational health, allied health and community care", note: "Aging-population demand" },
+{ eb: "Digital", title: "Artificial Intelligence", sub: "Applied AI, data literacy, prompt and workflow design", note: "Fastest-rising skills" },
+{ eb: "Digital", title: "Digital Marketing", sub: "Social platforms, short-form content, paid and organic growth", note: "Always-on channels" },
+{ eb: "Green", title: "Sustainability", sub: "ESG fundamentals, decarbonisation, climate-related disclosures", note: "ESG-driven mandates" },
+{ eb: "Industry", title: "Food Services", sub: "Culinary, F&B operations, service standards", note: "Service-standard intensive" },
+{ eb: "Cross-cutting", title: "Human Resource", sub: "Talent, learning and development, organisational development", note: "Workforce transformation" },
+{ eb: "Cross-cutting", title: "Leadership", sub: "Supervisory, people management and executive development", note: "Succession and capability" },
+{ eb: "Cross-cutting", title: "Risk Management", sub: "Enterprise risk, compliance, controls and audit readiness", note: "Governance and controls" },
+{ eb: "Cross-cutting", title: "Legal", sub: "Regulatory awareness, contracts, compliance and ethics training", note: "Regulatory complexity" }];
+
+
+// Three forms of ATO engagement, new setup, conversion, ongoing operations
+const ENGAGEMENTS = [
+{
+  roman: "I",
+  eyebrow: "From a clean slate",
+  title: "Establishing a new ATO",
+  desc: "For organisations entering the Training and Adult Education sector for the first time. We sit with you from registration through to the first cohort on a TPGateway-approved course.",
+  list: [
+  "ACRA incorporation and TPGateway pre-registration overview",
+  "Quality Management documentation drawn to TPQA",
+  "First Course Proposal Form and assessment instruments",
+  "Audit-ready governance from the outset"]
+
+},
+{
+  roman: "II",
+  eyebrow: "Provider conversion",
+  title: "Becoming an approved provider",
+  desc: "For training providers operating outside the SSG framework who now need standing to access SSG funding, sectoral commissions, or government tenders.",
+  list: [
+  "Diagnostic against the four TPQA criteria",
+  "Gap analysis with a prioritised remediation plan",
+  "Course approval submissions for existing programmes",
+  "Trainer pairing where AE Qualifications fall short"]
+
+},
+{
+  roman: "III",
+  eyebrow: "Standing engagement",
+  title: "Ongoing operations",
+  desc: "For ATOs already trading. The administrative back office of an ATO is heavier than most organisations expect, and we run it on a retainer or per-engagement basis.",
+  list: [
+  "TPGateway submissions and renewal cycles",
+  "AE Registry and qualifications upkeep",
+  "Cohort administration and SOA issuance",
+  "TPQA refresh and audit preparation"]
+
+}];
+
+
+// Four-step setup process
+const STEPS = [
+{ n: "Step I", t: "Initial discussion and readiness diagnostic",
+  body: "We sit with the leadership team to understand the sector, the intended learner, and the regulatory ground under the proposed programmes. From this we draw a one-page readiness diagnostic against the four TPQA criteria." },
+{ n: "Step II", t: "Registration and quality documentation",
+  body: "We prepare the TPGateway provider registration, the Quality Management documentation, and the governance instruments, terms of business, refund and transfer policy, trainer-engagement template, that the assessor expects to see in place." },
+{ n: "Step III", t: "First course on TPGateway",
+  body: "We submit the inaugural Course Proposal through TPGateway, draft the supporting courseware and assessment plan, and pair the course with an Adult Educator from the community who meets the AE Qualifications threshold." },
+{ n: "Step IV", t: "First cohort and audit handover",
+  body: "We see the first cohort through to the issuance of Statements of Attainment, write up the post-cohort review, and hand the operating folder to the in-house team or carry on under a standing operations engagement." }];
+
+
+// ATO standing: what it is, why it matters
+const STANDINGS = [
+{ dt: <>The <em>SSG</em> framework</>, dd: "An Approved Training Organisation, in the sense the SkillsFuture Singapore Agency uses the term, is a training provider that has cleared TPGateway registration and is therefore eligible to offer courses recognised for SSG funding, SkillsFuture Credit and Mid-Career Enhanced Subsidies." },
+{ dt: <>The <em>TPQA</em> bar</>, dd: "Provider registration is not a one-off filing. The Training Provider Quality Assessment runs on a cycle and looks at four criteria, governance, learner experience, learning outcomes, and continuous improvement, across the whole operation, not only the courses on offer." },
+{ dt: <>The <em>AE</em> threshold</>, dd: "Every adult educator deployed on an SSG-funded course must be registered on the National Adult Educator Registry and hold a recognised qualification, typically ACTA, ACLP 2.0, or an equivalent recognised at SSG's sole discretion." },
+{ dt: <>The <em>operating</em> reality</>, dd: "The administrative weight of an ATO sits in the renewal cycles, the cohort filings, and the audit preparation between cohorts. We have seen good practitioners founder here, not on the work itself, but on the cadence of the work." }];
+
+
+function App() {
+  return (
+    <>
+      <NavBar current="sourcing" />
+      <main>
+
+        <PageHero
+          location="Practice · II"
+          eyebrow="Sourcing and ATO Setup"
+          title={<>A training organisation, <em>in good order.</em></>}
+          lede="We work with businesses entering the Training and Adult Education sector for the first time, with established providers seeking approved standing, and with ATOs already trading who would prefer the administrative back office sit with the practice rather than with their in-house team. Where the engagement also calls for trainers and subject-matter experts, we source those from the community at no cost." />
+        {/* WIDE EDITORIAL FIGURE, restrained */}
+        <section className="premium-section premium-section--paper tb-reveal" style={{ paddingTop: 0, paddingBottom: 72 }}>
+          <div className="container">
+            <figure className="premium-figure premium-figure--16x9 premium-figure--restrained premium-figure--photo">
+              <img src="assets/setup-classroom.jpg" alt="An empty study hall, chairs in rows around long tables, daylight on the floor. The room before the first cohort arrives." />
+              <span className="premium-figure__ratio">16 : 9</span>
+              <div className="premium-figure__brief">
+                <span className="premium-figure__brief-label">The hour before</span>
+                <p className="premium-figure__brief-text">
+                  Standing is earned in the room long before the first cohort arrives. The chairs in rows, the documents in order, the work behind the calm.
+                </p>
+              </div>
+            </figure>
+            <p className="premium-figure-caption">
+              The room before the cohort, study hall, the readiness of a working training organisation.
+            </p>
+          </div>
+        </section>
+
+        
+        {/* ---------- AREAS OF PRACTICE (from sourcing) ---------- */}
+        <section className="tb-numerals tb-reveal" style={{ paddingTop: 0 }}>
+          <div className="container">
+            <SectionHead
+              eyebrow="§ I · Where we practise"
+              title={<>The three <em>economies</em> shaping Singapore's skills demand.</>}
+              sub="SSG's Skills Demand for the Future Economy report organises sectoral demand around three priority economies. Our community currently practises within parts of each, and grows by invitation rather than by overreach." />
+
+            <div className="tb-economies">
+              {ECONOMIES.map((e, i) =>
+              <article key={i} className="tb-economy">
+                  <div className="tb-economy__roman">{e.roman}</div>
+                  <h3 className="tb-economy__title">{e.title}</h3>
+                  <p className="tb-economy__body">{e.body}</p>
+                </article>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- SECTORS GRID ---------- */}
+        <section className="tb-sectors tb-sectors--dark tb-reveal">
+          <div className="tb-sectors__bg" aria-hidden="true"></div>
+          <div className="container">
+            <SectionHead
+              eyebrow="§ II · The sectors we currently practise in"
+              title={<>Where we have <em>practised</em>.</>}
+              sub="These are the sectors in which our community is presently engaged. Where an engagement falls outside this list, we will tell you so plainly, and, where appropriate, introduce you to a practitioner from outside our community on a best-endeavours basis." />
+
+            <div className="tb-sectors__grid">
+              {SECTORS.map((s, i) =>
+              <article key={i} className="tb-sector">
+                  <div className="tb-sector__head">
+                    <span className="tb-sector__num">{s.eb}</span>
+                    <span className="tb-sector__ind">Sector</span>
+                  </div>
+                  <h3 className="tb-sector__title">{s.title}</h3>
+                  <p className="tb-sector__sub">{s.sub}</p>
+                  <div className="tb-sector__foot">
+                    <span className="tb-sector__cue">{s.note}</span>
+                    <span className="tb-sector__dot" aria-hidden="true">●</span>
+                  </div>
+                </article>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- THREE FORMS OF ENGAGEMENT ---------- */}
+        <section className="tb-numerals tb-reveal">
+          <div className="container">
+            <SectionHead
+              eyebrow="§ III · Three forms of engagement"
+              title={<>From first <em>registration</em> to standing operation.</>}
+              sub={<>Most enquiries fall into one of three forms. <br />We pick the form to the engagement, not the other way round.</>} />
+            
+            <div className="tb-numerals__grid is-3 tb-forms-align">
+              {ENGAGEMENTS.map((c, i) =>
+              <article key={i} className="tb-numeral">
+                  <div className="tb-numeral__roman">{c.roman}</div>
+                  <div className="tb-numeral__eyebrow">{c.eyebrow}</div>
+                  <h3 className="tb-numeral__title">{c.title}</h3>
+                  <p className="tb-numeral__desc">{c.desc}</p>
+                  <ul className="tb-numeral__list">
+                    {c.list.map((l, j) => <li key={j}>{l}</li>)}
+                  </ul>
+                </article>
+              )}
+            </div>
+          </div>
+        </section>
+
+        
+        {/* PULL QUOTE, Deep Olive */}
+        <section className="premium-quote premium-quote--bone tb-reveal">
+          <div className="premium-quote__inner">
+            <span className="premium-quote__mark" aria-hidden="true">“</span>
+            <p className="premium-quote__text">
+              A licence is granted in weeks and defended for years. What goes into the founding documents is what an auditor will hold you to long after anyone recalls writing it.
+            </p>
+            <div className="premium-quote__cite">From the practice · ATO Setup</div>
+          </div>
+        </section>
+
+        {/* ---------- APPLICATION PROCESS ---------- */}
+        <section className="tb-steps tb-reveal">
+          <div className="container">
+            <SectionHead
+              eyebrow="§ IV · Setup process"
+              title={<>From enquiry to first <em>cohort</em>, in four steps.</>}
+              sub="A typical new-ATO setup runs ten to sixteen weeks from enquiry to first cohort. A provider conversion is usually shorter; an operations handover, shorter still. We will tell you which applies once we have read the engagement." />
+            
+            <div className="tb-steps__list">
+              {STEPS.map((s, i) =>
+              <article key={i} className="tb-step">
+                  <div className="tb-step__n">{s.n}</div>
+                  <h3 className="tb-step__title">{s.t}</h3>
+                  <p className="tb-step__body">{s.body}</p>
+                </article>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- OPERATIONS: WHAT WE DO BETWEEN COHORTS ---------- */}
+        <section className="tb-prose tb-prose--withFig tb-reveal">
+          <div className="container">
+            <div className="tb-prose__split">
+              <div className="tb-prose__head">
+                <SectionHead
+                  eyebrow="§ V · Operations, between cohorts"
+                  title={<>The <em>quieter</em> half of the practice.</>} />
+                <div className="tb-prose__body">
+                  <p>
+                    Most new entrants underestimate the administrative cadence of a trading ATO.
+                    The funded course requires post-cohort filings within prescribed windows;
+                    the renewal cycle requires evidence accumulated over the preceding twelve
+                    months; the AE Registry requires upkeep as practitioners come and go. None
+                    of it is difficult work, but all of it is unforgiving of lapse.
+                  </p>
+                  <p>
+                    A standing operations engagement is the form most of our long-running clients
+                    settle into. We carry the TPGateway submissions, the SOA issuance, the
+                    audit-evidence folder and the trainer-engagement administration on a
+                    monthly retainer; the client retains the relationships, the
+                    classroom, and the standing in the sector that no consultant can hold on
+                    their behalf.
+                  </p>
+                  <p>
+                    Where the engagement is finite, a single TPQA refresh, a single course
+                    re-approval, a single audit response, we take it as a short commission
+                    on the same terms, and step out when the work is done.
+                  </p>
+                </div>
+              </div>
+              <figure className="tb-prose__fig" aria-hidden="true" style={{ aspectRatio: "3 / 4", maxWidth: 440 }}>
+                <img src="assets/setup-atrium.jpg" alt="" style={{ objectPosition: "center center" }} />
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- OR DASHBOARD ---------- */}
+        <section className="tb-ord-section tb-reveal" id="or">
+          <div className="container">
+            <header className="tb-ord-section__head">
+              <span className="tb-ord-section__eyebrow">§ VI · Organisation Registration</span>
+              <h1 className="tb-ord-section__title">
+                The OR application, <em>step by step.</em>
+              </h1>
+              <p className="tb-ord-section__sub">
+                A working register of every requirement SSG sets for Organisation
+                Registration on TPGateway, with the role 2birds plays in each. Built for
+                businesses entering the sector for the first time, and for established
+                organisations weighing what an application would entail.
+              </p>
+            </header>
+            <OrDashboard />
+          </div>
+        </section>
+
+      </main>
+      <Footer />
+    </>);
+
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

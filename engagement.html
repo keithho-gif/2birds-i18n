@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Terms of Engagement, 2birds</title>
+
+<link rel="icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="apple-touch-icon" href="assets/favicon.png?v=6" />
+<link rel="stylesheet" href="css/foundations.css" />
+<link rel="stylesheet" href="css/site.css" />
+<link rel="stylesheet" href="css/i18n.css" />
+<link rel="stylesheet" href="css/premium.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="js/transition.js"></script>
+<script src="js/i18n.js"></script>
+</head>
+<body class="is-premium" data-screen-label="09 Engagement">
+<div id="root"></div>
+
+<script type="text/babel" src="js/shared.jsx"></script>
+
+<script type="text/babel">
+
+
+function Clause({ num, children }) {
+  return (
+    <div className="tb-legal__clause">
+      <span className="tb-legal__clause-num">{num}</span>
+      <div className="tb-legal__clause-body">{children}</div>
+    </div>);
+
+}
+
+function Article({ num, title, children }) {
+  return (
+    <section className="tb-legal__article">
+      <header className="tb-legal__art-head">
+        <span className="tb-legal__art-num">{num}</span>
+        <h2 className="tb-legal__art-title">{title}</h2>
+      </header>
+      {children}
+    </section>);
+
+}
+
+function App() {
+  return (
+    <>
+      <NavBar current="" />
+      <main>
+
+        <section className="tb-legal">
+          <div className="container">
+            <div className="tb-legal__shell">
+
+              <h1 className="tb-legal__title">Terms of Engagement</h1>
+              <div className="tb-legal__sub">2birds · Singapore</div>
+
+              <div className="tb-legal__meta">
+                <div className="tb-legal__meta-cell">
+                  <span className="tb-legal__meta-label">Effective</span>
+                  <span className="tb-legal__meta-value">15 May 2026</span>
+                </div>
+                <div className="tb-legal__meta-cell">
+                  <span className="tb-legal__meta-label">Version</span>
+                  <span className="tb-legal__meta-value">1.0</span>
+                </div>
+                <div className="tb-legal__meta-cell">
+                  <span className="tb-legal__meta-label">Cite as</span>
+                  <span className="tb-legal__meta-value">2birds.asia/engagement</span>
+                </div>
+                <div className="tb-legal__meta-cell">
+                  <span className="tb-legal__meta-label">Governing law</span>
+                  <span className="tb-legal__meta-value">Singapore</span>
+                </div>
+              </div>
+
+              <div className="tb-legal__preamble">
+                <p>
+                  These Terms of Engagement (the <em>"Engagement Terms"</em>) set
+                  out the general conditions upon which 2birds, an
+                  unincorporated community of independent practitioners
+                  (hereinafter <em>"2birds"</em>, <em>"we"</em>, <em>"us"</em> or
+                  <em> "our"</em>, and where the context so requires, the
+                  <em> "Courseware Developer"</em>), and the individual
+                  practitioner or practitioners thereof, accept engagements from
+                  clients (the <em>"Client"</em>) in respect of curriculum and
+                  courseware development, trainer and subject matter expert
+                  sourcing, TPQA and compliance advisory, ATO setup and
+                  operations, and such other ancillary practice areas as may be
+                  agreed in writing from time to time (collectively, the
+                  <em> "Services"</em>).
+                </p>
+                <p>
+                  These Engagement Terms shall be read together with, and form
+                  an integral part of, the engagement letter, statement of
+                  work, proposal or quotation issued by 2birds in respect of
+                  the particular engagement (the <em>"Engagement Letter"</em>).
+                  In the event of any inconsistency between these Engagement
+                  Terms and the Engagement Letter, the Engagement Letter shall
+                  prevail to the extent of such inconsistency.
+                </p>
+                <p>
+                  These Engagement Terms are published at the location stated
+                  above and are incorporated by reference into every invoice,
+                  quotation, statement of work and Engagement Letter issued by
+                  2birds, whether or not a copy is physically annexed thereto.
+                  By countersigning the Engagement Letter, by issuing a purchase
+                  order in reliance upon any such instrument, by accepting any
+                  deliverable, or by remitting any sum to 2birds in respect of
+                  any invoice that cites or refers to these Engagement Terms,
+                  the Client shall be conclusively deemed to have read,
+                  understood and accepted these Engagement Terms in their
+                  entirety, and the Client shall be estopped from contending
+                  otherwise.
+                </p>
+                <p>
+                  The version of these Engagement Terms applicable to a given
+                  invoice or Engagement Letter shall be the version then
+                  published at the location stated above as at the date of
+                  issuance of that invoice or Engagement Letter. 2birds shall,
+                  upon written request, furnish to the Client an archived copy
+                  of the version applicable at any earlier date.
+                </p>
+                <p>
+                  The Client's attention is drawn in particular to Article IV
+                  (<em>No Warranty of Outcome or Accreditation</em>), Article V
+                  (<em>Professional Fees, Payment and Non-Refund</em>), Article
+                  VI (<em>Client Responsibilities</em>), Article VII
+                  (<em>Intellectual Property</em>) and Article IX
+                  (<em>Limitation of Liability</em>), each of which contains
+                  terms that materially limit the obligations of 2birds and to
+                  which the Client should give close and considered attention.
+                </p>
+              </div>
+
+              <Article num="I." title="Nature of the Engagement">
+                <Clause num="1.1">
+                  2birds is a community of independent practitioners. Each
+                  engagement is accepted by one or more such practitioners
+                  acting in their individual professional capacity under the
+                  2birds imprint. No relationship of partnership, joint
+                  venture, agency or employment shall be implied as between
+                  2birds and the Client, nor as between the individual
+                  practitioners and the Client.
+                </Clause>
+                <Clause num="1.2">
+                  The Services constitute the rendering of professional advice,
+                  curriculum and courseware design, documentation and related
+                  consultative work on a <em>best endeavours</em> basis. They
+                  do not constitute the procurement of a regulatory outcome,
+                  the conferral of any accreditation, or the obtaining of any
+                  approval from the SkillsFuture Singapore Agency
+                  (<em>"SSG"</em>), the Workforce Singapore Agency
+                  (<em>"WSG"</em>), or any other competent authority (each, a
+                  <em> "Competent Authority"</em>).
+                </Clause>
+                <Clause num="1.3">
+                  The scope of the Services, the deliverables, the timetable
+                  and the agreed professional fees shall be as set out in the
+                  Engagement Letter and shall not be varied save by written
+                  instrument signed by an authorised representative of each
+                  party.
+                </Clause>
+              </Article>
+
+              <Article num="II." title="Commencement and Term">
+                <Clause num="2.1">
+                  The engagement shall commence upon the earlier of (a) the
+                  date of countersignature of the Engagement Letter by the
+                  Client and (b) the date of receipt by 2birds of the first
+                  instalment of the agreed professional fees, and shall
+                  continue until the completion of the Services or the earlier
+                  termination thereof in accordance with these Engagement
+                  Terms.
+                </Clause>
+                <Clause num="2.2">
+                  Indicative dates communicated by 2birds, whether in the
+                  Engagement Letter or in correspondence, are estimates given
+                  in good faith. They are not, and shall not be construed as,
+                  contractual deadlines. 2birds shall not be liable for any
+                  consequence of a deliverable being furnished on a date other
+                  than the indicative date so given.
+                </Clause>
+              </Article>
+
+              <Article num="III." title="Performance Standard">
+                <Clause num="3.1">
+                  2birds shall render the Services with reasonable skill and
+                  care and in accordance with the standards customarily
+                  expected of a competent practitioner in the field of
+                  curriculum and courseware development within the Republic of
+                  Singapore.
+                </Clause>
+                <Clause num="3.2">
+                  No greater duty, and no fiduciary duty, shall be implied
+                  beyond that expressly assumed in the Engagement Letter and
+                  these Engagement Terms. To the maximum extent permitted by
+                  law, all conditions, warranties and representations, whether
+                  express or implied, statutory or otherwise, are hereby
+                  excluded.
+                </Clause>
+              </Article>
+
+              <Article num="IV." title="No Warranty of Outcome or Accreditation">
+                <Clause num="4.1">
+                  The Client expressly acknowledges and accepts that the grant,
+                  renewal, variation or maintenance of any accreditation,
+                  approval, recognition, registration, funding eligibility or
+                  course listing, including without limitation designation as
+                  an Approved Training Organisation, the listing of a course on
+                  the SSG training course directory, the grant of SSG funding,
+                  WSQ recognition, TPQA clearance or any analogous outcome, is
+                  the sole prerogative of the relevant Competent Authority and
+                  lies wholly outside the control of 2birds.
+                </Clause>
+                <Clause num="4.2">
+                  Accordingly, 2birds gives no warranty, undertaking,
+                  guarantee or assurance, whether express or implied, that any
+                  application, submission, courseware, programme architecture,
+                  assessment plan, policy document, audit response or other
+                  deliverable prepared in connection with the Services shall
+                  result in the grant, renewal or maintenance of any such
+                  accreditation, approval or outcome, nor that any such
+                  application shall be determined within any particular time or
+                  on any particular terms.
+                </Clause>
+                <Clause num="4.3">
+                  Without prejudice to the generality of the foregoing,
+                  2birds makes no representation that the Services will (a)
+                  cause a course to be placed on the SSG training course
+                  directory; (b) cause a course to be approved for SSG funding
+                  at any particular rate or at all; (c) cause the Client to be
+                  designated, or to retain designation, as an Approved Training
+                  Organisation; (d) result in a positive TPQA outcome; or (e)
+                  avoid any audit finding, observation, query or further
+                  information request issued by any Competent Authority.
+                </Clause>
+                <Clause num="4.4">
+                  Where a Competent Authority issues queries, requests for
+                  further information, requests for revisions or notices of
+                  non-approval, 2birds shall, upon the Client's request and
+                  subject to the agreement of additional professional fees
+                  where the work required falls outside the agreed scope,
+                  assist in addressing the same. Such further work shall be
+                  the subject of a supplementary Engagement Letter or written
+                  variation.
+                </Clause>
+                <Clause num="4.5">
+                  The Client acknowledges that regulatory frameworks, funding
+                  criteria, syllabi requirements and audit standards are
+                  subject to amendment by the Competent Authority from time to
+                  time, and that no deliverable prepared at a given date can be
+                  warranted to remain compliant in perpetuity.
+                </Clause>
+              </Article>
+
+              <Article num="V." title="Professional Fees, Payment and Non-Refund">
+                <Clause num="5.1">
+                  In consideration of the Services, the Client shall pay to
+                  2birds the professional fees stated in the Engagement
+                  Letter (the <em>"Professional Fees"</em>). Save where
+                  expressly stated to the contrary in the Engagement Letter,
+                  the Professional Fees are exclusive of out of pocket
+                  disbursements, travel, accommodation, third party fees and
+                  any duties or imposts of like nature, all of which shall be
+                  invoiced to the Client at cost. 2birds is a community of
+                  independent professional practitioners and is not registered
+                  for Goods and Services Tax; accordingly, no Goods and
+                  Services Tax shall be charged on or in addition to the
+                  Professional Fees.
+                </Clause>
+                <Clause num="5.2">
+                  Unless otherwise stipulated in the Engagement Letter or in
+                  the relevant invoice, the Professional Fees in respect of a
+                  staged engagement are payable in two parts. Fifty per centum
+                  (50%) upon countersignature of the Engagement Letter, as a
+                  non-refundable commencement fee earned upon receipt; and the
+                  balance of fifty per centum (50%) upon issuance of the
+                  principal deliverable for Client review, irrespective of
+                  whether the Client elects to submit such deliverable to the
+                  relevant Competent Authority. Where the Engagement Letter or
+                  invoice provides for payment of the Professional Fees in a
+                  single instalment, the whole of such instalment shall be
+                  earned upon receipt and shall be non-refundable on the same
+                  basis.
+                </Clause>
+                <Clause num="5.2A">
+                  Every invoice issued by 2birds shall be conclusive as to
+                  the sums therein stated, save in the case of manifest
+                  arithmetical error, unless the Client has, within seven (7)
+                  calendar days of the date of the invoice, given written
+                  notice to 2birds particularising the specific item
+                  disputed and the grounds of dispute. In the absence of such
+                  notice, the Client shall be deemed to have accepted the
+                  invoice in full and shall be estopped from raising any
+                  challenge thereto.
+                </Clause>
+                <Clause num="5.3">
+                  All sums invoiced are payable within fourteen (14) calendar
+                  days of the date of invoice. Sums remaining unpaid beyond
+                  such period shall bear interest at the rate of one and one
+                  half per centum (1.5%) per month, or part thereof, computed
+                  from the due date until the date of actual payment, both
+                  dates inclusive, and compounded monthly.
+                </Clause>
+                <Clause num="5.4">
+                  All Professional Fees paid to 2birds are earned upon
+                  receipt and are non-refundable in whole or in part, save
+                  where refund is required by the mandatory provisions of the
+                  laws of the Republic of Singapore. Without prejudice to the
+                  generality of the foregoing, no refund shall be due or
+                  claimable by reason of:
+                </Clause>
+                <Clause num="5.5">
+                  (a) the refusal, non-approval, deferment, lapse, suspension
+                  or revocation of any application or accreditation by a
+                  Competent Authority; (b) any change in the Client's
+                  commercial strategy, ownership, management or business
+                  direction; (c) the Client's decision not to proceed with,
+                  not to submit, to withdraw or to abandon any application;
+                  (d) the Client's dissatisfaction with the regulatory
+                  outcome, as distinct from the quality of the deliverable
+                  itself; (e) any delay, suspension or termination caused by
+                  the Client or by any third party for whom the Client is
+                  responsible; (f) any change in regulatory framework, funding
+                  policy or audit criteria occurring after the date of the
+                  relevant deliverable; (g) the Client's failure to implement,
+                  to resource or to operationalise the deliverable in
+                  practice; or (h) the Client's election to terminate the
+                  engagement at its own initiative.
+                </Clause>
+                <Clause num="5.6">
+                  2birds shall be under no obligation to commence, to
+                  continue or to release any deliverable while any sum is
+                  outstanding beyond its due date, and may suspend the
+                  Services without liability until all such sums, together
+                  with any accrued interest, are received in full and in
+                  cleared funds.
+                </Clause>
+                <Clause num="5.7">
+                  All sums payable by the Client shall be paid in full without
+                  set off, counterclaim, deduction or withholding of any kind,
+                  save as may be required by law.
+                </Clause>
+                <Clause num="5.8">
+                  The Client acknowledges that the Professional Fees have been
+                  computed on the express basis of the limitations, exclusions
+                  and allocations of risk set out in these Engagement Terms,
+                  and that the Professional Fees would be materially higher
+                  were 2birds to assume any greater liability or to
+                  underwrite any regulatory outcome.
+                </Clause>
+              </Article>
+
+              <Article num="VI." title="Client Responsibilities">
+                <Clause num="6.1">
+                  The Client undertakes to furnish 2birds, in a timely
+                  fashion, with all information, documents, instructions,
+                  approvals and access to personnel as may reasonably be
+                  required for the proper performance of the Services, and
+                  warrants the accuracy, completeness and currency of all such
+                  information.
+                </Clause>
+                <Clause num="6.2">
+                  The Client shall be solely responsible for the strategic,
+                  commercial and operational decisions taken in reliance upon
+                  the Services, including without limitation the decision
+                  whether and when to submit any application or document to a
+                  Competent Authority, and the manner in which any approved
+                  programme is subsequently delivered, marketed and
+                  administered.
+                </Clause>
+                <Clause num="6.3">
+                  The Client acknowledges that the timeliness and quality of
+                  the Services are materially dependent upon the Client's
+                  co-operation. Any delay, error or omission in the
+                  deliverables attributable to a delay, error or omission on
+                  the part of the Client shall not constitute a breach by
+                  2birds, nor give rise to any abatement of the Professional
+                  Fees.
+                </Clause>
+                <Clause num="6.4">
+                  The Client shall ensure that any information furnished to
+                  2birds, and any subsequent use by the Client of the
+                  deliverables, does not infringe the intellectual property
+                  rights of any third party, and shall indemnify and hold
+                  2birds harmless from and against any claim arising from
+                  any such infringement.
+                </Clause>
+              </Article>
+
+              <Article num="VII." title="Intellectual Property">
+                <Clause num="7.1">
+                  All right, title and interest, including without limitation
+                  all copyright, design rights, database rights, trade marks,
+                  moral rights and any other intellectual property rights of
+                  whatsoever nature, subsisting in or in connection with the
+                  deliverables, the courseware, the lesson plans, the
+                  assessment instruments, the policy and procedure
+                  documentation, the templates, frameworks, methodologies,
+                  models, checklists, reference materials, instructional
+                  design schemata, assessment matrices, training of trainer
+                  collateral and all preparatory, working and ancillary
+                  materials prepared by 2birds in connection with the
+                  Services (collectively, the <em>"Courseware Materials"</em>)
+                  shall vest in, and remain at all times the sole and
+                  exclusive property of, 2birds.
+                </Clause>
+                <Clause num="7.2">
+                  Nothing in these Engagement Terms, in the Engagement Letter
+                  or in the course of dealing between the parties shall
+                  operate as an assignment, transfer or conveyance of any
+                  intellectual property right in the Courseware Materials to
+                  the Client. The doctrine of work made for hire, and any
+                  analogous doctrine in any jurisdiction, is expressly
+                  disapplied.
+                </Clause>
+                <Clause num="7.3">
+                  Subject to the prior receipt by 2birds of the
+                  Professional Fees in full and in cleared funds, and subject
+                  to the Client's continuing compliance with these Engagement
+                  Terms, the Client is granted a limited, non-exclusive,
+                  non-transferable, non-sublicensable, revocable, royalty free
+                  licence to use the Courseware Materials prepared
+                  specifically for the Client (the <em>"Permitted Use
+                  Licence"</em>) solely for the following purposes (the
+                  <em> "Permitted Purposes"</em>): (a) submission to the
+                  relevant Competent Authority in support of the Client's own
+                  application; (b) delivery, in unmodified form, of the
+                  specific programme of training to which the Courseware
+                  Materials relate, by the Client and from the Client's
+                  approved training premises; and (c) the Client's own
+                  internal record keeping and audit response.
+                </Clause>
+                <Clause num="7.4">
+                  Without the prior express written consent of 2birds, which
+                  may be withheld at 2birds' sole and absolute discretion,
+                  the Client shall not, and shall procure that its officers,
+                  employees, contractors, trainers, affiliates and any
+                  successor in title shall not: (a) copy, reproduce, transcribe,
+                  scan, photograph, screenshot, scrape, download or otherwise
+                  duplicate the Courseware Materials, save to the limited
+                  extent strictly necessary for the Permitted Purposes; (b)
+                  modify, adapt, translate, abridge, summarise, re-author,
+                  re-brand, white-label or prepare derivative works of the
+                  Courseware Materials; (c) sell, licence, sub-licence, rent,
+                  lease, loan, distribute, syndicate, publish, transmit,
+                  broadcast or otherwise make the Courseware Materials
+                  available to any third party; (d) use the Courseware
+                  Materials, in whole or in any part, in connection with any
+                  programme of training other than that for which they were
+                  prepared; (e) remove, conceal, obliterate or alter any
+                  proprietary notice, watermark, copyright legend or
+                  attribution affixed to the Courseware Materials; (f) use the
+                  Courseware Materials, or any extract thereof, to train, fine
+                  tune, evaluate or otherwise inform any machine learning
+                  model, large language model, generative artificial
+                  intelligence system, search index or other automated system;
+                  or (g) assert, register or apply to register any
+                  intellectual property right in respect of the Courseware
+                  Materials or any derivative thereof.
+                </Clause>
+                <Clause num="7.5">
+                  The Client shall not permit any trainer, facilitator,
+                  freelance instructor or third party engaged by the Client to
+                  retain, copy or remove from the Client's premises any
+                  physical or electronic copy of the Courseware Materials upon
+                  the cessation of such person's engagement with the Client.
+                  The Client shall implement and maintain reasonable
+                  administrative, technical and physical safeguards to give
+                  effect to this clause.
+                </Clause>
+                <Clause num="7.6">
+                  All underlying methodologies, frameworks, templates,
+                  checklists, reference libraries, instructional design
+                  schemata, assessment matrices and proprietary know how
+                  developed, refined or employed by 2birds in the
+                  preparation of the Courseware Materials (the
+                  <em> "Background IP"</em>) shall remain the sole and
+                  exclusive property of 2birds, are expressly excluded from
+                  the Permitted Use Licence, and may be re-used by 2birds
+                  in connection with any other engagement without restriction
+                  or accounting to the Client.
+                </Clause>
+                <Clause num="7.7">
+                  Any improvement, refinement, correction, error fix or
+                  enhancement to the Courseware Materials or the Background
+                  IP, whether conceived by 2birds, the Client, a trainer or
+                  any other person in the course of, or arising out of, the
+                  Services, shall vest in 2birds upon creation. The Client
+                  hereby assigns to 2birds, with full title guarantee and
+                  by way of present assignment of future rights, all such
+                  intellectual property rights, and shall, at 2birds'
+                  request and cost, execute such further documents and do
+                  such further acts as may be required to perfect such
+                  vesting.
+                </Clause>
+                <Clause num="7.8">
+                  The Permitted Use Licence shall terminate automatically and
+                  without notice upon the earlier of (a) any breach by the
+                  Client of this Article VII; (b) any non-payment of the
+                  Professional Fees beyond the period stipulated in Article V;
+                  (c) the termination of the engagement for any reason; and
+                  (d) the Client ceasing to operate the relevant programme of
+                  training. Upon such termination the Client shall forthwith
+                  cease all use of the Courseware Materials, return all
+                  physical copies to 2birds and irretrievably delete all
+                  electronic copies in its possession or control, and shall,
+                  upon request, certify such return and deletion in writing
+                  signed by an officer of the Client.
+                </Clause>
+                <Clause num="7.9">
+                  The Client acknowledges that damages alone would be an
+                  inadequate remedy for any breach of this Article VII, and
+                  that 2birds shall be entitled, without prejudice to any
+                  other right or remedy, to seek the remedies of injunction,
+                  specific performance and account of profits, in addition to
+                  damages, costs and any other relief which may be available
+                  to it at law or in equity.
+                </Clause>
+                <Clause num="7.10">
+                  2birds reserves the right, in its sole discretion, to
+                  reference the existence of the engagement, and to identify
+                  the Client by name and mark, in its portfolio, capability
+                  statements and credentials lists, provided that no
+                  confidential information of the Client shall be disclosed
+                  thereby.
+                </Clause>
+              </Article>
+
+              <Article num="VIII." title="Confidentiality and Data">
+                <Clause num="8.1">
+                  Each party shall hold in confidence all information of the
+                  other party designated as confidential or which by its
+                  nature ought reasonably to be regarded as confidential, and
+                  shall not disclose the same to any third party save with
+                  the prior written consent of the disclosing party or as
+                  required by law or by a Competent Authority.
+                </Clause>
+                <Clause num="8.2">
+                  The obligations of confidence shall not apply to information
+                  which (a) is or becomes publicly available other than by
+                  reason of breach of these Engagement Terms; (b) was lawfully
+                  in the recipient's possession prior to disclosure; (c) is
+                  independently developed by the recipient without reference
+                  to the disclosed information; or (d) is required to be
+                  disclosed by law or by order of a court or Competent
+                  Authority.
+                </Clause>
+                <Clause num="8.3">
+                  Each party shall comply with its obligations under the
+                  Personal Data Protection Act 2012 of Singapore in respect
+                  of any personal data processed in connection with the
+                  Services.
+                </Clause>
+              </Article>
+
+              <Article num="IX." title="Limitation of Liability">
+                <Clause num="9.1">
+                  The aggregate liability of 2birds, its principals,
+                  partners, practitioners, employees, contractors and agents,
+                  in contract, in tort (including negligence), under statute
+                  or otherwise, arising out of or in connection with the
+                  Services, the Courseware Materials or these Engagement
+                  Terms, shall in no event exceed the total Professional Fees
+                  actually paid by the Client to 2birds in respect of the
+                  particular engagement giving rise to the claim.
+                </Clause>
+                <Clause num="9.2">
+                  2birds shall not be liable to the Client for any loss of
+                  profit, loss of business, loss of revenue, loss of
+                  anticipated savings, loss of goodwill, loss of opportunity,
+                  loss of accreditation, loss of funding eligibility, loss of
+                  reputation, loss arising from the act, omission or
+                  determination of any Competent Authority, or any indirect,
+                  special, incidental, punitive or consequential loss
+                  howsoever arising, whether or not such loss was foreseeable
+                  and whether or not 2birds was advised of the possibility
+                  of the same.
+                </Clause>
+                <Clause num="9.3">
+                  No claim shall lie against 2birds unless written
+                  particulars thereof are received by 2birds within twelve
+                  (12) months of the date upon which the cause of action is
+                  alleged to have accrued, after which time all such claims
+                  shall be deemed irrevocably waived and released.
+                </Clause>
+                <Clause num="9.4">
+                  Nothing in these Engagement Terms shall operate to exclude
+                  or limit any liability which cannot lawfully be excluded or
+                  limited, including liability for fraud, fraudulent
+                  misrepresentation, or personal injury caused by negligence.
+                </Clause>
+              </Article>
+
+              <Article num="X." title="Indemnity">
+                <Clause num="10.1">
+                  The Client shall indemnify, keep indemnified and hold
+                  harmless 2birds, its principals, partners, practitioners,
+                  employees, contractors and agents, from and against any and
+                  all liabilities, costs, expenses, damages and losses
+                  (including any reasonable legal costs and expenses on a full
+                  indemnity basis) suffered or incurred by 2birds arising
+                  out of or in connection with (a) any breach by the Client
+                  of these Engagement Terms, in particular any breach of
+                  Article VII (<em>Intellectual Property</em>); (b) any
+                  unauthorised use, copying or disclosure of the Courseware
+                  Materials by the Client or by any person to whom the Client
+                  has provided access; (c) any claim by any third party
+                  arising out of the Client's delivery of the programme of
+                  training; and (d) the inaccuracy, incompleteness or
+                  misleading character of any information furnished by the
+                  Client to 2birds.
+                </Clause>
+              </Article>
+
+              <Article num="XI." title="Termination">
+                <Clause num="11.1">
+                  Either party may terminate the engagement upon the material
+                  breach of these Engagement Terms by the other party, where
+                  such breach is incapable of remedy or, being capable of
+                  remedy, is not remedied within fourteen (14) days of
+                  written notice requiring its remedy.
+                </Clause>
+                <Clause num="11.2">
+                  2birds may further terminate, or suspend, the engagement
+                  forthwith upon written notice where (a) any sum due from
+                  the Client remains unpaid for more than thirty (30) days
+                  beyond its due date; (b) the Client becomes insolvent,
+                  enters into any composition with its creditors, or has a
+                  receiver, judicial manager or liquidator appointed over the
+                  whole or any part of its undertaking; (c) the Client
+                  commits any breach of Article VII (<em>Intellectual
+                  Property</em>); or (d) the continuation of the engagement
+                  would, in the reasonable opinion of 2birds, place
+                  2birds in breach of any law, regulation or professional
+                  rule.
+                </Clause>
+                <Clause num="11.3">
+                  Upon termination howsoever occurring, the Client shall pay
+                  to 2birds all Professional Fees in respect of the
+                  Services performed up to the effective date of termination,
+                  together with all disbursements incurred and all reasonable
+                  wind down costs. For the avoidance of doubt, no sum already
+                  paid to 2birds shall be refundable upon termination.
+                </Clause>
+                <Clause num="11.4">
+                  Articles V (<em>Professional Fees, Payment and
+                  Non-Refund</em>), VII (<em>Intellectual Property</em>),
+                  VIII (<em>Confidentiality and Data</em>), IX (<em>Limitation
+                  of Liability</em>), X (<em>Indemnity</em>) and XIV
+                  (<em>Governing Law and Jurisdiction</em>) shall survive
+                  termination of the engagement.
+                </Clause>
+              </Article>
+
+              <Article num="XII." title="Force Majeure">
+                <Clause num="12.1">
+                  2birds shall not be in breach of these Engagement Terms,
+                  nor liable for any delay in performance or non-performance,
+                  by reason of any cause beyond its reasonable control,
+                  including without limitation acts of God, war, terrorism,
+                  civil commotion, pandemic, epidemic, public health
+                  directives, governmental or regulatory action, failure of
+                  utilities or telecommunications, or the act or omission of
+                  any Competent Authority.
+                </Clause>
+              </Article>
+
+              <Article num="XIII." title="General">
+                <Clause num="13.1">
+                  These Engagement Terms, together with the Engagement Letter,
+                  constitute the entire agreement of the parties in respect of
+                  the Services and supersede all prior negotiations,
+                  representations and understandings, whether oral or
+                  written.
+                </Clause>
+                <Clause num="13.2">
+                  No variation of these Engagement Terms shall be effective
+                  unless reduced to writing and signed by an authorised
+                  representative of each party.
+                </Clause>
+                <Clause num="13.3">
+                  If any provision of these Engagement Terms is held to be
+                  invalid, illegal or unenforceable, the remaining provisions
+                  shall continue in full force and effect, and the parties
+                  shall negotiate in good faith to substitute a valid,
+                  enforceable provision of substantially similar economic
+                  effect.
+                </Clause>
+                <Clause num="13.4">
+                  The Client shall not assign, novate, charge or otherwise
+                  transfer its rights or obligations hereunder without the
+                  prior written consent of 2birds, such consent not to be
+                  unreasonably withheld.
+                </Clause>
+                <Clause num="13.5">
+                  No failure or delay by 2birds in exercising any right or
+                  remedy under these Engagement Terms shall operate as a
+                  waiver thereof, nor shall any single or partial exercise
+                  preclude any further exercise of the same or of any other
+                  right or remedy.
+                </Clause>
+                <Clause num="13.6">
+                  Any notice required to be given under these Engagement
+                  Terms shall be in writing and shall be sent to the
+                  addressee at the address or electronic mail address stated
+                  in the Engagement Letter, or such other address as the
+                  addressee may from time to time notify in writing. A
+                  notice sent by electronic mail shall be deemed received
+                  upon the sender's receipt of a non-bounce delivery
+                  confirmation.
+                </Clause>
+                <Clause num="13.7">
+                  A person who is not a party to these Engagement Terms shall
+                  have no rights under the Contracts (Rights of Third
+                  Parties) Act 2001 of Singapore to enforce any term hereof.
+                </Clause>
+              </Article>
+
+              <Article num="XIV." title="Governing Law and Jurisdiction">
+                <Clause num="14.1">
+                  These Engagement Terms, the Engagement Letter, and any
+                  dispute or claim (whether contractual or non-contractual)
+                  arising out of or in connection with them or the Services,
+                  shall be governed by and construed in accordance with the
+                  laws of the Republic of Singapore.
+                </Clause>
+                <Clause num="14.2">
+                  The parties submit to the exclusive jurisdiction of the
+                  courts of the Republic of Singapore, save that 2birds
+                  reserves the right to bring proceedings for the recovery
+                  of sums due, for the protection of its intellectual
+                  property, or for injunctive relief, in any court of
+                  competent jurisdiction.
+                </Clause>
+              </Article>
+
+              <div className="tb-legal__sig">
+                <div className="tb-legal__sig-block">
+                  <div className="tb-legal__sig-label">Issued for and on behalf of</div>
+                  <div className="tb-legal__sig-name">2birds</div>
+                  <div className="tb-legal__sig-role">Practice · Singapore</div>
+                </div>
+                <div className="tb-legal__sig-block">
+                  <div className="tb-legal__sig-label">Correspondence</div>
+                  <div className="tb-legal__sig-name">Practice Accounts</div>
+                  <div className="tb-legal__sig-role">finance@2birds.asia</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </main>
+      <Footer />
+    </>);
+
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

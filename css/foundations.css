@@ -1,0 +1,355 @@
+/* =========================================================================
+   Twobirds — Foundations
+   Editorial brand in the British tradition. Warm paper canvas, charcoal ink,
+   olive heritage marker, single royal-blue accent applied with restraint.
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+  /* ---------- Brand / Accent ---------- */
+  --charcoal:        #383838;
+  --paper:           #FAF8F2;
+
+  --royal:           #1E3A6F;
+  --royal-deep:      #14264A;
+  --royal-soft:      #3D5A8A;
+
+  --olive:           #969265;
+  --olive-deep:      #6F6C49;
+  --olive-light:     #C4BFA0;
+
+  /* ---------- Surface ---------- */
+  --canvas:          #FAF8F2;
+  --canvas-warm:     #F5F2E8;
+  --bone:            #F5F2E8;
+
+  --hairline:        #E8E5DA;
+  --hairline-soft:   #EFECE2;
+  --surface-cool:    #F0EEE5;
+
+  --scrim:           #1F1F1D;
+  --footer:          #15140F;
+
+  /* ---------- Text ---------- */
+  --ink:             #1A1A1A;
+  --ink-soft:        #2D2D2D;
+  --graphite:        #5C5C5C;
+  --slate:           #707070;
+  --mute:            #9A9A9A;
+  --stone:           #D4D2C5;
+  --ash:             #B8B8B8;
+
+  /* ---------- Role aliases ---------- */
+  --color-primary:   var(--charcoal);
+  --color-secondary: var(--olive);
+  --color-tertiary:  var(--royal);
+  --color-neutral:   var(--paper);
+
+  --fg:              var(--ink);
+  --fg-soft:         var(--ink-soft);
+  --fg-body:         var(--graphite);
+  --fg-meta:         var(--slate);
+  --bg:              var(--canvas);
+  --bg-warm:         var(--canvas-warm);
+  --rule:            var(--hairline);
+
+  /* ---------- Type families ---------- */
+  --font-serif: "Playfair Display", "Cormorant Garamond", "Lora", "Times New Roman", Georgia, serif;
+  --font-sans:  "Lato", "Source Sans 3", "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* ---------- Spacing scale (8-px base, 4-px micro) ---------- */
+  --space-xxs: 4px;
+  --space-xs:  8px;
+  --space-sm:  12px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-xxl: 48px;
+  --space-section:    76px;
+  --space-section-lg: 104px;
+
+  /* ---------- Radius scale ---------- */
+  --r-none: 0px;
+  --r-xs:   2px;
+  --r-sm:   4px;
+  --r-md:   8px;
+  --r-lg:   12px;
+  --r-full: 9999px;
+
+  /* ---------- Layout ---------- */
+  --container-max: 1240px;
+  --gutter:        var(--space-xxl);
+  --rule-w:        1px;
+  --olive-rule-w:  4px;
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(.22,.61,.36,1);
+  --dur-fast:   150ms;
+  --dur-base:   200ms;
+  --dur-slow:   250ms;
+  --dur-slower: 300ms;
+}
+
+/* =========================================================================
+   Base type roles — drop-in semantic helpers
+   ========================================================================= */
+
+html, body {
+  background: var(--canvas);
+  color: var(--fg-body);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- Display levels (Playfair Display) --- */
+.t-display-xl, .t-display, .t-display-sm,
+.t-heading-md, .t-heading-sm, .t-quote, .t-wordmark,
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  font-feature-settings: "kern", "liga", "onum";
+}
+
+.t-display-xl {
+  font-size: 72px; font-weight: 400; line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+.t-display, h1 {
+  font-size: 56px; font-weight: 400; line-height: 1.05;
+  letter-spacing: -0.018em;
+}
+.t-display-sm, h2 {
+  font-size: 44px; font-weight: 400; line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+.t-heading-md, h3 {
+  font-size: 32px; font-weight: 500; line-height: 1.15;
+  letter-spacing: -0.012em;
+}
+.t-heading-sm, h4 {
+  font-size: 26px; font-weight: 500; line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.t-quote {
+  font-size: 40px; font-weight: 400; line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-style: italic;
+}
+
+/* --- Body & supporting (Source Sans 3) --- */
+.t-subtitle {
+  font-family: var(--font-sans);
+  font-size: 19px; font-weight: 300; line-height: 1.55;
+  color: var(--graphite);
+}
+.t-body, p {
+  font-family: var(--font-sans);
+  font-size: 16px; font-weight: 400; line-height: 1.65;
+  color: var(--graphite);
+}
+.t-body-strong { font-weight: 600; color: var(--ink-soft); }
+.t-body-tight  { font-size: 15px; line-height: 1.45; }
+
+.t-link-sm, a.t-link-sm {
+  font-family: var(--font-sans);
+  font-size: 14px; font-weight: 500; line-height: 1.45;
+  letter-spacing: 0.02em;
+  color: var(--charcoal);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: color var(--dur-base) var(--ease-standard);
+}
+.t-link-sm:hover { color: var(--royal); }
+
+.t-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px; font-weight: 600; line-height: 1.45;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--royal);
+}
+.t-meta {
+  font-family: var(--font-sans);
+  font-size: 13px; font-weight: 400; line-height: 1.4;
+  color: var(--slate);
+}
+.t-micro-caps {
+  font-family: var(--font-sans);
+  font-size: 11px; font-weight: 600; line-height: 1.4;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.t-button {
+  font-family: var(--font-sans);
+  font-size: 14px; font-weight: 600; line-height: 1.0;
+  letter-spacing: 0.02em;
+}
+.t-wordmark {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 0.18em;
+  line-height: 1.0;
+}
+
+/* --- Italic emphasis (the system's only typographic flourish) --- */
+.t-italic {
+  font-style: italic;
+  color: var(--olive-deep);
+}
+.on-dark .t-italic, .t-italic.on-dark {
+  color: var(--olive-light);
+}
+
+/* =========================================================================
+   Eyebrow-hairline lockup (signature section opener)
+   32-px leading hairline · 12-px space · uppercase eyebrow text
+   ========================================================================= */
+.eyebrow-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--royal);
+  font-family: var(--font-sans);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.eyebrow-lockup::before {
+  content: "";
+  width: 32px; height: 1px;
+  background: currentColor;
+  flex: 0 0 32px;
+}
+.on-dark .eyebrow-lockup,
+.eyebrow-lockup.on-dark {
+  color: var(--olive-light);
+}
+.eyebrow-lockup.on-dark::before { background: var(--olive-light); }
+
+/* =========================================================================
+   Olive vertical rule — brand-presence cue for dark surfaces
+   ========================================================================= */
+.olive-rule {
+  position: relative;
+}
+.olive-rule::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: var(--olive-rule-w);
+  background: var(--olive);
+}
+
+/* =========================================================================
+   Buttons — single height (42px), pill (full), 14/600 button text
+   ========================================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 24px;
+  border-radius: var(--r-full);
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: 14px; font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--dur-slow) var(--ease-standard),
+              color var(--dur-slow) var(--ease-standard),
+              transform var(--dur-base) var(--ease-standard),
+              border-color var(--dur-slow) var(--ease-standard);
+}
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary  { background: var(--charcoal); color: var(--paper); }
+.btn-primary:hover  { background: var(--royal-deep); }
+
+.btn-royal    { background: var(--royal); color: var(--paper); }
+.btn-royal:hover    { background: var(--royal-deep); }
+
+.btn-on-dark  { background: var(--paper); color: var(--charcoal); }
+.btn-on-dark:hover  { background: var(--olive-light); color: var(--charcoal); }
+
+.btn-ghost    { background: var(--canvas); color: var(--charcoal); border-color: var(--charcoal); }
+.btn-ghost:hover    { background: var(--charcoal); color: var(--paper); }
+
+.btn-ghost-on-dark {
+  background: transparent; color: var(--paper);
+  border-color: var(--olive-light);
+}
+.btn-ghost-on-dark:hover { background: rgba(196,191,160,.12); color: var(--olive-light); }
+
+.btn-text {
+  height: auto; padding: 0;
+  background: transparent; color: var(--charcoal);
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+}
+.btn-text:hover { color: var(--royal); transform: none; }
+
+/* =========================================================================
+   Form fields — single bottom-rule, no full-border box
+   ========================================================================= */
+.field {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.field-label {
+  font-family: var(--font-sans);
+  font-size: 16px; font-weight: 600; line-height: 1.65;
+  color: var(--ink-soft);
+}
+.field-input,
+.field-textarea {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px; line-height: 1.65;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid var(--hairline);
+  border-radius: 0;
+  outline: none;
+  transition: border-color var(--dur-base) var(--ease-standard),
+              border-width var(--dur-base) var(--ease-standard);
+}
+.field-input::placeholder,
+.field-textarea::placeholder { color: var(--stone); }
+.field-input:focus,
+.field-textarea:focus {
+  border-bottom: 2px solid var(--charcoal);
+  padding-bottom: 11px;
+}
+.field-help {
+  font-family: var(--font-sans);
+  font-size: 13px; line-height: 1.4;
+  color: var(--slate);
+}
+
+/* =========================================================================
+   Surfaces & misc utilities
+   ========================================================================= */
+.surface-canvas      { background: var(--canvas); color: var(--ink); }
+.surface-canvas-warm { background: var(--canvas-warm); color: var(--ink); }
+.surface-scrim       { background: var(--scrim); color: var(--paper); }
+.surface-royal-deep  { background: var(--royal-deep); color: var(--paper); }
+.surface-footer      { background: var(--footer); color: var(--paper); }
+
+.hairline-top    { border-top: 1px solid var(--hairline); }
+.hairline-bottom { border-bottom: 1px solid var(--hairline); }
+.hairline-y      { border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}

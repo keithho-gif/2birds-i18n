@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>2birds, Curriculum Development and Advisory</title>
+
+<link rel="icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="stylesheet" href="css/foundations.css" />
+<link rel="stylesheet" href="css/site.css" />
+
+<style>
+  /* ----- PRINT-READY OVERRIDES ----- */
+  html, body {
+    background: var(--canvas) !important;
+    padding-top: 0 !important;
+  }
+
+  /* Nav: not useful in print. Hide. */
+  .tb-nav { display: none !important; }
+
+  /* Trim large vertical paddings so sections breathe without leaving giant gaps */
+  .tb-hero,
+  .tb-services,
+  .tb-belief,
+  .tb-trust,
+  .tb-manifesto,
+  .tb-heritage,
+  .tb-founder,
+  .tb-open,
+  .tb-faq,
+  .tb-notes,
+  .tb-offices,
+  .tb-ctawrap,
+  .tb-contact,
+  .tb-prose,
+  .tb-twocol,
+  .tb-numerals,
+  .tb-steps,
+  .tb-sectors,
+  .tb-compare,
+  .tb-experience,
+  .tb-profile,
+  .tb-speaker,
+  .tb-interlude {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+  .tb-hero { padding-top: 80px !important; }
+  .tb-manifesto, .tb-founder, .tb-open { padding-top: 72px !important; padding-bottom: 72px !important; }
+
+  /* Force backgrounds + colours to print */
+  body, body * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Disable interactivity affordances */
+  .tb-service:hover { background: inherit !important; }
+  .tb-service.is-featured:hover { background: var(--hairline) !important; }
+
+  /* FAQ, force every answer panel open in print */
+  .tb-faq__item .tb-faq__a {
+    max-height: none !important;
+    padding: 0 0 var(--space-lg) !important;
+  }
+  .tb-faq__sign { display: none !important; }
+  .tb-faq__q { cursor: default !important; }
+
+  /* Hero, keep the airy display but allow it to share a printed page sensibly */
+  .tb-hero__title { font-size: 56px !important; }
+  .tb-hero__sub { font-size: 17px !important; }
+
+  /* Break-before for big visual section starters */
+  @media print {
+    @page { size: A4; margin: 14mm; }
+    body { padding-top: 0 !important; }
+
+    .tb-founder,
+    .tb-services,
+    .tb-faq,
+    .tb-notes,
+    .tb-ctawrap {
+      break-before: page !important;
+    }
+
+    /* Keep section heads together with their content */
+    .tb-services__head,
+    .tb-heritage__head,
+    .tb-faq__head,
+    .tb-notes__head,
+    .tb-sectionhead { break-after: avoid !important; }
+
+    /* Don't let cards split */
+    .tb-service,
+    .tb-trust__cell,
+    .tb-heritage__cell,
+    .tb-numeral,
+    .tb-step,
+    .tb-sector,
+    .tb-economy,
+    .tb-note,
+    .tb-faq__item,
+    .tb-compare__row,
+    .tb-ladder__row,
+    .tb-experience__list li,
+    .tb-office {
+      break-inside: avoid !important;
+    }
+
+    /* Dark sections: keep them readable on paper */
+    .tb-founder, .tb-open, .tb-interlude, .tb-speaker, .tb-cta, .tb-footer {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    /* Drop the heavy outer hero overlays in print to avoid muddy paper */
+    .tb-hero::before { opacity: 0.55 !important; }
+    .tb-hero::after { background: linear-gradient(180deg, rgba(250,248,242,0.40) 0%, rgba(250,248,242,0.75) 80%) !important; }
+
+    /* Buttons in print: they don't click, keep them visually as labels */
+    .btn:hover { transform: none !important; }
+  }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body data-screen-label="01 Home">
+<div id="root"></div>
+
+<script type="text/babel" src="js/shared.jsx"></script>
+
+<script type="text/babel">
+
+const { useState } = React;
+
+const TRUST = [
+  { seal: "I", title: <>SSG-registered<br /><em>practice</em></>,
+    sub: "Curriculum developers and adult educators registered with SkillsFuture Singapore." },
+  { seal: "II", title: <>Level 3 <em>Senior</em> AE<br />under TAEPP</>,
+    sub: "Led by a senior professional adult educator with close to one hundred courseware submissions." },
+  { seal: "III", title: <>2025 <em>TPQA Outreach</em><br />speaker</>,
+    sub: "Invited by SSG to speak on best practices in courseware development and pre-audit preparation." }
+];
+
+const SERVICES = [
+  { id: "i", numeral: "I", href: "curriculum.html",
+    title: "Curriculum Development",
+    desc: "Programme architectures, lesson and assessment plans, trainer guides and marking schemes, drawn from a single competency map and submitted on your behalf.",
+    more: "Read the overview" },
+  { id: "ii", numeral: "II", href: "setup.html", featured: true,
+    title: "Sourcing and ATO Setup",
+    desc: "Trainers and subject-matter experts introduced from the community at no cost, alongside end-to-end advisory for prospective and first-time training organisations.",
+    more: "Read the overview" },
+  { id: "iii", numeral: "III", href: "compliance.html",
+    title: "TPQA and Compliance Advisory",
+    desc: "Pre-audit gap analysis, document review and the occasional mock-audit clinic in advance of the cyclical TPQA visit, including the new Course Quality Check.",
+    more: "Read the overview" },
+  { id: "iv", numeral: "IV", href: "setup.html",
+    title: "ATO Setup and Operations",
+    desc: "End-to-end advisory for prospective and first-time training providers, from organisation registration through operating procedures and first cohort.",
+    more: "Read the overview" }
+];
+
+const HERITAGE = [
+  { label: "Convened", year: "MMXX", body: "The practice opened by invitation, on a single principle, that good training ought not to be priced out of reach of the learner." },
+  { label: "Practitioners join", year: "MMXXII", body: "A working community of curriculum developers, subject-matter experts and adult educators assembled across thirteen organisations." },
+  { label: "Submissions", year: "≈ C", body: "Approaching one hundred SSG courseware submissions completed collectively by our community, across WSQ and non-WSQ engagements." },
+  { label: "Invited speaker", year: "MMXXV", body: "Keith invited by SSG to speak at the 2025 TPQA Outreach on best practices in courseware development." }
+];
+
+const FAQ = [
+  { q: <>Why are 2birds' <em>fees</em> lower?</>,
+    a: <>The difference reflects our overheads rather than any compromise in the work. We maintain no staffed office, carry no marketing costs to recover, and take no placement margin on the SMEs we source. Where our practitioners can carry out the engagement, our fees account for the work itself.</> },
+  { q: <>Do you charge for SME and trainer <em>sourcing</em>?</>,
+    a: <>We take no placement fee. Where we can match the engagement from within our community, the introduction is made at no charge. Where we cannot, we source through the usual channels and recover only the direct cost of the search.</> },
+  { q: <>Who carries out the <em>work</em>?</>,
+    a: <>Each engagement is led by a Level 3 Senior Professional Adult Educator under TAEPP, supported by two curriculum developers accredited under DACE / DDDLP, and by three where the engagement calls for it. We do not subcontract.</> },
+  { q: <>What does the first <em>consultation</em> involve?</>,
+    a: <>It is a short conversation, around twenty minutes by call or by note, to understand the engagement, its timeline and the form of SSG funding that suits the course. We will give you a candid view of whether it is a matter we should take on and what it is likely to cost. There is no charge and no obligation on either side.</> }
+];
+
+const NOTES = [
+  { date: "Mar MMXXVI", tag: "Compliance",
+    title: <>Reading the new <em>Course Quality Check</em></>,
+    excerpt: "What SSG Circular QMD/2024/7 changes about how courseware must be maintained between TPQA cycles, and why we now treat the review as quarterly." },
+  { date: "Feb MMXXVI", tag: "Curriculum",
+    title: <>Drawing the <em>competency map</em> first</>,
+    excerpt: "On why we resist the temptation to begin an engagement with the lesson plan, and what the competency map quietly does to keep an assessment honest." },
+  { date: "Jan MMXXVI", tag: "Sourcing",
+    title: <>An invitation to join the <em>community</em></>,
+    excerpt: "A standing note to certified adult educators and subject-matter experts considering whether the community is somewhere they would like to be." }
+];
+
+function FaqItem({ q, a }) {
+  // In print, force the panel open.
+  return (
+    <div className="tb-faq__item is-open">
+      <button className="tb-faq__q" type="button">
+        <span>{q}</span>
+        <span className="tb-faq__sign">–</span>
+      </button>
+      <div className="tb-faq__a"><p style={{ margin: 0 }}>{a}</p></div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <main>
+
+        {/* HERO */}
+        <section className="tb-hero">
+          <div className="tb-hero__glow" aria-hidden="true" />
+          <div className="container tb-hero__inner">
+            <EyebrowLockup>The practice</EyebrowLockup>
+            <h1 className="tb-hero__title" style={{ fontSize: "56px" }}>
+              By Practitioners, <em className="t-italic" style={{ fontSize: "52px" }}>not consultants.</em>
+            </h1>
+            <p className="tb-hero__sub">
+              2birds is a growing community of curriculum developers, subject-matter experts, and adult educators trusted by Approved Training Organisations.<br/>
+              We share the conviction that anyone willing to learn deserves the chance,<br/>
+              and we set our fees to honour it.
+            </p>
+          </div>
+        </section>
+
+        {/* TRUST STRIP */}
+        <section className="tb-trust">
+          <div className="container">
+            <div className="tb-trust__grid">
+              {TRUST.map((t, i) =>
+                <div key={i} className="tb-trust__cell">
+                  <div className="tb-trust__seal">{t.seal}</div>
+                  <div>
+                    <div className="tb-trust__title">{t.title}</div>
+                    <p className="tb-trust__sub">{t.sub}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* MANIFESTO */}
+        <section id="manifesto" className="tb-manifesto">
+          <div className="tb-manifesto__glow" aria-hidden="true" />
+          <div className="container tb-manifesto__inner">
+            <EyebrowLockup>What we believe</EyebrowLockup>
+            <blockquote className="tb-manifesto__quote">
+              Learning ought not to be priced out of reach of the people who most need
+              to <em>learn</em>. The practice keeps its costs deliberately modest so the
+              fees never find their way down to the learner.
+            </blockquote>
+            <div className="tb-manifesto__cite">From the practice · founding note</div>
+          </div>
+        </section>
+
+        {/* HERITAGE */}
+        <section className="tb-heritage">
+          <div className="container">
+            <header className="tb-heritage__head">
+              <EyebrowLockup>Our practice · our standing</EyebrowLockup>
+              <h2 className="tb-heritage__title">A short <em>heritage</em>, plainly stated.</h2>
+              <p className="tb-heritage__sub">
+                Four markers from the practice's correspondence, the milestones we feel
+                comfortable putting on paper, and which a curious reader might want to weigh
+                before writing to us.
+              </p>
+            </header>
+            <div className="tb-heritage__grid">
+              {HERITAGE.map((h, i) =>
+                <div key={i} className="tb-heritage__cell">
+                  <div className="tb-heritage__label">{h.label}</div>
+                  <div className="tb-heritage__year">{h.year}</div>
+                  <p className="tb-heritage__body">{h.body}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* FOUNDER */}
+        <section className="tb-founder on-dark">
+          <div className="tb-founder__bar" aria-hidden="true" />
+          <div className="tb-founder__atmos" aria-hidden="true" />
+          <div className="container tb-founder__inner">
+            <div className="tb-founder__left">
+              <EyebrowLockup dark>The founder</EyebrowLockup>
+              <h2 className="tb-founder__name">Keith</h2>
+              <div className="tb-founder__role">Founder · Curriculum Developer</div>
+              <div className="tb-founder__signature">– for the practice</div>
+            </div>
+            <div className="tb-founder__body">
+              <div className="tb-founder__creds">
+                Level 3 Senior Professional AE · TAEPP · DACE / DDDLP
+              </div>
+              <p>
+                Keith convened the practice on a long-held view of the sector, that the
+                economics of curriculum development had quietly drifted away from the
+                learner, and that a community of practitioners working at modest cost
+                could put them back where they belonged.
+              </p>
+              <p>
+                He has led courseware development across more than a dozen training
+                organisations, healthcare, financial services, productivity, engineering
+                and the chambers of commerce, and was an invited speaker at SSG's
+                <em> 2025 TPQA Outreach</em> on best practices in courseware development.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* SERVICES */}
+        <section id="services" className="tb-services">
+          <div className="container">
+            <header className="tb-services__head">
+              <EyebrowLockup>Fields of expertise</EyebrowLockup>
+              <h2 className="tb-services__title">
+                Four practice areas, one standard of <em className="t-italic">care.</em>
+              </h2>
+              <p className="tb-services__sub">
+                We accept short engagements and longer programme engagements. We do not
+                subcontract; every practitioner joins us by invitation, and every engagement is led by a <em className="t-italic">Level&nbsp;3 Senior Professional&nbsp;AE</em>
+                {" "}under TAEPP.
+              </p>
+            </header>
+            <div className="tb-services__grid">
+              {SERVICES.map((s) =>
+                <div key={s.id} className={"tb-service" + (s.featured ? " is-featured" : "")}>
+                  <div className="tb-service__num">{s.numeral}</div>
+                  <h3 className="tb-service__title">{s.title}</h3>
+                  <p className="tb-service__desc">{s.desc}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* OPEN BAND */}
+        <section className="tb-open on-dark">
+          <div className="tb-open__atmos" aria-hidden="true" />
+          <div className="tb-open__inner">
+            <EyebrowLockup dark>By appointment</EyebrowLockup>
+            <h2 className="tb-open__title">
+              The practice is open for <em>correspondence</em>, Monday through Friday.
+            </h2>
+            <p className="tb-open__sub">
+              We reply within two working days during Singapore business hours.
+              Meetings, where required, are held at your premises or at a venue of your
+              choosing, we do not maintain a public office.
+            </p>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="tb-faq">
+          <div className="container">
+            <header className="tb-faq__head">
+              <EyebrowLockup>Important answers</EyebrowLockup>
+              <h2 className="tb-faq__title">Frequent <em>enquiries</em>.</h2>
+              <p className="tb-faq__sub">
+                The questions most often put to the practice, answered plainly, in the
+                same register as our correspondence.
+              </p>
+            </header>
+            <div className="tb-faq__list">
+              {FAQ.map((f, i) => <FaqItem key={i} q={f.q} a={f.a} />)}
+            </div>
+          </div>
+        </section>
+
+        {/* PRACTICE NOTES */}
+        <section className="tb-notes">
+          <div className="container">
+            <header className="tb-notes__head">
+              <EyebrowLockup>Practice notes</EyebrowLockup>
+              <h2 className="tb-notes__title">Recent <em>correspondence</em> from the practice.</h2>
+            </header>
+            <div className="tb-notes__grid">
+              {NOTES.map((n, i) =>
+                <article key={i} className="tb-note">
+                  <div className="tb-note__meta">
+                    <span className="tb-note__date">{n.date}</span>
+                    <span className="tb-note__tag">{n.tag}</span>
+                  </div>
+                  <h3 className="tb-note__title">{n.title}</h3>
+                  <p className="tb-note__excerpt">{n.excerpt}</p>
+                </article>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* OFFICES */}
+        <section className="tb-offices">
+          <div className="container">
+            <div className="tb-offices__grid">
+              <div className="tb-office">
+                <span className="tb-office__label">Practice</span>
+                <span className="tb-office__where">Singapore <em>·</em> by appointment</span>
+                <p className="tb-office__meta">No public office. Meetings held at your premises or a venue of your choosing.</p>
+              </div>
+              <div className="tb-office">
+                <span className="tb-office__label">Correspondence</span>
+                <span className="tb-office__where"><em>hello</em>@2birds.sg</span>
+                <p className="tb-office__meta">Replies within two working days, Singapore business hours.</p>
+              </div>
+              <div className="tb-office">
+                <span className="tb-office__label">Working Hours</span>
+                <span className="tb-office__where"><em>Monday</em> through Friday</span>
+                <p className="tb-office__meta">Excluding weekends and Singapore public holidays.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <CTAPanel
+          eyebrow="Make an enquiry"
+          title={<>Begin a <em>conversation.</em></>}
+          sub={<>Tell us, in your own words, what the engagement looks like and when it begins.<br />We reply within two working days during Singapore business hours.</>}
+          primary={{ label: "Write to the practice", href: "contact.html" }}
+          secondary={{ label: "Book a complimentary consultation", href: "contact.html#consultation" }}
+        />
+
+      </main>
+
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+/* ----- AUTO-PRINT ----- */
+// Wait for: (1) Babel to have transpiled this script (we're inside it),
+// (2) React to mount, (3) fonts to load. Then print.
+(async () => {
+  try {
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+  } catch (e) {}
+  // give the layout a beat to settle (images, background image, hero overlays)
+  setTimeout(() => { window.print(); }, 800);
+})();
+</script>
+</body>
+</html>

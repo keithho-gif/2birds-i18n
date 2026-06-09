@@ -1,0 +1,569 @@
+/* =========================================================================
+   Premium editorial layer — applied via <body class="is-premium">
+   Higher whitespace, larger Playfair openers, body Lato @ 17/1.7,
+   75ch measure, and editorial image placeholders with breathing room.
+
+   The home page does NOT carry .is-premium and is unchanged in this round.
+   ========================================================================= */
+
+/* Bring Lato in alongside the existing Source Sans 3 stack. */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap");
+
+body.is-premium {
+  font-family: "Lato", "Source Sans 3", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: 0.005em;
+  color: var(--graphite);
+  background: var(--paper);
+}
+
+/* ---------- Type: page opener ---------- */
+body.is-premium .tb-pagehero {
+  padding: 150px 0 40px;
+  background: var(--paper);
+}
+body.is-premium .tb-pagehero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  max-width: 920px;
+}
+body.is-premium .tb-pagehero__title {
+  font-family: "Playfair Display", var(--font-serif);
+  font-weight: 400;
+  font-size: 68px;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+  text-wrap: balance;
+  margin: 0;
+}
+body.is-premium .tb-pagehero__title em {
+  font-style: italic;
+  color: var(--olive-deep);
+}
+body.is-premium .tb-pagehero__lede {
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 20px;
+  line-height: 1.65;
+  font-weight: 300;
+  color: var(--graphite);
+  max-width: 64ch;
+  margin: 0;
+}
+body.is-premium .tb-pagehero__loc {
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--olive-deep);
+}
+body.is-premium .tb-pagehero__loc a { color: var(--olive-deep); }
+body.is-premium .eyebrow-lockup {
+  color: var(--olive-deep);
+  font-family: "Lato", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+body.is-premium .eyebrow-lockup::before { background: var(--olive-deep); }
+
+/* ---------- Section rhythm ---------- */
+body.is-premium .premium-section {
+  padding: 92px 0;
+  background: var(--paper);
+}
+body.is-premium .premium-section--bone { background: var(--bone); }
+body.is-premium .premium-section--paper { background: var(--paper); }
+body.is-premium .premium-section + .premium-section {
+  border-top: 0;
+}
+body.is-premium .premium-section--bone + .premium-section,
+body.is-premium .premium-section + .premium-section--bone {
+  border-top: 0;
+}
+
+/* ---------- Lift legacy section components to the same 120px rhythm.
+   Existing components (.tb-numerals, .tb-steps, .tb-prose, .tb-twocol, etc.)
+   set their own padding via site.css — override here so the editorial
+   recompose enforces consistent breathing room. ---------- */
+body.is-premium .tb-numerals,
+body.is-premium .tb-numerals--photobg,
+body.is-premium .tb-steps,
+body.is-premium .tb-prose,
+body.is-premium .tb-prose--withFig,
+body.is-premium .tb-twocol,
+body.is-premium .tb-twocol--photobg,
+body.is-premium .tb-twocol--even,
+body.is-premium .tb-services,
+body.is-premium .tb-faq,
+body.is-premium .tb-heritage,
+body.is-premium .tb-offices,
+body.is-premium .tb-record,
+body.is-premium .tb-procedure,
+body.is-premium .tb-beneficiaries,
+body.is-premium .tb-dash,
+body.is-premium .tb-sectors,
+body.is-premium .tb-compare,
+body.is-premium .tb-contact,
+body.is-premium .tb-join,
+body.is-premium .tb-belief,
+body.is-premium .tb-strip,
+body.is-premium .tb-notes,
+body.is-premium .tb-trust,
+body.is-premium .tb-ctawrap {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+/* Heading sizes within legacy sections also lift on premium pages so the
+   editorial scale (Playfair 48-56px) carries through. */
+body.is-premium .tb-sectionhead__title,
+body.is-premium .tb-twocol__title,
+body.is-premium .tb-contact__title,
+body.is-premium .tb-faq__title,
+body.is-premium .tb-services__title {
+  font-family: "Playfair Display", var(--font-serif);
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+  color: var(--charcoal);
+  text-wrap: balance;
+}
+body.is-premium .tb-sectionhead__sub,
+body.is-premium .tb-twocol__body p,
+body.is-premium .tb-contact__sub,
+body.is-premium .tb-services__sub,
+body.is-premium .tb-prose__body p {
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--graphite);
+}
+body.is-premium .tb-numeral__title,
+body.is-premium .tb-step__title,
+body.is-premium .tb-economy__title,
+body.is-premium .tb-sector__title {
+  font-family: "Playfair Display", var(--font-serif);
+}
+
+/* Surface alternation between adjacent legacy sections — Bone / Paper. */
+body.is-premium main > section:nth-of-type(odd):not(.tb-pagehero):not(.tb-twocol--photobg):not(.tb-numerals--photobg):not(.tb-sectors):not(.tb-procedure):not(.premium-section--bone):not(.premium-section--paper):not(.premium-quote):not(.tb-ctawrap):not(.tb-interlude):not(.tb-founder):not(.tb-cta--dark):not(.tb-speaker):not(.tb-cta__inner--split):not(.on-dark) {
+  background: var(--paper);
+}
+body.is-premium main > section:nth-of-type(even):not(.tb-pagehero):not(.tb-twocol--photobg):not(.tb-numerals--photobg):not(.tb-sectors):not(.tb-procedure):not(.premium-section--bone):not(.premium-section--paper):not(.premium-quote):not(.tb-ctawrap):not(.tb-interlude):not(.tb-founder):not(.tb-cta--dark):not(.tb-speaker):not(.tb-cta__inner--split):not(.on-dark) {
+  background: var(--bone);
+}
+
+/* Dark sections keep their dark scrim under .is-premium too. */
+body.is-premium .tb-interlude {
+  background: #15140F !important;
+  color: var(--paper);
+}
+body.is-premium .tb-interlude__quote {
+  color: var(--paper);
+}
+body.is-premium .tb-interlude__quote em { color: var(--olive-light); }
+
+/* ---------- Combobox (typeahead) — used for Training organisation field ---------- */
+.tb-combo { position: relative; }
+.tb-combo__wrap { position: relative; }
+.tb-combo__caret {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--graphite);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  opacity: 0.55;
+}
+.tb-combo .tb-field__input { padding-right: 32px; }
+
+.tb-combo__list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  box-shadow:
+    0 1px 2px rgba(20, 20, 18, 0.04),
+    0 12px 28px rgba(20, 20, 18, 0.10);
+  max-height: 320px;
+  overflow-y: auto;
+  font-family: "Lato", system-ui, sans-serif;
+}
+.tb-combo__opt {
+  padding: 10px 14px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+.tb-combo__opt.is-active,
+.tb-combo__opt:hover {
+  background: var(--bone);
+  color: var(--charcoal);
+}
+.tb-combo__hint {
+  padding: 10px 14px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--slate);
+  font-style: italic;
+  border-top: 1px solid var(--hairline);
+  margin-top: 4px;
+}
+.tb-combo__hint kbd {
+  font-family: inherit;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: var(--canvas-warm);
+  color: var(--charcoal);
+  border: 1px solid var(--hairline);
+}
+
+/* Photo-background sections — soften scrim a touch to suit calmer paper feel. */
+body.is-premium .tb-twocol--photobg .tb-twocol__bg,
+body.is-premium .tb-numerals--photobg .tb-numerals__bg { opacity: 0.28; }
+
+/* ---------- Body prose: 65-75ch measure, 17/1.7 ---------- */
+body.is-premium .premium-prose {
+  max-width: 70ch;
+}
+body.is-premium .premium-prose > p {
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.75;
+  font-weight: 400;
+  color: var(--graphite);
+  margin: 0 0 1.4em;
+}
+body.is-premium .premium-prose > p:last-child { margin-bottom: 0; }
+body.is-premium .premium-prose > p strong {
+  color: var(--charcoal);
+  font-weight: 700;
+}
+body.is-premium .premium-prose > p em {
+  font-style: italic;
+  color: var(--olive-deep);
+}
+
+/* ---------- Section heading inside premium ---------- */
+body.is-premium .premium-h2 {
+  font-family: "Playfair Display", var(--font-serif);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: var(--charcoal);
+  margin: 0 0 32px;
+  text-wrap: balance;
+  max-width: 22ch;
+}
+body.is-premium .premium-h2 em {
+  font-style: italic;
+  color: var(--olive-deep);
+}
+
+/* Two-up: prose + meta column (or prose + image), with generous gutter. */
+body.is-premium .premium-twoup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 96px;
+  align-items: start;
+}
+body.is-premium .premium-twoup--narrow {
+  grid-template-columns: 5fr 7fr;
+  gap: 80px;
+}
+body.is-premium .premium-twoup__meta {
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive-deep);
+  border-top: 1px solid var(--olive-deep);
+  padding-top: 18px;
+}
+body.is-premium .premium-twoup__meta-num {
+  font-family: "Playfair Display", var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--olive);
+  display: block;
+  margin-top: 20px;
+}
+
+/* ---------- Pull quote (Deep Olive, Playfair italic) ---------- */
+body.is-premium .premium-quote {
+  padding: 76px 0;
+  background: var(--paper);
+}
+body.is-premium .premium-quote--bone { background: var(--bone); }
+body.is-premium .premium-quote--royal { background: var(--royal-deep); }
+body.is-premium .premium-quote--royal .premium-quote__mark { color: var(--olive-light); }
+body.is-premium .premium-quote--royal .premium-quote__text { color: var(--paper); }
+body.is-premium .premium-quote--royal .premium-quote__text em { color: var(--olive-light); }
+body.is-premium .premium-quote--royal .premium-quote__cite { color: rgba(250, 248, 242, 0.66); }
+body.is-premium .premium-quote__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  text-align: center;
+}
+body.is-premium .premium-quote__mark {
+  font-family: "Playfair Display", var(--font-serif);
+  font-size: 88px;
+  line-height: 0.6;
+  font-weight: 400;
+  color: var(--olive-light);
+  display: block;
+  margin-bottom: 8px;
+}
+body.is-premium .premium-quote__text {
+  font-family: "Playfair Display", var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  color: var(--olive-deep);
+  margin: 0 auto;
+  text-wrap: balance;
+  max-width: none;
+}
+body.is-premium .premium-quote__cite {
+  margin-top: 32px;
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+
+/* ---------- Real photographs in the editorial figure ----------
+   Apply .premium-figure--photo to swap the striped placeholder for a real
+   image, with a dark gradient scrim at the bottom so caption text stays
+   legible. Put an <img> tag as the first child of the figure. */
+body.is-premium .premium-figure--photo {
+  background: var(--charcoal);
+}
+body.is-premium .premium-figure--photo > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+body.is-premium .premium-figure--photo .premium-figure__brief {
+  background: linear-gradient(180deg,
+    rgba(20,20,18,0) 30%,
+    rgba(20,20,18,0.55) 80%,
+    rgba(20,20,18,0.82) 100%);
+}
+body.is-premium .premium-figure--photo .premium-figure__brief-label {
+  color: var(--olive-light);
+}
+body.is-premium .premium-figure--photo .premium-figure__brief-text {
+  color: var(--paper);
+}
+body.is-premium .premium-figure--photo .premium-figure__ratio {
+  color: var(--paper);
+  opacity: 0.55;
+}
+
+/* ---------- Editorial image placeholders ---------- */
+body.is-premium .premium-figure {
+  margin: 0;
+  background: var(--bone);
+  border: 1px solid var(--hairline);
+  position: relative;
+  overflow: hidden;
+}
+body.is-premium .premium-figure--16x9 { aspect-ratio: 16 / 9; }
+body.is-premium .premium-figure--4x5  { aspect-ratio: 4 / 5; }
+body.is-premium .premium-figure--1x1  { aspect-ratio: 1 / 1; }
+body.is-premium .premium-figure__brief {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px;
+  background:
+    linear-gradient(135deg, rgba(196,191,160,0.18) 0%, rgba(245,242,232,0) 60%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(150,146,101,0.05) 0,
+      rgba(150,146,101,0.05) 12px,
+      transparent 12px,
+      transparent 24px
+    );
+}
+body.is-premium .premium-figure__brief-label {
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--olive-deep);
+  margin-bottom: 10px;
+}
+body.is-premium .premium-figure__brief-text {
+  font-family: "Playfair Display", var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.35;
+  color: var(--charcoal);
+  margin: 0;
+  max-width: 36ch;
+}
+body.is-premium .premium-figure__ratio {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  opacity: 0.55;
+}
+body.is-premium .premium-figure-caption {
+  margin-top: 16px;
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--slate);
+  font-style: italic;
+  max-width: 56ch;
+}
+/* Photos never butt against text. */
+body.is-premium .premium-figure + .premium-prose,
+body.is-premium .premium-prose  + .premium-figure,
+body.is-premium .premium-figure + .premium-h2,
+body.is-premium .premium-h2     + .premium-figure {
+  margin-top: 48px;
+}
+
+/* Wide editorial figure inside a section, centred. */
+body.is-premium .premium-figure--wide {
+  margin: 0 auto;
+  max-width: 1080px;
+}
+/* Restrained editorial figure, smaller for inner-page leads */
+body.is-premium .premium-figure--restrained {
+  margin: 0 auto;
+  max-width: 1120px;
+  box-shadow: 0 28px 60px -32px rgba(56, 56, 56, 0.28);
+}
+/* Keep the caption aligned to the restrained figure's left edge. */
+body.is-premium .premium-figure--restrained + .premium-figure-caption {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* ---------- Section opener (used inside premium pages) ---------- */
+body.is-premium .premium-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--olive-deep);
+  margin-bottom: 28px;
+}
+body.is-premium .premium-eyebrow::before {
+  content: "";
+  width: 32px; height: 1px;
+  background: currentColor;
+}
+
+/* ---------- Reset legacy section padding inside premium ---------- */
+body.is-premium main > section { /* placeholder, kept for clarity */ }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 980px) {
+  body.is-premium .premium-section { padding: 56px 0; }
+  body.is-premium .premium-quote { padding: 48px 0; }
+  body.is-premium .tb-pagehero { padding: 96px 0 32px; }
+  body.is-premium .tb-pagehero__title { font-size: 44px; }
+  body.is-premium .premium-h2 { font-size: 34px; }
+  body.is-premium .premium-quote__text { font-size: 28px; line-height: 1.28; }
+  body.is-premium .premium-twoup,
+  body.is-premium .premium-twoup--narrow {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  body.is-premium .premium-prose > p { font-size: 17px; line-height: 1.7; }
+
+  /* Legacy sections drop to 64px on mobile. */
+  body.is-premium .tb-numerals,
+  body.is-premium .tb-numerals--photobg,
+  body.is-premium .tb-steps,
+  body.is-premium .tb-prose,
+  body.is-premium .tb-prose--withFig,
+  body.is-premium .tb-twocol,
+  body.is-premium .tb-twocol--photobg,
+  body.is-premium .tb-twocol--even,
+  body.is-premium .tb-services,
+  body.is-premium .tb-faq,
+  body.is-premium .tb-heritage,
+  body.is-premium .tb-offices,
+  body.is-premium .tb-record,
+  body.is-premium .tb-procedure,
+  body.is-premium .tb-beneficiaries,
+  body.is-premium .tb-dash,
+  body.is-premium .tb-sectors,
+  body.is-premium .tb-compare,
+  body.is-premium .tb-contact,
+  body.is-premium .tb-join,
+  body.is-premium .tb-belief,
+  body.is-premium .tb-strip,
+  body.is-premium .tb-notes,
+  body.is-premium .tb-trust,
+  body.is-premium .tb-ctawrap {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  body.is-premium .tb-sectionhead__title,
+  body.is-premium .tb-twocol__title,
+  body.is-premium .tb-contact__title,
+  body.is-premium .tb-faq__title,
+  body.is-premium .tb-services__title { font-size: 34px; }
+}
+
+@media (max-width: 600px) {
+  body.is-premium .tb-pagehero__title { font-size: 36px; }
+  body.is-premium .premium-h2 { font-size: 28px; }
+  body.is-premium .premium-quote__text { font-size: 24px; }
+  body.is-premium .premium-figure__brief { padding: 22px; }
+  body.is-premium .premium-figure__brief-text { font-size: 18px; }
+}

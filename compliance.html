@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>TPQA and Compliance Advisory, 2birds</title>
+
+<link rel="icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="apple-touch-icon" href="assets/favicon.png?v=6" />
+<link rel="stylesheet" href="css/foundations.css" />
+<link rel="stylesheet" href="css/site.css" />
+<link rel="stylesheet" href="css/i18n.css" />
+<link rel="stylesheet" href="css/premium.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="js/transition.js"></script>
+<script src="js/i18n.js"></script>
+</head>
+<body class="is-premium" data-screen-label="04 TPQA and Compliance">
+<div id="root"></div>
+
+<script type="text/babel" src="js/shared.jsx"></script>
+
+<script type="text/babel">
+
+
+const TPQA_STEPS = [
+  { n: "I",   t: "Self-Assessment Checklist",
+    body: "We work the SSG-issued checklist against your operating reality, page by page, and surface the gaps before SSG sees them.",
+    docs: [
+      { label: "TPQA Requirements Document", kind: "PDF",
+        href: "https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/acrobat-document.pdf?sfvrsn=8fab8552_3" },
+    ],
+  },
+  { n: "II",  t: "Application via TPGateway",
+    body: "Your Management Representative submits the application through TPGateway. We assemble and version-control the supporting documents in advance.",
+    docs: [
+      { label: "Document Submission List", kind: "PDF",
+        href: "https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/acrobat-document-2.pdf?sfvrsn=47889251_3" },
+      { label: "Required Information Template", kind: "DOCX",
+        href: "https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/tpqa-required-information_jul-24_v3.docx?sfvrsn=4fea5a96_3" },
+      { label: "Course Information Template", kind: "DOCX",
+        href: "https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/course-information-template_oct-23_v22b4d0027-0031-49df-92db-133bdb8e358d.docx?sfvrsn=511bf085_3" },
+    ],
+  },
+  { n: "III", t: "Onsite Assessment",
+    body: "A team of SSG assessors conducts a one-day onsite visit, interviews staff and clarifies the documents sighted. We rehearse this in the fortnight leading up to it.",
+    docs: [],
+  },
+  { n: "IV",  t: "Case Closure",
+    body: "The grade and the assessment report are returned through TPGateway. Where review is appropriate, we help draft the response within the SSG procedure.",
+    docs: [],
+  },
+];
+
+
+const APPROACH_PILLARS = [
+{ n: "I", t: "Advisory, not assumption",
+  body: "The training provider remains the regulated entity, and the duty of care to the learner remains the training provider's. We work alongside the in-house team, never in place of it." },
+{ n: "II", t: "Documentation, when manpower is short",
+  body: "Where the Management Representative and the in-house team are stretched, we draft, version-control and ready the documentation for submission, in the training provider's own voice and on the training provider's letterhead." },
+{ n: "III", t: "Corporate governance, strengthened",
+  body: "We advise on the governance structures that underwrite good training. The policy stack, the management review cycle, the trainer-records regime, the assessment integrity controls. A robust system pays for itself across cycles." },
+{ n: "IV", t: "Complimentary consultation",
+  body: "The first conversation is, and remains, free. We discuss industry best practices, the protocols in the latest SSG circulars, and the specific areas in which a training provider may fall short. There is no fee to ask, and no obligation to engage." }];
+
+const PILLAR_ICONS = [
+  (<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="8" r="3" /><path d="M3.5 19c0-3 2.5-5 5.5-5" /><path d="M14 13.5l2 2 4-4" /></svg>),
+  (<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 3h8l4 4v14H7z" /><path d="M15 3v4h4" /><path d="M10 12h6M10 16h6" /></svg>),
+  (<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l8 3v5.5c0 4.5-3.3 7.5-8 8.5-4.7-1-8-4-8-8.5V6z" /><path d="M9 11.5l2 2 4-4" /></svg>),
+  (<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 5h10v7H8l-4 3z" /><path d="M14 9h4a2 2 0 0 1 2 2v8l-3-2h-5a2 2 0 0 1-2-2" /></svg>)
+];
+
+
+const TPQA_CRITERIA = [
+  {
+    roman: "I",
+    code: "Criterion 1",
+    title: "Course Administration and Corporate Governance",
+    intro: "How the practice runs, and how the practice is governed.",
+    items: [
+      { id: "1.1", name: "Learner Communication and Management of Feedback, Requests, and Appeals", stars: 5,
+        benefit: "A documented appeals channel deflects most disputes before they escalate. The feedback loop becomes your earliest indicator of curriculum drift.",
+        practice: "A one-page learner charter, a feedback form linked from every course page, a shared inbox monitored within 24 hours, and a quarterly appeals log read at the management review. Where this is in place, you do not learn about a problem from an SSG complaint." },
+      { id: "1.2", name: "Pre-course and Post-course Advisory Service", stars: 5,
+        benefit: "The single biggest driver of completion rates and word-of-mouth referral. Pre-course advisory in particular reduces mismatched enrolment.",
+        practice: "An eligibility check is run at enquiry, a course-fit conversation is held before any deposit is taken, and a thirty-day post-course check-in is tied to the trainer's continuing development. Every conversation is logged. The same script handles both pre and post." },
+      { id: "1.3", name: "Administration Systems", stars: 5,
+        benefit: "Operational savings, fewer manual handoffs and cleaner audit trails. Pays back across each cycle rather than at one point.",
+        practice: "A single source of truth for enrolment, attendance and assessment, often an LMS integrated with finance, supported by a signed-off SOP for each routine task. The administrative team stops asking the same question twice." },
+      { id: "1.4", name: "Corporate Governance", stars: 5,
+        benefit: "The foundation on which every other system rests. A board that signs off on policy is a board that enterprise clients can trust to deliver.",
+        practice: "A board or governance committee meets quarterly, sees the dashboards, signs off on the policy stack, and records its decisions in writing. The bedrock of every other criterion in this assessment." },
+      { id: "1.5", name: "Management of Marketing Activities", stars: 5,
+        benefit: "Brand consistency and claim substantiation. Reduces the marginal cost of acquiring each learner and protects against misrepresentation complaints.",
+        practice: "A claim-substantiation file sits behind every public statement, brand-style sign-off is documented, and a Code of Advertising compliance log is maintained. Each campaign is auditable backwards from the funnel to the source data." },
+      { id: "1.6", name: "Processes for Tracking and Monitoring Organisational Outcomes", stars: 5,
+        benefit: "Data is the only honest answer to 'are we improving?'. The systems built here become the dashboard the leadership team actually reads.",
+        practice: "KPIs are defined per programme, reviewed monthly, and escalated when they breach. Measure, review and respond becomes routine rather than annual. The same dashboard goes to the board and to the operations meeting." }
+    ]
+  },
+  {
+    roman: "II", code: "Criterion 2",
+    title: "Course Quality Assurance",
+    intro: "How the courseware, the learners and the trainers are kept fit for purpose.",
+    items: [
+      { id: "2.1", name: "System on Course Quality Assurance", stars: 5,
+        benefit: "Your courseware, asset and approval pipeline. Where this is robust, every downstream check tends to take care of itself.",
+        practice: "A single QA specification, signed off by the curriculum lead, owns learning outcomes, assessment and trainer reference alignment. It is the artefact every trainer reads before delivering the course." },
+      { id: "2.2", name: "System to Screen / Profile Learners to Ensure Course is Fit for Purpose", stars: 5,
+        benefit: "Right learner, right course. Reduces refund requests, drop-outs and the reputational tail that follows mis-sold training.",
+        practice: "A short pre-enrolment questionnaire is mapped to the course objectives. Learners outside the profile are referred elsewhere with a written note. The drop-out rate falls and the testimonial rate rises." },
+      { id: "2.3", name: "System for Adult Educator (AE) Management", stars: 5,
+        benefit: "The trainer is the product. A defensible AE roster, properly credentialled and prepared, is the most visible signal of training quality there is.",
+        practice: "An onboarded register of trainers carries credentials, course matches, observation records and continuing professional development. It is renewed annually, audited at every TPQA, and prepared before every cohort." },
+      { id: "2.4", name: "Plan-Do-Check-Act (PDCA) System", stars: 5,
+        benefit: "Continuous improvement built into the operating rhythm, not bolted on at audit time. Compounds across cycles.",
+        practice: "Each cycle carries a plan reviewed quarterly, a do tracked in operations, a check at month-end, and an act recorded as a corrective action that is closed at the next review. The cycle is visible at every level of the practice." }
+    ]
+  },
+  {
+    roman: "III", code: "Criterion 3",
+    title: "Outcomes",
+    intro: "What the learner walks away with, and what the practice grows into.",
+    items: [
+      { id: "3.1", name: "Organisational Outcomes", stars: 5,
+        benefit: "Commercial sustainability. Without it, the training provider is a one-cycle organisation; with it, the practice scales and attracts repeat enterprise work.",
+        practice: "Revenue per learner, gross margin per course, enterprise repeat rate, and three-year retention of the AE roster. These are the metrics that determine whether the practice survives the next change in funding." },
+      { id: "3.2", name: "Training Outcomes", stars: 5,
+        benefit: "What the learner actually leaves with. The metric every other criterion serves, and the only one enterprise clients ever ask about.",
+        practice: "Completion rate, assessment pass rate, post-course application such as promotion or deployment, and TRAQOM score. Each is tracked at the course and cohort level, and reported back to the funder and the learner alike." }
+    ]
+  }
+];
+
+const TPQA_FLAT = TPQA_CRITERIA.flatMap(c => c.items);
+const TPQA_TOTAL = TPQA_FLAT.reduce((a, i) => a + i.stars, 0);
+
+function TPQAStars({ value, hover, onSet, onHover }) {
+  const interactive = !!onSet;
+  const display = hover != null ? hover : value;
+  return (
+    <span
+      className={"tb-dash__stars" + (interactive ? " tb-dash__stars--clickable" : "")}
+      onMouseLeave={() => onHover && onHover(null)}
+    >
+      {[1,2,3,4,5].map(k => {
+        const on = k <= display;
+        if (!interactive) {
+          return (
+            <svg key={k} viewBox="0 0 20 20" width="14" height="14" className={"tb-dash__star" + (on ? " is-on" : "")} aria-hidden="true">
+              <path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L1.5 7.8l5.9-.8L10 1.6z" />
+            </svg>
+          );
+        }
+        return (
+          <button
+            type="button" key={k}
+            onClick={(e) => { e.stopPropagation(); onSet(k === value ? 0 : k); }}
+            onMouseEnter={() => onHover && onHover(k)}
+            className={"tb-dash__starBtn" + (on ? " is-on" : "")}
+            aria-label={`Rate ${k} of 5`}
+          >
+            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+              <path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L1.5 7.8l5.9-.8L10 1.6z" />
+            </svg>
+          </button>
+        );
+      })}
+    </span>
+  );
+}
+
+function TPQADashboard() {
+  const [active, setActive] = React.useState(0);
+  const [mode, setMode] = React.useState("self"); // start with "Score your practice" for an interactive opening
+  const [selfScores, setSelfScores] = React.useState({});
+  const [hover, setHover] = React.useState({});
+  const [expanded, setExpanded] = React.useState({});
+
+  const criterion = TPQA_CRITERIA[active];
+  const totalSelf = TPQA_FLAT.reduce((a, i) => a + (selfScores[i.id] || 0), 0);
+  const ratedCount = Object.values(selfScores).filter(v => v > 0).length;
+  const pct = TPQA_TOTAL > 0 ? Math.round((totalSelf / TPQA_TOTAL) * 100) : 0;
+
+  const criterionAvg = (criterion.items.reduce((a, i) => a + i.stars, 0) / criterion.items.length);
+  const criterionSelfMax = criterion.items.reduce((a, i) => a + i.stars, 0);
+  const criterionSelf = criterion.items.reduce((a, i) => a + (selfScores[i.id] || 0), 0);
+
+  const toggleExpand = (id) => setExpanded(e => ({ ...e, [id]: !e[id] }));
+  const setScore = (id, n) => setSelfScores(s => ({ ...s, [id]: n }));
+  const setHov = (id, n) => setHover(h => ({ ...h, [id]: n }));
+
+  const verdict = pct >= 80 ? "An audit-ready posture. The work to keep it." :
+                  pct >= 60 ? "A strong baseline. Identify the lowest-rated areas and lift them." :
+                  pct >= 40 ? "A workable starting point. Several areas will pay back quickly." :
+                  pct > 0  ? "Material upside available across most criteria. Speak with us early." :
+                             "Score yourself by clicking the stars in each row.";
+
+  return (
+    <div className="tb-dash">
+      <div className="tb-dash__tabs" role="tablist">
+        {TPQA_CRITERIA.map((c, i) => {
+          const cAvg = Math.round(c.items.reduce((a, x) => a + x.stars, 0) / c.items.length);
+          const cSelf = c.items.reduce((a, x) => a + (selfScores[x.id] || 0), 0);
+          const cMax = c.items.reduce((a, x) => a + x.stars, 0);
+          return (
+            <button
+              key={i}
+              role="tab"
+              aria-selected={active === i}
+              className={"tb-dash__tab" + (active === i ? " is-active" : "")}
+              onClick={() => setActive(i)}
+            >
+              <span className="tb-dash__tabRoman">{c.roman}</span>
+              <span className="tb-dash__tabBody">
+                <span className="tb-dash__tabCode">{c.code}</span>
+                <span className="tb-dash__tabName">{c.title}</span>
+              </span>
+              <span className="tb-dash__tabMeta">
+                <span>{c.items.length} items</span>
+                <span className="tb-dash__tabAvg">
+                  {mode === "self" ? `${cSelf} / ${cMax}` : <TPQAStars value={cAvg} />}
+                </span>
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="tb-dash__modeBar">
+        <div className="tb-dash__modeLabel">View</div>
+        <div className="tb-dash__modeSwitch" role="tablist">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={mode === "self"}
+            className={"tb-dash__modeBtn" + (mode === "self" ? " is-active" : "")}
+            onClick={() => setMode("self")}
+          >Score your practice</button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={mode === "benefits"}
+            className={"tb-dash__modeBtn" + (mode === "benefits" ? " is-active" : "")}
+            onClick={() => setMode("benefits")}
+          >Market best practices</button>
+        </div>
+        <div className="tb-dash__modeHint">
+          {mode === "self"
+            ? `Click the stars to rate where your practice is today. ${ratedCount} of 12 rated.`
+            : "Click any row to read what \"done well\" looks like in practice."}
+        </div>
+      </div>
+
+      <div className="tb-dash__panel" role="tabpanel">
+        <header className="tb-dash__panelHead">
+          <div>
+            <span className="tb-dash__panelKey">{criterion.code}</span>
+            <h3 className="tb-dash__panelTitle">{criterion.title}</h3>
+            <p className="tb-dash__panelIntro">{criterion.intro}</p>
+          </div>
+          {mode === "benefits" ? (
+            <div className="tb-dash__panelAvg">
+              <span className="tb-dash__panelAvgLabel">Average benefit</span>
+              <span className="tb-dash__panelAvgValue">
+                <TPQAStars value={Math.round(criterionAvg)} />
+                <span className="tb-dash__panelAvgNum">{criterionAvg.toFixed(1)}<span> / 5</span></span>
+              </span>
+            </div>
+          ) : (
+            <div className="tb-dash__panelAvg">
+              <span className="tb-dash__panelAvgLabel">In this criterion</span>
+              <span className="tb-dash__panelAvgValue">
+                <span className="tb-dash__panelAvgNum">{criterionSelf}<span> / {criterionSelfMax}</span></span>
+              </span>
+            </div>
+          )}
+        </header>
+
+        <ul className="tb-dash__rows">
+          <li className="tb-dash__rowHeader" aria-hidden="true">
+            <div className="tb-dash__rowMain">
+              <div className="tb-dash__colHead">Item</div>
+              <div className="tb-dash__colHead">Criterion</div>
+              <div className="tb-dash__colHead">{mode === "self" ? "Your rating" : "Standard"}</div>
+              <div className="tb-dash__colHead">Benefit to the practice</div>
+            </div>
+          </li>
+          {criterion.items.map((item, i) => {
+            const isExpanded = !!expanded[item.id];
+            const selfV = selfScores[item.id] || 0;
+            const hoverV = hover[item.id];
+            return (
+              <li
+                key={i}
+                className={"tb-dash__row" + (isExpanded ? " is-expanded" : "")}
+              >
+                <div className="tb-dash__rowMain" onClick={() => mode === "benefits" && toggleExpand(item.id)}>
+                  <div className="tb-dash__rowNum">{item.id}</div>
+                  <div className="tb-dash__rowName">
+                    {item.name}
+                    {mode === "benefits" && (
+                      <svg className={"tb-dash__caret" + (isExpanded ? " is-open" : "")} viewBox="0 0 12 12" width="11" height="11" aria-hidden="true">
+                        <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M3 4.5l3 3 3-3" />
+                      </svg>
+                    )}
+                  </div>
+                  <div className="tb-dash__rowStars">
+                    {mode === "self" ? (
+                      <TPQAStars value={selfV} hover={hoverV} onSet={(n) => setScore(item.id, n)} onHover={(n) => setHov(item.id, n)} />
+                    ) : (
+                      <TPQAStars value={item.stars} />
+                    )}
+                  </div>
+                  <p className="tb-dash__rowBenefit">{item.benefit}</p>
+                </div>
+                {mode === "benefits" && isExpanded && (
+                  <div className="tb-dash__rowExtra">
+                    <span className="tb-dash__rowExtraLabel">When done well</span>
+                    <p>{item.practice}</p>
+                  </div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+
+        {mode === "self" ? (
+          <div className="tb-dash__tally">
+            <div className="tb-dash__tallyHead">
+              <span className="tb-dash__tallyLabel">Where you are today</span>
+              <span className="tb-dash__tallyNum">{totalSelf}<span> / {TPQA_TOTAL}</span></span>
+              <span className="tb-dash__tallyPct">{pct}%</span>
+            </div>
+            <div className="tb-dash__tallyBar" aria-hidden="true">
+              <div className="tb-dash__tallyFill" style={{ width: pct + "%" }}></div>
+            </div>
+            <div className="tb-dash__tallyFoot">
+              <p className="tb-dash__tallyVerdict">{verdict}</p>
+              {ratedCount > 0 && (
+                <button
+                  type="button"
+                  className="tb-dash__resetBtn"
+                  onClick={() => { setSelfScores({}); setExpanded({}); setHover({}); }}
+                >Reset scores</button>
+              )}
+            </div>
+          </div>
+        ) : (
+          <p className="tb-dash__legend">
+            Every item in the framework is a market best practice. A training provider that operates each at the standard SSG describes earns the full five stars. Click any row to see what that standard looks like in operation.
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+const GRADES = [
+{
+  grade: "I",
+  verdict: <>Grade <em>1</em> · the strong outcome</>,
+  body: "The training provider retains full eligibility for SSG funding under both Tier 1 and Tier 2 of the revised funding framework. This is the grade we work towards.",
+  tone: "good", status: "Full funding retained"
+},
+{
+  grade: "II",
+  verdict: <>Grade <em>2</em> · the conditional outcome</>,
+  body: "The training provider retains eligibility for Tier 1 SSG funding only. Tier 2 funding is unavailable until reassessment. For PWM training providers, transitional provisions apply until 31 December 2026.",
+  tone: "warn", status: "Tier 1 funding only"
+},
+{
+  grade: "III",
+  verdict: <>Grade <em>3</em> · the terminal outcome</>,
+  body: "Failure to undergo TPQA when requested, failure to submit by the stipulated deadline, or failure to obtain the minimum quality grade leads to termination of Registered Training Provider status, of SSG funding, and of eligibility for SkillsFuture Credit. A terminated training provider may only reapply after twelve months.",
+  tone: "terminal", status: "Status terminated"
+}];
+
+
+const CQC_AREAS = [
+{ dt: <>Alignment of courseware</>, dd: "with the approved learning outcomes and Technical Skills and Competencies on the course application." },
+{ dt: <>Principles of Assessment <em>(POA)</em></>, dd: "and the Rules of Evidence (ROE), applied to the actual assessment instruments in use, not the ones submitted at approval." },
+{ dt: <>Relevance of instruction</>, dd: "courseware, instructional methods and learning materials measured against the course objectives and outline currently in market." }];
+
+
+function App() {
+  return (
+    <>
+      <NavBar current="compliance" />
+      <main>
+
+        <PageHero
+          location="Practice · III"
+          eyebrow="TPQA and Compliance Advisory"
+          title={<>Audit, <em>quietly</em> rehearsed.</>}
+          lede="TPQA is the holistic quality-assurance assessment that decides whether an SSG-funded training provider keeps its funding. We prepare the practice for it, and for the Course Quality Check that now sits alongside it." />
+        {/* WIDE EDITORIAL FIGURE, premium recompose */}
+        <section className="premium-section premium-section--paper tb-reveal" style={{ paddingTop: 0, paddingBottom: 96 }}>
+          <div className="container">
+            <figure className="premium-figure premium-figure--16x9 premium-figure--restrained premium-figure--photo">
+              <img src="assets/compliance-folders.jpg" alt="A close-up of an open binder on a desk, papers neatly stacked beside, the working evidence of an audit, quietly kept." />
+              <span className="premium-figure__ratio">16 : 9</span>
+              <div className="premium-figure__brief">
+                <span className="premium-figure__brief-label">A working metaphor</span>
+                <p className="premium-figure__brief-text">
+                  Audit-readiness is what a quiet desk looks like, the documents in order, the work behind them already done. Rehearsal, not anxiety.
+                </p>
+              </div>
+            </figure>
+            <p className="premium-figure-caption">
+              The shape of audit-readiness · binder, papers, the operating reality of the practice.
+            </p>
+          </div>
+        </section>
+
+        
+        {/* ---------- WHAT TPQA IS ---------- */}
+        <section className="tb-twocol tb-twocol--photobg tb-reveal" style={{ opacity: "50" }}>
+          <div className="tb-twocol__bg" aria-hidden="true"></div>
+          <div className="container tb-twocol__grid">
+            <div className="tb-twocol__head">
+              <EyebrowLockup>§ I · What TPQA is</EyebrowLockup>
+              <h2 className="tb-twocol__title">
+                A holistic quality assessment, not a paper exercise.
+              </h2>
+            </div>
+            <div className="tb-twocol__body">
+              <p>
+                The Training Provider Quality Assessment is SSG's expansion of the
+                earlier Post-Approval Quality Check. It assesses whether a Registered
+                Training Provider has adopted a <em>systematic</em> approach to good
+                training methods and industry-relevant courses, supported by good
+                administration and corporate governance, and whether those processes
+                are reflected in real outcomes for learners and enterprises.
+              </p>
+              <p>
+                In practice, this means SSG looks at your documented procedures and your
+                implementation evidence side by side. Where the two diverge, the
+                assessment lands in the wrong place.
+              </p>
+              <p>
+                A training provider scheduled for TPQA is given roughly two months to
+                prepare its documents. SSG arranges a one-day onsite assessment about a
+                month after the documents are submitted. We use those windows.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        
+        {/* PULL QUOTE, Deep Olive */}
+        <section className="premium-quote premium-quote--bone tb-reveal">
+          <div className="premium-quote__inner">
+            <span className="premium-quote__mark" aria-hidden="true">“</span>
+            <p className="premium-quote__text">
+              An audit does not measure how good your intentions were. It asks whether, on an ordinary Tuesday, your records say what you say they do.
+            </p>
+            <div className="premium-quote__cite">From the practice · Audit</div>
+          </div>
+        </section>
+
+        {/* ---------- OUR APPROACH ---------- */}
+        <section className="tb-twocol tb-reveal">
+          <div className="container tb-twocol__grid">
+            <div className="tb-twocol__head">
+              <EyebrowLockup>§ II · Our approach</EyebrowLockup>
+              <h2 className="tb-twocol__title">
+                Not a transfer of <em>responsibility.</em>
+              </h2>
+            </div>
+            <div className="tb-twocol__body">
+              <p>
+                Engaging 2birds is not a way to outsource regulatory accountability.
+                Under the SSG framework, the obligation to deliver quality training
+                rests, at all times, with the Registered Training Provider. Our work is
+                advisory, and is intended to leave the training provider <em>better
+                governed</em> than we found it.
+              </p>
+              <p>
+                In practice, that work falls into four pillars, set out in the order
+                in which a training provider will typically encounter them.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- FOUR PILLARS ---------- */}
+        <section className="tb-numerals tb-numerals--photobg tb-pillars tb-reveal">
+          <div className="tb-numerals__bg" aria-hidden="true"></div>
+          <div className="container">
+            <SectionHead
+              eyebrow="§ II · ii · The four pillars"
+              title={<>The shape of the <em>assistance</em> we render.</>} />
+            
+            <div className="tb-numerals__grid is-4">
+              {APPROACH_PILLARS.map((p, i) =>
+              <article key={i} className="tb-numeral">
+                  <div className="tb-pillars__top">
+                    <span className="tb-pillars__icon" aria-hidden="true">{PILLAR_ICONS[i]}</span>
+                    <span className="tb-numeral__roman">{p.n}</span>
+                  </div>
+                  <h3 className="tb-numeral__title">{p.t}</h3>
+                  <p className="tb-numeral__body">{p.body}</p>
+                </article>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- TRACK RECORD ---------- */}
+        <section className="tb-record tb-record--dark tb-reveal">
+          <div className="container">
+            <div className="tb-record__inner">
+              <div className="tb-record__head">
+                <EyebrowLockup>Track record</EyebrowLockup>
+                <h3 className="tb-record__title">Two training providers, two Grade 1 outcomes.</h3>
+                <p className="tb-record__sub">
+                  We have walked alongside the senior teams at both <em>Adept
+                  Academy</em> and <em>QD Academy</em> through their respective
+                  TPQA cycles. In each case the grade returned was Grade 1. The
+                  outcome rests with the training providers themselves; the
+                  structure that supported the outcome is one we are glad to have
+                  helped build.
+                </p>
+                <p className="tb-record__sub">
+                  We <em>congratulate</em> the senior teams at both academies on
+                  their Grade 1 outcomes, and wish them continued success in
+                  their operations, in the standing they have earned with their
+                  learners, and in the engagements that will follow from it.
+                </p>
+              </div>
+              <ul className="tb-record__list">
+                <li className="tb-record__item">
+                  <a className="tb-record__link"
+                     href="https://adeptacademy.com/"
+                     target="_blank" rel="noopener"
+                     aria-label="Visit Adept Academy">
+                    <span className="tb-record__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 3.5l9 4-9 4-9-4 9-4z" />
+                        <path d="M5.5 9v4.4c0 1.6 2.9 3.1 6.5 3.1s6.5-1.5 6.5-3.1V9" />
+                        <path d="M21 7.5v6" />
+                      </svg>
+                    </span>
+                    <div className="tb-record__body">
+                      <div className="tb-record__name">Adept Academy</div>
+                      <div className="tb-record__meta">TPQA · Grade 1 outcome</div>
+                    </div>
+                    <svg className="tb-record__arrow" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                      <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M6.5 3.5h-3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-3M9.5 2.5h4v4M13.5 2.5l-6 6"/>
+                    </svg>
+                  </a>
+                </li>
+                <li className="tb-record__item">
+                  <a className="tb-record__link"
+                     href="https://theqdacademy.com/"
+                     target="_blank" rel="noopener"
+                     aria-label="Visit QD Academy">
+                    <span className="tb-record__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M4 19V8l8-4 8 4v11" />
+                        <path d="M4 19h16" />
+                        <path d="M9 19v-5h6v5" />
+                        <path d="M8 11h2M14 11h2" />
+                      </svg>
+                    </span>
+                    <div className="tb-record__body">
+                      <div className="tb-record__name">QD Academy</div>
+                      <div className="tb-record__meta">TPQA · Grade 1 outcome</div>
+                    </div>
+                    <svg className="tb-record__arrow" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                      <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M6.5 3.5h-3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-3M9.5 2.5h4v4M13.5 2.5l-6 6"/>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- TPQA PROCESS ---------- */}
+        <section className="tb-procedure tb-reveal">
+          <div className="container">
+            <SectionHead
+              eyebrow="§ III · The procedure"
+              title={<>The TPQA <em>procedure</em>, in four movements.</>}
+              sub="The procedure is fixed by SSG. Where 2birds adds value is in the rehearsal, preparing your team, your documents and your operating reality for the day SSG arrives. The working papers SSG publishes are linked alongside the step at which they apply."
+            />
+            <ol className="tb-procedure__list">
+              {TPQA_STEPS.map((s, i) => (
+                <li key={i} className="tb-procedure__item">
+                  <div className="tb-procedure__rail" aria-hidden="true">
+                    <div className="tb-procedure__numWrap">
+                      <span className="tb-procedure__num">{s.n}</span>
+                    </div>
+                  </div>
+                  <div className="tb-procedure__body">
+                    <header className="tb-procedure__head">
+                      <span className="tb-procedure__step">{`Step ${s.n}`}</span>
+                      <h3 className="tb-procedure__title">{s.t}</h3>
+                    </header>
+                    <p className="tb-procedure__copy">{s.body}</p>
+                    {s.docs.length > 0 && (
+                      <div className="tb-procedure__docs">
+                        <span className="tb-procedure__docsLabel">Working papers</span>
+                        <ul className="tb-procedure__docsList">
+                          {s.docs.map((d, j) => (
+                            <li key={j}>
+                              <a className="tb-doc" href={d.href} target="_blank" rel="noopener">
+                                <span className="tb-doc__kind">{d.kind}</span>
+                                <span className="tb-doc__label">{d.label}</span>
+                                <svg className="tb-doc__arrow" viewBox="0 0 16 16" width="11" height="11" aria-hidden="true">
+                                  <path fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M6.5 3.5h-3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-3M9.5 2.5h4v4M13.5 2.5l-6 6"/>
+                                </svg>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* ---------- THE GRADES ---------- */}
+        <section className="tb-twocol tb-reveal">
+          <div className="container tb-twocol__grid">
+            <div className="tb-twocol__head">
+              <EyebrowLockup>§ IV · Consequence of grade</EyebrowLockup>
+              <h2 className="tb-twocol__title">
+                Three grades. Three <em>outcomes.</em>
+              </h2>
+              <p style={{ marginTop: 28, fontFamily: '"Lato", system-ui, sans-serif', fontSize: 17, lineHeight: 1.7, color: 'var(--graphite)', maxWidth: '38ch' }}>
+                Under SSG Circular RD/2023/1, in force from 22 November 2023, the assessment
+                produces one of three grades. Each grade carries a different consequence
+                for the training provider's funding eligibility.
+              </p>
+            </div>
+            <div className="tb-twocol__body">
+              <p>
+                Under SSG Circular RD/2023/1, in force from 22 November 2023, failure to
+                undergo the assessment when called, failure to submit documentation by
+                the stipulated timeline, or failure to obtain the minimum quality grade
+                each lead to the same outcome, termination of training-provider status
+                and of SSG funding. The grades themselves break out as follows.
+              </p>
+              <div className="tb-grades">
+                {GRADES.map((g, i) =>
+                <div key={i} className={"tb-grades__row tone-" + g.tone}>
+                    <div className="tb-grades__num">{g.grade}</div>
+                    <div className="tb-grades__main">
+                      <div className="tb-grades__top">
+                        <h3 className="tb-grades__verdict">{g.verdict}</h3>
+                        <span className="tb-grades__status">{g.status}</span>
+                      </div>
+                      <p className="tb-grades__body">{g.body}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- REGULATORY CITATION + EDITORIAL FIGURE ---------- */}
+        <section className="premium-section premium-section--bone tb-reveal">
+          <div className="container">
+            <div className="premium-twoup premium-twoup--narrow" style={{ alignItems: 'start', gap: 96 }}>
+              <div>
+                <span className="premium-eyebrow">§ IV · ii · Regulatory citation</span>
+                <h2 className="premium-h2">The three grounds on which SSG <em>may terminate.</em></h2>
+                <div className="premium-prose">
+                  <p>
+                    Under the TPGateway notice on <em>Termination and Debarment of
+                    Training Providers</em>, SSG may exercise its rights under the
+                    SkillsFuture Singapore Agency Terms for Training Providers to
+                    terminate the Contract of any training provider that fails to:
+                  </p>
+                  <ol style={{ paddingLeft: 24, margin: '0 0 1.4em', listStyleType: '"\u2014  "', fontFamily: '"Lato", system-ui, sans-serif', fontSize: 18, lineHeight: 1.75, color: 'var(--graphite)' }}>
+                    <li style={{ marginBottom: 12 }}>
+                      duly <em style={{ fontStyle: 'italic', color: 'var(--olive-deep)' }}>undergo TPQA</em> when requested by SSG;
+                    </li>
+                    <li style={{ marginBottom: 12 }}>
+                      duly <em style={{ fontStyle: 'italic', color: 'var(--olive-deep)' }}>submit to SSG</em> such documents or information as SSG may request for the purpose of SSG's conduct of TPQA; or
+                    </li>
+                    <li>
+                      obtain <em style={{ fontStyle: 'italic', color: 'var(--olive-deep)' }}>at least a Grade 2</em> for a TPQA.
+                    </li>
+                  </ol>
+                  <p style={{ fontSize: 15, color: 'var(--slate)' }}>
+                    A training provider whose Contract with SSG is terminated may
+                    reapply to enter into a Contract with SSG only after twelve (12)
+                    months. The list of terminated providers is published on the
+                    Training Partners Gateway.{" "}
+                    <a className="t-link-sm"
+                      href="https://www.tpgateway.gov.sg/plan-courses/training-provider-quality-assessment-(tpqa)/termination-and-debarment"
+                      target="_blank" rel="noopener">
+                      Read the SSG notice
+                    </a>.
+                  </p>
+                </div>
+              </div>
+              <figure className="premium-figure premium-figure--4x5 premium-figure--photo" style={{ margin: 0, width: '100%', maxWidth: 'none', justifySelf: 'stretch' }}>
+                <img src="assets/compliance-spiral.jpg" alt="A spiral staircase seen from below, a building's quiet geometry, the order beneath a regulated practice." />
+                <div className="premium-figure__brief">
+                  <span className="premium-figure__brief-label">The record</span>
+                  <p className="premium-figure__brief-text">
+                    The grounds for termination are few and named. A practice that keeps its order across the cycle answers each of them before it is asked.
+                  </p>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- THE BENEFITS DASHBOARD ---------- */}
+        <section className="tb-prose tb-reveal">
+          <div className="container">
+            <div style={{ maxWidth: 1180, marginBottom: 56 }}>
+              <SectionHead
+                eyebrow="§ V · The other side of the assessment"
+                title={<>TPQA is not an administrative burden. Each criterion is also a <em>return on investment.</em></>}
+                sub="SSG measures the practice across three criteria and twelve items. Each item, done well, returns something measurable to the business, whether in learner retention, governance posture or enterprise standing. The interactive dashboard below ranks the indirect benefit of each, from one star to five."
+              />
+            </div>
+            <TPQADashboard />
+            <p className="tb-prose__footnote">
+              Read in this light, the assessment looks less like an annual cost
+              and more like a five-year inheritance. The training providers we
+              advise tend to come back to us not because the next TPQA looms but
+              because the year between assessments is the year in which a
+              practice is, or is not, quietly tightened.
+            </p>
+          </div>
+        </section>
+
+        {/* ---------- KEITH SPEAKER CALLOUT ---------- */}
+        <section className="tb-speaker tb-reveal">
+          <div className="tb-speaker__bar" aria-hidden="true" />
+          <div className="tb-speaker__atmos" aria-hidden="true" />
+          <div className="container tb-speaker__inner">
+            <div>
+              <EyebrowLockup dark>From the practice</EyebrowLockup>
+              <h2 className="tb-speaker__title">
+                Keith was a <em>speaker</em> at the 2025 TPQA Engagement.
+              </h2>
+              <p className="tb-speaker__body">
+                In November 2025, SSG held the annual TPQA outreach with
+                training providers from across the sector. Keith was invited
+                to speak on best practices in courseware development and
+                pre-audit preparation.
+              </p>
+              <p className="tb-speaker__body">
+                Our belief is that the sharing of knowledge in our field should
+                remain <em>free</em>. The deck SSG distributed at the engagement is
+                available below; write to us if you would like to talk through how
+                the practices in it might apply to your training organisation.
+              </p>
+              <div className="tb-hero__actions" style={{ marginTop: 28 }}>
+                <a className="btn btn-on-dark"
+                href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/tpqa-outreach-deck-(november-2025).pdf?sfvrsn=5a0b3b9f_3"
+                target="_blank" rel="noopener">
+                  Read the SSG deck
+                </a>
+                <a className="btn btn-ghost-on-dark" href="contact.html">
+                  Discuss best practices
+                </a>
+              </div>
+            </div>
+
+            <aside className="tb-eventcard">
+              <span className="tb-eventcard__eb">Speaking engagement</span>
+              <h3 className="tb-eventcard__name">
+                TPQA Outreach <em>2025</em> · Best practices in courseware development
+              </h3>
+              <ul className="tb-eventcard__meta">
+                <li><span>Convenor</span><span>SkillsFuture Singapore (SSG)</span></li>
+                <li><span>Date</span><span>November 2025</span></li>
+                <li><span>Speaker</span><span>Keith Ho Zheng Yu</span></li>
+                <li><span>Audience</span><span>Registered Training Providers</span></li>
+                <li><span>Document</span><span>TPQA Outreach Deck (PDF)</span></li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+
+        {/* ---------- CQC ---------- */}
+        <section className="premium-section premium-section--paper tb-reveal tb-cqc" style={{ paddingBottom: 0 }}>
+          <div className="container">
+            <div className="tb-twocol__grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }}>
+              <div className="tb-twocol__head">
+                <EyebrowLockup>§ VI · Course Quality Check (CQC)</EyebrowLockup>
+                <h2 className="tb-twocol__title">
+                  The check that <em>sits alongside</em> TPQA.
+                </h2>
+                <p style={{ marginTop: 28, fontFamily: '"Lato", system-ui, sans-serif', fontSize: 17, lineHeight: 1.7, color: 'var(--graphite)', maxWidth: '38ch' }}>
+                  Where TPQA looks at the training provider in the round, CQC looks at the
+                  courseware itself, as it is actually used in delivery.
+                </p>
+              </div>
+              <div className="tb-twocol__body">
+                <p>
+                  CQC was introduced in SSG Circular QMD/2024/7 and rolled out in phases
+                  from January 2025. Where TPQA looks at the training provider in the
+                  round, CQC looks at the courseware itself, the Learner Guide, the
+                  Trainer Guide, the Lesson Plan and the Assessment Plan as they are
+                  actually used in delivery.
+                </p>
+                <p>
+                  CQC is typically a document review rather than a site visit. SSG places
+                  greater emphasis on newly approved courses, courses with high enrolment,
+                  and courses with weaker TRAQOM performance, and considers whether a
+                  training provider has recently undergone TPQA when selecting for the
+                  check.
+                </p>
+                <p>
+                  <strong>The impact.</strong> CQC findings can lead to remedial action
+                  and, in serious cases, the withdrawal of funded-course status. Because
+                  CQC looks at materials <em>currently in use</em>, frequent review of
+                  courseware is no longer optional. We aid training providers in keeping
+                  their courseware abreast of current market conditions, the latest
+                  Skills Framework iteration and the prevailing assessment standards.
+                </p>
+              </div>
+            </div>
+
+            <div className="tb-cqcareas">
+              <span className="tb-cqcareas__label">What CQC examines</span>
+              <div className="tb-cqcareas__grid">
+                {CQC_AREAS.map((r, i) =>
+                <div key={i} className="tb-cqcareas__card">
+                    <span className="tb-cqcareas__num">{String(i + 1).padStart(2, "0")}</span>
+                    <h4 className="tb-cqcareas__term">{r.dt}</h4>
+                    <p className="tb-cqcareas__def">{r.dd}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- CQC · HOW WE ASSIST (merged into the CQC section above) ---------- */}
+        <section className="premium-section premium-section--paper tb-reveal" style={{ paddingTop: 0 }}>
+          <div className="container">
+            <div className="premium-twoup premium-twoup--narrow" style={{ alignItems: 'start', gap: 96, marginTop: 8, paddingTop: 64, borderTop: '1px solid var(--hairline)' }}>
+              <figure className="premium-figure premium-figure--4x5 premium-figure--photo" style={{ margin: 0, width: '100%', maxWidth: 'none', justifySelf: 'stretch' }}>
+                <img src="assets/cqc-birds-lamp.jpg" alt="Two birds resting on a single street lamp against an open sky, the practice's namesake, quietly held." />
+                <div className="premium-figure__brief">
+                  <span className="premium-figure__brief-label">A working principle</span>
+                  <p className="premium-figure__brief-text">
+                    Audit-ready courseware is courseware kept in current form between cycles, not retrieved from the drawer when notice arrives.
+                  </p>
+                </div>
+              </figure>
+              <div>
+                <span className="premium-eyebrow">§ VI · ii · How we assist</span>
+                <h2 className="premium-h2">Keeping the courseware <em>currently in use</em> audit-ready.</h2>
+                <div className="premium-prose">
+                  <p>
+                    Because CQC reviews the materials a training provider is actually
+                    delivering, the work cannot wait until a notification from SSG
+                    arrives. Our practice supports training providers across the CQC
+                    lifecycle, on the following lines.
+                  </p>
+                  <ol style={{ paddingLeft: 24, margin: '0 0 1.4em', fontFamily: '"Lato", system-ui, sans-serif', fontSize: 17, lineHeight: 1.7, color: 'var(--graphite)' }}>
+                    <li style={{ marginBottom: 12 }}>
+                      <em style={{ fontStyle: 'italic', color: 'var(--olive-deep)' }}>Pre-notification readiness review</em>, in which we benchmark the Learner Guide, Trainer Guide, Lesson Plan and Assessment Plan against the approved Course Application, the latest Skills Framework iteration and the prevailing Principles of Assessment.
+                    </li>
+                    <li style={{ marginBottom: 12 }}>
+                      <em style={{ fontStyle: 'italic', color: 'var(--olive-deep)' }}>Courseware refresh and version control</em>, where the documents in delivery have drifted from the documents at approval. We rewrite, re-align and version-stamp the materials so that what is taught matches what was approved.
+                    </li>
+                    <li style={{ marginBottom: 12 }}>
+                      <em style={{ fontStyle: 'italic', color: 'var(--olive-deep)' }}>Assessment instrument audit</em>, applying the Rules of Evidence to actual question banks, rubrics and learner submissions, with corrective recommendations tied to each finding.
+                    </li>
+                    <li style={{ marginBottom: 12 }}>
+                      <em style={{ fontStyle: 'italic', color: 'var(--olive-deep)' }}>Submission preparation</em>, assembling the document pack SSG requests on notification, in the order and format SSG expects, with a covering note explaining the materials and the version history.
+                    </li>
+                    <li>
+                      <em style={{ fontStyle: 'italic', color: 'var(--olive-deep)' }}>Improvement plan drafting</em>, where SSG returns findings, we prepare the response and the timeline that addresses each item, within the procedure set out in the SSG Terms for Training Providers.
+                    </li>
+                  </ol>
+                  <p style={{ fontSize: 15, color: 'var(--slate)' }}>
+                    CQC is not a one-off exercise. The training providers we support keep their courseware under quarterly review, so that when an SSG notification does arrive, the materials are already where they need to be.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+      <Footer />
+    </>);
+
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

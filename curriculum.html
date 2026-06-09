@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Curriculum Development, 2birds</title>
+
+<link rel="icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="apple-touch-icon" href="assets/favicon.png?v=6" />
+<link rel="stylesheet" href="css/foundations.css" />
+<link rel="stylesheet" href="css/site.css" />
+<link rel="stylesheet" href="css/i18n.css" />
+<link rel="stylesheet" href="css/premium.css" />
+<link rel="stylesheet" href="css/casl.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="js/transition.js"></script>
+<script src="js/i18n.js"></script>
+</head>
+<body class="is-premium" data-screen-label="02 Curriculum Development">
+<div id="root"></div>
+
+<script src="js/casl-list.js"></script>
+<script type="text/babel" src="js/shared.jsx"></script>
+<script type="text/babel" src="js/casl-dashboard.jsx"></script>
+
+<script type="text/babel">
+const COURSE_TYPES = [
+  {
+    roman: "I",
+    eyebrow: "Workforce Skills",
+    title: "WSQ courses",
+    desc: "Programmes accredited under the Workforce Skills Qualifications framework, examinable, competency-mapped to the Skills Framework, and supported at the higher SSG funding tier where eligible.",
+    list: [
+      "Competency map drawn to the Skills Framework",
+      "Lesson and Assessment Plans (CP Form)",
+      "Trainer Guide and marking schemes",
+      "Powerpoint slides and Learner Guide",
+    ],
+  },
+  {
+    roman: "II",
+    eyebrow: "Non-WSQ · Certifiable",
+    title: "Non-WSQ certifiable courses",
+    desc: "Examinable courses leading either to a post-secondary qualification (below degree) or recognised under a Singapore Government agency's regulatory or professional development framework for the sector.",
+    list: [
+      "Course Proposal (CP) Form drafted on your behalf",
+      "Documentary proof prepared with the engagement",
+      "AE Qualifications check against SSG requirements",
+      "Submission guide for TPGateway",
+    ],
+  },
+  {
+    roman: "III",
+    eyebrow: "Non-WSQ · Non-Certifiable",
+    title: "Broad-based skills courses",
+    desc: "Short, employment-relevant programmes that sit outside the WSQ framework but address an identified industry skills need, for company-sponsored or self-sponsored learners.",
+    list: [
+      "Course outline with breakdown of hours",
+      "Mode of delivery and assessment write-up",
+      "Industry relevance and demand statement",
+      "OJT plan where applicable",
+    ],
+  },
+];
+
+const STEPS = [
+  { n: "Step I", t: "Discovery and competency map",
+    icon: (
+      <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="14" cy="14" r="8" />
+        <path d="M20 20l6 6" />
+      </svg>
+    ),
+    body: "We sit with you to understand the learner, the sector and the standard. From this we draw a single competency map that holds the rest of the programme together." },
+  { n: "Step II", t: "Course Proposal and course materials",
+    icon: (
+      <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 4h11l5 5v19H8z" />
+        <path d="M19 4v5h5" />
+        <path d="M12 16h8M12 20h8M12 12h4" />
+      </svg>
+    ),
+    body: "We draft the Course Proposal (CP) Form, lesson and assessment plans, trainer guide and learner materials, all version-controlled and submission-ready." },
+  { n: "Step III", t: "Pairing adult educators and evidence",
+    icon: (
+      <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="12" r="4" />
+        <circle cx="22" cy="13" r="3.2" />
+        <path d="M4 26c0-4 3.2-6.5 7-6.5s7 2.5 7 6.5" />
+        <path d="M19 26c0-3 1.6-5 4-5.4" />
+      </svg>
+    ),
+    body: "Where required, we pair the course with adult educators who meet the SSG AE Qualifications and are registered on the National AE Registry, and prepare the supporting evidence." },
+  { n: "Step IV", t: "TPGateway submission",
+    icon: (
+      <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M28 4L13 19" />
+        <path d="M28 4l-5 24-6-11-11-6z" />
+      </svg>
+    ),
+    body: "We submit the engagement through TPGateway with a written submission guide, and remain on hand for SSG's clarifications until the review is complete." },
+];
+
+const AE_REQS = [
+  { tier: "threshold", kicker: "Part one", dt: <>National AE Registry</>, dd: "Adult educators assigned to the course must be registered with the National Adult Educator Registry, managed by the Institute for Adult Learning at the Singapore University of Social Sciences." },
+  { tier: "threshold", kicker: "Part two", dt: <>WSQ <em>ACTA</em> or <em>ACLP</em></>, dd: "Each AE who trains or assesses must hold the WSQ Advanced Certificate in Training and Assessment, the WSQ Advanced Certificate in Learning and Performance (ACLP 2.0), or an equivalent recognised by SSG at its sole discretion." },
+  { tier: "context", kicker: "Timeline", dt: <>In force since 2026</>, dd: "The requirements have applied to SSG-funded non-WSQ certifiable courses since 1 January 2021. The provisions were further refined under SSG Circular MIPD/2026/2, effective 1 April 2026." },
+  { tier: "context", kicker: "Equivalence", dt: <>Equivalent pathways</>, dd: "IAL operates Recognition of Prior Learning (RPL) and Credit Exemption pathways. We help long-standing practitioners assemble the evidence required to be recognised under these pathways." },
+];
+
+function App() {
+  return (
+    <>
+      <NavBar current="curriculum" />
+      <main>
+
+        <PageHero
+          location="Practice · I"
+          eyebrow="Curriculum Development"
+          title={<>The first <em>engagement</em>, in three forms.</>}
+          lede="Most of our work begins here. We draft the courseware, the assessment instruments and the trainer guides that hold up to TPQA scrutiny, and we shape the engagement to the form of SSG funding that fits the course."
+        />
+        {/* WIDE EDITORIAL FIGURE, premium recompose */}
+        <section className="premium-section premium-section--paper tb-reveal" style={{ paddingTop: 0, paddingBottom: 80 }}>
+          <div className="container">
+            <figure className="premium-figure premium-figure--16x9 premium-figure--restrained premium-figure--photo">
+              <img src="assets/curriculum-architecture.jpg" alt="A steel-and-glass tower rising against an open sky, branches in the foreground." />
+              <span className="premium-figure__ratio">16 : 9</span>
+              <div className="premium-figure__brief">
+                <span className="premium-figure__brief-label">A working metaphor</span>
+                <p className="premium-figure__brief-text">
+                  Frame, façade, the work behind the glass, curriculum is the same craft, finished in paper. The structure is what holds a course up over time.
+                </p>
+              </div>
+            </figure>
+            <p className="premium-figure-caption">
+              The architecture of a course · steel-and-glass study, a quiet study in structure.
+            </p>
+          </div>
+        </section>
+
+        {/* ---------- 3 COURSE TYPES ---------- */}
+        <section className="tb-numerals tb-reveal">
+          <div className="container">
+            <SectionHead
+              eyebrow="Three offerings"
+              title={<>What curriculum looks like, in <em>three forms</em>.</>}
+              sub="Each form has its own evidence threshold and its own route through TPGateway. We pick the form to the engagement, not the other way round."
+            />
+            <div className="tb-numerals__grid is-3">
+              {COURSE_TYPES.map((c, i) => (
+                <article key={i} className="tb-numeral">
+                  <div className="tb-numeral__roman">{c.roman}</div>
+                  <div className="tb-numeral__eyebrow">{c.eyebrow}</div>
+                  <h3 className="tb-numeral__title">{c.title}</h3>
+                  <p className="tb-numeral__desc">{c.desc}</p>
+                  <ul className="tb-numeral__list">
+                    {c.list.map((l, j) => <li key={j}>{l}</li>)}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- AE QUALIFICATIONS (editorial recompose, photo ground) ---------- */}
+        <section className="tb-aeq tb-aeq--photo tb-reveal">
+          <div className="tb-aeq__bg" aria-hidden="true" style={{ backgroundImage: "url('assets/library-bw-web.jpg')" }}></div>
+          <div className="container">
+
+            {/* HEAD — eyebrow spans, then title left / standfirst right align at top */}
+            <EyebrowLockup>§ I · Adult Educator Qualifications</EyebrowLockup>
+            <div className="tb-aeq__head">
+              <div className="tb-aeq__head-l">
+                <h2 className="tb-aeq__title">
+                  SSG's Adult Educator Qualifications Requirements for <em>Certifiable</em> courses.
+                </h2>
+              </div>
+              <p className="tb-aeq__lede">
+                Since 1 April 2026, training providers offering SSG-funded <em>certifiable</em>
+                {" "}courses have been required to ensure that every adult educator deployed to
+                train or assess on the course meets the same qualifications threshold that has
+                long applied to WSQ courses.
+              </p>
+            </div>
+
+            {/* FRAMING — the threshold has two parts */}
+            <div className="tb-aeq__row">
+              <span className="tb-aeq__overline">The qualifications threshold</span>
+              <p className="tb-aeq__row-text">
+                The threshold has two parts. Registration on the National AE Registry, and a
+                recognised credential, typically the WSQ ACTA or the revised ACLP 2.0. SSG
+                retains discretion to recognise equivalent qualifications on a case-by-case basis.
+              </p>
+            </div>
+
+            {/* 2×2 SPECIFICATION MATRIX */}
+            <div className="tb-aeq__grid">
+              {AE_REQS.map((r, i) => (
+                <div key={i} className={"tb-aeq__cell is-" + r.tier}>
+                  <div className="tb-aeq__cell-top">
+                    <span className="tb-aeq__num">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="tb-aeq__kicker">{r.kicker}</span>
+                  </div>
+                  <h3 className="tb-aeq__cell-title">{r.dt}</h3>
+                  <p className="tb-aeq__cell-body">{r.dd}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* CLOSING — how we staff it */}
+            <div className="tb-aeq__row">
+              <span className="tb-aeq__overline">How we staff it</span>
+              <p className="tb-aeq__row-text tb-aeq__row-text--lead">
+                2birds keeps a working community of credentialled AEs. Where your engagement
+                cannot be matched from our community, we will source candidates through the
+                usual recruitment channels <em>at no markup</em>, and prepare the supporting
+                evidence for SSG.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ---------- APPLICATION PROCESS ---------- */}
+        <section className="tb-steps tb-reveal">
+          <div className="container">
+            <SectionHead
+              eyebrow="§ II · Application process"
+              title={<>From first conversation to <em>submission</em>, in four steps.</>}
+              sub="Each form has its own route through TPGateway. We prepare a complete and accurate submission, then stay on hand for SSG's clarifications until the review is closed."
+            />
+            <div className="tb-steps__list">
+              {STEPS.map((s, i) => (
+                <article key={i} className="tb-step tb-reveal-child">
+                  <div className="tb-step__icon" aria-hidden="true">{s.icon}</div>
+                  <div className="tb-step__n">{s.n}</div>
+                  <h3 className="tb-step__title">{s.t}</h3>
+                  <p className="tb-step__body">{s.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        
+        {/* PULL QUOTE, Deep Olive */}
+        <section className="premium-quote premium-quote--bone tb-reveal">
+          <div className="premium-quote__inner">
+            <span className="premium-quote__mark" aria-hidden="true">“</span>
+            <p className="premium-quote__text">
+              Anyone can write a learning outcome. The craft is making every assessment trace back to one, so a learner is tested on precisely what the course set out to teach, and nothing it did not.
+            </p>
+            <div className="premium-quote__cite">From the practice · Curriculum</div>
+          </div>
+        </section>
+
+        {/* ---------- PROSE: WHAT WE DELIVER ---------- */}
+        <section className="tb-prose tb-prose--withFig tb-reveal">
+          <div className="container">
+            <div className="tb-prose__split">
+              <div className="tb-prose__head">
+                <SectionHead
+                  eyebrow="§ III · What is delivered"
+                  title={<>The <em>artefacts</em> of an engagement.</>}
+                />
+                <div className="tb-prose__body">
+                  <p>
+                    A complete curriculum-development engagement leaves behind a set of
+                    printed instruments, not a slide deck. At its narrowest, that is the
+                    Course Proposal Form, the lesson and assessment plans, and the trainer
+                    guide. At its broadest, for a full WSQ pathway, it extends to the
+                    competency map, the assessment rubrics, the trainer reference pack and
+                    the moderation procedures that hold the programme together over time.
+                  </p>
+                  <p>
+                    Every artefact carries a version line and a change log. Every assessment
+                    instrument is traceable back to the competency map, and from the
+                    competency map back to the engagement. This is what the auditor looks for
+                    during the Course Quality Check, and what holds the programme together
+                    long after the first cohort.
+                  </p>
+                  <p>
+                    Where your engagement calls for it, marketing collateral is included at no
+                    additional charge, provided <em>as-is</em>, in the same restrained
+                    register as the rest of the practice, and without further revision rounds.
+                  </p>
+                </div>
+              </div>
+              <figure className="tb-prose__fig" aria-hidden="true" style={{ aspectRatio: "3 / 4", maxWidth: 440 }}>
+                <img src="assets/curriculum-stairs.jpg" alt="" style={{ objectPosition: "center center" }} />
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- CASL DASHBOARD ---------- */}
+        <section className="tb-casl-section tb-reveal" id="casl">
+          <div className="container">
+            <header className="tb-casl-section__head">
+              <span className="tb-casl-section__eyebrow">§ IV · Course Approval Skills List</span>
+              <h2 className="tb-casl-section__title">
+                The CASL <em>register</em>, made navigable.
+              </h2>
+              <p className="tb-casl-section__sub">
+                The complete Course Approval Skills List as published by SkillsFuture
+                Singapore, Phases 1 and 2, presented as a working reference for training
+                providers. Filter by industry, search by skill, and write to us about the
+                courses you would like to develop.
+              </p>
+            </header>
+            <CaslDashboard />
+          </div>
+        </section>
+
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

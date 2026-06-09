@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>2birds, Curriculum Development and Advisory</title>
+<meta name="description" content="A practice of curriculum developers, subject-matter experts and adult educators, trusted by Approved Training Organisations (ATOs)." />
+
+<link rel="icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="apple-touch-icon" href="assets/favicon.png?v=6" />
+<link rel="stylesheet" href="css/foundations.css" />
+<link rel="stylesheet" href="css/site.css" />
+<link rel="stylesheet" href="css/i18n.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="js/transition.js"></script>
+<script src="js/i18n.js"></script>
+</head>
+<body data-screen-label="01 Home">
+<div id="root"></div>
+
+<script type="text/babel" src="js/shared.jsx"></script>
+
+<script type="text/babel">
+
+
+
+const { useState, useMemo } = React;
+
+const TRUST = [
+{ seal: "I",
+  title: <>TAEPP-registered <em>practitioners</em></>,
+  sub: "Curriculum developers and adult educators registered on the National Adult Educator Registry." },
+{ seal: "II",
+  title: <>Level 3 <em>Senior</em> AE under TAEPP</>,
+  sub: "Led by a senior professional adult educator with close to one hundred courseware submissions." },
+{ seal: "III",
+  title: <>2025 <em>TPQA Outreach</em> speaker</>,
+  sub: "Invited by SkillsFuture Singapore (SSG) to speak on best practices in strengthening training quality through effective AE systems and practices." }];
+
+
+const HERITAGE = [
+{ label: "Started", year: "2024",
+  body: "The practice opens by invitation, the beginning of a growing community of curriculum developers and adult educators." },
+{ label: "Across the sector", year: "2019",
+  body: "The practice has rendered curriculum and advisory services across thirteen Approved Training Organisations, spanning multiple sectors and sectorial frameworks." },
+{ label: "Submissions", year: "100+",
+  body: "Approaching one hundred courseware submissions completed collectively across the practice, spanning WSQ and non-WSQ certifiable courses." },
+{ label: "Industry impact", year: "2022",
+  body: <>Courseware reaches the industry at scale, including the FTIC Code of Conduct workshop reported by<br />The Business Times in 2022.</> }];
+
+
+const SERVICES = [
+{ id: "i", numeral: "I", href: "curriculum.html",
+  title: "Curriculum Development",
+  poster: "assets/curriculum-architecture.jpg", vimeo: "1199227151", video: "assets/svc-curriculum.mp4",
+  lede: "Courses mapped to the Skills Framework, written for the room and ready for courseware submission.",
+  desc: "We map every course first, to the technical and critical core skills of the relevant Skills Framework, or to the Course Approval Skills List where it sits outside WSQ. From that map we design the rest, the curriculum and lesson plans, the assessment plan and instruments, the trainer and learner guides. We submit the course on TPGateway on your behalf, and stay with it through SSG's queries until it is approved.",
+  points: ["Non-WSQ / WSQ courses", "CASL", "TPGateway submission"] },
+{ id: "ii", numeral: "II", href: "setup.html",
+  title: "Sourcing and ATO Setup",
+  poster: "assets/setup-classroom.jpg", vimeo: "1199226286", video: "assets/svc-setup.mp4",
+  lede: "The people and the registration, from the first conversation to your first cohort.",
+  desc: "We introduce trainers and subject-matter experts to you at no cost, and accompany prospective and first-time training organisations through the whole of setup. From registration and accreditation to the moment your first cohort sits down.",
+  points: ["Trainer and SME sourcing", "ATO / OR registration", "Academic operations"] },
+{ id: "iii", numeral: "III", href: "compliance.html",
+  title: "TPQA and Compliance Advisory",
+  poster: "assets/compliance-folders.jpg", vimeo: "1199225797", video: "assets/svc-business-man.mp4",
+  lede: "Ready for the audit, long before the date is set.",
+  desc: "It begins with a complimentary consultation on your TPQA and CQC standing, with a pre-audit gap analysis against SSG's criteria. We close the gaps, strengthen the operation where it needs it, and leave the documents in order and the work behind them already done.",
+  points: ["TPQA advisory", "CQC advisory", "Pre-audit gap analysis"] },
+{ id: "iv", numeral: "IV", href: "marketing.html",
+  title: "Revenue, through Marketing",
+  poster: "assets/marketing-camera.jpg", vimeo: "1199225372", video: "assets/svc-marketing.mp4",
+  lede: "Marketing built to fill seats and turn them into revenue, for the training sector alone.",
+  desc: "We treat marketing as commercial work, not decoration, and only for training and adult education. Brand and campaigns, graphic and social design from our in-house creative producer, and personal branding video with PixPlaySG, our creative collaborator. Each piece is built to move a learner closer to enrolment, so the marketing line and the revenue line move together.",
+  points: ["Brand and campaigns", "Graphic and social design", "Personal branding video"] }];
+
+
+const FAQ = [
+{ q: <>Why are your <em>fees</em> lower?</>,
+  a: "The difference reflects our overheads rather than any compromise in the work. We maintain no staffed office, carry no marketing costs to recover, and take no placement margin on the SMEs we source. Our fees account for the work itself and the people who carry it out, and we are happy to set out that basis for you in detail." },
+{ q: <>May we apply your <em>accreditations</em> to work prepared elsewhere?</>,
+  a: "We are not able to do so. Our accreditations attach only to work we have prepared ourselves, and to extend them to courseware authored by another would misrepresent that material to SSG and would not hold up on review. Where you have capable people of your own, we would be glad to work alongside them; what we cannot do is certify work we have not undertaken." },
+{ q: <>Who carries out the <em>work</em>?</>,
+  a: "Each engagement is led by a Level 3 Senior Professional Adult Educator under TAEPP, supported by two curriculum developers accredited under DACE / DDDLP, and by three where the engagement calls for it. We do not subcontract, and we are glad to introduce you to the people who will be handling your matter." },
+{ q: <>What does the first <em>consultation</em> involve?</>,
+  a: "It is a short conversation, around twenty minutes by call or by note, to understand the engagement, its timeline and the form of SSG funding that suits the course. We will give you a candid view of whether it is a matter we should take on and what it is likely to cost. There is no charge and no obligation on either side." }];
+
+
+function FaqItem({ q, a }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className={"tb-faq__item" + (open ? " is-open" : "")}>
+      <button className="tb-faq__q" type="button" onClick={() => setOpen((o) => !o)}>
+        <span>{q}</span>
+        <span className="tb-faq__sign">{open ? "–" : "+"}</span>
+      </button>
+      <div className="tb-faq__a"><p style={{ margin: 0 }}>{a}</p></div>
+    </div>);
+
+}
+
+// Live availability calendar. Pure-client demo: deterministic availability
+// derived from the date so slots stay stable on reload but feel real.
+const CAL_MONTH_NAMES = [
+  "January","February","March","April","May","June",
+  "July","August","September","October","November","December"];
+
+
+// Six daily consult slots, in 24h time.
+const CAL_SLOTS = [
+  { t: "09:30", label: "09:30" },
+  { t: "10:30", label: "10:30" },
+  { t: "11:30", label: "11:30" },
+  { t: "14:00", label: "14:00" },
+  { t: "15:00", label: "15:00" },
+  { t: "16:00", label: "16:00" }];
+
+
+// Cheap deterministic hash → integer.
+function calHash(y, m, d) {
+  let h = (y * 73856093) ^ ((m + 1) * 19349663) ^ (d * 83492791);
+  h = (h ^ h >>> 13) >>> 0;
+  return h;
+}
+
+// Singapore public holidays (MOM-gazetted), keyed "YYYY-M-D" with month 0-indexed.
+// Observed in-lieu Mondays are included; the practice is closed on these days.
+const SG_HOLIDAYS = {
+  // 2026
+  "2026-0-1":  "New Year's Day",
+  "2026-1-17": "Chinese New Year",
+  "2026-1-18": "Chinese New Year",
+  "2026-2-21": "Hari Raya Puasa",
+  "2026-3-3":  "Good Friday",
+  "2026-4-1":  "Labour Day",
+  "2026-4-27": "Hari Raya Haji",
+  "2026-4-31": "Vesak Day",          // 31 May (Sun)
+  "2026-5-1":  "Vesak Day (observed)",
+  "2026-7-9":  "National Day",       // 9 Aug (Sun)
+  "2026-7-10": "National Day (observed)",
+  "2026-10-8": "Deepavali",          // 8 Nov (Sun)
+  "2026-10-9": "Deepavali (observed)",
+  "2026-11-25":"Christmas Day",
+  // 2027 (fixed-date holidays; lunar/Islamic dates gazetted nearer the time)
+  "2027-0-1":  "New Year's Day",
+  "2027-3-1":  "Labour Day",
+  "2027-7-9":  "National Day",
+  "2027-11-25":"Christmas Day"
+};
+
+function calHolidayName(date) {
+  return SG_HOLIDAYS[date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()] || null;
+}
+
+// Availability classification for a calendar cell.
+//  → "past" | "holiday" | "today-closed" | "today-open" | "weekend" | "unavailable" | "open"
+function calStatus(date, today) {
+  const startToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const isToday = date.getTime() === startToday.getTime();
+  if (date < startToday) return "past";
+  if (calHolidayName(date)) return "holiday";
+  const dow = date.getDay(); // 0=Sun, 6=Sat
+  if (dow === 0 || dow === 6) return isToday ? "today-closed" : "weekend";
+
+  const h = calHash(date.getFullYear(), date.getMonth(), date.getDate());
+  // ~28% of weekdays are fully booked out.
+  const unavailable = h % 100 < 28;
+  if (isToday) return unavailable ? "today-closed" : "today-open";
+  return unavailable ? "unavailable" : "open";
+}
+
+// Which of the six slots are already booked for a given date.
+function calBookedSlots(date) {
+  const h = calHash(date.getFullYear(), date.getMonth(), date.getDate());
+  const booked = new Set();
+  // Two to four slots booked per open day, deterministic by date.
+  const count = 2 + h % 3;
+  for (let i = 0; i < count; i++) {
+    booked.add((h >> i * 3 & 7) % CAL_SLOTS.length);
+  }
+  return booked;
+}
+
+function MiniCal() {
+  const today = useMemo(() => new Date(), []);
+  const startToday = useMemo(
+    () => new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+    [today]);
+
+  const [view, setView] = useState(() => ({ y: today.getFullYear(), m: today.getMonth() }));
+  const [picked, setPicked] = useState(null); // {y,m,d} | null
+
+  // Don't allow paging into the past, or more than 2 months ahead.
+  const minIndex = today.getFullYear() * 12 + today.getMonth();
+  const maxIndex = minIndex + 2;
+  const viewIndex = view.y * 12 + view.m;
+  const canPrev = viewIndex > minIndex;
+  const canNext = viewIndex < maxIndex;
+  const step = (delta) => {
+    const next = viewIndex + delta;
+    if (next < minIndex || next > maxIndex) return;
+    setView({ y: Math.floor(next / 12), m: next % 12 });
+  };
+
+  // Build grid cells: 1-indexed weekday Mon..Sun = 0..6.
+  const firstDow = (new Date(view.y, view.m, 1).getDay() + 6) % 7; // shift Sun=0 → Mon=0
+  const daysInMonth = new Date(view.y, view.m + 1, 0).getDate();
+  const cells = [];
+  for (let i = 0; i < firstDow; i++) cells.push({ kind: "empty", key: "e" + i });
+  for (let d = 1; d <= daysInMonth; d++) {
+    const date = new Date(view.y, view.m, d);
+    cells.push({ kind: "day", d, date, status: calStatus(date, today), key: "d" + d });
+  }
+  // Pad to full weeks for nicer alignment.
+  while (cells.length % 7 !== 0) cells.push({ kind: "empty", key: "t" + cells.length });
+
+  const isPickedCell = (c) =>
+  picked && c.kind === "day" &&
+  picked.y === view.y && picked.m === view.m && picked.d === c.d;
+
+  const onDayClick = (c) => {
+    if (c.status !== "open" && c.status !== "today-open") return;
+    setPicked({ y: view.y, m: view.m, d: c.d });
+  };
+
+  // Slot panel state.
+  const pickedDate = picked ? new Date(picked.y, picked.m, picked.d) : null;
+  const booked = pickedDate ? calBookedSlots(pickedDate) : null;
+  const longDate = pickedDate ?
+  pickedDate.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" }) :
+  "";
+
+  const slotMailto = (slot) => {
+    const dateStr = pickedDate.toLocaleDateString("en-GB", {
+      weekday: "long", day: "numeric", month: "long", year: "numeric"
+    });
+    const subj = encodeURIComponent(`Consultation request, ${dateStr} at ${slot.label}`);
+    const body = encodeURIComponent(
+      `Dear 2birds,\n\nI should like to reserve the ${slot.label} slot on ${dateStr} for a complimentary consultation.\n\nMy enquiry concerns:\n\n\nKind regards,\n`);
+
+    return `mailto:hello@2birds.asia?subject=${subj}&body=${body}`;
+  };
+
+  return (
+    <div className="tb-cal">
+      <div className="tb-cal__head">
+        <span className="tb-cal__month">{CAL_MONTH_NAMES[view.m]} <em>{view.y}</em></span>
+        <span className="tb-cal__nav">
+          <button
+            className="tb-cal__navbtn"
+            aria-label="Previous month"
+            onClick={() => step(-1)}
+            disabled={!canPrev}
+            style={{ opacity: canPrev ? 1 : 0.3, cursor: canPrev ? "pointer" : "not-allowed" }}>
+            ‹
+          </button>
+          <button
+            className="tb-cal__navbtn"
+            aria-label="Next month"
+            onClick={() => step(1)}
+            disabled={!canNext}
+            style={{ opacity: canNext ? 1 : 0.3, cursor: canNext ? "pointer" : "not-allowed" }}>
+            ›
+          </button>
+        </span>
+      </div>
+      <div className="tb-cal__week">
+        <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+      </div>
+      <div className="tb-cal__grid">
+        {cells.map((c) => {
+          if (c.kind === "empty") {
+            return <button key={c.key} className="tb-cal__day is-empty" disabled aria-label=""></button>;
+          }
+          const label = c.date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+          const holidayName = c.status === "holiday" ? calHolidayName(c.date) : null;
+          let cls = "tb-cal__day";
+          let disabled = true;
+          if (c.status === "past") cls += " is-past";else
+          if (c.status === "holiday") cls += " is-holiday";else
+          if (c.status === "weekend") {/* default muted */}else
+          if (c.status === "unavailable") cls += " is-unavailable";else
+          if (c.status === "today-open") {cls += " is-today is-open";disabled = false;}else
+          if (c.status === "today-closed") cls += " is-today";else
+          if (c.status === "open") {cls += " is-open";disabled = false;}
+          if (isPickedCell(c)) cls += " is-selected";
+          return (
+            <button
+              key={c.key}
+              className={cls}
+              disabled={disabled}
+              title={holidayName ? holidayName + " · public holiday" : undefined}
+              aria-label={label + (holidayName ? ", " + holidayName + ", public holiday, closed" : c.status === "open" || c.status === "today-open" ? ", available" : "")}
+              aria-pressed={isPickedCell(c) || undefined}
+              onClick={() => onDayClick(c)}>
+
+              {c.d}
+            </button>);
+
+        })}
+      </div>
+      <div className="tb-cal__legend">
+        <span className="tb-cal__legitem"><span className="tb-cal__sw tb-cal__sw--open"></span><span>Open</span></span>
+        <span className="tb-cal__legitem"><span className="tb-cal__sw tb-cal__sw--today"></span><span>Today</span></span>
+        <span className="tb-cal__legitem"><span className="tb-cal__sw tb-cal__sw--picked"></span><span>Unavailable</span></span>
+        <span className="tb-cal__legitem"><span className="tb-cal__sw tb-cal__sw--holiday"></span><span>Public holiday</span></span>
+      </div>
+
+      {picked &&
+      <div className="tb-cal__slots">
+          <div className="tb-cal__slots-head">
+            <span>{longDate}</span>
+            <em>Singapore time</em>
+          </div>
+          <div className="tb-cal__slots-grid">
+            {CAL_SLOTS.map((s, i) => {
+            const isBooked = booked.has(i);
+            return isBooked ?
+            <span key={s.t} className="tb-cal__slot is-booked" aria-disabled="true">
+                  {s.label}
+                </span> :
+
+            <a key={s.t} className="tb-cal__slot" href={slotMailto(s)}>
+                  {s.label}
+                </a>;
+
+          })}
+          </div>
+          <p className="tb-cal__slots-foot">
+            Reserving an hour opens an engagement correspondence. The practice confirms by return of email, ordinarily within two working days.
+          </p>
+        </div>
+      }
+    </div>);
+
+}
+
+function App() {
+  return (
+    <>
+      <NavBar current="home" />
+      <main>
+
+        {/* HERO */}
+        <section className="tb-hero">
+          <div className="tb-hero__glow" aria-hidden="true" />
+          <div className="tb-hero__clouds" aria-hidden="true">
+            <span className="tb-cloud tb-cloud--1" />
+            <span className="tb-cloud tb-cloud--2" />
+            <span className="tb-cloud tb-cloud--3" />
+            <span className="tb-cloud tb-cloud--4" />
+            <span className="tb-cloud tb-cloud--5" />
+          </div>
+          <div className="container tb-hero__inner">
+            <EyebrowLockup>The growing community</EyebrowLockup>
+            <h1 className="tb-hero__title" style={{ fontSize: "70px" }}>
+              By Practitioners, <em className="t-italic" style={{ fontSize: "60px" }}>not consultants.</em>
+            </h1>
+            <p className="tb-hero__sub" style={{ fontSize: "20px", fontWeight: 400, maxWidth: 814 }}>
+              A practice of curriculum developers, subject-matter experts and<br />
+              adult educators, trusted by Approved Training Organisations (ATOs).
+              <br /><br />
+              We take only a handful of engagements each quarter, so that each one
+              has our undivided attention. Every one begins on a blank page, written
+              for the situation in front of us. We keep no templates, and we reuse
+              nothing.
+            </p>
+            <div className="tb-hero__actions">
+              <a className="btn btn-ghost" href="#manifesto">Read what we believe</a>
+            </div>
+          </div>
+        </section>
+
+        {/* TRUST STRIP */}
+        <section className="tb-trust tb-reveal">
+          <div className="container">
+            <div className="tb-trust__grid">
+              {TRUST.map((t, i) =>
+              <div key={i} className="tb-trust__cell">
+                  <div className="tb-trust__seal">{t.seal}</div>
+                  <div>
+                    <div className="tb-trust__title">{t.title}</div>
+                    <p className="tb-trust__sub">{t.sub}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* MANIFESTO */}
+        <section id="manifesto" className="tb-manifesto">
+          <div className="tb-manifesto__glow" aria-hidden="true" />
+          <div className="container tb-manifesto__inner">
+            <div className="tb-manifesto__text">
+              <EyebrowLockup>What we believe</EyebrowLockup>
+              <blockquote className="tb-manifesto__quote">
+                Learning ought not to be priced out of reach of the people who most need
+                to <em>learn</em>. The practice keeps its costs deliberately modest so the
+                fees never find their way down to the learner.
+              </blockquote>
+              <div className="tb-manifesto__cite">FROM THE FOUNDER · KEITH HO</div>
+            </div>
+            <div className="tb-manifesto__photo" aria-hidden="true"></div>
+          </div>
+        </section>
+
+        {/* HERITAGE */}
+        <section className="tb-heritage tb-reveal">
+          <div className="container">
+            <header className="tb-heritage__head">
+              <EyebrowLockup>Our practice · our standing</EyebrowLockup>
+              <h2 className="tb-heritage__title">A short <em>heritage</em>, plainly stated.</h2>
+              <p className="tb-heritage__sub">
+                Four markers from the practice's correspondence, the milestones we feel
+                comfortable putting on paper, and which a curious reader might want to weigh
+                before writing to us.
+              </p>
+            </header>
+            <div className="tb-heritage__grid">
+              {HERITAGE.map((h, i) =>
+              <div key={i} className="tb-heritage__cell">
+                  <div className="tb-heritage__label">{h.label}</div>
+                  <div className="tb-heritage__year">{h.year}</div>
+                  <p className="tb-heritage__body">{h.body}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* SERVICES */}
+        <section id="services" className="tb-services">
+          <div className="container">
+            <header className="tb-services__head">
+              <EyebrowLockup>Fields of expertise</EyebrowLockup>
+              <div className="tb-services__masthead">
+                <h2 className="tb-services__title">
+                  Four practice areas,<br />one standard of <em className="t-italic">care.</em>
+                </h2>
+                <div className="tb-services__aside">
+                  <span className="tb-services__asidelabel">On engagement</span>
+                  <p className="tb-services__sub">
+                    Whenever it suits you, allow us to prepare an indicative figure.
+                    Our plans are tiered, sized to your scope, and ease with each
+                    further curriculum we develop.
+                  </p>
+                </div>
+              </div>
+            </header>
+          </div>
+
+          {SERVICES.map((s, i) =>
+            <article key={s.id} className={"tb-svc tb-reveal" + (i % 2 === 1 ? " tb-svc--rev" : "")}>
+              <div className="tb-svc__bg" aria-hidden="true">
+                <img className="tb-svc__poster" src={s.poster} alt="" loading="lazy" />
+                {s.video ? (
+                  <video
+                    className="tb-svc__iframe tb-svc__video"
+                    src={s.video}
+                    poster={s.poster}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"></video>
+                ) : s.vimeo ? (
+                  <iframe
+                    className="tb-svc__iframe"
+                    src={"https://player.vimeo.com/video/" + s.vimeo + "?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1"}
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    title={s.title}></iframe>
+                ) : null}
+              </div>
+              <div className="tb-svc__scrim" aria-hidden="true"></div>
+              <div className="container tb-svc__inner">
+                <div className="tb-svc__text">
+                  <div className="tb-svc__num">{s.numeral}</div>
+                  <h3 className="tb-svc__title">{s.title}</h3>
+                  <p className="tb-svc__lede">{s.lede}</p>
+                  <p className="tb-svc__desc">{s.desc}</p>
+                  <ul className="tb-svc__points">
+                    {s.points.map((p, j) => <li key={j}>{p}</li>)}
+                  </ul>
+                  <a className="tb-svc__more" href={s.href}>
+                    <span>Read the overview</span>
+                    <span aria-hidden="true" className="tb-svc__arrow">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          )}
+        </section>
+
+        {/* FAQ */}
+        <section className="tb-faq tb-reveal">
+          <div className="container">
+            <header className="tb-faq__head">
+              <EyebrowLockup>Important answers</EyebrowLockup>
+              <h2 className="tb-faq__title">Frequent <em>enquiries</em>.</h2>
+              <p className="tb-faq__sub">The questions most often put to the practice, answered plainly.
+
+              </p>
+            </header>
+            <div className="tb-faq__list">
+              {FAQ.map((f, i) => <FaqItem key={i} q={f.q} a={f.a} />)}
+            </div>
+          </div>
+        </section>
+
+        {/* OFFICES */}
+        <section className="tb-offices tb-reveal">
+          <div className="container">
+            <div className="tb-offices__grid">
+              <div className="tb-office">
+                <span className="tb-office__label">Practice</span>
+                <span className="tb-office__where">Singapore <em>·</em> by appointment</span>
+                <p className="tb-office__meta">No public office. Meetings held at your premises or a venue of your choosing.</p>
+              </div>
+              <div className="tb-office">
+                <span className="tb-office__label">Correspondence</span>
+                <span className="tb-office__where"><em>hello</em>@2birds.sg</span>
+                <p className="tb-office__meta">Replies within two working days, during business hours.</p>
+              </div>
+              <div className="tb-office">
+                <span className="tb-office__label">Working Hours</span>
+                <span className="tb-office__where"><em>Monday</em> to Friday<br />09:00am to 06:00pm</span>
+                <p className="tb-office__meta">Excluding weekends and public holidays.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA, split with calendar */}
+        <section className="tb-ctawrap tb-reveal">
+          <div className="container">
+            <aside className="tb-cta tb-cta--split on-dark">
+              <div className="tb-cta__bar" aria-hidden="true" />
+              <div className="tb-cta__atmos" aria-hidden="true" />
+              <div className="tb-cta__inner tb-cta__inner--split">
+                <div className="tb-cta__col">
+                  <EyebrowLockup dark>Make an enquiry</EyebrowLockup>
+                  <h2 className="tb-cta__title">Begin a <em>conversation.</em></h2>
+                  <p className="tb-cta__sub">The consultation is ours to offer, with no obligation. You will hear from us within two working days.</p>
+                  <div className="tb-cta__actions">
+                    <a className="btn btn-on-dark" href="mailto:hello@2birds.asia?subject=Complimentary%20consultation%20enquiry">Book a complimentary consultation</a>
+                  </div>
+                </div>
+                <div className="tb-cta__cal">
+                  <MiniCal />
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+      </main>
+      <Footer />
+    </>);
+
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+<script>
+/* Service-card video: lazy-load and play on hover, pause and reset on leave.
+   Gracefully shows the poster image when the video file is not present. */
+(function initServiceVideos() {
+  function wire() {
+    document.querySelectorAll('.tb-service').forEach(function (card) {
+      if (card.dataset.vidWired) return;
+      var video = card.querySelector('.tb-service__video');
+      if (!video) return;
+      card.dataset.vidWired = "1";
+      var src = video.getAttribute('data-src');
+      function ensureSrc() {
+        if (src && video.dataset.ready === "1" && !video.getAttribute('src')) {
+          video.setAttribute('src', src);
+        }
+      }
+      card.addEventListener('mouseenter', function () {
+        ensureSrc();
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
+      });
+      card.addEventListener('mouseleave', function () {
+        try { video.pause(); video.currentTime = 0; } catch (e) {}
+      });
+    });
+  }
+  wire();
+  setTimeout(wire, 200);
+  setTimeout(wire, 1000);
+})();
+
+/* Cinematic banner: load src and autoplay (muted) once present. */
+(function initFilmstrip() {
+  function go() {
+    var v = document.querySelector('.tb-filmstrip__video');
+    if (!v || v.dataset.fsWired) return;
+    v.dataset.fsWired = "1";
+    var src = v.getAttribute('data-src');
+    if (src && v.dataset.ready === "1") {
+      v.setAttribute('src', src);
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+  }
+  go();
+  setTimeout(go, 300);
+  setTimeout(go, 1200);
+})();
+</script>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#2f3a2a"/>
+    <g fill="none" stroke="#cdbb97" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M30 58 C 38 44, 46 44, 50 54 C 54 44, 62 44, 70 58"/>
+    </g>
+    <text x="50" y="76" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#f5f1e6" font-style="italic">2birds</text>
+  </svg>
+</template>
+</body>
+</html>

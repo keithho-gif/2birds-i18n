@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Revenue, 2birds</title>
+<meta name="description" content="Marketing that returns as revenue, for training and adult education. Brand, campaigns, graphic and social design with our in-house creative producer Ng Chen Yao, and personal branding video with PixPlaySG, held within SSG's advertising rules." />
+
+<link rel="icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=6" />
+<link rel="apple-touch-icon" href="assets/favicon.png?v=6" />
+<link rel="stylesheet" href="css/foundations.css" />
+<link rel="stylesheet" href="css/site.css" />
+<link rel="stylesheet" href="css/i18n.css" />
+<link rel="stylesheet" href="css/premium.css" />
+
+<style>
+  /* PixPlaySG typographic mark inside the collaboration logo box */
+  .tb-mkt-collab__wordmark {
+    font-family: "Playfair Display", var(--font-serif);
+    font-size: 19px;
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-align: center;
+    padding: 0 8px;
+  }
+  .tb-mkt-collab__wordmark em { font-style: italic; color: var(--olive-deep); }
+
+  /* § IV · What we can deliver */
+  .tb-mkt-deliver { padding: 88px 0 96px; background: var(--canvas); }
+  .tb-mkt-deliver__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    margin-top: 52px;
+  }
+  .tb-mkt-deliver__col {
+    border-top: 2px solid var(--olive-deep);
+    padding-top: 22px;
+  }
+  .tb-mkt-deliver__roman {
+    font-family: "Playfair Display", var(--font-serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--olive-deep);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .tb-mkt-deliver__group {
+    font-family: "Playfair Display", var(--font-serif);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.18;
+    color: var(--ink);
+    margin: 0 0 16px;
+  }
+  .tb-mkt-deliver__list { list-style: none; margin: 0; padding: 0; }
+  .tb-mkt-deliver__list li {
+    font-family: "Lato", var(--font-sans);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--graphite);
+    padding: 12px 0 12px 22px;
+    border-top: 1px solid var(--hairline);
+    position: relative;
+  }
+  .tb-mkt-deliver__list li:first-child { border-top: 0; }
+  .tb-mkt-deliver__list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--olive-deep);
+  }
+  @media (max-width: 860px) {
+    .tb-mkt-deliver__grid { grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  /* PixPlaySG mono logo sits contained in the warm box */
+  .tb-mkt-collab__logo--contain {
+    object-fit: contain;
+    padding: 22px;
+    background: var(--canvas-warm);
+  }
+  /* Brand stack: logo above the mono mascot avatar */
+  .tb-mkt-collab__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .tb-mkt-collab__brandItem {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .tb-mkt-collab__brandCap {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--graphite);
+  }
+  .tb-mkt-collab__brandCap svg { color: var(--olive-deep); flex: 0 0 auto; }
+  .tb-mkt-collab__avatar {
+    margin: 0;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: var(--canvas-warm);
+  }
+  .tb-mkt-collab__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Their work, embedded from YouTube */
+  .tb-mkt-reel {
+    max-width: 1080px;
+    margin: 56px auto 0;
+  }
+  .tb-mkt-reel__head { margin-bottom: 24px; }
+  .tb-mkt-reel__title {
+    font-family: "Playfair Display", var(--font-serif);
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.14;
+    color: var(--ink);
+    margin: 8px 0 0;
+  }
+  .tb-mkt-reel__title em { font-style: italic; color: var(--olive-deep); }
+  .tb-mkt-reel__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .tb-mkt-reel__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #121210;
+    border: 1px solid var(--hairline);
+    overflow: hidden;
+  }
+  .tb-mkt-reel__frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  /* Facade card — real thumbnail, player loads on click */
+  .tb-mkt-lite {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    border: 1px solid var(--hairline);
+    background: #121210;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .tb-mkt-lite__thumb {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(1) contrast(1.02) brightness(0.97);
+    transition: transform 700ms var(--ease-standard), filter 500ms var(--ease-standard);
+  }
+  .tb-mkt-lite:hover .tb-mkt-lite__thumb { transform: scale(1.045); filter: grayscale(0.78) contrast(1.02); }
+  .tb-mkt-lite__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18,18,16,0) 38%, rgba(18,18,16,0.78) 100%);
+  }
+  .tb-mkt-lite__play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    background: rgba(250, 248, 242, 0.94);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 30px -8px rgba(0,0,0,0.45);
+    transition: transform 300ms var(--ease-standard), background 300ms var(--ease-standard);
+  }
+  .tb-mkt-lite:hover .tb-mkt-lite__play { transform: translate(-50%, -50%) scale(1.08); background: #fff; }
+  .tb-mkt-lite__play::before {
+    content: "";
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 9px 0 9px 15px;
+    border-color: transparent transparent transparent var(--ink);
+    margin-left: 4px;
+  }
+  .tb-mkt-lite__cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 14px 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--paper);
+  }
+  .tb-mkt-lite__cap svg { color: var(--olive-light); flex: 0 0 auto; }
+  .tb-mkt-reel__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--hairline);
+    transition: color var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard);
+  }
+  .tb-mkt-reel__more span:last-child { color: var(--olive-deep); }
+  .tb-mkt-reel__more:hover { color: var(--olive-deep); border-bottom-color: var(--olive-deep); }
+  @media (max-width: 720px) {
+    .tb-mkt-reel__grid { grid-template-columns: 1fr; }
+    .tb-mkt-collab__brand { flex-direction: row; }
+  }
+
+  /* ── 2birds in-house creative producer (Ng Chen Yao) ──────────────── */
+  .tb-mkt-producer { max-width: 1080px; margin: 64px auto 0; }
+  .tb-mkt-producer__head { margin-bottom: 26px; }
+  .tb-mkt-producer__name {
+    font-family: "Playfair Display", var(--font-serif);
+    font-weight: 400; font-size: 26px; line-height: 1.14;
+    color: var(--ink); margin: 8px 0 0;
+  }
+  .tb-mkt-producer__name em { font-style: italic; color: var(--olive-deep); }
+  .tb-mkt-producer__lede {
+    font-family: "Lato", var(--font-sans);
+    font-size: 16px; line-height: 1.62; color: var(--graphite);
+    max-width: 60ch; margin: 14px 0 0;
+  }
+  /* Client roster — monochrome wordmarks */
+  .tb-mkt-clients {
+    margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--hairline);
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 34px;
+  }
+  .tb-mkt-clients__cap {
+    flex: 0 0 100%;
+    font-family: var(--font-sans); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--graphite);
+    margin-bottom: 4px;
+  }
+  .tb-mkt-client {
+    font-family: "Playfair Display", var(--font-serif);
+    font-size: 21px; line-height: 1; color: var(--slate);
+    filter: grayscale(1); opacity: 0.85;
+    transition: opacity var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard);
+  }
+  .tb-mkt-client:hover { opacity: 1; color: var(--ink); }
+
+  /* Sample works — monochrome, mirrors the video reel */
+  .tb-mkt-works {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px;
+  }
+  .tb-mkt-work { display: flex; flex-direction: column; gap: 12px; }
+  .tb-mkt-work image-slot {
+    width: 100%; height: auto; aspect-ratio: 4 / 5; display: block;
+    border: 1px solid var(--hairline); background: var(--canvas-warm);
+    filter: grayscale(1) contrast(1.02);
+    transition: filter 500ms var(--ease-standard);
+  }
+  .tb-mkt-work:hover image-slot { filter: grayscale(0.65) contrast(1.02); }
+  .tb-mkt-work__cap {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  }
+  .tb-mkt-work__client {
+    font-family: "Playfair Display", var(--font-serif);
+    font-size: 16px; line-height: 1.2; color: var(--ink);
+  }
+  .tb-mkt-work__link {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: var(--font-sans); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--olive-deep);
+    text-decoration: none; white-space: nowrap;
+  }
+  .tb-mkt-work__link:hover { color: var(--ink); }
+  .tb-mkt-producer__cta {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 30px;
+    font-family: var(--font-sans); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
+    text-decoration: none; padding-bottom: 6px; border-bottom: 1px solid var(--hairline);
+    transition: color var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard);
+  }
+  .tb-mkt-producer__cta span:last-child { color: var(--olive-deep); }
+  .tb-mkt-producer__cta:hover { color: var(--olive-deep); border-bottom-color: var(--olive-deep); }
+
+  /* Shared "both can deliver" note under the collaboration */
+  .tb-mkt-bothnote {
+    max-width: 1080px; margin: 48px auto 0; padding: 24px 28px;
+    background: var(--canvas-warm); border-left: 2px solid var(--olive-deep);
+  }
+  .tb-mkt-bothnote p {
+    font-family: "Lato", var(--font-sans); font-size: 15px; line-height: 1.6;
+    color: var(--ink-soft); margin: 0;
+  }
+  .tb-mkt-bothnote strong { font-weight: 600; color: var(--olive-deep); }
+  @media (max-width: 720px) {
+    .tb-mkt-works { grid-template-columns: 1fr; }
+  }
+
+  /* Behance project embed (real work images) */
+  .tb-mkt-embed {
+    position: relative;
+    max-width: 680px; margin: 36px auto 0;
+    aspect-ratio: 404 / 316; overflow: hidden;
+    border: 1px solid var(--hairline); background: var(--canvas-warm);
+  }
+  .tb-mkt-embed iframe { position: relative; z-index: 1; width: 100%; height: 100%; border: 0; display: block; }
+  .tb-mkt-embed__fallback {
+    position: absolute; inset: 0; z-index: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    text-decoration: none;
+  }
+  .tb-mkt-embed__fallback svg { width: 24px; height: 24px; color: var(--olive-deep); }
+  .tb-mkt-embed__fallbackTitle {
+    font-family: "Playfair Display", var(--font-serif); font-size: 21px; color: var(--ink);
+  }
+  .tb-mkt-embed__fallbackHint {
+    font-family: var(--font-sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--olive-deep);
+  }
+  .tb-mkt-embed__cap {
+    max-width: 680px; margin: 14px auto 0;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  .tb-mkt-embed__feat {
+    font-family: "Lato", var(--font-sans); font-size: 13px; line-height: 1.5; color: var(--graphite);
+  }
+  .tb-mkt-embed__feat strong { color: var(--ink); font-weight: 600; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="js/transition.js"></script>
+<script src="js/i18n.js"></script>
+<script src="image-slot.js"></script>
+</head>
+<body class="is-premium" data-screen-label="06 Revenue">
+<div id="root"></div>
+
+<script type="text/babel" src="js/shared.jsx"></script>
+
+<script type="text/babel">
+
+// ── Brand-mono channel icons (single-colour, currentColor) ─────────────────
+const Icon = {
+  tiktok: (
+    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+      <path fill="currentColor" d="M16.6 5.8a4.9 4.9 0 0 1-2.9-1.7V14a4.7 4.7 0 1 1-4.7-4.7c.3 0 .5 0 .8.1v2.5c-.3-.1-.5-.1-.8-.1a2.2 2.2 0 1 0 2.2 2.2V2h2.5a4.9 4.9 0 0 0 2.9 4.4Z" />
+    </svg>
+  ),
+  youtube: (
+    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+      <path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.7 19 12 19 12 19s6.3 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8 26 26 0 0 0 .4-4.8 26 26 0 0 0-.4-4.8ZM10 15V9l5 3-5 3Z" />
+    </svg>
+  ),
+  instagram: (
+    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+      <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="4.2" />
+        <circle cx="12" cy="12" r="3.8" />
+        <circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none" />
+      </g>
+    </svg>
+  ),
+  behance: (
+    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+      <path fill="currentColor" d="M8.6 6.4c.7 0 1.3.1 1.8.2.5.1.9.3 1.3.6.3.3.6.6.8 1 .2.4.3.9.3 1.5 0 .6-.2 1.1-.4 1.6-.3.4-.7.7-1.3 1 .8.2 1.3.6 1.7 1.1.4.5.6 1.2.6 1.9 0 .6-.1 1.1-.4 1.6-.2.4-.6.8-1 1-.4.3-.9.5-1.5.6-.5.1-1.1.2-1.6.2H2V6.4h6.6zM8.2 10.9c.5 0 .8-.1 1.1-.3.3-.2.4-.6.4-1.1 0-.3 0-.5-.1-.6-.1-.2-.2-.3-.4-.4-.2-.1-.4-.1-.6-.2-.2 0-.5 0-.7 0H4.7v2.6h3.5zm.2 4.8c.3 0 .5 0 .8-.1.2 0 .4-.1.6-.3.2-.1.3-.3.4-.5.1-.2.1-.4.1-.7 0-.6-.2-1.1-.5-1.3-.4-.3-.8-.4-1.4-.4H4.7v3.3h3.7zM15.9 15.6c.3.3.8.5 1.4.5.4 0 .8-.1 1.1-.3.3-.2.5-.4.6-.6h2c-.3 1-.8 1.7-1.5 2.1-.7.4-1.5.6-2.4.6-.7 0-1.2-.1-1.8-.3-.5-.2-1-.5-1.3-.9-.4-.4-.6-.9-.8-1.4-.2-.5-.3-1.1-.3-1.8 0-.6.1-1.2.3-1.7.2-.5.5-1 .9-1.4.4-.4.8-.7 1.3-.9.5-.2 1.1-.3 1.7-.3.7 0 1.3.1 1.8.4.5.3 1 .6 1.3 1.1.3.5.6 1 .7 1.6.1.6.2 1.2.1 1.8h-5.8c0 .7.2 1.2.5 1.6zm2.3-4.2c-.3-.3-.7-.4-1.2-.4-.3 0-.6.1-.8.2-.2.1-.4.3-.5.4-.1.2-.2.3-.3.5 0 .2-.1.3-.1.5h3.6c-.1-.6-.3-1-.6-1.3zM15 7.6h4.5v1.1H15z" />
+    </svg>
+  )
+};
+
+// The three categories of work permitted under SSG QMD/2025/5
+const PILLARS = [
+{ roman: "I",
+  title: <>Propositions, messaging and <em>campaigns</em></>,
+  desc: "The written brand. Positioning, the message for each audience, and a campaign plan built across the year to fill cohorts, not merely to be seen." },
+{ roman: "II",
+  title: <>Schedule and<br /><em>event</em> planning</>,
+  desc: "The year, mapped against course intakes and the rhythm of the sector, with event plans and schedules timed to the moments enrolments are won." },
+{ roman: "III",
+  title: <>Creative, content and <em>design</em></>,
+  desc: "The finished work. Identity, online and offline graphics and social design from our in-house creative producer, and personal branding video with PixPlaySG." }];
+
+
+// What the practice can deliver, itemised under the three pillars
+const DELIVERABLES = [
+{ roman: "I", group: "Propositions and campaigns",
+  items: ["Brand positioning and core message", "Audience definition and tone of voice", "An annual campaign plan", "Intake and launch narratives"] },
+{ roman: "II", group: "Schedule and events",
+  items: ["A marketing calendar mapped to intakes", "Open-house and event planning", "A content schedule and cadence", "Seasonal and sector-aware timing"] },
+{ roman: "III", group: "Creative, design and content",
+  items: ["Identity systems and brand guidelines", "Online and offline graphics: banners, flyers and posters", "Social media design and posting", "Personal branding video, with PixPlaySG"] }];
+
+
+// PixPlaySG / 台新戰士 ST Warrior — three videos selected from the YouTube channel
+// (channel UC-SxNLOm5L7vEcdUnH_nUAg). Facade pattern: real thumbnail first,
+// the player loads on click so the grid stays fast and always renders.
+const VIDEOS = ["lN-olsbJWsY", "LyOlURBarSU", "hsXEA-71nyQ"];
+
+function LiteVideo({ id }) {
+  const [play, setPlay] = React.useState(false);
+  if (play) {
+    return (
+      <div className="tb-mkt-reel__frame">
+        <iframe
+          src={"https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0"}
+          title="台新戰士 ST Warrior"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen></iframe>
+      </div>);
+
+  }
+  return (
+    <button type="button" className="tb-mkt-lite" onClick={() => setPlay(true)} aria-label="Play video">
+      <span className="tb-mkt-lite__thumb" style={{ backgroundImage: "url(https://i.ytimg.com/vi/" + id + "/hqdefault.jpg)" }} aria-hidden="true" />
+      <span className="tb-mkt-lite__scrim" aria-hidden="true" />
+      <span className="tb-mkt-lite__play" aria-hidden="true" />
+      <span className="tb-mkt-lite__cap">
+        {Icon.youtube}
+        <span>Watch on YouTube</span>
+      </span>
+    </button>);
+
+}
+
+
+function App() {
+  return (
+    <>
+      <NavBar current="branding" />
+      <main>
+
+        <PageHero
+          location="Practice · V"
+          eyebrow="Revenue"
+          title={<>Marketing that returns as <em>revenue.</em></>}
+          lede="For training and adult education alone: the brand, campaigns and creative a registered provider is free to commission, built to fill cohorts and held within SSG's advertising rules. Made with our in-house creative producer and PixPlaySG, our creative collaborator in front of the lens." />
+
+        {/* EDITORIAL FIGURE, restrained */}
+        <section className="premium-section premium-section--paper tb-reveal" style={{ paddingTop: 0, paddingBottom: 64 }}>
+          <div className="container">
+            <figure className="premium-figure premium-figure--16x9 premium-figure--restrained premium-figure--photo">
+              <img src="assets/marketing-camera.jpg" alt="A cinema camera on a tripod against a quiet studio backdrop, the finished work about to begin." />
+              <span className="premium-figure__ratio">16 : 9</span>
+              <div className="premium-figure__brief">
+                <span className="premium-figure__brief-label">The finished work</span>
+                <p className="premium-figure__brief-text">
+                  A brand for a training organisation is built behind the lens. The provider is the one who finally steps in front of it.
+                </p>
+              </div>
+            </figure>
+          </div>
+        </section>
+
+
+        {/* ---------- § I · THREE PILLARS — SERVICES FIRST ---------- */}
+        <section className="tb-numerals tb-reveal" style={{ paddingBottom: 32 }}>
+          <div className="container">
+            <SectionHead
+              eyebrow="§ I · What we do"
+              title={<>Three kinds of work, <em>commissioned</em> by you.</>}
+              sub="The marketing work a registered training provider is free to commission. These are our services, each made to the same standard as the rest of the practice." />
+
+            <div className="tb-economies">
+              {PILLARS.map((p, i) =>
+              <article key={i} className="tb-economy">
+                <div className="tb-economy__roman">{p.roman}</div>
+                <h3 className="tb-economy__title">{p.title}</h3>
+                <p className="tb-economy__body">{p.desc}</p>
+              </article>
+              )}
+            </div>
+          </div>
+        </section>
+
+
+        {/* ---------- THE COMMERCIAL POINT — marketing into sales ---------- */}
+        <section className="premium-section premium-section--paper tb-reveal tb-mktsale" style={{ paddingTop: 44 }}>
+          <div className="container">
+            <header className="tb-mktsale__head">
+              <span className="tb-mktsale__eyebrow">Why it matters · the commercial point</span>
+              <h2 className="tb-mktsale__title">
+                Marketing a course is only finished when the <em>seats are filled.</em>
+              </h2>
+              <p className="tb-mktsale__lede">
+                For a training organisation, a course earns nothing until it runs, and it
+                runs only when it fills. Every piece we make is built to move a prospective
+                learner one step closer to enrolment, and to turn that enrolment into revenue
+                the business can actually count on.
+              </p>
+            </header>
+            <div className="tb-mktsale__flow">
+              <article className="tb-mktsale__step">
+                <span className="tb-mktsale__num">01</span>
+                <h3 className="tb-mktsale__steptitle">Visibility, to the right learner</h3>
+                <p className="tb-mktsale__stepbody">
+                  The work puts your courses in front of the people most likely to sit them,
+                  on the channels where they already are. Attention is the first conversion.
+                </p>
+              </article>
+              <span className="tb-mktsale__arrow" aria-hidden="true">→</span>
+              <article className="tb-mktsale__step">
+                <span className="tb-mktsale__num">02</span>
+                <h3 className="tb-mktsale__steptitle">Enrolments, into filled cohorts</h3>
+                <p className="tb-mktsale__stepbody">
+                  Trust and clarity turn interest into sign-ups. A filled cohort means SSG
+                  funding drawn down, fees collected, and trainers kept in steady work.
+                </p>
+              </article>
+              <span className="tb-mktsale__arrow" aria-hidden="true">→</span>
+              <article className="tb-mktsale__step">
+                <span className="tb-mktsale__num">03</span>
+                <h3 className="tb-mktsale__steptitle">Revenue, and the next mandate</h3>
+                <p className="tb-mktsale__stepbody">
+                  A cohort that runs well becomes a track record, the kind that renews
+                  funding, wins the next corporate tender, and compounds into a pipeline
+                  rather than a one-off.
+                </p>
+              </article>
+            </div>
+            <p className="tb-mktsale__foot">
+              We do not sell vanity reach. We make the case for your courses to the learners
+              and employers who pay for them, so that the <strong>marketing line and the
+              revenue line move together.</strong>
+            </p>
+          </div>
+        </section>
+
+
+        {/* ---------- § II · THE FRAMEWORK ---------- */}
+        <section className="premium-section premium-section--bone tb-reveal" style={{ paddingTop: 72, paddingBottom: 72 }}>
+          <div className="container">
+            <div className="premium-twoup premium-twoup--narrow">
+              <aside className="premium-twoup__meta">
+                § II · Where the line sits
+                <span className="premium-twoup__meta-num">02</span>
+              </aside>
+              <div>
+                <h2 className="premium-h2">What the guidelines <em>allow</em>.</h2>
+                <div className="premium-prose">
+                  <p>
+                    SkillsFuture Singapore's 2025 guideline is clear. A registered training provider may not ask any outside party to promote, advertise or market its courses. The public face of the courses stays with the provider.
+                  </p>
+                  <p>
+                    Within that line, there is room. A provider may bring in outside help to build the brand and marketing foundations of the organisation itself, the strategy, the schedule and the finished work, so long as the provider is the one who finally publishes to the public. Everything we offer sits, by design, on the permitted side of that line.
+                  </p>
+                  <p style={{ marginTop: 10 }}>
+                    <a className="t-link-sm" href="https://www.tpgateway.gov.sg/resources/announcements-and-circulars/ssg-information-memorandum-qmd-2025-5---disallow-rtps-to-engage--request-or-procure-any-third-party-to-promote--advertise-or-market-courses" target="_blank" rel="noopener">
+                      Read the SSG guideline ↗
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        {/* ---------- § III · 2BIRDS × PIXPLAYSG ---------- */}
+        <section className="tb-mkt-collab tb-reveal">
+          <div className="container">
+            <div className="tb-mkt-collab__lockup">
+              <span className="tb-mkt-collab__lockupBird">2birds</span>
+              <span className="tb-mkt-collab__lockupX" aria-hidden="true">×</span>
+              <span className="tb-mkt-collab__lockupPartner">PixPlaySG</span>
+            </div>
+            <p style={{ maxWidth: "58ch", margin: "18px auto 4px", textAlign: "center", fontFamily: '"Lato", var(--font-sans)', fontSize: 16, lineHeight: 1.62, color: "var(--graphite)" }}>
+              A creative collaboration for training and adult education. Design from our in-house creative producer, and film from PixPlaySG. Two crafts, one sector.
+            </p>
+            <div className="tb-mkt-collab__card">
+              <div className="tb-mkt-collab__brand">
+                <div className="tb-mkt-collab__brandItem">
+                  <figure className="tb-mkt-collab__logoFig">
+                    <img className="tb-mkt-collab__logo tb-mkt-collab__logo--contain" src="assets/pixplay-logo.png" alt="PixPlaySG" />
+                  </figure>
+                  <span className="tb-mkt-collab__brandCap">
+                    {Icon.tiktok}
+                    <span>PixPlaySG</span>
+                  </span>
+                </div>
+                <div className="tb-mkt-collab__brandItem">
+                  <figure className="tb-mkt-collab__avatar">
+                    <img src="assets/pixplay-knights.png" alt="ST Warrior" />
+                  </figure>
+                  <span className="tb-mkt-collab__brandCap">
+                    {Icon.youtube}
+                    <span>ST Warrior</span>
+                  </span>
+                </div>
+              </div>
+              <div className="tb-mkt-collab__body">
+                <span className="tb-mkt-collab__eb">§ III · Film, with PixPlaySG</span>
+                <h2 className="tb-mkt-collab__title">
+                  Personal branding video, with <em>PixPlaySG.</em>
+                </h2>
+                <p>
+                  <strong>PixPlaySG</strong> is our creative collaborator in front of the lens. Their focus is personal branding video for training providers, the kind that gives an ATO and its principal trainers the recognition they have earned. We plan it, PixPlaySG films it, and the provider publishes it, the way the guideline requires.
+                </p>
+                <p>
+                  Their channel, <strong>台新戰士 ST Warrior</strong>, is the personal IP they built for themselves, and the proof of the craft. And when a commission needs graphic work too, whether online or offline banners, flyers, posters or social media, PixPlaySG can support that as well.
+                </p>
+                <div className="tb-mkt-collab__links">
+                  <a href="https://www.youtube.com/@stwarrior9983" target="_blank" rel="noopener">
+                    {Icon.youtube}
+                    <span>台新戰士 ST Warrior</span>
+                    <span aria-hidden="true" className="tb-mkt-collab__linkArrow">↗</span>
+                  </a>
+                  <a href="https://www.tiktok.com/@pixplaysg" target="_blank" rel="noopener">
+                    {Icon.tiktok}
+                    <span>PixPlaySG on TikTok</span>
+                    <span aria-hidden="true" className="tb-mkt-collab__linkArrow">↗</span>
+                  </a>
+                  <a href="https://pixplaysg.com/" target="_blank" rel="noopener">
+                    <span>pixplaysg.com</span>
+                    <span aria-hidden="true" className="tb-mkt-collab__linkArrow">↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Their work, from the YouTube channel */}
+            <div className="tb-mkt-reel">
+              <div className="tb-mkt-reel__head">
+                <span className="tb-mkt-collab__eb">On screen · 台新戰士 ST Warrior</span>
+                <h3 className="tb-mkt-reel__title">The personal IP they <em>built for themselves.</em></h3>
+              </div>
+              <div className="tb-mkt-reel__grid">
+                {VIDEOS.map((vid) =>
+                <LiteVideo key={vid} id={vid} />
+                )}
+              </div>
+              <a className="tb-mkt-reel__more" href="https://www.youtube.com/@stwarrior9983" target="_blank" rel="noopener">
+                <span>See more on the channel</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            {/* ── Design, with our in-house creative producer ── */}
+            <div className="tb-mkt-producer">
+              <div className="tb-mkt-producer__head">
+                <span className="tb-mkt-collab__eb">§ III · Design, with Ng Chen Yao</span>
+                <h3 className="tb-mkt-producer__name">Our in-house creative producer, <em>Ng Chen Yao.</em></h3>
+                <p className="tb-mkt-producer__lede">
+                  Within 2birds, graphic and social work is led by Ng Chen Yao, a graphic designer whose practice spans brand, editorial and digital design. For training providers he makes the online and offline pieces a campaign runs on, banners, flyers, posters and social media, each kept on the permitted side of the guideline.
+                </p>
+                <div className="tb-mkt-clients">
+                  <span className="tb-mkt-clients__cap">Previously a designer for</span>
+                  <span className="tb-mkt-client">Dash Living</span>
+                  <span className="tb-mkt-client">Tag</span>
+                  <span className="tb-mkt-client">OOm Singapore</span>
+                  <span className="tb-mkt-client">Hola Design</span>
+                  <span className="tb-mkt-client">Yonex</span>
+                </div>
+              </div>
+
+              <div className="tb-mkt-reel__head" style={{ marginTop: 40 }}>
+                <span className="tb-mkt-collab__eb">On the page · for the sector</span>
+                <h3 className="tb-mkt-reel__title">Selected work, for <em>training providers.</em></h3>
+              </div>
+              <div className="tb-mkt-works">
+                <div className="tb-mkt-work">
+                  <image-slot id="mkt-work-cims" shape="rect" src="assets/work-cims.png" placeholder="Drop the Chinese Instrumental Music School work"></image-slot>
+                  <div className="tb-mkt-work__cap">
+                    <span className="tb-mkt-work__client">Chinese Instrumental Music School</span>
+                    <a className="tb-mkt-work__link" href="https://www.behance.net/gallery/182311949/Social-Media-Vol2/modules/1029905835" target="_blank" rel="noopener">{Icon.behance}<span>Behance ↗</span></a>
+                  </div>
+                </div>
+                <div className="tb-mkt-work">
+                  <image-slot id="mkt-work-cge" shape="rect" src="assets/work-cge.png" placeholder="Drop the CGE Academy work"></image-slot>
+                  <div className="tb-mkt-work__cap">
+                    <span className="tb-mkt-work__client">CGE Academy</span>
+                    <a className="tb-mkt-work__link" href="https://www.behance.net/gallery/182311949/Social-Media-Vol2/modules/1029905831" target="_blank" rel="noopener">{Icon.behance}<span>Behance ↗</span></a>
+                  </div>
+                </div>
+                <div className="tb-mkt-work">
+                  <image-slot id="mkt-work-kiki" shape="rect" src="assets/work-kiki.png" placeholder="Drop the Tutor Kiki work"></image-slot>
+                  <div className="tb-mkt-work__cap">
+                    <span className="tb-mkt-work__client">Tutor Kiki</span>
+                    <a className="tb-mkt-work__link" href="https://www.behance.net/gallery/182311949/Social-Media-Vol2/modules/1029905829" target="_blank" rel="noopener">{Icon.behance}<span>Behance ↗</span></a>
+                  </div>
+                </div>
+              </div>
+              <a className="tb-mkt-producer__cta" href="https://www.behance.net/ncy810" target="_blank" rel="noopener">
+                {Icon.behance}<span>See the full portfolio</span><span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            {/* Both deliver graphic + social, for the sector only */}
+            <div className="tb-mkt-bothnote">
+              <p>
+                <strong>Both</strong> our in-house creative producer and PixPlaySG deliver online and offline graphic work, from banners, flyers and posters to social media posts.
+              </p>
+            </div>
+          </div>
+        </section>
+
+
+        {/* PULL QUOTE */}
+        <section className="premium-quote premium-quote--royal tb-reveal">
+          <div className="premium-quote__inner">
+            <span className="premium-quote__mark" aria-hidden="true">“</span>
+            <p className="premium-quote__text">
+              A training provider is judged on its prospectus and remembered for its delivery. We work on the delivery, quietly, so the prospectus is never a promise the practice cannot keep.
+            </p>
+            <div className="premium-quote__cite">From the practice · Revenue</div>
+          </div>
+        </section>
+
+
+        {/* ---------- § IV · WHAT WE CAN DELIVER ---------- */}
+        <section className="tb-mkt-deliver tb-reveal">
+          <div className="container">
+            <SectionHead
+              eyebrow="§ IV · What we can deliver"
+              title={<>The finished work, <em>itemised.</em></>}
+              sub="Every commission is shaped to the provider, but these are the pieces we are most often asked to make. Each sits, by design, on the permitted side of the guideline." />
+            <div className="tb-mkt-deliver__grid">
+              {DELIVERABLES.map((d, i) =>
+              <div key={i} className="tb-mkt-deliver__col">
+                <div className="tb-mkt-deliver__roman">{d.roman}</div>
+                <h3 className="tb-mkt-deliver__group">{d.group}</h3>
+                <ul className="tb-mkt-deliver__list">
+                  {d.items.map((it, j) => <li key={j}>{it}</li>)}
+                </ul>
+              </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+
+        {/* CTA */}
+        <CTAPanel
+          eyebrow="Write to us"
+          title={<>Write to the <em className="t-italic on-dark">practice.</em></>}
+          sub="A note on what you have in mind is all we need to begin. You will hear from us within two working days, and there is no obligation in the asking."
+          primary={{ label: "Make an enquiry", href: "contact.html" }}
+          secondary={{ label: "Read the brand story", href: "brand.html" }}
+        />
+
+      </main>
+      <Footer />
+    </>);
+
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
