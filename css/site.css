@@ -6478,3 +6478,13 @@ a.tb-standing__name:hover .tb-standing__ext { opacity: 1; }
   .tb-svc__points li { font-size: 10px; letter-spacing: 0.08em; padding: 7px 12px; }
   .tb-svc__more { font-size: 11px; letter-spacing: 0.14em; }
 }
+
+/* Keep the service-video copy clear of the frame edges on every screen — the
+   container gutter shrinks on phones, letting the headings sit too close to the
+   border. A generous inline inset gives the copy room to breathe. */
+.tb-svc__inner {
+  padding-inline: clamp(28px, 6.5vw, 56px);
+}
+@media (max-width: 720px) {
+  .tb-svc__inner { padding-inline: 28px; }
+}
