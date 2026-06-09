@@ -197,7 +197,7 @@ function FloatingWhatsapp() {
   return (
     <a
       className="tb-fab-wa"
-      href="https://wa.me/85953945"
+      href="https://wa.me/6585953945"
       target="_blank"
       rel="noopener"
       aria-label="Chat with 2birds on WhatsApp"
@@ -220,7 +220,7 @@ Object.assign(window, {
     if (document.querySelector(".tb-fab-wa")) return;
     var a = document.createElement("a");
     a.className = "tb-fab-wa";
-    a.href = "https://wa.me/85953945";
+    a.href = "https://wa.me/6585953945";
     a.target = "_blank";
     a.rel = "noopener";
     a.setAttribute("aria-label", "Chat with 2birds on WhatsApp");

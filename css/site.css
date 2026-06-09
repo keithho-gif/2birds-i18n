@@ -1009,6 +1009,13 @@ body { padding-top: 108px; }
 .tb-twocol__grid {
   display: grid; grid-template-columns: 5fr 7fr; gap: 80px;
 }
+/* Two-column editorial grids stack on smaller screens. !important is needed
+   because some sections (e.g. the CQC block on the audit page) set their column
+   template via an inline style, which a normal media-query rule can't override —
+   that left the CQC text crushed into a one-word-per-line column on phones. */
+@media (max-width: 860px) {
+  .tb-twocol__grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+}
 .tb-twocol__head .eyebrow-lockup { margin-bottom: 18px; }
 .tb-twocol__title {
   font-family: var(--font-serif); font-weight: 400;
@@ -2776,6 +2783,13 @@ image-slot::part(placeholder) {
 .tb-contact__actions {
   margin-top: 24px;
   display: flex; align-items: center; gap: 18px;
+}
+.tb-contact__actions .btn { flex: 0 0 auto; }
+/* On phones the button and its fine print don't fit side by side; stacking
+   keeps the button at full size (it was shrinking to a cramped, three-line
+   pill) and gives the note its own line. */
+@media (max-width: 600px) {
+  .tb-contact__actions { flex-direction: column; align-items: flex-start; gap: 14px; }
 }
 .tb-contact__help {
   font-family: var(--font-sans); font-size: 13px; color: var(--slate);

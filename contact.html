@@ -254,7 +254,33 @@ function App() {
   });
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
-  const onSubmit = (e) => {e.preventDefault();setSubmitted(true);};
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const capLabel = (CAPACITIES.find((c) => c.id === capacity) || {}).label || "Enquiry";
+    const areaLabel =
+      capacity === "provider" ? "Practice area" :
+      capacity === "trainer" ? "Sector / specialism" :
+      "Domain expertise";
+    const subject = "Enquiry to 2birds" + (form.name ? " — " + form.name : "");
+    const lines = [
+      "I am writing as: " + capLabel,
+      "Name: " + (form.name || "—"),
+      "Email: " + (form.email || "—"),
+      form.org ? "Organisation: " + form.org : null,
+      form.phone ? "Telephone: " + form.phone : null,
+      form.area ? areaLabel + ": " + form.area : null,
+      "",
+      "A short note:",
+      form.note || "—",
+      "",
+      "Kind regards,",
+      form.name || "",
+    ].filter((l) => l !== null);
+    window.location.href =
+      "mailto:hello@2birds.asia?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(lines.join("\n"));
+    setSubmitted(true);
+  };
 
   const subByCapacity = {
     provider: "Tell us, in your own words, what the engagement looks like. We will reply within two working days during Singapore business hours.",
@@ -445,7 +471,7 @@ of your choosing.</p>
               </div>
               <div className="tb-office">
                 <span className="tb-office__label">Working Hours</span>
-                <span className="tb-office__where"><em>Monday</em> to Friday · 09:00am to 06:00pm</span>
+                <span className="tb-office__where"><em>Monday</em> to Friday<br />09:00am to 06:00pm</span>
                 <p className="tb-office__meta">Excluding weekends and public holidays.</p>
               </div>
             </div>
