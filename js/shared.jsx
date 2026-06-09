@@ -13,8 +13,8 @@ function NavBar({ current }) {
   { id: "brand", label: "Brand", href: "brand.html" },
   { id: "curriculum", label: "Curriculum", href: "curriculum.html" },
   { id: "sourcing", label: "ATO Setup", href: "setup.html" },
-  { id: "compliance", label: "Audit", href: "compliance.html" },
-  { id: "branding", label: "Revenue", href: "marketing.html" }];
+  { id: "compliance", label: "Audit", href: "audit.html" },
+  { id: "branding", label: "Revenue", href: "revenue.html" }];
 
   const [open, setOpen] = React.useState(false);
 
@@ -147,8 +147,8 @@ function Footer() {
               <li><a href="brand.html">Brand</a></li>
               <li><a href="curriculum.html">Curriculum</a></li>
               <li><a href="setup.html">ATO Setup</a></li>
-              <li><a href="compliance.html">Audit</a></li>
-              <li><a href="marketing.html">Revenue</a></li>
+              <li><a href="audit.html">Audit</a></li>
+              <li><a href="revenue.html">Revenue</a></li>
             </ul>
           </div>
           <div className="tb-footer__col">

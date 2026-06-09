@@ -1,5 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/compliance", "destination": "/audit", "permanent": true },
+    { "source": "/compliance.html", "destination": "/audit", "permanent": true },
+    { "source": "/marketing", "destination": "/revenue", "permanent": true },
+    { "source": "/marketing.html", "destination": "/revenue", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
