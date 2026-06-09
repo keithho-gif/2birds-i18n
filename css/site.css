@@ -6426,3 +6426,55 @@ a.tb-standing__name:hover .tb-standing__ext { opacity: 1; }
   .tb-mktsale__head,
   .tb-pair__head { max-width: 100%; }
 }
+
+/* =========================================================================
+   Service videos (home) — refined, premium mobile treatment.
+   1) Let the section GROW to fit its overlaid copy instead of cropping it
+      (the film stays clipped by .tb-svc__bg: object-fit:cover + overflow:hidden).
+   2) On phones, strengthen/even the scrim for crisp white copy and dial the
+      editorial type down to an elegant mobile scale, with a subtle rounded frame.
+   ========================================================================= */
+.tb-svc {
+  overflow: visible;
+  padding-block: clamp(56px, 8vh, 110px);
+}
+
+@media (max-width: 720px) {
+  .tb-svc {
+    padding-block: clamp(48px, 9vh, 72px);
+    border-radius: 6px;
+  }
+  .tb-svc__bg { border-radius: 6px; }
+  .tb-svc__scrim,
+  .tb-svc--rev .tb-svc__scrim {
+    background:
+      linear-gradient(180deg,
+        rgba(12, 12, 11, 0.74) 0%,
+        rgba(12, 12, 11, 0.58) 42%,
+        rgba(12, 12, 11, 0.82) 100%);
+  }
+  .tb-svc__text { max-width: 30rem; }
+  .tb-svc__num { font-size: 24px; margin-bottom: 12px; }
+  .tb-svc__title {
+    font-size: clamp(27px, 7.4vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -0.014em;
+    margin: 0 0 14px;
+  }
+  .tb-svc__lede {
+    font-size: 16px;
+    line-height: 1.45;
+    margin: 0 0 16px;
+    max-width: 100%;
+  }
+  .tb-svc__desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0 0 22px;
+    max-width: 100%;
+  }
+  .tb-svc__points { gap: 8px; margin: 0 0 24px; }
+  .tb-svc__points li { font-size: 10px; letter-spacing: 0.08em; padding: 7px 12px; }
+  .tb-svc__more { font-size: 11px; letter-spacing: 0.14em; }
+}
