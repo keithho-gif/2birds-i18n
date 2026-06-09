@@ -6488,3 +6488,10 @@ a.tb-standing__name:hover .tb-standing__ext { opacity: 1; }
 @media (max-width: 720px) {
   .tb-svc__inner { padding-inline: 28px; }
 }
+
+/* Home: trim the oversized empty band between the heritage stats and the
+   "Fields of expertise" services section (96px bottom + 96px top stacked into
+   ~192px of dead space). The heritage grid's bottom rule already divides them,
+   so drop the services' top rule too. */
+.tb-heritage { padding-bottom: var(--space-xl); }
+.tb-services { padding-top: var(--space-xxl); border-top: 0; }
