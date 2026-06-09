@@ -567,3 +567,46 @@ body.is-premium main > section { /* placeholder, kept for clarity */ }
   body.is-premium .premium-figure__brief { padding: 22px; }
   body.is-premium .premium-figure__brief-text { font-size: 18px; }
 }
+
+/* =========================================================================
+   Brand-consistent section rhythm.
+   The design's own inline section paddings settle around 72px, but the CSS
+   section rules were a mix — 92px (.premium-section) and 120px (legacy sections
+   such as .tb-numerals/.tb-steps/.tb-faq/…), plus .tb-mkt-collab at 96px. That
+   mismatch opened uneven gaps of roughly 180–240px between some sections and
+   far less between others. Normalise every CSS-controlled editorial section to
+   one value so the vertical rhythm reads evenly across the whole site.
+   (Sections with an intentional inline override — e.g. paddingTop:0 right after
+   a figure — keep it, since inline wins.)
+   ========================================================================= */
+body.is-premium .premium-section,
+body.is-premium .tb-numerals,
+body.is-premium .tb-numerals--photobg,
+body.is-premium .tb-steps,
+body.is-premium .tb-prose,
+body.is-premium .tb-prose--withFig,
+body.is-premium .tb-twocol,
+body.is-premium .tb-twocol--photobg,
+body.is-premium .tb-twocol--even,
+body.is-premium .tb-services,
+body.is-premium .tb-faq,
+body.is-premium .tb-heritage,
+body.is-premium .tb-offices,
+body.is-premium .tb-record,
+body.is-premium .tb-procedure,
+body.is-premium .tb-beneficiaries,
+body.is-premium .tb-dash,
+body.is-premium .tb-sectors,
+body.is-premium .tb-compare,
+body.is-premium .tb-contact,
+body.is-premium .tb-join,
+body.is-premium .tb-belief,
+body.is-premium .tb-strip,
+body.is-premium .tb-notes,
+body.is-premium .tb-trust,
+body.is-premium .tb-ctawrap,
+body.is-premium .tb-mkt-collab,
+body.is-premium .tb-mkt-deliver {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
