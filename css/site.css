@@ -2713,6 +2713,14 @@ image-slot::part(placeholder) {
   .tb-cal__day { height: auto; aspect-ratio: 1 / 1; font-size: 12px; }
   .tb-cal__slots-grid { gap: 5px; }
   .tb-cal__slot { padding: 10px 4px; font-size: 11px; }
+  /* The four legend items don't fit on one line on a phone, so "Public holiday"
+     got cramped; let them wrap onto a second line, aligned left. */
+  .tb-cal__legend {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: 16px;
+    row-gap: 8px;
+  }
 }
 
 /* =========================================================================
