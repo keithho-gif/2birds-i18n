@@ -150,10 +150,10 @@ body.is-premium .tb-sector__title {
 }
 
 /* Surface alternation between adjacent legacy sections — Bone / Paper. */
-body.is-premium main > section:nth-of-type(odd):not(.tb-pagehero):not(.tb-twocol--photobg):not(.tb-numerals--photobg):not(.tb-sectors):not(.tb-procedure):not(.premium-section--bone):not(.premium-section--paper):not(.premium-quote):not(.tb-ctawrap):not(.tb-interlude):not(.tb-founder):not(.tb-cta--dark):not(.tb-speaker):not(.tb-cta__inner--split):not(.on-dark) {
+body.is-premium main > section:nth-of-type(odd):not(.tb-pagehero):not(.tb-twocol--photobg):not(.tb-numerals--photobg):not(.tb-sectors):not(.tb-procedure):not(.premium-section--bone):not(.premium-section--paper):not(.premium-quote):not(.tb-ctawrap):not(.tb-interlude):not(.tb-founder):not(.tb-cta--dark):not(.tb-speaker):not(.tb-cta__inner--split):not(.tb-mkt-collab):not(.on-dark) {
   background: var(--paper);
 }
-body.is-premium main > section:nth-of-type(even):not(.tb-pagehero):not(.tb-twocol--photobg):not(.tb-numerals--photobg):not(.tb-sectors):not(.tb-procedure):not(.premium-section--bone):not(.premium-section--paper):not(.premium-quote):not(.tb-ctawrap):not(.tb-interlude):not(.tb-founder):not(.tb-cta--dark):not(.tb-speaker):not(.tb-cta__inner--split):not(.on-dark) {
+body.is-premium main > section:nth-of-type(even):not(.tb-pagehero):not(.tb-twocol--photobg):not(.tb-numerals--photobg):not(.tb-sectors):not(.tb-procedure):not(.premium-section--bone):not(.premium-section--paper):not(.premium-quote):not(.tb-ctawrap):not(.tb-interlude):not(.tb-founder):not(.tb-cta--dark):not(.tb-speaker):not(.tb-cta__inner--split):not(.tb-mkt-collab):not(.on-dark) {
   background: var(--bone);
 }
 

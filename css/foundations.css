@@ -104,6 +104,11 @@ html, body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+/* The full-bleed video covers are sized at 100vw inside clipped frames, but a
+   sub-pixel of horizontal overflow still surfaced a stray scrollbar/sliver on
+   wider screens. overflow-x: clip removes it without creating a scroll
+   container (so position: sticky and the page-flight transition are unaffected). */
+body { overflow-x: clip; }
 
 /* --- Display levels (Playfair Display) --- */
 .t-display-xl, .t-display, .t-display-sm,
