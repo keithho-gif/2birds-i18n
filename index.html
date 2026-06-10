@@ -254,6 +254,7 @@ function MiniCal() {
         <span className="tb-cal__month">{CAL_MONTH_NAMES[view.m]} <em>{view.y}</em></span>
         <span className="tb-cal__nav">
           <button
+            type="button"
             className="tb-cal__navbtn"
             aria-label="Previous month"
             onClick={() => step(-1)}
@@ -262,6 +263,7 @@ function MiniCal() {
             ‹
           </button>
           <button
+            type="button"
             className="tb-cal__navbtn"
             aria-label="Next month"
             onClick={() => step(1)}
@@ -277,7 +279,7 @@ function MiniCal() {
       <div className="tb-cal__grid">
         {cells.map((c) => {
           if (c.kind === "empty") {
-            return <button key={c.key} className="tb-cal__day is-empty" disabled aria-label=""></button>;
+            return <button type="button" key={c.key} className="tb-cal__day is-empty" disabled aria-label=""></button>;
           }
           const label = c.date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
           const holidayName = c.status === "holiday" ? calHolidayName(c.date) : null;
@@ -293,6 +295,7 @@ function MiniCal() {
           if (isPickedCell(c)) cls += " is-selected";
           return (
             <button
+              type="button"
               key={c.key}
               className={cls}
               disabled={disabled}
