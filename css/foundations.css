@@ -259,10 +259,9 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
   gap: 8px;
-  height: 42px;
-  padding: 0 24px;
+  min-height: 42px;
+  padding: 9px 24px;
   border-radius: var(--r-full);
   border: 1px solid transparent;
   font-family: var(--font-sans);

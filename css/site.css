@@ -2499,7 +2499,7 @@ image-slot::part(placeholder) {
   max-width: none;
 }
 .tb-cta__col { min-width: 0; }
-.tb-cta__cal { display: flex; justify-content: center; }
+.tb-cta__cal { display: flex; justify-content: center; min-width: 0; }
 
 /* Calendar widget */
 .tb-cal {
