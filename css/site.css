@@ -385,10 +385,12 @@ body { padding-top: 108px; }
 }
 @media (max-width: 720px) {
   .tb-mkt-collab__card { grid-template-columns: 1fr; gap: 20px; padding: 26px 22px; }
-  /* Keep the logo box and the mascot avatar the same size on phones (the
-     avatar otherwise stayed at its 120px desktop size while the logo shrank). */
+  /* Keep the logo box and the mascot avatar the same height on phones. The
+     avatar's base size lives in revenue.html's inline <style> (loaded after this
+     file), so !important is needed to win the cascade and stop it staying 120px
+     while the logo box shrank. */
   .tb-mkt-collab__logoFig,
-  .tb-mkt-collab__avatar { width: 96px; height: 96px; }
+  .tb-mkt-collab__avatar { width: 96px !important; height: 96px !important; }
   .tb-mkt-collab__title { font-size: 24px; }
   .tb-mkt-collab__links { gap: 20px; }
 }
@@ -4663,9 +4665,9 @@ image-slot::part(placeholder) {
 
 /* Tablet / phone ≤980: existing menu hide kicks in, expose burger */
 @media (max-width: 980px) {
-  .tb-nav { z-index: 60; height: 76px; }
-  body { padding-top: 76px; }
-  .tb-nav__wm img { height: 46px; width: auto; }
+  .tb-nav { z-index: 60; height: 82px; }
+  body { padding-top: 82px; }
+  .tb-nav__wm img { height: 52px; width: auto; }
   .tb-nav__burger { display: inline-flex; }
   .tb-nav__cta { display: none; }
   .tb-nav__right { gap: 12px; }
@@ -4826,10 +4828,10 @@ image-slot::part(placeholder) {
   .t-link-sm { min-height: 44px; display: inline-flex; align-items: center; }
 
   /* NAV header height fix for drawer offset */
-  .tb-nav { height: 68px; padding: 0 var(--space-lg) !important; }
-  body { padding-top: 68px; }
-  .tb-nav__wm img { height: 40px; width: auto; }
-  .tb-nav__drawer { top: 68px; }
+  .tb-nav { height: 74px; padding: 0 var(--space-lg) !important; }
+  body { padding-top: 74px; }
+  .tb-nav__wm img { height: 46px; width: auto; }
+  .tb-nav__drawer { top: 74px; }
 
   /* dl grids -> stack labels */
   .tb-dl dt { padding-top: var(--space-lg); }
