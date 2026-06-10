@@ -196,9 +196,10 @@ function MiniCal() {
   const [view, setView] = useState(() => ({ y: today.getFullYear(), m: today.getMonth() }));
   const [picked, setPicked] = useState(null); // {y,m,d} | null
 
-  // Don't allow paging into the past, or more than 2 months ahead.
+  // Don't allow paging into the past, or more than 3 months ahead
+  // (current month + the next three).
   const minIndex = today.getFullYear() * 12 + today.getMonth();
-  const maxIndex = minIndex + 2;
+  const maxIndex = minIndex + 3;
   const viewIndex = view.y * 12 + view.m;
   const canPrev = viewIndex > minIndex;
   const canNext = viewIndex < maxIndex;
