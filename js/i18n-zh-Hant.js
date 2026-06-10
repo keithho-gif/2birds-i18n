@@ -1,5 +1,12 @@
 /* 2birds — Traditional Chinese (Hong Kong SAR & Taiwan) */
 window.TBI18N.register("zh-Hant", {
+  /* ---- credentials / trust strip ---- */
+  "TAEPP-registered practitioners": "TAEPP 註冊從業者",
+  "Level 3 Senior AE under TAEPP": "TAEPP 三級高級成人教育導師（Senior AE）",
+  "2025 TPQA Outreach speaker": "2025 年 TPQA 外展演講嘉賓",
+  "Curriculum developers and adult educators registered on the National Adult Educator Registry.": "由在全國成人教育導師註冊名冊（National Adult Educator Registry）登記的課程開發者與成人教育導師組成。",
+  "Led by a senior professional adult educator with close to one hundred courseware submissions.": "由一位資深專業成人教育導師領銜，累計近一百份課件提交經驗。",
+  "Invited by SkillsFuture Singapore (SSG) to speak on best practices in strengthening training quality through effective AE systems and practices.": "獲新加坡精深技能發展局（SkillsFuture Singapore，SSG）邀請，就如何透過有效的成人教育（AE）體系與實踐提升培訓品質分享最佳做法。",
   /* ---- navigation & footer chrome ---- */
   "Brand": "品牌理念",
   "Curriculum": "課程開發",

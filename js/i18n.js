@@ -126,6 +126,10 @@
   function isTranslatable(el) {
     if (isOmWrapper(el)) return false;
     if (el.closest(".tb-langbar") || el.closest(".tb-lb-overlay")) return false;
+    // Skip dynamic, React-controlled widgets (e.g. the availability calendar):
+    // in English mode the observer restores each element to its first-cached
+    // contents, which would revert a month change and leave the calendar stuck.
+    if (el.closest("[data-i18n-skip]")) return false;
     var c = el.children, i;
     for (i = 0; i < c.length; i++) {
       if (!inlineChild(c[i])) return false;

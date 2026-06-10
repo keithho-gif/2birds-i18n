@@ -249,7 +249,7 @@ function MiniCal() {
   };
 
   return (
-    <div className="tb-cal">
+    <div className="tb-cal" data-i18n-skip>
       <div className="tb-cal__head">
         <span className="tb-cal__month">{CAL_MONTH_NAMES[view.m]} <em>{view.y}</em></span>
         <span className="tb-cal__nav">
@@ -389,7 +389,7 @@ function App() {
               <div key={i} className="tb-trust__cell">
                   <div className="tb-trust__seal">{t.seal}</div>
                   <div>
-                    <div className="tb-trust__title">{t.title}</div>
+                    <h3 className="tb-trust__title">{t.title}</h3>
                     <p className="tb-trust__sub">{t.sub}</p>
                   </div>
                 </div>

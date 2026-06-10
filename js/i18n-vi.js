@@ -1,5 +1,12 @@
 /* 2birds — Vietnamese */
 window.TBI18N.register("vi", {
+  /* ---- credentials / trust strip ---- */
+  "TAEPP-registered practitioners": "Chuyên gia đã đăng ký TAEPP",
+  "Level 3 Senior AE under TAEPP": "Nhà Giáo dục Người lớn Cấp cao (Senior AE) Bậc 3 theo TAEPP",
+  "2025 TPQA Outreach speaker": "Diễn giả TPQA Outreach năm 2025",
+  "Curriculum developers and adult educators registered on the National Adult Educator Registry.": "Gồm các nhà phát triển chương trình và nhà giáo dục người lớn được đăng ký trên National Adult Educator Registry.",
+  "Led by a senior professional adult educator with close to one hundred courseware submissions.": "Được dẫn dắt bởi một nhà giáo dục người lớn chuyên nghiệp cấp cao với gần một trăm hồ sơ nộp tài liệu giảng dạy.",
+  "Invited by SkillsFuture Singapore (SSG) to speak on best practices in strengthening training quality through effective AE systems and practices.": "Được SkillsFuture Singapore (SSG) mời phát biểu về các thực hành tốt nhất nhằm nâng cao chất lượng đào tạo thông qua hệ thống và thực hành giáo dục người lớn (AE) hiệu quả.",
   /* ---- navigation & footer chrome ---- */
   "Brand": "Thương hiệu",
   "Curriculum": "Phát triển chương trình",
