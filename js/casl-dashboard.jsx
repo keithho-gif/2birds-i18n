@@ -77,6 +77,22 @@ function CaslDashboard() {
     total: all.length,
   }), [all]);
 
+  // "The shape of the register" — industries ranked by their bench of approved
+  // skills, split into the current register (phase 1) and the June 2026
+  // additions (phase 2).
+  const industryStats = useMemo(() => {
+    const map = {};
+    for (const s of all) {
+      const ind = s.industry || "Unclassified";
+      if (!map[ind]) map[ind] = { industry: ind, current: 0, added: 0, total: 0 };
+      if (s.phase === 2) map[ind].added += 1; else map[ind].current += 1;
+      map[ind].total += 1;
+    }
+    return Object.values(map).sort((a, b) =>
+      b.total - a.total || a.industry.localeCompare(b.industry));
+  }, [all]);
+  const maxIndustryTotal = industryStats.length ? industryStats[0].total : 1;
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     let list = all.filter(s => {
@@ -109,6 +125,16 @@ function CaslDashboard() {
   const applyView = (id) => {
     const el = resultsRef.current;
     setPhase(id);
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 88;
+      smoothScrollTo(Math.max(0, y));
+    }
+  };
+
+  // Selecting an industry from the ranking filters the register below.
+  const selectIndustry = (ind) => {
+    setIndustry(industry === ind ? "All industries" : ind);
+    const el = resultsRef.current;
     if (el) {
       const y = el.getBoundingClientRect().top + window.scrollY - 88;
       smoothScrollTo(Math.max(0, y));
@@ -196,6 +222,50 @@ function CaslDashboard() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* ---- The shape of the register: industries ranked, current vs added ---- */}
+      <div className="casl__shape">
+        <div className="casl__shape-head">
+          <span className="casl__shape-eyebrow">The shape of the register</span>
+          <div className="casl__shape-legend" aria-hidden="true">
+            <span className="casl__legend-item">
+              <span className="casl__legend-sw casl__legend-sw--current" /> Current register
+            </span>
+            <span className="casl__legend-item">
+              <span className="casl__legend-sw casl__legend-sw--added" /> Added · Jun 2026
+            </span>
+          </div>
+        </div>
+        <p className="casl__shape-note">
+          Industries ranked by their bench of approved skills. The June 2026 additions mark
+          where SkillsFuture Singapore is widening approval, a first signal of demand when
+          weighing what to develop. Select an industry to filter the register below.
+        </p>
+        <ul className="casl__shape-list">
+          {industryStats.map((row) => (
+            <li key={row.industry}>
+              <button
+                type="button"
+                className={"casl__bar" + (industry === row.industry ? " is-active" : "")}
+                onClick={() => selectIndustry(row.industry)}
+                aria-pressed={industry === row.industry}
+                aria-label={row.industry + ": " + row.total + " skills" + (row.added > 0 ? ", " + row.added + " added in June 2026" : "")}
+              >
+                <span className="casl__bar-name">{row.industry}</span>
+                <span className="casl__bar-track" aria-hidden="true">
+                  <span className="casl__bar-seg casl__bar-seg--current"
+                        style={{ width: (row.current / maxIndustryTotal * 100) + "%" }} />
+                  <span className="casl__bar-seg casl__bar-seg--added"
+                        style={{ width: (row.added / maxIndustryTotal * 100) + "%" }} />
+                </span>
+                <span className="casl__bar-count">
+                  {row.total}{row.added > 0 ? <em> +{row.added}</em> : null}
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* ---- Filter bar ---- */}

@@ -808,3 +808,82 @@ body.is-premium .tb-casl-section { background: var(--royal-deep) !important; }
   .casl__legal { margin-top: 56px; }
   .casl__legal-cols { columns: 1; }
 }
+
+/* =========================================================================
+   The shape of the register — industries ranked, current vs Jun-2026 added.
+   Sits on the dark (royal-deep) CASL section, between the publication cards
+   and the filter bar.
+   ========================================================================= */
+.casl__shape {
+  margin-top: 30px;
+  padding: 28px 30px 30px;
+  border: 1px solid rgba(250, 248, 242, 0.12);
+  border-radius: 12px;
+  background: rgba(250, 248, 242, 0.03);
+}
+.casl__shape-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap; margin-bottom: 12px;
+}
+.casl__shape-eyebrow {
+  font-family: var(--font-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(250, 248, 242, 0.55);
+}
+.casl__shape-legend { display: flex; gap: 18px; flex-wrap: wrap; }
+.casl__legend-item {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-sans); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(250, 248, 242, 0.6);
+}
+.casl__legend-sw { width: 12px; height: 12px; border-radius: 3px; flex: 0 0 auto; }
+.casl__legend-sw--current { background: #cdc6a3; }
+.casl__legend-sw--added { background: #5d7fc0; }
+.casl__shape-note {
+  font-family: var(--font-sans); font-size: 13.5px; line-height: 1.62;
+  color: rgba(250, 248, 242, 0.66); margin: 0 0 22px; max-width: 72ch;
+}
+.casl__shape-list {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.casl__bar {
+  display: grid; grid-template-columns: 184px 1fr 66px; align-items: center;
+  gap: 16px; width: 100%; text-align: left;
+  background: transparent; border: 0; padding: 8px 10px; border-radius: 7px;
+  cursor: pointer; color: inherit; font: inherit;
+  transition: background-color var(--dur-base) var(--ease-standard);
+}
+.casl__bar:hover { background: rgba(250, 248, 242, 0.05); }
+.casl__bar:focus-visible { outline: 2px solid rgba(157, 180, 221, 0.7); outline-offset: 2px; }
+.casl__bar.is-active { background: rgba(250, 248, 242, 0.09); }
+.casl__bar-name {
+  font-family: var(--font-sans); font-size: 13px; color: rgba(250, 248, 242, 0.86);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.casl__bar.is-active .casl__bar-name { color: var(--paper); }
+.casl__bar-track {
+  display: flex; align-items: center; height: 12px;
+  background: rgba(250, 248, 242, 0.07); border-radius: 6px; overflow: hidden;
+}
+.casl__bar-seg { height: 100%; display: block; }
+.casl__bar-seg--current { background: #cdc6a3; }
+.casl__bar-seg--added { background: #5d7fc0; }
+.casl__bar-count {
+  font-family: var(--font-sans); font-size: 12px; font-weight: 600;
+  color: rgba(250, 248, 242, 0.82); text-align: right; white-space: nowrap;
+}
+.casl__bar-count em { font-style: normal; color: #9db4dd; }
+@media (max-width: 720px) {
+  .casl__shape { padding: 22px 18px 24px; }
+  .casl__shape-head { gap: 12px; }
+  .casl__bar {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "name count" "track track";
+    row-gap: 8px; column-gap: 12px; padding: 10px;
+  }
+  .casl__bar-name { grid-area: name; white-space: normal; }
+  .casl__bar-count { grid-area: count; }
+  .casl__bar-track { grid-area: track; height: 10px; }
+}
