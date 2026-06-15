@@ -1,0 +1,902 @@
+/* =========================================================================
+   CASL Explore layer — industry landscape, working list, marketability
+   signals, and the "choosing what to develop" guidance band.
+   Sits on the royal-deep section ground; same restrained register as casl.css.
+   ========================================================================= */
+
+/* ---------- Industry landscape ---------- */
+.casl__land {
+  margin: 40px 0 36px;
+  padding: 30px 34px 26px;
+  background: rgba(250, 248, 242, 0.035);
+  border: 1px solid rgba(196, 191, 160, 0.22);
+  border-radius: 5px;
+}
+.casl__land-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+.casl__land-head-l { max-width: 62ch; }
+.casl__land-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--olive-light);
+  margin-bottom: 10px;
+}
+.casl__land-note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(250, 248, 242, 0.7);
+}
+.casl__land-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 0 0 auto;
+  padding-top: 2px;
+}
+.casl__land-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 242, 0.66);
+  white-space: nowrap;
+}
+.casl__land-swatch {
+  width: 18px;
+  height: 8px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.casl__land-swatch.is-cur { background: var(--olive-light); }
+.casl__land-swatch.is-new { background: #7E9CD0; }
+
+.casl__land-rows {
+  display: flex;
+  flex-direction: column;
+}
+.casl__land-row {
+  display: grid;
+  grid-template-columns: 26px 212px 1fr 96px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 9px 10px;
+  margin: 0 -10px;
+  box-sizing: content-box;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 180ms ease;
+}
+.casl__land-row:hover,
+.casl__land-row:focus-visible {
+  background: rgba(250, 248, 242, 0.06);
+  outline: none;
+}
+.casl__land-row.is-active {
+  background: rgba(196, 191, 160, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(196, 191, 160, 0.35);
+}
+/* Industry glyphs — engraved line icons beside names and labels. */
+.casl__land-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--olive-light);
+  opacity: 0.75;
+  transition: opacity 180ms ease, color 180ms ease;
+}
+.casl__land-row:hover .casl__land-ic,
+.casl__land-row.is-active .casl__land-ic { opacity: 1; color: #D8D3B6; }
+.casl__card-ind .casl__ind-glyph {
+  vertical-align: -2px;
+  margin-right: 7px;
+  opacity: 0.8;
+}
+.casl__modal-ind .casl__ind-glyph {
+  vertical-align: -3px;
+  margin-right: 8px;
+  opacity: 0.85;
+}
+
+.casl__land-name {
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(250, 248, 242, 0.88);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.casl__land-row.is-active .casl__land-name { color: var(--paper); }
+.casl__land-bar {
+  position: relative;
+  height: 12px;
+  background: rgba(250, 248, 242, 0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.casl__land-track {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: flex;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: width 700ms cubic-bezier(.22,.61,.36,1);
+}
+.casl__land-seg { height: 100%; }
+.casl__land-seg.is-cur { background: var(--olive-light); opacity: 0.92; }
+.casl__land-seg.is-new { background: #7E9CD0; }
+.casl__land-row:hover .casl__land-seg.is-cur { opacity: 1; }
+
+/* A single pass of light sweeps along each bar once it has grown in,
+   staggered down the rows like a scan. Runs once; hover lights the bar. */
+.casl__land-track::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+    transparent 25%,
+    rgba(250, 248, 242, 0.0) 38%,
+    rgba(250, 248, 242, 0.45) 50%,
+    rgba(250, 248, 242, 0.0) 62%,
+    transparent 75%);
+  transform: translateX(-130%);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .casl__land.is-anim .casl__land-track::after {
+    animation: caslSheen 1100ms cubic-bezier(.4,.0,.2,1) 1 both;
+    animation-delay: var(--sheen-delay, 800ms);
+  }
+}
+@keyframes caslSheen {
+  from { transform: translateX(-130%); }
+  to   { transform: translateX(130%); }
+}
+.casl__land.is-noanim .casl__land-track::after { display: none; }
+.casl__land-row:hover .casl__land-track,
+.casl__land-row:focus-visible .casl__land-track {
+  filter: brightness(1.18) saturate(1.05);
+}
+.casl__land-track { transition: width 700ms cubic-bezier(.22,.61,.36,1), filter 200ms ease; }
+.casl__land.is-noanim .casl__land-track { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .casl__land-track { transition: none; }
+}
+.casl__land-nums {
+  font-family: "Playfair Display", serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--paper);
+  text-align: right;
+  white-space: nowrap;
+  font-feature-settings: "onum";
+}
+.casl__land-nums em {
+  font-family: "Lato", system-ui, sans-serif;
+  font-style: normal;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #9DB4DD;
+}
+.casl__land-more {
+  display: block;
+  margin: 16px auto 0;
+  appearance: none;
+  background: none;
+  border: 0;
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive-light);
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: color 180ms ease;
+}
+.casl__land-more:hover { color: var(--paper); }
+
+/* ---------- Pin control (cards) ---------- */
+.casl__card-headr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.casl__pin {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  border-radius: 50%;
+  border: 1px solid var(--casl-line);
+  background: transparent;
+  color: var(--slate);
+  cursor: pointer;
+  transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+}
+.casl__pin:hover,
+.casl__pin:focus-visible {
+  border-color: var(--olive-deep);
+  color: var(--olive-deep);
+  outline: none;
+}
+.casl__pin.is-on {
+  border-color: var(--olive-deep);
+  background: rgba(150, 146, 101, 0.14);
+  color: var(--olive-deep);
+}
+.casl__card.is-pinned { border-color: rgba(150, 146, 101, 0.55); }
+
+/* ---------- Working-list tray ---------- */
+.casl__tray {
+  margin-top: 22px;
+  padding: 20px 24px;
+  background: rgba(196, 191, 160, 0.10);
+  border: 1px solid rgba(196, 191, 160, 0.38);
+  border-radius: 5px;
+}
+.casl__tray-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.casl__tray-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--olive-light);
+}
+.casl__tray-label em {
+  font-style: normal;
+  color: rgba(250, 248, 242, 0.85);
+  letter-spacing: 0.1em;
+}
+.casl__tray-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.casl__tray-send {
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-decoration: none;
+  border-bottom: 1px solid var(--olive-light);
+  padding-bottom: 2px;
+  white-space: nowrap;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+.casl__tray-send:hover { color: var(--olive-light); }
+.casl__tray-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ---------- Marketability signals (modal, paper ground) ---------- */
+.casl__signals {
+  margin: 0 0 36px;
+  padding: 26px 28px 22px;
+  background: var(--bone);
+  border: 1px solid rgba(150, 146, 101, 0.28);
+  border-radius: 4px;
+}
+.casl__signals-kicker {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--olive-deep);
+  margin-bottom: 18px;
+}
+.casl__signals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(150, 146, 101, 0.22);
+}
+.casl__signal-num {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--charcoal);
+  font-feature-settings: "onum";
+}
+.casl__signal-cap {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive-deep);
+}
+.casl__signal-note {
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--graphite);
+}
+.casl__signals-foot {
+  margin: 16px 0 0;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--slate);
+}
+.casl__modal-pin { gap: 9px; }
+.casl__modal-pin.is-on {
+  border-color: var(--olive-deep);
+  color: var(--olive-deep);
+  background: rgba(150, 146, 101, 0.10);
+}
+.casl__modal-pin.is-on:hover {
+  background: var(--olive-deep);
+  border-color: var(--olive-deep);
+  color: var(--paper);
+}
+
+/* ---------- Guidance band: choosing what to develop ---------- */
+.casl__guide {
+  margin-top: 88px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(196, 191, 160, 0.22);
+}
+.casl__guide-head { max-width: 720px; margin-bottom: 40px; }
+.casl__guide-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--olive-light);
+  margin-bottom: 16px;
+}
+.casl__guide-eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+}
+.casl__guide-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+  margin: 0 0 14px;
+}
+.casl__guide-title em { font-style: italic; color: var(--olive-light); }
+.casl__guide-sub {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(250, 248, 242, 0.72);
+}
+.casl__guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(196, 191, 160, 0.22);
+  border-bottom: 1px solid rgba(196, 191, 160, 0.22);
+}
+.casl__guide-cell {
+  padding: 30px 32px 34px 0;
+}
+.casl__guide-art {
+  display: block;
+  width: 120px;
+  height: 84px;
+  color: var(--olive-light);
+  margin: 0 0 18px -6px;
+}
+
+/* Living elements inside the engravings. Each drawing has one animated
+   focal point; loops only run for users without reduced-motion. */
+.casl__anim-pulse,
+.casl__anim-ripple,
+.casl__anim-orbit {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.casl__anim-orbit {
+  transform-box: view-box;
+  transform-origin: 60px 44px;
+}
+.casl__anim-rise {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* 01 — the summit dot breathes; a ring ripples out from it. */
+  .casl__anim-pulse { animation: caslDotPulse 2.8s ease-in-out infinite; }
+  .casl__anim-ripple { animation: caslDotRipple 2.8s ease-out infinite; }
+  /* 02 — the audience orbits the course; the two pairs counter-rotate. */
+  .casl__anim-orbit { animation: caslOrbit 16s linear infinite; }
+  .casl__anim-orbit.is-rev { animation: caslOrbitRev 22s linear infinite; }
+  /* 03 — the arrow keeps rising from the foundations. */
+  .casl__anim-rise { animation: caslRise 3.2s cubic-bezier(.4,0,.2,1) infinite; }
+}
+@keyframes caslDotPulse {
+  0%, 100% { transform: scale(1); }
+  45%      { transform: scale(1.45); }
+}
+
+/* 01 — the dot rides the blue sight-line, end to end and back, still
+   pulsing and rippling as it travels. Where motion paths are unsupported
+   the dot keeps its engraved position near the summit. */
+@supports (offset-path: path("M22 52 L42 32")) {
+  .casl__anim-travel {
+    cx: 0;
+    cy: 0;
+    offset-path: path("M22 52 42 32l16 6 18-16 16 6");
+    offset-rotate: 0deg;
+    offset-distance: 70%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .casl__anim-pulse.casl__anim-travel {
+      animation: caslDotPulse 2.8s ease-in-out infinite,
+                 caslTravel 7s ease-in-out infinite alternate;
+    }
+    .casl__anim-ripple.casl__anim-travel {
+      animation: caslDotRipple 2.8s ease-out infinite,
+                 caslTravel 7s ease-in-out infinite alternate;
+    }
+  }
+}
+@keyframes caslTravel {
+  from { offset-distance: 0%; }
+  to   { offset-distance: 100%; }
+}
+@keyframes caslDotRipple {
+  0%   { transform: scale(1); opacity: 0.7; }
+  70%  { transform: scale(4.4); opacity: 0; }
+  100% { transform: scale(4.4); opacity: 0; }
+}
+@keyframes caslOrbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes caslOrbitRev {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+@keyframes caslRise {
+  0%   { transform: translateY(5px); opacity: 0; }
+  22%  { opacity: 1; }
+  78%  { transform: translateY(-3px); opacity: 1; }
+  100% { transform: translateY(-7px); opacity: 0; }
+}
+.casl__art-stroke path,
+.casl__art-stroke circle {
+  stroke-dasharray: 320;
+  stroke-dashoffset: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tb-reveal.is-in .casl__art-stroke path,
+  .tb-reveal.is-in .casl__art-stroke circle {
+    animation: caslArtDraw 1100ms cubic-bezier(.22,.61,.36,1) both;
+  }
+  .tb-reveal.is-in .casl__guide-cell:nth-child(2) .casl__art-stroke path,
+  .tb-reveal.is-in .casl__guide-cell:nth-child(2) .casl__art-stroke circle { animation-delay: 160ms; }
+  .tb-reveal.is-in .casl__guide-cell:nth-child(3) .casl__art-stroke path,
+  .tb-reveal.is-in .casl__guide-cell:nth-child(3) .casl__art-stroke circle { animation-delay: 320ms; }
+}
+@keyframes caslArtDraw {
+  from { stroke-dashoffset: 320; }
+  to   { stroke-dashoffset: 0; }
+}
+/* The site's reveal heal (html.tb-reveal-snap, set by shared.jsx when
+   animations are stuck) also snaps the illustration strokes to drawn. */
+.tb-reveal-snap .casl__art-stroke path,
+.tb-reveal-snap .casl__art-stroke circle { animation: none !important; }
+.casl__art-accent { color: #9DB4DD; stroke: currentColor; }
+.casl__art-dot { color: var(--paper); opacity: 0.85; }
+.casl__guide-cell:hover .casl__guide-art { color: #D8D3B6; }
+.casl__guide-art { transition: color 240ms ease; }
+.casl__guide-cell + .casl__guide-cell {
+  border-left: 1px solid rgba(196, 191, 160, 0.22);
+  padding-left: 32px;
+}
+.casl__guide-num {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--olive-light);
+  margin-bottom: 14px;
+  font-feature-settings: "onum";
+}
+.casl__guide-cell-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+  margin: 0 0 12px;
+}
+.casl__guide-cell-body {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: rgba(250, 248, 242, 0.7);
+}
+.casl__guide-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding-top: 30px;
+  flex-wrap: wrap;
+}
+.casl__guide-foot-text {
+  margin: 0;
+  max-width: 56ch;
+  font-size: 14.5px;
+  font-style: italic;
+  line-height: 1.65;
+  color: rgba(250, 248, 242, 0.68);
+}
+.casl__guide-foot-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================================
+   Depth accents — the landscape bars read as set into their panel.
+   ========================================================================= */
+.casl__land-bar {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.32),
+              inset 0 -1px 0 rgba(250, 248, 242, 0.05);
+}
+.casl__land-track { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28); }
+.casl__land-seg.is-cur {
+  background: linear-gradient(180deg, #D8D3B6 0%, var(--olive-light) 48%, #A6A17D 100%);
+}
+.casl__land-seg.is-new {
+  background: linear-gradient(180deg, #94AFDD 0%, #7E9CD0 48%, #6883B5 100%);
+}
+
+/* Breathing room between the view toggle row and the result cards. */
+.casl__controls { margin-bottom: 32px; }
+.casl__tray { margin-top: 0; margin-bottom: 28px; }
+.casl__chips { margin-top: 0; margin-bottom: 26px; }
+
+/* =========================================================================
+   WebGL field backdrop — a slow particle landscape behind the section
+   header (mounted by js/casl-field.js). Decorative only.
+   ========================================================================= */
+.tb-casl-section__field {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 660px;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, black 0%, black 55%, transparent 100%);
+  mask-image: linear-gradient(180deg, black 0%, black 55%, transparent 100%);
+}
+.tb-casl-section__field canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Empty-state glyph */
+.casl__empty-art {
+  display: block;
+  width: 96px;
+  height: 67px;
+  margin: 0 auto 14px;
+  color: var(--olive-light);
+  opacity: 0.8;
+}
+
+/* ---------- Modal v2 — header roundel, two-column body, signals rail ---------- */
+.casl__modal-card.is-v2 {
+  max-width: 940px;
+  padding: 0;
+}
+.casl__m2-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 44px 56px 30px;
+  border-bottom: 1px solid var(--casl-line);
+}
+.casl__m2-roundel {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid rgba(150, 146, 101, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--olive-deep);
+  background: var(--bone);
+  margin-top: 4px;
+}
+.casl__m2-head-text { min-width: 0; }
+.casl__m2-tags {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.casl__modal-card.is-v2 .casl__modal-title { margin: 0; font-size: 36px; }
+
+.casl__m2-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+}
+.casl__m2-main {
+  padding: 34px 48px 38px 56px;
+}
+.casl__m2-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--olive-deep);
+  margin: 26px 0 10px;
+}
+.casl__m2-label:first-child { margin-top: 0; }
+.casl__m2-lead {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--graphite);
+}
+.casl__m2-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.casl__m2-chip {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 1px solid rgba(150, 146, 101, 0.4);
+  border-radius: 999px;
+  background: var(--bone);
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--graphite);
+}
+
+/* Register-status timeline */
+.casl__m2-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-top: 6px;
+}
+.casl__m2-node {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.casl__m2-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--olive-deep);
+  margin-bottom: 5px;
+}
+.casl__m2-node.is-now .casl__m2-dot {
+  background: var(--charcoal);
+  box-shadow: 0 0 0 3px rgba(20, 20, 18, 0.12);
+}
+.casl__m2-node.is-ahead .casl__m2-dot {
+  background: transparent;
+  border: 1.4px solid var(--olive-deep);
+}
+.casl__m2-node-date {
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+.casl__m2-node-cap {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.casl__m2-rule {
+  flex: 1 1 auto;
+  height: 1px;
+  background: rgba(150, 146, 101, 0.5);
+  margin-top: 4px;
+  min-width: 22px;
+}
+.casl__m2-rule.is-ahead {
+  background: repeating-linear-gradient(90deg,
+    rgba(150, 146, 101, 0.5) 0 4px, transparent 4px 9px);
+}
+
+/* Signals rail */
+.casl__m2-rail {
+  background: var(--bone);
+  border-left: 1px solid rgba(150, 146, 101, 0.28);
+  padding: 34px 32px 30px;
+}
+.casl__m2-rail .casl__signals-kicker { margin-bottom: 20px; }
+.casl__m2-rank-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 56px;
+  margin-bottom: 12px;
+}
+.casl__m2-rank-bar {
+  flex: 1 1 0;
+  background: rgba(150, 146, 101, 0.32);
+  border-radius: 1px;
+}
+.casl__m2-rank-bar.is-sel {
+  background: var(--olive-deep);
+  box-shadow: 0 0 0 1px var(--bone), 0 0 0 2px var(--olive-deep);
+}
+.casl__m2-rank-cap {
+  margin: 0 0 22px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--graphite);
+}
+.casl__m2-rank-cap strong { font-weight: 700; color: var(--charcoal); }
+.casl__m2-figs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 18px 0 14px;
+  border-top: 1px solid rgba(150, 146, 101, 0.25);
+}
+.casl__m2-rail .casl__signal-note { margin: 0 0 16px; }
+.casl__m2-rail .casl__signals-foot { margin: 0; padding-top: 14px; border-top: 1px solid rgba(150, 146, 101, 0.25); }
+
+.casl__modal-card.is-v2 .casl__modal-cta {
+  padding: 26px 56px 0;
+  margin: 0;
+}
+.casl__modal-card.is-v2 .casl__modal-foot {
+  padding: 0 56px 36px;
+  margin-top: 18px;
+}
+
+@media (max-width: 980px) {
+  .casl__modal-card.is-v2 { max-width: 640px; }
+  .casl__m2-head { padding: 36px 26px 24px; gap: 16px; }
+  .casl__m2-roundel { flex-basis: 52px; width: 52px; height: 52px; }
+  .casl__modal-card.is-v2 .casl__modal-title { font-size: 27px; }
+  .casl__m2-body { grid-template-columns: 1fr; }
+  .casl__m2-main { padding: 26px 26px 30px; }
+  .casl__m2-rail {
+    border-left: 0;
+    border-top: 1px solid rgba(150, 146, 101, 0.28);
+    padding: 26px 26px 24px;
+  }
+  .casl__modal-card.is-v2 .casl__modal-cta { padding: 22px 26px 0; }
+  .casl__modal-card.is-v2 .casl__modal-foot { padding: 0 26px 28px; }
+  .casl__m2-line { flex-wrap: wrap; row-gap: 14px; }
+}
+
+/* ---------- Touch hit areas ----------
+   On coarse pointers, controls whose visual size is below 44px get their
+   effective hit area extended (padding or a transparent ::after overlay)
+   without changing how they look. */
+@media (pointer: coarse) {
+  .casl__pin,
+  .casl__modal-close,
+  .casl__chips-clear,
+  .casl__tray-send,
+  .casl__land-more { position: relative; }
+  .casl__pin::after,
+  .casl__modal-close::after,
+  .casl__chips-clear::after,
+  .casl__tray-send::after,
+  .casl__land-more::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: max(100%, 44px);
+    height: max(100%, 44px);
+  }
+  .casl__phase-btn { padding-top: 13px; padding-bottom: 13px; }
+  .casl__chip { padding-top: 11px; padding-bottom: 11px; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 980px) {
+  .casl__land { padding: 22px 18px 18px; }
+  .casl__land-head { flex-direction: column; gap: 14px; }
+  .casl__land-legend { flex-direction: row; flex-wrap: wrap; gap: 10px 18px; }
+  .casl__land-key { white-space: normal; }
+  .casl__land-row {
+    grid-template-columns: 26px 1fr 76px;
+    grid-template-areas: "icon name nums" "bar bar bar";
+    row-gap: 6px;
+    padding: 10px 8px;
+    margin: 0 -8px;
+  }
+  .casl__land-ic { grid-area: icon; }
+  .casl__land-name { grid-area: name; }
+  .casl__land-bar { grid-area: bar; }
+  .casl__land-nums { grid-area: nums; }
+
+  .casl__tray { padding: 16px 16px; }
+  .casl__tray-top { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  .casl__signals { padding: 20px 18px 18px; }
+  .casl__signals-grid { grid-template-columns: 1fr; gap: 20px; }
+
+  .casl__guide { margin-top: 60px; padding-top: 36px; }
+  .casl__guide-title { font-size: 30px; }
+  .casl__guide-grid { grid-template-columns: 1fr; }
+  .casl__guide-cell { padding: 24px 0; }
+  .casl__guide-art { width: 100px; height: 70px; margin-bottom: 12px; }
+  .casl__guide-cell + .casl__guide-cell {
+    border-left: 0;
+    border-top: 1px solid rgba(196, 191, 160, 0.22);
+    padding-left: 0;
+  }
+  .casl__guide-foot { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+
+/* More breathing room between the View/count controls and the result cards,
+   on both desktop and mobile. */
+.casl__controls { margin-bottom: 44px; }
+@media (max-width: 720px) {
+  .casl__controls { margin-bottom: 32px; }
+}
