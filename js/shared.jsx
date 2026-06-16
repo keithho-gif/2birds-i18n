@@ -264,13 +264,14 @@ Object.assign(window, {
 
 // Auto-mount the persistent "working list" dock on every page. It is driven by
 // the pinned CASL skills in localStorage, so once a visitor pins a skill the
-// bar follows them across the whole site. They can hide it; the choice is
-// remembered (and a fresh pin brings it back). Plain DOM so the i18n engine
-// translates its labels like any other content.
+// bar follows them across the whole site. They can collapse it to a small
+// floating launcher (same look/feel as the WhatsApp button) and reopen it
+// where they left off; the choice is remembered, and a fresh pin reopens it.
+// Plain DOM so the i18n engine translates its labels like any other content.
 (function mountWorklistDock() {
   var SHORTLIST_KEY = "tb_casl_shortlist";
-  var DISMISS_KEY = "tb_casl_dock_dismissed";
-  var dock = null;
+  var COLLAPSE_KEY = "tb_casl_dock_dismissed"; // "1" = collapsed to the launcher
+  var dock = null, fab = null;
 
   function readPinned() {
     try {
@@ -278,8 +279,11 @@ Object.assign(window, {
       return Array.isArray(a) ? a.filter(function (x) { return typeof x === "string"; }) : [];
     } catch (e) { return []; }
   }
-  function isDismissed() {
-    try { return localStorage.getItem(DISMISS_KEY) === "1"; } catch (e) { return false; }
+  function isCollapsed() {
+    try { return localStorage.getItem(COLLAPSE_KEY) === "1"; } catch (e) { return false; }
+  }
+  function setCollapsed(v) {
+    try { if (v) localStorage.setItem(COLLAPSE_KEY, "1"); else localStorage.removeItem(COLLAPSE_KEY); } catch (e) {}
   }
   function mailtoFor(pinned) {
     var n = pinned.length;
@@ -310,6 +314,22 @@ Object.assign(window, {
     if (b) b.setAttribute("aria-expanded", "false");
   }
 
+  // The collapsed launcher — a small floating button (WhatsApp-style) carrying
+  // a count badge. Reopens the bar where the visitor left off.
+  function buildFab() {
+    fab = document.createElement("button");
+    fab.type = "button";
+    fab.className = "casl__dock-fab";
+    fab.setAttribute("aria-label", "Open your working list");
+    fab.setAttribute("title", "Your working list");
+    fab.innerHTML =
+      '<svg class="casl__dock-fab-ic" viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<path d="M7 3.5h10a1 1 0 0 1 1 1V21l-6-3.7L6 21V4.5a1 1 0 0 1 1-1z"/></svg>' +
+      '<span class="casl__dock-fab-badge" data-i18n-skip="true"></span>';
+    document.body.appendChild(fab);
+    fab.addEventListener("click", function () { setCollapsed(false); update(); });
+  }
+
   function build() {
     dock = document.createElement("div");
     dock.className = "casl__dock";
@@ -335,7 +355,7 @@ Object.assign(window, {
           '<a class="casl__dock-send" href="#">Send my working list</a>' +
           '<a class="casl__dock-call" href="contact.html">Book a scoping call</a>' +
         '</div>' +
-        '<button type="button" class="casl__dock-close" aria-label="Hide the working-list bar" title="Hide">' +
+        '<button type="button" class="casl__dock-close" aria-label="Minimise the working list" title="Minimise">' +
           '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
         '</button>' +
       '</div>';
@@ -348,7 +368,7 @@ Object.assign(window, {
       else { closePanel(); }
     });
     dock.querySelector(".casl__dock-close").addEventListener("click", function () {
-      try { localStorage.setItem(DISMISS_KEY, "1"); } catch (e) {}
+      setCollapsed(true);
       update();
     });
     // remove an item from the list (event delegation; the <ul> persists)
@@ -380,24 +400,33 @@ Object.assign(window, {
 
   function update() {
     var pinned = readPinned();
-    var show = pinned.length > 0 && !isDismissed();
-    if (!show) {
+    if (pinned.length === 0) {                 // nothing pinned: nothing to show
+      if (dock) { dock.style.display = "none"; closePanel(); }
+      if (fab) fab.style.display = "none";
+      document.body.classList.remove("has-worklist-dock");
+      return;
+    }
+    if (isCollapsed()) {                        // collapsed: show the launcher only
+      if (!fab) buildFab();
+      fab.style.display = "";
+      fab.querySelector(".casl__dock-fab-badge").textContent = String(pinned.length);
       if (dock) { dock.style.display = "none"; closePanel(); }
       document.body.classList.remove("has-worklist-dock");
       return;
     }
-    if (!dock) build();
+    if (!dock) build();                         // expanded: show the bar
     dock.style.display = "";
     dock.querySelector(".casl__dock-count").textContent = String(pinned.length);
     dock.querySelector(".casl__dock-send").setAttribute("href", mailtoFor(pinned));
     renderList(pinned);
+    if (fab) fab.style.display = "none";
     document.body.classList.add("has-worklist-dock");
   }
 
   function start() {
     update();
     window.addEventListener("storage", function (e) {
-      if (!e || e.key == null || e.key === SHORTLIST_KEY || e.key === DISMISS_KEY) update();
+      if (!e || e.key == null || e.key === SHORTLIST_KEY || e.key === COLLAPSE_KEY) update();
     });
     window.addEventListener("tb-worklist-change", update);
   }
