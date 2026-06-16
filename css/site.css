@@ -6676,9 +6676,11 @@ a.tb-standing__name:hover .tb-standing__ext { opacity: 1; }
 .casl__dock-close:hover { color: var(--paper, #FAF8F2); background: rgba(196, 191, 160, 0.14); }
 .casl__dock-close:focus-visible { outline: 2px solid var(--olive-light, #C4BFA0); outline-offset: 2px; }
 
-/* Lift the floating WhatsApp button clear of the dock, and give the footer
-   extra room so its last line is never hidden behind the dock. */
-body.has-worklist-dock .tb-fab-wa { bottom: 104px; }
+/* While the bar is expanded, hide the WhatsApp button so it never overlaps the
+   bar or its list panel (it would block the per-item remove controls). It
+   returns when the bar is collapsed to the launcher. Give the footer room so
+   its last line is never hidden behind the bar. */
+body.has-worklist-dock .tb-fab-wa { display: none; }
 body.has-worklist-dock .tb-footer { padding-bottom: 104px; }
 
 @media (max-width: 720px) {
@@ -6688,14 +6690,14 @@ body.has-worklist-dock .tb-footer { padding-bottom: 104px; }
   .casl__dock-label { font-size: 12.5px; }
   .casl__dock-close { position: absolute; top: 7px; right: 7px; width: 28px; height: 28px; margin: 0; }
   .casl__dock-actions { gap: 7px; }
-  .casl__dock-send, .casl__dock-call { font-size: 11px; letter-spacing: 0.04em; }
-  .casl__dock-send { flex: 1.5 1 0; min-width: 0; padding: 9px 8px; }
+  .casl__dock-send, .casl__dock-call { font-size: 10.5px; letter-spacing: 0.03em; }
+  .casl__dock-send { flex: 1.4 1 0; min-width: 0; padding: 9px 8px; }
   .casl__dock-call { flex: 1 1 0; min-width: 0; padding: 9px 8px; }
-  body.has-worklist-dock .tb-fab-wa { bottom: 150px; }
-  body.has-worklist-dock .tb-footer { padding-bottom: 150px; }
+  body.has-worklist-dock .tb-footer { padding-bottom: 120px; }
 }
 @media (max-width: 380px) {
-  .casl__dock-send, .casl__dock-call { font-size: 10.5px; letter-spacing: 0.02em; padding: 9px 5px; }
+  .casl__dock-send, .casl__dock-call { font-size: 10px; letter-spacing: 0.01em; padding: 9px 4px; }
+  .casl__dock-send::after { margin-left: 1px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .casl__dock { animation: none; }
