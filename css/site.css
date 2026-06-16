@@ -2913,7 +2913,7 @@ image-slot::part(placeholder) {
 .tb-footer__grid {
   display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 56px;
 }
-.tb-footer__wm { display: block; height: 52px; width: 52px; margin-bottom: 22px; border-radius: var(--r-sm); opacity: 0.92; }
+.tb-footer__wm { display: block; height: 46px; width: auto; margin-bottom: 22px; opacity: 0.92; }
 .tb-footer__about {
   font-family: var(--font-sans); font-size: 14px; line-height: 1.75; font-weight: 300;
   color: rgba(250, 248, 242, 0.7); margin: 0; max-width: 280px;
@@ -4799,7 +4799,7 @@ image-slot::part(placeholder) {
   .tb-footer { padding: 56px 0 32px; }
   .tb-footer__grid { grid-template-columns: 1fr !important; gap: var(--space-xl); }
   .tb-footer__brand { grid-column: auto; }
-  .tb-footer__wm { width: 72px; height: 72px; }
+  .tb-footer__wm { width: auto; height: 58px; }
   .tb-footer__legal {
     flex-direction: column;
     align-items: flex-start;
