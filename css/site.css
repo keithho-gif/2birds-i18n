@@ -259,7 +259,7 @@ body { padding-top: 108px; }
 }
 
 /* ---- § III · 2birds × ST Warrior --------------------------------------- */
-.tb-mkt-collab { padding: 96px 0 88px; background: var(--bone); }
+.tb-mkt-collab { padding: 96px 0 88px; background: var(--bone); border-top: 1px solid var(--hairline); }
 .tb-mkt-collab__rule {
   display: flex; align-items: center; justify-content: center;
   gap: 12px; margin: 0 auto 44px;
