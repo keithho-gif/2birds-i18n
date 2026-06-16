@@ -900,3 +900,54 @@
 @media (max-width: 720px) {
   .casl__controls { margin-bottom: 32px; }
 }
+
+/* Register-status timeline on phones — the horizontal layout wraps and strands
+   the dashed "future" connector at the end of a row (disconnected from the
+   2 Jun node). Lay it out vertically instead: dots on a left rail, dates and
+   captions to the right, with a continuous connector that runs dot-to-dot and
+   turns dashed on the segment leading into the upcoming (2 Jun / Mid-2027) node. */
+@media (max-width: 600px) {
+  .casl__m2-line {
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 0;
+    row-gap: 0;
+    padding-top: 8px;
+  }
+  .casl__m2-rule { display: none; }
+  .casl__m2-node {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    column-gap: 13px;
+    row-gap: 2px;
+    align-items: start;
+    position: relative;
+    padding-bottom: 22px;
+  }
+  .casl__m2-node:last-child { padding-bottom: 0; }
+  .casl__m2-dot {
+    grid-column: 1; grid-row: 1;
+    justify-self: center; align-self: start;
+    margin: 4px 0 0;
+    position: relative; z-index: 1;
+  }
+  .casl__m2-node-date { grid-column: 2; grid-row: 1; white-space: normal; }
+  .casl__m2-node-cap  { grid-column: 2; grid-row: 2; }
+  /* Connector running from this dot down into the next node's dot. */
+  .casl__m2-node::after {
+    content: "";
+    position: absolute;
+    left: 7.5px;
+    top: 13px;
+    bottom: -4px;
+    width: 1px;
+    background: rgba(150, 146, 101, 0.5);
+  }
+  .casl__m2-node:last-child::after { display: none; }
+  /* The segment into the third (upcoming) node is dashed. */
+  .casl__m2-node:nth-child(3)::after {
+    background: repeating-linear-gradient(180deg,
+      rgba(150, 146, 101, 0.5) 0 4px, transparent 4px 9px);
+  }
+}
