@@ -185,3 +185,14 @@ body { padding-top: calc(108px + var(--tb-langbar-h)) !important; }
 
 /* Keep the bar/modal out of print + PDF export */
 @media print { .tb-langbar, .tb-lb-overlay { display: none !important; } }
+
+/* Notice for interactive widgets that stay in English (data-i18n-skip), shown
+   only when a translation is active. Sits on the dark widget panels. */
+.tb-langonly {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin: 18px auto 0; padding: 7px 16px;
+  border: 1px solid rgba(196, 191, 160, 0.32); border-radius: 999px;
+  font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.03em;
+  color: rgba(196, 191, 160, 0.95); text-align: left;
+}
+.tb-langonly svg { flex: 0 0 auto; color: var(--olive-light); }

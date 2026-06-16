@@ -210,8 +210,32 @@ function FloatingWhatsapp() {
   );
 }
 
+// A small notice shown only on non-English locales, for interactive widgets that
+// are excluded from translation (data-i18n-skip) and so remain in English. It
+// watches <html lang> (set by the i18n engine) and updates live on switch.
+function LangOnlyNote({ label }) {
+  const [show, setShow] = React.useState(false);
+  React.useEffect(() => {
+    const el = document.documentElement;
+    const check = () => setShow(((el.getAttribute("lang") || "en").toLowerCase()) !== "en");
+    check();
+    const mo = new MutationObserver(check);
+    mo.observe(el, { attributes: true, attributeFilter: ["lang"] });
+    return () => mo.disconnect();
+  }, []);
+  if (!show) return null;
+  return (
+    <p className="tb-langonly" data-i18n-skip="true">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" />
+      </svg>
+      {(label || "This tool")} is available in English only.
+    </p>
+  );
+}
+
 Object.assign(window, {
-  EyebrowLockup, NavBar, PageHero, SectionHead, CTAPanel, Footer, FloatingWhatsapp
+  EyebrowLockup, NavBar, PageHero, SectionHead, CTAPanel, Footer, FloatingWhatsapp, LangOnlyNote
 });
 
 // Auto-mount a floating WhatsApp button on every page using shared.jsx
