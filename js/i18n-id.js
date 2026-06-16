@@ -841,3 +841,10 @@ window.TBI18N && window.TBI18N.register("id", {
   "Fastest-rising skills": "Keterampilan yang paling pesat menanjak",
   "Verify TAEPP": "Verifikasi TAEPP"
 });
+
+/* --- working-list dock strings --- */
+window.TBI18N && window.TBI18N.register("id", {
+  "Your working list": "Daftar kerja Anda",
+  "Send my working list": "Kirim daftar kerja saya",
+  "Book a scoping call": "Jadwalkan panggilan penjajakan"
+});

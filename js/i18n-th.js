@@ -841,3 +841,10 @@ window.TBI18N && window.TBI18N.register("th", {
   "Fastest-rising skills": "ทักษะที่มาแรงที่สุด",
   "Verify TAEPP": "ตรวจสอบ TAEPP"
 });
+
+/* --- working-list dock strings --- */
+window.TBI18N && window.TBI18N.register("th", {
+  "Your working list": "รายการงานของคุณ",
+  "Send my working list": "ส่งรายการงานของฉัน",
+  "Book a scoping call": "นัดหมายพูดคุยเบื้องต้น"
+});

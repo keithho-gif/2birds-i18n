@@ -841,3 +841,10 @@ window.TBI18N && window.TBI18N.register("ko", {
   "Fastest-rising skills": "가장 빠르게 부상하는 역량",
   "Verify TAEPP": "TAEPP 확인"
 });
+
+/* --- working-list dock strings --- */
+window.TBI18N && window.TBI18N.register("ko", {
+  "Your working list": "내 작업 목록",
+  "Send my working list": "작업 목록 보내기",
+  "Book a scoping call": "사전 상담 예약"
+});

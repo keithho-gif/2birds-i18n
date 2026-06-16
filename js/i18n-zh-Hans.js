@@ -841,3 +841,10 @@ window.TBI18N && window.TBI18N.register("zh-Hans", {
   "Fastest-rising skills": "增势最快的技能",
   "Verify TAEPP": "核验 TAEPP"
 });
+
+/* --- working-list dock strings --- */
+window.TBI18N && window.TBI18N.register("zh-Hans", {
+  "Your working list": "您的工作清单",
+  "Send my working list": "发送我的工作清单",
+  "Book a scoping call": "预约初步沟通"
+});

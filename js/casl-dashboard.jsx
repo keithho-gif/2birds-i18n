@@ -351,6 +351,14 @@ function CaslDashboard() {
     return () => window.removeEventListener("keydown", onKey);
   }, [selected]);
 
+  // Flag the body while the sticky working-list dock is shown, so the floating
+  // WhatsApp button lifts clear of it and the page reserves room at the foot.
+  useEffect(() => {
+    const on = pinned.length > 0 && !selected;
+    document.body.classList.toggle("has-worklist-dock", on);
+    return () => document.body.classList.remove("has-worklist-dock");
+  }, [pinned.length, selected]);
+
   const cardKey = (fn) => (e) => {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fn(); }
   };
@@ -764,6 +772,26 @@ function CaslDashboard() {
           Maintained by 2birds · Reflects the CASL as at 2 May 2026 · The official SSG register prevails.
         </span>
       </aside>
+
+      {/* ---- Sticky working-list dock: the prominent, always-in-reach CTA that
+              appears the moment a skill is pinned (portalled so position:fixed is
+              viewport-relative regardless of ancestor transforms). ---- */}
+      {pinned.length > 0 && !selected && ReactDOM.createPortal(
+        <div className="casl__dock" role="region" aria-label="Your working list">
+          <div className="casl__dock-inner">
+            <div className="casl__dock-info">
+              <PinGlyph filled={true} />
+              <span className="casl__dock-label">Your working list</span>
+              <span className="casl__dock-count" data-i18n-skip="true">{pinned.length}</span>
+            </div>
+            <div className="casl__dock-actions">
+              <a className="casl__dock-send" href={shortlistMailto}>Send my working list</a>
+              <a className="casl__dock-call" href="contact.html">Book a scoping call</a>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
 
       {/* ---- Detail modal (portalled to body so position:fixed is viewport-relative) ---- */}
       {selected && ReactDOM.createPortal(
