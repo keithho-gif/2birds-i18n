@@ -616,8 +616,9 @@
   height: 660px;
   z-index: 0;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(180deg, black 0%, black 55%, transparent 100%);
-  mask-image: linear-gradient(180deg, black 0%, black 55%, transparent 100%);
+  opacity: 0.5;
+  -webkit-mask-image: linear-gradient(180deg, black 0%, black 40%, transparent 92%);
+  mask-image: linear-gradient(180deg, black 0%, black 40%, transparent 92%);
 }
 .tb-casl-section__field canvas {
   display: block;

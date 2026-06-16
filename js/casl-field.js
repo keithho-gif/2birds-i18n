@@ -18,7 +18,7 @@
 
   // Maze footprint (grid cells) and wall dimensions in world units.
   var COLS = 42, ROWS = 40, CELL = 1.0, WALL_H = 0.5, WALL_T = 0.1;
-  var SPEED = 1.5;       // forward glide, world units / second
+  var SPEED = 1.0;       // forward glide, world units / second
 
   function buildWalls() {
     // Perfect maze via iterative recursive-backtracker; returns the list of
@@ -75,18 +75,18 @@
     container.appendChild(renderer.domElement);
 
     var scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(NAVY, 8, 38);
+    scene.fog = new THREE.Fog(NAVY, 5, 23);
 
     var camera = new THREE.PerspectiveCamera(60, 1, 0.1, 120);
     var camY = 6.0;
     camera.position.set(0, camY, 6);
     camera.lookAt(0, 0.2, -10);
 
-    scene.add(new THREE.AmbientLight(0x8294b8, 0.65));
-    var key = new THREE.DirectionalLight(0xfff1cf, 0.95);
+    scene.add(new THREE.AmbientLight(0x8294b8, 0.42));
+    var key = new THREE.DirectionalLight(0xfff1cf, 0.55);
     key.position.set(-7, 11, 5);
     scene.add(key);
-    var rim = new THREE.DirectionalLight(0x9db4dd, 0.35);
+    var rim = new THREE.DirectionalLight(0x9db4dd, 0.18);
     rim.position.set(6, 4, -8);
     scene.add(rim);
 
@@ -96,7 +96,7 @@
     var geo = new THREE.BoxGeometry(1, 1, 1);
     var mat = new THREE.MeshStandardMaterial({
       color: OLIVE, roughness: 0.62, metalness: 0.12,
-      emissive: 0x39381f, emissiveIntensity: 0.5,
+      emissive: 0x24241a, emissiveIntensity: 0.16,
     });
     var inst = new THREE.InstancedMesh(geo, mat, walls.length * 2);
     var m = new THREE.Matrix4(), k = 0;
