@@ -6593,3 +6593,109 @@ a.tb-standing__name:hover .tb-standing__ext { opacity: 1; }
   .tb-footer__legalRight { text-align: left; }
   .tb-footer__legalRight a { white-space: nowrap; }
 }
+
+/* ---------- Sticky working-list dock ----------
+   Mounted on every page (shared.jsx) once a skill is pinned, so it follows
+   the visitor across the site, so the "send my
+   working list" action is prominent and always in reach while browsing,
+   on desktop and mobile alike. */
+.casl__dock {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 90;                 /* below the detail modal (100) + the FAB (1100) */
+  display: flex;
+  justify-content: center;
+  padding: 0 16px 16px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  pointer-events: none;        /* only the inner card is interactive */
+  animation: casl-dock-in 360ms cubic-bezier(.2, .7, .2, 1) both;
+}
+@keyframes casl-dock-in {
+  from { transform: translateY(120%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.casl__dock-inner {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 880px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: var(--royal-deep, #14264A);
+  color: var(--paper, #FAF8F2);
+  border: 1px solid rgba(196, 191, 160, 0.30);
+  border-radius: 16px;
+  padding: 14px 16px 14px 22px;
+  box-shadow: 0 20px 48px -14px rgba(10, 18, 36, 0.55), 0 6px 16px rgba(10, 18, 36, 0.30);
+}
+.casl__dock-info { display: flex; align-items: center; gap: 11px; min-width: 0; margin-right: auto; }
+.casl__dock-info svg { width: 15px; height: 15px; color: var(--olive-light, #C4BFA0); flex: 0 0 auto; }
+.casl__dock-label {
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.01em; white-space: nowrap;
+}
+.casl__dock-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 23px; height: 23px; padding: 0 7px;
+  border-radius: 999px;
+  background: var(--olive-light, #C4BFA0);
+  color: var(--royal-deep, #14264A);
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 12.5px; font-weight: 700; flex: 0 0 auto;
+}
+.casl__dock-actions { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+.casl__dock-send, .casl__dock-call {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: "Lato", system-ui, sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  border-radius: 999px; text-decoration: none; white-space: nowrap; cursor: pointer;
+  transition: background 200ms ease, color 200ms ease, transform 200ms ease, border-color 200ms ease;
+}
+.casl__dock-send {
+  background: var(--olive-light, #C4BFA0);
+  color: var(--royal-deep, #14264A);
+  padding: 11px 20px;
+}
+.casl__dock-send::after { content: "\2192"; font-weight: 700; }
+.casl__dock-send:hover { background: #FFFFFF; transform: translateY(-1px); }
+.casl__dock-call {
+  color: var(--paper, #FAF8F2);
+  border: 1px solid rgba(196, 191, 160, 0.50);
+  padding: 10px 18px;
+}
+.casl__dock-call:hover { border-color: var(--olive-light, #C4BFA0); background: rgba(196, 191, 160, 0.12); }
+.casl__dock-close {
+  appearance: none; background: transparent; border: 0; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; margin: -4px -6px -4px -2px;
+  border-radius: 50%; flex: 0 0 auto;
+  color: rgba(250, 248, 242, 0.55);
+  transition: color 180ms ease, background 180ms ease;
+}
+.casl__dock-close:hover { color: var(--paper, #FAF8F2); background: rgba(196, 191, 160, 0.14); }
+.casl__dock-close:focus-visible { outline: 2px solid var(--olive-light, #C4BFA0); outline-offset: 2px; }
+
+/* Lift the floating WhatsApp button clear of the dock, and give the footer
+   extra room so its last line is never hidden behind the dock. */
+body.has-worklist-dock .tb-fab-wa { bottom: 104px; }
+body.has-worklist-dock .tb-footer { padding-bottom: 104px; }
+
+@media (max-width: 720px) {
+  .casl__dock { padding: 0 12px 12px; padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
+  .casl__dock-inner { position: relative; flex-direction: column; align-items: stretch; gap: 12px; padding: 13px 15px; }
+  .casl__dock-info { justify-content: flex-start; margin-right: 0; padding-right: 30px; }
+  .casl__dock-close { position: absolute; top: 9px; right: 9px; width: 30px; height: 30px; margin: 0; }
+  .casl__dock-actions { gap: 8px; }
+  .casl__dock-send { flex: 1.5 1 0; min-width: 0; padding: 13px 10px; }
+  .casl__dock-call { flex: 1 1 0; min-width: 0; padding: 13px 10px; }
+  body.has-worklist-dock .tb-fab-wa { bottom: 150px; }
+  body.has-worklist-dock .tb-footer { padding-bottom: 150px; }
+}
+@media (max-width: 380px) {
+  .casl__dock-send, .casl__dock-call { font-size: 12px; letter-spacing: 0.03em; }
+  .casl__dock-call { padding: 13px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .casl__dock { animation: none; }
+}

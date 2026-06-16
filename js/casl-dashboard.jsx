@@ -231,22 +231,13 @@ function CaslDashboard() {
   });
   useEffect(() => {
     try { localStorage.setItem(SHORTLIST_KEY, JSON.stringify(pinned)); } catch (e) {}
+    // Nudge the global working-list dock (shared.jsx) to refresh live.
+    try { window.dispatchEvent(new Event("tb-worklist-change")); } catch (e) {}
   }, [pinned]);
   const isPinned = (title) => pinned.indexOf(title) !== -1;
-
-  // Whether the visitor has dismissed the sticky dock. Persisted, so it stays
-  // hidden when they return to the page; pinning a new skill brings it back.
-  const [dockDismissed, setDockDismissed] = useState(() => {
-    try { return localStorage.getItem(DOCK_DISMISS_KEY) === "1"; } catch (e) { return false; }
-  });
-  const dismissDock = () => {
-    setDockDismissed(true);
-    try { localStorage.setItem(DOCK_DISMISS_KEY, "1"); } catch (e) {}
-  };
   const togglePin = (title) => setPinned(p => {
     if (p.indexOf(title) !== -1) return p.filter(t => t !== title);
-    // a fresh pin re-surfaces the dock even if it was dismissed earlier
-    setDockDismissed(false);
+    // a fresh pin re-surfaces the global dock even if it was dismissed earlier
     try { localStorage.removeItem(DOCK_DISMISS_KEY); } catch (e) {}
     return [...p, title];
   });
@@ -366,14 +357,6 @@ function CaslDashboard() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [selected]);
-
-  // Flag the body while the sticky working-list dock is shown, so the floating
-  // WhatsApp button lifts clear of it and the page reserves room at the foot.
-  useEffect(() => {
-    const on = pinned.length > 0 && !selected && !dockDismissed;
-    document.body.classList.toggle("has-worklist-dock", on);
-    return () => document.body.classList.remove("has-worklist-dock");
-  }, [pinned.length, selected, dockDismissed]);
 
   const cardKey = (fn) => (e) => {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fn(); }
@@ -789,32 +772,9 @@ function CaslDashboard() {
         </span>
       </aside>
 
-      {/* ---- Sticky working-list dock: the prominent, always-in-reach CTA that
-              appears the moment a skill is pinned (portalled so position:fixed is
-              viewport-relative regardless of ancestor transforms). ---- */}
-      {pinned.length > 0 && !selected && !dockDismissed && ReactDOM.createPortal(
-        <div className="casl__dock" role="region" aria-label="Your working list">
-          <div className="casl__dock-inner">
-            <div className="casl__dock-info">
-              <PinGlyph filled={true} />
-              <span className="casl__dock-label">Your working list</span>
-              <span className="casl__dock-count" data-i18n-skip="true">{pinned.length}</span>
-            </div>
-            <div className="casl__dock-actions">
-              <a className="casl__dock-send" href={shortlistMailto}>Send my working list</a>
-              <a className="casl__dock-call" href="contact.html">Book a scoping call</a>
-            </div>
-            <button type="button" className="casl__dock-close" onClick={dismissDock}
-                    aria-label="Hide the working-list bar" title="Hide">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
-                   strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-                <path d="M6 6l12 12M18 6L6 18" />
-              </svg>
-            </button>
-          </div>
-        </div>,
-        document.body
-      )}
+      {/* The sticky working-list dock lives in shared.jsx so it persists across
+          every page; this dashboard just keeps localStorage current and fires a
+          "tb-worklist-change" event for it. */}
 
       {/* ---- Detail modal (portalled to body so position:fixed is viewport-relative) ---- */}
       {selected && ReactDOM.createPortal(

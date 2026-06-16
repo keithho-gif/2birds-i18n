@@ -193,8 +193,9 @@
       if (applying || moRaf) return;
       moRaf = requestAnimationFrame(function () { moRaf = 0; render(false); });
     });
-    var target = document.getElementById("root") || document.body;
-    mo.observe(target, { childList: true, subtree: true });
+    // Observe the whole body, not just #root, so body-level widgets injected
+    // after load (the floating working-list dock) are translated too.
+    mo.observe(document.body, { childList: true, subtree: true });
   }
 
   /* ---------- state ----------------------------------------------------- */

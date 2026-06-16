@@ -261,6 +261,95 @@ Object.assign(window, {
     inject();
   }
 })();
+
+// Auto-mount the persistent "working list" dock on every page. It is driven by
+// the pinned CASL skills in localStorage, so once a visitor pins a skill the
+// bar follows them across the whole site. They can hide it; the choice is
+// remembered (and a fresh pin brings it back). Plain DOM so the i18n engine
+// translates its labels like any other content.
+(function mountWorklistDock() {
+  var SHORTLIST_KEY = "tb_casl_shortlist";
+  var DISMISS_KEY = "tb_casl_dock_dismissed";
+  var dock = null;
+
+  function readPinned() {
+    try {
+      var a = JSON.parse(localStorage.getItem(SHORTLIST_KEY) || "[]");
+      return Array.isArray(a) ? a.filter(function (x) { return typeof x === "string"; }) : [];
+    } catch (e) { return []; }
+  }
+  function isDismissed() {
+    try { return localStorage.getItem(DISMISS_KEY) === "1"; } catch (e) { return false; }
+  }
+  function mailtoFor(pinned) {
+    var n = pinned.length;
+    var subject = "Course development enquiry · working list of " + n +
+      (n === 1 ? " skill" : " skills") + " from the CASL";
+    var body = "Hello 2birds,\n\nI have pinned the following " +
+      (n === 1 ? "skill" : n + " skills") +
+      " from the CASL and would value a frank read on marketability and the right funding route:\n\n" +
+      pinned.map(function (t, i) { return (i + 1) + ". " + t; }).join("\n") +
+      "\n\nThank you.";
+    return "mailto:hello@2birds.asia?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+  }
+
+  function build() {
+    dock = document.createElement("div");
+    dock.className = "casl__dock";
+    dock.setAttribute("role", "region");
+    dock.setAttribute("aria-label", "Your working list");
+    dock.innerHTML =
+      '<div class="casl__dock-inner">' +
+        '<div class="casl__dock-info">' +
+          '<svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true">' +
+            '<path d="M4 1.5h8a1 1 0 0 1 1 1V15l-5-3.2L3 15V2.5a1 1 0 0 1 1-1z"/></svg>' +
+          '<span class="casl__dock-label">Your working list</span>' +
+          '<span class="casl__dock-count" data-i18n-skip="true"></span>' +
+        '</div>' +
+        '<div class="casl__dock-actions">' +
+          '<a class="casl__dock-send" href="#">Send my working list</a>' +
+          '<a class="casl__dock-call" href="contact.html">Book a scoping call</a>' +
+        '</div>' +
+        '<button type="button" class="casl__dock-close" aria-label="Hide the working-list bar" title="Hide">' +
+          '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
+        '</button>' +
+      '</div>';
+    document.body.appendChild(dock);
+    dock.querySelector(".casl__dock-close").addEventListener("click", function () {
+      try { localStorage.setItem(DISMISS_KEY, "1"); } catch (e) {}
+      update();
+    });
+  }
+
+  function update() {
+    var pinned = readPinned();
+    var show = pinned.length > 0 && !isDismissed();
+    if (!show) {
+      if (dock) dock.style.display = "none";
+      document.body.classList.remove("has-worklist-dock");
+      return;
+    }
+    if (!dock) build();
+    dock.style.display = "";
+    dock.querySelector(".casl__dock-count").textContent = String(pinned.length);
+    dock.querySelector(".casl__dock-send").setAttribute("href", mailtoFor(pinned));
+    document.body.classList.add("has-worklist-dock");
+  }
+
+  function start() {
+    update();
+    window.addEventListener("storage", function (e) {
+      if (!e || e.key == null || e.key === SHORTLIST_KEY || e.key === DISMISS_KEY) update();
+    });
+    window.addEventListener("tb-worklist-change", update);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
 // REVEAL_OBSERVER_HOOK
 // Scroll-driven reveal. Deliberately NOT using IntersectionObserver: its
 // callbacks do not fire reliably inside some sandboxed preview iframes, which
