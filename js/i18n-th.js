@@ -848,3 +848,8 @@ window.TBI18N && window.TBI18N.register("th", {
   "Send my working list": "ส่งรายการงานของฉัน",
   "Book a scoping call": "นัดหมายพูดคุยเบื้องต้น"
 });
+
+/* --- dock panel --- */
+window.TBI18N && window.TBI18N.register("th", {
+  "Open the register": "เปิดรายการ"
+});

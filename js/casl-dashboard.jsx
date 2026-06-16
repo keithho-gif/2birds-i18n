@@ -242,6 +242,26 @@ function CaslDashboard() {
     return [...p, title];
   });
 
+  // Keep the register in step when the working list is changed elsewhere —
+  // e.g. an item removed from the global dock panel, or another tab.
+  useEffect(() => {
+    const sync = () => {
+      let next = [];
+      try {
+        const a = JSON.parse(localStorage.getItem(SHORTLIST_KEY) || "[]");
+        next = Array.isArray(a) ? a.filter(t => typeof t === "string") : [];
+      } catch (e) { return; }
+      setPinned(prev =>
+        (prev.length === next.length && prev.every((t, i) => t === next[i])) ? prev : next);
+    };
+    window.addEventListener("tb-worklist-change", sync);
+    window.addEventListener("storage", sync);
+    return () => {
+      window.removeEventListener("tb-worklist-change", sync);
+      window.removeEventListener("storage", sync);
+    };
+  }, []);
+
   // Reset shown count when filters change.
   useEffect(() => { setShown(24); }, [query, industry, phase, sort]);
 

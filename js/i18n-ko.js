@@ -848,3 +848,8 @@ window.TBI18N && window.TBI18N.register("ko", {
   "Send my working list": "작업 목록 보내기",
   "Book a scoping call": "사전 상담 예약"
 });
+
+/* --- dock panel --- */
+window.TBI18N && window.TBI18N.register("ko", {
+  "Open the register": "목록 열기"
+});

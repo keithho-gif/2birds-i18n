@@ -848,3 +848,8 @@ window.TBI18N && window.TBI18N.register("ja", {
   "Send my working list": "作業リストを送信",
   "Book a scoping call": "初回相談を予約"
 });
+
+/* --- dock panel --- */
+window.TBI18N && window.TBI18N.register("ja", {
+  "Open the register": "一覧を開く"
+});

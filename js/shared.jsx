@@ -294,19 +294,43 @@ Object.assign(window, {
       "&body=" + encodeURIComponent(body);
   }
 
+  function writePinned(arr) {
+    try { localStorage.setItem(SHORTLIST_KEY, JSON.stringify(arr)); } catch (e) {}
+    try { window.dispatchEvent(new Event("tb-worklist-change")); } catch (e) {}
+  }
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function closePanel() {
+    if (!dock) return;
+    var p = dock.querySelector(".casl__dock-panel");
+    var b = dock.querySelector(".casl__dock-info");
+    if (p) p.setAttribute("hidden", "");
+    if (b) b.setAttribute("aria-expanded", "false");
+  }
+
   function build() {
     dock = document.createElement("div");
     dock.className = "casl__dock";
     dock.setAttribute("role", "region");
     dock.setAttribute("aria-label", "Your working list");
     dock.innerHTML =
+      '<div class="casl__dock-panel" id="tb-dock-panel" hidden>' +
+        '<div class="casl__dock-panel-head">' +
+          '<span class="casl__dock-panel-title">Your working list</span>' +
+          '<a class="casl__dock-panel-open" href="curriculum.html#casl">Open the register</a>' +
+        '</div>' +
+        '<ul class="casl__dock-list" data-i18n-skip="true"></ul>' +
+      '</div>' +
       '<div class="casl__dock-inner">' +
-        '<div class="casl__dock-info">' +
-          '<svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true">' +
+        '<button type="button" class="casl__dock-info" aria-expanded="false" aria-controls="tb-dock-panel" title="View your working list">' +
+          '<svg class="casl__dock-pin" viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true">' +
             '<path d="M4 1.5h8a1 1 0 0 1 1 1V15l-5-3.2L3 15V2.5a1 1 0 0 1 1-1z"/></svg>' +
           '<span class="casl__dock-label">Your working list</span>' +
           '<span class="casl__dock-count" data-i18n-skip="true"></span>' +
-        '</div>' +
+          '<svg class="casl__dock-chev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>' +
+        '</button>' +
         '<div class="casl__dock-actions">' +
           '<a class="casl__dock-send" href="#">Send my working list</a>' +
           '<a class="casl__dock-call" href="contact.html">Book a scoping call</a>' +
@@ -316,17 +340,49 @@ Object.assign(window, {
         '</button>' +
       '</div>';
     document.body.appendChild(dock);
+
+    var infoBtn = dock.querySelector(".casl__dock-info");
+    var panel = dock.querySelector(".casl__dock-panel");
+    infoBtn.addEventListener("click", function () {
+      if (panel.hasAttribute("hidden")) { panel.removeAttribute("hidden"); infoBtn.setAttribute("aria-expanded", "true"); }
+      else { closePanel(); }
+    });
     dock.querySelector(".casl__dock-close").addEventListener("click", function () {
       try { localStorage.setItem(DISMISS_KEY, "1"); } catch (e) {}
       update();
     });
+    // remove an item from the list (event delegation; the <ul> persists)
+    dock.querySelector(".casl__dock-list").addEventListener("click", function (e) {
+      var btn = e.target.closest(".casl__dock-rm");
+      if (!btn) return;
+      var title = btn.getAttribute("data-title");
+      writePinned(readPinned().filter(function (t) { return t !== title; }));
+      update();
+    });
+    // clicking away closes the open panel
+    document.addEventListener("click", function (e) {
+      if (!dock || panel.hasAttribute("hidden")) return;
+      if (!dock.contains(e.target)) closePanel();
+    });
+  }
+
+  function renderList(pinned) {
+    var ul = dock.querySelector(".casl__dock-list");
+    ul.innerHTML = pinned.map(function (t) {
+      var s = esc(t);
+      return '<li class="casl__dock-li">' +
+        '<span class="casl__dock-li-t">' + s + '</span>' +
+        '<button type="button" class="casl__dock-rm" data-title="' + s + '" aria-label="Remove from working list" title="Remove">' +
+          '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
+        '</button></li>';
+    }).join("");
   }
 
   function update() {
     var pinned = readPinned();
     var show = pinned.length > 0 && !isDismissed();
     if (!show) {
-      if (dock) dock.style.display = "none";
+      if (dock) { dock.style.display = "none"; closePanel(); }
       document.body.classList.remove("has-worklist-dock");
       return;
     }
@@ -334,6 +390,7 @@ Object.assign(window, {
     dock.style.display = "";
     dock.querySelector(".casl__dock-count").textContent = String(pinned.length);
     dock.querySelector(".casl__dock-send").setAttribute("href", mailtoFor(pinned));
+    renderList(pinned);
     document.body.classList.add("has-worklist-dock");
   }
 

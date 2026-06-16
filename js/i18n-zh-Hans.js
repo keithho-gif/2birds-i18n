@@ -848,3 +848,8 @@ window.TBI18N && window.TBI18N.register("zh-Hans", {
   "Send my working list": "发送我的工作清单",
   "Book a scoping call": "预约初步沟通"
 });
+
+/* --- dock panel --- */
+window.TBI18N && window.TBI18N.register("zh-Hans", {
+  "Open the register": "前往技能清单"
+});

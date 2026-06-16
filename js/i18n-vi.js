@@ -848,3 +848,8 @@ window.TBI18N && window.TBI18N.register("vi", {
   "Send my working list": "Gửi danh sách làm việc của tôi",
   "Book a scoping call": "Đặt lịch trao đổi sơ bộ"
 });
+
+/* --- dock panel --- */
+window.TBI18N && window.TBI18N.register("vi", {
+  "Open the register": "Mở danh sách"
+});
