@@ -984,9 +984,8 @@
   font-family: var(--font-sans);
   font-size: 14.5px;
   line-height: 1.62;
-  color: rgba(250, 248, 242, 0.78);
+  color: rgba(250, 248, 242, 0.92);
   margin: 0 0 14px;
-  max-width: 84ch;
 }
 .tb-casl-notice__link {
   display: inline-flex;
