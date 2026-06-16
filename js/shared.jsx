@@ -337,14 +337,14 @@ Object.assign(window, {
     dock.setAttribute("role", "region");
     dock.setAttribute("aria-label", "Your working list");
     dock.innerHTML =
-      '<div class="casl__dock-panel" id="tb-dock-panel" hidden>' +
-        '<div class="casl__dock-panel-head">' +
-          '<span class="casl__dock-panel-title">Your working list</span>' +
-          '<a class="casl__dock-panel-open" href="curriculum.html#casl">Open the register</a>' +
-        '</div>' +
-        '<ul class="casl__dock-list" data-i18n-skip="true"></ul>' +
-      '</div>' +
       '<div class="casl__dock-inner">' +
+        '<div class="casl__dock-panel" id="tb-dock-panel" hidden>' +
+          '<div class="casl__dock-panel-head">' +
+            '<span class="casl__dock-panel-title">Your working list</span>' +
+            '<a class="casl__dock-panel-open" href="curriculum.html#casl">Open the register</a>' +
+          '</div>' +
+          '<ul class="casl__dock-list" data-i18n-skip="true"></ul>' +
+        '</div>' +
         '<button type="button" class="casl__dock-info" aria-expanded="false" aria-controls="tb-dock-panel" title="View your working list">' +
           '<svg class="casl__dock-pin" viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true">' +
             '<path d="M4 1.5h8a1 1 0 0 1 1 1V15l-5-3.2L3 15V2.5a1 1 0 0 1 1-1z"/></svg>' +
@@ -376,6 +376,7 @@ Object.assign(window, {
     dock.querySelector(".casl__dock-list").addEventListener("click", function (e) {
       var btn = e.target.closest(".casl__dock-rm");
       if (!btn) return;
+      e.stopPropagation();   // keep the panel open while unselecting
       var title = btn.getAttribute("data-title");
       writePinned(readPinned().filter(function (t) { return t !== title; }));
       update();
