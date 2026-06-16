@@ -826,3 +826,18 @@ window.TBI18N.register("zh-Hant", {
   "They are. Anything you share with us, whether in the first conversation or thereafter, is treated as confidential and is not disclosed to any third party. Where a matter calls for it, we are glad to put a formal confidentiality undertaking in place before we begin.":
     "會的。無論是在首次洽談中還是其後，您與我們分享的一切內容均會作保密處理，不會向任何第三方披露。如事項有此需要，我們樂意在開始之前訂立正式的保密承諾。"
 });
+
+/* --- 2026-06 coverage top-up (link-bearing & newly added copy) --- */
+window.TBI18N && window.TBI18N.register("zh-Hant", {
+  "The complete Course Approval Skills List as published by SkillsFuture Singapore, Phases 1 and 2, presented as a working reference for training providers. Read the demand signals by industry, pin the skills you are weighing into a working list, and send it to us for a frank view on marketability and the right funding route.": "完整的課程審批技能清單（Course Approval Skills List），由 SkillsFuture Singapore 公布的第 1 與第 2 階段，以供培訓機構作為實用參考。按行業研讀需求信號，將您正在權衡的技能釘選成一份實用清單，再發送予我們，以就市場性與恰當的資助途徑獲得坦誠的見解。",
+  "Upcoming Changes to the Course Approval Skills List (CASL) Dashboard": "課程審批技能清單（CASL）儀表板即將迎來的變動",
+  "The Course Approval Skills List (CASL) Dashboard will be replaced by the Integrated Insights Tool on the Jobs-Skills Portal by end June 2026. With rich datasets and a better user experience, the new tool incorporates the updated CASL skills list, alongside additional labour market insights to better support training providers in programme planning and development.": "課程審批技能清單（CASL）儀表板將於 2026 年 6 月底前，由 Jobs-Skills Portal 上的 Integrated Insights Tool 取代。憑藉豐富的資料集與更佳的使用體驗，這款新工具納入了更新後的 CASL 技能清單，並輔以額外的勞動市場洞察，以更好地支持培訓機構進行課程規劃與開發。",
+  "Learn more here": "在此了解更多",
+  "§ I · What we believe": "§ I · 我們的信念",
+  "§ II · How we teach": "§ II · 我們如何教",
+  "A working principle": "一項行事之本",
+  "Audit-ready courseware is courseware kept in current form between cycles, not retrieved from the drawer when notice arrives.": "隨時可受稽核的課程教材，是於各週期之間始終保持在最新狀態的教材，而非在通知送達時才從抽屜裡取出的教材。",
+  "Always-on channels": "常設管道",
+  "Fastest-rising skills": "增長最快的技能",
+  "Verify TAEPP": "核驗 TAEPP"
+});

@@ -826,3 +826,18 @@ window.TBI18N.register("id", {
   "They are. Anything you share with us, whether in the first conversation or thereafter, is treated as confidential and is not disclosed to any third party. Where a matter calls for it, we are glad to put a formal confidentiality undertaking in place before we begin.":
     "Ya. Apa pun yang Anda bagikan kepada kami, baik dalam percakapan pertama maupun sesudahnya, diperlakukan sebagai rahasia dan tidak diungkapkan kepada pihak ketiga mana pun. Bila suatu hal mengharuskannya, kami dengan senang hati membuat kesepakatan kerahasiaan resmi sebelum kami mulai."
 });
+
+/* --- 2026-06 coverage top-up (link-bearing & newly added copy) --- */
+window.TBI18N && window.TBI18N.register("id", {
+  "The complete Course Approval Skills List as published by SkillsFuture Singapore, Phases 1 and 2, presented as a working reference for training providers. Read the demand signals by industry, pin the skills you are weighing into a working list, and send it to us for a frank view on marketability and the right funding route.": "Course Approval Skills List lengkap sebagaimana diterbitkan oleh SkillsFuture Singapore, Fase 1 dan 2, disajikan sebagai rujukan kerja bagi penyedia pelatihan. Baca sinyal permintaan berdasarkan industri, sematkan keterampilan yang sedang Anda timbang ke dalam sebuah daftar kerja, dan kirimkan kepada kami untuk pandangan yang terus terang mengenai daya jual dan jalur pendanaan yang tepat.",
+  "Upcoming Changes to the Course Approval Skills List (CASL) Dashboard": "Perubahan Mendatang pada Dasbor Course Approval Skills List (CASL)",
+  "The Course Approval Skills List (CASL) Dashboard will be replaced by the Integrated Insights Tool on the Jobs-Skills Portal by end June 2026. With rich datasets and a better user experience, the new tool incorporates the updated CASL skills list, alongside additional labour market insights to better support training providers in programme planning and development.": "Dasbor Course Approval Skills List (CASL) akan digantikan oleh Integrated Insights Tool pada Jobs-Skills Portal menjelang akhir Juni 2026. Dengan kumpulan data yang kaya dan pengalaman pengguna yang lebih baik, alat baru ini memuat daftar keterampilan CASL yang diperbarui, beserta wawasan pasar tenaga kerja tambahan untuk lebih mendukung penyedia pelatihan dalam perencanaan dan pengembangan program.",
+  "Learn more here": "Pelajari selengkapnya di sini",
+  "§ I · What we believe": "§ I · Keyakinan kami",
+  "§ II · How we teach": "§ II · Cara kami mengajar",
+  "A working principle": "Sebuah prinsip kerja",
+  "Audit-ready courseware is courseware kept in current form between cycles, not retrieved from the drawer when notice arrives.": "Bahan ajar yang siap audit adalah bahan ajar yang dijaga tetap mutakhir di antara siklus, bukan yang diambil dari laci ketika pemberitahuan tiba.",
+  "Always-on channels": "Kanal yang selalu aktif",
+  "Fastest-rising skills": "Keterampilan yang paling pesat menanjak",
+  "Verify TAEPP": "Verifikasi TAEPP"
+});

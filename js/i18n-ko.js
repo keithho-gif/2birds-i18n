@@ -826,3 +826,18 @@ window.TBI18N.register("ko", {
   "They are. Anything you share with us, whether in the first conversation or thereafter, is treated as confidential and is not disclosed to any third party. Where a matter calls for it, we are glad to put a formal confidentiality undertaking in place before we begin.":
     "그렇습니다. 첫 대화에서든 그 이후든 저희와 나누신 모든 내용은 기밀로 취급되며 어떤 제3자에게도 공개되지 않습니다. 사안에 따라 필요하다면, 착수 전에 정식 비밀유지 약정을 체결하는 것도 기꺼이 하겠습니다."
 });
+
+/* --- 2026-06 coverage top-up (link-bearing & newly added copy) --- */
+window.TBI18N && window.TBI18N.register("ko", {
+  "The complete Course Approval Skills List as published by SkillsFuture Singapore, Phases 1 and 2, presented as a working reference for training providers. Read the demand signals by industry, pin the skills you are weighing into a working list, and send it to us for a frank view on marketability and the right funding route.": "SkillsFuture Singapore가 발표한 1단계 및 2단계의 완전한 Course Approval Skills List를 교육 제공기관을 위한 실용 참고 자료로 제시합니다. 산업별 수요 신호를 읽고, 저울질하고 계신 역량을 실무 목록에 담아 두신 뒤, 시장성과 적합한 자금 지원 경로에 대한 솔직한 견해를 듣고자 저희에게 보내 주십시오.",
+  "Upcoming Changes to the Course Approval Skills List (CASL) Dashboard": "Course Approval Skills List(CASL) 대시보드의 예정된 변경 사항",
+  "The Course Approval Skills List (CASL) Dashboard will be replaced by the Integrated Insights Tool on the Jobs-Skills Portal by end June 2026. With rich datasets and a better user experience, the new tool incorporates the updated CASL skills list, alongside additional labour market insights to better support training providers in programme planning and development.": "Course Approval Skills List(CASL) 대시보드는 2026년 6월 말까지 Jobs-Skills Portal의 Integrated Insights Tool로 대체될 예정입니다. 풍부한 데이터셋과 한층 나은 사용자 경험을 갖춘 이 새로운 도구는 갱신된 CASL 역량 목록을 담고 있으며, 이에 더해 노동 시장에 관한 추가적인 통찰을 제공하여 교육 제공기관의 프로그램 기획과 개발을 더욱 효과적으로 뒷받침합니다.",
+  "Learn more here": "자세히 보기",
+  "§ I · What we believe": "§ I · 저희의 신념",
+  "§ II · How we teach": "§ II · 우리가 가르치는 방식",
+  "A working principle": "하나의 실천 원칙",
+  "Audit-ready courseware is courseware kept in current form between cycles, not retrieved from the drawer when notice arrives.": "감사 대비가 된 교재란 통지가 도착했을 때 서랍에서 꺼내는 것이 아니라, 주기와 주기 사이에도 늘 최신 상태로 유지되는 교재입니다.",
+  "Always-on channels": "상시 운영 채널",
+  "Fastest-rising skills": "가장 빠르게 부상하는 역량",
+  "Verify TAEPP": "TAEPP 확인"
+});

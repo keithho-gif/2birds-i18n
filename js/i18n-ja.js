@@ -826,3 +826,18 @@ window.TBI18N.register("ja", {
   "They are. Anything you share with us, whether in the first conversation or thereafter, is treated as confidential and is not disclosed to any third party. Where a matter calls for it, we are glad to put a formal confidentiality undertaking in place before we begin.":
     "はい。初回のお話であれその後であれ、お預かりした内容はすべて秘密として扱い、第三者に開示することはありません。必要に応じて、着手前に正式な秘密保持の取り決めを結ぶことも喜んでいたします。"
 });
+
+/* --- 2026-06 coverage top-up (link-bearing & newly added copy) --- */
+window.TBI18N && window.TBI18N.register("ja", {
+  "The complete Course Approval Skills List as published by SkillsFuture Singapore, Phases 1 and 2, presented as a working reference for training providers. Read the demand signals by industry, pin the skills you are weighing into a working list, and send it to us for a frank view on marketability and the right funding route.": "SkillsFuture Singapore が公表したフェーズ 1 およびフェーズ 2 の完全な Course Approval Skills List を、研修提供者向けの実用的なリファレンスとして提示します。業種ごとの需要シグナルを読み解き、検討中のスキルを作業用リストにとめ置き、市場性と適切な助成経路についての率直な見解を求めて私たちにお送りください。",
+  "Upcoming Changes to the Course Approval Skills List (CASL) Dashboard": "Course Approval Skills List (CASL) ダッシュボードに関する今後の変更",
+  "The Course Approval Skills List (CASL) Dashboard will be replaced by the Integrated Insights Tool on the Jobs-Skills Portal by end June 2026. With rich datasets and a better user experience, the new tool incorporates the updated CASL skills list, alongside additional labour market insights to better support training providers in programme planning and development.": "Course Approval Skills List (CASL) ダッシュボードは、2026 年 6 月末までに Jobs-Skills Portal 上の Integrated Insights Tool に置き換えられます。豊富なデータセットとより優れたユーザー体験を備えたこの新しいツールは、更新された CASL のスキルリストを取り込むとともに、労働市場に関する追加の知見を併せて提供し、研修提供者のプログラム計画および開発をより的確に支援します。",
+  "Learn more here": "詳しくはこちら",
+  "§ I · What we believe": "§ I · 私たちが信じること",
+  "§ II · How we teach": "§ II · 私たちの教え方",
+  "A working principle": "働く原則",
+  "Audit-ready courseware is courseware kept in current form between cycles, not retrieved from the drawer when notice arrives.": "監査に備えた教材とは、通知が届いてから引き出しから取り出すものではなく、周期と周期の合間にも最新の形で保たれている教材のことです。",
+  "Always-on channels": "常時開かれた窓口",
+  "Fastest-rising skills": "最も伸びの速いスキル",
+  "Verify TAEPP": "TAEPP を確認"
+});

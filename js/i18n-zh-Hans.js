@@ -826,3 +826,18 @@ window.TBI18N.register("zh-Hans", {
   "They are. Anything you share with us, whether in the first conversation or thereafter, is treated as confidential and is not disclosed to any third party. Where a matter calls for it, we are glad to put a formal confidentiality undertaking in place before we begin.":
     "会的。无论是在首次洽谈中还是其后，您与我们分享的一切内容均会作保密处理，不会向任何第三方披露。如事项有此需要，我们乐意在开始之前订立正式的保密承诺。"
 });
+
+/* --- 2026-06 coverage top-up (link-bearing & newly added copy) --- */
+window.TBI18N && window.TBI18N.register("zh-Hans", {
+  "The complete Course Approval Skills List as published by SkillsFuture Singapore, Phases 1 and 2, presented as a working reference for training providers. Read the demand signals by industry, pin the skills you are weighing into a working list, and send it to us for a frank view on marketability and the right funding route.": "完整的课程审批技能清单（Course Approval Skills List），由 SkillsFuture Singapore 公布的第 1 与第 2 阶段，以供培训机构作为实用参考。按行业研读需求信号，将您正在权衡的技能钉入一份工作清单，再发送予我们，以就其市场可行性与适当的资助途径，听取一份坦率的见解。",
+  "Upcoming Changes to the Course Approval Skills List (CASL) Dashboard": "课程审批技能清单（Course Approval Skills List，CASL）仪表盘即将变更",
+  "The Course Approval Skills List (CASL) Dashboard will be replaced by the Integrated Insights Tool on the Jobs-Skills Portal by end June 2026. With rich datasets and a better user experience, the new tool incorporates the updated CASL skills list, alongside additional labour market insights to better support training providers in programme planning and development.": "课程审批技能清单（Course Approval Skills List，CASL）仪表盘将于 2026 年 6 月底前由 Jobs-Skills Portal 上的 Integrated Insights Tool 取代。这一新工具凭借丰富的数据集与更佳的用户体验，纳入了更新后的 CASL 技能清单，并辅以更多劳动力市场洞察，以更好地支持培训机构进行课程规划与开发。",
+  "Learn more here": "在此了解更多",
+  "§ I · What we believe": "§ I · 我们的信念",
+  "§ II · How we teach": "§ II · 我们如何教",
+  "A working principle": "一条务实的原则",
+  "Audit-ready courseware is courseware kept in current form between cycles, not retrieved from the drawer when notice arrives.": "审计就绪的课程教材，是在各周期之间始终保持现行形态的教材，而非待通知送达时才从抽屉里取出的教材。",
+  "Always-on channels": "常设渠道",
+  "Fastest-rising skills": "增势最快的技能",
+  "Verify TAEPP": "核验 TAEPP"
+});

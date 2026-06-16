@@ -123,6 +123,16 @@
     return INLINE_OK[el.tagName] || isOmWrapper(el);
   }
 
+  // Text that belongs directly to el (its own text nodes), excluding any text
+  // inside child elements such as <a>.
+  function directText(el) {
+    var s = "", n;
+    for (n = el.firstChild; n; n = n.nextSibling) {
+      if (n.nodeType === 3) s += n.nodeValue;
+    }
+    return norm(s);
+  }
+
   function isTranslatable(el) {
     if (isOmWrapper(el)) return false;
     if (el.closest(".tb-langbar") || el.closest(".tb-lb-overlay")) return false;
@@ -130,30 +140,44 @@
     // in English mode the observer restores each element to its first-cached
     // contents, which would revert a month change and leave the calendar stuck.
     if (el.closest("[data-i18n-skip]")) return false;
-    var c = el.children, i;
+    var c = el.children, i, hasAnchor = false;
     for (i = 0; i < c.length; i++) {
-      if (!inlineChild(c[i])) return false;
+      if (inlineChild(c[i])) continue;
+      // An inline <a> in a run of text (e.g. a citation or email link inside a
+      // paragraph) must not block translation of the surrounding copy.
+      if (c[i].tagName === "A") { hasAnchor = true; continue; }
+      return false;
     }
     var t = norm(el.textContent);
     if (!t) return false;
+    // A block that only wraps a link (no running text of its own — a nav item,
+    // a button) is left to the <a> itself, so the link is never flattened.
+    if (hasAnchor && !directText(el)) return false;
     return true;
   }
 
   function apply(dict) {
-    var els = document.querySelectorAll(PHRASE_SEL), i, el, rec;
+    var els = document.querySelectorAll(PHRASE_SEL), i, el, rec, tr;
     for (i = 0; i < els.length; i++) {
       el = els[i];
       if (!isTranslatable(el)) continue;
       rec = ORIG.get(el);
       if (!rec) {
-        rec = { key: norm(el.textContent), html: el.innerHTML };
+        rec = { key: norm(el.textContent), html: el.innerHTML, applied: null };
         ORIG.set(el, rec);
       }
-      if (dict && Object.prototype.hasOwnProperty.call(dict, rec.key)) {
-        var tr = dict[rec.key];
-        if (el.textContent !== tr) el.textContent = tr;
-      } else if (el.innerHTML !== rec.html) {
-        el.innerHTML = rec.html; // restore English (also covers untranslated keys)
+      tr = (dict && Object.prototype.hasOwnProperty.call(dict, rec.key)) ? dict[rec.key] : null;
+      if (tr != null) {
+        if (rec.applied !== tr) {
+          // Plain text by default (flattens inline markup such as a citation
+          // link inside a paragraph); only values that intentionally carry
+          // markup — a translated link — are applied as HTML.
+          if (tr.indexOf("<") !== -1) el.innerHTML = tr; else el.textContent = tr;
+          rec.applied = tr;
+        }
+      } else if (rec.applied !== null) {
+        el.innerHTML = rec.html; // restore the English original
+        rec.applied = null;
       }
     }
   }

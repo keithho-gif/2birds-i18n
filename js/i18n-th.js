@@ -826,3 +826,18 @@ window.TBI18N.register("th", {
   "They are. Anything you share with us, whether in the first conversation or thereafter, is treated as confidential and is not disclosed to any third party. Where a matter calls for it, we are glad to put a formal confidentiality undertaking in place before we begin.":
     "เป็นเช่นนั้น สิ่งใดที่ท่านแบ่งปันกับเรา ไม่ว่าจะในการพูดคุยครั้งแรกหรือหลังจากนั้น ล้วนถูกเก็บเป็นความลับและจะไม่เปิดเผยต่อบุคคลที่สามใด ๆ และหากเรื่องนั้นจำเป็น เรายินดีจัดทำข้อตกลงรักษาความลับอย่างเป็นทางการก่อนเริ่มงาน"
 });
+
+/* --- 2026-06 coverage top-up (link-bearing & newly added copy) --- */
+window.TBI18N && window.TBI18N.register("th", {
+  "The complete Course Approval Skills List as published by SkillsFuture Singapore, Phases 1 and 2, presented as a working reference for training providers. Read the demand signals by industry, pin the skills you are weighing into a working list, and send it to us for a frank view on marketability and the right funding route.": "Course Approval Skills List ฉบับสมบูรณ์ตามที่ SkillsFuture Singapore เผยแพร่ ระยะที่ 1 และ 2 นำเสนอเป็นเอกสารอ้างอิงใช้งานสำหรับผู้ให้บริการฝึกอบรม อ่านสัญญาณความต้องการตามอุตสาหกรรม ปักทักษะที่คุณกำลังพิจารณาลงในรายการใช้งาน และส่งมาให้เราเพื่อรับมุมมองตรงไปตรงมาเรื่องศักยภาพทางการตลาดและเส้นทางเงินสนับสนุนที่เหมาะสม",
+  "Upcoming Changes to the Course Approval Skills List (CASL) Dashboard": "การเปลี่ยนแปลงที่กำลังจะมาถึงของแดชบอร์ด Course Approval Skills List (CASL)",
+  "The Course Approval Skills List (CASL) Dashboard will be replaced by the Integrated Insights Tool on the Jobs-Skills Portal by end June 2026. With rich datasets and a better user experience, the new tool incorporates the updated CASL skills list, alongside additional labour market insights to better support training providers in programme planning and development.": "แดชบอร์ด Course Approval Skills List (CASL) จะถูกแทนที่ด้วย Integrated Insights Tool บน Jobs-Skills Portal ภายในสิ้นเดือน June 2026 ด้วยชุดข้อมูลที่สมบูรณ์และประสบการณ์การใช้งานที่ดีขึ้น เครื่องมือใหม่นี้ได้รวมรายการทักษะ CASL ฉบับปรับปรุงไว้ พร้อมด้วยข้อมูลเชิงลึกของตลาดแรงงานเพิ่มเติม เพื่อสนับสนุนผู้ให้บริการฝึกอบรมในการวางแผนและพัฒนาโปรแกรมได้ดียิ่งขึ้น",
+  "Learn more here": "เรียนรู้เพิ่มเติมที่นี่",
+  "§ I · What we believe": "§ I · สิ่งที่เราเชื่อ",
+  "§ II · How we teach": "§ II · วิธีที่เราสอน",
+  "A working principle": "หลักการทำงาน",
+  "Audit-ready courseware is courseware kept in current form between cycles, not retrieved from the drawer when notice arrives.": "สื่อการเรียนที่พร้อมรับการตรวจสอบคือสื่อการเรียนที่คงไว้ในรูปแบบปัจจุบันอยู่เสมอระหว่างรอบ มิใช่สิ่งที่หยิบออกมาจากลิ้นชักเมื่อมีการแจ้งเตือนมาถึง",
+  "Always-on channels": "ช่องทางที่เปิดอยู่เสมอ",
+  "Fastest-rising skills": "ทักษะที่มาแรงที่สุด",
+  "Verify TAEPP": "ตรวจสอบ TAEPP"
+});

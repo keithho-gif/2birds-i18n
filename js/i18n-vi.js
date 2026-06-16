@@ -826,3 +826,18 @@ window.TBI18N.register("vi", {
   "They are. Anything you share with us, whether in the first conversation or thereafter, is treated as confidential and is not disclosed to any third party. Where a matter calls for it, we are glad to put a formal confidentiality undertaking in place before we begin.":
     "Có. Mọi điều quý vị chia sẻ với chúng tôi, dù trong buổi trao đổi đầu tiên hay về sau, đều được giữ bí mật và không tiết lộ cho bất kỳ bên thứ ba nào. Khi sự việc đòi hỏi, chúng tôi sẵn lòng lập một cam kết bảo mật chính thức trước khi bắt đầu."
 });
+
+/* --- 2026-06 coverage top-up (link-bearing & newly added copy) --- */
+window.TBI18N && window.TBI18N.register("vi", {
+  "The complete Course Approval Skills List as published by SkillsFuture Singapore, Phases 1 and 2, presented as a working reference for training providers. Read the demand signals by industry, pin the skills you are weighing into a working list, and send it to us for a frank view on marketability and the right funding route.": "Toàn bộ Course Approval Skills List do SkillsFuture Singapore công bố, Giai đoạn 1 và 2, được trình bày như một tài liệu tham khảo thực dụng cho các đơn vị đào tạo. Hãy đọc các tín hiệu nhu cầu theo ngành, ghim những kỹ năng bạn đang cân nhắc vào một danh sách làm việc, và gửi cho chúng tôi để có một góc nhìn thẳng thắn về khả năng tiếp thị và lộ trình tài trợ phù hợp.",
+  "Upcoming Changes to the Course Approval Skills List (CASL) Dashboard": "Những thay đổi sắp tới đối với Bảng điều khiển Course Approval Skills List (CASL)",
+  "The Course Approval Skills List (CASL) Dashboard will be replaced by the Integrated Insights Tool on the Jobs-Skills Portal by end June 2026. With rich datasets and a better user experience, the new tool incorporates the updated CASL skills list, alongside additional labour market insights to better support training providers in programme planning and development.": "Bảng điều khiển Course Approval Skills List (CASL) sẽ được thay thế bằng Integrated Insights Tool trên Jobs-Skills Portal vào cuối tháng 6 năm 2026. Với các bộ dữ liệu phong phú và trải nghiệm người dùng tốt hơn, công cụ mới tích hợp danh sách kỹ năng CASL đã cập nhật, cùng với những thông tin chuyên sâu bổ sung về thị trường lao động nhằm hỗ trợ tốt hơn cho các đơn vị đào tạo trong việc lập kế hoạch và phát triển chương trình.",
+  "Learn more here": "Tìm hiểu thêm tại đây",
+  "§ I · What we believe": "§ I · Điều chúng tôi tin",
+  "§ II · How we teach": "§ II · Cách chúng tôi giảng dạy",
+  "A working principle": "Một nguyên tắc làm việc",
+  "Audit-ready courseware is courseware kept in current form between cycles, not retrieved from the drawer when notice arrives.": "Tài liệu giảng dạy sẵn sàng cho kiểm toán là tài liệu được giữ ở dạng hiện hành giữa các chu kỳ, chứ không phải thứ được lấy ra từ ngăn kéo khi có thông báo.",
+  "Always-on channels": "Các kênh luôn sẵn sàng",
+  "Fastest-rising skills": "Những kỹ năng tăng trưởng nhanh nhất",
+  "Verify TAEPP": "Xác minh TAEPP"
+});
