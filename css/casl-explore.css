@@ -616,7 +616,7 @@
   height: 660px;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.62;
   -webkit-mask-image: linear-gradient(180deg, black 0%, black 40%, transparent 92%);
   mask-image: linear-gradient(180deg, black 0%, black 40%, transparent 92%);
 }
