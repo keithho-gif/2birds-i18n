@@ -6786,7 +6786,19 @@ body.has-worklist-dock .tb-footer { padding-bottom: 104px; }
 }
 .casl__dock-fab:active { transform: translateY(0) scale(0.98); }
 .casl__dock-fab:focus-visible { outline: 2px solid var(--olive-light, #C4BFA0); outline-offset: 3px; }
-.casl__dock-fab-ic { display: block; }
+.casl__dock-fab-ic { display: block; position: relative; z-index: 2; }
+/* Pulsing glow ring, mirroring the WhatsApp button. */
+.casl__dock-fab__ring {
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--olive-light, #C4BFA0);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: tb-fab-pulse 2.4s cubic-bezier(.4, 0, .2, 1) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .casl__dock-fab__ring { animation: none; opacity: 0; }
+}
 .casl__dock-fab-badge {
   position: absolute; top: -3px; right: -3px;
   min-width: 21px; height: 21px; padding: 0 5px; box-sizing: border-box;

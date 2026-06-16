@@ -323,6 +323,7 @@ Object.assign(window, {
     fab.setAttribute("aria-label", "Open your working list");
     fab.setAttribute("title", "Your working list");
     fab.innerHTML =
+      '<span class="casl__dock-fab__ring" aria-hidden="true"></span>' +
       '<svg class="casl__dock-fab-ic" viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
         '<path d="M7 3.5h10a1 1 0 0 1 1 1V21l-6-3.7L6 21V4.5a1 1 0 0 1 1-1z"/></svg>' +
       '<span class="casl__dock-fab-badge" data-i18n-skip="true"></span>';
