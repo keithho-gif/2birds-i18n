@@ -22,8 +22,54 @@
   var COLS = 32, ROWS = 18, CELL = 1.0;
   var SPEED = 5.0;         // orb travel, cells / second
 
-  // CASL industry "vectors" — skill counts drive each vector's height + glow.
-  var INDUSTRIES = [92, 42, 37, 31, 31, 20, 20, 16, 15, 12, 11, 11, 7, 6, 5, 5, 4, 2, 2];
+  // CASL industry "vectors" — skill counts drive each vector's height + glow;
+  // each carries the same line glyph the dashboard uses (IND_GLYPHS), shown
+  // floating above the pole the moment the orb reaches it.
+  var INDUSTRIES = [
+    { name: "Cross-Industry", count: 92 },
+    { name: "Healthcare", count: 42 },
+    { name: "Manufacturing", count: 37 },
+    { name: "Financial Services", count: 31 },
+    { name: "Media, Design & Creative", count: 31 },
+    { name: "Infocomm Technology", count: 20 },
+    { name: "Legal & Compliance", count: 20 },
+    { name: "Leadership & Management", count: 16 },
+    { name: "Built Environment", count: 15 },
+    { name: "Marine & Offshore", count: 12 },
+    { name: "Human Resource", count: 11 },
+    { name: "Logistics & Supply Chain", count: 11 },
+    { name: "Wholesale Trade", count: 7 },
+    { name: "Training & Adult Education", count: 6 },
+    { name: "Energy & Power", count: 5 },
+    { name: "Food Services & Hospitality", count: 5 },
+    { name: "Security & Defence", count: 4 },
+    { name: "Aerospace", count: 2 },
+    { name: "Biopharma & Life Sciences", count: 2 }
+  ];
+
+  // Inner SVG markup for each glyph (24px grid, stroked), mirrored from the
+  // dashboard's IND_GLYPHS so the two stay visually identical.
+  var ICONS = {
+    "Cross-Industry": '<circle cx="9" cy="9.5" r="4.5"/><circle cx="15" cy="14.5" r="4.5"/>',
+    "Healthcare": '<circle cx="12" cy="12" r="8"/><path d="M12 8.5v7M8.5 12h7"/>',
+    "Manufacturing": '<circle cx="12" cy="12" r="3.2"/><path d="M12 4.5v2.3M12 17.2v2.3M4.5 12h2.3M17.2 12h2.3M6.7 6.7l1.6 1.6M15.7 15.7l1.6 1.6M17.3 6.7l-1.6 1.6M8.3 15.7l-1.6 1.6"/>',
+    "Financial Services": '<path d="M4 19h16M6 19v-6M10.5 19V9M15 19v-8.5M19.5 19V6"/><path d="M5 8.5L11 5l4 3 4.5-3.5" opacity="0.6"/>',
+    "Media, Design & Creative": '<path d="M14.5 4.5l5 5L9 20H4v-5z"/><path d="M12 7l5 5M4 20l4.5-1"/>',
+    "Infocomm Technology": '<rect x="5" y="5" width="14" height="14" rx="1"/><path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2"/><rect x="9.5" y="9.5" width="5" height="5"/>',
+    "Legal & Compliance": '<path d="M12 4v15M8.5 19h7M12 6.5l-5.5 1M12 6.5l5.5 1M6.5 7.5L4 13a2.6 2.6 0 0 0 5 0zM17.5 7.5L15 13a2.6 2.6 0 0 0 5 0z"/>',
+    "Leadership & Management": '<path d="M7 21V4M7 4h11l-2.5 3.5L18 11H7"/>',
+    "Built Environment": '<path d="M4 20h16M6 20V8l5-3v15M11 20V9h7v11"/><path d="M14 12h1.5M14 15h1.5M8 9h1M8 12h1M8 15h1" opacity="0.7"/>',
+    "Marine & Offshore": '<circle cx="12" cy="5.8" r="2"/><path d="M12 7.8V19M12 19c-3.8 0-6.8-2.4-7.5-5.5L7 14M12 19c3.8 0 6.8-2.4 7.5-5.5L17 14M8.5 10.5h7"/>',
+    "Human Resource": '<circle cx="9" cy="8.5" r="3"/><path d="M3.5 19c.5-3.4 2.8-5.2 5.5-5.2s5 1.8 5.5 5.2"/><circle cx="16.5" cy="9.5" r="2.4"/><path d="M16 13.8c2.4.1 4.1 1.7 4.6 4.6"/>',
+    "Logistics & Supply Chain": '<path d="M4 8.5l8-4 8 4v7l-8 4-8-4z"/><path d="M4 8.5l8 4 8-4M12 12.5v7"/>',
+    "Wholesale Trade": '<rect x="4" y="12" width="7" height="7"/><rect x="13" y="12" width="7" height="7"/><rect x="8.5" y="5" width="7" height="7"/>',
+    "Training & Adult Education": '<path d="M12 5L3 9l9 4 9-4z"/><path d="M7 11v5c0 1.2 2.2 2.5 5 2.5s5-1.3 5-2.5v-5M21 9v5"/>',
+    "Energy & Power": '<path d="M13 3L5.5 13.5H11L9.5 21 18 10h-5.5z"/>',
+    "Food Services & Hospitality": '<path d="M4 16h16M5.5 16a6.5 6.5 0 0 1 13 0M12 9.5V8"/><path d="M9 19h6" opacity="0.7"/>',
+    "Security & Defence": '<path d="M12 3.5l7 2.5v5.5c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z"/><path d="M9 11.8l2.2 2.2 4-4.2"/>',
+    "Aerospace": '<path d="M12 3v7.2M12 10.2L4 15l8-1.4 8 1.4-8-4.8zM12 13.6V19M9.4 19h5.2"/>',
+    "Biopharma & Life Sciences": '<path d="M10 3.5h4M11 3.5V10l-5 8.5a1.6 1.6 0 0 0 1.4 2.5h9.2a1.6 1.6 0 0 0 1.4-2.5L13 10V3.5"/><path d="M8.2 15.5h7.6" opacity="0.7"/>'
+  };
 
   function genMaze() {
     var N = COLS * ROWS;
@@ -87,6 +133,22 @@
     return new THREE.CanvasTexture(cv);
   }
 
+  // Rasterise one industry glyph into a sprite texture (drawn when the SVG
+  // image decodes; the sprite is invisible until a pop reveals it).
+  function iconTexture(THREE, inner) {
+    var size = 80;
+    var cv = document.createElement("canvas"); cv.width = cv.height = size;
+    var tex = new THREE.CanvasTexture(cv);
+    var c2 = cv.getContext("2d");
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="' + size +
+      '" height="' + size + '" fill="none" stroke="#FBF6E9" stroke-width="1.5" ' +
+      'stroke-linecap="round" stroke-linejoin="round">' + inner + '</svg>';
+    var img = new Image();
+    img.onload = function () { c2.clearRect(0, 0, size, size); c2.drawImage(img, 0, 0, size, size); tex.needsUpdate = true; };
+    img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+    return tex;
+  }
+
   function mountField(container) {
     if (!container || !window.THREE) return function () {};
     var THREE = window.THREE;
@@ -144,7 +206,8 @@
         if (best < 0) best = cand;
       }
       if (cell < 0) cell = best;
-      var cnt = INDUSTRIES[k];
+      var ind = INDUSTRIES[k];
+      var cnt = ind.count;
       var h = 0.7 + Math.log(cnt + 1) * 0.55;
       var x = wx(cell % COLS), z = wz((cell / COLS) | 0);
       var pv = new THREE.BufferGeometry();
@@ -164,7 +227,12 @@
       }));
       rg.scale.set(s, s, 1); rg.position.set(x, h, z);
       group.add(rg);
-      nodes.push({ cell: cell, x: x, z: z, baseH: h, pillar: pv, sprite: sp, ring: rg, base: s, pop: 0, phase: Math.random() * 6.28 });
+      var icon = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: iconTexture(THREE, ICONS[ind.name] || ""), transparent: true, opacity: 0, depthWrite: false
+      }));
+      icon.scale.set(1.6, 1.6, 1); icon.position.set(x, h + 1.0, z);
+      group.add(icon);
+      nodes.push({ cell: cell, x: x, z: z, baseH: h, pillar: pv, sprite: sp, ring: rg, icon: icon, base: s, pop: 0, phase: Math.random() * 6.28 });
     }
 
     // ---- constellation between nearby vector tips ----
@@ -296,7 +364,7 @@
 
       for (var k2 = 0; k2 < nodes.length; k2++) {
         var nd = nodes[k2];
-        if (nd.pop > 0) nd.pop = Math.max(0, nd.pop - dt * 1.1);
+        if (nd.pop > 0) nd.pop = Math.max(0, nd.pop - dt * 0.7);
         var popH = Math.sin(nd.pop * Math.PI / 2);          // 1 at the hit, eases to 0
         var curH = nd.baseH * (1 + popH * 1.15);            // pole springs up, then settles
         var pa = nd.pillar.attributes.position.array;
@@ -311,6 +379,9 @@
         nd.ring.scale.set(rs, rs, 1);
         nd.ring.position.y = curH;
         nd.ring.material.opacity = nd.pop * 0.85;
+        // industry glyph floats up over the tip while the pop holds
+        nd.icon.position.y = curH + 1.1 + (1 - nd.pop) * 0.7;
+        nd.icon.material.opacity = Math.min(1, nd.pop * 1.4);
       }
 
       stars.rotation.y = tsec * 0.01;
