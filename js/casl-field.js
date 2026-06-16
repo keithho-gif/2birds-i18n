@@ -75,6 +75,18 @@
     return new THREE.CanvasTexture(cv);
   }
 
+  function ringTexture(THREE) {
+    var cv = document.createElement("canvas"); cv.width = cv.height = 64;
+    var g = cv.getContext("2d");
+    g.translate(32, 32);
+    g.shadowColor = "rgba(255,250,235,0.9)";
+    g.shadowBlur = 7;
+    g.strokeStyle = "rgba(255,250,235,0.95)";
+    g.lineWidth = 4;
+    g.beginPath(); g.arc(0, 0, 18, 0, 6.2832); g.stroke();
+    return new THREE.CanvasTexture(cv);
+  }
+
   function mountField(container) {
     if (!container || !window.THREE) return function () {};
     var THREE = window.THREE;
@@ -118,6 +130,7 @@
 
     // ---- industry vectors (standing glow pillars) ----
     var glow = glowTexture(THREE);
+    var ringTex = ringTexture(THREE);
     var nodes = [], minGap = 4;
     for (var k = 0; k < INDUSTRIES.length; k++) {
       var cell = -1, best = -1;
@@ -145,7 +158,13 @@
       var s = 0.5 + Math.log(cnt + 1) * 0.28;
       sp.scale.set(s, s, 1); sp.position.set(x, h, z);
       group.add(sp);
-      nodes.push({ cell: cell, x: x, z: z, baseH: h, pillar: pv, sprite: sp, base: s, pop: 0, phase: Math.random() * 6.28 });
+      var rg = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: ringTex, color: GOLD, transparent: true, opacity: 0,
+        blending: THREE.AdditiveBlending, depthWrite: false
+      }));
+      rg.scale.set(s, s, 1); rg.position.set(x, h, z);
+      group.add(rg);
+      nodes.push({ cell: cell, x: x, z: z, baseH: h, pillar: pv, sprite: sp, ring: rg, base: s, pop: 0, phase: Math.random() * 6.28 });
     }
 
     // ---- constellation between nearby vector tips ----
@@ -200,9 +219,27 @@
     })));
     var history = [];
 
-    var path = [], pseg = 0, pt = 0, target = 1 % nodes.length;
-    function nextLeg(from) { path = bfs(from, nodes[target].cell); pseg = 0; pt = 0; }
-    nextLeg(nodes[0].cell);
+    // The orb runs a nearest-neighbour tour: from where it stands it heads to
+    // the closest vector it has not visited yet (by true maze distance), covers
+    // them all, then resets and tours again.
+    var visited = new Array(nodes.length);
+    for (var vi = 0; vi < visited.length; vi++) visited[vi] = false;
+    var curNode = 0; visited[0] = true;
+    var path = [], pseg = 0, pt = 0, target = 0;
+    function chooseNext() {
+      var anyLeft = false;
+      for (var u = 0; u < nodes.length; u++) { if (!visited[u]) { anyLeft = true; break; } }
+      if (!anyLeft) { for (var r2 = 0; r2 < nodes.length; r2++) visited[r2] = false; visited[curNode] = true; }
+      var fromCell = nodes[curNode].cell, bestLen = Infinity, bestIdx = -1, bestPath = null;
+      for (var n = 0; n < nodes.length; n++) {
+        if (visited[n]) continue;
+        var p = bfs(fromCell, nodes[n].cell);
+        if (p.length > 1 && p.length < bestLen) { bestLen = p.length; bestIdx = n; bestPath = p; }
+      }
+      if (bestIdx < 0) { bestIdx = (curNode + 1) % nodes.length; bestPath = bfs(fromCell, nodes[bestIdx].cell); }
+      target = bestIdx; path = bestPath; pseg = 0; pt = 0;
+    }
+    chooseNext();
 
     // ---- pointer parallax ----
     var mx = 0, my = 0;
@@ -233,9 +270,9 @@
         while (pt >= 1 && pseg < path.length - 2) { pt -= 1; pseg++; }
         if (pseg >= path.length - 2 && pt >= 1) {
           nodes[target].pop = 1;
-          var arr = nodes[target].cell;
-          target = (target + 1) % nodes.length;
-          nextLeg(arr);
+          visited[target] = true;
+          curNode = target;
+          chooseNext();
         }
       }
       var a = path[pseg], b = path[Math.min(pseg + 1, path.length - 1)];
@@ -269,6 +306,11 @@
         nd.sprite.scale.set(sc, sc, 1);
         nd.sprite.position.y = curH;
         nd.sprite.material.opacity = 0.7 + popH * 0.3;
+        // shockwave ring bursting out of the tip as the pole pops
+        var rs = nd.base * (1 + (1 - nd.pop) * 3.4);
+        nd.ring.scale.set(rs, rs, 1);
+        nd.ring.position.y = curH;
+        nd.ring.material.opacity = nd.pop * 0.85;
       }
 
       stars.rotation.y = tsec * 0.01;
