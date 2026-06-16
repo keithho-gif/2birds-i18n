@@ -46,6 +46,8 @@
   .tb-vark__title { font-family: var(--font-serif); font-weight: 400; font-size: clamp(27px, 3.4vw, 36px); line-height: 1.05; letter-spacing: -0.02em; margin: 16px 0 0; color: var(--paper); }
   .tb-vark__title em { font-style: italic; color: var(--olive-light); }
   .tb-vark__intro { font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: rgba(250,248,242,0.70); margin: 18px auto 0; max-width: 54ch; }
+  .tb-vark__langnote { display: inline-flex; align-items: center; gap: 8px; margin: 16px auto 0; padding: 7px 16px; border: 1px solid rgba(196,191,160,0.30); border-radius: 999px; font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.03em; color: rgba(196,191,160,0.92); text-align: left; }
+  .tb-vark__langnote svg { flex: 0 0 auto; color: var(--olive-light); }
 
   .tb-vark__stage { max-width: 1080px; margin: 0 auto; perspective: 1500px; }
   .tb-vark__card { position: relative; background: rgba(250,248,242,0.045); border: 1px solid rgba(196,191,160,0.20); border-radius: 16px; padding: clamp(22px, 3.4vw, 38px); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); transform-style: preserve-3d; animation: vark-in 0.55s var(--ease-standard) both; }
@@ -552,6 +554,30 @@ function VarkQuiz() {
   );
 }
 
+// Shows a small notice only when a non-English locale is active, since the
+// quiz (data-i18n-skip) stays in English. Watches <html lang> so it updates
+// the moment the visitor switches language.
+function VarkLangNote() {
+  const [show, setShow] = React.useState(false);
+  React.useEffect(() => {
+    const el = document.documentElement;
+    const check = () => setShow(((el.getAttribute("lang") || "en").toLowerCase()) !== "en");
+    check();
+    const mo = new MutationObserver(check);
+    mo.observe(el, { attributes: true, attributeFilter: ["lang"] });
+    return () => mo.disconnect();
+  }, []);
+  if (!show) return null;
+  return (
+    <p className="tb-vark__langnote">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" />
+      </svg>
+      This learning-style finder is available in English only.
+    </p>
+  );
+}
+
 function App() {
   return (
     <>
@@ -700,6 +726,7 @@ function App() {
               <p className="tb-vark__intro">
                 Twenty-five quick questions, with no right answers. The VARK model explains how the right teaching method would bring your learning journey further.
               </p>
+              <VarkLangNote />
             </header>
             <VarkQuiz />
           </div>
