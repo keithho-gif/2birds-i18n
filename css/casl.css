@@ -143,6 +143,10 @@
 }
 @media (max-width: 720px) {
   .casl__grid { grid-template-columns: 1fr; gap: 16px; }
+  /* Keep the head on one row but give the pill a tighter footprint so the
+     industry label has room (it was collapsing the pill into a circle). */
+  .casl__card-head { gap: 10px; }
+  .casl__phase-tag { letter-spacing: 0.1em; padding: 5px 9px; }
 }
 
 /* ---------- Card ---------- */
@@ -177,6 +181,8 @@
 .casl__phase-tag {
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
+  flex: 0 0 auto;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
