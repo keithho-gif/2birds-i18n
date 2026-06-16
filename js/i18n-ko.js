@@ -9,7 +9,7 @@ window.TBI18N.register("ko", {
   "A bird in formation rides the upwash of the one ahead and saves real energy on every wingbeat. The bird in front meets the hardest air, and the pair trade the lead by turns.": "대형을 이룬 새는 앞선 새가 일으키는 상승 기류를 타며, 날갯짓 한 번마다 실질적인 힘을 아낍니다. 앞의 새가 가장 거센 공기를 맞고, 둘은 번갈아 앞장을 맡습니다.",
   "We take the front of the regulatory headwind, so your team reaches the work itself with energy still to spare.": "우리가 규제라는 맞바람의 맨 앞에 섭니다. 그리하여 귀하의 팀은 힘을 아낀 채로 업무 그 자체에 다다를 수 있습니다.",
   "Two sets of eyes review every piece of work. What one of us might miss, the other is placed to catch, well before any reviewer does.": "모든 결과물은 두 쌍의 눈이 검토합니다. 우리 중 한 사람이 놓칠 법한 것을 다른 한 사람이 잡아낼 자리에 있습니다. 그 어떤 심사자보다 훨씬 앞서서.",
-  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Plainly, we are nothing without them.": "많은 이가 자기 사람을 소중히 여긴다고 말합니다. 우리는 그것을 실천하려 애씁니다. 우리의 동료들은 머릿수가 아니라 파트너이며, 그 말에 귀 기울이고 존중받습니다. 솔직히 말해, 그들이 없다면 우리는 아무것도 아닙니다.",
+  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Candidly, we are nothing without them.": "많은 이가 자기 사람을 소중히 여긴다고 말합니다. 우리는 그것을 실천하려 애씁니다. 우리의 동료들은 머릿수가 아니라 파트너이며, 그 말에 귀 기울이고 존중받습니다. 솔직히 말해, 그들이 없다면 우리는 아무것도 아닙니다.",
   "In nature": "자연에서는",
   "In practice": "실무에서는",
   "How we teach": "우리가 가르치는 방식",
@@ -36,7 +36,7 @@ window.TBI18N.register("ko", {
   "On the pier · the brand, as it was originally pictured.": "부두 위에서 · 처음 그려졌던 그대로의 브랜드.",
   "§ I · Before the explanation, a scene": "§ I · 설명에 앞서, 한 장면",
   "Handed over, with care.": "정성을 담아, 건네다.",
-  "There are two ways to hand over a finished piece of work. The first is correct: every figure in place, every requirement met, nothing technically wrong with it. The second is correct as well, and something more. The reader can see that someone thought of them. The summary sits on top rather than buried. The one question they were about to ask has already been answered. The version line says plainly what changed since they last looked.": "완성된 작업을 건네는 데에는 두 가지 방식이 있습니다. 첫 번째는 옳습니다. 모든 수치가 제자리에 있고, 모든 요건이 충족되어, 기술적으로 흠잡을 데가 없습니다. 두 번째 또한 옳으며, 그 이상의 무언가가 있습니다. 읽는 이는 누군가 자신을 헤아렸음을 알아챕니다. 요약은 묻히지 않고 맨 위에 놓여 있습니다. 그들이 막 던지려던 바로 그 질문에는 이미 답이 마련되어 있습니다. 버전 표시줄에는 지난번 본 이후 무엇이 바뀌었는지 분명하게 적혀 있습니다.",
+  "There are two ways to hand over a finished piece of work. The first is correct: every figure in place, every requirement met, nothing technically wrong with it. The second is correct as well, and something more. The reader can see that someone thought of them. The summary sits on top rather than buried. The one question they were about to ask has already been answered. The version line says candidly what changed since they last looked.": "완성된 작업을 건네는 데에는 두 가지 방식이 있습니다. 첫 번째는 옳습니다. 모든 수치가 제자리에 있고, 모든 요건이 충족되어, 기술적으로 흠잡을 데가 없습니다. 두 번째 또한 옳으며, 그 이상의 무언가가 있습니다. 읽는 이는 누군가 자신을 헤아렸음을 알아챕니다. 요약은 묻히지 않고 맨 위에 놓여 있습니다. 그들이 막 던지려던 바로 그 질문에는 이미 답이 마련되어 있습니다. 버전 표시줄에는 지난번 본 이후 무엇이 바뀌었는지 분명하게 적혀 있습니다.",
   "The difference is rarely technical. It is the difference between work that is merely finished and work that is finished and handed over with care. It costs no more, in raw materials, than the version beside it. What it costs is attention.": "그 차이는 좀처럼 기술적인 것이 아닙니다. 그것은 그저 끝낸 일과, 끝내고 정성을 담아 건넨 일 사이의 차이입니다. 원자재로 따지면 옆에 놓인 판본보다 더 드는 것은 없습니다. 드는 것은 마음 씀입니다.",
   "We took the name from a saying, and the standard from that second kind of handover. Quality, we think, is not a single thing done well; it is two things carried at once, the work itself and the small care that surrounds it.": "우리는 한 속담에서 이름을, 그 두 번째 방식의 인계에서 기준을 가져왔습니다. 품질이란 한 가지를 잘 해내는 것이 아니라고 우리는 생각합니다. 그것은 두 가지, 곧 일 자체와 그것을 둘러싼 작은 마음 씀을 동시에 짊어지는 것입니다.",
   "§ II · The name": "§ II · 이름",
@@ -78,7 +78,7 @@ window.TBI18N.register("ko", {
   "§ V · Why the practice exists": "§ V · 이 사무소가 존재하는 이유",
   "Making the sector legible.": "이 분야를, 읽을 수 있게.",
   "Curriculum development, TPQA and compliance, trainer and SME sourcing, and ATO operations are each governed by frameworks that are publicly documented, and yet rarely read end to end. The cost of that opacity is borne by training providers, by the practitioners who work with them, and, ultimately, by the learners who fund the sector with their time.": "커리큘럼 개발, TPQA와 컴플라이언스, 트레이너 및 SME 확보, 그리고 ATO 운영은 각기 공개적으로 문서화되어 있으나 좀처럼 끝까지 읽히지 않는 프레임워크에 의해 규율됩니다. 그 불투명함의 비용은 교육 제공기관이, 그들과 함께 일하는 실무자가, 그리고 궁극적으로는 자신의 시간으로 이 분야를 떠받치는 학습자가 부담합니다.",
-  "Our work is to translate. We render the framework into something a director, a curriculum lead or an incoming trainer can act upon, and we render the act back into the form the regulator expects. Where we develop courseware, we develop it under that translation. Where we advise, we advise plainly. The four practice areas are different windows onto the same purpose, and on the same pair of birds.": "우리의 일은 번역하는 것입니다. 우리는 프레임워크를 책임자, 커리큘럼 책임자 또는 새로 합류하는 트레이너가 실행에 옮길 수 있는 것으로 옮기고, 그 실행을 다시 규제 당국이 기대하는 형식으로 옮깁니다. 교재를 개발하는 곳에서는 그 번역 아래 개발합니다. 자문하는 곳에서는 명료하게 자문합니다. 네 가지 업무 영역은 같은 목적, 같은 한 쌍의 새를 향한 서로 다른 창입니다.",
+  "Our work is to translate. We render the framework into something a director, a curriculum lead or an incoming trainer can act upon, and we render the act back into the form the regulator expects. Where we develop courseware, we develop it under that translation. Where we advise, we advise candidly. The four practice areas are different windows onto the same purpose, and on the same pair of birds.": "우리의 일은 번역하는 것입니다. 우리는 프레임워크를 책임자, 커리큘럼 책임자 또는 새로 합류하는 트레이너가 실행에 옮길 수 있는 것으로 옮기고, 그 실행을 다시 규제 당국이 기대하는 형식으로 옮깁니다. 교재를 개발하는 곳에서는 그 번역 아래 개발합니다. 자문하는 곳에서는 명료하게 자문합니다. 네 가지 업무 영역은 같은 목적, 같은 한 쌍의 새를 향한 서로 다른 창입니다.",
   "§ VI · A founding observation": "§ VI · 창립의 발단이 된 관찰",
   "What we kept noticing.": "우리가 거듭 알아챈 것.",
   "A twenty-page accreditation, returned with a single line of comment. A trainer who could hold a room of forty, but could not write the lesson plan a regulator would read. A director who could read the lesson plan, but had never seen the room. The same pattern, recurring, in every corner of the sector we worked in.": "스무 쪽짜리 인증이 단 한 줄의 의견과 함께 돌아옵니다. 마흔 명의 교실을 휘어잡을 수 있으나 규제 당국이 읽을 수업 계획서는 쓰지 못하는 트레이너. 수업 계획서는 읽을 수 있으나 그 교실은 한 번도 본 적 없는 책임자. 같은 양상이, 우리가 몸담은 이 분야의 구석구석에서 거듭 나타났습니다.",
@@ -230,7 +230,7 @@ window.TBI18N.register("ko", {
   "SSG's Skills Demand for the Future Economy report organises sectoral demand around three priority economies. Our community currently practises within parts of each, and grows by invitation rather than by overreach.": "SSG의 「Skills Demand for the Future Economy」 보고서는 부문별 수요를 세 가지 우선 경제를 중심으로 정리합니다. 우리 커뮤니티는 현재 각 경제의 일부 영역에서 활동하며, 무리한 확장이 아니라 초대를 통해 성장합니다.",
   "§ II · The sectors we currently practise in": "§ II · 우리가 현재 활동하는 분야",
   "Where we have practised.": "우리가 활동해 온 영역.",
-  "These are the sectors in which our community is presently engaged. Where an engagement falls outside this list, we will tell you so plainly, and, where appropriate, introduce you to a practitioner from outside our community on a best-endeavours basis.": "이는 우리 커뮤니티가 현재 참여하고 있는 분야입니다. 어떤 업무가 이 목록의 범위를 벗어나는 경우 솔직히 말씀드리며, 적절한 경우 최선의 노력을 다해 커뮤니티 외부의 실무자를 소개해 드립니다.",
+  "These are the sectors in which our community is presently engaged. Where an engagement falls outside this list, we will tell you so candidly, and, where appropriate, introduce you to a practitioner from outside our community on a best-endeavours basis.": "이는 우리 커뮤니티가 현재 참여하고 있는 분야입니다. 어떤 업무가 이 목록의 범위를 벗어나는 경우 솔직히 말씀드리며, 적절한 경우 최선의 노력을 다해 커뮤니티 외부의 실무자를 소개해 드립니다.",
   "Sector": "분야",
   "§ III · Three forms of engagement": "§ III · 세 가지 업무 형태",
   "From first registration to standing operation.": "첫 등록부터 상시 운영까지.",
@@ -686,7 +686,7 @@ window.TBI18N.register("ko", {
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "저희 사무소 · 저희의 입장",
-  "A short heritage, plainly stated.": "짧은 발자취를, 있는 그대로.",
+  "A short heritage, candidly stated.": "짧은 발자취를, 있는 그대로.",
   "Four markers from the practice's correspondence, the milestones we feel comfortable putting on paper, and which a curious reader might want to weigh before writing to us.":
     "사무소의 기록에서 추린 네 가지 이정표입니다. 떳떳이 적을 수 있는 성과이며, 연락을 주시기 전에 가늠해 보고 싶으실 만한 단서입니다.",
   "The practice opens by invitation, the beginning of a growing community of curriculum developers and adult educators.":
@@ -738,7 +738,7 @@ window.TBI18N.register("ko", {
   /* ---- home: FAQ ---- */
   "Important answers": "중요한 답변",
   "Frequent enquiries.": "자주 묻는 문의.",
-  "The questions most often put to the practice, answered plainly.": "사무소에 가장 자주 들어오는 질문에 솔직하게 답합니다.",
+  "The questions most often put to the practice, answered candidly.": "사무소에 가장 자주 들어오는 질문에 솔직하게 답합니다.",
   "Why are your fees lower?": "수임료가 더 낮은 이유는 무엇입니까?",
   "The difference reflects our overheads rather than any compromise in the work. We maintain no staffed office, carry no marketing costs to recover, and take no placement margin on the SMEs we source. Our fees account for the work itself and the people who carry it out, and we are happy to set out that basis for you in detail.":
     "그 차이는 작업의 타협이 아니라 간접비의 차이에서 비롯됩니다. 상주 직원이 있는 사무실을 두지 않고, 회수해야 할 마케팅 비용도 없으며, 소개하는 전문가에게서 중개 마진을 취하지도 않습니다. 저희 요금은 작업 자체와 그것을 수행하는 사람만을 반영하며, 그 산정 근거는 기꺼이 자세히 설명해 드립니다.",
@@ -794,7 +794,7 @@ window.TBI18N.register("ko", {
     "대외 사무실은 두지 않습니다. 필요한 경우 미팅은 귀사 또는 원하시는 장소에서 진행합니다.",
   "Curious about our development fees?": "개발 비용이 궁금하십니까?",
   "A conversation before a quote.": "견적에 앞서, 먼저 대화를.",
-  "Twenty minutes by call or by note. We will tell you, plainly, whether the work is something we should take on, and what it would cost.":
+  "Twenty minutes by call or by note. We will tell you, candidly, whether the work is something we should take on, and what it would cost.":
     "전화나 서면으로 20분. 저희가 맡아야 할 일인지, 비용은 어느 정도일지 솔직하게 말씀드립니다.",
   "§ II · How we differ": "§ II · 저희의 차이",
   "The practice, alongside a typical vendor.": "저희 사무소와 일반적인 업체의 비교.",
@@ -811,7 +811,7 @@ window.TBI18N.register("ko", {
   "If you have read this far, the proposal is simple. Write to us, in plain words, about the work you have in mind. We will reply within two working days, in the same plain manner.":
     "여기까지 읽으셨다면, 제안은 간단합니다. 염두에 두신 일을 평이한 말로 적어 보내주십시오. 저희도 같은 방식으로 영업일 2일 이내에 회신드립니다.",
   "§ V · Frequent enquiries": "§ V · 자주 묻는 문의",
-  "A few questions, answered plainly.": "몇 가지 질문에 솔직하게 답합니다.",
+  "A few questions, answered candidly.": "몇 가지 질문에 솔직하게 답합니다.",
   "The questions most often put to the practice ahead of a first enquiry.": "첫 문의에 앞서 사무소에 가장 자주 들어오는 질문입니다.",
   "What should we include in a first enquiry?": "첫 문의에는 무엇을 포함해야 합니까?",
   "A short note of what you are looking to achieve is enough to begin. If you are able to tell us the nature of the course, your intended timeline and whether you are an existing or prospective training organisation, we can come to the first conversation already prepared. Nothing formal is required at this stage.":

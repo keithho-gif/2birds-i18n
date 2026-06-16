@@ -9,7 +9,7 @@ window.TBI18N.register("zh-Hant", {
   "A bird in formation rides the upwash of the one ahead and saves real energy on every wingbeat. The bird in front meets the hardest air, and the pair trade the lead by turns.": "編隊中的鳥，乘著前者翼端激起的上升氣流，每一次振翅都實實在在地省力。居前的鳥迎擊最艱難的氣流，而兩者輪流領飛。",
   "We take the front of the regulatory headwind, so your team reaches the work itself with energy still to spare.": "我們迎在監管逆風的最前端，好讓貴團隊抵達工作本身時，仍有餘力可施。",
   "Two sets of eyes review every piece of work. What one of us might miss, the other is placed to catch, well before any reviewer does.": "每一份成果，都有兩雙眼睛審閱。我們中一人或會疏漏之處，另一人正可補捉，遠在任何評審者察覺之前。",
-  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Plainly, we are nothing without them.": "許多人口口聲聲重視自己的人才；我們則力求身體力行。我們的同仁是夥伴，而非人頭數，他們被傾聽、受尊重。坦言之，沒有他們，我們一無所成。",
+  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Candidly, we are nothing without them.": "許多人口口聲聲重視自己的人才；我們則力求身體力行。我們的同仁是夥伴，而非人頭數，他們被傾聽、受尊重。坦言之，沒有他們，我們一無所成。",
   "In nature": "在自然中",
   "In practice": "在實踐中",
   "How we teach": "我們如何教",
@@ -36,7 +36,7 @@ window.TBI18N.register("zh-Hant", {
   "On the pier · the brand, as it was originally pictured.": "棧橋之上 · 品牌最初構想的模樣。",
   "§ I · Before the explanation, a scene": "§ I · 在解釋之前，先有一幕",
   "Handed over, with care.": "用心交付。",
-  "There are two ways to hand over a finished piece of work. The first is correct: every figure in place, every requirement met, nothing technically wrong with it. The second is correct as well, and something more. The reader can see that someone thought of them. The summary sits on top rather than buried. The one question they were about to ask has already been answered. The version line says plainly what changed since they last looked.": "交付一份完成的工作有兩種方式。第一種是正確的：每個數字各就其位，每項要求皆已滿足，技術上挑不出毛病。第二種同樣正確，卻更進一步。讀者能看出有人為他們著想。摘要置於最上，而非埋於其中。他們正要提出的那個問題，早已得到解答。版本說明清楚地寫明自上次查看以來有何更動。",
+  "There are two ways to hand over a finished piece of work. The first is correct: every figure in place, every requirement met, nothing technically wrong with it. The second is correct as well, and something more. The reader can see that someone thought of them. The summary sits on top rather than buried. The one question they were about to ask has already been answered. The version line says candidly what changed since they last looked.": "交付一份完成的工作有兩種方式。第一種是正確的：每個數字各就其位，每項要求皆已滿足，技術上挑不出毛病。第二種同樣正確，卻更進一步。讀者能看出有人為他們著想。摘要置於最上，而非埋於其中。他們正要提出的那個問題，早已得到解答。版本說明清楚地寫明自上次查看以來有何更動。",
   "The difference is rarely technical. It is the difference between work that is merely finished and work that is finished and handed over with care. It costs no more, in raw materials, than the version beside it. What it costs is attention.": "這差別鮮少是技術性的。它是僅僅完成的工作與既完成又用心交付的工作之間的差別。論原材料，它並不比旁邊那個版本花費更多。它所花費的，是用心。",
   "We took the name from a saying, and the standard from that second kind of handover. Quality, we think, is not a single thing done well; it is two things carried at once, the work itself and the small care that surrounds it.": "我們從一句諺語取來名字，又從那第二種交付方式取來標準。我們以為，品質並非把一件事做好；而是同時承載兩樣東西——工作本身，以及環繞其外的那份細微用心。",
   "§ II · The name": "§ II · 名字",
@@ -78,7 +78,7 @@ window.TBI18N.register("zh-Hant", {
   "§ V · Why the practice exists": "§ V · 事務所存在的緣由",
   "Making the sector legible.": "讓這個行業變得可讀。",
   "Curriculum development, TPQA and compliance, trainer and SME sourcing, and ATO operations are each governed by frameworks that are publicly documented, and yet rarely read end to end. The cost of that opacity is borne by training providers, by the practitioners who work with them, and, ultimately, by the learners who fund the sector with their time.": "課程開發、TPQA 與合規、培訓師與 SME 尋聘，以及 ATO 營運，各自皆受公開存檔、卻鮮少有人通讀到底的框架所規範。這種晦澀的代價，由培訓機構承擔，由與之共事的從業者承擔，並最終由那些以時間為這個行業出資的學員承擔。",
-  "Our work is to translate. We render the framework into something a director, a curriculum lead or an incoming trainer can act upon, and we render the act back into the form the regulator expects. Where we develop courseware, we develop it under that translation. Where we advise, we advise plainly. The four practice areas are different windows onto the same purpose, and on the same pair of birds.": "我們的工作是翻譯。我們把框架轉譯成負責人、課程主管或新進培訓師可據以行動的東西，再把那行動轉譯回監管者所期待的形式。凡是我們開發課件之處，皆在那份轉譯之下進行。凡是我們提供建議之處，皆直言不諱。四個業務領域，是望向同一個宗旨、同一對鳥的不同窗口。",
+  "Our work is to translate. We render the framework into something a director, a curriculum lead or an incoming trainer can act upon, and we render the act back into the form the regulator expects. Where we develop courseware, we develop it under that translation. Where we advise, we advise candidly. The four practice areas are different windows onto the same purpose, and on the same pair of birds.": "我們的工作是翻譯。我們把框架轉譯成負責人、課程主管或新進培訓師可據以行動的東西，再把那行動轉譯回監管者所期待的形式。凡是我們開發課件之處，皆在那份轉譯之下進行。凡是我們提供建議之處，皆直言不諱。四個業務領域，是望向同一個宗旨、同一對鳥的不同窗口。",
   "§ VI · A founding observation": "§ VI · 一則創立之初的觀察",
   "What we kept noticing.": "我們一再注意到的。",
   "A twenty-page accreditation, returned with a single line of comment. A trainer who could hold a room of forty, but could not write the lesson plan a regulator would read. A director who could read the lesson plan, but had never seen the room. The same pattern, recurring, in every corner of the sector we worked in.": "一份二十頁的認證，回來時只附了一行批註。一位能掌控四十人課堂、卻寫不出監管者會讀的教案的培訓師。一位能讀懂教案、卻從未見過課堂的負責人。同一種模式，在我們涉足的這個行業的每一個角落，反覆出現。",
@@ -230,7 +230,7 @@ window.TBI18N.register("zh-Hant", {
   "SSG's Skills Demand for the Future Economy report organises sectoral demand around three priority economies. Our community currently practises within parts of each, and grows by invitation rather than by overreach.": "SSG 的《未來經濟技能需求》報告將產業需求圍繞三大優先經濟板塊進行組織。我們的社群目前在每一板塊的部分領域中執業，並以受邀而非過度擴張的方式成長。",
   "§ II · The sectors we currently practise in": "§ II · 我們目前執業的產業",
   "Where we have practised.": "我們曾執業之處。",
-  "These are the sectors in which our community is presently engaged. Where an engagement falls outside this list, we will tell you so plainly, and, where appropriate, introduce you to a practitioner from outside our community on a best-endeavours basis.": "這些是我們社群目前涉足的產業。若某項合作超出此清單範圍，我們將如實相告，並在適當情況下，本著盡力而為的原則，為您引薦社群以外的從業者。",
+  "These are the sectors in which our community is presently engaged. Where an engagement falls outside this list, we will tell you so candidly, and, where appropriate, introduce you to a practitioner from outside our community on a best-endeavours basis.": "這些是我們社群目前涉足的產業。若某項合作超出此清單範圍，我們將如實相告，並在適當情況下，本著盡力而為的原則，為您引薦社群以外的從業者。",
   "Sector": "產業",
   "§ III · Three forms of engagement": "§ III · 三種合作形式",
   "From first registration to standing operation.": "從首次註冊到穩定營運。",
@@ -686,7 +686,7 @@ window.TBI18N.register("zh-Hant", {
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "本所 · 我們的立場",
-  "A short heritage, plainly stated.": "簡短的沿革，如實陳述。",
+  "A short heritage, candidly stated.": "簡短的沿革，如實陳述。",
   "Four markers from the practice's correspondence, the milestones we feel comfortable putting on paper, and which a curious reader might want to weigh before writing to us.":
     "源自本所往來紀錄的四個標記，是我們樂於落筆記載的里程碑，也是有意垂詢者在致函之前或許願意權衡的依據。",
   "The practice opens by invitation, the beginning of a growing community of curriculum developers and adult educators.":
@@ -738,7 +738,7 @@ window.TBI18N.register("zh-Hant", {
   /* ---- home: FAQ ---- */
   "Important answers": "重要解答",
   "Frequent enquiries.": "常見諮詢。",
-  "The questions most often put to the practice, answered plainly.": "最常向本所提出的問題，如實作答。",
+  "The questions most often put to the practice, answered candidly.": "最常向本所提出的問題，如實作答。",
   "Why are your fees lower?": "為何貴所的收費較低？",
   "The difference reflects our overheads rather than any compromise in the work. We maintain no staffed office, carry no marketing costs to recover, and take no placement margin on the SMEs we source. Our fees account for the work itself and the people who carry it out, and we are happy to set out that basis for you in detail.":
     "其中的差別源於我們的間接成本，而非在工作上有任何妥協。我們不設專人辦公室，無須攤銷行銷開支，亦不在所引薦的領域專家身上抽取中介利潤。我們的費用只反映工作本身及執行工作的人，我們也樂意為您詳細說明這一計算基礎。",
@@ -794,7 +794,7 @@ window.TBI18N.register("zh-Hant", {
     "我們不設對外辦公室。如需會面，將安排於貴處或您選定的地點舉行。",
   "Curious about our development fees?": "想了解我們的開發費用？",
   "A conversation before a quote.": "先洽談，後報價。",
-  "Twenty minutes by call or by note. We will tell you, plainly, whether the work is something we should take on, and what it would cost.":
+  "Twenty minutes by call or by note. We will tell you, candidly, whether the work is something we should take on, and what it would cost.":
     "以通話或文字進行二十分鐘的交流。我們會坦白告知，這項工作是否屬於我們應當承接的範圍，以及費用幾何。",
   "§ II · How we differ": "§ II · 我們的不同之處",
   "The practice, alongside a typical vendor.": "本所，與一般供應商的對照。",
@@ -811,7 +811,7 @@ window.TBI18N.register("zh-Hant", {
   "If you have read this far, the proposal is simple. Write to us, in plain words, about the work you have in mind. We will reply within two working days, in the same plain manner.":
     "若您已讀到此處，我們的提議很簡單：用平實的話語，把您心中所想的工作寫來給我們。我們將以同樣平實的方式，於兩個工作天內回覆。",
   "§ V · Frequent enquiries": "§ V · 常見諮詢",
-  "A few questions, answered plainly.": "幾個問題，如實作答。",
+  "A few questions, answered candidly.": "幾個問題，如實作答。",
   "The questions most often put to the practice ahead of a first enquiry.": "在首次諮詢之前，最常向本所提出的問題。",
   "What should we include in a first enquiry?": "首次諮詢應當包含哪些內容？",
   "A short note of what you are looking to achieve is enough to begin. If you are able to tell us the nature of the course, your intended timeline and whether you are an existing or prospective training organisation, we can come to the first conversation already prepared. Nothing formal is required at this stage.":

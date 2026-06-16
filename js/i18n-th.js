@@ -9,7 +9,7 @@ window.TBI18N.register("th", {
   "A bird in formation rides the upwash of the one ahead and saves real energy on every wingbeat. The bird in front meets the hardest air, and the pair trade the lead by turns.": "นกที่บินเป็นรูปขบวนจะอาศัยกระแสลมยกตัวจากนกที่อยู่ข้างหน้า และประหยัดแรงได้จริงในทุกจังหวะกระพือปีก นกที่อยู่หน้าสุดต้องปะทะอากาศที่หนักหน่วงที่สุด และทั้งคู่ผลัดกันนำทาง",
   "We take the front of the regulatory headwind, so your team reaches the work itself with energy still to spare.": "เรารับลมต้านด้านกฎระเบียบไว้ที่หน้าสุด เพื่อให้ทีมของคุณไปถึงเนื้องานจริงโดยยังมีแรงเหลือ",
   "Two sets of eyes review every piece of work. What one of us might miss, the other is placed to catch, well before any reviewer does.": "งานทุกชิ้นผ่านการตรวจทานด้วยสายตาสองคู่ สิ่งที่คนหนึ่งอาจมองข้าม อีกคนก็อยู่ในตำแหน่งที่จะจับได้ ก่อนผู้ตรวจสอบคนใดจะเห็นเสียอีก",
-  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Plainly, we are nothing without them.": "หลายคนพูดว่าให้คุณค่าแก่คนของตน เราพยายามทำให้เป็นจริง ผู้ร่วมงานของเราคือหุ้นส่วน ไม่ใช่ตัวเลขหัวคน พวกเขาได้รับการรับฟังและเคารพ พูดตรงๆ ก็คือ หากไม่มีพวกเขา เราก็ไม่มีอะไรเลย",
+  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Candidly, we are nothing without them.": "หลายคนพูดว่าให้คุณค่าแก่คนของตน เราพยายามทำให้เป็นจริง ผู้ร่วมงานของเราคือหุ้นส่วน ไม่ใช่ตัวเลขหัวคน พวกเขาได้รับการรับฟังและเคารพ พูดตรงๆ ก็คือ หากไม่มีพวกเขา เราก็ไม่มีอะไรเลย",
   "In nature": "ในธรรมชาติ",
   "In practice": "ในการปฏิบัติ",
   "How we teach": "วิธีที่เราสอน",
@@ -36,7 +36,7 @@ window.TBI18N.register("th", {
   "On the pier · the brand, as it was originally pictured.": "บนสะพานท่า · แบรนด์ดังที่จินตนาการไว้แต่แรก",
   "§ I · Before the explanation, a scene": "§ I · ก่อนคำอธิบาย หนึ่งฉาก",
   "Handed over, with care.": "ส่งมอบด้วยความใส่ใจ",
-  "There are two ways to hand over a finished piece of work. The first is correct: every figure in place, every requirement met, nothing technically wrong with it. The second is correct as well, and something more. The reader can see that someone thought of them. The summary sits on top rather than buried. The one question they were about to ask has already been answered. The version line says plainly what changed since they last looked.": "การส่งมอบงานที่เสร็จสมบูรณ์มีอยู่สองวิธี วิธีแรกนั้นถูกต้อง ทุกตัวเลขอยู่ในที่ของมัน ทุกข้อกำหนดได้รับการตอบสนอง ไม่มีสิ่งใดผิดในเชิงเทคนิค วิธีที่สองก็ถูกต้องเช่นกัน และมีบางสิ่งมากกว่านั้น ผู้อ่านสามารถเห็นได้ว่ามีคนคิดถึงพวกเขา บทสรุปอยู่ด้านบนแทนที่จะถูกฝังไว้ คำถามหนึ่งที่พวกเขากำลังจะถามได้รับคำตอบไปแล้ว บรรทัดระบุเวอร์ชันบอกอย่างชัดเจนว่าอะไรเปลี่ยนแปลงไปนับตั้งแต่ครั้งล่าสุดที่พวกเขาดู",
+  "There are two ways to hand over a finished piece of work. The first is correct: every figure in place, every requirement met, nothing technically wrong with it. The second is correct as well, and something more. The reader can see that someone thought of them. The summary sits on top rather than buried. The one question they were about to ask has already been answered. The version line says candidly what changed since they last looked.": "การส่งมอบงานที่เสร็จสมบูรณ์มีอยู่สองวิธี วิธีแรกนั้นถูกต้อง ทุกตัวเลขอยู่ในที่ของมัน ทุกข้อกำหนดได้รับการตอบสนอง ไม่มีสิ่งใดผิดในเชิงเทคนิค วิธีที่สองก็ถูกต้องเช่นกัน และมีบางสิ่งมากกว่านั้น ผู้อ่านสามารถเห็นได้ว่ามีคนคิดถึงพวกเขา บทสรุปอยู่ด้านบนแทนที่จะถูกฝังไว้ คำถามหนึ่งที่พวกเขากำลังจะถามได้รับคำตอบไปแล้ว บรรทัดระบุเวอร์ชันบอกอย่างชัดเจนว่าอะไรเปลี่ยนแปลงไปนับตั้งแต่ครั้งล่าสุดที่พวกเขาดู",
   "The difference is rarely technical. It is the difference between work that is merely finished and work that is finished and handed over with care. It costs no more, in raw materials, than the version beside it. What it costs is attention.": "ความแตกต่างนั้นแทบจะไม่ใช่เรื่องเชิงเทคนิค มันคือความแตกต่างระหว่างงานที่เพียงแค่เสร็จกับงานที่เสร็จและถูกส่งมอบด้วยความใส่ใจ ในแง่ของวัตถุดิบ มันไม่ได้สิ้นเปลืองไปกว่ารุ่นที่อยู่ข้างๆ สิ่งที่มันสิ้นเปลืองคือความใส่ใจ",
   "We took the name from a saying, and the standard from that second kind of handover. Quality, we think, is not a single thing done well; it is two things carried at once, the work itself and the small care that surrounds it.": "เรานำชื่อมาจากสุภาษิต และนำมาตรฐานมาจากการส่งมอบแบบที่สองนั้น เราคิดว่าคุณภาพไม่ใช่สิ่งเดียวที่ทำได้ดี แต่เป็นสองสิ่งที่แบกไว้พร้อมกัน นั่นคือตัวงานเอง และความใส่ใจเล็กๆ น้อยๆ ที่ห้อมล้อมมันไว้",
   "§ II · The name": "§ II · ชื่อ",
@@ -78,7 +78,7 @@ window.TBI18N.register("th", {
   "§ V · Why the practice exists": "§ V · เหตุที่สำนักงานนี้ดำรงอยู่",
   "Making the sector legible.": "ทำให้วงการนี้อ่านเข้าใจได้",
   "Curriculum development, TPQA and compliance, trainer and SME sourcing, and ATO operations are each governed by frameworks that are publicly documented, and yet rarely read end to end. The cost of that opacity is borne by training providers, by the practitioners who work with them, and, ultimately, by the learners who fund the sector with their time.": "การพัฒนาหลักสูตร TPQA และการปฏิบัติตามข้อกำหนด การจัดหาผู้ฝึกอบรมและ SME รวมถึงการดำเนินงาน ATO ต่างถูกกำกับด้วยกรอบการทำงานที่มีการบันทึกไว้ต่อสาธารณะ แต่กลับแทบไม่มีใครอ่านจนจบ ต้นทุนของความคลุมเครือนั้นตกอยู่กับผู้ให้บริการฝึกอบรม กับผู้ปฏิบัติงานที่ทำงานร่วมกับพวกเขา และท้ายที่สุดกับผู้เรียนที่อุดหนุนวงการนี้ด้วยเวลาของพวกเขา",
-  "Our work is to translate. We render the framework into something a director, a curriculum lead or an incoming trainer can act upon, and we render the act back into the form the regulator expects. Where we develop courseware, we develop it under that translation. Where we advise, we advise plainly. The four practice areas are different windows onto the same purpose, and on the same pair of birds.": "งานของเราคือการแปล เราแปลงกรอบการทำงานให้เป็นสิ่งที่ผู้อำนวยการ หัวหน้าหลักสูตร หรือผู้ฝึกอบรมที่เข้ามาใหม่สามารถลงมือทำได้ และเราแปลงการลงมือนั้นกลับเป็นรูปแบบที่ผู้กำกับดูแลคาดหวัง ที่ใดที่เราพัฒนาสื่อการเรียน เราพัฒนาภายใต้การแปลนั้น ที่ใดที่เราให้คำปรึกษา เราให้อย่างตรงไปตรงมา สี่ขอบเขตการปฏิบัติงานคือหน้าต่างที่ต่างกันซึ่งมองไปยังจุดมุ่งหมายเดียวกัน และนกคู่เดียวกัน",
+  "Our work is to translate. We render the framework into something a director, a curriculum lead or an incoming trainer can act upon, and we render the act back into the form the regulator expects. Where we develop courseware, we develop it under that translation. Where we advise, we advise candidly. The four practice areas are different windows onto the same purpose, and on the same pair of birds.": "งานของเราคือการแปล เราแปลงกรอบการทำงานให้เป็นสิ่งที่ผู้อำนวยการ หัวหน้าหลักสูตร หรือผู้ฝึกอบรมที่เข้ามาใหม่สามารถลงมือทำได้ และเราแปลงการลงมือนั้นกลับเป็นรูปแบบที่ผู้กำกับดูแลคาดหวัง ที่ใดที่เราพัฒนาสื่อการเรียน เราพัฒนาภายใต้การแปลนั้น ที่ใดที่เราให้คำปรึกษา เราให้อย่างตรงไปตรงมา สี่ขอบเขตการปฏิบัติงานคือหน้าต่างที่ต่างกันซึ่งมองไปยังจุดมุ่งหมายเดียวกัน และนกคู่เดียวกัน",
   "§ VI · A founding observation": "§ VI · ข้อสังเกตแรกเริ่มก่อตั้ง",
   "What we kept noticing.": "สิ่งที่เราสังเกตเห็นอยู่เสมอ",
   "A twenty-page accreditation, returned with a single line of comment. A trainer who could hold a room of forty, but could not write the lesson plan a regulator would read. A director who could read the lesson plan, but had never seen the room. The same pattern, recurring, in every corner of the sector we worked in.": "การรับรองยี่สิบหน้า ส่งกลับมาพร้อมความเห็นเพียงบรรทัดเดียว ผู้ฝึกอบรมที่สามารถคุมห้องเรียนสี่สิบคนได้ แต่เขียนแผนการสอนที่ผู้กำกับดูแลจะอ่านไม่ได้ ผู้อำนวยการที่อ่านแผนการสอนได้ แต่ไม่เคยเห็นห้องเรียนเลย รูปแบบเดียวกันนี้เกิดขึ้นซ้ำๆ ในทุกมุมของวงการที่เราทำงานอยู่",
@@ -230,7 +230,7 @@ window.TBI18N.register("th", {
   "SSG's Skills Demand for the Future Economy report organises sectoral demand around three priority economies. Our community currently practises within parts of each, and grows by invitation rather than by overreach.": "รายงาน Skills Demand for the Future Economy ของ SSG จัดระเบียบความต้องการรายภาคส่วนรอบสามเศรษฐกิจที่มีลำดับความสำคัญ ปัจจุบันชุมชนของเราปฏิบัติงานในบางส่วนของแต่ละเศรษฐกิจ และเติบโตด้วยการได้รับเชิญมากกว่าการขยายเกินตัว",
   "§ II · The sectors we currently practise in": "§ II · ภาคส่วนที่เราปฏิบัติงานอยู่ในปัจจุบัน",
   "Where we have practised.": "ที่ซึ่งเราเคยปฏิบัติงาน",
-  "These are the sectors in which our community is presently engaged. Where an engagement falls outside this list, we will tell you so plainly, and, where appropriate, introduce you to a practitioner from outside our community on a best-endeavours basis.": "เหล่านี้คือภาคส่วนที่ชุมชนของเรามีส่วนร่วมอยู่ในปัจจุบัน หากงานใดอยู่นอกรายการนี้ เราจะบอกคุณตรง ๆ และในกรณีที่เหมาะสม เราจะแนะนำผู้ปฏิบัติงานจากนอกชุมชนของเราให้คุณบนพื้นฐานของความพยายามอย่างดีที่สุด",
+  "These are the sectors in which our community is presently engaged. Where an engagement falls outside this list, we will tell you so candidly, and, where appropriate, introduce you to a practitioner from outside our community on a best-endeavours basis.": "เหล่านี้คือภาคส่วนที่ชุมชนของเรามีส่วนร่วมอยู่ในปัจจุบัน หากงานใดอยู่นอกรายการนี้ เราจะบอกคุณตรง ๆ และในกรณีที่เหมาะสม เราจะแนะนำผู้ปฏิบัติงานจากนอกชุมชนของเราให้คุณบนพื้นฐานของความพยายามอย่างดีที่สุด",
   "Sector": "ภาคส่วน",
   "§ III · Three forms of engagement": "§ III · สามรูปแบบของการร่วมงาน",
   "From first registration to standing operation.": "จากการลงทะเบียนครั้งแรกสู่การดำเนินงานอย่างต่อเนื่อง",
@@ -686,7 +686,7 @@ window.TBI18N.register("th", {
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "สำนักงานของเรา · จุดยืนของเรา",
-  "A short heritage, plainly stated.": "ความเป็นมาโดยย่อ กล่าวอย่างตรงไปตรงมา",
+  "A short heritage, candidly stated.": "ความเป็นมาโดยย่อ กล่าวอย่างตรงไปตรงมา",
   "Four markers from the practice's correspondence, the milestones we feel comfortable putting on paper, and which a curious reader might want to weigh before writing to us.":
     "สี่หมุดหมายจากบันทึกการทำงานของสำนักงาน อันเป็นความสำเร็จที่เรายินดีบันทึกไว้ และผู้อ่านที่สนใจอาจอยากพิจารณาก่อนเขียนถึงเรา",
   "The practice opens by invitation, the beginning of a growing community of curriculum developers and adult educators.":
@@ -738,7 +738,7 @@ window.TBI18N.register("th", {
   /* ---- home: FAQ ---- */
   "Important answers": "คำตอบที่สำคัญ",
   "Frequent enquiries.": "คำสอบถามที่พบบ่อย",
-  "The questions most often put to the practice, answered plainly.": "คำถามที่ถูกถามถึงสำนักงานบ่อยที่สุด พร้อมคำตอบอย่างตรงไปตรงมา",
+  "The questions most often put to the practice, answered candidly.": "คำถามที่ถูกถามถึงสำนักงานบ่อยที่สุด พร้อมคำตอบอย่างตรงไปตรงมา",
   "Why are your fees lower?": "เหตุใดค่าบริการของท่านจึงต่ำกว่า",
   "The difference reflects our overheads rather than any compromise in the work. We maintain no staffed office, carry no marketing costs to recover, and take no placement margin on the SMEs we source. Our fees account for the work itself and the people who carry it out, and we are happy to set out that basis for you in detail.":
     "ความแตกต่างนั้นสะท้อนต้นทุนค่าโสหุ้ยของเรา มิใช่การลดทอนคุณภาพของงาน เราไม่มีสำนักงานที่มีพนักงานประจำ ไม่มีค่าการตลาดที่ต้องเรียกคืน และไม่คิดส่วนต่างค่าจัดหาจากผู้เชี่ยวชาญที่เราแนะนำ ค่าบริการของเราคิดจากตัวงานและผู้ที่ลงมือทำเท่านั้น และเรายินดีชี้แจงหลักการคิดดังกล่าวอย่างละเอียด",
@@ -794,7 +794,7 @@ window.TBI18N.register("th", {
     "เราไม่มีสำนักงานสำหรับติดต่อทั่วไป หากจำเป็นต้องประชุม จะจัดขึ้น ณ สถานที่ของท่านหรือสถานที่ที่ท่านเลือก",
   "Curious about our development fees?": "สนใจค่าบริการพัฒนาหลักสูตรของเราหรือไม่",
   "A conversation before a quote.": "พูดคุยก่อนเสนอราคา",
-  "Twenty minutes by call or by note. We will tell you, plainly, whether the work is something we should take on, and what it would cost.":
+  "Twenty minutes by call or by note. We will tell you, candidly, whether the work is something we should take on, and what it would cost.":
     "ยี่สิบนาทีทางโทรศัพท์หรือข้อความ เราจะบอกท่านอย่างตรงไปตรงมาว่างานนี้ควรเป็นงานที่เรารับหรือไม่ และจะมีค่าใช้จ่ายเท่าใด",
   "§ II · How we differ": "§ II · เราต่างอย่างไร",
   "The practice, alongside a typical vendor.": "สำนักงานของเรา เทียบกับผู้ให้บริการทั่วไป",
@@ -811,7 +811,7 @@ window.TBI18N.register("th", {
   "If you have read this far, the proposal is simple. Write to us, in plain words, about the work you have in mind. We will reply within two working days, in the same plain manner.":
     "หากท่านอ่านมาถึงตรงนี้ ข้อเสนอนั้นเรียบง่าย เขียนถึงเราด้วยถ้อยคำตรงไปตรงมาเกี่ยวกับงานที่ท่านมีอยู่ในใจ เราจะตอบกลับภายในสองวันทำการ ด้วยความเรียบง่ายเช่นเดียวกัน",
   "§ V · Frequent enquiries": "§ V · คำสอบถามที่พบบ่อย",
-  "A few questions, answered plainly.": "คำถามไม่กี่ข้อ พร้อมคำตอบอย่างตรงไปตรงมา",
+  "A few questions, answered candidly.": "คำถามไม่กี่ข้อ พร้อมคำตอบอย่างตรงไปตรงมา",
   "The questions most often put to the practice ahead of a first enquiry.": "คำถามที่ถูกถามถึงสำนักงานบ่อยที่สุดก่อนการสอบถามครั้งแรก",
   "What should we include in a first enquiry?": "ในการสอบถามครั้งแรกควรระบุสิ่งใดบ้าง",
   "A short note of what you are looking to achieve is enough to begin. If you are able to tell us the nature of the course, your intended timeline and whether you are an existing or prospective training organisation, we can come to the first conversation already prepared. Nothing formal is required at this stage.":

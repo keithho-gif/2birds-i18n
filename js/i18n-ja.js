@@ -9,7 +9,7 @@ window.TBI18N.register("ja", {
   "A bird in formation rides the upwash of the one ahead and saves real energy on every wingbeat. The bird in front meets the hardest air, and the pair trade the lead by turns.": "編隊を組む鳥は、前を行く鳥が生む上昇気流に乗り、ひと羽ばたきごとに確かな力を節約します。前の鳥が最も厳しい気流を受け止め、二羽は先導を交代で担います。",
   "We take the front of the regulatory headwind, so your team reaches the work itself with energy still to spare.": "私たちが規制という向かい風の先頭に立ちます。だからこそ、貴チームは余力を残したまま、業務そのものへたどり着けるのです。",
   "Two sets of eyes review every piece of work. What one of us might miss, the other is placed to catch, well before any reviewer does.": "あらゆる成果物を、二組の目が点検します。私たちの一方が見落としかねないものを、もう一方が捉える位置にいます。どの審査員よりもずっと早く。",
-  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Plainly, we are nothing without them.": "人を大切にすると口にする者は多い。私たちはそれを実践しようと努めます。私たちの仲間は、人数ではなくパートナーであり、その声に耳を傾け、敬意を払います。率直に言えば、彼らなくして私たちは何者でもありません。",
+  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Candidly, we are nothing without them.": "人を大切にすると口にする者は多い。私たちはそれを実践しようと努めます。私たちの仲間は、人数ではなくパートナーであり、その声に耳を傾け、敬意を払います。率直に言えば、彼らなくして私たちは何者でもありません。",
   "In nature": "自然において",
   "In practice": "実務において",
   "How we teach": "私たちの教え方",
@@ -36,7 +36,7 @@ window.TBI18N.register("ja", {
   "On the pier · the brand, as it was originally pictured.": "桟橋にて · 当初思い描かれたままのブランド。",
   "§ I · Before the explanation, a scene": "§ I · 説明の前に、ひとつの情景",
   "Handed over, with care.": "心を込めて、引き渡す。",
-  "There are two ways to hand over a finished piece of work. The first is correct: every figure in place, every requirement met, nothing technically wrong with it. The second is correct as well, and something more. The reader can see that someone thought of them. The summary sits on top rather than buried. The one question they were about to ask has already been answered. The version line says plainly what changed since they last looked.": "仕上げた仕事を引き渡すには二つのやり方があります。一つ目は正しい――数字はすべて所定の位置に収まり、あらゆる要件は満たされ、技術的に何も誤りはない。二つ目もまた正しく、しかしそれ以上の何かがあります。読み手は、誰かが自分のことを考えてくれたのが分かる。要約は埋もれずに一番上に置かれている。尋ねようとしていた当のひとつの問いには、すでに答えが用意されている。バージョン欄には、前回見たときから何が変わったのかが平易に記されている。",
+  "There are two ways to hand over a finished piece of work. The first is correct: every figure in place, every requirement met, nothing technically wrong with it. The second is correct as well, and something more. The reader can see that someone thought of them. The summary sits on top rather than buried. The one question they were about to ask has already been answered. The version line says candidly what changed since they last looked.": "仕上げた仕事を引き渡すには二つのやり方があります。一つ目は正しい――数字はすべて所定の位置に収まり、あらゆる要件は満たされ、技術的に何も誤りはない。二つ目もまた正しく、しかしそれ以上の何かがあります。読み手は、誰かが自分のことを考えてくれたのが分かる。要約は埋もれずに一番上に置かれている。尋ねようとしていた当のひとつの問いには、すでに答えが用意されている。バージョン欄には、前回見たときから何が変わったのかが平易に記されている。",
   "The difference is rarely technical. It is the difference between work that is merely finished and work that is finished and handed over with care. It costs no more, in raw materials, than the version beside it. What it costs is attention.": "その違いが技術的であることはめったにありません。それは、ただ仕上げただけの仕事と、仕上げたうえで心を込めて引き渡された仕事との違いです。原材料という点では、隣にある版より余計にかかるものは何もありません。かかるのは、心配りです。",
   "We took the name from a saying, and the standard from that second kind of handover. Quality, we think, is not a single thing done well; it is two things carried at once, the work itself and the small care that surrounds it.": "私たちは諺から名前を、その二つ目の引き渡し方から基準を得ました。質とは、一つの事をうまくやることではない、と私たちは考えます。それは二つのもの――仕事そのものと、それを取り巻く小さな心配り――を同時に運ぶことなのです。",
   "§ II · The name": "§ II · 名前",
@@ -78,7 +78,7 @@ window.TBI18N.register("ja", {
   "§ V · Why the practice exists": "§ V · なぜこの事務所が在るのか",
   "Making the sector legible.": "この分野を、読み解けるものに。",
   "Curriculum development, TPQA and compliance, trainer and SME sourcing, and ATO operations are each governed by frameworks that are publicly documented, and yet rarely read end to end. The cost of that opacity is borne by training providers, by the practitioners who work with them, and, ultimately, by the learners who fund the sector with their time.": "カリキュラム開発、TPQA とコンプライアンス、トレーナーと SME の確保、そして ATO の運営は、いずれも公開された文書で定められながら、最後まで読み通されることはめったにない枠組みによって律せられています。その不透明さの代償は、研修提供者が、彼らと働く実務者が、そして最終的には、自らの時間でこの分野を支える学習者が負っています。",
-  "Our work is to translate. We render the framework into something a director, a curriculum lead or an incoming trainer can act upon, and we render the act back into the form the regulator expects. Where we develop courseware, we develop it under that translation. Where we advise, we advise plainly. The four practice areas are different windows onto the same purpose, and on the same pair of birds.": "私たちの仕事は翻訳することです。枠組みを、責任者やカリキュラム責任者、新たに加わるトレーナーが行動に移せるものへと訳し、その行動を規制当局が期待する形へと訳し戻します。教材を開発する場面では、その翻訳のもとで開発します。助言する場面では、平明に助言します。四つの業務領域は、同じ目的、そして同じ一対の鳥を望む、異なる窓なのです。",
+  "Our work is to translate. We render the framework into something a director, a curriculum lead or an incoming trainer can act upon, and we render the act back into the form the regulator expects. Where we develop courseware, we develop it under that translation. Where we advise, we advise candidly. The four practice areas are different windows onto the same purpose, and on the same pair of birds.": "私たちの仕事は翻訳することです。枠組みを、責任者やカリキュラム責任者、新たに加わるトレーナーが行動に移せるものへと訳し、その行動を規制当局が期待する形へと訳し戻します。教材を開発する場面では、その翻訳のもとで開発します。助言する場面では、平明に助言します。四つの業務領域は、同じ目的、そして同じ一対の鳥を望む、異なる窓なのです。",
   "§ VI · A founding observation": "§ VI · 創立のきっかけとなった観察",
   "What we kept noticing.": "私たちが繰り返し気づいたこと。",
   "A twenty-page accreditation, returned with a single line of comment. A trainer who could hold a room of forty, but could not write the lesson plan a regulator would read. A director who could read the lesson plan, but had never seen the room. The same pattern, recurring, in every corner of the sector we worked in.": "二十ページの認定が、たった一行の所見とともに返ってくる。四十人の教室をまとめられるのに、規制当局が読む授業計画は書けないトレーナー。授業計画は読めても、その教室を一度も見たことのない責任者。同じパターンが、私たちが関わったこの分野のあらゆる片隅で、繰り返し現れていました。",
@@ -230,7 +230,7 @@ window.TBI18N.register("ja", {
   "SSG's Skills Demand for the Future Economy report organises sectoral demand around three priority economies. Our community currently practises within parts of each, and grows by invitation rather than by overreach.": "SSG の「Skills Demand for the Future Economy」報告書は、分野別の需要を三つの優先経済を軸に整理しています。当コミュニティは現在それぞれの一部分野で実践しており、行き過ぎではなく招きによって成長します。",
   "§ II · The sectors we currently practise in": "§ II · 私たちが現在実践している分野",
   "Where we have practised.": "私たちが実践してきた領域。",
-  "These are the sectors in which our community is presently engaged. Where an engagement falls outside this list, we will tell you so plainly, and, where appropriate, introduce you to a practitioner from outside our community on a best-endeavours basis.": "これらは当コミュニティが現在携わっている分野です。ある案件がこのリストの範囲外にある場合は、率直にお伝えし、適切な場合には最善努力ベースでコミュニティ外の実務家をご紹介します。",
+  "These are the sectors in which our community is presently engaged. Where an engagement falls outside this list, we will tell you so candidly, and, where appropriate, introduce you to a practitioner from outside our community on a best-endeavours basis.": "これらは当コミュニティが現在携わっている分野です。ある案件がこのリストの範囲外にある場合は、率直にお伝えし、適切な場合には最善努力ベースでコミュニティ外の実務家をご紹介します。",
   "Sector": "分野",
   "§ III · Three forms of engagement": "§ III · 三つの業務形態",
   "From first registration to standing operation.": "最初の登録から継続的な運営まで。",
@@ -686,7 +686,7 @@ window.TBI18N.register("ja", {
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "当事務所 · 私たちの立脚点",
-  "A short heritage, plainly stated.": "短い歩みを、ありのままに。",
+  "A short heritage, candidly stated.": "短い歩みを、ありのままに。",
   "Four markers from the practice's correspondence, the milestones we feel comfortable putting on paper, and which a curious reader might want to weigh before writing to us.":
     "当事務所のやり取りから選んだ四つの節目。あえて書き記せる確かな実績であり、ご連絡をいただく前に確かめておきたいと思われる方への手がかりです。",
   "The practice opens by invitation, the beginning of a growing community of curriculum developers and adult educators.":
@@ -738,7 +738,7 @@ window.TBI18N.register("ja", {
   /* ---- home: FAQ ---- */
   "Important answers": "重要なご回答",
   "Frequent enquiries.": "よくあるお問い合わせ。",
-  "The questions most often put to the practice, answered plainly.": "当事務所に最もよく寄せられるご質問に、率直にお答えします。",
+  "The questions most often put to the practice, answered candidly.": "当事務所に最もよく寄せられるご質問に、率直にお答えします。",
   "Why are your fees lower?": "なぜ御社の料金は低いのですか？",
   "The difference reflects our overheads rather than any compromise in the work. We maintain no staffed office, carry no marketing costs to recover, and take no placement margin on the SMEs we source. Our fees account for the work itself and the people who carry it out, and we are happy to set out that basis for you in detail.":
     "その差は、仕事の質を妥協した結果ではなく、間接費の違いによるものです。常駐スタッフのいる事務所を持たず、回収すべきマーケティング費用もなく、ご紹介する専門家から仲介マージンを取ることもありません。料金は仕事そのものと、それを担う人にのみ対応しており、その算定根拠は喜んで詳しくご説明いたします。",
@@ -794,7 +794,7 @@ window.TBI18N.register("ja", {
     "対外的な事務所は構えておりません。必要に応じて、お打ち合わせは貴社、またはご指定の場所にて行います。",
   "Curious about our development fees?": "開発費用についてお知りになりたいですか？",
   "A conversation before a quote.": "お見積りの前に、まずはお話を。",
-  "Twenty minutes by call or by note. We will tell you, plainly, whether the work is something we should take on, and what it would cost.":
+  "Twenty minutes by call or by note. We will tell you, candidly, whether the work is something we should take on, and what it would cost.":
     "電話または書面で20分。お引き受けすべき仕事かどうか、そして費用について、率直にお伝えします。",
   "§ II · How we differ": "§ II · 私たちの違い",
   "The practice, alongside a typical vendor.": "当事務所と、一般的な業者との比較。",
@@ -811,7 +811,7 @@ window.TBI18N.register("ja", {
   "If you have read this far, the proposal is simple. Write to us, in plain words, about the work you have in mind. We will reply within two working days, in the same plain manner.":
     "ここまでお読みいただいたなら、ご提案はいたって簡単です。お考えの仕事について、平易な言葉でお書きください。私たちも同じく平易に、2営業日以内にご返信いたします。",
   "§ V · Frequent enquiries": "§ V · よくあるお問い合わせ",
-  "A few questions, answered plainly.": "いくつかのご質問に、率直にお答えします。",
+  "A few questions, answered candidly.": "いくつかのご質問に、率直にお答えします。",
   "The questions most often put to the practice ahead of a first enquiry.": "初回のお問い合わせに先立ち、最もよく寄せられるご質問です。",
   "What should we include in a first enquiry?": "初回のお問い合わせには何を含めるべきですか？",
   "A short note of what you are looking to achieve is enough to begin. If you are able to tell us the nature of the course, your intended timeline and whether you are an existing or prospective training organisation, we can come to the first conversation already prepared. Nothing formal is required at this stage.":
