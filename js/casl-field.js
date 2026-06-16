@@ -145,7 +145,7 @@
       var s = 0.5 + Math.log(cnt + 1) * 0.28;
       sp.scale.set(s, s, 1); sp.position.set(x, h, z);
       group.add(sp);
-      nodes.push({ cell: cell, x: x, z: z, h: h, sprite: sp, base: s, flare: 0, phase: Math.random() * 6.28 });
+      nodes.push({ cell: cell, x: x, z: z, baseH: h, pillar: pv, sprite: sp, base: s, pop: 0, phase: Math.random() * 6.28 });
     }
 
     // ---- constellation between nearby vector tips ----
@@ -161,7 +161,7 @@
       for (var nn = 0; nn < 2 && nn < d.length; nn++) {
         if (d[nn][1] > a2) {
           var nb2 = nodes[d[nn][1]];
-          netV.push(nodes[a2].x, nodes[a2].h, nodes[a2].z, nb2.x, nb2.h, nb2.z);
+          netV.push(nodes[a2].x, nodes[a2].baseH, nodes[a2].z, nb2.x, nb2.baseH, nb2.z);
         }
       }
     }
@@ -209,12 +209,18 @@
     function onMove(e) { mx = (e.clientX / window.innerWidth - 0.5); my = (e.clientY / window.innerHeight - 0.5); }
     window.addEventListener("mousemove", onMove);
 
+    var camBaseY = 24, camBaseZ = 12;
     function resize() {
       var w = container.clientWidth || 1, h = container.clientHeight || 1;
       renderer.setSize(w, h, false);
       renderer.domElement.style.width = w + "px";
       renderer.domElement.style.height = h + "px";
       camera.aspect = w / h; camera.updateProjectionMatrix();
+      // pull the camera back on narrow / portrait screens so the wide maze fits
+      var fit = camera.aspect < 1.5 ? (1 + (1.5 - camera.aspect) * 0.9) : 1;
+      camBaseY = 24 * fit; camBaseZ = 12 * fit;
+      camera.position.set(mx * 3, camBaseY, camBaseZ);
+      camera.lookAt(0, 0, 0);
     }
     resize();
 
@@ -226,7 +232,7 @@
         pt += dt * SPEED;
         while (pt >= 1 && pseg < path.length - 2) { pt -= 1; pseg++; }
         if (pseg >= path.length - 2 && pt >= 1) {
-          nodes[target].flare = 1;
+          nodes[target].pop = 1;
           var arr = nodes[target].cell;
           target = (target + 1) % nodes.length;
           nextLeg(arr);
@@ -253,17 +259,23 @@
 
       for (var k2 = 0; k2 < nodes.length; k2++) {
         var nd = nodes[k2];
-        if (nd.flare > 0) nd.flare = Math.max(0, nd.flare - dt * 0.7);
+        if (nd.pop > 0) nd.pop = Math.max(0, nd.pop - dt * 1.1);
+        var popH = Math.sin(nd.pop * Math.PI / 2);          // 1 at the hit, eases to 0
+        var curH = nd.baseH * (1 + popH * 1.15);            // pole springs up, then settles
+        var pa = nd.pillar.attributes.position.array;
+        pa[4] = curH; nd.pillar.attributes.position.needsUpdate = true;
         var pulse = 1 + Math.sin(tsec * 1.4 + nd.phase) * 0.12;
-        var sc = nd.base * pulse * (1 + nd.flare * 1.6);
+        var sc = nd.base * pulse * (1 + popH * 1.7);
         nd.sprite.scale.set(sc, sc, 1);
-        nd.sprite.material.opacity = 0.7 + nd.flare * 0.3;
+        nd.sprite.position.y = curH;
+        nd.sprite.material.opacity = 0.7 + popH * 0.3;
       }
 
       stars.rotation.y = tsec * 0.01;
       group.rotation.y = mx * 0.15;
       camera.position.x = mx * 3;
-      camera.position.y = 24 - my * 2;
+      camera.position.y = camBaseY - my * 2;
+      camera.position.z = camBaseZ;
       camera.lookAt(0, 0, 0);
       renderer.render(scene, camera);
     }
