@@ -47,7 +47,7 @@
   .tb-vark__title em { font-style: italic; color: var(--olive-light); }
   .tb-vark__intro { font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: rgba(250,248,242,0.70); margin: 18px auto 0; max-width: 54ch; }
 
-  .tb-vark__stage { max-width: 960px; margin: 0 auto; perspective: 1500px; }
+  .tb-vark__stage { max-width: 1080px; margin: 0 auto; perspective: 1500px; }
   .tb-vark__card { position: relative; background: rgba(250,248,242,0.045); border: 1px solid rgba(196,191,160,0.20); border-radius: 16px; padding: clamp(22px, 3.4vw, 38px); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); transform-style: preserve-3d; animation: vark-in 0.55s var(--ease-standard) both; }
   @keyframes vark-in { from { opacity: 0; transform: translateY(16px) rotateX(-7deg); } to { opacity: 1; transform: none; } }
 
@@ -65,6 +65,23 @@
   .tb-vark__opt-txt { font-family: var(--font-sans); font-size: 15px; line-height: 1.4; color: rgba(250,248,242,0.92); padding-top: 3px; }
   .tb-vark__back { margin-top: 22px; background: none; border: 0; color: rgba(250,248,242,0.55); font-family: var(--font-sans); font-size: 13px; letter-spacing: 0.05em; cursor: pointer; padding: 0; }
   .tb-vark__back:hover { color: var(--olive-light); }
+  .tb-vark__opt-tag svg { width: 15px; height: 15px; }
+  .tb-vark__foot { display: flex; align-items: center; gap: 20px; margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(196,191,160,0.12); flex-wrap: wrap; }
+  .tb-vark__foot .tb-vark__back { margin-top: 0; }
+  .tb-vark__live { display: flex; gap: 14px; flex: 1 1 320px; }
+  .tb-vark__live-cell { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; }
+  .tb-vark__live-ic { flex: 0 0 auto; color: rgba(196,191,160,0.72); display: inline-flex; }
+  .tb-vark__live-ic svg { width: 13px; height: 13px; }
+  .tb-vark__live-track { flex: 1; height: 4px; border-radius: 4px; background: rgba(196,191,160,0.14); overflow: hidden; min-width: 0; }
+  .tb-vark__live-fill { display: block; height: 100%; background: rgba(196,191,160,0.5); border-radius: 4px; transition: width 0.4s var(--ease-standard); }
+  .tb-vark__modes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 680px; margin: 4px auto 16px; }
+  .tb-vark__mode { display: flex; align-items: center; gap: 13px; padding: 13px 15px; border: 1px solid rgba(196,191,160,0.18); border-radius: 11px; background: rgba(250,248,242,0.03); }
+  .tb-vark__mode.is-top { border-color: rgba(196,191,160,0.5); background: rgba(196,191,160,0.09); }
+  .tb-vark__mode-icon { flex: 0 0 auto; width: 36px; height: 36px; border-radius: 9px; display: inline-flex; align-items: center; justify-content: center; color: var(--olive-light); background: rgba(196,191,160,0.10); }
+  .tb-vark__mode-icon svg { width: 19px; height: 19px; }
+  .tb-vark__mode-body { display: block; text-align: left; }
+  .tb-vark__mode-name { display: block; font-family: var(--font-serif); font-size: 16px; color: var(--paper); line-height: 1.15; }
+  .tb-vark__mode-desc { display: block; font-family: var(--font-sans); font-size: 12.5px; color: rgba(250,248,242,0.62); margin-top: 2px; line-height: 1.4; }
 
   .tb-vark__result { text-align: center; }
   .tb-vark__badge { display: inline-flex; align-items: center; justify-content: center; width: 76px; height: 76px; border-radius: 50%; border: 1px solid rgba(196,191,160,0.42); color: var(--olive-light); margin-bottom: 18px; background: rgba(196,191,160,0.06); }
@@ -100,6 +117,10 @@
     .tb-vark__opts { grid-template-columns: 1fr; }
     .tb-vark__bar { grid-template-columns: 86px 1fr 18px; }
     .tb-vark__actions { flex-direction: column; align-items: stretch; }
+    .tb-vark__modes { grid-template-columns: 1fr; }
+    .tb-vark__foot { gap: 16px; }
+    .tb-vark__live { flex-wrap: wrap; gap: 10px 14px; }
+    .tb-vark__live-cell { flex: 1 1 calc(50% - 14px); }
   }
 </style>
 
@@ -242,6 +263,78 @@ const VARK_QUESTIONS = [
     ["R", "Write a clear handout."],
     ["K", "Run a live demonstration."],
   ] },
+  { q: "Reading a recipe for the first time, you…", o: [
+    ["V", "Look for photos of each step."],
+    ["A", "Would rather be talked through it."],
+    ["R", "Follow the written method closely."],
+    ["K", "Start cooking and adjust as you go."],
+  ] },
+  { q: "To learn a new song, you…", o: [
+    ["V", "Watch how it is played."],
+    ["A", "Listen to it over and over."],
+    ["R", "Read the lyrics or the notation."],
+    ["K", "Pick up the instrument and try."],
+  ] },
+  { q: "In a museum, you get the most from…", o: [
+    ["V", "The objects and the displays."],
+    ["A", "The audio guide or a docent."],
+    ["R", "The labels and the wall text."],
+    ["K", "The interactive, hands-on exhibits."],
+  ] },
+  { q: "Preparing for a test, you rely on…", o: [
+    ["V", "Mind maps and colour-coded notes."],
+    ["A", "Reciting aloud or study groups."],
+    ["R", "Re-reading and rewriting notes."],
+    ["K", "Practice papers and worked drills."],
+  ] },
+  { q: "Someone explains a process. You wish they would…", o: [
+    ["V", "Draw it on a whiteboard."],
+    ["A", "Keep talking; you are following."],
+    ["R", "Send it to you in writing."],
+    ["K", "Show you on the real thing."],
+  ] },
+  { q: "Your ideal set of directions has…", o: [
+    ["V", "A clear map with landmarks."],
+    ["A", "A friend on the phone guiding you."],
+    ["R", "Written turn-by-turn steps."],
+    ["K", "A trial run you have done before."],
+  ] },
+  { q: "Learning new software at work, you prefer…", o: [
+    ["V", "Screenshots and short clips."],
+    ["A", "A colleague walking you through it."],
+    ["R", "The written help docs."],
+    ["K", "Clicking around to figure it out."],
+  ] },
+  { q: "A concept finally clicks when you can…", o: [
+    ["V", "Picture it clearly in your mind."],
+    ["A", "Explain it to someone out loud."],
+    ["R", "Write a clean summary of it."],
+    ["K", "Put it to use on a real task."],
+  ] },
+  { q: "If you skip the manual, it is because…", o: [
+    ["V", "You would rather see a diagram."],
+    ["A", "You would rather ask a person."],
+    ["R", "Actually, you do read manuals."],
+    ["K", "You would rather just try it."],
+  ] },
+  { q: "Your notes tend to be…", o: [
+    ["V", "Diagrams, arrows and sketches."],
+    ["A", "Sparse; you recall the talk."],
+    ["R", "Full sentences, neatly kept."],
+    ["K", "Scribbled while you did the task."],
+  ] },
+  { q: "To hold on to a phone number, you…", o: [
+    ["V", "Picture the shape of the digits."],
+    ["A", "Say it aloud a few times."],
+    ["R", "Write it down."],
+    ["K", "Tap it out on a keypad."],
+  ] },
+  { q: "The best workshop you ever attended was…", o: [
+    ["V", "Beautifully illustrated throughout."],
+    ["A", "Rich in talk and live questions."],
+    ["R", "Backed by an excellent handout."],
+    ["K", "Mostly hands-on practice."],
+  ] },
 ];
 
 const VARK_ICON = {
@@ -264,6 +357,13 @@ const VARK_INFO = {
   K: { name: "Kinaesthetic", tag: "You learn by doing",
     blurb: "You learn with your hands and through experience. Give you a real example to work, a thing to try, and the lesson becomes yours.",
     teach: "So we build practice, worked examples and hands-on tasks into the course, so the learning happens by doing." },
+};
+
+const VARK_MODE_DESC = {
+  V: "Seeing — pictures, diagrams and the shape of an idea.",
+  A: "Hearing — talking it over and explaining aloud.",
+  R: "Words — text, lists, and notes in your own hand.",
+  K: "Doing — practice, real examples and hands-on tasks.",
 };
 
 function VarkBackdrop() {
@@ -364,12 +464,24 @@ function VarkQuiz() {
           <div className="tb-vark__opts">
             {cur.o.map((opt, i) => (
               <button type="button" key={i} className="tb-vark__opt" onClick={() => pick(opt[0])}>
-                <span className="tb-vark__opt-tag">{opt[0]}</span>
+                <span className="tb-vark__opt-tag">{VARK_ICON[opt[0]]}</span>
                 <span className="tb-vark__opt-txt">{opt[1]}</span>
               </button>
             ))}
           </div>
-          {step > 0 && <button type="button" className="tb-vark__back" onClick={back}>{"‹"} Back</button>}
+          <div className="tb-vark__foot">
+            {step > 0
+              ? <button type="button" className="tb-vark__back" onClick={back}>{"‹"} Back</button>
+              : <span />}
+            <div className="tb-vark__live" aria-label="Your leaning so far">
+              {["V", "A", "R", "K"].map((k) => (
+                <span className="tb-vark__live-cell" key={k} title={VARK_INFO[k].name}>
+                  <span className="tb-vark__live-ic">{VARK_ICON[k]}</span>
+                  <span className="tb-vark__live-track"><span className="tb-vark__live-fill" style={{ width: (step ? Math.round(scores[k] / step * 100) : 0) + "%" }} /></span>
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -400,8 +512,19 @@ function VarkQuiz() {
         <div className="tb-vark__about">
           <span className="tb-vark__teach-label">About the model</span>
           <p>
-            VARK was set out by the New Zealand educator Neil Fleming in 1987, drawn from years of watching why a clear lesson reached some learners and slipped past others. It sorts the way we prefer to take in new material into four modes: <strong>Visual</strong>, learning through pictures, diagrams and the shape of an idea; <strong>Aural</strong>, through hearing it and talking it over; <strong>Read / write</strong>, through text, lists and notes; and <strong>Kinaesthetic</strong>, through doing, practice and real examples.
+            VARK was set out by the New Zealand educator Neil Fleming in 1987, drawn from years of watching why a clear lesson reached some learners and slipped past others. It sorts the way we prefer to take in new material into four modes:
           </p>
+          <div className="tb-vark__modes">
+            {["V", "A", "R", "K"].map((k) => (
+              <div className={"tb-vark__mode" + (k === top ? " is-top" : "")} key={k}>
+                <span className="tb-vark__mode-icon">{VARK_ICON[k]}</span>
+                <span className="tb-vark__mode-body">
+                  <span className="tb-vark__mode-name">{VARK_INFO[k].name}</span>
+                  <span className="tb-vark__mode-desc">{VARK_MODE_DESC[k]}</span>
+                </span>
+              </div>
+            ))}
+          </div>
           <p>
             It describes a preference, not a limit. Most people are multimodal, drawing on two or three of the modes and shifting between them with the task in front of them, which is why your result above is a leaning rather than a label. A short quiz like this is a prompt, not a diagnosis; what it points to is the route, or routes, a course should offer if it means to reach you and not just the average of the room.
           </p>
@@ -564,7 +687,7 @@ function App() {
               <span className="tb-vark__eyebrow">Find your footing</span>
               <h2 className="tb-vark__title">How do <em>you</em> learn?</h2>
               <p className="tb-vark__intro">
-                A dozen quick questions, with no right answers. They place you, loosely, on the VARK model, and show how the right teaching method would carry you further.
+                Twenty-five quick questions, with no right answers. They place you, loosely, on the VARK model, and show how the right teaching method would carry you further.
               </p>
             </header>
             <VarkQuiz />
