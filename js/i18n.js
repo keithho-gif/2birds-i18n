@@ -103,7 +103,10 @@
   }
 
   /* ---------- translation core ------------------------------------------ */
-  var PHRASE_SEL = "h1,h2,h3,h4,h5,h6,p,li,a,button,span,blockquote,figcaption,dt,dd,summary,th,td,label,legend";
+  // `div` is included for text-only divs used as cells/labels (e.g. the
+  // flex-grid comparison table). The leaf guard below means a div with block
+  // children is skipped, so only genuine text leaves are ever translated.
+  var PHRASE_SEL = "h1,h2,h3,h4,h5,h6,p,li,a,button,span,blockquote,figcaption,dt,dd,summary,th,td,label,legend,div";
   var INLINE_OK = { EM: 1, STRONG: 1, B: 1, I: 1, U: 1, BR: 1, SUP: 1, SUB: 1, SMALL: 1, ABBR: 1, MARK: 1, WBR: 1, TIME: 1 };
   var ORIG = new WeakMap();           // el -> { key, html }
   var DICTS = {};                     // dictLang -> { normEnglish: translation }
