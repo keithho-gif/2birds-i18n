@@ -27,6 +27,7 @@ const OFFICIAL_CURRENT = OFFICIAL_CASL;
 const OFFICIAL_UPDATED = OFFICIAL_CASL;
 
 const SHORTLIST_KEY = "tb_casl_shortlist";
+const DOCK_DISMISS_KEY = "tb_casl_dock_dismissed";
 
 // Wrap query matches in <mark> for in-card highlighting.
 function highlight(text, q) {
@@ -232,8 +233,23 @@ function CaslDashboard() {
     try { localStorage.setItem(SHORTLIST_KEY, JSON.stringify(pinned)); } catch (e) {}
   }, [pinned]);
   const isPinned = (title) => pinned.indexOf(title) !== -1;
-  const togglePin = (title) => setPinned(p =>
-    p.indexOf(title) !== -1 ? p.filter(t => t !== title) : [...p, title]);
+
+  // Whether the visitor has dismissed the sticky dock. Persisted, so it stays
+  // hidden when they return to the page; pinning a new skill brings it back.
+  const [dockDismissed, setDockDismissed] = useState(() => {
+    try { return localStorage.getItem(DOCK_DISMISS_KEY) === "1"; } catch (e) { return false; }
+  });
+  const dismissDock = () => {
+    setDockDismissed(true);
+    try { localStorage.setItem(DOCK_DISMISS_KEY, "1"); } catch (e) {}
+  };
+  const togglePin = (title) => setPinned(p => {
+    if (p.indexOf(title) !== -1) return p.filter(t => t !== title);
+    // a fresh pin re-surfaces the dock even if it was dismissed earlier
+    setDockDismissed(false);
+    try { localStorage.removeItem(DOCK_DISMISS_KEY); } catch (e) {}
+    return [...p, title];
+  });
 
   // Reset shown count when filters change.
   useEffect(() => { setShown(24); }, [query, industry, phase, sort]);
@@ -354,10 +370,10 @@ function CaslDashboard() {
   // Flag the body while the sticky working-list dock is shown, so the floating
   // WhatsApp button lifts clear of it and the page reserves room at the foot.
   useEffect(() => {
-    const on = pinned.length > 0 && !selected;
+    const on = pinned.length > 0 && !selected && !dockDismissed;
     document.body.classList.toggle("has-worklist-dock", on);
     return () => document.body.classList.remove("has-worklist-dock");
-  }, [pinned.length, selected]);
+  }, [pinned.length, selected, dockDismissed]);
 
   const cardKey = (fn) => (e) => {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fn(); }
@@ -776,7 +792,7 @@ function CaslDashboard() {
       {/* ---- Sticky working-list dock: the prominent, always-in-reach CTA that
               appears the moment a skill is pinned (portalled so position:fixed is
               viewport-relative regardless of ancestor transforms). ---- */}
-      {pinned.length > 0 && !selected && ReactDOM.createPortal(
+      {pinned.length > 0 && !selected && !dockDismissed && ReactDOM.createPortal(
         <div className="casl__dock" role="region" aria-label="Your working list">
           <div className="casl__dock-inner">
             <div className="casl__dock-info">
@@ -788,6 +804,13 @@ function CaslDashboard() {
               <a className="casl__dock-send" href={shortlistMailto}>Send my working list</a>
               <a className="casl__dock-call" href="contact.html">Book a scoping call</a>
             </div>
+            <button type="button" className="casl__dock-close" onClick={dismissDock}
+                    aria-label="Hide the working-list bar" title="Hide">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                   strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
           </div>
         </div>,
         document.body
