@@ -1,5 +1,22 @@
 /* 2birds — Korean */
 window.TBI18N.register("ko", {
+  /* ---- brand page (auto-merged) ---- */
+  "The sky is the limit, and the right teaching method is what carries a learner there.": "하늘이 곧 한계이며, 학습자를 그곳까지 데려다주는 것은 바로 올바른 교수법입니다.",
+  "Aim for the skies.": "하늘을 향하여.",
+  "We are an independent practice of curriculum development and advisory, working with Approved Training Organisations, the registered training providers who deliver adult learning. Like the birds we are named for, we aim high. Given the right course, well built and well taught, we believe a learner can climb further than they first thought possible.": "우리는 커리큘럼 개발과 자문을 전문으로 하는 독립 실무 기관으로, 성인 학습을 제공하는 등록 훈련 기관인 Approved Training Organisations와 협력합니다. 그 이름을 따온 새들처럼, 우리는 높은 곳을 지향합니다. 잘 설계되고 잘 가르쳐진 올바른 과정이 주어진다면, 학습자는 처음 생각했던 것보다 더 높이 오를 수 있다고 믿습니다.",
+  "So we build for the climb, not the cut. Every programme we develop is made to carry people upward, to lift the capable higher and bring the rest up with them, so that the height a learner reaches is set by their own effort, and never by how the material was made.": "그래서 우리는 솎아내기 위해서가 아니라 오르기 위해 설계합니다. 우리가 개발하는 모든 프로그램은 사람을 위로 이끌기 위한 것이며, 역량 있는 이를 더 높이 끌어올리고 나머지도 함께 데려갑니다. 그리하여 학습자가 다다르는 높이는 그 자신의 노력으로 정해질 뿐, 결코 교재가 만들어진 방식으로 정해지지 않습니다.",
+  "The lead": "앞장",
+  "A bird in formation rides the upwash of the one ahead and saves real energy on every wingbeat. The bird in front meets the hardest air, and the pair trade the lead by turns.": "대형을 이룬 새는 앞선 새가 일으키는 상승 기류를 타며, 날갯짓 한 번마다 실질적인 힘을 아낍니다. 앞의 새가 가장 거센 공기를 맞고, 둘은 번갈아 앞장을 맡습니다.",
+  "We take the front of the regulatory headwind, so your team reaches the work itself with energy still to spare.": "우리가 규제라는 맞바람의 맨 앞에 섭니다. 그리하여 귀하의 팀은 힘을 아낀 채로 업무 그 자체에 다다를 수 있습니다.",
+  "Two sets of eyes review every piece of work. What one of us might miss, the other is placed to catch, well before any reviewer does.": "모든 결과물은 두 쌍의 눈이 검토합니다. 우리 중 한 사람이 놓칠 법한 것을 다른 한 사람이 잡아낼 자리에 있습니다. 그 어떤 심사자보다 훨씬 앞서서.",
+  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Plainly, we are nothing without them.": "많은 이가 자기 사람을 소중히 여긴다고 말합니다. 우리는 그것을 실천하려 애씁니다. 우리의 동료들은 머릿수가 아니라 파트너이며, 그 말에 귀 기울이고 존중받습니다. 솔직히 말해, 그들이 없다면 우리는 아무것도 아닙니다.",
+  "In nature": "자연에서는",
+  "In practice": "실무에서는",
+  "How we teach": "우리가 가르치는 방식",
+  "No one way fits everyone.": "모두에게 맞는 단 하나의 방법은 없다.",
+  "No single way of teaching reaches every learner. People take in new material differently, and a course built for just one kind of learner quietly leaves the others behind. We design against that, deliberately.": "단 하나의 교수 방식으로 모든 학습자에게 가닿을 수는 없습니다. 사람들은 새로운 자료를 저마다 다르게 받아들이며, 오직 한 부류의 학습자만을 위해 만든 과정은 나머지를 조용히 뒤에 남겨 둡니다. 우리는 그것에 맞서, 의도적으로 설계합니다.",
+  "The VARK model, set out by the educator Neil Fleming in 1987, names four of the ways people prefer to learn: Visual, Aural, Read/write and Kinaesthetic, by seeing, by hearing, by reading and writing, and by doing. Most of us draw on more than one.": "교육자 Neil Fleming이 1987년에 제시한 VARK 모델은 사람들이 학습할 때 선호하는 네 가지 방식을 일컫습니다. Visual(시각), Aural(청각), Read/write(읽기·쓰기), Kinaesthetic(운동감각), 즉 보기, 듣기, 읽고 쓰기, 그리고 행하기입니다. 우리 대부분은 한 가지 이상에 기댑니다.",
+  "So we build courseware that offers more than one route to the same understanding. A learner can meet the material in the way that suits them, and a trainer is never left to teach to the middle and hope the rest keep up.": "그래서 우리는 같은 이해에 이르는 길을 하나 이상 제공하는 교재를 만듭니다. 학습자는 자신에게 맞는 방식으로 자료를 만날 수 있고, 강사는 중간 수준에 맞춰 가르친 뒤 나머지가 따라오기를 바라기만 하는 처지에 결코 놓이지 않습니다.",
   /* ---- page body translations (auto-merged) ---- */
   "Started": "시작",
   "Across the sector": "업계 전반에 걸쳐",

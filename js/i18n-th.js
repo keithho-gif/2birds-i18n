@@ -1,5 +1,22 @@
 /* 2birds — Thai */
 window.TBI18N.register("th", {
+  /* ---- brand page (auto-merged) ---- */
+  "The sky is the limit, and the right teaching method is what carries a learner there.": "ขีดจำกัดอยู่ที่ท้องฟ้า และวิธีการสอนที่ถูกต้องคือสิ่งที่พาผู้เรียนไปถึงที่นั่น",
+  "Aim for the skies.": "มุ่งสู่ท้องฟ้า",
+  "We are an independent practice of curriculum development and advisory, working with Approved Training Organisations, the registered training providers who deliver adult learning. Like the birds we are named for, we aim high. Given the right course, well built and well taught, we believe a learner can climb further than they first thought possible.": "เราเป็นสำนักงานอิสระด้านการพัฒนาหลักสูตรและการให้คำปรึกษา ทำงานร่วมกับ Approved Training Organisations ซึ่งเป็นผู้ให้บริการฝึกอบรมที่ขึ้นทะเบียนและจัดการเรียนรู้สำหรับผู้ใหญ่ เฉกเช่นนกที่เราตั้งชื่อตาม เรามุ่งสู่ที่สูง เราเชื่อว่าเมื่อมีหลักสูตรที่เหมาะสม สร้างมาอย่างดีและสอนอย่างดี ผู้เรียนย่อมก้าวไปได้ไกลกว่าที่เคยคิดว่าเป็นไปได้",
+  "So we build for the climb, not the cut. Every programme we develop is made to carry people upward, to lift the capable higher and bring the rest up with them, so that the height a learner reaches is set by their own effort, and never by how the material was made.": "เราจึงสร้างเพื่อการก้าวขึ้น มิใช่เพื่อการคัดทิ้ง ทุกหลักสูตรที่เราพัฒนาล้วนสร้างขึ้นเพื่อพาผู้คนสูงขึ้น ยกผู้ที่มีความสามารถให้ขึ้นไปไกลกว่าเดิม และนำพาคนที่เหลือขึ้นไปพร้อมกัน เพื่อให้ความสูงที่ผู้เรียนไปถึงถูกกำหนดด้วยความพยายามของเขาเอง ไม่ใช่ด้วยวิธีที่เนื้อหาถูกสร้างขึ้น",
+  "The lead": "ผู้นำทาง",
+  "A bird in formation rides the upwash of the one ahead and saves real energy on every wingbeat. The bird in front meets the hardest air, and the pair trade the lead by turns.": "นกที่บินเป็นรูปขบวนจะอาศัยกระแสลมยกตัวจากนกที่อยู่ข้างหน้า และประหยัดแรงได้จริงในทุกจังหวะกระพือปีก นกที่อยู่หน้าสุดต้องปะทะอากาศที่หนักหน่วงที่สุด และทั้งคู่ผลัดกันนำทาง",
+  "We take the front of the regulatory headwind, so your team reaches the work itself with energy still to spare.": "เรารับลมต้านด้านกฎระเบียบไว้ที่หน้าสุด เพื่อให้ทีมของคุณไปถึงเนื้องานจริงโดยยังมีแรงเหลือ",
+  "Two sets of eyes review every piece of work. What one of us might miss, the other is placed to catch, well before any reviewer does.": "งานทุกชิ้นผ่านการตรวจทานด้วยสายตาสองคู่ สิ่งที่คนหนึ่งอาจมองข้าม อีกคนก็อยู่ในตำแหน่งที่จะจับได้ ก่อนผู้ตรวจสอบคนใดจะเห็นเสียอีก",
+  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Plainly, we are nothing without them.": "หลายคนพูดว่าให้คุณค่าแก่คนของตน เราพยายามทำให้เป็นจริง ผู้ร่วมงานของเราคือหุ้นส่วน ไม่ใช่ตัวเลขหัวคน พวกเขาได้รับการรับฟังและเคารพ พูดตรงๆ ก็คือ หากไม่มีพวกเขา เราก็ไม่มีอะไรเลย",
+  "In nature": "ในธรรมชาติ",
+  "In practice": "ในการปฏิบัติ",
+  "How we teach": "วิธีที่เราสอน",
+  "No one way fits everyone.": "ไม่มีวิธีใดวิธีหนึ่งที่เหมาะกับทุกคน",
+  "No single way of teaching reaches every learner. People take in new material differently, and a course built for just one kind of learner quietly leaves the others behind. We design against that, deliberately.": "ไม่มีวิธีการสอนเดียวที่จะเข้าถึงผู้เรียนทุกคน ผู้คนรับเนื้อหาใหม่แตกต่างกันไป และหลักสูตรที่สร้างมาเพื่อผู้เรียนเพียงแบบเดียวย่อมทิ้งคนที่เหลือไว้ข้างหลังอย่างเงียบๆ เราออกแบบเพื่อต้านสิ่งนั้นอย่างตั้งใจ",
+  "The VARK model, set out by the educator Neil Fleming in 1987, names four of the ways people prefer to learn: Visual, Aural, Read/write and Kinaesthetic, by seeing, by hearing, by reading and writing, and by doing. Most of us draw on more than one.": "แบบจำลอง VARK ที่นักการศึกษา Neil Fleming เสนอไว้ในปี 1987 ระบุสี่วิธีที่ผู้คนชอบเรียนรู้ ได้แก่ Visual (การมองเห็น) Aural (การฟัง) Read/write (การอ่านและเขียน) และ Kinaesthetic (การลงมือทำ) นั่นคือ ด้วยการมอง ด้วยการฟัง ด้วยการอ่านและเขียน และด้วยการลงมือทำ พวกเราส่วนใหญ่ใช้มากกว่าหนึ่งวิธี",
+  "So we build courseware that offers more than one route to the same understanding. A learner can meet the material in the way that suits them, and a trainer is never left to teach to the middle and hope the rest keep up.": "เราจึงสร้างสื่อการเรียนที่เปิดเส้นทางไปสู่ความเข้าใจเดียวกันได้มากกว่าหนึ่งทาง ผู้เรียนสามารถพบกับเนื้อหาในแบบที่เหมาะกับตน และผู้ฝึกสอนก็ไม่ต้องถูกทิ้งให้สอนแบบกลางๆ แล้วได้แต่หวังว่าคนที่เหลือจะตามทัน",
   /* ---- page body translations (auto-merged) ---- */
   "Started": "เริ่มต้น",
   "Across the sector": "ทั่วทั้งภาคส่วน",

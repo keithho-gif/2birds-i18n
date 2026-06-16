@@ -1,5 +1,22 @@
 /* 2birds — Japanese */
 window.TBI18N.register("ja", {
+  /* ---- brand page (auto-merged) ---- */
+  "The sky is the limit, and the right teaching method is what carries a learner there.": "限界は空の高さにある。学習者をそこへ運ぶのは、適切な教育方法にほかなりません。",
+  "Aim for the skies.": "空を目指して。",
+  "We are an independent practice of curriculum development and advisory, working with Approved Training Organisations, the registered training providers who deliver adult learning. Like the birds we are named for, we aim high. Given the right course, well built and well taught, we believe a learner can climb further than they first thought possible.": "私たちは、カリキュラム開発とアドバイザリーを手がける独立した実務集団であり、成人教育を担う登録研修機関である Approved Training Organisations と協働しています。名の由来となった鳥たちと同じく、私たちは高みを目指します。適切に設計され、適切に教えられた良質なコースがあれば、学習者は当初思っていた以上に高く昇れると、私たちは信じています。",
+  "So we build for the climb, not the cut. Every programme we develop is made to carry people upward, to lift the capable higher and bring the rest up with them, so that the height a learner reaches is set by their own effort, and never by how the material was made.": "だからこそ私たちは、ふるい落とすためではなく、昇るために設計します。私たちが開発するすべてのプログラムは、人を上へと運ぶためのもの。優れた者をより高く引き上げ、ほかの者もともに引き上げる。学習者が到達する高さは、その人自身の努力によって決まり、教材の作りようによって決まることは決してありません。",
+  "The lead": "先導",
+  "A bird in formation rides the upwash of the one ahead and saves real energy on every wingbeat. The bird in front meets the hardest air, and the pair trade the lead by turns.": "編隊を組む鳥は、前を行く鳥が生む上昇気流に乗り、ひと羽ばたきごとに確かな力を節約します。前の鳥が最も厳しい気流を受け止め、二羽は先導を交代で担います。",
+  "We take the front of the regulatory headwind, so your team reaches the work itself with energy still to spare.": "私たちが規制という向かい風の先頭に立ちます。だからこそ、貴チームは余力を残したまま、業務そのものへたどり着けるのです。",
+  "Two sets of eyes review every piece of work. What one of us might miss, the other is placed to catch, well before any reviewer does.": "あらゆる成果物を、二組の目が点検します。私たちの一方が見落としかねないものを、もう一方が捉える位置にいます。どの審査員よりもずっと早く。",
+  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Plainly, we are nothing without them.": "人を大切にすると口にする者は多い。私たちはそれを実践しようと努めます。私たちの仲間は、人数ではなくパートナーであり、その声に耳を傾け、敬意を払います。率直に言えば、彼らなくして私たちは何者でもありません。",
+  "In nature": "自然において",
+  "In practice": "実務において",
+  "How we teach": "私たちの教え方",
+  "No one way fits everyone.": "万人に合う唯一の方法はない。",
+  "No single way of teaching reaches every learner. People take in new material differently, and a course built for just one kind of learner quietly leaves the others behind. We design against that, deliberately.": "ただ一つの教え方であらゆる学習者に届くことはありません。人は新しい教材を異なるしかたで受け取ります。一種類の学習者だけのために作られたコースは、ほかの者を静かに置き去りにします。私たちは、それに抗うよう意図して設計します。",
+  "The VARK model, set out by the educator Neil Fleming in 1987, names four of the ways people prefer to learn: Visual, Aural, Read/write and Kinaesthetic, by seeing, by hearing, by reading and writing, and by doing. Most of us draw on more than one.": "教育者 Neil Fleming が 1987 年に提唱した VARK モデルは、人が学ぶ際に好む四つの方法を挙げます。Visual（視覚）、Aural（聴覚）、Read/write（読み書き）、Kinaesthetic（運動感覚）。すなわち、見ること、聞くこと、読み書きすること、そして行うことです。私たちの多くは、一つにとどまらず複数を用いています。",
+  "So we build courseware that offers more than one route to the same understanding. A learner can meet the material in the way that suits them, and a trainer is never left to teach to the middle and hope the rest keep up.": "だからこそ私たちは、同じ理解へ至る道筋を一つならず備えた教材を作ります。学習者は自分に合ったしかたで教材に出会え、講師が中位層に向けて教え、あとは残りがついてくるのを願うだけ、という事態に陥ることもありません。",
   /* ---- page body translations (auto-merged) ---- */
   "Started": "開始",
   "Across the sector": "業界全体にわたって",

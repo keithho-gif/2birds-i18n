@@ -1,5 +1,22 @@
 /* 2birds — Simplified Chinese (Mainland China) */
 window.TBI18N.register("zh-Hans", {
+  /* ---- brand page (auto-merged) ---- */
+  "The sky is the limit, and the right teaching method is what carries a learner there.": "天空才是极限，而正确的教学方法正是承载学习者抵达彼处的力量。",
+  "Aim for the skies.": "以天空为志。",
+  "We are an independent practice of curriculum development and advisory, working with Approved Training Organisations, the registered training providers who deliver adult learning. Like the birds we are named for, we aim high. Given the right course, well built and well taught, we believe a learner can climb further than they first thought possible.": "我们是一家独立的课程开发与顾问机构，与 Approved Training Organisations，即提供成人教育的注册培训机构合作。一如我们所取名的那两只鸟，我们志存高远。我们相信，只要课程得当、建构精良、教授有方，学习者攀升的高度，可远超他们最初所设想。",
+  "So we build for the climb, not the cut. Every programme we develop is made to carry people upward, to lift the capable higher and bring the rest up with them, so that the height a learner reaches is set by their own effort, and never by how the material was made.": "故我们为攀升而建，而非为筛汰而设。我们开发的每一套课程，都旨在承载人向上，将有能者托举得更高，也带动其余者一同跃升，使学习者所及的高度，取决于自身的努力，而绝非取决于教材如何制成。",
+  "The lead": "领飞",
+  "A bird in formation rides the upwash of the one ahead and saves real energy on every wingbeat. The bird in front meets the hardest air, and the pair trade the lead by turns.": "编队中的鸟，乘着前者翼端激起的上升气流，每一次振翅都实实在在地省力。居前的鸟迎击最艰难的气流，而两者轮流领飞。",
+  "We take the front of the regulatory headwind, so your team reaches the work itself with energy still to spare.": "我们迎在监管逆风的最前端，好让贵团队抵达工作本身时，仍有余力可施。",
+  "Two sets of eyes review every piece of work. What one of us might miss, the other is placed to catch, well before any reviewer does.": "每一份成果，都有两双眼睛审阅。我们中一人或会疏漏之处，另一人正可补捉，远在任何评审者察觉之前。",
+  "Many say they value their people; we try to live it. Our associates are partners, not headcount, heard and respected. Plainly, we are nothing without them.": "许多人口口声声重视自己的人才；我们则力求身体力行。我们的同仁是伙伴，而非人头数，他们被倾听、受尊重。坦言之，没有他们，我们一无所成。",
+  "In nature": "在自然中",
+  "In practice": "在实践中",
+  "How we teach": "我们如何教",
+  "No one way fits everyone.": "没有一种方法适合所有人。",
+  "No single way of teaching reaches every learner. People take in new material differently, and a course built for just one kind of learner quietly leaves the others behind. We design against that, deliberately.": "没有任何单一的教学方式能触及每一位学习者。人们吸收新知的方式各不相同，而仅为某一类学习者打造的课程，会悄然将其余人抛在身后。我们刻意地以设计来对抗这一点。",
+  "The VARK model, set out by the educator Neil Fleming in 1987, names four of the ways people prefer to learn: Visual, Aural, Read/write and Kinaesthetic, by seeing, by hearing, by reading and writing, and by doing. Most of us draw on more than one.": "VARK 模型由教育学家 Neil Fleming 于 1987 年提出，归纳出人们偏好学习的四种方式：Visual（视觉）、Aural（听觉）、Read/write（读写）与 Kinaesthetic（动觉），即通过观看、通过聆听、通过读写，以及通过实做。我们大多数人，所凭借的不止一种。",
+  "So we build courseware that offers more than one route to the same understanding. A learner can meet the material in the way that suits them, and a trainer is never left to teach to the middle and hope the rest keep up.": "故我们打造的课件，为同一份理解提供不止一条路径。学习者可以最适合自己的方式接触教材，而培训者也无须只面向中间水平施教，再寄望其余人勉力跟上。",
   /* ---- page body translations (auto-merged) ---- */
   "Started": "起步",
   "Across the sector": "跨越整个行业",
