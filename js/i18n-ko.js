@@ -554,7 +554,7 @@ window.TBI18N.register("ko", {
   "A typical curriculum vendor": "전형적인 커리큘럼 업체",
   "2birds": "2birds",
   "Keith Ho": "Keith Ho",
-  "Founder · Curriculum Developer In House Legal Counsel": "창립자 · 커리큘럼 개발자 사내 법률 고문",
+  "Founder · Curriculum Developer": "창립자 · 커리큘럼 개발자",
   "Bachelor of Laws (Hons) (UK) SDip (HRM), MSHRI DACE, ACLP, ACTA, IAL-SAE TAEPP Level 3 Senior Professional AE HRD Corp Accredited Trainer (Msia) Verify TAEPP ↗": "법학사 (우등) (영국) SDip (HRM), MSHRI DACE, ACLP, ACTA, IAL-SAE TAEPP 레벨 3 시니어 프로페셔널 AE HRD Corp 인증 트레이너 (말레이시아) TAEPP 확인 ↗",
   "keith.ho@2birds.asia": "keith.ho@2birds.asia",
   "Keith Ho is a training and education professional with more than a decade in the Training and Adult Education sector. He serves as General Manager of 1ST Aid and Healthcare Pte. Ltd. and runs 2birds, an independent advisory and course development practice.": "Keith Ho는 교육·성인교육 분야에서 10년 넘게 활동해 온 교육 훈련 전문가입니다. 그는 1ST Aid and Healthcare Pte. Ltd.의 총괄 책임자로 재직하며, 독립 자문 및 과정 개발 사무소인 2birds를 운영하고 있습니다.",
