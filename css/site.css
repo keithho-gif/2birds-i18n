@@ -124,19 +124,12 @@ body { padding-top: 108px; }
 .tb-hero__logomark img {
   width: clamp(340px, 36vw, 540px);
   height: auto;
-  opacity: 0.42;
-  animation:
-    tb-hero-mark-rotate 60s linear infinite,
-    tb-hero-mark-edge   5s ease-in-out infinite;
-}
-@keyframes tb-hero-mark-rotate {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  opacity: 0.62;
+  animation: tb-hero-mark-edge 5s ease-in-out infinite;
 }
 /* Edge glow: a brand-olive-light drop-shadow pair whose blur and
-   intensity breathe in and out. Combined with the slow rotation, the
-   highlights appear to travel around the mark — a quiet line of light
-   sweeping the silhouette. */
+   intensity breathe in and out, so the silhouette quietly pulses
+   without the mark itself ever moving. */
 @keyframes tb-hero-mark-edge {
   0%, 100% {
     filter:
@@ -154,7 +147,7 @@ body { padding-top: 108px; }
 @media (max-width: 768px) {
   .tb-hero__logomark img {
     width: clamp(220px, 56vw, 340px);
-    opacity: 0.30;
+    opacity: 0.42;
   }
 }
 @media (prefers-reduced-motion: reduce) {
