@@ -186,12 +186,13 @@ body { padding-top: 132px; }
      lives AFTER the base rule further down in this file — same
      specificity but later in source order, which is what actually
      makes it win on mobile.) */
-  /* The left-side navy scrim is too dark on phones where the globe
-     and the headline share more horizontal space. Pull it back so
-     the cosmos still shows through behind the type. */
+  /* Scrim on mobile: globe is now bigger and centred behind the
+     type, so we lift the navy haze through the upper-mid portion of
+     the section to keep the headline + sub legible. Bottom fades to
+     transparent so the globe and stars still glow through. */
   .tb-hero::after {
     background:
-      linear-gradient(180deg, rgba(6,11,34,0.55) 0%, rgba(6,11,34,0.20) 60%, rgba(6,11,34,0) 100%);
+      linear-gradient(180deg, rgba(6,11,34,0.62) 0%, rgba(6,11,34,0.45) 50%, rgba(6,11,34,0.15) 100%);
   }
 }
 
