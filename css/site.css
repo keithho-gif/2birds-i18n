@@ -907,9 +907,9 @@ body { padding-top: 116px; }
 }
 .tb-hero__title em { font-style: italic; color: var(--olive-light); }
 .tb-hero__sub {
-  font-family: var(--font-sans); font-size: 22px; font-weight: 500;
-  line-height: 1.55; color: rgba(250, 248, 242, 0.82);
-  margin: 0 0 36px; max-width: 660px;
+  font-family: var(--font-sans); font-size: 19px; font-weight: 500;
+  line-height: 1.6; color: rgba(250, 248, 242, 0.82);
+  margin: 0 0 36px; max-width: 620px;
   text-wrap: pretty;
 }
 .tb-hero__actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
