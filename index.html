@@ -661,11 +661,11 @@ function HeroAmbient() {
       renderer.setSize(w, h);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
-      // Mobile: the globe is purely atmospheric. Push it well down
-      // and back so it sits beneath the CTA rather than overlapping
-      // the type. Smaller scale keeps it from competing for focus.
+      // Mobile: the globe is purely atmospheric. Centred horizontally
+      // beneath the CTA, pushed back in z, scaled down so it never
+      // competes with the type for focus.
       if (w < 768) {
-        globe.position.set(1.6, -4.0, -4.5);
+        globe.position.set(0, -4.0, -4.5);
         globe.scale.setScalar(0.42);
       } else {
         globe.position.set(3.6, 0.2, -1);
