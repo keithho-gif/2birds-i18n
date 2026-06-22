@@ -23,17 +23,18 @@ img { display: block; max-width: 100%; }
   align-items: center;
   padding: 0 var(--space-xxl);
 }
-.tb-nav { height: 168px; }
-body { padding-top: 168px; }
-.tb-nav__wm img { display: block; height: 124px; width: auto; }
+.tb-nav { height: 148px; }
+body { padding-top: 148px; }
+.tb-nav__wm img { display: block; height: 108px; width: auto; }
 /* Footer logo — assets/logo-white.png used as-is, no CSS filter.
-   Left-aligned so the leading edge sits flush with the about
-   paragraph that follows. */
+   The PNG carries some transparent padding on the left, so a small
+   negative margin-left pulls the visible "2" flush with the leading
+   edge of the about paragraph below. */
 .tb-footer__logo {
   display: block;
-  height: 96px;
+  height: 80px;
   width: auto;
-  margin: 0 0 18px 0;
+  margin: 0 0 18px -12px;
 }
 .tb-nav__menu { display: flex; gap: 32px; justify-self: center; }
 .tb-nav__link {
@@ -144,8 +145,8 @@ body { padding-top: 168px; }
 
   /* Mobile logo sizing — proportionally larger on phones too so the
      brand reads clearly. */
-  .tb-nav__wm img { height: 88px; }
-  .tb-footer__logo { height: 76px; }
+  .tb-nav__wm img { height: 76px; }
+  .tb-footer__logo { height: 64px; margin-left: -10px; }
 
   /* Mobile hero — top-aligned, expensive editorial feel.
      Content rides high in the section with a confident top padding,
@@ -4836,9 +4837,9 @@ image-slot::part(placeholder) {
 
 /* Tablet / phone ≤980: existing menu hide kicks in, expose burger */
 @media (max-width: 980px) {
-  .tb-nav { z-index: 60; height: 128px; }
-  body { padding-top: 128px; }
-  .tb-nav__wm img { height: 96px; width: auto; }
+  .tb-nav { z-index: 60; height: 116px; }
+  body { padding-top: 116px; }
+  .tb-nav__wm img { height: 84px; width: auto; }
   .tb-nav__burger { display: inline-flex; }
   .tb-nav__cta { display: none; }
   .tb-nav__right { gap: 12px; }
@@ -4848,7 +4849,7 @@ image-slot::part(placeholder) {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 128px; left: 0; right: 0; bottom: 0;
+    top: 116px; left: 0; right: 0; bottom: 0;
     background: var(--canvas);
     border-top: 1px solid var(--hairline);
     padding: var(--space-xl) var(--space-lg) var(--space-xxl);
@@ -5000,10 +5001,10 @@ image-slot::part(placeholder) {
   .t-link-sm { min-height: 44px; display: inline-flex; align-items: center; }
 
   /* NAV header height fix for drawer offset */
-  .tb-nav { height: 112px; padding: 0 var(--space-lg) !important; }
-  body { padding-top: 112px; }
-  .tb-nav__wm img { height: 84px; width: auto; }
-  .tb-nav__drawer { top: 112px; }
+  .tb-nav { height: 96px; padding: 0 var(--space-lg) !important; }
+  body { padding-top: 96px; }
+  .tb-nav__wm img { height: 72px; width: auto; }
+  .tb-nav__drawer { top: 96px; }
 
   /* dl grids -> stack labels */
   .tb-dl dt { padding-top: var(--space-lg); }
