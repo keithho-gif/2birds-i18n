@@ -649,12 +649,12 @@ function HeroAmbient() {
       renderer.setSize(w, h);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
-      // Mobile: centre the globe under the type and scale it down so
-      // it reads as an atmospheric element behind the headline rather
-      // than dominating the screen at half-size off the right edge.
+      // Mobile: the globe is purely atmospheric. Push it back, scale
+      // it down, and pull it to the lower-right of the section so the
+      // headline copy has the visual centre to itself.
       if (w < 768) {
-        globe.position.set(0, -1.6, -1.8);
-        globe.scale.setScalar(0.62);
+        globe.position.set(1.6, -2.4, -3.2);
+        globe.scale.setScalar(0.5);
       } else {
         globe.position.set(3.6, 0.2, -1);
         globe.scale.setScalar(1);
