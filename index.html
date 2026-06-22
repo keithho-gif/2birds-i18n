@@ -796,7 +796,7 @@ function App() {
           <div className="container">
             <div className="tb-trust__grid">
               {TRUST.map((t, i) =>
-              <div key={i} className="tb-trust__cell">
+              <div key={i} className="tb-trust__cell tb-reveal-child">
                   <div className="tb-trust__seal">{t.seal}</div>
                   <div>
                     <h3 className="tb-trust__title">{t.title}</h3>
@@ -809,7 +809,7 @@ function App() {
         </section>
 
         {/* MANIFESTO */}
-        <section id="manifesto" className="tb-manifesto">
+        <section id="manifesto" className="tb-manifesto tb-reveal tb-reveal--blur">
           <div className="tb-manifesto__glow" aria-hidden="true" />
           <div className="container tb-manifesto__inner">
             <div className="tb-manifesto__text">
@@ -838,7 +838,7 @@ function App() {
             </header>
             <div className="tb-heritage__grid">
               {HERITAGE.map((h, i) =>
-              <div key={i} className="tb-heritage__cell">
+              <div key={i} className="tb-heritage__cell tb-reveal-child">
                   <div className="tb-heritage__label">{h.label}</div>
                   <div className="tb-heritage__year">{h.year}</div>
                   <p className="tb-heritage__body">{h.body}</p>
@@ -849,7 +849,7 @@ function App() {
         </section>
 
         {/* SERVICES */}
-        <section id="services" className="tb-services">
+        <section id="services" className="tb-services tb-reveal">
           <div className="container">
             <header className="tb-services__head">
               <EyebrowLockup>Fields of expertise</EyebrowLockup>
@@ -932,17 +932,17 @@ function App() {
         <section className="tb-offices tb-reveal">
           <div className="container">
             <div className="tb-offices__grid">
-              <div className="tb-office">
+              <div className="tb-office tb-reveal-child">
                 <span className="tb-office__label">Practice</span>
                 <span className="tb-office__where">Singapore <em>·</em> by appointment</span>
                 <p className="tb-office__meta">No public office. Meetings held at your premises or a venue of your choosing.</p>
               </div>
-              <div className="tb-office">
+              <div className="tb-office tb-reveal-child">
                 <span className="tb-office__label">Correspondence</span>
                 <span className="tb-office__where"><em>hello</em>@2birds.sg</span>
                 <p className="tb-office__meta">Replies within two working days, during business hours.</p>
               </div>
-              <div className="tb-office">
+              <div className="tb-office tb-reveal-child">
                 <span className="tb-office__label">Working Hours</span>
                 <span className="tb-office__where"><em>Monday</em> to Friday<br />09:00am to 06:00pm</span>
                 <p className="tb-office__meta">Excluding weekends and public holidays.</p>

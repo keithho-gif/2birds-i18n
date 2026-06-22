@@ -5364,13 +5364,36 @@ image-slot::part(placeholder) {
     opacity: 0;
     transform: translateY(26px);
     transition: opacity 1100ms cubic-bezier(0.16, 1, 0.3, 1),
-                transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
+                transform 1100ms cubic-bezier(0.16, 1, 0.3, 1),
+                filter 1100ms cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
   }
   .tb-reveal.is-in {
     opacity: 1;
     transform: translateY(0);
+    filter: none;
   }
+
+  /* Variant — soft blur-in (use on editorial headings / poetic blocks) */
+  .tb-reveal--blur {
+    filter: blur(8px);
+    transform: translateY(18px);
+  }
+
+  /* Variant — quiet scale-in (use on figures / framed photography) */
+  .tb-reveal--scale {
+    transform: translateY(0) scale(0.965);
+    transition: opacity 1300ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1500ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .tb-reveal--scale.is-in { transform: translateY(0) scale(1); }
+
+  /* Variant — gentle drift from left / right (use on two-column blocks) */
+  .tb-reveal--left  { transform: translate3d(-28px, 0, 0); }
+  .tb-reveal--right { transform: translate3d( 28px, 0, 0); }
+  .tb-reveal--left.is-in,
+  .tb-reveal--right.is-in { transform: translate3d(0, 0, 0); }
+
   /* Auto-stagger children if they carry .tb-reveal-child */
   .tb-reveal .tb-reveal-child {
     opacity: 0;
@@ -5379,12 +5402,14 @@ image-slot::part(placeholder) {
   .tb-reveal.is-in .tb-reveal-child {
     animation: tb-reveal-up 1000ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-  .tb-reveal.is-in .tb-reveal-child:nth-child(1) { animation-delay: 60ms; }
-  .tb-reveal.is-in .tb-reveal-child:nth-child(2) { animation-delay: 180ms; }
-  .tb-reveal.is-in .tb-reveal-child:nth-child(3) { animation-delay: 300ms; }
-  .tb-reveal.is-in .tb-reveal-child:nth-child(4) { animation-delay: 420ms; }
-  .tb-reveal.is-in .tb-reveal-child:nth-child(5) { animation-delay: 540ms; }
-  .tb-reveal.is-in .tb-reveal-child:nth-child(6) { animation-delay: 660ms; }
+  .tb-reveal.is-in .tb-reveal-child:nth-child(1) { animation-delay:  60ms; }
+  .tb-reveal.is-in .tb-reveal-child:nth-child(2) { animation-delay: 160ms; }
+  .tb-reveal.is-in .tb-reveal-child:nth-child(3) { animation-delay: 260ms; }
+  .tb-reveal.is-in .tb-reveal-child:nth-child(4) { animation-delay: 360ms; }
+  .tb-reveal.is-in .tb-reveal-child:nth-child(5) { animation-delay: 460ms; }
+  .tb-reveal.is-in .tb-reveal-child:nth-child(6) { animation-delay: 560ms; }
+  .tb-reveal.is-in .tb-reveal-child:nth-child(7) { animation-delay: 660ms; }
+  .tb-reveal.is-in .tb-reveal-child:nth-child(8) { animation-delay: 760ms; }
   @keyframes tb-reveal-up {
     from { opacity: 0; transform: translateY(22px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -5446,6 +5471,37 @@ html.tb-reveal-snap .tb-reveal-child {
   opacity: 1 !important;
   transform: none !important;
   animation: none !important;
+}
+html.tb-reveal-snap .tb-reveal--blur,
+html.tb-reveal-snap .tb-reveal--scale,
+html.tb-reveal-snap .tb-reveal--left,
+html.tb-reveal-snap .tb-reveal--right {
+  filter: none !important;
+  transform: none !important;
+}
+
+/* =========================================================================
+   Couture micro-motion — card hover lifts + image breathing (desktop only)
+   Adds a touch of "premium" without competing with the reveal animations.
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .tb-trust__cell,
+  .tb-heritage__cell,
+  .tb-office {
+    transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+  .tb-trust__cell:hover,
+  .tb-heritage__cell:hover,
+  .tb-office:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Native smooth scrolling for in-page anchors (luxury feel; respects reduce). */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
 
 
