@@ -132,6 +132,44 @@ body { padding-top: 108px; }
   /* Mobile keeps the subtitle as a single flowing paragraph — the
      desktop-only break belongs to wider viewports. */
   .tb-hero__sub br.tb-sub-break { display: none; }
+
+  /* Tighten the hero stage for phones: a quieter section height,
+     generous interior padding, type sizes that scale with the
+     viewport. The intent is the same luxe-editorial feel as desktop
+     — never cramped, never sized for a wide column. */
+  .tb-hero {
+    min-height: clamp(440px, 78vh, 620px);
+    padding: clamp(56px, 11vh, 96px) 0;
+  }
+  .tb-hero__title {
+    font-size: clamp(34px, 9.2vw, 50px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+    max-width: 100%;
+  }
+  .tb-hero__sub {
+    font-size: 16px;
+    line-height: 1.62;
+    margin-bottom: 30px;
+    max-width: 100%;
+  }
+  .tb-hero .eyebrow-lockup {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    margin-bottom: 22px;
+  }
+  .tb-hero__actions .btn {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  /* The left-side navy scrim is too dark on phones where the globe
+     and the headline share more horizontal space. Pull it back so
+     the cosmos still shows through behind the type. */
+  .tb-hero::after {
+    background:
+      linear-gradient(180deg, rgba(6,11,34,0.55) 0%, rgba(6,11,34,0.20) 60%, rgba(6,11,34,0) 100%);
+  }
 }
 
 /* CTA: clean single border at rest. The border itself quietly
@@ -826,7 +864,7 @@ body { padding-top: 108px; }
 .tb-hero .eyebrow-lockup { margin-bottom: 28px; }
 .tb-hero__title {
   font-family: var(--font-serif); font-weight: 400;
-  font-size: 88px; line-height: 1.0; letter-spacing: -0.022em;
+  font-size: 70px; line-height: 1.02; letter-spacing: -0.022em;
   color: var(--paper);
   margin: 0 0 28px;
   max-width: 920px;
@@ -2973,6 +3011,17 @@ image-slot::part(placeholder) {
   display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 56px;
 }
 .tb-footer__wm { display: block; height: 46px; width: auto; margin-bottom: 22px; opacity: 0.92; }
+/* Wordmark in the footer: serif "2BIRDS" in white with the brand olive
+   accent on the B. Replaces the calligraphic monogram so the footer
+   identity reads from a single text mark. */
+.tb-footer__wordmark {
+  font-family: var(--font-serif); font-weight: 400;
+  font-size: 44px; line-height: 1; letter-spacing: 0.01em;
+  margin-bottom: 22px;
+}
+.tb-footer__wordmark .tb-footer__wm-2,
+.tb-footer__wordmark .tb-footer__wm-rest { color: #FFFFFF; }
+.tb-footer__wordmark .tb-footer__wm-b     { color: var(--olive-light); }
 .tb-footer__about {
   font-family: var(--font-sans); font-size: 14px; line-height: 1.75; font-weight: 300;
   color: rgba(250, 248, 242, 0.7); margin: 0; max-width: 280px;
@@ -4859,6 +4908,7 @@ image-slot::part(placeholder) {
   .tb-footer__grid { grid-template-columns: 1fr !important; gap: var(--space-xl); }
   .tb-footer__brand { grid-column: auto; }
   .tb-footer__wm { width: auto; height: 58px; }
+  .tb-footer__wordmark { font-size: 52px; margin-bottom: 18px; }
   .tb-footer__legal {
     flex-direction: column;
     align-items: flex-start;

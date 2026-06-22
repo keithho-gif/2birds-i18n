@@ -499,12 +499,29 @@ function HeroAmbient() {
       return sprite;
     }
     const labelSprites = [];
+    const connectorLines = [];
     COUNTRY_LABELS.forEach(c => {
-      const [x, y, z] = llToXYZ(c.lat, c.lng, R * 1.22);
+      // Label sprite, sat just outside the lattice at 1.22R
+      const [lx, ly, lz] = llToXYZ(c.lat, c.lng, R * 1.22);
       const sprite = makeCountryLabel(c.name);
-      sprite.position.set(x, y, z);
+      sprite.position.set(lx, ly, lz);
       globe.add(sprite);
       labelSprites.push(sprite);
+      // Connector line: a thin cream-olive segment from the country's
+      // city dot (at 1.012R) up to the label position. Same colour as
+      // the label text so the two read as one mark on the globe.
+      const [cx, cy, cz] = llToXYZ(c.lat, c.lng, R * 1.012);
+      const lineGeo = new THREE.BufferGeometry();
+      lineGeo.setAttribute("position", new THREE.BufferAttribute(
+        new Float32Array([cx, cy, cz, lx, ly, lz]), 3
+      ));
+      const lineMat = new THREE.LineBasicMaterial({
+        color: 0xE8DEB6, transparent: true, opacity: 0.5,
+        depthTest: false
+      });
+      const line = new THREE.Line(lineGeo, lineMat);
+      globe.add(line);
+      connectorLines.push(line);
     });
 
     // Tilt so Asia (~100E, 25N) faces the camera; place on the right.
@@ -632,6 +649,16 @@ function HeroAmbient() {
       renderer.setSize(w, h);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
+      // Mobile: centre the globe under the type and scale it down so
+      // it reads as an atmospheric element behind the headline rather
+      // than dominating the screen at half-size off the right edge.
+      if (w < 768) {
+        globe.position.set(0, -1.6, -1.8);
+        globe.scale.setScalar(0.62);
+      } else {
+        globe.position.set(3.6, 0.2, -1);
+        globe.scale.setScalar(1);
+      }
     }
     resize();
     let ro = null;
@@ -666,6 +693,7 @@ function HeroAmbient() {
         else if (dot < 0.05)   opacity = (0.05 - dot) / 0.20;
         else                   opacity = 0;
         sprite.material.opacity = opacity;
+        if (connectorLines[i]) connectorLines[i].material.opacity = opacity * 0.55;
       }
     }
 
@@ -739,14 +767,11 @@ function App() {
           <HeroAmbient />
           <div className="container tb-hero__inner">
             <EyebrowLockup dark>The growing community</EyebrowLockup>
-            <h1 className="tb-hero__title" style={{ fontSize: "70px" }}>
+            <h1 className="tb-hero__title">
               Curriculum, <br /><em className="t-italic">written by practitioners.</em>
             </h1>
             <p className="tb-hero__sub">
-              We take on a limited number of engagements each quarter.
-              <br className="tb-sub-break" />
-              Every piece of work is produced from scratch, with no content
-              carried over from prior clients.
+              We take on a limited number of engagements each quarter.{' '}<br className="tb-sub-break" />Every piece of work is produced from scratch, with no content carried over from prior clients.
             </p>
             <div className="tb-hero__actions">
               <a className="btn btn-ghost-on-dark" href="#manifesto">Read what we believe</a>
