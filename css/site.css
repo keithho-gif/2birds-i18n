@@ -23,16 +23,16 @@ img { display: block; max-width: 100%; }
   align-items: center;
   padding: 0 var(--space-xxl);
 }
-.tb-nav { height: 108px; }
-body { padding-top: 108px; }
-.tb-nav__wm img { display: block; height: 56px; width: auto; }
+.tb-nav { height: 132px; }
+body { padding-top: 132px; }
+.tb-nav__wm img { display: block; height: 88px; width: auto; }
 /* Footer logo — same file as the navbar but forced to pure white so
    it reads on the dark footer background. brightness(0) collapses any
    colour to black, invert(1) flips that to white; the silhouette of
    the original PNG is preserved. */
 .tb-footer__logo {
   display: block;
-  height: 92px;
+  height: 140px;
   width: auto;
   margin-bottom: 18px;
   filter: brightness(0) invert(1);
@@ -145,11 +145,10 @@ body { padding-top: 108px; }
      desktop-only break belongs to wider viewports. */
   .tb-hero__sub br.tb-sub-break { display: none; }
 
-  /* Mobile logo sizing — smaller in the navbar so the bar reads
-     compact, slightly smaller in the footer so the brand block fits
-     the single-column stack. */
-  .tb-nav__wm img { height: 44px; }
-  .tb-footer__logo { height: 76px; }
+  /* Mobile logo sizing — proportionally larger on phones too so the
+     brand reads clearly. */
+  .tb-nav__wm img { height: 64px; }
+  .tb-footer__logo { height: 108px; }
 
   /* Mobile hero — top-aligned, expensive editorial feel.
      Content rides high in the section with a confident top padding,
@@ -4839,9 +4838,9 @@ image-slot::part(placeholder) {
 
 /* Tablet / phone ≤980: existing menu hide kicks in, expose burger */
 @media (max-width: 980px) {
-  .tb-nav { z-index: 60; height: 82px; }
-  body { padding-top: 82px; }
-  .tb-nav__wm img { height: 52px; width: auto; }
+  .tb-nav { z-index: 60; height: 100px; }
+  body { padding-top: 100px; }
+  .tb-nav__wm img { height: 72px; width: auto; }
   .tb-nav__burger { display: inline-flex; }
   .tb-nav__cta { display: none; }
   .tb-nav__right { gap: 12px; }
@@ -4851,7 +4850,7 @@ image-slot::part(placeholder) {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 72px; left: 0; right: 0; bottom: 0;
+    top: 100px; left: 0; right: 0; bottom: 0;
     background: var(--canvas);
     border-top: 1px solid var(--hairline);
     padding: var(--space-xl) var(--space-lg) var(--space-xxl);
@@ -5003,10 +5002,10 @@ image-slot::part(placeholder) {
   .t-link-sm { min-height: 44px; display: inline-flex; align-items: center; }
 
   /* NAV header height fix for drawer offset */
-  .tb-nav { height: 74px; padding: 0 var(--space-lg) !important; }
-  body { padding-top: 74px; }
-  .tb-nav__wm img { height: 46px; width: auto; }
-  .tb-nav__drawer { top: 74px; }
+  .tb-nav { height: 88px; padding: 0 var(--space-lg) !important; }
+  body { padding-top: 88px; }
+  .tb-nav__wm img { height: 64px; width: auto; }
+  .tb-nav__drawer { top: 88px; }
 
   /* dl grids -> stack labels */
   .tb-dl dt { padding-top: var(--space-lg); }
