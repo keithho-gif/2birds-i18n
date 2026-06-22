@@ -678,11 +678,11 @@ window.TBI18N.register("id", {
   /* ---- home: hero & belief ---- */
   "The growing community": "Komunitas yang terus berkembang",
   "Curriculum, written by practitioners.": "Kurikulum, ditulis oleh para praktisi.",
-  "Bespoke curriculum and advisory for Approved Training Organisations across Asia — written by the practitioners who teach the field. A handful of engagements each quarter, each begun on a blank page, written for the situation in front of you. No templates. Nothing reused.":
-    "Kurikulum dan penasihatan yang dirancang khusus untuk Organisasi Pelatihan Terakreditasi (ATO) di seluruh Asia — ditulis oleh para praktisi yang mengajarkan bidangnya. Hanya beberapa penugasan setiap kuartal, masing-masing dimulai dari halaman kosong, ditulis untuk situasi yang ada di hadapan Anda. Tanpa templat. Tidak ada yang digunakan ulang.",
+  "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
+    "Kami hanya menerima sejumlah terbatas penugasan setiap kuartal. Setiap karya disusun dari awal, tanpa konten yang dialihkan dari klien sebelumnya.",
   "What we believe": "Keyakinan kami",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest, so that every learner may share in the work we do.":
-    "Pembelajaran tidak seharusnya berharga begitu tinggi hingga tak terjangkau oleh mereka yang paling membutuhkannya. Praktik kami sengaja menjaga biaya tetap wajar, agar setiap pembelajar dapat ikut menikmati hasil kerja kami.",
+  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
+    "Pembelajaran tidak seharusnya berharga begitu tinggi hingga tak terjangkau oleh mereka yang paling membutuhkannya. Kami menetapkan harga kerja kami agar pembelajaran tidak harus demikian.",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "Praktik kami · kedudukan kami",

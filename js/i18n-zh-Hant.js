@@ -678,11 +678,11 @@ window.TBI18N.register("zh-Hant", {
   /* ---- home: hero & belief ---- */
   "The growing community": "不斷壯大的社群",
   "Curriculum, written by practitioners.": "課程，由從業者執筆。",
-  "Bespoke curriculum and advisory for Approved Training Organisations across Asia — written by the practitioners who teach the field. A handful of engagements each quarter, each begun on a blank page, written for the situation in front of you. No templates. Nothing reused.":
-    "為亞洲各地的認可培訓機構（ATO）量身定製的課程與諮詢——由真正在課堂上教授該領域的從業者親筆撰寫。每季只承接少數委託，每一項皆從白紙開始，為您眼前的實際情況量身而作。不套用範本，亦不重複使用任何既有內容。",
+  "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
+    "我們每季只承接有限數量的委託。每一份成果皆從白紙開始，不沿用任何先前客戶的內容。",
   "What we believe": "我們的信念",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest, so that every learner may share in the work we do.":
-    "學習不應因價格高昂而將最需要學習的人拒於門外。本所刻意將成本維持在適度水平，使每一位學員都能共享我們工作的成果。",
+  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
+    "學習不應因價格高昂而將最需要學習的人拒於門外。我們如此定價自己的工作，正是為了讓學習不必如此。",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "本所 · 我們的立場",

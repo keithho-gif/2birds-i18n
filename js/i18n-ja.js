@@ -678,11 +678,11 @@ window.TBI18N.register("ja", {
   /* ---- home: hero & belief ---- */
   "The growing community": "成長するコミュニティ",
   "Curriculum, written by practitioners.": "カリキュラムは、実務家の手で。",
-  "Bespoke curriculum and advisory for Approved Training Organisations across Asia — written by the practitioners who teach the field. A handful of engagements each quarter, each begun on a blank page, written for the situation in front of you. No templates. Nothing reused.":
-    "アジアの認定研修機関（ATO）のための、特注のカリキュラムとアドバイザリー ― それを教える現場の実務家が手がけます。四半期ごとに数件のみをお引き受けし、それぞれを白紙から始め、目の前の状況に合わせて書き上げます。テンプレートはなく、流用もありません。",
+  "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
+    "四半期ごとにお引き受けする案件は限られた数のみです。すべての仕事は白紙から作り上げ、過去のクライアントの内容を流用することはありません。",
   "What we believe": "私たちの信念",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest, so that every learner may share in the work we do.":
-    "学びは、それを最も必要とする人々の手の届かない価格であってはなりません。当事務所はコストを意図的に抑え、すべての学習者が私たちの仕事の恩恵にあずかれるようにしています。",
+  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
+    "学びは、それを最も必要とする人々の手の届かない価格であってはなりません。私たちは、学びがそうならないように、自らの仕事の価格を定めています。",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "当事務所 · 私たちの立脚点",

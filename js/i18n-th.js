@@ -678,11 +678,11 @@ window.TBI18N.register("th", {
   /* ---- home: hero & belief ---- */
   "The growing community": "ชุมชนที่กำลังเติบโต",
   "Curriculum, written by practitioners.": "หลักสูตร เขียนโดยผู้ปฏิบัติงาน",
-  "Bespoke curriculum and advisory for Approved Training Organisations across Asia — written by the practitioners who teach the field. A handful of engagements each quarter, each begun on a blank page, written for the situation in front of you. No templates. Nothing reused.":
-    "หลักสูตรและการให้คำปรึกษาที่ออกแบบเฉพาะสำหรับสถาบันฝึกอบรมที่ได้รับการรับรอง (ATO) ทั่วเอเชีย — เขียนขึ้นโดยผู้ปฏิบัติงานจริงที่สอนในสนาม รับงานเพียงไม่กี่ชิ้นในแต่ละไตรมาส แต่ละชิ้นเริ่มจากหน้ากระดาษเปล่า เขียนขึ้นเพื่อสถานการณ์เฉพาะหน้าของท่าน ไม่มีแม่แบบสำเร็จรูป ไม่มีการนำกลับมาใช้ซ้ำ",
+  "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
+    "เรารับงานในแต่ละไตรมาสในจำนวนที่จำกัด งานทุกชิ้นจัดทำขึ้นใหม่ตั้งแต่ต้น โดยไม่นำเนื้อหาจากลูกค้ารายก่อนมาใช้ซ้ำ",
   "What we believe": "สิ่งที่เราเชื่อ",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest, so that every learner may share in the work we do.":
-    "การเรียนรู้ไม่ควรมีราคาสูงจนเกินเอื้อมสำหรับผู้ที่ต้องการเรียนรู้มากที่สุด สำนักงานจึงตั้งใจควบคุมต้นทุนให้พอประมาณ เพื่อให้ผู้เรียนทุกคนได้ร่วมรับประโยชน์จากงานที่เราสร้างขึ้น",
+  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
+    "การเรียนรู้ไม่ควรมีราคาสูงจนเกินเอื้อมสำหรับผู้ที่ต้องการเรียนรู้มากที่สุด เราจึงกำหนดราคาของงานเราในแบบที่ทำให้การเรียนรู้ไม่ต้องเป็นเช่นนั้น",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "สำนักงานของเรา · จุดยืนของเรา",

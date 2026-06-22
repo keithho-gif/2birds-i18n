@@ -678,11 +678,11 @@ window.TBI18N.register("ko", {
   /* ---- home: hero & belief ---- */
   "The growing community": "성장하는 공동체",
   "Curriculum, written by practitioners.": "커리큘럼은, 실무자의 손으로.",
-  "Bespoke curriculum and advisory for Approved Training Organisations across Asia — written by the practitioners who teach the field. A handful of engagements each quarter, each begun on a blank page, written for the situation in front of you. No templates. Nothing reused.":
-    "아시아 전역의 공인 교육기관(ATO)을 위한 맞춤형 커리큘럼 및 자문 — 현장에서 가르치는 실무자가 직접 작성합니다. 분기마다 소수의 의뢰만 맡으며, 각각 백지에서 시작하여 눈앞의 상황에 맞추어 써내려갑니다. 정형 템플릿은 두지 않으며, 어떤 것도 재사용하지 않습니다.",
+  "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
+    "분기마다 제한된 수의 의뢰만 맡습니다. 모든 작업은 백지에서 시작하며, 이전 클라이언트의 내용을 가져다 쓰지 않습니다.",
   "What we believe": "저희의 신념",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest, so that every learner may share in the work we do.":
-    "배움은 그것을 가장 필요로 하는 이들의 손이 닿지 않는 가격이어서는 안 됩니다. 저희 사무소는 비용을 의도적으로 적정하게 유지하여, 모든 학습자가 우리가 빚어내는 일의 결실을 함께 나눌 수 있도록 합니다.",
+  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
+    "배움은 그것을 가장 필요로 하는 이들의 손이 닿지 않는 가격이어서는 안 됩니다. 저희는 배움이 그러한 가격이 되지 않도록 우리의 일을 책정합니다.",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "저희 사무소 · 저희의 입장",

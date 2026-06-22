@@ -361,113 +361,76 @@ function MiniCal() {
 
 }
 
-/* Hero backdrop: Asia-tilted wireframe globe + dot cloud, in the
-   same Three.js idiom as the VARK constellation on brand.html. The
-   continent dots are a coarse hand-coded land mask centred on Asia
-   so the rotating sphere reads as a globe of the region, not just
-   a generic icosahedron. */
-function HeroGlobe() {
+/* Hero backdrop: two birds in flight on a royal-blue stage, with a
+   drifting cloud of olive specks for atmosphere. Three.js, kept light
+   and ambient so it never competes with the headline. */
+function TwoBirds() {
   const ref = React.useRef(null);
   React.useEffect(() => {
     const host = ref.current;
     if (!host || typeof THREE === "undefined") return;
     const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const COL_LINE  = 0x4A5240;
-    const COL_LAND  = 0x3E4636;
-    const COL_CLOUD = 0x969265;
+    const COL_BIRD_A = 0xD8CFA0;   // warm cream-olive, lead bird
+    const COL_BIRD_B = 0xA89B68;   // softer olive, second bird
+    const COL_DUST   = 0xC4BFA0;   // ambient halo specks
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
     camera.position.z = 12;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     host.appendChild(renderer.domElement);
 
-    const group = new THREE.Group();
-
-    const R = 3.4;
-    const ico = new THREE.IcosahedronGeometry(R, 2);
-    group.add(new THREE.LineSegments(
-      new THREE.WireframeGeometry(ico),
-      new THREE.LineBasicMaterial({ color: COL_LINE, transparent: true, opacity: 0.18 })));
-    group.add(new THREE.Points(ico,
-      new THREE.PointsMaterial({ color: COL_LINE, size: 0.06, transparent: true, opacity: 0.35 })));
-
-    // Continent land markers (lat, lng pairs). Asia weighted by design.
-    const LAND = [
-      // East Asia / China
-      [42, 88], [42, 100], [42, 115], [42, 125], [36, 92], [36, 104], [36, 116], [30, 100], [30, 112],
-      [25, 102], [25, 112], [22, 108], [50, 95], [50, 110], [50, 125], [55, 105], [55, 125],
-      // Japan / Korea
-      [36, 138], [38, 140], [33, 132], [44, 142], [37, 127], [35, 128],
-      // South Asia
-      [33, 75], [28, 78], [25, 82], [22, 88], [20, 75], [17, 80], [13, 78], [9, 77], [25, 68], [30, 70],
-      // Southeast Asia
-      [14, 100], [11, 105], [16, 108], [10, 106], [13, 122], [7, 125], [3, 102], [1, 104],
-      [-2, 110], [-5, 120], [-7, 113], [-3, 130], [-7, 140], [21, 96], [16, 96],
-      // Indonesia / Australia
-      [-25, 132], [-20, 122], [-18, 138], [-30, 122], [-32, 138], [-35, 145], [-37, 146], [-22, 148],
-      // Middle East
-      [33, 44], [32, 36], [28, 50], [25, 45], [22, 55], [16, 47], [33, 52], [37, 50],
-      // Russia / Central Asia
-      [60, 30], [60, 50], [60, 75], [60, 100], [60, 125], [60, 145], [65, 60], [65, 90], [65, 120],
-      [50, 60], [50, 75], [45, 60], [45, 78],
-      // Europe
-      [55, 25], [50, 18], [50, 8], [55, 12], [60, 16], [45, 10], [42, 0], [50, 0], [55, -2], [60, 10],
-      [38, 20], [42, 15], [38, 24],
-      // Africa
-      [30, 30], [28, 0], [22, 13], [16, 5], [12, 30], [8, 20], [3, 22], [-3, 18], [-5, 30], [-12, 28],
-      [-18, 22], [-25, 28], [-30, 25], [10, 40], [5, 38],
-      // Americas (back hemisphere; visible during rotation)
-      [60, -100], [55, -110], [50, -100], [45, -100], [40, -100], [40, -85], [35, -110],
-      [30, -95], [25, -100], [18, -100], [15, -90], [10, -75],
-      [-2, -75], [-12, -70], [-22, -65], [-30, -65], [-38, -68],
-      // Pacific
-      [-18, 178], [-21, -175]
-    ];
-
-    function llToXYZ(lat, lng, r) {
-      const phi = (90 - lat) * Math.PI / 180;
-      const theta = lng * Math.PI / 180;
-      return [
-        r * Math.sin(phi) * Math.cos(theta),
-        r * Math.cos(phi),
-        r * Math.sin(phi) * Math.sin(theta)
-      ];
+    /* A bird as a low-poly chevron, slightly extruded for body. The
+       wings are tapered triangles; the body is a small swelling at the
+       centre, so the silhouette reads as a bird in flight when seen
+       from below or side-on. */
+    function makeBird(color) {
+      const shape = new THREE.Shape();
+      shape.moveTo(0, -0.05);
+      shape.quadraticCurveTo(-0.55, 0.04, -1.4, 0.34);
+      shape.quadraticCurveTo(-0.7, 0.08, -0.18, 0.06);
+      shape.quadraticCurveTo(0, 0.18, 0.18, 0.06);
+      shape.quadraticCurveTo(0.7, 0.08, 1.4, 0.34);
+      shape.quadraticCurveTo(0.55, 0.04, 0, -0.05);
+      const geo = new THREE.ExtrudeGeometry(shape, {
+        depth: 0.06,
+        bevelEnabled: true,
+        bevelThickness: 0.02,
+        bevelSize: 0.025,
+        bevelSegments: 3
+      });
+      geo.center();
+      const mat = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.96 });
+      return new THREE.Mesh(geo, mat);
     }
 
-    const lp = new Float32Array(LAND.length * 3);
-    LAND.forEach(([la, ln], i) => {
-      const [x, y, z] = llToXYZ(la, ln, R * 1.01);
-      lp[i * 3] = x; lp[i * 3 + 1] = y; lp[i * 3 + 2] = z;
-    });
-    const landGeo = new THREE.BufferGeometry();
-    landGeo.setAttribute("position", new THREE.BufferAttribute(lp, 3));
-    group.add(new THREE.Points(landGeo,
-      new THREE.PointsMaterial({ color: COL_LAND, size: 0.13, transparent: true, opacity: 0.92 })));
+    const birdA = makeBird(COL_BIRD_A);
+    birdA.position.set(-2.6, 1.4, 0);
+    birdA.rotation.z = 0.18;
+    scene.add(birdA);
 
-    // Outer dust cloud halo
-    const PN = 200;
+    const birdB = makeBird(COL_BIRD_B);
+    birdB.position.set(2.4, -0.7, -0.6);
+    birdB.rotation.z = -0.12;
+    birdB.scale.setScalar(0.78);
+    scene.add(birdB);
+
+    // Soft dust halo — atmospheric specks drifting against the navy
+    const PN = 260;
     const cp = new Float32Array(PN * 3);
     for (let i = 0; i < PN; i++) {
-      const r = 5.5 + Math.random() * 3.2;
-      const th = Math.random() * Math.PI * 2;
-      const ph = Math.acos(2 * Math.random() - 1);
-      cp[i * 3]     = r * Math.sin(ph) * Math.cos(th);
-      cp[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th);
-      cp[i * 3 + 2] = r * Math.cos(ph);
+      cp[i * 3]     = (Math.random() - 0.5) * 22;
+      cp[i * 3 + 1] = (Math.random() - 0.5) * 13;
+      cp[i * 3 + 2] = (Math.random() - 0.5) * 8 - 2;
     }
-    const cloudGeo = new THREE.BufferGeometry();
-    cloudGeo.setAttribute("position", new THREE.BufferAttribute(cp, 3));
-    group.add(new THREE.Points(cloudGeo,
-      new THREE.PointsMaterial({ color: COL_CLOUD, size: 0.045, transparent: true, opacity: 0.42 })));
-
-    // Orient so Asia (~lng 100E, lat 25N) faces the camera
-    group.rotation.y = -0.18;
-    group.rotation.x = 0.38;
-    scene.add(group);
+    const dustGeo = new THREE.BufferGeometry();
+    dustGeo.setAttribute("position", new THREE.BufferAttribute(cp, 3));
+    const dust = new THREE.Points(dustGeo,
+      new THREE.PointsMaterial({ color: COL_DUST, size: 0.045, transparent: true, opacity: 0.55 }));
+    scene.add(dust);
 
     function resize() {
       const w = host.clientWidth || 1, h = host.clientHeight || 1;
@@ -481,8 +444,19 @@ function HeroGlobe() {
     else window.addEventListener("resize", resize);
 
     let raf = 0;
+    let t = 0;
     function tick() {
-      group.rotation.y += 0.0010;
+      t += 0.01;
+      // Two complementary drift paths — neither bird flies the same arc
+      birdA.position.x = -2.6 + Math.sin(t * 0.55) * 0.35;
+      birdA.position.y =  1.4 + Math.cos(t * 0.42) * 0.22;
+      birdA.rotation.z = 0.18 + Math.sin(t * 0.5) * 0.05;
+      birdB.position.x =  2.4 + Math.cos(t * 0.48) * 0.30;
+      birdB.position.y = -0.7 + Math.sin(t * 0.55) * 0.20;
+      birdB.rotation.z = -0.12 - Math.sin(t * 0.4) * 0.06;
+      // Dust drifts slowly across the field
+      dust.rotation.y += 0.0004;
+      dust.rotation.x += 0.00015;
       renderer.render(scene, camera);
       raf = requestAnimationFrame(tick);
     }
@@ -506,22 +480,20 @@ function App() {
 
         {/* HERO */}
         <section className="tb-hero">
-          <HeroGlobe />
+          <TwoBirds />
           <div className="tb-hero__glow" aria-hidden="true" />
           <div className="container tb-hero__inner">
-            <EyebrowLockup>The growing community</EyebrowLockup>
+            <EyebrowLockup dark>The growing community</EyebrowLockup>
             <h1 className="tb-hero__title" style={{ fontSize: "70px" }}>
               Curriculum, <br /><em className="t-italic">written by practitioners.</em>
             </h1>
             <p className="tb-hero__sub" style={{ fontSize: "20px", fontWeight: 400, maxWidth: 814 }}>
-              Bespoke curriculum and advisory for Approved Training Organisations
-              across Asia — written by the practitioners who teach the field.
-              <br /><br />
-              A handful of engagements each quarter, each begun on a blank page,
-              written for the situation in front of you. No templates. Nothing reused.
+              We take on a limited number of engagements each quarter. Every
+              piece of work is produced from scratch, with no content carried
+              over from prior clients.
             </p>
             <div className="tb-hero__actions">
-              <a className="btn btn-ghost" href="#manifesto">Read what we believe</a>
+              <a className="btn btn-ghost-on-dark" href="#manifesto">Read what we believe</a>
             </div>
           </div>
         </section>
@@ -551,8 +523,7 @@ function App() {
               <EyebrowLockup>What we believe</EyebrowLockup>
               <blockquote className="tb-manifesto__quote">
                 Learning ought not to be priced out of reach of the people who most need
-                to <em>learn</em>. The practice keeps its costs deliberately modest, so that
-                every learner may share in the work we do.
+                to <em>learn</em>. We price our work so that it does not have to be.
               </blockquote>
               <div className="tb-manifesto__cite">FROM THE FOUNDER · KEITH HO</div>
             </div>

@@ -678,11 +678,11 @@ window.TBI18N.register("vi", {
   /* ---- home: hero & belief ---- */
   "The growing community": "Cộng đồng đang lớn mạnh",
   "Curriculum, written by practitioners.": "Chương trình do người làm nghề biên soạn.",
-  "Bespoke curriculum and advisory for Approved Training Organisations across Asia — written by the practitioners who teach the field. A handful of engagements each quarter, each begun on a blank page, written for the situation in front of you. No templates. Nothing reused.":
-    "Chương trình giảng dạy và tư vấn được thiết kế riêng cho các Tổ chức Đào tạo được Công nhận (ATO) trên khắp châu Á — do chính những người làm nghề đang giảng dạy biên soạn. Mỗi quý chỉ nhận một vài dự án, mỗi dự án bắt đầu từ trang giấy trắng, được viết riêng cho tình huống trước mắt của bạn. Không có khuôn mẫu sẵn. Không tái sử dụng gì.",
+  "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
+    "Mỗi quý chúng tôi chỉ nhận một số lượng dự án giới hạn. Mỗi sản phẩm đều được làm mới từ đầu, không sao chép nội dung từ các khách hàng trước.",
   "What we believe": "Điều chúng tôi tin",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest, so that every learner may share in the work we do.":
-    "Việc học không nên bị định giá quá cao đến mức ngoài tầm với của những người cần học nhất. Văn phòng cố ý giữ chi phí ở mức vừa phải, để mọi người học đều có thể cùng hưởng thành quả công việc của chúng tôi.",
+  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
+    "Việc học không nên bị định giá quá cao đến mức ngoài tầm với của những người cần học nhất. Chúng tôi định giá công việc của mình để việc học không phải như vậy.",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "Văn phòng của chúng tôi · vị thế của chúng tôi",
