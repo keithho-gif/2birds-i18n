@@ -361,9 +361,11 @@ function MiniCal() {
 
 }
 
-/* Hero backdrop: two birds in flight on a royal-blue stage, with a
-   drifting cloud of olive specks for atmosphere. Three.js, kept light
-   and ambient so it never competes with the headline. */
+/* Hero backdrop: two dimensional birds floating above a receding
+   perspective grid, in the visual idiom of spline.design — pure black
+   stage, soft directional lighting, lit 3D forms (not flat extrusions).
+   Stays performant by keeping geometry low-poly and using a single
+   directional light + ambient fill. */
 function TwoBirds() {
   const ref = React.useRef(null);
   React.useEffect(() => {
@@ -371,66 +373,73 @@ function TwoBirds() {
     if (!host || typeof THREE === "undefined") return;
     const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const COL_BIRD_A = 0xD8CFA0;   // warm cream-olive, lead bird
-    const COL_BIRD_B = 0xA89B68;   // softer olive, second bird
-    const COL_DUST   = 0xC4BFA0;   // ambient halo specks
+    const COL_BIRD_A = 0xE8DEA8;   // warm cream-olive, lead bird
+    const COL_BIRD_B = 0xB29A55;   // deeper olive, second bird
+    const COL_GRID   = 0x232842;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
-    camera.position.z = 12;
+    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 200);
+    camera.position.set(0, 1.4, 13.5);
+    camera.lookAt(0, 0.6, 0);
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     host.appendChild(renderer.domElement);
 
-    /* A bird as a low-poly chevron, slightly extruded for body. The
-       wings are tapered triangles; the body is a small swelling at the
-       centre, so the silhouette reads as a bird in flight when seen
-       from below or side-on. */
+    // Lighting — key from upper-right, cool fill from upper-left, soft ambient
+    scene.add(new THREE.AmbientLight(0xFFFFFF, 0.40));
+    const key = new THREE.DirectionalLight(0xFFF5DA, 1.10);
+    key.position.set(4, 8, 5);
+    scene.add(key);
+    const fill = new THREE.DirectionalLight(0x4A6298, 0.45);
+    fill.position.set(-5, 3, 4);
+    scene.add(fill);
+
+    /* Perspective grid floor. THREE.GridHelper draws a square lattice
+       at y=0; we drop it well below the birds and fade with opacity so
+       it recedes into the black. */
+    const grid = new THREE.GridHelper(60, 40, COL_GRID, COL_GRID);
+    grid.position.y = -2.6;
+    grid.material.transparent = true;
+    grid.material.opacity = 0.35;
+    scene.add(grid);
+
+    /* A stylised 3D bird: extruded chevron with depth and bevel so it
+       catches light on the top edge and shades on the underside. */
     function makeBird(color) {
-      const shape = new THREE.Shape();
-      shape.moveTo(0, -0.05);
-      shape.quadraticCurveTo(-0.55, 0.04, -1.4, 0.34);
-      shape.quadraticCurveTo(-0.7, 0.08, -0.18, 0.06);
-      shape.quadraticCurveTo(0, 0.18, 0.18, 0.06);
-      shape.quadraticCurveTo(0.7, 0.08, 1.4, 0.34);
-      shape.quadraticCurveTo(0.55, 0.04, 0, -0.05);
-      const geo = new THREE.ExtrudeGeometry(shape, {
-        depth: 0.06,
+      const s = new THREE.Shape();
+      s.moveTo(0, -0.08);
+      s.bezierCurveTo(-0.45, 0.04, -1.0, 0.18, -1.55, 0.44);
+      s.bezierCurveTo(-0.90, 0.10, -0.40, 0.04, -0.18, 0.10);
+      s.bezierCurveTo(-0.06, 0.22, 0.06, 0.22, 0.18, 0.10);
+      s.bezierCurveTo(0.40, 0.04, 0.90, 0.10, 1.55, 0.44);
+      s.bezierCurveTo(1.0, 0.18, 0.45, 0.04, 0, -0.08);
+      const geo = new THREE.ExtrudeGeometry(s, {
+        depth: 0.22,
         bevelEnabled: true,
-        bevelThickness: 0.02,
-        bevelSize: 0.025,
-        bevelSegments: 3
+        bevelThickness: 0.07,
+        bevelSize: 0.05,
+        bevelSegments: 5,
+        curveSegments: 22
       });
       geo.center();
-      const mat = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.96 });
+      geo.computeVertexNormals();
+      const mat = new THREE.MeshStandardMaterial({
+        color, roughness: 0.55, metalness: 0.12
+      });
       return new THREE.Mesh(geo, mat);
     }
 
     const birdA = makeBird(COL_BIRD_A);
-    birdA.position.set(-2.6, 1.4, 0);
-    birdA.rotation.z = 0.18;
+    birdA.position.set(-1.6, 1.3, 0.5);
+    birdA.rotation.set(-0.18, 0.45, 0.18);
     scene.add(birdA);
 
     const birdB = makeBird(COL_BIRD_B);
-    birdB.position.set(2.4, -0.7, -0.6);
-    birdB.rotation.z = -0.12;
+    birdB.position.set(1.9, 0.0, -1.0);
+    birdB.rotation.set(-0.12, -0.55, -0.16);
     birdB.scale.setScalar(0.78);
     scene.add(birdB);
-
-    // Soft dust halo — atmospheric specks drifting against the navy
-    const PN = 260;
-    const cp = new Float32Array(PN * 3);
-    for (let i = 0; i < PN; i++) {
-      cp[i * 3]     = (Math.random() - 0.5) * 22;
-      cp[i * 3 + 1] = (Math.random() - 0.5) * 13;
-      cp[i * 3 + 2] = (Math.random() - 0.5) * 8 - 2;
-    }
-    const dustGeo = new THREE.BufferGeometry();
-    dustGeo.setAttribute("position", new THREE.BufferAttribute(cp, 3));
-    const dust = new THREE.Points(dustGeo,
-      new THREE.PointsMaterial({ color: COL_DUST, size: 0.045, transparent: true, opacity: 0.55 }));
-    scene.add(dust);
 
     function resize() {
       const w = host.clientWidth || 1, h = host.clientHeight || 1;
@@ -447,16 +456,16 @@ function TwoBirds() {
     let t = 0;
     function tick() {
       t += 0.01;
-      // Two complementary drift paths — neither bird flies the same arc
-      birdA.position.x = -2.6 + Math.sin(t * 0.55) * 0.35;
-      birdA.position.y =  1.4 + Math.cos(t * 0.42) * 0.22;
-      birdA.rotation.z = 0.18 + Math.sin(t * 0.5) * 0.05;
-      birdB.position.x =  2.4 + Math.cos(t * 0.48) * 0.30;
-      birdB.position.y = -0.7 + Math.sin(t * 0.55) * 0.20;
-      birdB.rotation.z = -0.12 - Math.sin(t * 0.4) * 0.06;
-      // Dust drifts slowly across the field
-      dust.rotation.y += 0.0004;
-      dust.rotation.x += 0.00015;
+      // Bird A: gentle bob + slight yaw drift
+      birdA.position.y = 1.3 + Math.sin(t * 0.55) * 0.20;
+      birdA.position.x = -1.6 + Math.cos(t * 0.30) * 0.20;
+      birdA.rotation.z = 0.18 + Math.sin(t * 0.45) * 0.05;
+      birdA.rotation.y = 0.45 + Math.sin(t * 0.32) * 0.12;
+      // Bird B: complementary, slower, behind the lead
+      birdB.position.y = 0.0 + Math.cos(t * 0.50) * 0.22;
+      birdB.position.x = 1.9 + Math.sin(t * 0.28) * 0.18;
+      birdB.rotation.z = -0.16 - Math.sin(t * 0.42) * 0.05;
+      birdB.rotation.y = -0.55 + Math.cos(t * 0.34) * 0.10;
       renderer.render(scene, camera);
       raf = requestAnimationFrame(tick);
     }
