@@ -151,51 +151,29 @@ body { padding-top: 108px; }
   .tb-hero__sub br.tb-sub-break { display: none; }
 }
 
-/* CTA: a quiet hover lift on top of the sheen sweep defined below.
-   The sheen is the section's signature flourish. */
+/* CTA: a luxury double-bezel outline. A 1px olive ring sits 4px
+   outside the button's own olive-light border — clean static
+   geometry that reads as a refined frame. On hover the outer ring
+   eases out to 7px and brightens slightly, plus the button itself
+   gives a small lift. No glow, no sweep. */
 .tb-hero__actions .btn {
   position: relative;
-  overflow: hidden;
+  outline: 1px solid rgba(151, 146, 101, 0.65);
+  outline-offset: 4px;
   transition:
-    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform        0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow       0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    outline-offset   0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    outline-color    0.35s ease,
     background-color 0.35s ease,
-    color 0.35s ease,
-    border-color 0.35s ease;
+    color            0.35s ease,
+    border-color     0.35s ease;
 }
 .tb-hero__actions .btn:hover {
   transform: translateY(-2px);
+  outline-offset: 7px;
+  outline-color: rgba(196, 191, 160, 0.95);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
-}
-/* The signature sheen: a thin olive-light highlight that sweeps
-   across the button on a 5.5s loop. Pure CSS; no JS, no continuous
-   layout work. */
-.tb-hero__actions .btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -55%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    105deg,
-    transparent 0%,
-    rgba(196, 191, 160, 0.00) 20%,
-    rgba(196, 191, 160, 0.55) 50%,
-    rgba(196, 191, 160, 0.00) 80%,
-    transparent 100%
-  );
-  transform: skewX(-18deg);
-  pointer-events: none;
-  animation: tb-hero-cta-sheen 5.5s ease-in-out infinite;
-}
-@keyframes tb-hero-cta-sheen {
-  0%   { left: -55%; }
-  55%  { left: 120%; }
-  100% { left: 120%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .tb-hero__actions .btn::before { animation: none; left: -55%; }
 }
 
 /* Ambient 3D layer. Pointer events ENABLED so the visitor can drag
