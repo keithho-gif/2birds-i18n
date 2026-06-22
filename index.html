@@ -460,36 +460,48 @@ function HeroAmbient() {
     globe.rotation.x = 0.38;
     scene.add(globe);
 
-    /* Distant planets — small companion spheres deep in z so they
-       sit far behind the main Earth without ever competing with it.
-       Each one is a tiny wireframe sphere in a brand-aligned tone,
-       counter-rotating at its own rate to sell the cosmic depth. */
-    function makePlanet(radius, color, lineOpacity, pointOpacity, detail) {
-      const grp = new THREE.Group();
-      const ico = new THREE.IcosahedronGeometry(radius, detail);
-      grp.add(new THREE.LineSegments(
-        new THREE.WireframeGeometry(ico),
-        new THREE.LineBasicMaterial({
-          color, transparent: true, opacity: lineOpacity
-        })
-      ));
-      grp.add(new THREE.Points(ico, new THREE.PointsMaterial({
-        color, size: 0.03, transparent: true, opacity: pointOpacity
-      })));
-      return grp;
+    /* Shooting stars — short, bright line segments that streak
+       diagonally across the cosmos, fade in, hold, fade out, then
+       respawn at random upper-right positions. Each carries its own
+       speed, tail length, delay and direction so the field never
+       reads as synchronised. The focal Earth still holds the centre
+       of attention; the streaks are peripheral motion. */
+    function resetShootingStar(ss, initial) {
+      // Spawn upper-right; streak toward lower-left like a real meteor.
+      ss.userData.startX = 4 + Math.random() * 10;
+      ss.userData.startY = 1.5 + Math.random() * 3.5;
+      ss.userData.startZ = -4 + Math.random() * 3;
+      ss.userData.dirX = -(0.9 + Math.random() * 0.4);
+      ss.userData.dirY = -(0.35 + Math.random() * 0.35);
+      ss.userData.trailLength = 1.4 + Math.random() * 1.8;
+      ss.userData.speed = 0.10 + Math.random() * 0.10;
+      ss.userData.lifeFade = 0.6;
+      ss.userData.lifeHold = 3.5 + Math.random() * 2.0;
+      ss.userData.lifeOut  = 0.8;
+      ss.userData.progress = 0;
+      ss.userData.delay = initial
+        ? Math.random() * 220
+        : 80 + Math.random() * 280;
+      ss.material.opacity = 0;
     }
-    // Upper-left companion — pale olive, smaller
-    const planetA = makePlanet(0.9, 0xC4BFA0, 0.45, 0.65, 2);
-    planetA.position.set(-7.2, 2.6, -10);
-    scene.add(planetA);
-    // Far-right companion — warm cream, tiny
-    const planetB = makePlanet(0.55, 0xE0DAB0, 0.50, 0.70, 1);
-    planetB.position.set(8.8, -1.6, -12);
-    scene.add(planetB);
-    // Lower-left companion — royal-soft, slightly larger
-    const planetC = makePlanet(1.1, 0x3D5A8A, 0.40, 0.55, 2);
-    planetC.position.set(-9.0, -2.6, -13);
-    scene.add(planetC);
+    function makeShootingStar() {
+      const positions = new Float32Array(6); // head + tail vertex
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+      const mat = new THREE.LineBasicMaterial({
+        color: 0xFAF8F2, transparent: true, opacity: 0
+      });
+      const line = new THREE.Line(geo, mat);
+      line.userData = {};
+      resetShootingStar(line, true);
+      return line;
+    }
+    const shootingStars = [];
+    for (let i = 0; i < 5; i++) {
+      const ss = makeShootingStar();
+      shootingStars.push(ss);
+      scene.add(ss);
+    }
 
     /* UNIVERSE — two-tier starfield filling the section. Tier 1 is a
        large mid-bright field of stars; Tier 2 is a smaller cluster of
@@ -581,10 +593,30 @@ function HeroAmbient() {
       starsFar.rotation.y  += 0.00035;
       starsMid.rotation.y  += 0.00055;
       starsNear.rotation.y += 0.00080;
-      // Companion planets — each spins at its own pace.
-      planetA.rotation.y += 0.0042;
-      planetB.rotation.y -= 0.0050;
-      planetC.rotation.y += 0.0030;
+      // Shooting stars — advance each streak, fade in/hold/out,
+      // respawn when its life ends.
+      for (let i = 0; i < shootingStars.length; i++) {
+        const ss = shootingStars[i];
+        if (ss.userData.delay > 0) { ss.userData.delay -= 1; continue; }
+        ss.userData.progress += ss.userData.speed;
+        const p = ss.userData.progress;
+        const lf = ss.userData.lifeFade;
+        const lh = ss.userData.lifeHold;
+        const lo = ss.userData.lifeOut;
+        const headX = ss.userData.startX + ss.userData.dirX * p;
+        const headY = ss.userData.startY + ss.userData.dirY * p;
+        const tailX = headX - ss.userData.dirX * ss.userData.trailLength;
+        const tailY = headY - ss.userData.dirY * ss.userData.trailLength;
+        const arr = ss.geometry.attributes.position.array;
+        arr[0] = headX; arr[1] = headY; arr[2] = ss.userData.startZ;
+        arr[3] = tailX; arr[4] = tailY; arr[5] = ss.userData.startZ;
+        ss.geometry.attributes.position.needsUpdate = true;
+        if (p < lf)            ss.material.opacity = p / lf;            // fade in
+        else if (p < lf + lh)  ss.material.opacity = 1;                  // hold
+        else if (p < lf + lh + lo)
+          ss.material.opacity = 1 - (p - lf - lh) / lo;                  // fade out
+        else                   resetShootingStar(ss, false);             // respawn
+      }
       renderer.render(scene, camera);
       raf = requestAnimationFrame(tick);
     }

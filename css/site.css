@@ -25,7 +25,7 @@ img { display: block; max-width: 100%; }
 }
 .tb-nav { height: 108px; }
 body { padding-top: 108px; }
-.tb-nav__wm img { display: block; height: 44px; width: auto; }
+.tb-nav__wm img { display: block; height: 64px; width: auto; }
 .tb-nav__menu { display: flex; gap: 32px; justify-self: center; }
 .tb-nav__link {
   position: relative;
@@ -47,24 +47,6 @@ body { padding-top: 108px; }
 .tb-nav__link.is-active::after { right: 0; }
 .tb-nav__right { display: flex; gap: 22px; align-items: center; justify-self: end; }
 
-/* Calligraphic monogram in the far-right slot of the navbar — the
-   brand mark sits to the right of every other nav element so it is
-   always the last thing in the eye-line, at every scroll position. */
-.tb-nav__monogram {
-  display: inline-flex;
-  align-items: center;
-  height: 52px;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-.tb-nav__monogram img {
-  display: block;
-  height: 100%;
-  width: auto;
-}
-.tb-nav__monogram:hover { transform: translateY(-1px); opacity: 0.85; }
-@media (max-width: 768px) {
-  .tb-nav__monogram { height: 40px; }
-}
 
 /* Editorial enquiry link in nav, replaces the old CTA */
 .tb-nav__enq {
