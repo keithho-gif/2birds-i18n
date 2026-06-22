@@ -142,6 +142,9 @@ body { padding-top: 108px; }
     width: clamp(220px, 56vw, 340px);
     opacity: 0.32;
   }
+  /* Mobile keeps the subtitle as a single flowing paragraph — the
+     desktop-only break belongs to wider viewports. */
+  .tb-hero__sub br.tb-sub-break { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .tb-hero__logomark img { animation: none; }
