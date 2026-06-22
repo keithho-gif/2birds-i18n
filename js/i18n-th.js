@@ -678,11 +678,11 @@ window.TBI18N.register("th", {
   /* ---- home: hero & belief ---- */
   "The growing community": "ชุมชนที่กำลังเติบโต",
   "Curriculum, written by practitioners.": "หลักสูตร เขียนโดยผู้ปฏิบัติงาน",
-  "A practice of curriculum developers, subject-matter experts andadult educators, trusted by Approved Training Organisations (ATOs).We take only a handful of engagements each quarter, so that each one has our undivided attention. Every one begins on a blank page, written for the situation in front of us. We keep no templates, and we reuse nothing.":
-    "สำนักงานซึ่งประกอบด้วยนักพัฒนาหลักสูตร ผู้เชี่ยวชาญเฉพาะด้าน และนักการศึกษาผู้ใหญ่ ได้รับความไว้วางใจจากสถาบันฝึกอบรมที่ได้รับการรับรอง (ATO) เรารับงานเพียงไม่กี่ชิ้นในแต่ละไตรมาส เพื่อให้ทุกงานได้รับความใส่ใจอย่างเต็มที่ ทุกงานเริ่มต้นจากหน้ากระดาษเปล่า เขียนขึ้นเพื่อสถานการณ์ตรงหน้า เราไม่ใช้แม่แบบสำเร็จรูป และไม่นำสิ่งใดมาใช้ซ้ำ",
+  "Bespoke curriculum and advisory for Approved Training Organisations across Asia — written by the practitioners who teach the field. A handful of engagements each quarter, each begun on a blank page, written for the situation in front of you. No templates. Nothing reused.":
+    "หลักสูตรและการให้คำปรึกษาที่ออกแบบเฉพาะสำหรับสถาบันฝึกอบรมที่ได้รับการรับรอง (ATO) ทั่วเอเชีย — เขียนขึ้นโดยผู้ปฏิบัติงานจริงที่สอนในสนาม รับงานเพียงไม่กี่ชิ้นในแต่ละไตรมาส แต่ละชิ้นเริ่มจากหน้ากระดาษเปล่า เขียนขึ้นเพื่อสถานการณ์เฉพาะหน้าของท่าน ไม่มีแม่แบบสำเร็จรูป ไม่มีการนำกลับมาใช้ซ้ำ",
   "What we believe": "สิ่งที่เราเชื่อ",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the cost is never passed on to the learner.":
-    "การเรียนรู้ไม่ควรมีราคาสูงจนเกินเอื้อมสำหรับผู้ที่ต้องการเรียนรู้มากที่สุด สำนักงานจึงตั้งใจควบคุมต้นทุนให้พอประมาณ เพื่อมิให้ภาระค่าใช้จ่ายถูกผลักไปยังผู้เรียน",
+  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest, so that every learner may share in the work we do.":
+    "การเรียนรู้ไม่ควรมีราคาสูงจนเกินเอื้อมสำหรับผู้ที่ต้องการเรียนรู้มากที่สุด สำนักงานจึงตั้งใจควบคุมต้นทุนให้พอประมาณ เพื่อให้ผู้เรียนทุกคนได้ร่วมรับประโยชน์จากงานที่เราสร้างขึ้น",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "สำนักงานของเรา · จุดยืนของเรา",

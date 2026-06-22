@@ -678,11 +678,11 @@ window.TBI18N.register("vi", {
   /* ---- home: hero & belief ---- */
   "The growing community": "Cộng đồng đang lớn mạnh",
   "Curriculum, written by practitioners.": "Chương trình do người làm nghề biên soạn.",
-  "A practice of curriculum developers, subject-matter experts andadult educators, trusted by Approved Training Organisations (ATOs).We take only a handful of engagements each quarter, so that each one has our undivided attention. Every one begins on a blank page, written for the situation in front of us. We keep no templates, and we reuse nothing.":
-    "Một văn phòng gồm các nhà phát triển chương trình, chuyên gia chuyên môn và nhà giáo dục người lớn, được các Tổ chức Đào tạo được Công nhận (ATO) tin cậy. Mỗi quý chúng tôi chỉ nhận một số ít công việc, để mỗi việc đều nhận trọn vẹn sự tập trung của chúng tôi. Mỗi việc đều bắt đầu từ trang giấy trắng, được viết riêng cho tình huống trước mắt. Chúng tôi không dùng mẫu có sẵn, và không tái sử dụng bất cứ điều gì.",
+  "Bespoke curriculum and advisory for Approved Training Organisations across Asia — written by the practitioners who teach the field. A handful of engagements each quarter, each begun on a blank page, written for the situation in front of you. No templates. Nothing reused.":
+    "Chương trình giảng dạy và tư vấn được thiết kế riêng cho các Tổ chức Đào tạo được Công nhận (ATO) trên khắp châu Á — do chính những người làm nghề đang giảng dạy biên soạn. Mỗi quý chỉ nhận một vài dự án, mỗi dự án bắt đầu từ trang giấy trắng, được viết riêng cho tình huống trước mắt của bạn. Không có khuôn mẫu sẵn. Không tái sử dụng gì.",
   "What we believe": "Điều chúng tôi tin",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the cost is never passed on to the learner.":
-    "Việc học không nên bị định giá quá cao đến mức ngoài tầm với của những người cần học nhất. Văn phòng cố ý giữ chi phí ở mức vừa phải, để chi phí không bao giờ bị chuyển sang người học.",
+  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest, so that every learner may share in the work we do.":
+    "Việc học không nên bị định giá quá cao đến mức ngoài tầm với của những người cần học nhất. Văn phòng cố ý giữ chi phí ở mức vừa phải, để mọi người học đều có thể cùng hưởng thành quả công việc của chúng tôi.",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "Văn phòng của chúng tôi · vị thế của chúng tôi",

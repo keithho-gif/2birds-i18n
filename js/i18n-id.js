@@ -678,11 +678,11 @@ window.TBI18N.register("id", {
   /* ---- home: hero & belief ---- */
   "The growing community": "Komunitas yang terus berkembang",
   "Curriculum, written by practitioners.": "Kurikulum, ditulis oleh para praktisi.",
-  "A practice of curriculum developers, subject-matter experts andadult educators, trusted by Approved Training Organisations (ATOs).We take only a handful of engagements each quarter, so that each one has our undivided attention. Every one begins on a blank page, written for the situation in front of us. We keep no templates, and we reuse nothing.":
-    "Sebuah praktik yang terdiri atas pengembang kurikulum, pakar bidang, dan pendidik dewasa, yang dipercaya oleh Organisasi Pelatihan Terakreditasi (ATO). Setiap kuartal kami hanya menerima sedikit penugasan, agar masing-masing memperoleh perhatian penuh kami. Setiap penugasan dimulai dari halaman kosong, ditulis khusus untuk situasi di hadapan kami. Kami tidak menyimpan templat, dan tidak menggunakan ulang apa pun.",
+  "Bespoke curriculum and advisory for Approved Training Organisations across Asia — written by the practitioners who teach the field. A handful of engagements each quarter, each begun on a blank page, written for the situation in front of you. No templates. Nothing reused.":
+    "Kurikulum dan penasihatan yang dirancang khusus untuk Organisasi Pelatihan Terakreditasi (ATO) di seluruh Asia — ditulis oleh para praktisi yang mengajarkan bidangnya. Hanya beberapa penugasan setiap kuartal, masing-masing dimulai dari halaman kosong, ditulis untuk situasi yang ada di hadapan Anda. Tanpa templat. Tidak ada yang digunakan ulang.",
   "What we believe": "Keyakinan kami",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the cost is never passed on to the learner.":
-    "Pembelajaran tidak seharusnya berharga begitu tinggi hingga tak terjangkau oleh mereka yang paling membutuhkannya. Praktik kami sengaja menjaga biaya tetap wajar, agar biaya tersebut tidak pernah dibebankan kepada pembelajar.",
+  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest, so that every learner may share in the work we do.":
+    "Pembelajaran tidak seharusnya berharga begitu tinggi hingga tak terjangkau oleh mereka yang paling membutuhkannya. Praktik kami sengaja menjaga biaya tetap wajar, agar setiap pembelajar dapat ikut menikmati hasil kerja kami.",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "Praktik kami · kedudukan kami",

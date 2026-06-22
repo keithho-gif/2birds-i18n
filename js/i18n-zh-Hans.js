@@ -678,11 +678,11 @@ window.TBI18N.register("zh-Hans", {
   /* ---- home: hero & belief ---- */
   "The growing community": "不断壮大的社群",
   "Curriculum, written by practitioners.": "课程，由从业者执笔。",
-  "A practice of curriculum developers, subject-matter experts andadult educators, trusted by Approved Training Organisations (ATOs).We take only a handful of engagements each quarter, so that each one has our undivided attention. Every one begins on a blank page, written for the situation in front of us. We keep no templates, and we reuse nothing.":
-    "由课程开发者、领域专家与成人教育工作者组成的事务所，深受认可培训机构（ATO）信赖。我们每季度只承接少数委托，以确保每一项都获得我们全心的投入。每一项都从一张白纸开始，为眼前的实际情况量身而作。我们不套用模板，亦不重复使用任何既有内容。",
+  "Bespoke curriculum and advisory for Approved Training Organisations across Asia — written by the practitioners who teach the field. A handful of engagements each quarter, each begun on a blank page, written for the situation in front of you. No templates. Nothing reused.":
+    "为亚洲各地的认可培训机构（ATO）量身定制的课程与咨询——由真正在课堂上教授该领域的从业者亲笔撰写。每季度只承接少数委托，每一项皆从白纸开始，为您眼前的实际情况量身而作。不套用模板，亦不重复使用任何既有内容。",
   "What we believe": "我们的信念",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the cost is never passed on to the learner.":
-    "学习不应因价格高昂而将最需要学习的人拒之门外。本所刻意将成本维持在适度水平，使费用永不会转嫁到学员身上。",
+  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest, so that every learner may share in the work we do.":
+    "学习不应因价格高昂而将最需要学习的人拒之门外。本所刻意将成本维持在适度水平，使每一位学员都能共享我们工作的成果。",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "本所 · 我们的立场",

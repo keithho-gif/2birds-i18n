@@ -101,12 +101,9 @@ body { padding-top: 108px; }
 .tb-hero::before {
   content: "";
   position: absolute; inset: 0;
-  background-image: url("../assets/hero-conference-web.jpg");
-  background-size: cover;
-  background-position: center 35%;
-  background-repeat: no-repeat;
-  opacity: 0.62;
-  filter: sepia(0.18) contrast(0.95) brightness(1.18);
+  background:
+    radial-gradient(ellipse 70% 60% at 65% 50%, rgba(193,184,140,0.18), rgba(250,248,242,0) 70%),
+    linear-gradient(180deg, #FAF8F2 0%, #F1ECDE 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -114,11 +111,16 @@ body { padding-top: 108px; }
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(250,248,242,0.90) 0%, rgba(250,248,242,0.65) 40%, rgba(250,248,242,0.30) 75%, rgba(250,248,242,0.12) 100%),
-    linear-gradient(180deg, rgba(250,248,242,0.12) 0%, rgba(250,248,242,0.25) 65%, rgba(250,248,242,0.50) 100%);
+    linear-gradient(90deg, rgba(250,248,242,0.78) 0%, rgba(250,248,242,0.32) 42%, rgba(250,248,242,0) 70%);
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
+.tb-hero__globe {
+  position: absolute; inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.tb-hero__globe canvas { display: block; width: 100%; height: 100%; }
 .tb-hero__title { text-shadow: none; }
 .tb-hero__sub   { text-shadow: none; }
 .tb-hero__glow {
