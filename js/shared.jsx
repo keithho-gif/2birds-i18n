@@ -138,7 +138,9 @@ function Footer() {
       <div className="container tb-footer__inner">
         <div className="tb-footer__grid">
           <div className="tb-footer__brand">
-            <img src="assets/logo-text.png" alt="2birds" className="tb-footer__logo" />
+            <div className="tb-footer__logo-text" aria-label="2birds">
+              <span className="tb-footer__lw">2</span><span className="tb-footer__lo">B</span><span className="tb-footer__lw">IRDS</span>
+            </div>
             <p className="tb-footer__about">2birds is a growing community of independent practitioners in curriculum development and advisory for Approved Training Organisations (ATOs).</p>
           </div>
           <div className="tb-footer__col">
