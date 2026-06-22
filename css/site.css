@@ -186,13 +186,13 @@ body { padding-top: 132px; }
      lives AFTER the base rule further down in this file — same
      specificity but later in source order, which is what actually
      makes it win on mobile.) */
-  /* Scrim on mobile: globe almost fills the viewport behind the
-     type now, so the navy haze is stronger through the upper half
-     where the eyebrow / headline / sub live. Lower half fades so
-     the globe still reads as the visual hero of the section. */
+  /* Scrim on mobile: moderate haze through the upper half to keep
+     the eyebrow / headline / sub legible against the wireframe
+     behind. Lower half fades faster so the globe still reads as
+     the visual focal point. */
   .tb-hero::after {
     background:
-      linear-gradient(180deg, rgba(6,11,34,0.78) 0%, rgba(6,11,34,0.60) 45%, rgba(6,11,34,0.20) 100%);
+      linear-gradient(180deg, rgba(6,11,34,0.65) 0%, rgba(6,11,34,0.45) 50%, rgba(6,11,34,0.15) 100%);
   }
 }
 
