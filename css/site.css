@@ -95,20 +95,22 @@ body { padding-top: 108px; }
 .tb-hero {
   position: relative;
   padding: var(--space-section-lg) 0 var(--space-section);
-  background: #08090C;
-  color: var(--paper);
+  background: var(--canvas);
   overflow: hidden;
   min-height: clamp(680px, 82vh, 880px);
   display: flex;
   align-items: center;
 }
 @media (max-width: 768px) {
-  .tb-hero { min-height: clamp(560px, 78vh, 720px); }
+  .tb-hero { min-height: clamp(620px, 84vh, 760px); }
 }
 .tb-hero::before {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, #0A0B11 0%, #050608 100%);
+  background:
+    radial-gradient(ellipse 62% 58% at 72% 50%, rgba(196,191,160,0.28), rgba(250,248,242,0) 70%),
+    radial-gradient(ellipse 90% 60% at 50% 110%, rgba(110,108,73,0.10), rgba(250,248,242,0) 70%),
+    linear-gradient(180deg, #FCFAF3 0%, #F2EDDD 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -116,24 +118,48 @@ body { padding-top: 108px; }
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(8,9,12,0.78) 0%, rgba(8,9,12,0.30) 42%, rgba(8,9,12,0) 70%);
+    linear-gradient(90deg, rgba(250,248,242,0.82) 0%, rgba(250,248,242,0.48) 38%, rgba(250,248,242,0) 64%);
   pointer-events: none;
   z-index: 2;
 }
-.tb-hero__globe {
+/* Brand logomark sitting where the globe used to be. Sized to read
+   as a quiet centerpiece, gently breathing so it never feels static.
+   Pointer-events stay off so the headline / CTA capture clicks. */
+.tb-hero__logomark {
   position: absolute; inset: 0;
   z-index: 1;
-  pointer-events: auto;
-  touch-action: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 clamp(24px, 6vw, 84px);
+  pointer-events: none;
 }
-.tb-hero__globe canvas { display: block; width: 100%; height: 100%; }
-/* Content sits above the canvas; its interactive children keep their
-   own pointer events so the headline and CTA still respond to clicks. */
-.tb-hero__inner { pointer-events: none; }
-.tb-hero__inner a, .tb-hero__inner button, .tb-hero__inner input,
-.tb-hero__inner select, .tb-hero__inner textarea, .tb-hero__inner label,
-.tb-hero__inner h1, .tb-hero__inner p, .tb-hero__inner .eyebrow-lockup {
-  pointer-events: auto;
+.tb-hero__logomark img {
+  width: clamp(360px, 42vw, 600px);
+  height: auto;
+  opacity: 0.92;
+  filter:
+    drop-shadow(0 22px 44px rgba(20, 38, 74, 0.20))
+    drop-shadow(0 6px 14px rgba(110, 108, 73, 0.10));
+  animation: tb-hero-mark-float 9s ease-in-out infinite;
+}
+@keyframes tb-hero-mark-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-10px) scale(1.012); }
+}
+@media (max-width: 768px) {
+  .tb-hero__logomark {
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 0 18px;
+  }
+  .tb-hero__logomark img {
+    width: clamp(240px, 60vw, 360px);
+    opacity: 0.55;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tb-hero__logomark img { animation: none; }
 }
 .tb-hero__title { text-shadow: none; }
 .tb-hero__sub   { text-shadow: none; }
@@ -776,24 +802,24 @@ body { padding-top: 108px; }
   .tb-twos__row { padding: 28px 24px; }
   .tb-twos__a, .tb-twos__b, .tb-twos__amp { font-size: 24px; }
 }
-.tb-hero__title { color: var(--paper); }
-.tb-hero__title em { color: var(--olive-light); }
-.tb-hero__sub { color: rgba(250,248,242,0.78); }
-.tb-hero .eyebrow-lockup { color: var(--olive-light); }
-.tb-hero .eyebrow-lockup::before { background: var(--olive-light); }
+.tb-hero__title { color: var(--ink); }
+.tb-hero__title em { color: var(--olive-deep); }
+.tb-hero__sub { color: var(--graphite); }
+.tb-hero .eyebrow-lockup { color: var(--royal); }
+.tb-hero .eyebrow-lockup::before { background: var(--royal); }
 .tb-hero .eyebrow-lockup { margin-bottom: 28px; }
 .tb-hero__title {
   font-family: var(--font-serif); font-weight: 400;
   font-size: 88px; line-height: 1.0; letter-spacing: -0.022em;
-  color: var(--paper);
+  color: var(--ink);
   margin: 0 0 28px;
   max-width: 920px;
   text-wrap: balance;
 }
-.tb-hero__title em { font-style: italic; color: var(--olive-light); }
+.tb-hero__title em { font-style: italic; color: var(--olive-deep); }
 .tb-hero__sub {
   font-family: var(--font-sans); font-size: 22px; font-weight: 500;
-  line-height: 1.55; color: rgba(250,248,242,0.82);
+  line-height: 1.55; color: var(--ink-soft);
   margin: 0 0 36px; max-width: 660px;
   text-wrap: pretty;
 }
