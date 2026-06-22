@@ -124,15 +124,16 @@ body { padding-top: 108px; }
 @media (max-width: 768px) {
   .tb-hero { min-height: clamp(400px, 58vh, 500px); }
 }
-/* Atmospheric depth on the navy stage — an olive radial near the
-   globe + the linear navy gradient base, and a left-side scrim that
-   gives the headline a quiet block of paper-on-navy contrast. */
+/* Cosmic stage — a deep-space gradient base, a faint olive nebula
+   near the globe, and a subtle navy haze top-left. The Three.js
+   starfield does the rest on top of this. */
 .tb-hero::before {
   content: "";
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 56% 62% at 72% 50%, rgba(151, 146, 101, 0.18), rgba(20, 38, 74, 0) 70%),
-    linear-gradient(180deg, #14264A 0%, #0F1C39 100%);
+    radial-gradient(ellipse 60% 65% at 72% 50%, rgba(151, 146, 101, 0.22), rgba(8, 14, 36, 0) 70%),
+    radial-gradient(ellipse 80% 60% at 18% 22%, rgba(38, 56, 100, 0.30), rgba(8, 14, 36, 0) 70%),
+    linear-gradient(180deg, #0E1B3A 0%, #060B22 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -140,7 +141,7 @@ body { padding-top: 108px; }
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(20, 38, 74, 0.62) 0%, rgba(20, 38, 74, 0.22) 42%, rgba(20, 38, 74, 0) 64%);
+    linear-gradient(90deg, rgba(6, 11, 34, 0.66) 0%, rgba(6, 11, 34, 0.22) 42%, rgba(6, 11, 34, 0) 64%);
   pointer-events: none;
   z-index: 2;
 }
