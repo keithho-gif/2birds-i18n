@@ -26,8 +26,13 @@ function NavBar({ current }) {
   return (
     <>
     <header className={"tb-nav" + (open ? " is-open" : "")}>
-      <a href="index.html" className="tb-nav__wm">
-        <img src="assets/2birds-wordmark.png" alt="2birds" />
+      <a href="index.html" className="tb-nav__wm" aria-label="2birds — home">
+        <span className="brand-stack">
+          <img src="assets/2birds-monogram.png" alt="" className="brand-stack__mark" aria-hidden="true" />
+          <span className="brand-stack__text">
+            <span className="brand-stack__2">2</span><span className="brand-stack__b">B</span><span className="brand-stack__rest">IRDS</span>
+          </span>
+        </span>
       </a>
       <nav className="tb-nav__menu">
         {items.map((it) =>
@@ -138,9 +143,12 @@ function Footer() {
       <div className="container tb-footer__inner">
         <div className="tb-footer__grid">
           <div className="tb-footer__brand">
-            <div className="tb-footer__wordmark" aria-label="2birds">
-              <span className="tb-footer__wm-2">2</span><span className="tb-footer__wm-b">B</span><span className="tb-footer__wm-rest">IRDS</span>
-            </div>
+            <span className="brand-stack brand-stack--lg brand-stack--on-dark" aria-label="2birds">
+              <img src="assets/2birds-logo.png" alt="" className="brand-stack__mark" aria-hidden="true" />
+              <span className="brand-stack__text">
+                <span className="brand-stack__2">2</span><span className="brand-stack__b">B</span><span className="brand-stack__rest">IRDS</span>
+              </span>
+            </span>
             <p className="tb-footer__about">2birds is a growing community of independent practitioners in curriculum development and advisory for Approved Training Organisations (ATOs).</p>
           </div>
           <div className="tb-footer__col">

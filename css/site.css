@@ -133,13 +133,21 @@ body { padding-top: 108px; }
      desktop-only break belongs to wider viewports. */
   .tb-hero__sub br.tb-sub-break { display: none; }
 
-  /* Mobile hero: a more compact stage. Same editorial feel as
-     desktop, but at a height that doesn't push the next section
-     past the fold. Type still scales with the viewport, just into
-     a smaller box. */
+  /* Mobile brand stack — smaller mark + smaller "2BIRDS" text so the
+     composite fits the navbar height and the footer column. */
+  .brand-stack__mark { height: 30px; }
+  .brand-stack__text { font-size: 11px; }
+  .brand-stack--lg { gap: 6px; margin-bottom: 14px; }
+  .brand-stack--lg .brand-stack__mark { height: 60px; }
+  .brand-stack--lg .brand-stack__text { font-size: 18px; }
+  .tb-nav__wm .brand-stack__mark { height: 30px; }
+
+  /* Mobile hero: noticeably tighter. The previous height left a wide
+     empty band above the eyebrow on small screens; shrinking the min
+     and dropping the padding closes it. */
   .tb-hero {
-    min-height: clamp(380px, 62vh, 480px);
-    padding: clamp(40px, 8vh, 76px) 0;
+    min-height: clamp(340px, 50vh, 420px);
+    padding: clamp(24px, 5vh, 56px) 0;
   }
   .tb-hero__title {
     font-size: clamp(34px, 9.2vw, 48px);
@@ -3020,18 +3028,36 @@ image-slot::part(placeholder) {
 .tb-footer__grid {
   display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 56px;
 }
-.tb-footer__wm { display: block; height: 46px; width: auto; margin-bottom: 22px; opacity: 0.92; }
-/* Wordmark in the footer: serif "2BIRDS" in white with the brand olive
-   accent on the B. Replaces the calligraphic monogram so the footer
-   identity reads from a single text mark. */
-.tb-footer__wordmark {
-  font-family: var(--font-serif); font-weight: 400;
-  font-size: 44px; line-height: 1; letter-spacing: 0.01em;
-  margin-bottom: 22px;
+/* Composite brand stack — calligraphic monogram with the "2BIRDS"
+   serif text below it. One component used in both the navbar and the
+   footer; size variants and the dark-background colour treatment are
+   modifier classes on the same markup. */
+.brand-stack {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
 }
-.tb-footer__wordmark .tb-footer__wm-2,
-.tb-footer__wordmark .tb-footer__wm-rest { color: #FFFFFF; }
-.tb-footer__wordmark .tb-footer__wm-b     { color: var(--olive-light); }
+.brand-stack__mark { display: block; width: auto; height: 38px; }
+.brand-stack__text {
+  font-family: var(--font-serif); font-weight: 400;
+  font-size: 13px; letter-spacing: 0.04em; line-height: 1;
+}
+.brand-stack__2,
+.brand-stack__rest { color: var(--ink); }
+.brand-stack__b    { color: var(--olive); }
+/* Larger variant for the footer */
+.brand-stack--lg { gap: 8px; margin-bottom: 18px; }
+.brand-stack--lg .brand-stack__mark { height: 76px; }
+.brand-stack--lg .brand-stack__text { font-size: 22px; letter-spacing: 0.05em; }
+/* Dark-background variant: text reads as white, brand olive carries
+   on the B. The mark uses the white-variant PNG. */
+.brand-stack--on-dark .brand-stack__2,
+.brand-stack--on-dark .brand-stack__rest { color: #FFFFFF; }
+.brand-stack--on-dark .brand-stack__b    { color: var(--olive-light); }
+/* Navbar-specific override beats the legacy .tb-nav__wm img height */
+.tb-nav__wm .brand-stack__mark { height: 38px; }
 .tb-footer__about {
   font-family: var(--font-sans); font-size: 14px; line-height: 1.75; font-weight: 300;
   color: rgba(250, 248, 242, 0.7); margin: 0; max-width: 280px;

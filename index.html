@@ -610,7 +610,18 @@ function HeroAmbient() {
     let velY = 0, velX = 0;
     const AUTO_Y = 0.0028;
 
+    // Drag-to-rotate is a desktop affordance only. Belt-and-braces:
+    // CSS already sets pointer-events:none on the canvas at <=768px,
+    // but we also gate the JS handlers against a media query so even
+    // if the CSS doesn't reach (older browsers, edge layouts) the
+    // handlers no-op. The MediaQueryList is re-checked at event time
+    // so device rotations / window resizes apply immediately.
+    const _touchMQ = window.matchMedia(
+      "(max-width: 768px), (hover: none) and (pointer: coarse)"
+    );
+    function isTouchOnly() { return _touchMQ.matches; }
     function onPointerDown(e) {
+      if (isTouchOnly()) return;
       dragging = true;
       lastX = e.clientX; lastY = e.clientY;
       velX = velY = 0;
@@ -620,6 +631,7 @@ function HeroAmbient() {
     }
     function onPointerMove(e) {
       if (!dragging) return;
+      if (isTouchOnly()) { dragging = false; return; }
       const dx = e.clientX - lastX;
       const dy = e.clientY - lastY;
       lastX = e.clientX; lastY = e.clientY;
@@ -649,12 +661,12 @@ function HeroAmbient() {
       renderer.setSize(w, h);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
-      // Mobile: the globe is purely atmospheric. Push it back, scale
-      // it down, and pull it to the lower-right of the section so the
-      // headline copy has the visual centre to itself.
+      // Mobile: the globe is purely atmospheric. Push it well down
+      // and back so it sits beneath the CTA rather than overlapping
+      // the type. Smaller scale keeps it from competing for focus.
       if (w < 768) {
-        globe.position.set(1.6, -2.4, -3.2);
-        globe.scale.setScalar(0.5);
+        globe.position.set(1.6, -4.0, -4.5);
+        globe.scale.setScalar(0.42);
       } else {
         globe.position.set(3.6, 0.2, -1);
         globe.scale.setScalar(1);
