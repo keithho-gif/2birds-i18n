@@ -384,10 +384,12 @@ function HeroAmbient() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     host.appendChild(renderer.domElement);
 
-    /* A wireframe globe — icosahedron lattice + vertex dots — in
+    const COL_OLIVE_DEEP = 0x6F6C49;
+
+    /* A wireframe icosahedron — lattice lines + vertex dots — in
        the same idiom as the constellation panel elsewhere on the
-       site. Returned as a group so position / rotation / scale all
-       apply to lines and points together. */
+       site. Returned as a group so position / rotation / scale apply
+       to lines and points together. */
     function makeGlobe(radius, color, lineOpacity, pointOpacity) {
       const g = new THREE.Group();
       const ico = new THREE.IcosahedronGeometry(radius, 2);
@@ -398,26 +400,42 @@ function HeroAmbient() {
         })
       ));
       g.add(new THREE.Points(ico, new THREE.PointsMaterial({
-        color, size: 0.06, transparent: true, opacity: pointOpacity
+        color, size: 0.055, transparent: true, opacity: pointOpacity
       })));
       return g;
     }
 
-    /* Two globes anchored to the section's wings. Sized so each one
-       overlaps the canvas edge by a bit — they read as "worlds" the
-       headline copy is set against, not as floating objects pinned to
-       the centre. Z pushed back so they sit comfortably behind the
-       logomark layer. */
-    const leftGlobe  = makeGlobe(3.0, COL_OLIVE,       0.18, 0.42);
-    leftGlobe.position.set(-6.4, 0.3, -2.0);
-    scene.add(leftGlobe);
+    /* Constellation of nine spheres distributed across the full
+       section — wings, upper band, lower band, plus a few in the
+       deep background. Sizes / opacities tier down with depth so the
+       field reads as 3D rather than flat. Centre stays clearer
+       (smaller, dimmer pieces) so the calligraphic logomark above
+       has room. Brand olive only — no off-palette tones. */
+    const SPHERES = [
+      // Wings — the largest pieces, anchoring left and right
+      { r: 2.8, pos: [-6.0,  0.5, -2.3], color: COL_OLIVE,       line: 0.20, pt: 0.46, sx: 0.0012, sy: 0.0004 },
+      { r: 2.6, pos: [ 6.2, -0.2, -2.0], color: COL_OLIVE_LIGHT, line: 0.20, pt: 0.46, sx:-0.0010, sy: 0.0005 },
+      // Upper band — fills the headroom near the navbar
+      { r: 1.4, pos: [-3.4,  2.9, -3.4], color: COL_OLIVE_DEEP,  line: 0.15, pt: 0.36, sx: 0.0014, sy: 0.0006 },
+      { r: 1.6, pos: [ 3.4,  2.7, -3.1], color: COL_OLIVE_LIGHT, line: 0.15, pt: 0.36, sx:-0.0013, sy: 0.0006 },
+      { r: 0.9, pos: [ 0.4,  3.3, -4.6], color: COL_OLIVE,       line: 0.12, pt: 0.30, sx: 0.0018, sy: 0.0008 },
+      // Lower band — anchors the bottom of the section
+      { r: 1.2, pos: [-2.0, -2.6, -3.6], color: COL_OLIVE_LIGHT, line: 0.14, pt: 0.34, sx:-0.0015, sy: 0.0007 },
+      { r: 1.0, pos: [ 2.5, -2.8, -3.9], color: COL_OLIVE_DEEP,  line: 0.13, pt: 0.32, sx: 0.0016, sy: 0.0007 },
+      // Deep background — tiny pieces, very soft
+      { r: 0.7, pos: [-4.5,  1.5, -5.0], color: COL_OLIVE_LIGHT, line: 0.10, pt: 0.25, sx: 0.0020, sy: 0.0009 },
+      { r: 0.6, pos: [ 4.8,  1.2, -5.2], color: COL_OLIVE_LIGHT, line: 0.10, pt: 0.25, sx:-0.0021, sy: 0.0009 }
+    ];
+    const globes = SPHERES.map(s => {
+      const g = makeGlobe(s.r, s.color, s.line, s.pt);
+      g.position.fromArray(s.pos);
+      g.userData = { sx: s.sx, sy: s.sy };
+      scene.add(g);
+      return g;
+    });
 
-    const rightGlobe = makeGlobe(3.2, COL_OLIVE_LIGHT, 0.18, 0.42);
-    rightGlobe.position.set( 6.6, -0.2, -2.4);
-    scene.add(rightGlobe);
-
-    /* Sparse dust field for atmosphere — soft, low opacity. */
-    const PN = 110;
+    /* Sparse dust field — bridges the spheres with atmosphere. */
+    const PN = 130;
     const cp = new Float32Array(PN * 3);
     for (let i = 0; i < PN; i++) {
       cp[i * 3]     = (Math.random() - 0.5) * 22;
@@ -447,12 +465,13 @@ function HeroAmbient() {
 
     let raf = 0;
     function tick() {
-      // Counter-rotating globes — slow, deliberate. The contrast in
-      // direction makes the depth read.
-      leftGlobe.rotation.y  += 0.0012;
-      leftGlobe.rotation.x  += 0.0004;
-      rightGlobe.rotation.y -= 0.0010;
-      rightGlobe.rotation.x += 0.0003;
+      // Each sphere rotates at its own pace + direction. The contrast
+      // is what sells the depth — the eye reads multiple worlds, not
+      // one big rotating mass.
+      globes.forEach(g => {
+        g.rotation.y += g.userData.sx;
+        g.rotation.x += g.userData.sy;
+      });
       dust.rotation.y += 0.00020;
       dust.rotation.x += 0.00008;
       renderer.render(scene, camera);

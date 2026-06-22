@@ -100,6 +100,7 @@ body { padding-top: 108px; }
   min-height: clamp(460px, 58vh, 600px);
   display: flex;
   align-items: center;
+  border-top: 1px solid var(--royal);
 }
 @media (max-width: 768px) {
   .tb-hero { min-height: clamp(400px, 58vh, 500px); }
