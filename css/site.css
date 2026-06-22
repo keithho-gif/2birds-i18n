@@ -47,13 +47,13 @@ body { padding-top: 108px; }
 .tb-nav__link.is-active::after { right: 0; }
 .tb-nav__right { display: flex; gap: 22px; align-items: center; justify-self: end; }
 
-/* Calligraphic monogram in the right slot of the navbar — sits just
-   before the 'Make an enquiry' link so the brand mark is always in
-   view, even when the visitor has scrolled past the hero. */
+/* Calligraphic monogram in the far-right slot of the navbar — the
+   brand mark sits to the right of every other nav element so it is
+   always the last thing in the eye-line, at every scroll position. */
 .tb-nav__monogram {
   display: inline-flex;
   align-items: center;
-  height: 34px;
+  height: 52px;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 .tb-nav__monogram img {
@@ -63,7 +63,7 @@ body { padding-top: 108px; }
 }
 .tb-nav__monogram:hover { transform: translateY(-1px); opacity: 0.85; }
 @media (max-width: 768px) {
-  .tb-nav__monogram { height: 28px; }
+  .tb-nav__monogram { height: 40px; }
 }
 
 /* Editorial enquiry link in nav, replaces the old CTA */
@@ -151,29 +151,29 @@ body { padding-top: 108px; }
   .tb-hero__sub br.tb-sub-break { display: none; }
 }
 
-/* CTA: a luxury double-bezel outline. A 1px olive ring sits 4px
-   outside the button's own olive-light border — clean static
-   geometry that reads as a refined frame. On hover the outer ring
-   eases out to 7px and brightens slightly, plus the button itself
-   gives a small lift. No glow, no sweep. */
+/* CTA: clean single border at rest. The border itself quietly
+   breathes between olive and olive-light over 5s — the outline IS
+   the effect, no extra geometry, no glow, no sheen. Hover gives a
+   small lift + soft cast shadow. */
 .tb-hero__actions .btn {
   position: relative;
-  outline: 1px solid rgba(151, 146, 101, 0.65);
-  outline-offset: 4px;
   transition:
     transform        0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
     box-shadow       0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
-    outline-offset   0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
-    outline-color    0.35s ease,
     background-color 0.35s ease,
-    color            0.35s ease,
-    border-color     0.35s ease;
+    color            0.35s ease;
+  animation: tb-hero-cta-line 5s ease-in-out infinite;
+}
+@keyframes tb-hero-cta-line {
+  0%, 100% { border-color: rgba(151, 146, 101, 0.55); }
+  50%      { border-color: rgba(220, 213, 170, 1.00); }
 }
 .tb-hero__actions .btn:hover {
   transform: translateY(-2px);
-  outline-offset: 7px;
-  outline-color: rgba(196, 191, 160, 0.95);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.30);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tb-hero__actions .btn { animation: none; }
 }
 
 /* Ambient 3D layer. Pointer events ENABLED so the visitor can drag

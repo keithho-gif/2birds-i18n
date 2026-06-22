@@ -39,12 +39,12 @@ function NavBar({ current }) {
         )}
       </nav>
       <div className="tb-nav__right">
-        <a className="tb-nav__monogram" href="index.html" aria-label="2birds">
-          <img src="assets/2birds-monogram.png" alt="" />
-        </a>
         <a className="tb-nav__enq" href="contact.html">
           <span className="tb-nav__enq-text">Make an enquiry</span>
           <span className="tb-nav__enq-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a className="tb-nav__monogram" href="index.html" aria-label="2birds">
+          <img src="assets/2birds-monogram.png" alt="" />
         </a>
         <button
           type="button"
