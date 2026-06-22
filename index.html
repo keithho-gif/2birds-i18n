@@ -31,6 +31,7 @@
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/three@0.152.2/build/three.min.js" crossorigin="anonymous"></script>
 
 <script src="js/transition.js"></script>
 <script src="js/i18n.js"></script>
@@ -360,6 +361,150 @@ function MiniCal() {
 
 }
 
+/* Hero ambient layer: a quiet 3D backdrop of floating ornamental
+   feathers and dust specks in brand olive, sitting behind the
+   logomark. Adds depth and atmosphere without competing with the
+   calligraphic mark or the headline. */
+function HeroAmbient() {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const host = ref.current;
+    if (!host || typeof THREE === "undefined") return;
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const COL_OLIVE       = 0x979265;
+    const COL_OLIVE_LIGHT = 0xC4BFA0;
+    const COL_OLIVE_DEEP  = 0x6F6C49;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+    camera.position.set(0, 0.2, 11);
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    host.appendChild(renderer.domElement);
+
+    // Warm lighting — picks up the gold tones, never glares
+    scene.add(new THREE.AmbientLight(0xFFFFFF, 0.55));
+    const key = new THREE.DirectionalLight(0xFFF6E0, 0.85);
+    key.position.set(3, 6, 5);
+    scene.add(key);
+    const fill = new THREE.DirectionalLight(0xC4BFA0, 0.35);
+    fill.position.set(-4, 2, 3);
+    scene.add(fill);
+
+    /* A single feather shape — a long teardrop with a slight curve,
+       extruded with a soft bevel so it catches light on its edges. */
+    function featherGeo() {
+      const sh = new THREE.Shape();
+      sh.moveTo(0, -0.9);
+      sh.bezierCurveTo(0.45, -0.3, 0.55, 0.5, 0.18, 1.05);
+      sh.bezierCurveTo(0.10, 1.15, 0.04, 1.20, 0,  1.20);
+      sh.bezierCurveTo(-0.04, 1.20, -0.10, 1.15, -0.18, 1.05);
+      sh.bezierCurveTo(-0.55, 0.5, -0.45, -0.3, 0, -0.9);
+      const g = new THREE.ExtrudeGeometry(sh, {
+        depth: 0.08,
+        bevelEnabled: true,
+        bevelThickness: 0.04,
+        bevelSize: 0.04,
+        bevelSegments: 4,
+        curveSegments: 16
+      });
+      g.center();
+      g.computeVertexNormals();
+      return g;
+    }
+    const FEATHER = featherGeo();
+    function makeFeather(color, pos, rot, scale) {
+      const m = new THREE.Mesh(
+        FEATHER,
+        new THREE.MeshStandardMaterial({
+          color, roughness: 0.55, metalness: 0.15,
+          transparent: true, opacity: 0.78
+        })
+      );
+      m.position.fromArray(pos);
+      m.rotation.fromArray(rot);
+      m.scale.setScalar(scale);
+      m.userData = {
+        baseY: pos[1],
+        phase: Math.random() * Math.PI * 2,
+        spin: 0.0006 + Math.random() * 0.0006,
+        sway: 0.20 + Math.random() * 0.15
+      };
+      return m;
+    }
+
+    /* Composition: feathers gathered to the side wings of the section,
+       larger pieces drifting at mid-depth, smaller pieces further back.
+       Centre stays clear so the calligraphic logo (in the DOM layer
+       above) has its own breathing room. */
+    const FEATHERS = [
+      makeFeather(COL_OLIVE,       [-5.4,  1.6, -1.0], [ 0.1,  0.4,  0.85], 0.95),
+      makeFeather(COL_OLIVE_LIGHT, [-6.0, -1.0, -2.2], [ 0.3, -0.2,  1.25], 0.72),
+      makeFeather(COL_OLIVE_DEEP,  [-4.6,  2.4, -3.0], [-0.2,  0.1,  0.55], 0.55),
+      makeFeather(COL_OLIVE_LIGHT, [ 5.7,  1.4, -1.4], [-0.1, -0.4, -0.80], 0.90),
+      makeFeather(COL_OLIVE,       [ 6.2, -1.6, -2.6], [ 0.3,  0.2, -1.30], 0.65),
+      makeFeather(COL_OLIVE_DEEP,  [ 4.4,  2.6, -3.2], [ 0.4, -0.3, -0.45], 0.50),
+      makeFeather(COL_OLIVE_LIGHT, [-0.6,  3.0, -4.5], [ 0.1,  0.2,  0.10], 0.40),
+      makeFeather(COL_OLIVE_LIGHT, [ 0.8, -2.6, -4.0], [-0.2, -0.3,  3.05], 0.42)
+    ];
+    FEATHERS.forEach(f => scene.add(f));
+
+    /* Dust specks — a wide, sparse field for atmosphere. */
+    const PN = 90;
+    const cp = new Float32Array(PN * 3);
+    for (let i = 0; i < PN; i++) {
+      cp[i * 3]     = (Math.random() - 0.5) * 22;
+      cp[i * 3 + 1] = (Math.random() - 0.5) * 11;
+      cp[i * 3 + 2] = (Math.random() - 0.5) * 6 - 2;
+    }
+    const dustGeo = new THREE.BufferGeometry();
+    dustGeo.setAttribute("position", new THREE.BufferAttribute(cp, 3));
+    const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({
+      color: COL_OLIVE_LIGHT,
+      size: 0.045,
+      transparent: true,
+      opacity: 0.50
+    }));
+    scene.add(dust);
+
+    function resize() {
+      const w = host.clientWidth || 1, h = host.clientHeight || 1;
+      renderer.setSize(w, h);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    resize();
+    let ro = null;
+    if (typeof ResizeObserver !== "undefined") { ro = new ResizeObserver(resize); ro.observe(host); }
+    else window.addEventListener("resize", resize);
+
+    let raf = 0;
+    let t = 0;
+    function tick() {
+      t += 0.01;
+      FEATHERS.forEach(f => {
+        f.position.y = f.userData.baseY + Math.sin(t * 0.28 + f.userData.phase) * f.userData.sway;
+        f.rotation.z += f.userData.spin;
+      });
+      dust.rotation.y += 0.00025;
+      dust.rotation.x += 0.00010;
+      renderer.render(scene, camera);
+      raf = requestAnimationFrame(tick);
+    }
+    if (reduce) renderer.render(scene, camera); else tick();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      if (ro) ro.disconnect(); else window.removeEventListener("resize", resize);
+      renderer.dispose();
+      if (renderer.domElement.parentNode === host) host.removeChild(renderer.domElement);
+    };
+  }, []);
+  return <div ref={ref} className="tb-hero__ambient" aria-hidden="true" />;
+}
+
 function App() {
   return (
     <>
@@ -368,6 +513,7 @@ function App() {
 
         {/* HERO */}
         <section className="tb-hero">
+          <HeroAmbient />
           <div className="tb-hero__logomark" aria-hidden="true">
             <img src="assets/2birds-monogram.png" alt="" />
           </div>

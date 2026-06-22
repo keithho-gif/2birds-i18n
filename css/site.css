@@ -124,26 +124,18 @@ body { padding-top: 108px; }
 .tb-hero__logomark img {
   width: clamp(340px, 36vw, 540px);
   height: auto;
-  opacity: 0.78;
-  animation: tb-hero-mark-edge 6.5s ease-in-out infinite;
+  opacity: 0.88;
+  filter:
+    drop-shadow(0 18px 32px rgba(57, 56, 57, 0.14))
+    drop-shadow(0 6px 12px rgba(57, 56, 57, 0.08));
+  animation: tb-hero-mark-breathe 9s ease-in-out infinite;
 }
-/* Edge glow: three layered drop-shadows in the brand olive #979265
-   (matches the olive feather inside the mark), breathing in and out
-   on a 6.5s cycle. Sharp inner halo, medium mid, atmospheric outer —
-   gives the silhouette a warm radiance that reads as luxurious. */
-@keyframes tb-hero-mark-edge {
-  0%, 100% {
-    filter:
-      drop-shadow(0 0 10px rgba(151, 146, 101, 0.42))
-      drop-shadow(0 0 24px rgba(151, 146, 101, 0.26))
-      drop-shadow(0 0 52px rgba(151, 146, 101, 0.14));
-  }
-  50% {
-    filter:
-      drop-shadow(0 0 16px rgba(151, 146, 101, 0.70))
-      drop-shadow(0 0 38px rgba(151, 146, 101, 0.48))
-      drop-shadow(0 0 80px rgba(151, 146, 101, 0.24));
-  }
+/* Subtle 1.5% scale breath — the mark holds its dignity but is never
+   completely still. Slower than a glow, so it reads as poise rather
+   than a heartbeat. */
+@keyframes tb-hero-mark-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.015); }
 }
 @media (max-width: 768px) {
   .tb-hero__logomark img {
@@ -155,18 +147,28 @@ body { padding-top: 108px; }
   .tb-hero__logomark img { animation: none; }
 }
 
-/* CTA glow — same olive breath as the mark, offset by ~1s so the
-   two read as paired rather than ticking in lockstep. */
+/* CTA: a quiet lift on hover instead of a continuous glow. The mark
+   carries the section's motion; the button stays still until invited. */
 .tb-hero__actions .btn {
-  animation: tb-hero-cta-glow 7.5s ease-in-out infinite;
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
 }
-@keyframes tb-hero-cta-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(151, 146, 101, 0); }
-  50%      { box-shadow: 0 0 22px 2px rgba(151, 146, 101, 0.50); }
+.tb-hero__actions .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(57, 56, 57, 0.14);
 }
-@media (prefers-reduced-motion: reduce) {
-  .tb-hero__actions .btn { animation: none; }
+
+/* Ambient 3D layer behind everything else in the hero. */
+.tb-hero__ambient {
+  position: absolute; inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
+.tb-hero__ambient canvas { display: block; width: 100%; height: 100%; }
 .tb-hero__title { text-shadow: none; }
 .tb-hero__sub   { text-shadow: none; }
 .tb-hero__glow {
