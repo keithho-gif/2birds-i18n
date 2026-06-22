@@ -677,12 +677,12 @@ window.TBI18N.register("th", {
 
   /* ---- home: hero & belief ---- */
   "The growing community": "ชุมชนที่กำลังเติบโต",
-  "By Practitioners, not consultants.": "โดยผู้ปฏิบัติงาน มิใช่ที่ปรึกษา",
+  "Curriculum, written by practitioners.": "หลักสูตร เขียนโดยผู้ปฏิบัติงาน",
   "A practice of curriculum developers, subject-matter experts andadult educators, trusted by Approved Training Organisations (ATOs).We take only a handful of engagements each quarter, so that each one has our undivided attention. Every one begins on a blank page, written for the situation in front of us. We keep no templates, and we reuse nothing.":
     "สำนักงานซึ่งประกอบด้วยนักพัฒนาหลักสูตร ผู้เชี่ยวชาญเฉพาะด้าน และนักการศึกษาผู้ใหญ่ ได้รับความไว้วางใจจากสถาบันฝึกอบรมที่ได้รับการรับรอง (ATO) เรารับงานเพียงไม่กี่ชิ้นในแต่ละไตรมาส เพื่อให้ทุกงานได้รับความใส่ใจอย่างเต็มที่ ทุกงานเริ่มต้นจากหน้ากระดาษเปล่า เขียนขึ้นเพื่อสถานการณ์ตรงหน้า เราไม่ใช้แม่แบบสำเร็จรูป และไม่นำสิ่งใดมาใช้ซ้ำ",
   "What we believe": "สิ่งที่เราเชื่อ",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the fees never find their way down to the learner.":
-    "การเรียนรู้ไม่ควรมีราคาสูงจนเกินเอื้อมสำหรับผู้ที่ต้องการเรียนรู้มากที่สุด สำนักงานจึงตั้งใจควบคุมต้นทุนให้พอประมาณ เพื่อมิให้ค่าใช้จ่ายตกไปถึงผู้เรียน",
+  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the cost is never passed on to the learner.":
+    "การเรียนรู้ไม่ควรมีราคาสูงจนเกินเอื้อมสำหรับผู้ที่ต้องการเรียนรู้มากที่สุด สำนักงานจึงตั้งใจควบคุมต้นทุนให้พอประมาณ เพื่อมิให้ภาระค่าใช้จ่ายถูกผลักไปยังผู้เรียน",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "สำนักงานของเรา · จุดยืนของเรา",

@@ -677,11 +677,11 @@ window.TBI18N.register("zh-Hans", {
 
   /* ---- home: hero & belief ---- */
   "The growing community": "不断壮大的社群",
-  "By Practitioners, not consultants.": "由从业者执笔，而非顾问。",
+  "Curriculum, written by practitioners.": "课程，由从业者执笔。",
   "A practice of curriculum developers, subject-matter experts andadult educators, trusted by Approved Training Organisations (ATOs).We take only a handful of engagements each quarter, so that each one has our undivided attention. Every one begins on a blank page, written for the situation in front of us. We keep no templates, and we reuse nothing.":
     "由课程开发者、领域专家与成人教育工作者组成的事务所，深受认可培训机构（ATO）信赖。我们每季度只承接少数委托，以确保每一项都获得我们全心的投入。每一项都从一张白纸开始，为眼前的实际情况量身而作。我们不套用模板，亦不重复使用任何既有内容。",
   "What we believe": "我们的信念",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the fees never find their way down to the learner.":
+  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the cost is never passed on to the learner.":
     "学习不应因价格高昂而将最需要学习的人拒之门外。本所刻意将成本维持在适度水平，使费用永不会转嫁到学员身上。",
 
   /* ---- home: heritage ---- */

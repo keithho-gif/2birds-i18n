@@ -677,11 +677,11 @@ window.TBI18N.register("ko", {
 
   /* ---- home: hero & belief ---- */
   "The growing community": "성장하는 공동체",
-  "By Practitioners, not consultants.": "컨설턴트가 아닌, 실무자의 손으로.",
+  "Curriculum, written by practitioners.": "커리큘럼은, 실무자의 손으로.",
   "A practice of curriculum developers, subject-matter experts andadult educators, trusted by Approved Training Organisations (ATOs).We take only a handful of engagements each quarter, so that each one has our undivided attention. Every one begins on a blank page, written for the situation in front of us. We keep no templates, and we reuse nothing.":
     "커리큘럼 개발자, 분야 전문가, 성인 교육자로 이루어진 사무소로서 공인 교육기관(ATO)의 신뢰를 받고 있습니다. 저희는 분기마다 소수의 의뢰만 맡아 하나하나에 온전히 집중합니다. 모든 일은 백지에서 시작하여, 눈앞의 상황에 맞추어 작성됩니다. 정형화된 템플릿을 두지 않으며, 어떤 것도 재사용하지 않습니다.",
   "What we believe": "저희의 신념",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the fees never find their way down to the learner.":
+  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the cost is never passed on to the learner.":
     "배움은 그것을 가장 필요로 하는 이들의 손이 닿지 않는 가격이어서는 안 됩니다. 저희 사무소는 비용을 의도적으로 적정하게 유지하여, 그 부담이 학습자에게까지 전가되지 않도록 합니다.",
 
   /* ---- home: heritage ---- */

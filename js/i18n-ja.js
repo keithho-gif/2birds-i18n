@@ -677,11 +677,11 @@ window.TBI18N.register("ja", {
 
   /* ---- home: hero & belief ---- */
   "The growing community": "成長するコミュニティ",
-  "By Practitioners, not consultants.": "コンサルタントではなく、実務家の手で。",
+  "Curriculum, written by practitioners.": "カリキュラムは、実務家の手で。",
   "A practice of curriculum developers, subject-matter experts andadult educators, trusted by Approved Training Organisations (ATOs).We take only a handful of engagements each quarter, so that each one has our undivided attention. Every one begins on a blank page, written for the situation in front of us. We keep no templates, and we reuse nothing.":
     "カリキュラム開発者、専門家、成人教育者からなる事務所であり、認定研修機関（ATO）から信頼をいただいています。私たちは四半期ごとにごく少数の案件のみをお引き受けし、その一つひとつに全力を注ぎます。すべては白紙から始まり、目の前の状況に合わせて書き上げます。テンプレートは持たず、いかなるものも使い回しません。",
   "What we believe": "私たちの信念",
-  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the fees never find their way down to the learner.":
+  "Learning ought not to be priced out of reach of the people who most need to learn. The practice keeps its costs deliberately modest so the cost is never passed on to the learner.":
     "学びは、それを最も必要とする人々の手の届かない価格であってはなりません。当事務所はコストを意図的に抑え、その負担が学習者にまで及ぶことのないようにしています。",
 
   /* ---- home: heritage ---- */
