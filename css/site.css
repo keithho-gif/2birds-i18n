@@ -97,12 +97,12 @@ body { padding-top: 108px; }
   padding: var(--space-section) 0 var(--space-section);
   background: var(--canvas);
   overflow: hidden;
-  min-height: clamp(520px, 64vh, 680px);
+  min-height: clamp(460px, 58vh, 600px);
   display: flex;
   align-items: center;
 }
 @media (max-width: 768px) {
-  .tb-hero { min-height: clamp(440px, 64vh, 560px); }
+  .tb-hero { min-height: clamp(400px, 58vh, 500px); }
 }
 /* Hero is a single uniform canvas tone — no internal gradients or
    scrims, no off-brand washes. The brand mark + headline carry the
@@ -124,44 +124,45 @@ body { padding-top: 108px; }
 .tb-hero__logomark img {
   width: clamp(340px, 36vw, 540px);
   height: auto;
-  opacity: 0.62;
-  animation: tb-hero-mark-edge 5s ease-in-out infinite;
+  opacity: 0.78;
+  animation: tb-hero-mark-edge 6.5s ease-in-out infinite;
 }
-/* Edge glow: a brand-olive-light drop-shadow pair whose blur and
-   intensity breathe in and out, so the silhouette quietly pulses
-   without the mark itself ever moving. */
+/* Edge glow: three layered drop-shadows in the brand olive #979265
+   (matches the olive feather inside the mark), breathing in and out
+   on a 6.5s cycle. Sharp inner halo, medium mid, atmospheric outer —
+   gives the silhouette a warm radiance that reads as luxurious. */
 @keyframes tb-hero-mark-edge {
   0%, 100% {
     filter:
-      drop-shadow(0 0 14px rgba(196, 191, 160, 0.32))
-      drop-shadow(0 0 30px rgba(196, 191, 160, 0.16))
-      drop-shadow(0 12px 26px rgba(20, 38, 74, 0.12));
+      drop-shadow(0 0 10px rgba(151, 146, 101, 0.42))
+      drop-shadow(0 0 24px rgba(151, 146, 101, 0.26))
+      drop-shadow(0 0 52px rgba(151, 146, 101, 0.14));
   }
   50% {
     filter:
-      drop-shadow(0 0 24px rgba(196, 191, 160, 0.58))
-      drop-shadow(0 0 56px rgba(196, 191, 160, 0.28))
-      drop-shadow(0 12px 26px rgba(20, 38, 74, 0.12));
+      drop-shadow(0 0 16px rgba(151, 146, 101, 0.70))
+      drop-shadow(0 0 38px rgba(151, 146, 101, 0.48))
+      drop-shadow(0 0 80px rgba(151, 146, 101, 0.24));
   }
 }
 @media (max-width: 768px) {
   .tb-hero__logomark img {
     width: clamp(220px, 56vw, 340px);
-    opacity: 0.42;
+    opacity: 0.58;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .tb-hero__logomark img { animation: none; }
 }
 
-/* CTA glow — the same olive-light breath, slightly slower so it
-   reads as a quiet companion to the mark rather than racing it. */
+/* CTA glow — same olive breath as the mark, offset by ~1s so the
+   two read as paired rather than ticking in lockstep. */
 .tb-hero__actions .btn {
-  animation: tb-hero-cta-glow 5.6s ease-in-out infinite;
+  animation: tb-hero-cta-glow 7.5s ease-in-out infinite;
 }
 @keyframes tb-hero-cta-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 191, 160, 0); }
-  50%      { box-shadow: 0 0 22px 2px rgba(196, 191, 160, 0.45); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(151, 146, 101, 0); }
+  50%      { box-shadow: 0 0 22px 2px rgba(151, 146, 101, 0.50); }
 }
 @media (prefers-reduced-motion: reduce) {
   .tb-hero__actions .btn { animation: none; }
