@@ -142,12 +142,15 @@ body { padding-top: 108px; }
   .brand-stack--lg .brand-stack__text { font-size: 18px; }
   .tb-nav__wm .brand-stack__mark { height: 30px; }
 
-  /* Mobile hero: noticeably tighter. The previous height left a wide
-     empty band above the eyebrow on small screens; shrinking the min
-     and dropping the padding closes it. */
+  /* Mobile hero — top-aligned, expensive editorial feel.
+     Content rides high in the section with a confident top padding,
+     and the empty space lives BELOW the CTA. Centering on a phone
+     reads like a generic landing page; top alignment + negative
+     space below reads like a magazine spread. */
   .tb-hero {
-    min-height: clamp(340px, 50vh, 420px);
-    padding: clamp(24px, 5vh, 56px) 0;
+    align-items: flex-start;
+    min-height: clamp(360px, 52vh, 440px);
+    padding: clamp(40px, 7vh, 64px) 0 clamp(48px, 9vh, 96px);
   }
   .tb-hero__title {
     font-size: clamp(34px, 9.2vw, 48px);
