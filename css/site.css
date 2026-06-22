@@ -104,62 +104,74 @@ body { padding-top: 108px; }
 @media (max-width: 768px) {
   .tb-hero { min-height: clamp(620px, 84vh, 760px); }
 }
-.tb-hero::before {
-  content: "";
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 62% 58% at 72% 50%, rgba(196,191,160,0.28), rgba(250,248,242,0) 70%),
-    radial-gradient(ellipse 90% 60% at 50% 110%, rgba(110,108,73,0.10), rgba(250,248,242,0) 70%),
-    linear-gradient(180deg, #FCFAF3 0%, #F2EDDD 100%);
-  pointer-events: none;
-  z-index: 0;
-}
-.tb-hero::after {
-  content: "";
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(90deg, rgba(250,248,242,0.82) 0%, rgba(250,248,242,0.48) 38%, rgba(250,248,242,0) 64%);
-  pointer-events: none;
-  z-index: 2;
-}
-/* Brand logomark sitting where the globe used to be. Sized to read
-   as a quiet centerpiece, gently breathing so it never feels static.
-   Pointer-events stay off so the headline / CTA capture clicks. */
+/* Hero is a single uniform canvas tone — no internal gradients or
+   scrims, no off-brand washes. The brand mark + headline carry the
+   composition. */
+.tb-hero::before, .tb-hero::after { content: none; }
+
+/* Brand logomark sitting at the visual centre of the hero, rotating
+   slowly with an olive-light edge glow that pulses. Text reads on top
+   because of low opacity + the glow's soft falloff. Pointer-events
+   stay off so the headline / CTA capture clicks. */
 .tb-hero__logomark {
   position: absolute; inset: 0;
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding: 0 clamp(24px, 6vw, 84px);
+  justify-content: center;
   pointer-events: none;
 }
 .tb-hero__logomark img {
-  width: clamp(360px, 42vw, 600px);
+  width: clamp(340px, 36vw, 540px);
   height: auto;
-  opacity: 0.92;
-  filter:
-    drop-shadow(0 22px 44px rgba(20, 38, 74, 0.20))
-    drop-shadow(0 6px 14px rgba(110, 108, 73, 0.10));
-  animation: tb-hero-mark-float 9s ease-in-out infinite;
+  opacity: 0.42;
+  animation:
+    tb-hero-mark-rotate 60s linear infinite,
+    tb-hero-mark-edge   5s ease-in-out infinite;
 }
-@keyframes tb-hero-mark-float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50%      { transform: translateY(-10px) scale(1.012); }
+@keyframes tb-hero-mark-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+/* Edge glow: a brand-olive-light drop-shadow pair whose blur and
+   intensity breathe in and out. Combined with the slow rotation, the
+   highlights appear to travel around the mark — a quiet line of light
+   sweeping the silhouette. */
+@keyframes tb-hero-mark-edge {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 14px rgba(196, 191, 160, 0.32))
+      drop-shadow(0 0 30px rgba(196, 191, 160, 0.16))
+      drop-shadow(0 12px 26px rgba(20, 38, 74, 0.12));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 24px rgba(196, 191, 160, 0.58))
+      drop-shadow(0 0 56px rgba(196, 191, 160, 0.28))
+      drop-shadow(0 12px 26px rgba(20, 38, 74, 0.12));
+  }
 }
 @media (max-width: 768px) {
-  .tb-hero__logomark {
-    justify-content: center;
-    align-items: flex-end;
-    padding: 0 0 18px;
-  }
   .tb-hero__logomark img {
-    width: clamp(240px, 60vw, 360px);
-    opacity: 0.55;
+    width: clamp(220px, 56vw, 340px);
+    opacity: 0.30;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .tb-hero__logomark img { animation: none; }
+}
+
+/* CTA glow — the same olive-light breath, slightly slower so it
+   reads as a quiet companion to the mark rather than racing it. */
+.tb-hero__actions .btn {
+  animation: tb-hero-cta-glow 5.6s ease-in-out infinite;
+}
+@keyframes tb-hero-cta-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 191, 160, 0); }
+  50%      { box-shadow: 0 0 22px 2px rgba(196, 191, 160, 0.45); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tb-hero__actions .btn { animation: none; }
 }
 .tb-hero__title { text-shadow: none; }
 .tb-hero__sub   { text-shadow: none; }
