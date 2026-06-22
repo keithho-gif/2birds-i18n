@@ -27,7 +27,7 @@ function NavBar({ current }) {
     <>
     <header className={"tb-nav" + (open ? " is-open" : "")}>
       <a href="index.html" className="tb-nav__wm" aria-label="2birds — home">
-        <img src="assets/logo.png" alt="2birds" />
+        <img src="assets/monogram.png" alt="2birds" />
       </a>
       <nav className="tb-nav__menu">
         {items.map((it) =>
@@ -138,9 +138,7 @@ function Footer() {
       <div className="container tb-footer__inner">
         <div className="tb-footer__grid">
           <div className="tb-footer__brand">
-            <div className="tb-footer__logo-text" aria-label="2birds">
-              <span className="tb-footer__lw">2</span><span className="tb-footer__lo">B</span><span className="tb-footer__lw">IRDS</span>
-            </div>
+            <img src="assets/logo-white.png" alt="2birds" className="tb-footer__logo" />
             <p className="tb-footer__about">2birds is a growing community of independent practitioners in curriculum development and advisory for Approved Training Organisations (ATOs).</p>
           </div>
           <div className="tb-footer__col">
