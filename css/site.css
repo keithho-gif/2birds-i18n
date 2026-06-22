@@ -4958,16 +4958,21 @@ image-slot::part(placeholder) {
   /* CTA inner with cal */
   .tb-cta__inner--split { padding: 48px var(--space-lg) !important; }
 
-  /* FOOTER */
-  .tb-footer { padding: 56px 0 32px; }
-  .tb-footer__grid { grid-template-columns: 1fr !important; gap: var(--space-xl); }
-  .tb-footer__brand { grid-column: auto; }
+  /* FOOTER — generous breathing room when the columns stack */
+  .tb-footer { padding: 72px 0 40px; }
+  .tb-footer__grid { grid-template-columns: 1fr !important; gap: 48px; }
+  .tb-footer__brand { grid-column: auto; margin-bottom: 8px; }
+  .tb-footer__about { margin-top: 6px; max-width: 100%; }
+  .tb-footer__heading { margin-bottom: 18px; }
+  .tb-footer__list { gap: 16px; }
   .tb-footer__legal {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 14px;
+    margin-top: 56px;
+    padding-top: 24px;
   }
-  .tb-footer__legalRight { text-align: left; }
+  .tb-footer__legalRight { text-align: left; gap: 12px; }
 
   /* JOIN FORM */
   .tb-join { padding: 64px 0; }
