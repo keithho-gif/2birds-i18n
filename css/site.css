@@ -124,10 +124,10 @@ body { padding-top: 108px; }
 .tb-hero__logomark img {
   width: clamp(340px, 36vw, 540px);
   height: auto;
-  opacity: 0.88;
+  opacity: 0.46;
   filter:
-    drop-shadow(0 18px 32px rgba(57, 56, 57, 0.14))
-    drop-shadow(0 6px 12px rgba(57, 56, 57, 0.08));
+    drop-shadow(0 18px 32px rgba(57, 56, 57, 0.10))
+    drop-shadow(0 6px 12px rgba(57, 56, 57, 0.06));
   animation: tb-hero-mark-breathe 9s ease-in-out infinite;
 }
 /* Subtle 1.5% scale breath — the mark holds its dignity but is never
@@ -140,7 +140,7 @@ body { padding-top: 108px; }
 @media (max-width: 768px) {
   .tb-hero__logomark img {
     width: clamp(220px, 56vw, 340px);
-    opacity: 0.58;
+    opacity: 0.32;
   }
 }
 @media (prefers-reduced-motion: reduce) {
