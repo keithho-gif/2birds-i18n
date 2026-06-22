@@ -4959,9 +4959,14 @@ image-slot::part(placeholder) {
   .tb-cta__inner--split { padding: 48px var(--space-lg) !important; }
 
   /* FOOTER — luxury editorial spacing on stacked mobile. Generous
-     vertical rhythm: sections breathe, headings stand off the lists,
-     and the legal block sits well below the last column. */
+     vertical rhythm AND generous side gutters so content doesn't hug
+     the dark panel's edge — overrides the global 20px mobile gutter
+     so the footer breathes like a couture editorial spread. */
   .tb-footer { padding: 104px 0 56px; }
+  .tb-footer .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
   .tb-footer__grid {
     grid-template-columns: 1fr !important;
     gap: 72px;
