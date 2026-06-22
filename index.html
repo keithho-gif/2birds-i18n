@@ -661,12 +661,13 @@ function HeroAmbient() {
       renderer.setSize(w, h);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
-      // Mobile: globe centred in the section as the visual backdrop.
-      // Larger scale + brought closer in z so it reads as a confident
-      // presence behind the type rather than a small decoration.
+      // Mobile: globe is the section's hero presence. Almost fills
+      // the viewport — large scale, brought up to the camera plane,
+      // dead-centred. The scrim through the upper-mid keeps the type
+      // legible against the wireframe behind it.
       if (w < 768) {
-        globe.position.set(0, -0.4, -1.8);
-        globe.scale.setScalar(0.88);
+        globe.position.set(0, -0.2, -0.6);
+        globe.scale.setScalar(1.35);
       } else {
         globe.position.set(3.6, 0.2, -1);
         globe.scale.setScalar(1);
