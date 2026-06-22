@@ -460,6 +460,37 @@ function HeroAmbient() {
     globe.rotation.x = 0.38;
     scene.add(globe);
 
+    /* Distant planets — small companion spheres deep in z so they
+       sit far behind the main Earth without ever competing with it.
+       Each one is a tiny wireframe sphere in a brand-aligned tone,
+       counter-rotating at its own rate to sell the cosmic depth. */
+    function makePlanet(radius, color, lineOpacity, pointOpacity, detail) {
+      const grp = new THREE.Group();
+      const ico = new THREE.IcosahedronGeometry(radius, detail);
+      grp.add(new THREE.LineSegments(
+        new THREE.WireframeGeometry(ico),
+        new THREE.LineBasicMaterial({
+          color, transparent: true, opacity: lineOpacity
+        })
+      ));
+      grp.add(new THREE.Points(ico, new THREE.PointsMaterial({
+        color, size: 0.03, transparent: true, opacity: pointOpacity
+      })));
+      return grp;
+    }
+    // Upper-left companion — pale olive, smaller
+    const planetA = makePlanet(0.9, 0xC4BFA0, 0.45, 0.65, 2);
+    planetA.position.set(-7.2, 2.6, -10);
+    scene.add(planetA);
+    // Far-right companion — warm cream, tiny
+    const planetB = makePlanet(0.55, 0xE0DAB0, 0.50, 0.70, 1);
+    planetB.position.set(8.8, -1.6, -12);
+    scene.add(planetB);
+    // Lower-left companion — royal-soft, slightly larger
+    const planetC = makePlanet(1.1, 0x3D5A8A, 0.40, 0.55, 2);
+    planetC.position.set(-9.0, -2.6, -13);
+    scene.add(planetC);
+
     /* UNIVERSE — two-tier starfield filling the section. Tier 1 is a
        large mid-bright field of stars; Tier 2 is a smaller cluster of
        brighter "feature" stars. Spread depth is wide so the parallax
@@ -495,7 +526,7 @@ function HeroAmbient() {
     let dragging = false;
     let lastX = 0, lastY = 0;
     let velY = 0, velX = 0;
-    const AUTO_Y = 0.0008;
+    const AUTO_Y = 0.0028;
 
     function onPointerDown(e) {
       dragging = true;
@@ -540,17 +571,20 @@ function HeroAmbient() {
     function tick() {
       if (!dragging) {
         // Momentum decay; once the flick settles, fall back to a
-        // slow auto-rotate so the globe never reads as inert.
+        // brisker auto-rotate so the cosmos always feels alive.
         velY *= 0.93;
         velX *= 0.93;
         globe.rotation.y += velY + AUTO_Y;
         globe.rotation.x += velX;
       }
-      // Cosmos drift — three tiers, slightly different rates so the
-      // parallax reads as depth, not a single flat plate.
-      starsFar.rotation.y  += 0.00008;
-      starsMid.rotation.y  += 0.00014;
-      starsNear.rotation.y += 0.00022;
+      // Cosmos drift — three tiers at different rates for parallax.
+      starsFar.rotation.y  += 0.00035;
+      starsMid.rotation.y  += 0.00055;
+      starsNear.rotation.y += 0.00080;
+      // Companion planets — each spins at its own pace.
+      planetA.rotation.y += 0.0042;
+      planetB.rotation.y -= 0.0050;
+      planetC.rotation.y += 0.0030;
       renderer.render(scene, camera);
       raf = requestAnimationFrame(tick);
     }
