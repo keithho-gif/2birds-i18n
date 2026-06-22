@@ -362,10 +362,11 @@ function MiniCal() {
 }
 
 /* Hero ambient: a single large Asia-tilted wireframe globe seated
-   on the right of the section. Wireframe icosahedron lattice + a
-   coarse hand-coded land mask (lat/lng -> 3D) so the rotating sphere
-   reads as a globe of the region. Plus a sparse dust field for
-   atmosphere. Brand olive only. */
+   on the right of the section, draggable. Wireframe icosahedron
+   lattice + a dense hand-coded land mask (lat/lng -> 3D) so the
+   rotating sphere reads as Earth focused on Asia. Drag to orbit
+   with momentum easing; release and the globe keeps drifting at
+   the auto-rotate speed. Brand olive only. */
 function HeroAmbient() {
   const ref = React.useRef(null);
   React.useEffect(() => {
@@ -373,8 +374,8 @@ function HeroAmbient() {
     if (!host || typeof THREE === "undefined") return;
     const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const COL_LINE  = 0x969265;
-    const COL_LAND  = 0x6F6C49;
+    const COL_LINE  = 0xC4BFA0;   // olive-light wires read on navy
+    const COL_LAND  = 0xE0DAB0;   // warm cream-olive for the continents
     const COL_DUST  = 0xC4BFA0;
 
     const scene = new THREE.Scene();
@@ -388,48 +389,102 @@ function HeroAmbient() {
     /* The globe — icosahedron wireframe + vertex points. */
     const globe = new THREE.Group();
     const R = 3.2;
-    const ico = new THREE.IcosahedronGeometry(R, 2);
+    const ico = new THREE.IcosahedronGeometry(R, 3);  // finer mesh for Earth feel
     globe.add(new THREE.LineSegments(
       new THREE.WireframeGeometry(ico),
       new THREE.LineBasicMaterial({
-        color: COL_LINE, transparent: true, opacity: 0.30
+        color: COL_LINE, transparent: true, opacity: 0.22
       })
     ));
     globe.add(new THREE.Points(ico, new THREE.PointsMaterial({
-      color: COL_LINE, size: 0.05, transparent: true, opacity: 0.45
+      color: COL_LINE, size: 0.045, transparent: true, opacity: 0.35
     })));
 
-    /* Continent land markers (lat, lng). Asia weighted by design. */
+    /* Continent land markers (lat, lng). Asia weighted, denser
+       coverage so the rotating sphere reads as Earth, not just an
+       icosahedron with sparse dots. */
     const LAND = [
-      // East Asia / China
-      [42, 88], [42, 100], [42, 115], [42, 125], [36, 92], [36, 104], [36, 116], [30, 100], [30, 112],
-      [25, 102], [25, 112], [22, 108], [50, 95], [50, 110], [50, 125], [55, 105], [55, 125],
-      // Japan / Korea
-      [36, 138], [38, 140], [33, 132], [44, 142], [37, 127], [35, 128],
-      // South Asia
-      [33, 75], [28, 78], [25, 82], [22, 88], [20, 75], [17, 80], [13, 78], [9, 77], [25, 68], [30, 70],
-      // Southeast Asia
-      [14, 100], [11, 105], [16, 108], [10, 106], [13, 122], [7, 125], [3, 102], [1, 104],
-      [-2, 110], [-5, 120], [-7, 113], [-3, 130], [-7, 140], [21, 96], [16, 96],
-      // Indonesia / Australia
-      [-25, 132], [-20, 122], [-18, 138], [-30, 122], [-32, 138], [-35, 145], [-37, 146], [-22, 148],
+      // ASIA ===================================================
+      // North-east China / Mongolia
+      [48, 88], [48, 100], [48, 115], [48, 125], [45, 92], [45, 104], [45, 116], [45, 128],
+      [42, 88], [42, 100], [42, 115], [42, 125], [42, 135],
+      // Central China
+      [38, 92], [38, 104], [38, 116], [36, 100], [36, 112], [36, 122],
+      [33, 96], [33, 108], [33, 118],
+      // Southern China
+      [30, 100], [30, 112], [30, 122], [27, 104], [27, 116], [25, 102], [25, 112], [25, 122],
+      [22, 108], [22, 116], [20, 110],
+      // Siberia / Russia far east
+      [60, 88], [60, 100], [60, 115], [60, 130], [60, 145], [55, 95], [55, 110], [55, 125],
+      [55, 140], [50, 95], [50, 110], [50, 125], [50, 140],
+      // Japan
+      [36, 138], [38, 140], [40, 142], [44, 142], [33, 132], [35, 137],
+      // Korea
+      [37, 127], [35, 128], [38, 127],
+      // South Asia / India
+      [33, 75], [30, 78], [28, 78], [28, 84], [25, 75], [25, 82], [22, 78], [22, 88],
+      [20, 75], [20, 82], [17, 78], [17, 80], [13, 78], [13, 80], [9, 77], [11, 77],
+      [25, 68], [30, 70], [33, 72], [27, 88],
+      // South-east Asia mainland
+      [21, 96], [21, 100], [19, 96], [19, 100], [16, 96], [16, 100], [16, 108], [14, 100],
+      [13, 105], [11, 105], [11, 107], [10, 106], [13, 122],
+      // Philippines
+      [16, 121], [13, 122], [10, 124], [7, 125], [5, 121],
+      // Maritime SE Asia / Indonesia
+      [3, 102], [3, 113], [1, 104], [-2, 110], [-2, 117], [-2, 130],
+      [-5, 105], [-5, 113], [-5, 120], [-5, 134], [-7, 110], [-7, 113],
+      [-8, 116], [-8, 124], [-8, 138],
+      // Australia
+      [-12, 132], [-15, 128], [-18, 122], [-18, 138], [-20, 122], [-22, 148],
+      [-25, 116], [-25, 132], [-25, 145], [-28, 138], [-30, 122], [-32, 138],
+      [-32, 152], [-35, 117], [-35, 138], [-35, 145], [-37, 144], [-37, 146],
       // Middle East
-      [33, 44], [32, 36], [28, 50], [25, 45], [22, 55], [16, 47], [33, 52], [37, 50],
-      // Russia / Central Asia
-      [60, 30], [60, 50], [60, 75], [60, 100], [60, 125], [60, 145], [65, 60], [65, 90], [65, 120],
-      [50, 60], [50, 75], [45, 60], [45, 78],
-      // Europe
-      [55, 25], [50, 18], [50, 8], [55, 12], [60, 16], [45, 10], [42, 0], [50, 0], [55, -2], [60, 10],
-      [38, 20], [42, 15], [38, 24],
-      // Africa
-      [30, 30], [28, 0], [22, 13], [16, 5], [12, 30], [8, 20], [3, 22], [-3, 18], [-5, 30], [-12, 28],
-      [-18, 22], [-25, 28], [-30, 25], [10, 40], [5, 38],
-      // Americas (back hemisphere; visible during rotation)
-      [60, -100], [55, -110], [50, -100], [45, -100], [40, -100], [40, -85], [35, -110],
-      [30, -95], [25, -100], [18, -100], [15, -90], [10, -75],
-      [-2, -75], [-12, -70], [-22, -65], [-30, -65], [-38, -68],
-      // Pacific
-      [-18, 178], [-21, -175]
+      [37, 44], [37, 50], [37, 58], [33, 44], [33, 52], [32, 36], [30, 36],
+      [30, 50], [28, 50], [25, 45], [25, 55], [22, 55], [22, 45], [16, 47], [13, 45],
+      // Central Asia
+      [50, 60], [50, 75], [50, 80], [47, 60], [47, 78], [45, 60], [45, 70], [45, 78],
+      [42, 60], [42, 70], [42, 78], [40, 65], [40, 75],
+      // Northern Russia
+      [65, 40], [65, 60], [65, 90], [65, 120], [65, 145],
+      [70, 70], [70, 90], [70, 110],
+      // EUROPE =================================================
+      [60, 30], [60, 16], [60, 10], [60, 22], [58, 12], [58, 26],
+      [55, 25], [55, 12], [55, -2], [55, 35], [54, 18], [54, 38],
+      [50, 18], [50, 8], [50, 0], [50, 30], [48, 14], [48, 24],
+      [45, 10], [45, 20], [45, 35], [42, 0], [42, 12], [42, 22], [42, 28],
+      [38, 16], [38, 20], [38, 24], [38, 0], [38, -4],
+      // AFRICA =================================================
+      [33, -5], [33, 0], [30, 10], [30, 20], [30, 30], [28, 0], [28, 15],
+      [25, -10], [25, 0], [25, 12], [25, 22], [25, 32],
+      [20, -15], [20, 0], [20, 12], [20, 25], [20, 35],
+      [15, -10], [15, 5], [15, 20], [15, 35], [12, 0], [12, 30],
+      [8, -5], [8, 12], [8, 25], [8, 38],
+      [5, 8], [5, 20], [5, 32], [3, 22], [3, 35],
+      [0, 12], [0, 22], [0, 35], [-3, 18], [-3, 28],
+      [-5, 15], [-5, 25], [-5, 35], [-8, 25], [-10, 30], [-10, 40],
+      [-12, 18], [-12, 28], [-15, 22], [-15, 32], [-18, 20], [-18, 30],
+      [-20, 14], [-20, 28], [-22, 18], [-25, 22], [-25, 28], [-30, 22], [-30, 28], [-32, 20],
+      // AMERICAS =============================================
+      // North America
+      [65, -150], [65, -120], [65, -90], [65, -75], [60, -150], [60, -130], [60, -110],
+      [60, -95], [60, -75], [55, -130], [55, -110], [55, -90], [55, -70],
+      [50, -125], [50, -105], [50, -90], [50, -75], [50, -65],
+      [45, -120], [45, -100], [45, -85], [45, -70],
+      [40, -120], [40, -100], [40, -85], [40, -75],
+      [35, -120], [35, -100], [35, -85], [35, -78],
+      [30, -110], [30, -95], [30, -85], [25, -100], [22, -100], [20, -100], [18, -95],
+      // Central America / Caribbean
+      [15, -90], [12, -85], [10, -75], [10, -65],
+      // South America
+      [5, -75], [5, -55], [0, -75], [0, -60], [0, -50],
+      [-5, -78], [-5, -65], [-5, -50], [-10, -75], [-10, -60], [-10, -42],
+      [-15, -72], [-15, -55], [-15, -42],
+      [-20, -68], [-20, -55], [-22, -65], [-22, -45],
+      [-25, -65], [-28, -65], [-30, -65], [-30, -55], [-33, -70], [-35, -60], [-38, -68], [-40, -65],
+      // GREENLAND
+      [70, -40], [72, -30], [78, -42], [75, -45],
+      // PACIFIC sprinkle
+      [-18, 178], [-21, -175], [20, -158]
     ];
     function llToXYZ(lat, lng, r) {
       const phi = (90 - lat) * Math.PI / 180;
@@ -442,13 +497,13 @@ function HeroAmbient() {
     }
     const lp = new Float32Array(LAND.length * 3);
     LAND.forEach(([la, ln], i) => {
-      const [x, y, z] = llToXYZ(la, ln, R * 1.01);
+      const [x, y, z] = llToXYZ(la, ln, R * 1.005);
       lp[i * 3] = x; lp[i * 3 + 1] = y; lp[i * 3 + 2] = z;
     });
     const landGeo = new THREE.BufferGeometry();
     landGeo.setAttribute("position", new THREE.BufferAttribute(lp, 3));
     globe.add(new THREE.Points(landGeo, new THREE.PointsMaterial({
-      color: COL_LAND, size: 0.11, transparent: true, opacity: 0.92
+      color: COL_LAND, size: 0.085, transparent: true, opacity: 0.95
     })));
 
     // Tilt so Asia (~100E, 25N) faces the camera; place on the right.
@@ -472,6 +527,44 @@ function HeroAmbient() {
     }));
     scene.add(dust);
 
+    /* Drag-to-orbit. Pointer events arrive via the host div; we
+       accumulate rotation on drag, decay velocity after release for
+       momentum, and idle-spin at a slow auto-rate when nothing is
+       being dragged. Pitch clamped so the visitor can't flip the
+       globe upside-down. */
+    let dragging = false;
+    let lastX = 0, lastY = 0;
+    let velY = 0, velX = 0;
+    const AUTO_Y = 0.0008;
+
+    function onPointerDown(e) {
+      dragging = true;
+      lastX = e.clientX; lastY = e.clientY;
+      velX = velY = 0;
+      if (e.target.setPointerCapture && e.pointerId !== undefined) {
+        try { e.target.setPointerCapture(e.pointerId); } catch (_) {}
+      }
+    }
+    function onPointerMove(e) {
+      if (!dragging) return;
+      const dx = e.clientX - lastX;
+      const dy = e.clientY - lastY;
+      lastX = e.clientX; lastY = e.clientY;
+      velY = dx * 0.0055;
+      velX = dy * 0.0040;
+      globe.rotation.y += velY;
+      globe.rotation.x += velX;
+      // Clamp pitch
+      const PITCH = 0.95;
+      if (globe.rotation.x >  PITCH) globe.rotation.x =  PITCH;
+      if (globe.rotation.x < -PITCH) globe.rotation.x = -PITCH;
+    }
+    function onPointerUp() { dragging = false; }
+    host.addEventListener('pointerdown', onPointerDown);
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
+
     function resize() {
       const w = host.clientWidth || 1, h = host.clientHeight || 1;
       renderer.setSize(w, h);
@@ -485,7 +578,14 @@ function HeroAmbient() {
 
     let raf = 0;
     function tick() {
-      globe.rotation.y += 0.0010;
+      if (!dragging) {
+        // Momentum decay; once the flick settles, fall back to a
+        // slow auto-rotate so the globe never reads as inert.
+        velY *= 0.93;
+        velX *= 0.93;
+        globe.rotation.y += velY + AUTO_Y;
+        globe.rotation.x += velX;
+      }
       dust.rotation.y  += 0.00020;
       renderer.render(scene, camera);
       raf = requestAnimationFrame(tick);
@@ -494,6 +594,10 @@ function HeroAmbient() {
 
     return () => {
       cancelAnimationFrame(raf);
+      host.removeEventListener('pointerdown', onPointerDown);
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('pointercancel', onPointerUp);
       if (ro) ro.disconnect(); else window.removeEventListener("resize", resize);
       renderer.dispose();
       if (renderer.domElement.parentNode === host) host.removeChild(renderer.domElement);
@@ -512,7 +616,7 @@ function App() {
         <section className="tb-hero">
           <HeroAmbient />
           <div className="container tb-hero__inner">
-            <EyebrowLockup>The growing community</EyebrowLockup>
+            <EyebrowLockup dark>The growing community</EyebrowLockup>
             <h1 className="tb-hero__title" style={{ fontSize: "70px" }}>
               Curriculum, <br /><em className="t-italic">written by practitioners.</em>
             </h1>
@@ -523,7 +627,7 @@ function App() {
               carried over from prior clients.
             </p>
             <div className="tb-hero__actions">
-              <a className="btn btn-ghost" href="#manifesto">Read what we believe</a>
+              <a className="btn btn-ghost-on-dark" href="#manifesto">Read what we believe</a>
             </div>
           </div>
         </section>

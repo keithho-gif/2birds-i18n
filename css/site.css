@@ -47,6 +47,25 @@ body { padding-top: 108px; }
 .tb-nav__link.is-active::after { right: 0; }
 .tb-nav__right { display: flex; gap: 22px; align-items: center; justify-self: end; }
 
+/* Calligraphic monogram in the right slot of the navbar — sits just
+   before the 'Make an enquiry' link so the brand mark is always in
+   view, even when the visitor has scrolled past the hero. */
+.tb-nav__monogram {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.tb-nav__monogram img {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+.tb-nav__monogram:hover { transform: translateY(-1px); opacity: 0.85; }
+@media (max-width: 768px) {
+  .tb-nav__monogram { height: 28px; }
+}
+
 /* Editorial enquiry link in nav, replaces the old CTA */
 .tb-nav__enq {
   position: relative;
@@ -95,21 +114,36 @@ body { padding-top: 108px; }
 .tb-hero {
   position: relative;
   padding: var(--space-section) 0 var(--space-section);
-  background: var(--canvas);
+  background: var(--royal-deep);
+  color: var(--paper);
   overflow: hidden;
   min-height: clamp(460px, 58vh, 600px);
   display: flex;
   align-items: center;
-  border-top: 1px solid var(--olive);
-  border-bottom: 1px solid var(--olive);
 }
 @media (max-width: 768px) {
   .tb-hero { min-height: clamp(400px, 58vh, 500px); }
 }
-/* Hero is a single uniform canvas tone — no internal gradients or
-   scrims, no off-brand washes. The brand mark + headline carry the
-   composition. */
-.tb-hero::before, .tb-hero::after { content: none; }
+/* Atmospheric depth on the navy stage — an olive radial near the
+   globe + the linear navy gradient base, and a left-side scrim that
+   gives the headline a quiet block of paper-on-navy contrast. */
+.tb-hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 56% 62% at 72% 50%, rgba(151, 146, 101, 0.18), rgba(20, 38, 74, 0) 70%),
+    linear-gradient(180deg, #14264A 0%, #0F1C39 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+.tb-hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(20, 38, 74, 0.62) 0%, rgba(20, 38, 74, 0.22) 42%, rgba(20, 38, 74, 0) 64%);
+  pointer-events: none;
+  z-index: 2;
+}
 
 @media (max-width: 768px) {
   /* Mobile keeps the subtitle as a single flowing paragraph — the
@@ -117,9 +151,11 @@ body { padding-top: 108px; }
   .tb-hero__sub br.tb-sub-break { display: none; }
 }
 
-/* CTA: a quiet lift on hover instead of a continuous glow. The mark
-   carries the section's motion; the button stays still until invited. */
+/* CTA: a quiet hover lift on top of the sheen sweep defined below.
+   The sheen is the section's signature flourish. */
 .tb-hero__actions .btn {
+  position: relative;
+  overflow: hidden;
   transition:
     transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
     box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
@@ -129,16 +165,57 @@ body { padding-top: 108px; }
 }
 .tb-hero__actions .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(57, 56, 57, 0.14);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+/* The signature sheen: a thin olive-light highlight that sweeps
+   across the button on a 5.5s loop. Pure CSS; no JS, no continuous
+   layout work. */
+.tb-hero__actions .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -55%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(196, 191, 160, 0.00) 20%,
+    rgba(196, 191, 160, 0.55) 50%,
+    rgba(196, 191, 160, 0.00) 80%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+  animation: tb-hero-cta-sheen 5.5s ease-in-out infinite;
+}
+@keyframes tb-hero-cta-sheen {
+  0%   { left: -55%; }
+  55%  { left: 120%; }
+  100% { left: 120%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tb-hero__actions .btn::before { animation: none; left: -55%; }
 }
 
-/* Ambient 3D layer behind everything else in the hero. */
+/* Ambient 3D layer. Pointer events ENABLED so the visitor can drag
+   the Asia globe. Headline + CTA above stay interactive via the
+   pointer-events: auto re-enabled on .tb-hero__inner children. */
 .tb-hero__ambient {
   position: absolute; inset: 0;
-  z-index: 0;
-  pointer-events: none;
+  z-index: 1;
+  pointer-events: auto;
+  touch-action: none;
+  cursor: grab;
 }
+.tb-hero__ambient:active { cursor: grabbing; }
 .tb-hero__ambient canvas { display: block; width: 100%; height: 100%; }
+.tb-hero__inner { pointer-events: none; }
+.tb-hero__inner a, .tb-hero__inner button, .tb-hero__inner input,
+.tb-hero__inner select, .tb-hero__inner textarea, .tb-hero__inner label,
+.tb-hero__inner h1, .tb-hero__inner p, .tb-hero__inner .eyebrow-lockup {
+  pointer-events: auto;
+}
 .tb-hero__title { text-shadow: none; }
 .tb-hero__sub   { text-shadow: none; }
 .tb-hero__glow {
@@ -780,24 +857,24 @@ body { padding-top: 108px; }
   .tb-twos__row { padding: 28px 24px; }
   .tb-twos__a, .tb-twos__b, .tb-twos__amp { font-size: 24px; }
 }
-.tb-hero__title { color: var(--ink); }
-.tb-hero__title em { color: var(--olive-deep); }
-.tb-hero__sub { color: var(--graphite); }
-.tb-hero .eyebrow-lockup { color: var(--royal); }
-.tb-hero .eyebrow-lockup::before { background: var(--royal); }
+.tb-hero__title { color: var(--paper); }
+.tb-hero__title em { color: var(--olive-light); }
+.tb-hero__sub { color: rgba(250, 248, 242, 0.82); }
+.tb-hero .eyebrow-lockup { color: var(--olive-light); }
+.tb-hero .eyebrow-lockup::before { background: var(--olive-light); }
 .tb-hero .eyebrow-lockup { margin-bottom: 28px; }
 .tb-hero__title {
   font-family: var(--font-serif); font-weight: 400;
   font-size: 88px; line-height: 1.0; letter-spacing: -0.022em;
-  color: var(--ink);
+  color: var(--paper);
   margin: 0 0 28px;
   max-width: 920px;
   text-wrap: balance;
 }
-.tb-hero__title em { font-style: italic; color: var(--olive-deep); }
+.tb-hero__title em { font-style: italic; color: var(--olive-light); }
 .tb-hero__sub {
   font-family: var(--font-sans); font-size: 22px; font-weight: 500;
-  line-height: 1.55; color: var(--ink-soft);
+  line-height: 1.55; color: rgba(250, 248, 242, 0.82);
   margin: 0 0 36px; max-width: 660px;
   text-wrap: pretty;
 }
