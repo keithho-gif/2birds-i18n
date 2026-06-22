@@ -361,10 +361,17 @@ function MiniCal() {
 
 }
 
-/* Hero backdrop in the spline.design idiom: pure-black stage,
-   receding perspective grid, scattered floating books (relevant to a
-   curriculum-development practice), drag-to-orbit interaction with
-   momentum easing, soft directional lighting. */
+/* Hero backdrop in the spline.design idiom, but in the editorial
+   brand language: pure black stage with a receding grid, floating
+   iconic shapes that relate to the practice (books, scrolls, paper
+   stacks), strict brand palette only — olive variants, royal blue,
+   paper cream, charcoal — no off-brand vibrants.
+
+   Drag empty space   -> orbit the whole scene with momentum easing
+   Drag a single icon -> move that icon around (raycaster picks the
+                         object under the cursor); on release the
+                         icon stays where dropped and resumes a gentle
+                         bob around its new resting position. */
 function FloatingShapes() {
   const ref = React.useRef(null);
   React.useEffect(() => {
@@ -372,7 +379,19 @@ function FloatingShapes() {
     if (!host || typeof THREE === "undefined") return;
     const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const COL_GRID = 0x232842;
+    /* Brand-only colour set (from foundations.css :root tokens). No
+       value here exists outside the brand palette. */
+    const BRAND = {
+      oliveLight: 0xC4BFA0,
+      olive:      0x969265,
+      oliveDeep:  0x6F6C49,
+      royal:      0x1E3A6F,
+      royalSoft:  0x3D5A8A,
+      paper:      0xFAF8F2,
+      stone:      0xD4D2C5,
+      charcoal:   0x383838
+    };
+    const COL_GRID = 0x1F2A48;     // a dim shade of brand royal
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
@@ -383,26 +402,26 @@ function FloatingShapes() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     host.appendChild(renderer.domElement);
 
-    // Lighting rig — warm key from upper-right, cool fill from upper-left
-    scene.add(new THREE.AmbientLight(0xFFFFFF, 0.38));
-    const key = new THREE.DirectionalLight(0xFFFFFF, 1.05);
+    // Lighting — warm key from upper-right, cool brand-royal fill from upper-left
+    scene.add(new THREE.AmbientLight(0xFFFFFF, 0.36));
+    const key = new THREE.DirectionalLight(0xFFF5E0, 1.10);
     key.position.set(5, 8, 6);
     scene.add(key);
-    const fill = new THREE.DirectionalLight(0x6090FF, 0.42);
+    const fill = new THREE.DirectionalLight(BRAND.royalSoft, 0.40);
     fill.position.set(-5, 3, 4);
     scene.add(fill);
 
-    // Receding perspective grid (Spline reference)
+    // Receding perspective grid
     const grid = new THREE.GridHelper(80, 50, COL_GRID, COL_GRID);
     grid.position.y = -2.5;
     grid.material.transparent = true;
-    grid.material.opacity = 0.48;
+    grid.material.opacity = 0.45;
+    grid.userData.notInteractive = true; // skip in raycast
     scene.add(grid);
 
-    /* A book = a rounded-edge cuboid in book proportions (wider and
-       taller than thick). The world reads it as a book at a glance;
-       up close, the bevelled edges give it the soft Spline look. */
-    function bookGeo(w, h, d, r) {
+    /* ROUNDED RECT EXTRUDE — used for books and paper stacks. r is the
+       corner / bevel radius, which gives the soft Spline edge. */
+    function roundedRectGeo(w, h, d, r) {
       const sx = w / 2, sy = h / 2;
       const cr = Math.min(r, sx * 0.45, sy * 0.45);
       const sh = new THREE.Shape();
@@ -429,76 +448,152 @@ function FloatingShapes() {
       return geo;
     }
 
+    /* SCROLL — capped cylinder, slim and rounded. Used for the
+       documents/scrolls in the scene. */
+    function scrollGeo(radius, height) {
+      const geo = new THREE.CylinderGeometry(radius, radius, height, 32, 1, false);
+      geo.computeVertexNormals();
+      return geo;
+    }
+
+    function mat(color, opts) {
+      return new THREE.MeshStandardMaterial({
+        color,
+        roughness: (opts && opts.roughness) || 0.50,
+        metalness: (opts && opts.metalness) || 0.08
+      });
+    }
+
     function makeBook(w, h, d, color, pos, rot, spinSpeed) {
-      const m = new THREE.Mesh(
-        bookGeo(w, h, d, 0.07),
-        new THREE.MeshStandardMaterial({ color, roughness: 0.52, metalness: 0.10 })
-      );
+      const m = new THREE.Mesh(roundedRectGeo(w, h, d, 0.07), mat(color));
       m.position.fromArray(pos);
       m.rotation.fromArray(rot);
-      m.userData = { spin: spinSpeed, baseY: pos[1], phase: Math.random() * Math.PI * 2 };
+      m.userData = {
+        spin: spinSpeed, basePos: m.position.clone(),
+        phase: Math.random() * Math.PI * 2, type: 'book'
+      };
+      return m;
+    }
+    function makeScroll(radius, height, color, pos, rot, spinSpeed) {
+      const m = new THREE.Mesh(scrollGeo(radius, height), mat(color));
+      m.position.fromArray(pos);
+      m.rotation.fromArray(rot);
+      m.userData = {
+        spin: spinSpeed, basePos: m.position.clone(),
+        phase: Math.random() * Math.PI * 2, type: 'scroll'
+      };
       return m;
     }
 
-    /* Scatter of 11 books. Palette: rich navy, burgundy, mustard,
-       forest, deep red, brown leather, charcoal — the bookshelf look
-       a curriculum practice would carry. Sizes vary; rotations vary. */
-    const BOOKS = [
-      // [w, h, d, color, [pos], [rot], spin]
-      [1.5, 1.05, 0.25, 0x2D3A8A, [-5.0,  1.0, -2.0], [ 0.3,  0.4,  0.2], 0.0018],
-      [1.6, 1.10, 0.28, 0xA32E5C, [ 5.2,  0.9, -1.5], [-0.3,  0.5, -0.2], 0.0016],
-      [1.2, 0.85, 0.22, 0xE5A03A, [-4.0,  2.6,  1.0], [ 0.2,  0.8,  0.4], 0.0024],
-      [1.3, 0.95, 0.24, 0x3F6B47, [-2.4, -0.4,  1.0], [ 0.6,  0.4,  0.3], 0.0022],
-      [1.5, 1.05, 0.30, 0xC44A4A, [-3.6, -1.4,  0.6], [ 0.5,  0.2, -0.3], 0.0018],
-      [1.1, 0.78, 0.20, 0x3A4068, [ 0.6, -1.6,  0.5], [ 0.4,  0.3,  0.2], 0.0026],
-      [1.4, 1.00, 0.25, 0x6B4F2C, [ 3.2,  2.0,  0.0], [-0.2,  0.4,  0.3], 0.0020],
-      [1.0, 0.72, 0.18, 0xE5A03A, [ 0.4,  2.6, -1.5], [ 0.5,  0.5,  0.5], 0.0028],
-      [0.85, 0.62, 0.16, 0x1A1A22, [-1.6,  2.2, -1.0], [ 0.3,  0.2,  0.1], 0.0030],
-      [1.0, 0.72, 0.18, 0x1A1A22, [ 2.2, -0.7, -2.5], [ 0.4,  0.3,  0.2], 0.0024],
-      [0.9, 0.66, 0.17, 0xA32E5C, [ 4.0, -1.6,  1.0], [ 0.6,  0.2,  0.3], 0.0030]
+    /* The scene's working set. Distinct shape types, brand colours
+       only, sized for visual hierarchy (larger pieces upstage,
+       smaller pieces in the wings). */
+    const ITEMS = [
+      // BOOKS — main bookshelf characters
+      makeBook(1.5, 1.05, 0.26, BRAND.oliveDeep,  [-5.0,  1.0, -2.0], [ 0.3,  0.4,  0.2], 0.0016),
+      makeBook(1.6, 1.10, 0.30, BRAND.royal,      [ 5.2,  0.9, -1.5], [-0.3,  0.5, -0.2], 0.0014),
+      makeBook(1.2, 0.85, 0.22, BRAND.oliveLight, [-4.0,  2.6,  1.0], [ 0.2,  0.8,  0.4], 0.0022),
+      makeBook(1.3, 0.95, 0.24, BRAND.olive,      [-2.4, -0.4,  1.0], [ 0.6,  0.4,  0.3], 0.0020),
+      makeBook(1.4, 1.00, 0.26, BRAND.royalSoft,  [ 3.2,  2.0,  0.0], [-0.2,  0.4,  0.3], 0.0018),
+      makeBook(1.1, 0.78, 0.20, BRAND.oliveDeep,  [ 0.6, -1.6,  0.5], [ 0.4,  0.3,  0.2], 0.0024),
+      // PAPER STACKS — thin slabs, cream/stone
+      makeBook(1.0, 0.72, 0.10, BRAND.paper,      [ 4.0, -1.6,  1.0], [ 0.6,  0.2,  0.3], 0.0028),
+      makeBook(0.85, 0.62, 0.08, BRAND.stone,     [-1.6,  2.2, -1.0], [ 0.3,  0.2,  0.1], 0.0028),
+      // SCROLLS — small olive + cream rolls
+      makeScroll(0.22, 1.35, BRAND.paper,         [-3.4, -1.4,  0.6], [ 0.4,  0.0,  Math.PI / 2 - 0.3], 0.0020),
+      makeScroll(0.20, 1.20, BRAND.oliveLight,    [ 2.2, -0.7, -2.0], [ 0.3,  0.2,  Math.PI / 2 + 0.4], 0.0022)
     ];
-    const books = BOOKS.map(b => {
-      const m = makeBook(b[0], b[1], b[2], b[3], b[4], b[5], b[6]);
-      scene.add(m);
-      return m;
-    });
+    ITEMS.forEach(m => scene.add(m));
 
-    /* Drag-to-orbit. Pointer events are enabled in CSS on this canvas;
-       the .tb-hero__inner content sits above it on z-index so clicks
-       on the headline/button still go where they should — the canvas
-       only captures drags on the surrounding space.
+    /* INTERACTION
+       --------
+       Raycaster decides whether a pointerdown lands on a real icon or
+       on empty space. Hit an icon -> we capture that mesh and follow
+       the cursor by projecting its world position onto a camera-facing
+       plane through the icon's current depth. Miss everything -> the
+       gesture rotates the whole scene with momentum easing. */
+    const raycaster = new THREE.Raycaster();
+    const ndc = new THREE.Vector2();
 
-       Rotation accumulates on drag and decays with momentum after
-       release; pitch is clamped so the visitor can't flip the scene. */
-    let dragging = false;
+    let sceneDragging = false;
     let lastX = 0, lastY = 0;
     let velX = 0, velY = 0;
     let rotY = 0, rotX = 0;
 
+    let grabbed = null;
+    const dragPlane = new THREE.Plane();
+    const planeNormal = new THREE.Vector3();
+    const worldPoint = new THREE.Vector3();
+
+    function setNDC(e) {
+      const rect = host.getBoundingClientRect();
+      ndc.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      ndc.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    }
+
+    function pickItem(e) {
+      setNDC(e);
+      raycaster.setFromCamera(ndc, camera);
+      const hits = raycaster.intersectObjects(ITEMS, false);
+      return hits.length ? hits[0].object : null;
+    }
+
     function onPointerDown(e) {
-      dragging = true;
-      lastX = e.clientX;
-      lastY = e.clientY;
-      velX = velY = 0;
-      host.style.cursor = 'grabbing';
+      const hit = pickItem(e);
+      if (hit) {
+        grabbed = hit;
+        // Build a plane perpendicular to the camera, passing through
+        // the icon's current world position. Cursor projects to this
+        // plane each frame and the icon follows in world space.
+        const worldPos = new THREE.Vector3();
+        grabbed.getWorldPosition(worldPos);
+        camera.getWorldDirection(planeNormal);
+        dragPlane.setFromNormalAndCoplanarPoint(planeNormal.clone().negate(), worldPos);
+        host.style.cursor = 'grabbing';
+      } else {
+        sceneDragging = true;
+        lastX = e.clientX; lastY = e.clientY;
+        velX = velY = 0;
+        host.style.cursor = 'grabbing';
+      }
       if (e.target.setPointerCapture && e.pointerId !== undefined) {
         try { e.target.setPointerCapture(e.pointerId); } catch (_) {}
       }
     }
+
     function onPointerMove(e) {
-      if (!dragging) return;
-      const dx = e.clientX - lastX;
-      const dy = e.clientY - lastY;
-      lastX = e.clientX;
-      lastY = e.clientY;
-      velX = dx * 0.005;
-      velY = dy * 0.005;
-      rotY += velX;
-      rotX += velY;
-      rotX = Math.max(-0.6, Math.min(0.6, rotX));
+      if (grabbed) {
+        setNDC(e);
+        raycaster.setFromCamera(ndc, camera);
+        if (raycaster.ray.intersectPlane(dragPlane, worldPoint)) {
+          // World -> local (scene's transform may differ from identity)
+          const local = scene.worldToLocal(worldPoint.clone());
+          grabbed.position.copy(local);
+        }
+      } else if (sceneDragging) {
+        const dx = e.clientX - lastX;
+        const dy = e.clientY - lastY;
+        lastX = e.clientX; lastY = e.clientY;
+        velX = dx * 0.005;
+        velY = dy * 0.005;
+        rotY += velX;
+        rotX += velY;
+        rotX = Math.max(-0.6, Math.min(0.6, rotX));
+      } else {
+        // Hover affordance — cursor becomes grab over a real icon
+        const hit = pickItem(e);
+        host.style.cursor = hit ? 'grab' : 'grab';
+      }
     }
+
     function onPointerUp() {
-      dragging = false;
+      if (grabbed) {
+        // Bake the new resting position so the bob continues around
+        // wherever the visitor dropped the icon.
+        grabbed.userData.basePos = grabbed.position.clone();
+      }
+      grabbed = null;
+      sceneDragging = false;
       host.style.cursor = 'grab';
     }
     host.style.cursor = 'grab';
@@ -522,7 +617,7 @@ function FloatingShapes() {
     let t = 0;
     function tick() {
       t += 0.01;
-      if (!dragging) {
+      if (!sceneDragging) {
         velX *= 0.94;
         velY *= 0.94;
         rotY += velX;
@@ -531,10 +626,14 @@ function FloatingShapes() {
       }
       scene.rotation.y = rotY;
       scene.rotation.x = rotX;
-      books.forEach((b) => {
-        b.rotation.y += b.userData.spin;
-        b.rotation.x += b.userData.spin * 0.6;
-        b.position.y = b.userData.baseY + Math.sin(t * 0.30 + b.userData.phase) * 0.12;
+      ITEMS.forEach((m) => {
+        if (m === grabbed) return; // dragged icon is under user control
+        m.rotation.y += m.userData.spin;
+        m.rotation.x += m.userData.spin * 0.6;
+        const bp = m.userData.basePos;
+        m.position.x = bp.x;
+        m.position.z = bp.z;
+        m.position.y = bp.y + Math.sin(t * 0.30 + m.userData.phase) * 0.12;
       });
       renderer.render(scene, camera);
       raf = requestAnimationFrame(tick);
@@ -564,7 +663,6 @@ function App() {
         {/* HERO */}
         <section className="tb-hero">
           <FloatingShapes />
-          <div className="tb-hero__glow" aria-hidden="true" />
           <div className="container tb-hero__inner">
             <EyebrowLockup dark>The growing community</EyebrowLockup>
             <h1 className="tb-hero__title" style={{ fontSize: "70px" }}>

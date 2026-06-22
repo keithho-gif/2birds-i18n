@@ -102,10 +102,7 @@ body { padding-top: 108px; }
 .tb-hero::before {
   content: "";
   position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 70% 45%, rgba(196,191,160,0.10), rgba(8,9,12,0) 70%),
-    radial-gradient(ellipse 80% 70% at 25% 25%, rgba(28,42,80,0.35), rgba(8,9,12,0) 70%),
-    linear-gradient(180deg, #0A0B11 0%, #050608 100%);
+  background: linear-gradient(180deg, #0A0B11 0%, #050608 100%);
   pointer-events: none;
   z-index: 0;
 }
