@@ -34,7 +34,7 @@ body { padding-top: 116px; }
   display: block;
   height: 64px;
   width: auto;
-  margin: 0 0 18px -42px;
+  margin: 0 0 18px -30px;
 }
 .tb-nav__menu { display: flex; gap: 32px; justify-self: center; }
 .tb-nav__link {
@@ -147,7 +147,7 @@ body { padding-top: 116px; }
      its "2" aligns with the about paragraph below (proportionally
      less negative margin since the displayed image is smaller). */
   .tb-nav__wm img { height: 60px; }
-  .tb-footer__logo { height: 52px; margin-left: -34px; }
+  .tb-footer__logo { height: 52px; margin-left: -24px; }
 
   /* Mobile hero — top-aligned, expensive editorial feel.
      Content rides high in the section with a confident top padding,
