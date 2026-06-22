@@ -23,9 +23,9 @@ img { display: block; max-width: 100%; }
   align-items: center;
   padding: 0 var(--space-xxl);
 }
-.tb-nav { height: 132px; }
-body { padding-top: 132px; }
-.tb-nav__wm img { display: block; height: 88px; width: auto; }
+.tb-nav { height: 168px; }
+body { padding-top: 168px; }
+.tb-nav__wm img { display: block; height: 124px; width: auto; }
 /* Footer logo — show the PNG in its native colours so the brand
    olive (#979265) on the B reads through; no brightness/invert
    filter. Left-aligned with the about text that follows. */
@@ -144,7 +144,7 @@ body { padding-top: 132px; }
 
   /* Mobile logo sizing — proportionally larger on phones too so the
      brand reads clearly. */
-  .tb-nav__wm img { height: 64px; }
+  .tb-nav__wm img { height: 88px; }
   .tb-footer__logo { height: 76px; }
 
   /* Mobile hero — top-aligned, expensive editorial feel.
@@ -4836,9 +4836,9 @@ image-slot::part(placeholder) {
 
 /* Tablet / phone ≤980: existing menu hide kicks in, expose burger */
 @media (max-width: 980px) {
-  .tb-nav { z-index: 60; height: 100px; }
-  body { padding-top: 100px; }
-  .tb-nav__wm img { height: 72px; width: auto; }
+  .tb-nav { z-index: 60; height: 128px; }
+  body { padding-top: 128px; }
+  .tb-nav__wm img { height: 96px; width: auto; }
   .tb-nav__burger { display: inline-flex; }
   .tb-nav__cta { display: none; }
   .tb-nav__right { gap: 12px; }
@@ -4848,7 +4848,7 @@ image-slot::part(placeholder) {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 100px; left: 0; right: 0; bottom: 0;
+    top: 128px; left: 0; right: 0; bottom: 0;
     background: var(--canvas);
     border-top: 1px solid var(--hairline);
     padding: var(--space-xl) var(--space-lg) var(--space-xxl);
@@ -5000,10 +5000,10 @@ image-slot::part(placeholder) {
   .t-link-sm { min-height: 44px; display: inline-flex; align-items: center; }
 
   /* NAV header height fix for drawer offset */
-  .tb-nav { height: 88px; padding: 0 var(--space-lg) !important; }
-  body { padding-top: 88px; }
-  .tb-nav__wm img { height: 64px; width: auto; }
-  .tb-nav__drawer { top: 88px; }
+  .tb-nav { height: 112px; padding: 0 var(--space-lg) !important; }
+  body { padding-top: 112px; }
+  .tb-nav__wm img { height: 84px; width: auto; }
+  .tb-nav__drawer { top: 112px; }
 
   /* dl grids -> stack labels */
   .tb-dl dt { padding-top: var(--space-lg); }
