@@ -395,8 +395,16 @@ function FloatingShapes() {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
-    camera.position.set(0, 1.4, 12);
-    camera.lookAt(0, 0.6, 0);
+    /* Responsive camera: pull back on narrower viewports so the scene
+       does not crowd or clip on phones. Re-applied on every resize. */
+    function applyCameraDistance() {
+      const w = window.innerWidth;
+      if (w < 560)       { camera.position.set(0, 0.8, 18); }
+      else if (w < 900)  { camera.position.set(0, 1.0, 15); }
+      else               { camera.position.set(0, 1.4, 12); }
+      camera.lookAt(0, 0.4, 0);
+    }
+    applyCameraDistance();
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -456,16 +464,39 @@ function FloatingShapes() {
       return geo;
     }
 
+    /* Brand-luxurious material: a faint olive emissive (warmth) plus
+       a low-roughness/medium-metalness finish so the directional key
+       light catches the rounded edges. The visible "gold" trim comes
+       from the EdgesGeometry overlay added by addGoldEdges below. */
     function mat(color, opts) {
       return new THREE.MeshStandardMaterial({
         color,
-        roughness: (opts && opts.roughness) || 0.50,
-        metalness: (opts && opts.metalness) || 0.08
+        roughness: (opts && opts.roughness) || 0.45,
+        metalness: (opts && opts.metalness) || 0.18,
+        emissive: BRAND.oliveLight,
+        emissiveIntensity: 0.045
       });
     }
 
+    /* Trace each object's edges with a thin olive-light line — the
+       brand-palette equivalent of the gold-glow trim in the Spline
+       reference. The 30 deg threshold avoids drawing crease lines on
+       the bevels themselves; only true silhouette edges light up. */
+    function addGoldEdges(mesh, geo) {
+      const edges = new THREE.EdgesGeometry(geo, 30);
+      const lines = new THREE.LineSegments(
+        edges,
+        new THREE.LineBasicMaterial({
+          color: BRAND.oliveLight, transparent: true, opacity: 0.78
+        })
+      );
+      mesh.add(lines);
+    }
+
     function makeBook(w, h, d, color, pos, rot, spinSpeed) {
-      const m = new THREE.Mesh(roundedRectGeo(w, h, d, 0.07), mat(color));
+      const geo = roundedRectGeo(w, h, d, 0.07);
+      const m = new THREE.Mesh(geo, mat(color));
+      addGoldEdges(m, geo);
       m.position.fromArray(pos);
       m.rotation.fromArray(rot);
       m.userData = {
@@ -475,7 +506,9 @@ function FloatingShapes() {
       return m;
     }
     function makeScroll(radius, height, color, pos, rot, spinSpeed) {
-      const m = new THREE.Mesh(scrollGeo(radius, height), mat(color));
+      const geo = scrollGeo(radius, height);
+      const m = new THREE.Mesh(geo, mat(color));
+      addGoldEdges(m, geo);
       m.position.fromArray(pos);
       m.rotation.fromArray(rot);
       m.userData = {
@@ -488,17 +521,20 @@ function FloatingShapes() {
     /* The scene's working set. Distinct shape types, brand colours
        only, sized for visual hierarchy (larger pieces upstage,
        smaller pieces in the wings). */
+    /* Composition note: max |Y| held to ~1.8 (plus 0.12 bob) so even on
+       a short hero the icons never touch the top or bottom of the
+       canvas. Z-spread keeps depth interest. */
     const ITEMS = [
       // BOOKS — main bookshelf characters
-      makeBook(1.5, 1.05, 0.26, BRAND.oliveDeep,  [-5.0,  1.0, -2.0], [ 0.3,  0.4,  0.2], 0.0016),
-      makeBook(1.6, 1.10, 0.30, BRAND.royal,      [ 5.2,  0.9, -1.5], [-0.3,  0.5, -0.2], 0.0014),
-      makeBook(1.2, 0.85, 0.22, BRAND.oliveLight, [-4.0,  2.6,  1.0], [ 0.2,  0.8,  0.4], 0.0022),
-      makeBook(1.3, 0.95, 0.24, BRAND.olive,      [-2.4, -0.4,  1.0], [ 0.6,  0.4,  0.3], 0.0020),
-      makeBook(1.4, 1.00, 0.26, BRAND.royalSoft,  [ 3.2,  2.0,  0.0], [-0.2,  0.4,  0.3], 0.0018),
-      makeBook(1.1, 0.78, 0.20, BRAND.oliveDeep,  [ 0.6, -1.6,  0.5], [ 0.4,  0.3,  0.2], 0.0024),
+      makeBook(1.5, 1.05, 0.26, BRAND.oliveDeep,  [-5.0,  0.6, -2.0], [ 0.3,  0.4,  0.2], 0.0016),
+      makeBook(1.6, 1.10, 0.30, BRAND.royal,      [ 5.2,  0.5, -1.5], [-0.3,  0.5, -0.2], 0.0014),
+      makeBook(1.2, 0.85, 0.22, BRAND.oliveLight, [-3.8,  1.7,  1.0], [ 0.2,  0.8,  0.4], 0.0022),
+      makeBook(1.3, 0.95, 0.24, BRAND.olive,      [-2.4, -0.6,  1.0], [ 0.6,  0.4,  0.3], 0.0020),
+      makeBook(1.4, 1.00, 0.26, BRAND.royalSoft,  [ 3.2,  1.5,  0.0], [-0.2,  0.4,  0.3], 0.0018),
+      makeBook(1.1, 0.78, 0.20, BRAND.oliveDeep,  [ 0.6, -1.5,  0.5], [ 0.4,  0.3,  0.2], 0.0024),
       // PAPER STACKS — thin slabs, cream/stone
-      makeBook(1.0, 0.72, 0.10, BRAND.paper,      [ 4.0, -1.6,  1.0], [ 0.6,  0.2,  0.3], 0.0028),
-      makeBook(0.85, 0.62, 0.08, BRAND.stone,     [-1.6,  2.2, -1.0], [ 0.3,  0.2,  0.1], 0.0028),
+      makeBook(1.0, 0.72, 0.10, BRAND.paper,      [ 4.0, -1.5,  1.0], [ 0.6,  0.2,  0.3], 0.0028),
+      makeBook(0.85, 0.62, 0.08, BRAND.stone,     [-1.6,  1.6, -1.0], [ 0.3,  0.2,  0.1], 0.0028),
       // SCROLLS — small olive + cream rolls
       makeScroll(0.22, 1.35, BRAND.paper,         [-3.4, -1.4,  0.6], [ 0.4,  0.0,  Math.PI / 2 - 0.3], 0.0020),
       makeScroll(0.20, 1.20, BRAND.oliveLight,    [ 2.2, -0.7, -2.0], [ 0.3,  0.2,  Math.PI / 2 + 0.4], 0.0022)
@@ -566,9 +602,9 @@ function FloatingShapes() {
         setNDC(e);
         raycaster.setFromCamera(ndc, camera);
         if (raycaster.ray.intersectPlane(dragPlane, worldPoint)) {
-          // World -> local (scene's transform may differ from identity)
-          const local = scene.worldToLocal(worldPoint.clone());
-          grabbed.position.copy(local);
+          // World -> local; store as a target. tick() lerps the icon
+          // toward it so motion is slow and elegant, never snappy.
+          grabbed.userData.dragTarget = scene.worldToLocal(worldPoint.clone());
         }
       } else if (sceneDragging) {
         const dx = e.clientX - lastX;
@@ -591,6 +627,7 @@ function FloatingShapes() {
         // Bake the new resting position so the bob continues around
         // wherever the visitor dropped the icon.
         grabbed.userData.basePos = grabbed.position.clone();
+        grabbed.userData.dragTarget = null;
       }
       grabbed = null;
       sceneDragging = false;
@@ -606,6 +643,7 @@ function FloatingShapes() {
       const w = host.clientWidth || 1, h = host.clientHeight || 1;
       renderer.setSize(w, h);
       camera.aspect = w / h;
+      applyCameraDistance();
       camera.updateProjectionMatrix();
     }
     resize();
@@ -627,7 +665,16 @@ function FloatingShapes() {
       scene.rotation.y = rotY;
       scene.rotation.x = rotX;
       ITEMS.forEach((m) => {
-        if (m === grabbed) return; // dragged icon is under user control
+        if (m === grabbed) {
+          // Slow, elegant follow — ease toward the cursor target each
+          // frame instead of snapping to it.
+          if (m.userData.dragTarget) {
+            m.position.lerp(m.userData.dragTarget, 0.10);
+          }
+          m.rotation.y += m.userData.spin * 0.4;
+          m.rotation.x += m.userData.spin * 0.25;
+          return;
+        }
         m.rotation.y += m.userData.spin;
         m.rotation.x += m.userData.spin * 0.6;
         const bp = m.userData.basePos;
@@ -669,9 +716,10 @@ function App() {
               Curriculum, <br /><em className="t-italic">written by practitioners.</em>
             </h1>
             <p className="tb-hero__sub">
-              We take on a limited number of engagements each quarter. Every
-              piece of work is produced from scratch, with no content carried
-              over from prior clients.
+              We take on a limited number of engagements each quarter.
+              <br /><br />
+              Every piece of work is produced from scratch, with no content
+              carried over from prior clients.
             </p>
             <div className="tb-hero__actions">
               <a className="btn btn-ghost-on-dark" href="#manifesto">Read what we believe</a>

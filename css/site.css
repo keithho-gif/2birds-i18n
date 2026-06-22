@@ -98,6 +98,12 @@ body { padding-top: 108px; }
   background: #08090C;
   color: var(--paper);
   overflow: hidden;
+  min-height: clamp(680px, 82vh, 880px);
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .tb-hero { min-height: clamp(560px, 78vh, 720px); }
 }
 .tb-hero::before {
   content: "";
@@ -137,7 +143,7 @@ body { padding-top: 108px; }
   top: -120px; right: -180px;
   z-index: 2;
 }
-.tb-hero__inner { position: relative; z-index: 3; }
+.tb-hero__inner { position: relative; z-index: 3; width: 100%; }
 
 /* Drifting clouds layer (between building photo and content) */
 .tb-hero__clouds {
