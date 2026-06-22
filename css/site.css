@@ -100,7 +100,8 @@ body { padding-top: 108px; }
   min-height: clamp(460px, 58vh, 600px);
   display: flex;
   align-items: center;
-  border-top: 1px solid var(--royal);
+  border-top: 1px solid var(--olive);
+  border-bottom: 1px solid var(--olive);
 }
 @media (max-width: 768px) {
   .tb-hero { min-height: clamp(400px, 58vh, 500px); }
@@ -125,10 +126,17 @@ body { padding-top: 108px; }
 .tb-hero__logomark img {
   width: clamp(340px, 36vw, 540px);
   height: auto;
-  opacity: 0.46;
+  opacity: 0.58;
+  /* Four 1px drop-shadows at 0,90,180,270 deg act as a hard olive
+     stroke around the silhouette — a special outline that defines
+     the mark crisply. The two softer shadows below carry the cast. */
   filter:
-    drop-shadow(0 18px 32px rgba(57, 56, 57, 0.10))
-    drop-shadow(0 6px 12px rgba(57, 56, 57, 0.06));
+    drop-shadow( 1px  0 0 rgba(151, 146, 101, 0.90))
+    drop-shadow(-1px  0 0 rgba(151, 146, 101, 0.90))
+    drop-shadow( 0  1px 0 rgba(151, 146, 101, 0.90))
+    drop-shadow( 0 -1px 0 rgba(151, 146, 101, 0.90))
+    drop-shadow(0 16px 28px rgba(57, 56, 57, 0.12))
+    drop-shadow(0 4px 10px rgba(57, 56, 57, 0.08));
   animation: tb-hero-mark-breathe 9s ease-in-out infinite;
 }
 /* Subtle 1.5% scale breath — the mark holds its dignity but is never
