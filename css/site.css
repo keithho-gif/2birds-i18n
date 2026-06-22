@@ -120,9 +120,18 @@ body { padding-top: 108px; }
 .tb-hero__globe {
   position: absolute; inset: 0;
   z-index: 1;
-  pointer-events: none;
+  pointer-events: auto;
+  touch-action: none;
 }
 .tb-hero__globe canvas { display: block; width: 100%; height: 100%; }
+/* Content sits above the canvas; its interactive children keep their
+   own pointer events so the headline and CTA still respond to clicks. */
+.tb-hero__inner { pointer-events: none; }
+.tb-hero__inner a, .tb-hero__inner button, .tb-hero__inner input,
+.tb-hero__inner select, .tb-hero__inner textarea, .tb-hero__inner label,
+.tb-hero__inner h1, .tb-hero__inner p, .tb-hero__inner .eyebrow-lockup {
+  pointer-events: auto;
+}
 .tb-hero__title { text-shadow: none; }
 .tb-hero__sub   { text-shadow: none; }
 .tb-hero__glow {
