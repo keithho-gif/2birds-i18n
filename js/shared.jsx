@@ -27,12 +27,7 @@ function NavBar({ current }) {
     <>
     <header className={"tb-nav" + (open ? " is-open" : "")}>
       <a href="index.html" className="tb-nav__wm" aria-label="2birds — home">
-        <span className="brand-stack">
-          <img src="assets/2birds-monogram.png" alt="" className="brand-stack__mark" aria-hidden="true" />
-          <span className="brand-stack__text">
-            <span className="brand-stack__2">2</span><span className="brand-stack__b">B</span><span className="brand-stack__rest">IRDS</span>
-          </span>
-        </span>
+        <img src="assets/logo.png" alt="2birds" />
       </a>
       <nav className="tb-nav__menu">
         {items.map((it) =>
@@ -143,12 +138,7 @@ function Footer() {
       <div className="container tb-footer__inner">
         <div className="tb-footer__grid">
           <div className="tb-footer__brand">
-            <span className="brand-stack brand-stack--lg brand-stack--on-dark" aria-label="2birds">
-              <img src="assets/2birds-logo.png" alt="" className="brand-stack__mark" aria-hidden="true" />
-              <span className="brand-stack__text">
-                <span className="brand-stack__2">2</span><span className="brand-stack__b">B</span><span className="brand-stack__rest">IRDS</span>
-              </span>
-            </span>
+            <img src="assets/logo.png" alt="2birds" className="tb-footer__logo" />
             <p className="tb-footer__about">2birds is a growing community of independent practitioners in curriculum development and advisory for Approved Training Organisations (ATOs).</p>
           </div>
           <div className="tb-footer__col">
