@@ -25,7 +25,7 @@ img { display: block; max-width: 100%; }
 }
 .tb-nav { height: 108px; }
 body { padding-top: 108px; }
-.tb-nav__wm img { display: block; height: 64px; width: auto; }
+.tb-nav__wm img { display: block; height: 44px; width: auto; }
 .tb-nav__menu { display: flex; gap: 32px; justify-self: center; }
 .tb-nav__link {
   position: relative;

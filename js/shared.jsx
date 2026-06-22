@@ -27,7 +27,7 @@ function NavBar({ current }) {
     <>
     <header className={"tb-nav" + (open ? " is-open" : "")}>
       <a href="index.html" className="tb-nav__wm">
-        <img src="assets/2birds-fullmark.svg" alt="2birds" />
+        <img src="assets/2birds-wordmark.png" alt="2birds" />
       </a>
       <nav className="tb-nav__menu">
         {items.map((it) =>
