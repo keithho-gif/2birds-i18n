@@ -111,52 +111,10 @@ body { padding-top: 108px; }
    composition. */
 .tb-hero::before, .tb-hero::after { content: none; }
 
-/* Brand logomark sitting at the visual centre of the hero, rotating
-   slowly with an olive-light edge glow that pulses. Text reads on top
-   because of low opacity + the glow's soft falloff. Pointer-events
-   stay off so the headline / CTA capture clicks. */
-.tb-hero__logomark {
-  position: absolute; inset: 0;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-.tb-hero__logomark img {
-  width: clamp(340px, 36vw, 540px);
-  height: auto;
-  opacity: 0.58;
-  /* Four 1px drop-shadows at 0,90,180,270 deg act as a hard olive
-     stroke around the silhouette — a special outline that defines
-     the mark crisply. The two softer shadows below carry the cast. */
-  filter:
-    drop-shadow( 1px  0 0 rgba(151, 146, 101, 0.90))
-    drop-shadow(-1px  0 0 rgba(151, 146, 101, 0.90))
-    drop-shadow( 0  1px 0 rgba(151, 146, 101, 0.90))
-    drop-shadow( 0 -1px 0 rgba(151, 146, 101, 0.90))
-    drop-shadow(0 16px 28px rgba(57, 56, 57, 0.12))
-    drop-shadow(0 4px 10px rgba(57, 56, 57, 0.08));
-  animation: tb-hero-mark-breathe 9s ease-in-out infinite;
-}
-/* Subtle 1.5% scale breath — the mark holds its dignity but is never
-   completely still. Slower than a glow, so it reads as poise rather
-   than a heartbeat. */
-@keyframes tb-hero-mark-breathe {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.015); }
-}
 @media (max-width: 768px) {
-  .tb-hero__logomark img {
-    width: clamp(220px, 56vw, 340px);
-    opacity: 0.32;
-  }
   /* Mobile keeps the subtitle as a single flowing paragraph — the
      desktop-only break belongs to wider viewports. */
   .tb-hero__sub br.tb-sub-break { display: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .tb-hero__logomark img { animation: none; }
 }
 
 /* CTA: a quiet lift on hover instead of a continuous glow. The mark

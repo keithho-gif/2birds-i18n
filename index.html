@@ -361,11 +361,11 @@ function MiniCal() {
 
 }
 
-/* Hero ambient layer: two wireframe icosahedron globes in the side
-   wings of the section — the same constellation idiom used elsewhere
-   on the site — plus a sparse dust field for atmosphere. The centre
-   is intentionally clear so the calligraphic logomark holds focus.
-   Everything is dim olive so text always reads on top. */
+/* Hero ambient: a single large Asia-tilted wireframe globe seated
+   on the right of the section. Wireframe icosahedron lattice + a
+   coarse hand-coded land mask (lat/lng -> 3D) so the rotating sphere
+   reads as a globe of the region. Plus a sparse dust field for
+   atmosphere. Brand olive only. */
 function HeroAmbient() {
   const ref = React.useRef(null);
   React.useEffect(() => {
@@ -373,83 +373,92 @@ function HeroAmbient() {
     if (!host || typeof THREE === "undefined") return;
     const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const COL_OLIVE       = 0x979265;
-    const COL_OLIVE_LIGHT = 0xC4BFA0;
+    const COL_LINE  = 0x969265;
+    const COL_LAND  = 0x6F6C49;
+    const COL_DUST  = 0xC4BFA0;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-    camera.position.set(0, 0.2, 11);
+    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+    camera.position.set(0, 0.2, 12);
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     host.appendChild(renderer.domElement);
 
-    const COL_OLIVE_DEEP = 0x6F6C49;
+    /* The globe — icosahedron wireframe + vertex points. */
+    const globe = new THREE.Group();
+    const R = 3.2;
+    const ico = new THREE.IcosahedronGeometry(R, 2);
+    globe.add(new THREE.LineSegments(
+      new THREE.WireframeGeometry(ico),
+      new THREE.LineBasicMaterial({
+        color: COL_LINE, transparent: true, opacity: 0.30
+      })
+    ));
+    globe.add(new THREE.Points(ico, new THREE.PointsMaterial({
+      color: COL_LINE, size: 0.05, transparent: true, opacity: 0.45
+    })));
 
-    /* Wireframe wrapper — any geometry in, group out with lattice
-       lines + vertex dots so the silhouette reads at a glance. Used
-       across the geometry mix (torus, dodec, octa, tetra). */
-    function wireframe(geo, color, lineOpacity, pointOpacity) {
-      const g = new THREE.Group();
-      g.add(new THREE.LineSegments(
-        new THREE.WireframeGeometry(geo),
-        new THREE.LineBasicMaterial({
-          color, transparent: true, opacity: lineOpacity
-        })
-      ));
-      g.add(new THREE.Points(geo, new THREE.PointsMaterial({
-        color, size: 0.055, transparent: true, opacity: pointOpacity
-      })));
-      return g;
-    }
-    function torusGeo(r, tube)  { return new THREE.TorusGeometry(r, tube, 18, 48); }
-    function dodecGeo(r)        { return new THREE.DodecahedronGeometry(r, 0); }
-    function octaGeo(r)         { return new THREE.OctahedronGeometry(r, 0); }
-    function tetraGeo(r)        { return new THREE.TetrahedronGeometry(r, 0); }
-
-    /* Mixed-geometry constellation filling the section. Torus rings
-       carry the calligraphic flow of the brand mark; dodecahedrons,
-       octahedrons and tetrahedrons add geometric variety without
-       repeating the sphere silhouette. Sizes / opacities tier with
-       depth so the field reads layered. Brand olive only. */
-    const PIECES = [
-      // Large anchoring pieces in the wings
-      { geo: torusGeo(2.4, 0.07),     color: COL_OLIVE,       line: 0.22, pt: 0.48,
-        pos: [-5.8,  0.6, -2.2], rot: [ 0.6, -0.4,  0.2], sx: 0.0010, sy: 0.0005 },
-      { geo: dodecGeo(2.3),           color: COL_OLIVE_LIGHT, line: 0.20, pt: 0.46,
-        pos: [ 6.0, -0.3, -2.0], rot: [ 0.3,  0.5, -0.2], sx:-0.0009, sy: 0.0006 },
-
-      // Upper band — fills the headroom near the navbar
-      { geo: octaGeo(1.3),            color: COL_OLIVE_DEEP,  line: 0.18, pt: 0.40,
-        pos: [-3.2,  2.9, -3.4], rot: [ 0.5,  0.2,  0.4], sx: 0.0014, sy: 0.0007 },
-      { geo: torusGeo(1.2, 0.05),     color: COL_OLIVE_LIGHT, line: 0.16, pt: 0.38,
-        pos: [ 3.3,  2.7, -3.1], rot: [-0.4,  0.6,  0.3], sx:-0.0013, sy: 0.0006 },
-      { geo: tetraGeo(0.9),           color: COL_OLIVE,       line: 0.14, pt: 0.34,
-        pos: [ 0.5,  3.3, -4.6], rot: [ 0.3,  0.4,  0.2], sx: 0.0018, sy: 0.0009 },
-
-      // Lower band — anchors the bottom
-      { geo: dodecGeo(1.1),           color: COL_OLIVE_LIGHT, line: 0.16, pt: 0.36,
-        pos: [-2.1, -2.6, -3.6], rot: [-0.4,  0.3, -0.5], sx:-0.0015, sy: 0.0008 },
-      { geo: octaGeo(1.0),            color: COL_OLIVE_DEEP,  line: 0.15, pt: 0.34,
-        pos: [ 2.5, -2.8, -3.9], rot: [ 0.5, -0.2,  0.6], sx: 0.0016, sy: 0.0007 },
-
-      // Deep background — small pieces, very soft
-      { geo: tetraGeo(0.7),           color: COL_OLIVE_LIGHT, line: 0.11, pt: 0.26,
-        pos: [-4.6,  1.5, -5.0], rot: [ 0.4,  0.5,  0.3], sx: 0.0020, sy: 0.0010 },
-      { geo: torusGeo(0.6, 0.03),     color: COL_OLIVE_LIGHT, line: 0.11, pt: 0.26,
-        pos: [ 4.9,  1.2, -5.2], rot: [ 0.5, -0.3,  0.4], sx:-0.0021, sy: 0.0010 }
+    /* Continent land markers (lat, lng). Asia weighted by design. */
+    const LAND = [
+      // East Asia / China
+      [42, 88], [42, 100], [42, 115], [42, 125], [36, 92], [36, 104], [36, 116], [30, 100], [30, 112],
+      [25, 102], [25, 112], [22, 108], [50, 95], [50, 110], [50, 125], [55, 105], [55, 125],
+      // Japan / Korea
+      [36, 138], [38, 140], [33, 132], [44, 142], [37, 127], [35, 128],
+      // South Asia
+      [33, 75], [28, 78], [25, 82], [22, 88], [20, 75], [17, 80], [13, 78], [9, 77], [25, 68], [30, 70],
+      // Southeast Asia
+      [14, 100], [11, 105], [16, 108], [10, 106], [13, 122], [7, 125], [3, 102], [1, 104],
+      [-2, 110], [-5, 120], [-7, 113], [-3, 130], [-7, 140], [21, 96], [16, 96],
+      // Indonesia / Australia
+      [-25, 132], [-20, 122], [-18, 138], [-30, 122], [-32, 138], [-35, 145], [-37, 146], [-22, 148],
+      // Middle East
+      [33, 44], [32, 36], [28, 50], [25, 45], [22, 55], [16, 47], [33, 52], [37, 50],
+      // Russia / Central Asia
+      [60, 30], [60, 50], [60, 75], [60, 100], [60, 125], [60, 145], [65, 60], [65, 90], [65, 120],
+      [50, 60], [50, 75], [45, 60], [45, 78],
+      // Europe
+      [55, 25], [50, 18], [50, 8], [55, 12], [60, 16], [45, 10], [42, 0], [50, 0], [55, -2], [60, 10],
+      [38, 20], [42, 15], [38, 24],
+      // Africa
+      [30, 30], [28, 0], [22, 13], [16, 5], [12, 30], [8, 20], [3, 22], [-3, 18], [-5, 30], [-12, 28],
+      [-18, 22], [-25, 28], [-30, 25], [10, 40], [5, 38],
+      // Americas (back hemisphere; visible during rotation)
+      [60, -100], [55, -110], [50, -100], [45, -100], [40, -100], [40, -85], [35, -110],
+      [30, -95], [25, -100], [18, -100], [15, -90], [10, -75],
+      [-2, -75], [-12, -70], [-22, -65], [-30, -65], [-38, -68],
+      // Pacific
+      [-18, 178], [-21, -175]
     ];
-    const globes = PIECES.map(p => {
-      const g = wireframe(p.geo, p.color, p.line, p.pt);
-      g.position.fromArray(p.pos);
-      g.rotation.fromArray(p.rot);
-      g.userData = { sx: p.sx, sy: p.sy };
-      scene.add(g);
-      return g;
+    function llToXYZ(lat, lng, r) {
+      const phi = (90 - lat) * Math.PI / 180;
+      const theta = lng * Math.PI / 180;
+      return [
+        r * Math.sin(phi) * Math.cos(theta),
+        r * Math.cos(phi),
+        r * Math.sin(phi) * Math.sin(theta)
+      ];
+    }
+    const lp = new Float32Array(LAND.length * 3);
+    LAND.forEach(([la, ln], i) => {
+      const [x, y, z] = llToXYZ(la, ln, R * 1.01);
+      lp[i * 3] = x; lp[i * 3 + 1] = y; lp[i * 3 + 2] = z;
     });
+    const landGeo = new THREE.BufferGeometry();
+    landGeo.setAttribute("position", new THREE.BufferAttribute(lp, 3));
+    globe.add(new THREE.Points(landGeo, new THREE.PointsMaterial({
+      color: COL_LAND, size: 0.11, transparent: true, opacity: 0.92
+    })));
 
-    /* Sparse dust field — bridges the spheres with atmosphere. */
-    const PN = 130;
+    // Tilt so Asia (~100E, 25N) faces the camera; place on the right.
+    globe.position.set(3.6, 0.2, -1);
+    globe.rotation.y = -0.18;
+    globe.rotation.x = 0.38;
+    scene.add(globe);
+
+    /* Sparse dust field for atmosphere. */
+    const PN = 100;
     const cp = new Float32Array(PN * 3);
     for (let i = 0; i < PN; i++) {
       cp[i * 3]     = (Math.random() - 0.5) * 22;
@@ -459,10 +468,7 @@ function HeroAmbient() {
     const dustGeo = new THREE.BufferGeometry();
     dustGeo.setAttribute("position", new THREE.BufferAttribute(cp, 3));
     const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({
-      color: COL_OLIVE_LIGHT,
-      size: 0.04,
-      transparent: true,
-      opacity: 0.32
+      color: COL_DUST, size: 0.04, transparent: true, opacity: 0.28
     }));
     scene.add(dust);
 
@@ -479,15 +485,8 @@ function HeroAmbient() {
 
     let raf = 0;
     function tick() {
-      // Each sphere rotates at its own pace + direction. The contrast
-      // is what sells the depth — the eye reads multiple worlds, not
-      // one big rotating mass.
-      globes.forEach(g => {
-        g.rotation.y += g.userData.sx;
-        g.rotation.x += g.userData.sy;
-      });
-      dust.rotation.y += 0.00020;
-      dust.rotation.x += 0.00008;
+      globe.rotation.y += 0.0010;
+      dust.rotation.y  += 0.00020;
       renderer.render(scene, camera);
       raf = requestAnimationFrame(tick);
     }
@@ -512,9 +511,6 @@ function App() {
         {/* HERO */}
         <section className="tb-hero">
           <HeroAmbient />
-          <div className="tb-hero__logomark" aria-hidden="true">
-            <img src="assets/2birds-monogram.png" alt="" />
-          </div>
           <div className="container tb-hero__inner">
             <EyebrowLockup>The growing community</EyebrowLockup>
             <h1 className="tb-hero__title" style={{ fontSize: "70px" }}>
