@@ -108,7 +108,7 @@ body { padding-top: 116px; }
 .tb-hero {
   position: relative;
   padding: var(--space-section) 0 var(--space-section);
-  background: var(--royal-deep);
+  background: #000;
   color: var(--paper);
   overflow: hidden;
   min-height: clamp(460px, 58vh, 600px);
@@ -118,16 +118,16 @@ body { padding-top: 116px; }
 @media (max-width: 768px) {
   .tb-hero { min-height: clamp(400px, 58vh, 500px); }
 }
-/* Cosmic stage — a deep-space gradient base, a faint olive nebula
-   near the globe, and a subtle navy haze top-left. The Three.js
-   starfield does the rest on top of this. */
+/* Black cosmic stage. Brand olive (var(--olive)) forms a faint
+   nebula glow behind the globe; everything else is true black so
+   the starfield + wireframe read cleanly on top. */
 .tb-hero::before {
   content: "";
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 60% 65% at 72% 50%, rgba(151, 146, 101, 0.22), rgba(8, 14, 36, 0) 70%),
-    radial-gradient(ellipse 80% 60% at 18% 22%, rgba(38, 56, 100, 0.30), rgba(8, 14, 36, 0) 70%),
-    linear-gradient(180deg, #0E1B3A 0%, #060B22 100%);
+    radial-gradient(ellipse 60% 65% at 72% 50%, rgba(151, 146, 101, 0.22), rgba(0, 0, 0, 0) 70%),
+    radial-gradient(ellipse 80% 60% at 18% 22%, rgba(151, 146, 101, 0.06), rgba(0, 0, 0, 0) 70%),
+    linear-gradient(180deg, #050505 0%, #000 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -135,7 +135,7 @@ body { padding-top: 116px; }
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(6, 11, 34, 0.66) 0%, rgba(6, 11, 34, 0.22) 42%, rgba(6, 11, 34, 0) 64%);
+    linear-gradient(90deg, rgba(0, 0, 0, 0.66) 0%, rgba(0, 0, 0, 0.22) 42%, rgba(0, 0, 0, 0) 64%);
   pointer-events: none;
   z-index: 2;
 }
@@ -193,7 +193,7 @@ body { padding-top: 116px; }
      the visual focal point. */
   .tb-hero::after {
     background:
-      linear-gradient(180deg, rgba(6,11,34,0.65) 0%, rgba(6,11,34,0.45) 50%, rgba(6,11,34,0.15) 100%);
+      linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.15) 100%);
   }
 }
 
