@@ -28,14 +28,16 @@ img { display: block; max-width: 100%; }
   row-gap: 6px;
   padding: 10px var(--space-xxl);
 }
-body { padding-top: 140px; }
+body { padding-top: 168px; }
 .tb-nav__wm    { grid-area: wm;    justify-self: start;  }
 .tb-nav__brand { grid-area: brand; justify-self: center; display: flex; align-items: center; text-decoration: none; }
 .tb-nav__menu  { grid-area: menu; }
 .tb-nav__right { grid-area: right; }
-.tb-nav__wm img    { display: block; height: 64px; width: auto; }
-/* Wordmark — fluid 120-170px wide, aspect ratio preserved. */
-.tb-nav__brand img { display: block; width: clamp(120px, 14vw, 170px); height: auto; }
+/* Monogram sits prominently on the left — couture-house scale so
+   the brand mark carries the bar before any text reaches the eye. */
+.tb-nav__wm img    { display: block; height: 104px; width: auto; }
+/* Wordmark — fluid, sized to balance the larger monogram. */
+.tb-nav__brand img { display: block; width: clamp(150px, 16vw, 200px); height: auto; }
 /* Footer logo — assets/logo-white.png. Width-based sizing
    (160px desktop, 120px mobile). Negative margin-left compensates
    for the transparent padding around the wordmark inside the PNG,
