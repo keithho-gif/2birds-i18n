@@ -30,7 +30,7 @@ function NavBar({ current }) {
         <img src="assets/monogram.png" alt="2birds" />
       </a>
       <a href="index.html" className="tb-nav__brand" aria-label="2birds — home">
-        <img src="assets/2birds-logo.png" alt="2birds" />
+        <img src="assets/logo-text.png" alt="2birds" />
       </a>
       <nav className="tb-nav__menu">
         {items.map((it) =>
