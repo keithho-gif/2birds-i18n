@@ -38,25 +38,30 @@ body { padding-top: 116px; }
   margin: 0 0 18px -34px;
   filter: brightness(0) invert(1);
 }
-.tb-nav__menu { display: flex; gap: 26px; justify-self: center; }
-/* Collapse the in-bar menu earlier than the rest of the page reflow
-   (980px) — the longer practice-area labels (Curriculum Development,
-   ATO Registration Advisory, SSG Audit Assurance, Creative Marketing)
-   would otherwise crowd the logo and CTA between ~980-1180px. The
-   drawer + burger handle these widths cleanly. */
-@media (min-width: 981px) and (max-width: 1180px) {
-  .tb-nav__menu { gap: 18px; }
-  .tb-nav__link { font-size: 12.5px; letter-spacing: 0.015em; }
-}
+.tb-nav__menu { display: flex; gap: 30px; justify-self: center; }
+/* Refined editorial nav: uppercase labels with luxury tracking so
+   the visual rhythm is consistent regardless of word length. The
+   mixed-length practice area names (WSQ Curriculum Development,
+   ATO Setup Advisory, SSG Audit Matters, Creative Marketing) sit
+   cleanly together as one mark. */
 .tb-nav__link {
   position: relative;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 13.5px; font-weight: 500; letter-spacing: 0.02em;
+  font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   text-decoration: none;
   padding: 8px 0;
   white-space: nowrap;
   transition: color var(--dur-base) var(--ease-standard);
+}
+/* Mid-desktop (981-1180px): the 5 labels are still long when uppercased,
+   so tighten gap + tracking slightly to keep everything on one line
+   between the logo and the CTA. The drawer takes over below 980px. */
+@media (min-width: 981px) and (max-width: 1180px) {
+  .tb-nav__menu { gap: 20px; }
+  .tb-nav__link { font-size: 10.5px; letter-spacing: 0.11em; }
 }
 .tb-nav__link::after {
   content: ""; position: absolute; left: 0; right: 100%; bottom: 4px;
