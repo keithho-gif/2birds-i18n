@@ -38,30 +38,29 @@ body { padding-top: 116px; }
   margin: 0 0 18px -34px;
   filter: brightness(0) invert(1);
 }
-.tb-nav__menu { display: flex; gap: 30px; justify-self: center; }
-/* Refined editorial nav: uppercase labels with luxury tracking so
-   the visual rhythm is consistent regardless of word length. The
-   mixed-length practice area names (WSQ Curriculum Development,
-   ATO Setup Advisory, SSG Audit Matters, Creative Marketing) sit
-   cleanly together as one mark. */
+.tb-nav__menu { display: flex; gap: 28px; justify-self: center; }
+/* Nav links follow the brand eyebrow-lockup typography
+   (var(--font-sans), weight 600, uppercase, 0.22em tracking) so the
+   nav reads in the same editorial voice as section openers. Tracking
+   eases on narrower viewports where five long uppercased labels
+   would otherwise crowd. */
 .tb-nav__link {
   position: relative;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 11.5px; font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   text-decoration: none;
   padding: 8px 0;
   white-space: nowrap;
   transition: color var(--dur-base) var(--ease-standard);
 }
-/* Mid-desktop (981-1180px): the 5 labels are still long when uppercased,
-   so tighten gap + tracking slightly to keep everything on one line
-   between the logo and the CTA. The drawer takes over below 980px. */
-@media (min-width: 981px) and (max-width: 1180px) {
+/* Mid-desktop band — keep on one row by easing tracking + gap.
+   Below this band (≤980px) the drawer takes over entirely. */
+@media (min-width: 981px) and (max-width: 1280px) {
   .tb-nav__menu { gap: 20px; }
-  .tb-nav__link { font-size: 10.5px; letter-spacing: 0.11em; }
+  .tb-nav__link { font-size: 11px; letter-spacing: 0.16em; }
 }
 .tb-nav__link::after {
   content: ""; position: absolute; left: 0; right: 100%; bottom: 4px;
@@ -4887,14 +4886,18 @@ image-slot::part(placeholder) {
     display: flex; flex-direction: column;
     border-top: 1px solid var(--hairline);
   }
+  /* Drawer links follow the brand eyebrow-lockup typography too —
+     same sans, weight 600, uppercase, luxe tracking — just sized
+     larger so each item is comfortably tappable on phones. */
   .tb-nav__drawerLink {
-    font-family: var(--font-serif);
-    font-size: 26px; font-weight: 400;
+    font-family: var(--font-sans);
+    font-size: 15px; font-weight: 600;
     color: var(--ink);
     padding: 22px 0;
     border-bottom: 1px solid var(--hairline);
     text-decoration: none;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     transition: color 160ms ease;
   }
   .tb-nav__drawerLink em { font-style: italic; color: var(--olive-deep); }
@@ -5078,7 +5081,7 @@ image-slot::part(placeholder) {
   .tb-cta__inner { padding: 44px var(--space-lg) !important; }
   .tb-pagehero__lede, .tb-hero__sub { font-size: 15px; }
   .tb-nav__drawer { padding-left: var(--space-md); padding-right: var(--space-md); }
-  .tb-nav__drawerLink { font-size: 22px; padding: 18px 0; }
+  .tb-nav__drawerLink { font-size: 13px; padding: 18px 0; letter-spacing: 0.16em; }
 
   /* form chips wrap individually */
   .tb-join__chip { font-size: 13px; padding: 7px 12px; }
