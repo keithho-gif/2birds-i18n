@@ -28,7 +28,7 @@ img { display: block; max-width: 100%; }
   row-gap: 10px;
   padding: 12px var(--space-xl) 12px;
 }
-body { padding-top: 120px; }
+body { padding-top: 140px; }
 .tb-nav__wm    { grid-area: wm;    justify-self: start; align-self: center; }
 .tb-nav__brand { grid-area: brand; justify-self: center; display: flex; align-items: center; text-decoration: none; }
 .tb-nav__menu  { grid-area: menu; }
@@ -37,7 +37,7 @@ body { padding-top: 120px; }
    modest wordmark centred. The thin header reads like the top of an
    LV / Chanel / Dior page: brand quiet, generous white space, all
    the visual weight given to the typographic nav row below. */
-.tb-nav__wm img    { display: block; height: 52px !important; width: auto; }
+.tb-nav__wm img    { display: block; height: 72px !important; width: auto; }
 .tb-nav__brand img { display: block; width: clamp(110px, 11vw, 150px); height: auto; }
 /* Footer logo — assets/logo-white.png. Width-based sizing
    (160px desktop, 120px mobile). Negative margin-left compensates
