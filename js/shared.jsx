@@ -11,10 +11,10 @@ function EyebrowLockup({ children, dark }) {
 function NavBar({ current }) {
   const items = [
   { id: "brand", label: "Brand", href: "brand.html" },
-  { id: "curriculum", label: "WSQ Curriculum Development", href: "curriculum.html" },
-  { id: "sourcing", label: "ATO Setup Advisory", href: "setup.html" },
-  { id: "compliance", label: "SSG Audit Matters", href: "audit.html" },
-  { id: "branding", label: "Creative Marketing", href: "revenue.html" }];
+  { id: "curriculum", label: "WSQ Curriculum Development", href: "wsqcurriculumdevelopment.html" },
+  { id: "sourcing", label: "ATO Setup Advisory", href: "atosetupadvisory.html" },
+  { id: "compliance", label: "SSG Audit Matters", href: "ssgauditmatters.html" },
+  { id: "branding", label: "Creative Marketing", href: "creativemarketing.html" }];
 
   const [open, setOpen] = React.useState(false);
 
@@ -148,10 +148,10 @@ function Footer() {
             <h4 className="tb-footer__heading">Practice</h4>
             <ul className="tb-footer__list">
               <li><a href="brand.html">Brand</a></li>
-              <li><a href="curriculum.html">WSQ Curriculum Development</a></li>
-              <li><a href="setup.html">ATO Setup Advisory</a></li>
-              <li><a href="audit.html">SSG Audit Matters</a></li>
-              <li><a href="revenue.html">Creative Marketing</a></li>
+              <li><a href="wsqcurriculumdevelopment.html">WSQ Curriculum Development</a></li>
+              <li><a href="atosetupadvisory.html">ATO Setup Advisory</a></li>
+              <li><a href="ssgauditmatters.html">SSG Audit Matters</a></li>
+              <li><a href="creativemarketing.html">Creative Marketing</a></li>
             </ul>
           </div>
           <div className="tb-footer__col">
@@ -344,7 +344,7 @@ Object.assign(window, {
         '<div class="casl__dock-panel" id="tb-dock-panel" hidden>' +
           '<div class="casl__dock-panel-head">' +
             '<span class="casl__dock-panel-title">Your working list</span>' +
-            '<a class="casl__dock-panel-open" href="curriculum.html#casl">Open the register</a>' +
+            '<a class="casl__dock-panel-open" href="wsqcurriculumdevelopment.html#casl">Open the register</a>' +
           '</div>' +
           '<ul class="casl__dock-list" data-i18n-skip="true"></ul>' +
         '</div>' +

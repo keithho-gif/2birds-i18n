@@ -3,10 +3,18 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/compliance", "destination": "/audit", "permanent": true },
-    { "source": "/compliance.html", "destination": "/audit", "permanent": true },
-    { "source": "/marketing", "destination": "/revenue", "permanent": true },
-    { "source": "/marketing.html", "destination": "/revenue", "permanent": true }
+    { "source": "/compliance", "destination": "/ssgauditmatters", "permanent": true },
+    { "source": "/compliance.html", "destination": "/ssgauditmatters", "permanent": true },
+    { "source": "/marketing", "destination": "/creativemarketing", "permanent": true },
+    { "source": "/marketing.html", "destination": "/creativemarketing", "permanent": true },
+    { "source": "/curriculum", "destination": "/wsqcurriculumdevelopment", "permanent": true },
+    { "source": "/curriculum.html", "destination": "/wsqcurriculumdevelopment", "permanent": true },
+    { "source": "/setup", "destination": "/atosetupadvisory", "permanent": true },
+    { "source": "/setup.html", "destination": "/atosetupadvisory", "permanent": true },
+    { "source": "/audit", "destination": "/ssgauditmatters", "permanent": true },
+    { "source": "/audit.html", "destination": "/ssgauditmatters", "permanent": true },
+    { "source": "/revenue", "destination": "/creativemarketing", "permanent": true },
+    { "source": "/revenue.html", "destination": "/creativemarketing", "permanent": true }
   ],
   "headers": [
     {
