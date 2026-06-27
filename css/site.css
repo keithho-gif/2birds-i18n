@@ -15,34 +15,27 @@ img { display: block; max-width: 100%; }
    ========================================================================= */
 .tb-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  height: 76px;
   background: rgba(250, 248, 242, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  display: grid; grid-template-columns: 1fr auto 1fr;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "wm   brand right"
+    "menu menu  menu";
   align-items: center;
-  padding: 0 var(--space-xxl);
+  row-gap: 6px;
+  padding: 10px var(--space-xxl);
 }
-.tb-nav { height: 116px; }
-body { padding-top: 116px; }
-/* Centred wordmark in the header bar — fluid 120-170px wide,
-   aspect ratio preserved, absolutely centred so it sits over the
-   nav grid without disturbing the menu / CTA positions. */
-.tb-nav__wm {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-.tb-nav__wm img {
-  display: block;
-  width: clamp(120px, 14vw, 170px);
-  height: auto;
-}
+body { padding-top: 140px; }
+.tb-nav__wm    { grid-area: wm;    justify-self: start;  }
+.tb-nav__brand { grid-area: brand; justify-self: center; display: flex; align-items: center; text-decoration: none; }
+.tb-nav__menu  { grid-area: menu; }
+.tb-nav__right { grid-area: right; }
+.tb-nav__wm img    { display: block; height: 64px; width: auto; }
+/* Wordmark — fluid 120-170px wide, aspect ratio preserved. */
+.tb-nav__brand img { display: block; width: clamp(120px, 14vw, 170px); height: auto; }
 /* Footer logo — assets/logo-white.png. Width-based sizing
    (160px desktop, 120px mobile). Negative margin-left compensates
    for the transparent padding around the wordmark inside the PNG,
@@ -3177,7 +3170,16 @@ image-slot::part(placeholder) {
    Small-screen reflow
    ========================================================================= */
 @media (max-width: 980px) {
-  .tb-nav { padding: 0 var(--space-lg); grid-template-columns: auto 1fr; }
+  /* Mobile header: single row — monogram (left), wordmark (centre),
+     burger (right). The desktop two-row stack collapses since the
+     in-bar menu is hidden and accessed via the drawer. */
+  .tb-nav {
+    padding: 0 var(--space-lg);
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
+    grid-template-areas: "wm brand right";
+    row-gap: 0;
+  }
   .tb-nav__menu { display: none; }
   .tb-nav__right .tb-nav__enq { display: none; }
   .tb-hero__title { font-size: 52px; }
