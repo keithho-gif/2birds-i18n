@@ -25,7 +25,24 @@ img { display: block; max-width: 100%; }
 }
 .tb-nav { height: 116px; }
 body { padding-top: 116px; }
-.tb-nav__wm img { display: block; height: 80px; width: auto; }
+/* Centred wordmark in the header bar — fluid 120-170px wide,
+   aspect ratio preserved, absolutely centred so it sits over the
+   nav grid without disturbing the menu / CTA positions. */
+.tb-nav__wm {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.tb-nav__wm img {
+  display: block;
+  width: clamp(120px, 14vw, 170px);
+  height: auto;
+}
 /* Footer logo — assets/logo-white.png. Width-based sizing
    (160px desktop, 120px mobile). Negative margin-left compensates
    for the transparent padding around the wordmark inside the PNG,
