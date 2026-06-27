@@ -38,14 +38,24 @@ body { padding-top: 116px; }
   margin: 0 0 18px -34px;
   filter: brightness(0) invert(1);
 }
-.tb-nav__menu { display: flex; gap: 32px; justify-self: center; }
+.tb-nav__menu { display: flex; gap: 26px; justify-self: center; }
+/* Collapse the in-bar menu earlier than the rest of the page reflow
+   (980px) — the longer practice-area labels (Curriculum Development,
+   ATO Registration Advisory, SSG Audit Assurance, Creative Marketing)
+   would otherwise crowd the logo and CTA between ~980-1180px. The
+   drawer + burger handle these widths cleanly. */
+@media (min-width: 981px) and (max-width: 1180px) {
+  .tb-nav__menu { gap: 18px; }
+  .tb-nav__link { font-size: 12.5px; letter-spacing: 0.015em; }
+}
 .tb-nav__link {
   position: relative;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
+  font-size: 13.5px; font-weight: 500; letter-spacing: 0.02em;
   text-decoration: none;
   padding: 8px 0;
+  white-space: nowrap;
   transition: color var(--dur-base) var(--ease-standard);
 }
 .tb-nav__link::after {
