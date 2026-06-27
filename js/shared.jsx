@@ -13,7 +13,7 @@ function NavBar({ current }) {
   { id: "brand", label: "Brand", href: "brand.html" },
   { id: "curriculum", label: "Curriculum Development", href: "curriculum.html" },
   { id: "sourcing", label: "ATO Registration Advisory", href: "setup.html" },
-  { id: "compliance", label: "SSG Audit Assurance", href: "audit.html" },
+  { id: "compliance", label: "SSG Audit Matters", href: "audit.html" },
   { id: "branding", label: "Creative Marketing", href: "revenue.html" }];
 
   const [open, setOpen] = React.useState(false);
@@ -147,7 +147,7 @@ function Footer() {
               <li><a href="brand.html">Brand</a></li>
               <li><a href="curriculum.html">Curriculum Development</a></li>
               <li><a href="setup.html">ATO Registration Advisory</a></li>
-              <li><a href="audit.html">SSG Audit Assurance</a></li>
+              <li><a href="audit.html">SSG Audit Matters</a></li>
               <li><a href="revenue.html">Creative Marketing</a></li>
             </ul>
           </div>
