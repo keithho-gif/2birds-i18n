@@ -145,26 +145,33 @@ body { padding-top: 140px; }
 @media (max-width: 768px) {
   .tb-hero { min-height: clamp(400px, 58vh, 500px); }
 }
-/* Black cosmic stage. Brand olive (var(--olive)) forms a faint
-   nebula glow behind the globe; everything else is true black so
-   the starfield + wireframe read cleanly on top. */
-.tb-hero::before {
-  content: "";
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 65% at 72% 50%, rgba(151, 146, 101, 0.22), rgba(0, 0, 0, 0) 70%),
-    radial-gradient(ellipse 80% 60% at 18% 22%, rgba(151, 146, 101, 0.06), rgba(0, 0, 0, 0) 70%),
-    linear-gradient(180deg, #050505 0%, #000 100%);
-  pointer-events: none;
+/* Hero background image — full-bleed cover, pen+notebook on right */
+.tb-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
   z-index: 0;
-}
-.tb-hero::after {
-  content: "";
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.66) 0%, rgba(0, 0, 0, 0.22) 42%, rgba(0, 0, 0, 0) 64%);
   pointer-events: none;
-  z-index: 2;
+}
+/* Dark gradient overlay — opaque on left for text, transparent on right
+   so the pen and notebook remain visible. Near-solid #000 base matches
+   the hero background colour. */
+.tb-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.78) 30%,
+    rgba(0, 0, 0, 0.45) 55%,
+    rgba(0, 0, 0, 0.10) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 @media (max-width: 768px) {
@@ -211,17 +218,19 @@ body { padding-top: 140px; }
     padding: 14px 28px;
     font-size: 15px;
   }
-  /* (The pointer-events / touch-action override for .tb-hero__ambient
-     lives AFTER the base rule further down in this file — same
-     specificity but later in source order, which is what actually
-     makes it win on mobile.) */
-  /* Scrim on mobile: moderate haze through the upper half to keep
-     the eyebrow / headline / sub legible against the wireframe
-     behind. Lower half fades faster so the globe still reads as
-     the visual focal point. */
-  .tb-hero::after {
-    background:
-      linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.15) 100%);
+  /* Mobile hero image — shift image and use top-to-bottom overlay
+     so text (top-aligned) stays over the darkest area. */
+  .tb-hero__bg {
+    object-position: 70% center;
+  }
+  .tb-hero__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.72) 45%,
+      rgba(0, 0, 0, 0.40) 80%,
+      rgba(0, 0, 0, 0.20) 100%
+    );
   }
 }
 
@@ -250,44 +259,6 @@ body { padding-top: 140px; }
   .tb-hero__actions .btn { animation: none; }
 }
 
-/* Ambient 3D layer. Pointer events ENABLED so the visitor can drag
-   the Asia globe. Headline + CTA above stay interactive via the
-   pointer-events: auto re-enabled on .tb-hero__inner children. */
-.tb-hero__ambient {
-  position: absolute; inset: 0;
-  z-index: 1;
-  pointer-events: auto;
-  touch-action: none;
-  cursor: grab;
-}
-.tb-hero__ambient:active { cursor: grabbing; }
-.tb-hero__ambient canvas { display: block; width: 100%; height: 100%; }
-/* IMPORTANT: this mobile override must sit AFTER the base rule above.
-   Both selectors are equal specificity (.tb-hero__ambient), so source
-   order decides. With the override here the mobile rule wins and the
-   canvas stops eating vertical scroll gestures. */
-@media (max-width: 768px), (hover: none) and (pointer: coarse) {
-  .tb-hero__ambient,
-  .tb-hero__ambient canvas {
-    pointer-events: none !important;
-    touch-action: pan-y !important;
-    cursor: default !important;
-  }
-}
-.tb-hero__inner { pointer-events: none; }
-.tb-hero__inner a, .tb-hero__inner button, .tb-hero__inner input,
-.tb-hero__inner select, .tb-hero__inner textarea, .tb-hero__inner label,
-.tb-hero__inner h1, .tb-hero__inner p, .tb-hero__inner .eyebrow-lockup {
-  pointer-events: auto;
-}
-.tb-hero__title { text-shadow: none; }
-.tb-hero__sub   { text-shadow: none; }
-.tb-hero__glow {
-  position: absolute; width: 720px; height: 720px; pointer-events: none;
-  background: radial-gradient(closest-side, rgba(150,146,101,0.30), transparent 70%);
-  top: -120px; right: -180px;
-  z-index: 2;
-}
 .tb-hero__inner { position: relative; z-index: 3; width: 100%; }
 
 /* Drifting clouds layer (between building photo and content) */
