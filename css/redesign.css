@@ -1,0 +1,151 @@
+/* =========================================================================
+   2birds — redesign-preview layer
+   Loaded LAST. Implements the editorial redesign (items A–N + fixes) on top
+   of foundations.css + site.css without rewriting them. Accent colour and
+   square corners are handled at the token level in foundations.css; the rest
+   lives here. Kept deliberately small and override-light.
+   ========================================================================= */
+
+/* ---- F · Motion: reduced-motion gate (off for anyone who asked) -------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- F · One restrained reveal: fade + small rise, 600ms, ease-out ----- */
+.tb-reveal, .tb-reveal-child {
+  transition-duration: 600ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-duration: 600ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-iteration-count: 1;
+}
+/* Retire the looping/breathing decorations that ran on a loop. */
+.tb-hero__actions .btn { animation: none; }
+
+/* ---- D · Buttons: square, single hairline, no fill, no shadow --------- */
+.btn {
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid var(--graphite);
+  background: transparent;
+  color: var(--ink);
+  font-weight: 600;
+}
+.btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  transform: none;
+  box-shadow: none;
+}
+/* On dark backgrounds, hairline and text go light. */
+.on-dark .btn, .btn-on-dark, .btn-ghost-on-dark {
+  border: 1px solid rgba(250, 248, 242, 0.55);
+  color: var(--paper);
+  background: transparent;
+}
+.on-dark .btn:hover, .btn-on-dark:hover, .btn-ghost-on-dark:hover {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+
+/* ---- D/E · Square corners + flat surfaces on cards, fields, media ------ */
+input, textarea, select,
+.tb-svc, .tb-svc__bg, .tb-svc__poster, .tb-svc__iframe,
+.tb-trust__cell, .tb-faq__item, .tb-office, .tb-cta,
+.tb-heritage__cell, .premium-figure, .premium-figure img,
+.tb-pair__figure, .tb-pair__figure img, .tb-brandfig img,
+figure, figure img, .tb-hero__bg {
+  border-radius: 0;
+}
+/* Flatten: hairline dividers instead of soft shadows. */
+.tb-svc, .tb-trust__cell, .tb-faq__item, .tb-office,
+.tb-cta, .premium-figure, .tb-heritage__cell, .premium-card {
+  box-shadow: none;
+}
+
+/* ---- I · Wide letter-spacing on small uppercase labels and eyebrows ---- */
+.eyebrow-lockup, .tb-services__asidelabel, .tb-office__label,
+.tb-pair__eyebrow, .tb-vark__eyebrow, .premium-twoup__meta,
+.premium-figure__brief-label, .premium-figure__ratio,
+.tb-trust__seal, .tb-cta__bar, .tb-manifesto__cite, .tb-svc__num {
+  letter-spacing: 0.28em;
+}
+
+/* ---- K · Links: no underline at rest, fine underline drawn in on hover - */
+.tb-prose__body a, .premium-prose a, .tb-svc__desc a, p a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
+}
+.tb-prose__body a:hover, .premium-prose a:hover, .tb-svc__desc a:hover, p a:hover {
+  background-size: 100% 1px;
+  color: var(--olive-deep);
+}
+
+/* ---- L · Captions: small italic Playfair ------------------------------ */
+.premium-figure-caption, .tb-pair__figcaption, figcaption, .tb-figcaption {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--slate);
+  letter-spacing: 0;
+}
+
+/* ---- G · Body text held to a narrow editorial measure (~60ch) ---------- */
+.tb-hero__sub, .tb-heritage__sub, .tb-services__sub, .tb-services__standfirst,
+.tb-svc__lede, .tb-svc__desc, .tb-faq__sub, .tb-pagehero__lede,
+.tb-pair__lede, .premium-prose p, .tb-cta__sub, .tb-office__meta {
+  max-width: 60ch;
+}
+
+/* ---- N · Standing figures: large display numerals, small label beside -- */
+.tb-heritage__cell--fig {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tb-heritage__figure {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 500;
+  line-height: 0.95;
+  color: var(--olive-deep);
+}
+.tb-heritage__numlabel {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--graphite);
+  max-width: 22ch;
+}
+
+/* ---- M · Imagery: one editorial black-and-white treatment for photos --- */
+figure img, .tb-svc__poster, .tb-svc__video, .tb-pair__figure img,
+.tb-brandfig img, .premium-figure img, .tb-hero__bg {
+  filter: grayscale(1) contrast(1.06);
+}
+
+/* ---- Fixes · retire brick red; keep navy off text; ground light-olive -- */
+.tb-cal__day.is-unavailable,
+.tb-cal__day.is-unavailable:hover { color: var(--graphite); }
+.tb-cal__day.is-unavailable::after { background: var(--graphite); }
+/* Navy was a second text accent in prose link hover — use the olive accent. */
+.tb-prose__body a:hover { color: var(--olive-deep); }
+/* Light olive is for display / on-dark only: keep it off small body text by
+   grounding any stray small usage to graphite on light backgrounds. */
+.tb-svc__points li, .tb-office__meta, .tb-faq__sub { color: var(--graphite); }
+
+/* ---- Finishing · generous clear space around the logo ----------------- */
+.tb-footer__logo { margin-bottom: 20px; }
+.tb-footer__brand { padding-right: 16px; }
