@@ -60,37 +60,37 @@ const TRUST = [
 
 
 const HERITAGE = [
-{ label: "Started", year: "2024",
-  body: "The practice opens by invitation, the beginning of a growing community of curriculum developers and adult educators." },
-{ label: "Across the sector", year: "2019",
-  body: "The practice has rendered curriculum and advisory services across thirteen Approved Training Organisations, spanning multiple sectors and sectorial frameworks." },
-{ label: "Submissions", year: "100+",
-  body: "Approaching one hundred courseware submissions completed collectively across the practice, spanning WSQ and non-WSQ certifiable courses." },
-{ label: "Industry impact", year: "2022",
-  body: <>Courseware reaches the industry at scale, including the FTIC Code of Conduct workshop reported by<br />The Business Times in 2022.</> }];
+{ num: null, label: "By invitation",
+  body: null },
+{ num: "13", label: "ATOs and multiple sectors",
+  body: null },
+{ num: "100+", label: "submissions",
+  body: null },
+{ num: null, label: "Cited in The Business Times",
+  body: "Work by our practitioners has reached the industry, and the pages of The Business Times." }];
 
 
 const SERVICES = [
 { id: "i", numeral: "I", href: "wsqcurriculumdevelopment.html",
-  title: "Curriculum Development",
+  title: "WSQ Curriculum Development",
   poster: "assets/curriculum-architecture.jpg", vimeo: "1199227151", video: "assets/svc-curriculum.mp4",
   lede: "Courses mapped to the Skills Framework, written for the room and ready for courseware submission.",
   desc: "We map every course first, to the technical and critical core skills of the relevant Skills Framework, or to the Course Approval Skills List where it sits outside WSQ. From that map we design the rest, the curriculum and lesson plans, the assessment plan and instruments, the trainer and learner guides. We submit the course on TPGateway on your behalf, and stay with it through SSG's queries until it is approved.",
   points: ["Non-WSQ / WSQ courses", "CASL", "TPGateway submission"] },
 { id: "ii", numeral: "II", href: "atosetupadvisory.html",
-  title: "Sourcing and ATO Setup",
+  title: "ATO Setup Advisory",
   poster: "assets/setup-classroom.jpg", vimeo: "1199226286", video: "assets/svc-setup.mp4",
   lede: "The people and the registration, from the first conversation to your first cohort.",
   desc: "We introduce trainers and subject-matter experts to you at no cost, and accompany prospective and first-time training organisations through the whole of setup. From registration and accreditation to the moment your first cohort sits down.",
   points: ["Trainer and SME sourcing", "ATO / OR registration", "Academic operations"] },
 { id: "iii", numeral: "III", href: "ssgauditmatters.html",
-  title: "TPQA and Compliance Advisory",
+  title: "SSG Audit Matters",
   poster: "assets/compliance-folders.jpg", vimeo: "1199225797", video: "assets/svc-business-man.mp4",
   lede: "Ready for the audit, long before the date is set.",
   desc: "It begins with a complimentary consultation on your TPQA and CQC standing, with a pre-audit gap analysis against SSG's criteria. We close the gaps, strengthen the operation where it needs it, and leave the documents in order and the work behind them already done.",
   points: ["TPQA advisory", "CQC advisory", "Pre-audit gap analysis"] },
 { id: "iv", numeral: "IV", href: "creativemarketing.html",
-  title: "Revenue, through Marketing",
+  title: "Creative Marketing",
   poster: "assets/marketing-camera.jpg", vimeo: "1199225372", video: "assets/svc-marketing.mp4",
   lede: "Marketing built to fill seats and turn them into revenue, for the training sector alone.",
   desc: "We treat marketing as commercial work, not decoration, and only for training and adult education. Brand and campaigns, graphic and social design from our in-house creative producer, and personal branding video with PixPlaySG, our creative collaborator. Each piece is built to move a learner closer to enrolment, so the marketing line and the revenue line move together.",
@@ -101,7 +101,7 @@ const FAQ = [
 { q: <>Why are your <em>fees</em> lower?</>,
   a: "The difference reflects our overheads rather than any compromise in the work. We maintain no staffed office, carry no marketing costs to recover, and take no placement margin on the SMEs we source. Our fees account for the work itself and the people who carry it out, and we are happy to set out that basis for you in detail." },
 { q: <>May we apply your <em>accreditations</em> to work prepared elsewhere?</>,
-  a: "We are not able to do so. Our accreditations attach only to work we have prepared ourselves, and to extend them to courseware authored by another would misrepresent that material to SSG and would not hold up on review. Where you have capable people of your own, we would be glad to work alongside them; what we cannot do is certify work we have not undertaken." },
+  a: "We are not able to do so. Our accreditations attach only to work we have prepared ourselves. Extending them to curriculum written by another would misrepresent it to SSG and would not survive review. Where you have capable people, we are glad to work alongside them, but we cannot certify work we have not undertaken." },
 { q: <>Who carries out the <em>work</em>?</>,
   a: "Each engagement is led by a Level 3 Senior Professional Adult Educator under TAEPP, supported by two curriculum developers accredited under DACE / DDDLP, and by three where the engagement calls for it. We do not subcontract, and we are glad to introduce you to the people who will be handling your matter." },
 { q: <>What does the first <em>consultation</em> involve?</>,
@@ -382,7 +382,7 @@ function App() {
               Curriculum, <br /><em className="t-italic">written by practitioners.</em>
             </h1>
             <p className="tb-hero__sub">
-              We take on a limited number of engagements each quarter.{' '}<br className="tb-sub-break" />Every piece of work is produced from scratch, with no content carried over from prior clients.
+              We accept a few engagements each quarter.
             </p>
             <div className="tb-hero__actions">
               <a className="btn btn-ghost-on-dark" href="#manifesto">Read what we believe</a>
@@ -414,8 +414,8 @@ function App() {
             <div className="tb-manifesto__text">
               <EyebrowLockup>What we believe</EyebrowLockup>
               <blockquote className="tb-manifesto__quote">
-                Learning ought not to be priced out of reach of the people who most need
-                to <em>learn</em>. We price our work so that it does not have to be.
+                Aim for the skies, and one day you look down from them. The sky belongs
+                to whoever learns to <em>reach</em> it, not only to those who could afford the view.
               </blockquote>
               <div className="tb-manifesto__cite">FROM THE FOUNDER · KEITH HO</div>
             </div>
@@ -428,19 +428,18 @@ function App() {
           <div className="container">
             <header className="tb-heritage__head">
               <EyebrowLockup>Our practice · our standing</EyebrowLockup>
-              <h2 className="tb-heritage__title">A short <em>heritage</em>, candidly stated.</h2>
+              <h2 className="tb-heritage__title">What we bring.</h2>
               <p className="tb-heritage__sub">
-                Four markers from the practice's correspondence, the milestones we feel
-                comfortable putting on paper, and which a curious reader might want to weigh
-                before writing to us.
+                We say little about ourselves. This much, we will.
               </p>
             </header>
             <div className="tb-heritage__grid">
               {HERITAGE.map((h, i) =>
-              <div key={i} className="tb-heritage__cell tb-reveal-child">
-                  <div className="tb-heritage__label">{h.label}</div>
-                  <div className="tb-heritage__year">{h.year}</div>
-                  <p className="tb-heritage__body">{h.body}</p>
+              <div key={i} className={"tb-heritage__cell tb-reveal-child" + (h.num ? " tb-heritage__cell--fig" : "")}>
+                  {h.num
+                    ? <><div className="tb-heritage__figure">{h.num}</div><div className="tb-heritage__numlabel">{h.label}</div></>
+                    : <div className="tb-heritage__label">{h.label}</div>}
+                  {h.body && <p className="tb-heritage__body">{h.body}</p>}
                 </div>
               )}
             </div>
@@ -456,12 +455,14 @@ function App() {
                 <h2 className="tb-services__title">
                   Four practice areas,<br />one standard of <em className="t-italic">care.</em>
                 </h2>
+                <p className="tb-services__standfirst">
+                  Nothing is templated, and nothing is carried over from prior clients.
+                </p>
                 <div className="tb-services__aside">
                   <span className="tb-services__asidelabel">On engagement</span>
                   <p className="tb-services__sub">
-                    Whenever it suits you, allow us to prepare an indicative figure.
-                    Our plans are tiered, sized to your scope, and ease with each
-                    further curriculum we develop.
+                    We are glad to prepare an indicative figure whenever it suits you.
+                    The fee reflects the scope, and eases with each further curriculum.
                   </p>
                 </div>
               </div>
@@ -562,7 +563,7 @@ function App() {
                   <h2 className="tb-cta__title">Begin a <em>conversation.</em></h2>
                   <p className="tb-cta__sub">The consultation is ours to offer, with no obligation. You will hear from us within two working days.</p>
                   <div className="tb-cta__actions">
-                    <a className="btn btn-on-dark" href="mailto:hello@2birds.asia?subject=Complimentary%20consultation%20enquiry">Book a complimentary consultation</a>
+                    <a className="btn btn-on-dark" href="mailto:hello@2birds.asia?subject=Complimentary%20consultation%20enquiry">Begin a conversation</a>
                   </div>
                   <LangOnlyNote label="This availability calendar" />
                 </div>

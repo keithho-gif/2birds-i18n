@@ -853,3 +853,27 @@ window.TBI18N && window.TBI18N.register("ja", {
 window.TBI18N && window.TBI18N.register("ja", {
   "Open the register": "一覧を開く"
 });
+
+/* ---- redesign-preview additions ---- */
+window.TBI18N.register("ja", {
+  "WSQ Curriculum Development": "WSQ カリキュラム開発",
+  "ATO Setup Advisory": "ATO 設立アドバイザリー",
+  "SSG Audit Matters": "SSG 監査に関する事項",
+  "Creative Marketing": "クリエイティブ・マーケティング",
+  "We accept a few engagements each quarter.": "四半期ごとにお引き受けする案件は、わずかな数のみです。",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "空を目指せば、いつか空の高みからその下を見渡す日が来ます。空は、眺めを買える者だけのものではなく、そこへ届くすべを身につけた者のものです。",
+  "What we bring.": "私たちがもたらすもの。",
+  "We say little about ourselves. This much, we will.": "私たちは自らについて多くを語りません。これだけは、申し上げます。",
+  "By invitation": "招待制",
+  "ATOs and multiple sectors": "の ATO、複数の分野にわたって",
+  "submissions": "提出件数",
+  "Cited in The Business Times": "The Business Times に取り上げられて",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "私たちの実務家による仕事は業界へ、そして The Business Times の紙面へと届いてきました。",
+  "Nothing is templated, and nothing is carried over from prior clients.": "テンプレートに頼るものは何ひとつなく、過去のクライアントから流用するものも何ひとつありません。",
+  "We are glad to prepare an indicative figure whenever it suits you. The fee reflects the scope, and eases with each further curriculum.": "ご都合のよいときに、概算のお見積りを喜んでご用意いたします。料金は案件の規模に応じて定まり、カリキュラムが増えるごとに軽減されます。",
+  "We are not able to do so. Our accreditations attach only to work we have prepared ourselves. Extending them to curriculum written by another would misrepresent it to SSG and would not survive review. Where you have capable people, we are glad to work alongside them, but we cannot certify work we have not undertaken.": "それはいたしかねます。当事務所の認定は、自ら手がけた仕事にのみ付されるものです。他者が作成したカリキュラムにそれを及ぼせば、SSG に対して事実を偽ることになり、審査にも耐えられません。貴機関に有能な人材がおられるなら、その方々と協働することは喜んでいたしますが、自ら手がけていない仕事を保証することはできません。",
+  "Begin a conversation": "ご相談を始める",
+  "The right teaching method carries a learner as far as their effort will take them.": "適切な教育方法は、学習者を、その努力が届くかぎりの高みへと運びます。",
+  "There is a reason birds so often fly in pairs. Across species, pairing is an adaptation before it is a sentiment: two travel farther than one, see more than one, and arrive in better condition than one. We took the name because the science agrees with the feeling.": "鳥がこれほど頻繁につがいで飛ぶのには、理由があります。種を越えて、つがいは情緒である前に適応です。二羽は一羽より遠くへ行き、一羽より多くを見、一羽より良い状態でたどり着く。私たちがこの名を取ったのは、科学がその感覚に同意するからです。",
+  "So every curriculum we build offers more than one route to the same destination. A learner can meet the material in the way that suits them, and a trainer is never left to teach to the middle and hope the rest keep up.": "だからこそ私たちが作るすべてのカリキュラムは、同じ目的地へ至る道筋を一つならず備えています。学習者は自分に合ったしかたで教材に出会え、講師が中位層に向けて教え、あとは残りがついてくるのを願うだけ、という事態に陥ることもありません。"
+});

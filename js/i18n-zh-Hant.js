@@ -853,3 +853,27 @@ window.TBI18N && window.TBI18N.register("zh-Hant", {
 window.TBI18N && window.TBI18N.register("zh-Hant", {
   "Open the register": "前往技能清單"
 });
+
+/* ---- redesign-preview additions ---- */
+window.TBI18N.register("zh-Hant", {
+  "WSQ Curriculum Development": "WSQ 課程開發",
+  "ATO Setup Advisory": "ATO 設立顧問",
+  "SSG Audit Matters": "SSG 審核事務",
+  "Creative Marketing": "創意行銷",
+  "We accept a few engagements each quarter.": "我們每季只承接少數幾項委託。",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "以天空為志，終有一日你將自其上俯瞰。天空屬於每一個學會抵達它的人，而不只屬於那些原本就負擔得起這片景緻的人。",
+  "What we bring.": "我們所帶來的。",
+  "We say little about ourselves. This much, we will.": "我們甚少談論自己。這些，我們願意一說。",
+  "By invitation": "受邀",
+  "ATOs and multiple sectors": "ATOs 與多個行業",
+  "submissions": "提交件數",
+  "Cited in The Business Times": "獲 The Business Times 引述",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "我們從業者的成果，已觸及行業，亦見於 The Business Times 的版面。",
+  "Nothing is templated, and nothing is carried over from prior clients.": "沒有任何一份是套用範本的，也沒有任何一份是從先前客戶沿用而來的。",
+  "We are glad to prepare an indicative figure whenever it suits you. The fee reflects the scope, and eases with each further curriculum.": "任何時候，只要您方便，我們都樂於備妥一份指示性的數字。費用反映工作的範疇，並隨每增一套課程而遞減。",
+  "We are not able to do so. Our accreditations attach only to work we have prepared ourselves. Extending them to curriculum written by another would misrepresent it to SSG and would not survive review. Where you have capable people, we are glad to work alongside them, but we cannot certify work we have not undertaken.": "我們無法這樣做。我們的認證只附於我們親自準備的工作之上。將其延伸至他人所撰寫的課程，會向 SSG 構成失實陳述，也經不起審查。在您擁有能幹人才之處，我們樂於與他們並肩協作，但我們無法為並非由我們承擔的工作背書。",
+  "Begin a conversation": "展開一段對話",
+  "The right teaching method carries a learner as far as their effort will take them.": "正確的教學方法，能承載學習者抵達其努力所能企及的高度。",
+  "There is a reason birds so often fly in pairs. Across species, pairing is an adaptation before it is a sentiment: two travel farther than one, see more than one, and arrive in better condition than one. We took the name because the science agrees with the feeling.": "鳥兒如此頻繁地成對而飛，是有緣由的。在各個物種中，成對首先是一種適應，而後才是一種情感：兩隻比一隻飛得更遠，看得更多，抵達時狀態也更佳。我們取這個名字，正因為科學與那份情感不謀而合。",
+  "So every curriculum we build offers more than one route to the same destination. A learner can meet the material in the way that suits them, and a trainer is never left to teach to the middle and hope the rest keep up.": "故我們建構的每一套課程，都為同一個目的地提供不止一條路徑。學習者可以最適合自己的方式接觸教材，而培訓者也無須只面向中間水平施教，再寄望其餘人勉力跟上。"
+});

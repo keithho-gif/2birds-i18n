@@ -853,3 +853,27 @@ window.TBI18N && window.TBI18N.register("vi", {
 window.TBI18N && window.TBI18N.register("vi", {
   "Open the register": "Mở danh sách"
 });
+
+/* ---- redesign-preview additions ---- */
+window.TBI18N.register("vi", {
+  "WSQ Curriculum Development": "Phát triển chương trình WSQ",
+  "ATO Setup Advisory": "Tư vấn thành lập ATO",
+  "SSG Audit Matters": "Vấn đề kiểm định SSG",
+  "Creative Marketing": "Tiếp thị sáng tạo",
+  "We accept a few engagements each quarter.": "Mỗi quý chúng tôi chỉ nhận một số ít dự án.",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "Hãy hướng tới bầu trời, rồi một ngày bạn nhìn xuống từ trên ấy. Bầu trời thuộc về người học được cách vươn tới nó, chứ không chỉ thuộc về những ai đủ sức trả cho tầm nhìn ấy.",
+  "What we bring.": "Điều chúng tôi mang lại.",
+  "We say little about ourselves. This much, we will.": "Chúng tôi nói ít về bản thân. Chừng này thì chúng tôi sẽ nói.",
+  "By invitation": "Theo lời mời",
+  "ATOs and multiple sectors": "ATO và nhiều ngành",
+  "submissions": "hồ sơ nộp",
+  "Cited in The Business Times": "Được The Business Times nhắc đến",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "Công việc của những người làm nghề trong văn phòng chúng tôi đã đến với ngành, và lên cả những trang của The Business Times.",
+  "Nothing is templated, and nothing is carried over from prior clients.": "Không gì được làm theo mẫu sẵn, và không gì được mang sang từ các khách hàng trước.",
+  "We are glad to prepare an indicative figure whenever it suits you. The fee reflects the scope, and eases with each further curriculum.": "Bất cứ khi nào thuận tiện, chúng tôi sẵn lòng chuẩn bị một con số ước tính. Mức phí phản ánh phạm vi công việc, và giảm dần theo mỗi chương trình tiếp theo.",
+  "We are not able to do so. Our accreditations attach only to work we have prepared ourselves. Extending them to curriculum written by another would misrepresent it to SSG and would not survive review. Where you have capable people, we are glad to work alongside them, but we cannot certify work we have not undertaken.": "Chúng tôi không thể làm vậy. Chứng nhận của chúng tôi chỉ gắn với phần việc do chính chúng tôi thực hiện. Mở rộng chúng cho chương trình do người khác soạn sẽ là trình bày sai lệch trước SSG và sẽ không đứng vững khi rà soát. Nếu quý vị có những người có năng lực của riêng mình, chúng tôi vui lòng cùng làm việc với họ, nhưng chúng tôi không thể chứng thực phần việc mà mình không đảm nhận.",
+  "Begin a conversation": "Bắt đầu trao đổi",
+  "The right teaching method carries a learner as far as their effort will take them.": "Phương pháp giảng dạy đúng đắn đưa người học đi xa đến đâu mà nỗ lực của họ còn cho phép.",
+  "There is a reason birds so often fly in pairs. Across species, pairing is an adaptation before it is a sentiment: two travel farther than one, see more than one, and arrive in better condition than one. We took the name because the science agrees with the feeling.": "Có một lý do để chim thường bay theo cặp. Trải khắp các loài, việc kết đôi là một sự thích nghi trước khi là một cảm xúc: hai con đi xa hơn một, nhìn được nhiều hơn một, và đến nơi trong trạng thái tốt hơn một. Chúng tôi chọn cái tên ấy vì khoa học đồng tình với cảm nhận.",
+  "So every curriculum we build offers more than one route to the same destination. A learner can meet the material in the way that suits them, and a trainer is never left to teach to the middle and hope the rest keep up.": "Vì thế mỗi chương trình chúng tôi xây dựng đều mở ra hơn một con đường dẫn tới cùng một đích đến. Người học có thể tiếp cận tài liệu theo cách phù hợp với mình, và người giảng dạy không bao giờ bị bỏ mặc để dạy ở mức trung bình rồi mong những người còn lại theo kịp."
+});

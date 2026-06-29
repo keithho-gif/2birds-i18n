@@ -853,3 +853,27 @@ window.TBI18N && window.TBI18N.register("th", {
 window.TBI18N && window.TBI18N.register("th", {
   "Open the register": "เปิดรายการ"
 });
+
+/* ---- redesign-preview additions ---- */
+window.TBI18N.register("th", {
+  "WSQ Curriculum Development": "การพัฒนาหลักสูตร WSQ",
+  "ATO Setup Advisory": "การให้คำปรึกษาการจัดตั้ง ATO",
+  "SSG Audit Matters": "เรื่องการตรวจสอบของ SSG",
+  "Creative Marketing": "การตลาดเชิงสร้างสรรค์",
+  "We accept a few engagements each quarter.": "เรารับงานเพียงไม่กี่งานในแต่ละไตรมาส",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "จงมุ่งสู่ท้องฟ้า แล้ววันหนึ่งท่านจะได้มองลงมาจากที่นั่น ท้องฟ้าเป็นของผู้ที่เรียนรู้ที่จะไปให้ถึง ไม่ใช่เพียงของผู้ที่มีกำลังพอจะซื้อทัศนียภาพนั้น",
+  "What we bring.": "สิ่งที่เรานำมา",
+  "We say little about ourselves. This much, we will.": "เราพูดถึงตัวเองน้อยมาก แต่เพียงเท่านี้ เราจะกล่าว",
+  "By invitation": "โดยการเชิญ",
+  "ATOs and multiple sectors": "ATOs และหลากหลายภาคส่วน",
+  "submissions": "การยื่น",
+  "Cited in The Business Times": "ได้รับการอ้างอิงใน The Business Times",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "ผลงานของผู้ปฏิบัติงานของเราได้เข้าถึงอุตสาหกรรม และไปปรากฏบนหน้า The Business Times",
+  "Nothing is templated, and nothing is carried over from prior clients.": "ไม่มีสิ่งใดทำจากแม่แบบ และไม่มีสิ่งใดนำมาจากลูกค้ารายก่อน",
+  "We are glad to prepare an indicative figure whenever it suits you. The fee reflects the scope, and eases with each further curriculum.": "เรายินดีจัดเตรียมตัวเลขโดยประมาณเมื่อใดก็ตามที่ท่านสะดวก ค่าบริการสะท้อนขอบเขตของงาน และผ่อนลงในทุกหลักสูตรที่เพิ่มขึ้น",
+  "We are not able to do so. Our accreditations attach only to work we have prepared ourselves. Extending them to curriculum written by another would misrepresent it to SSG and would not survive review. Where you have capable people, we are glad to work alongside them, but we cannot certify work we have not undertaken.": "เราไม่อาจทำเช่นนั้นได้ การรับรองของเราผูกอยู่กับงานที่เราจัดทำขึ้นเองเท่านั้น การขยายไปยังหลักสูตรที่ผู้อื่นเป็นผู้เขียนย่อมเป็นการแสดงข้อมูลอันคลาดเคลื่อนต่อ SSG และจะไม่ผ่านการพิจารณา หากท่านมีบุคลากรที่มีความสามารถ เรายินดีทำงานร่วมกับพวกเขา แต่สิ่งที่เราทำมิได้คือการรับรองงานที่เรามิได้ลงมือทำ",
+  "Begin a conversation": "เริ่มการพูดคุย",
+  "The right teaching method carries a learner as far as their effort will take them.": "วิธีการสอนที่ถูกต้องพาผู้เรียนไปได้ไกลเท่าที่ความพยายามของเขาจะพาไป",
+  "There is a reason birds so often fly in pairs. Across species, pairing is an adaptation before it is a sentiment: two travel farther than one, see more than one, and arrive in better condition than one. We took the name because the science agrees with the feeling.": "มีเหตุผลที่นกมักบินเป็นคู่อยู่เสมอ ในบรรดาสายพันธุ์ต่างๆ การจับคู่เป็นการปรับตัวก่อนที่จะเป็นความรู้สึก สองตัวเดินทางได้ไกลกว่าหนึ่ง เห็นได้มากกว่าหนึ่ง และไปถึงในสภาพที่ดีกว่าหนึ่ง เราเลือกชื่อนี้เพราะวิทยาศาสตร์สอดคล้องกับความรู้สึก",
+  "So every curriculum we build offers more than one route to the same destination. A learner can meet the material in the way that suits them, and a trainer is never left to teach to the middle and hope the rest keep up.": "ดังนั้นทุกหลักสูตรที่เราสร้างจึงเปิดเส้นทางไปสู่จุดหมายเดียวกันได้มากกว่าหนึ่งทาง ผู้เรียนสามารถพบกับเนื้อหาในแบบที่เหมาะกับตน และผู้ฝึกสอนก็ไม่ต้องถูกทิ้งให้สอนแบบกลางๆ แล้วได้แต่หวังว่าคนที่เหลือจะตามทัน"
+});

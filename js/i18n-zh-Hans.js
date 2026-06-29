@@ -853,3 +853,27 @@ window.TBI18N && window.TBI18N.register("zh-Hans", {
 window.TBI18N && window.TBI18N.register("zh-Hans", {
   "Open the register": "前往技能清单"
 });
+
+/* ---- redesign-preview additions ---- */
+window.TBI18N.register("zh-Hans", {
+  "WSQ Curriculum Development": "WSQ 课程开发",
+  "ATO Setup Advisory": "ATO 设立顾问",
+  "SSG Audit Matters": "SSG 审核事务",
+  "Creative Marketing": "创意营销",
+  "We accept a few engagements each quarter.": "我们每季度只承接少数几项委托。",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "以天空为志，终有一日你将自天空俯瞰人间。天空属于学会抵达它的人，而非仅属于那些本就负担得起这片景致的人。",
+  "What we bring.": "我们带来什么。",
+  "We say little about ourselves. This much, we will.": "我们鲜少谈论自己。这些，我们愿意一说。",
+  "By invitation": "邀请制",
+  "ATOs and multiple sectors": "ATOs 与多个行业",
+  "submissions": "呈交件数",
+  "Cited in The Business Times": "获《The Business Times》报道",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "我们从业者的成果已惠及业界，亦见诸《The Business Times》的版面。",
+  "Nothing is templated, and nothing is carried over from prior clients.": "没有任何内容套用模板，也没有任何内容沿用自先前的客户。",
+  "We are glad to prepare an indicative figure whenever it suits you. The fee reflects the scope, and eases with each further curriculum.": "在您方便之时，我们乐意为您拟备一份指示性报价。费用反映工作的范围，并随每开发一门课程而递减。",
+  "We are not able to do so. Our accreditations attach only to work we have prepared ourselves. Extending them to curriculum written by another would misrepresent it to SSG and would not survive review. Where you have capable people, we are glad to work alongside them, but we cannot certify work we have not undertaken.": "恕难从命。我们的认证只附于由本所亲自完成的工作。若将其延伸至他方撰写的课程，便会向 SSG 作出失实陈述，亦无法通过审核。倘若贵机构自有能干的人手，我们乐意与其携手共事；但我们不能为并非由本所承办的工作背书。",
+  "Begin a conversation": "开始洽谈",
+  "The right teaching method carries a learner as far as their effort will take them.": "得当的教学方法，能承载学习者抵达其努力所能企及的高度。",
+  "There is a reason birds so often fly in pairs. Across species, pairing is an adaptation before it is a sentiment: two travel farther than one, see more than one, and arrive in better condition than one. We took the name because the science agrees with the feeling.": "鸟儿如此频繁地成对而飞，自有其缘由。在各个物种中，成对首先是一种适应，而后才是一种情感：两只比一只飞得更远，看得更多，抵达时状态也更佳。我们取这个名字，正因为科学与那份情感不谋而合。",
+  "So every curriculum we build offers more than one route to the same destination. A learner can meet the material in the way that suits them, and a trainer is never left to teach to the middle and hope the rest keep up.": "故我们打造的每一套课程，都为同一个目的地提供不止一条路径。学习者可以最适合自己的方式接触教材，而培训者也无须只面向中间水平施教，再寄望其余人勉力跟上。"
+});

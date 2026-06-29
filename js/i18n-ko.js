@@ -853,3 +853,27 @@ window.TBI18N && window.TBI18N.register("ko", {
 window.TBI18N && window.TBI18N.register("ko", {
   "Open the register": "목록 열기"
 });
+
+/* ---- redesign-preview additions ---- */
+window.TBI18N.register("ko", {
+  "WSQ Curriculum Development": "WSQ 커리큘럼 개발",
+  "ATO Setup Advisory": "ATO 설립 자문",
+  "SSG Audit Matters": "SSG 심사 관련 사안",
+  "Creative Marketing": "크리에이티브 마케팅",
+  "We accept a few engagements each quarter.": "저희는 분기마다 소수의 의뢰만 맡습니다.",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "하늘을 향해 오르다 보면, 어느 날 그 하늘에서 아래를 내려다보게 됩니다. 하늘은 그 풍경을 살 수 있는 이가 아니라, 그곳에 닿는 법을 익힌 이의 것입니다.",
+  "What we bring.": "저희가 가져오는 것.",
+  "We say little about ourselves. This much, we will.": "저희는 스스로에 대해 좀처럼 말하지 않습니다. 다만 이만큼은 말씀드립니다.",
+  "By invitation": "초청제",
+  "ATOs and multiple sectors": "여러 ATO와 다양한 부문",
+  "submissions": "제출 건수",
+  "Cited in The Business Times": "The Business Times에 인용됨",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "저희 실무자들의 작업은 업계에, 그리고 The Business Times의 지면에까지 가닿았습니다.",
+  "Nothing is templated, and nothing is carried over from prior clients.": "무엇도 정형화된 틀에서 나오지 않으며, 이전 클라이언트의 것을 가져다 쓰지 않습니다.",
+  "We are glad to prepare an indicative figure whenever it suits you. The fee reflects the scope, and eases with each further curriculum.": "편하신 때에 개략적인 견적을 기꺼이 마련해 드립니다. 요금은 의뢰 규모를 반영하며, 추가로 개발하는 커리큘럼마다 부담이 줄어듭니다.",
+  "We are not able to do so. Our accreditations attach only to work we have prepared ourselves. Extending them to curriculum written by another would misrepresent it to SSG and would not survive review. Where you have capable people, we are glad to work alongside them, but we cannot certify work we have not undertaken.": "그렇게 할 수는 없습니다. 저희 인증은 저희가 직접 작성한 작업에만 부여됩니다. 타인이 작성한 커리큘럼에 인증을 확대하면 SSG에 사실을 왜곡하는 것이 되며, 심사도 통과하지 못합니다. 귀 기관에 유능한 인력이 있다면 그들과 함께 일하는 것은 기꺼이 하겠으나, 저희가 직접 수행하지 않은 작업을 보증할 수는 없습니다.",
+  "Begin a conversation": "상담 시작하기",
+  "The right teaching method carries a learner as far as their effort will take them.": "올바른 교수법은 학습자를 그 자신의 노력이 데려다줄 수 있는 곳까지 데려다줍니다.",
+  "There is a reason birds so often fly in pairs. Across species, pairing is an adaptation before it is a sentiment: two travel farther than one, see more than one, and arrive in better condition than one. We took the name because the science agrees with the feeling.": "새가 그토록 자주 짝지어 나는 데에는 까닭이 있습니다. 여러 종에 걸쳐, 짝을 이루는 것은 감정이기에 앞서 적응입니다. 둘은 하나보다 멀리 가고, 하나보다 많이 보며, 하나보다 나은 상태로 도착합니다. 우리가 이 이름을 택한 것은 과학이 그 느낌과 일치하기 때문입니다.",
+  "So every curriculum we build offers more than one route to the same destination. A learner can meet the material in the way that suits them, and a trainer is never left to teach to the middle and hope the rest keep up.": "그래서 저희가 만드는 모든 커리큘럼은 같은 목적지에 이르는 길을 하나 이상 제공합니다. 학습자는 자신에게 맞는 방식으로 자료를 만날 수 있고, 강사는 중간 수준에 맞춰 가르친 뒤 나머지가 따라오기를 바라기만 하는 처지에 결코 놓이지 않습니다."
+});

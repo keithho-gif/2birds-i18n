@@ -853,3 +853,27 @@ window.TBI18N && window.TBI18N.register("id", {
 window.TBI18N && window.TBI18N.register("id", {
   "Open the register": "Buka daftar"
 });
+
+/* ---- redesign-preview additions ---- */
+window.TBI18N.register("id", {
+  "WSQ Curriculum Development": "Pengembangan Kurikulum WSQ",
+  "ATO Setup Advisory": "Penasihatan Pendirian ATO",
+  "SSG Audit Matters": "Urusan Audit SSG",
+  "Creative Marketing": "Pemasaran Kreatif",
+  "We accept a few engagements each quarter.": "Kami menerima beberapa penugasan saja setiap kuartal.",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "Bidik langit, dan suatu hari Anda akan memandanginya dari atas. Langit menjadi milik siapa pun yang belajar menggapainya, bukan hanya milik mereka yang mampu membayar pemandangannya.",
+  "What we bring.": "Apa yang kami bawa.",
+  "We say little about ourselves. This much, we will.": "Kami sedikit berbicara tentang diri kami. Sebanyak inilah yang akan kami sampaikan.",
+  "By invitation": "Melalui undangan",
+  "ATOs and multiple sectors": "ATO dan beragam sektor",
+  "submissions": "pengajuan",
+  "Cited in The Business Times": "Dikutip The Business Times",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "Karya para praktisi kami telah menjangkau industri, dan halaman-halaman The Business Times.",
+  "Nothing is templated, and nothing is carried over from prior clients.": "Tidak ada yang dibuat dari templat, dan tidak ada yang dialihkan dari klien sebelumnya.",
+  "We are glad to prepare an indicative figure whenever it suits you. The fee reflects the scope, and eases with each further curriculum.": "Kapan pun Anda berkenan, kami dengan senang hati menyiapkan perkiraan biaya. Biaya tersebut mencerminkan cakupan pekerjaan, dan meringan pada setiap kurikulum berikutnya.",
+  "We are not able to do so. Our accreditations attach only to work we have prepared ourselves. Extending them to curriculum written by another would misrepresent it to SSG and would not survive review. Where you have capable people, we are glad to work alongside them, but we cannot certify work we have not undertaken.": "Kami tidak dapat melakukannya. Akreditasi kami hanya melekat pada pekerjaan yang kami siapkan sendiri. Memperluasnya ke kurikulum yang ditulis pihak lain berarti menyampaikan materi itu secara keliru kepada SSG dan tidak akan bertahan saat ditinjau. Apabila Anda memiliki orang-orang yang cakap, kami dengan senang hati bekerja bersama mereka, tetapi kami tidak dapat menyertifikasi pekerjaan yang bukan kami kerjakan.",
+  "Begin a conversation": "Mulai sebuah percakapan",
+  "The right teaching method carries a learner as far as their effort will take them.": "Metode pengajaran yang tepat membawa seorang pembelajar sejauh usahanya mampu membawanya.",
+  "There is a reason birds so often fly in pairs. Across species, pairing is an adaptation before it is a sentiment: two travel farther than one, see more than one, and arrive in better condition than one. We took the name because the science agrees with the feeling.": "Ada alasan mengapa burung begitu sering terbang berpasangan. Di seluruh spesies, berpasangan adalah suatu adaptasi sebelum menjadi sebuah sentimen: dua menempuh lebih jauh daripada satu, melihat lebih banyak daripada satu, dan tiba dalam kondisi lebih baik daripada satu. Kami mengambil nama itu karena sains sependapat dengan perasaan.",
+  "So every curriculum we build offers more than one route to the same destination. A learner can meet the material in the way that suits them, and a trainer is never left to teach to the middle and hope the rest keep up.": "Maka setiap kurikulum yang kami bangun menawarkan lebih dari satu jalur menuju tujuan yang sama. Seorang pembelajar dapat menemui materi dengan cara yang sesuai baginya, dan seorang pelatih tidak pernah dibiarkan mengajar ke tengah-tengah lalu berharap sisanya menyusul."
+});
