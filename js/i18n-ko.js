@@ -681,8 +681,7 @@ window.TBI18N.register("ko", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "분기마다 제한된 수의 의뢰만 맡습니다. 모든 작업은 백지에서 시작하며, 이전 클라이언트의 내용을 가져다 쓰지 않습니다.",
   "What we believe": "저희의 신념",
-  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
-    "배움은 그것을 가장 필요로 하는 이들의 손이 닿지 않는 가격이어서는 안 됩니다. 저희는 배움이 그러한 가격이 되지 않도록 우리의 일을 책정합니다.",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "하늘을 향해 오르다 보면, 어느 날 그 하늘에서 아래를 내려다보게 됩니다. 하늘은 그 풍경을 살 수 있는 이가 아니라, 그곳에 닿는 법을 익힌 이의 것입니다.",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "저희 사무소 · 저희의 입장",

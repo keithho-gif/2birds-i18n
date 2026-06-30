@@ -681,8 +681,7 @@ window.TBI18N.register("th", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "เรารับงานในแต่ละไตรมาสในจำนวนที่จำกัด งานทุกชิ้นจัดทำขึ้นใหม่ตั้งแต่ต้น โดยไม่นำเนื้อหาจากลูกค้ารายก่อนมาใช้ซ้ำ",
   "What we believe": "สิ่งที่เราเชื่อ",
-  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
-    "การเรียนรู้ไม่ควรมีราคาสูงจนเกินเอื้อมสำหรับผู้ที่ต้องการเรียนรู้มากที่สุด เราจึงกำหนดราคาของงานเราในแบบที่ทำให้การเรียนรู้ไม่ต้องเป็นเช่นนั้น",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "จงมุ่งสู่ท้องฟ้า แล้ววันหนึ่งท่านจะได้มองลงมาจากที่นั่น ท้องฟ้าเป็นของผู้ที่เรียนรู้ที่จะไปให้ถึง ไม่ใช่เพียงของผู้ที่มีกำลังพอจะซื้อทัศนียภาพนั้น",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "สำนักงานของเรา · จุดยืนของเรา",

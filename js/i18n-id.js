@@ -681,8 +681,7 @@ window.TBI18N.register("id", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "Kami hanya menerima sejumlah terbatas penugasan setiap kuartal. Setiap karya disusun dari awal, tanpa konten yang dialihkan dari klien sebelumnya.",
   "What we believe": "Keyakinan kami",
-  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
-    "Pembelajaran tidak seharusnya berharga begitu tinggi hingga tak terjangkau oleh mereka yang paling membutuhkannya. Kami menetapkan harga kerja kami agar pembelajaran tidak harus demikian.",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "Bidik langit, dan suatu hari Anda akan memandanginya dari atas. Langit menjadi milik siapa pun yang belajar menggapainya, bukan hanya milik mereka yang mampu membayar pemandangannya.",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "Praktik kami · kedudukan kami",

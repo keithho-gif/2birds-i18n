@@ -681,8 +681,7 @@ window.TBI18N.register("vi", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "Mỗi quý chúng tôi chỉ nhận một số lượng dự án giới hạn. Mỗi sản phẩm đều được làm mới từ đầu, không sao chép nội dung từ các khách hàng trước.",
   "What we believe": "Điều chúng tôi tin",
-  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
-    "Việc học không nên bị định giá quá cao đến mức ngoài tầm với của những người cần học nhất. Chúng tôi định giá công việc của mình để việc học không phải như vậy.",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "Hãy hướng tới bầu trời, rồi một ngày bạn nhìn xuống từ trên ấy. Bầu trời thuộc về người học được cách vươn tới nó, chứ không chỉ thuộc về những ai đủ sức trả cho tầm nhìn ấy.",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "Văn phòng của chúng tôi · vị thế của chúng tôi",

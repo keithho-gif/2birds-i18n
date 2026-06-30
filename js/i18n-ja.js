@@ -681,8 +681,7 @@ window.TBI18N.register("ja", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "四半期ごとにお引き受けする案件は限られた数のみです。すべての仕事は白紙から作り上げ、過去のクライアントの内容を流用することはありません。",
   "What we believe": "私たちの信念",
-  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
-    "学びは、それを最も必要とする人々の手の届かない価格であってはなりません。私たちは、学びがそうならないように、自らの仕事の価格を定めています。",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "空を目指せば、いつか空の高みからその下を見渡す日が来ます。空は、眺めを買える者だけのものではなく、そこへ届くすべを身につけた者のものです。",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "当事務所 · 私たちの立脚点",

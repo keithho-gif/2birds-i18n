@@ -681,8 +681,7 @@ window.TBI18N.register("zh-Hant", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "我們每季只承接有限數量的委託。每一份成果皆從白紙開始，不沿用任何先前客戶的內容。",
   "What we believe": "我們的信念",
-  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
-    "學習不應因價格高昂而將最需要學習的人拒於門外。我們如此定價自己的工作，正是為了讓學習不必如此。",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "以天空為志，終有一日你將自其上俯瞰。天空屬於每一個學會抵達它的人，而不只屬於那些原本就負擔得起這片景緻的人。",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "本所 · 我們的立場",

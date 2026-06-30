@@ -681,8 +681,7 @@ window.TBI18N.register("zh-Hans", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "我们每季度只承接有限数量的委托。每一份成果皆从白纸开始，不沿用任何先前客户的内容。",
   "What we believe": "我们的信念",
-  "Learning ought not to be priced out of reach of the people who most need to learn. We price our work so that it does not have to be.":
-    "学习不应因价格高昂而将最需要学习的人拒之门外。我们如此定价自己的工作，正是为了让学习不必如此。",
+  "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "以天空为志，终有一日你将自天空俯瞰人间。天空属于学会抵达它的人，而非仅属于那些本就负担得起这片景致的人。",
 
   /* ---- home: heritage ---- */
   "Our practice · our standing": "本所 · 我们的立场",
