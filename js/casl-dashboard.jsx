@@ -163,25 +163,20 @@ function CountNum({ value, on, instant, delay }) {
 // Industry glyphs. One thin line icon per industry, same engraved register
 // as the guidance art. 24px grid, stroked in currentColor.
 const IND_GLYPHS = {
-  "Aerospace": <g><path d="M12 3l2.2 6.5L21 12l-6.8 2.5L12 21l-2.2-6.5L3 12l6.8-2.5z" opacity="0.0" /><path d="M12 3v7.2M12 10.2L4 15l8-1.4 8 1.4-8-4.8zM12 13.6V19M9.4 19h5.2" /></g>,
-  "Infocomm Technology": <g><rect x="5" y="5" width="14" height="14" rx="1" /><path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2" /><rect x="9.5" y="9.5" width="5" height="5" /></g>,
-  "Manufacturing": <g><circle cx="12" cy="12" r="3.2" /><path d="M12 4.5v2.3M12 17.2v2.3M4.5 12h2.3M17.2 12h2.3M6.7 6.7l1.6 1.6M15.7 15.7l1.6 1.6M17.3 6.7l-1.6 1.6M8.3 15.7l-1.6 1.6" /></g>,
-  "Cross-Industry": <g><circle cx="9" cy="9.5" r="4.5" /><circle cx="15" cy="14.5" r="4.5" /></g>,
-  "Legal & Compliance": <g><path d="M12 4v15M8.5 19h7M12 6.5l-5.5 1M12 6.5l5.5 1M6.5 7.5L4 13a2.6 2.6 0 0 0 5 0zM17.5 7.5L15 13a2.6 2.6 0 0 0 5 0z" /></g>,
-  "Training & Adult Education": <g><path d="M12 5L3 9l9 4 9-4z" /><path d="M7 11v5c0 1.2 2.2 2.5 5 2.5s5-1.3 5-2.5v-5M21 9v5" /></g>,
-  "Logistics & Supply Chain": <g><path d="M4 8.5l8-4 8 4v7l-8 4-8-4z" /><path d="M4 8.5l8 4 8-4M12 12.5v7" /></g>,
-  "Media, Design & Creative": <g><path d="M14.5 4.5l5 5L9 20H4v-5z" /><path d="M12 7l5 5M4 20l4.5-1" /></g>,
-  "Financial Services": <g><path d="M4 19h16M6 19v-6M10.5 19V9M15 19v-8.5M19.5 19V6" /><path d="M5 8.5L11 5l4 3 4.5-3.5" opacity="0.6" /></g>,
-  "Human Resource": <g><circle cx="9" cy="8.5" r="3" /><path d="M3.5 19c.5-3.4 2.8-5.2 5.5-5.2s5 1.8 5.5 5.2" /><circle cx="16.5" cy="9.5" r="2.4" /><path d="M16 13.8c2.4.1 4.1 1.7 4.6 4.6" /></g>,
-  "Healthcare": <g><circle cx="12" cy="12" r="8" /><path d="M12 8.5v7M8.5 12h7" /></g>,
-  "Wholesale Trade": <g><rect x="4" y="12" width="7" height="7" /><rect x="13" y="12" width="7" height="7" /><rect x="8.5" y="5" width="7" height="7" /></g>,
-  "Security & Defence": <g><path d="M12 3.5l7 2.5v5.5c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z" /><path d="M9 11.8l2.2 2.2 4-4.2" /></g>,
-  "Marine & Offshore": <g><circle cx="12" cy="5.8" r="2" /><path d="M12 7.8V19M12 19c-3.8 0-6.8-2.4-7.5-5.5L7 14M12 19c3.8 0 6.8-2.4 7.5-5.5L17 14M8.5 10.5h7" /></g>,
-  "Built Environment": <g><path d="M4 20h16M6 20V8l5-3v15M11 20V9h7v11" /><path d="M14 12h1.5M14 15h1.5M8 9h1M8 12h1M8 15h1" opacity="0.7" /></g>,
-  "Leadership & Management": <g><path d="M7 21V4M7 4h11l-2.5 3.5L18 11H7" /></g>,
-  "Energy & Power": <g><path d="M13 3L5.5 13.5H11L9.5 21 18 10h-5.5z" /></g>,
-  "Food Services & Hospitality": <g><path d="M4 16h16M5.5 16a6.5 6.5 0 0 1 13 0M12 9.5V8" /><path d="M9 19h6" opacity="0.7" /></g>,
-  "Biopharma & Life Sciences": <g><path d="M10 3.5h4M11 3.5V10l-5 8.5a1.6 1.6 0 0 0 1.4 2.5h9.2a1.6 1.6 0 0 0 1.4-2.5L13 10V3.5" /><path d="M8.2 15.5h7.6" opacity="0.7" /></g>,
+  "Engineering, Manufacturing & Industrial": <g><circle cx="12" cy="12" r="3.2" /><path d="M12 4.5v2.3M12 17.2v2.3M4.5 12h2.3M17.2 12h2.3M6.7 6.7l1.6 1.6M15.7 15.7l1.6 1.6M17.3 6.7l-1.6 1.6M8.3 15.7l-1.6 1.6" /></g>,
+  "ICT, Data & AI": <g><rect x="5" y="5" width="14" height="14" rx="1" /><path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2" /><rect x="9.5" y="9.5" width="5" height="5" /></g>,
+  "Finance, Audit & Risk": <g><path d="M4 19h16M6 19v-6M10.5 19V9M15 19v-8.5M19.5 19V6" /><path d="M5 8.5L11 5l4 3 4.5-3.5" opacity="0.6" /></g>,
+  "Business Strategy, Quality & Operations": <g><path d="M7 21V4M7 4h11l-2.5 3.5L18 11H7" /></g>,
+  "Human Capital & Learning": <g><circle cx="9" cy="8.5" r="3" /><path d="M3.5 19c.5-3.4 2.8-5.2 5.5-5.2s5 1.8 5.5 5.2" /><circle cx="16.5" cy="9.5" r="2.4" /><path d="M16 13.8c2.4.1 4.1 1.7 4.6 4.6" /></g>,
+  "Media, Design & Creative Production": <g><path d="M14.5 4.5l5 5L9 20H4v-5z" /><path d="M12 7l5 5M4 20l4.5-1" /></g>,
+  "Healthcare, Therapy & Social Services": <g><circle cx="12" cy="12" r="8" /><path d="M12 8.5v7M8.5 12h7" /></g>,
+  "Marine & Logistics": <g><circle cx="12" cy="5.8" r="2" /><path d="M12 7.8V19M12 19c-3.8 0-6.8-2.4-7.5-5.5L7 14M12 19c3.8 0 6.8-2.4 7.5-5.5L17 14M8.5 10.5h7" /></g>,
+  "Food, Beverage, Hospitality & Tourism": <g><path d="M4 16h16M5.5 16a6.5 6.5 0 0 1 13 0M12 9.5V8" /><path d="M9 19h6" opacity="0.7" /></g>,
+  "Legal, IP & Regulatory": <g><path d="M12 4v15M8.5 19h7M12 6.5l-5.5 1M12 6.5l5.5 1M6.5 7.5L4 13a2.6 2.6 0 0 0 5 0zM17.5 7.5L15 13a2.6 2.6 0 0 0 5 0z" /></g>,
+  "Procurement, Supply Chain & Operations": <g><path d="M4 8.5l8-4 8 4v7l-8 4-8-4z" /><path d="M4 8.5l8 4 8-4M12 12.5v7" /></g>,
+  "Built Environment & Sustainability": <g><path d="M4 20h16M6 20V8l5-3v15M11 20V9h7v11" /><path d="M14 12h1.5M14 15h1.5M8 9h1M8 12h1M8 15h1" opacity="0.7" /></g>,
+  "Security, Safety & Emergency Response": <g><path d="M12 3.5l7 2.5v5.5c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z" /><path d="M9 11.8l2.2 2.2 4-4.2" /></g>,
+  "Marketing, Retail & Customer Experience": <g><circle cx="9" cy="9.5" r="4.5" /><circle cx="15" cy="14.5" r="4.5" /></g>,
 };
 function IndustryGlyph({ name, size }) {
   const art = IND_GLYPHS[name];
@@ -389,65 +384,6 @@ function CaslDashboard() {
   return (
     <div className="casl">
 
-      {/* ---- Publication band: the first edition, in two stages ---- */}
-      <div className="casl__pub">
-        <div className="casl__pub-head">
-          <span className="casl__pub-eyebrow">First edition · published in two stages</span>
-          <p className="casl__pub-note">
-            The register is refreshed annually. Registered Training Partners are notified
-            of the next update through TPGateway in mid-2027.
-          </p>
-        </div>
-        <div className="casl__pub-cards">
-          <div
-            className={"casl__pub-card" + (phase === 1 ? " is-active" : "")}
-            role="button" tabIndex={0}
-            aria-pressed={phase === 1}
-            onClick={() => applyView(1)}
-            onKeyDown={cardKey(() => applyView(1))}
-          >
-            <div className="casl__pub-row">
-              <span className="casl__pub-tag">Current CASL</span>
-              <span className="casl__pub-badge is-now">In force</span>
-            </div>
-            <span className="casl__pub-eff">Effective until 1 June 2026</span>
-            <p className="casl__pub-desc">
-              The list presently in force, last updated 30 September 2025.
-              <strong> {counts.current} skills.</strong>
-            </p>
-            <div className="casl__pub-foot">
-              <span className="casl__pub-apply">{phase === 1 ? "Filtered below \u2713" : "Filter register \u2193"}</span>
-              <a className="casl__pub-link" href={OFFICIAL_CURRENT} target="_blank" rel="noopener noreferrer"
-                 onClick={(e) => e.stopPropagation()}>Official SSG list ↗</a>
-            </div>
-          </div>
-
-          <div
-            className={"casl__pub-card is-updated" + (phase === "all" ? " is-active" : "")}
-            role="button" tabIndex={0}
-            aria-pressed={phase === "all"}
-            onClick={() => applyView("all")}
-            onKeyDown={cardKey(() => applyView("all"))}
-          >
-            <div className="casl__pub-row">
-              <span className="casl__pub-tag">Updated CASL</span>
-              <span className="casl__pub-badge is-next">From 2 Jun 2026</span>
-            </div>
-            <span className="casl__pub-eff">Effective from 2 June 2026</span>
-            <p className="casl__pub-desc">
-              The current skills together with additional skills drawn from the Skills
-              Framework 2.0, last updated 2 May 2026.
-              <strong> {counts.total} skills.</strong>
-            </p>
-            <div className="casl__pub-foot">
-              <span className="casl__pub-apply">{phase === "all" ? "Filtered below \u2713" : "Filter register \u2193"}</span>
-              <a className="casl__pub-link" href={OFFICIAL_UPDATED} target="_blank" rel="noopener noreferrer"
-                 onClick={(e) => e.stopPropagation()}>Official SSG list ↗</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* ---- Industry landscape: where the register concentrates ---- */}
       <div className={"casl__land" + (barsHeal ? " is-noanim" : barsIn ? " is-anim" : "")}
            role="group" aria-label="Skills by industry" ref={landRef}>
@@ -455,15 +391,11 @@ function CaslDashboard() {
           <div className="casl__land-head-l">
             <span className="casl__land-eyebrow">The shape of the register</span>
             <p className="casl__land-note">
-              Industries ranked by their bench of approved skills. The June 2026
-              additions mark where SkillsFuture Singapore is widening approval, a
-              first signal of demand when weighing what to develop. Select an
-              industry to filter the register below.
+              Every approved skill on the Course Approval Skills List, grouped into
+              fourteen sectors. The grouping is our own interpretation, offered to help
+              you read the list, and is not endorsed by SSG. Select a sector to filter
+              the register below.
             </p>
-          </div>
-          <div className="casl__land-legend" aria-hidden="true">
-            <span className="casl__land-key"><i className="casl__land-swatch is-cur"></i>Current register</span>
-            <span className="casl__land-key"><i className="casl__land-swatch is-new"></i>Added · Jun 2026</span>
           </div>
         </div>
 
@@ -697,10 +629,10 @@ function CaslDashboard() {
             <span className="casl__guide-num">01</span>
             <h4 className="casl__guide-cell-title">Demand on paper</h4>
             <p className="casl__guide-cell-body">
-              The landscape above shows where the register concentrates, and where the
-              June 2026 update widened it. Industries gaining the most new skills are
-              where SkillsFuture Singapore is opening approval lanes, a useful first
-              proxy for demand.
+              The landscape above shows where the register concentrates. The sectors
+              holding the deepest bench of approved skills are where SkillsFuture
+              Singapore has opened the most approval lanes, a useful first proxy for
+              demand.
             </p>
           </div>
           <div className="casl__guide-cell">
