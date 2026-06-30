@@ -6768,6 +6768,12 @@ a.tb-standing__name:hover .tb-standing__ext { opacity: 1; }
     border-radius: 6px;
   }
   .tb-svc__bg { border-radius: 6px; }
+  /* Background video autoplay is unreliable on phones — iOS blocks it in
+     low-power mode and paints a play button over the frame. Drop the film
+     on mobile and show the always-loaded poster image instead. */
+  .tb-svc__iframe,
+  .tb-svc__video { display: none; }
+  .tb-svc__poster { display: block; }
   .tb-svc__scrim,
   .tb-svc--rev .tb-svc__scrim {
     background:
