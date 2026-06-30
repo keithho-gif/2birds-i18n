@@ -681,6 +681,16 @@ window.TBI18N.register("ko", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "분기마다 제한된 수의 의뢰만 맡습니다. 모든 작업은 백지에서 시작하며, 이전 클라이언트의 내용을 가져다 쓰지 않습니다.",
   "What we believe": "저희의 신념",
+  "By design": "의도된 설계로",
+  "Our reach": "우리의 범위",
+  "Courses built": "구축한 과정",
+  "Recognition": "인정",
+  "Selective": "선별적으로",
+  "Cited": "인용",
+  "A small number of engagements each quarter, chosen with care.": "분기마다 소수의 업무만을, 정성껏 골라 맡습니다.",
+  "Curriculum and advisory across many sectors, in both WSQ and non-WSQ.": "WSQ와 비 WSQ를 아우르며 여러 분야에 걸친 커리큘럼과 자문.",
+  "More than a hundred courses completed across the practice.": "사무소 전체에 걸쳐 백 개가 넘는 과정을 완성했습니다.",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "저희 실무자들의 작업은 업계에, 그리고 The Business Times의 지면에까지 가닿았습니다.",
   "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "하늘을 향해 오르다 보면, 어느 날 그 하늘에서 아래를 내려다보게 됩니다. 하늘은 그 풍경을 살 수 있는 이가 아니라, 그곳에 닿는 법을 익힌 이의 것입니다.",
 
   /* ---- home: heritage ---- */

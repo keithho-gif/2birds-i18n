@@ -681,6 +681,16 @@ window.TBI18N.register("id", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "Kami hanya menerima sejumlah terbatas penugasan setiap kuartal. Setiap karya disusun dari awal, tanpa konten yang dialihkan dari klien sebelumnya.",
   "What we believe": "Keyakinan kami",
+  "By design": "Dengan sengaja",
+  "Our reach": "Jangkauan kami",
+  "Courses built": "Kursus yang dibangun",
+  "Recognition": "Pengakuan",
+  "Selective": "Selektif",
+  "Cited": "Dikutip",
+  "A small number of engagements each quarter, chosen with care.": "Sejumlah kecil penugasan setiap kuartal, dipilih dengan cermat.",
+  "Curriculum and advisory across many sectors, in both WSQ and non-WSQ.": "Kurikulum dan penasihat di banyak sektor, baik WSQ maupun non-WSQ.",
+  "More than a hundred courses completed across the practice.": "Lebih dari seratus kursus telah dirampungkan di seluruh praktik.",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "Karya para praktisi kami telah menjangkau industri, dan halaman-halaman The Business Times.",
   "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "Bidik langit, dan suatu hari Anda akan memandanginya dari atas. Langit menjadi milik siapa pun yang belajar menggapainya, bukan hanya milik mereka yang mampu membayar pemandangannya.",
 
   /* ---- home: heritage ---- */

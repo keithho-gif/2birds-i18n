@@ -681,6 +681,16 @@ window.TBI18N.register("th", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "เรารับงานในแต่ละไตรมาสในจำนวนที่จำกัด งานทุกชิ้นจัดทำขึ้นใหม่ตั้งแต่ต้น โดยไม่นำเนื้อหาจากลูกค้ารายก่อนมาใช้ซ้ำ",
   "What we believe": "สิ่งที่เราเชื่อ",
+  "By design": "โดยการออกแบบ",
+  "Our reach": "ขอบเขตการเข้าถึงของเรา",
+  "Courses built": "หลักสูตรที่สร้างขึ้น",
+  "Recognition": "การยอมรับ",
+  "Selective": "คัดสรร",
+  "Cited": "ได้รับการอ้างอิง",
+  "A small number of engagements each quarter, chosen with care.": "งานเพียงไม่กี่ชิ้นในแต่ละไตรมาส คัดเลือกด้วยความใส่ใจ",
+  "Curriculum and advisory across many sectors, in both WSQ and non-WSQ.": "หลักสูตรและการให้คำปรึกษาครอบคลุมหลายภาคส่วน ทั้งแบบ WSQ และไม่ใช่ WSQ",
+  "More than a hundred courses completed across the practice.": "หลักสูตรที่เสร็จสมบูรณ์ตลอดการดำเนินงานของสำนักงานมีมากกว่าหนึ่งร้อยหลักสูตร",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "ผลงานของผู้ปฏิบัติงานของเราได้เข้าถึงอุตสาหกรรม และไปปรากฏบนหน้า The Business Times",
   "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "จงมุ่งสู่ท้องฟ้า แล้ววันหนึ่งท่านจะได้มองลงมาจากที่นั่น ท้องฟ้าเป็นของผู้ที่เรียนรู้ที่จะไปให้ถึง ไม่ใช่เพียงของผู้ที่มีกำลังพอจะซื้อทัศนียภาพนั้น",
 
   /* ---- home: heritage ---- */

@@ -681,6 +681,16 @@ window.TBI18N.register("vi", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "Mỗi quý chúng tôi chỉ nhận một số lượng dự án giới hạn. Mỗi sản phẩm đều được làm mới từ đầu, không sao chép nội dung từ các khách hàng trước.",
   "What we believe": "Điều chúng tôi tin",
+  "By design": "Theo chủ đích",
+  "Our reach": "Phạm vi tiếp cận của chúng tôi",
+  "Courses built": "Số khóa học đã xây dựng",
+  "Recognition": "Sự ghi nhận",
+  "Selective": "Chọn lọc",
+  "Cited": "Được nhắc đến",
+  "A small number of engagements each quarter, chosen with care.": "Một số ít dự án mỗi quý, được lựa chọn cẩn trọng.",
+  "Curriculum and advisory across many sectors, in both WSQ and non-WSQ.": "Chương trình giảng dạy và tư vấn trải khắp nhiều lĩnh vực, cả WSQ lẫn ngoài WSQ.",
+  "More than a hundred courses completed across the practice.": "Hơn một trăm khóa học đã hoàn thành trong suốt quá trình hành nghề.",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "Công việc của những người làm nghề trong văn phòng chúng tôi đã đến với ngành, và lên cả những trang của The Business Times.",
   "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "Hãy hướng tới bầu trời, rồi một ngày bạn nhìn xuống từ trên ấy. Bầu trời thuộc về người học được cách vươn tới nó, chứ không chỉ thuộc về những ai đủ sức trả cho tầm nhìn ấy.",
 
   /* ---- home: heritage ---- */

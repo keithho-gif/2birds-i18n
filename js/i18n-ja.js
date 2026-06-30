@@ -681,6 +681,16 @@ window.TBI18N.register("ja", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "四半期ごとにお引き受けする案件は限られた数のみです。すべての仕事は白紙から作り上げ、過去のクライアントの内容を流用することはありません。",
   "What we believe": "私たちの信念",
+  "By design": "設計によって",
+  "Our reach": "私たちの広がり",
+  "Courses built": "作り上げたコース",
+  "Recognition": "評価",
+  "Selective": "厳選",
+  "Cited": "引用される",
+  "A small number of engagements each quarter, chosen with care.": "四半期ごとにごくわずかな案件を、慎重に選んで。",
+  "Curriculum and advisory across many sectors, in both WSQ and non-WSQ.": "WSQ と非 WSQ の双方にわたり、多くの分野でカリキュラムと助言を。",
+  "More than a hundred courses completed across the practice.": "事務所全体で百を超えるコースを完成させてきました。",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "私たちの実務家による仕事は業界へ、そして The Business Times の紙面へと届いてきました。",
   "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "空を目指せば、いつか空の高みからその下を見渡す日が来ます。空は、眺めを買える者だけのものではなく、そこへ届くすべを身につけた者のものです。",
 
   /* ---- home: heritage ---- */

@@ -681,6 +681,16 @@ window.TBI18N.register("zh-Hans", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "我们每季度只承接有限数量的委托。每一份成果皆从白纸开始，不沿用任何先前客户的内容。",
   "What we believe": "我们的信念",
+  "By design": "匠心所致",
+  "Our reach": "我们的覆盖",
+  "Courses built": "已建成的课程",
+  "Recognition": "业界认可",
+  "Selective": "精挑细选",
+  "Cited": "获引述",
+  "A small number of engagements each quarter, chosen with care.": "每季度仅承接少数几项委托，皆经审慎遴选。",
+  "Curriculum and advisory across many sectors, in both WSQ and non-WSQ.": "涵盖众多行业的课程与咨询，WSQ 与非 WSQ 兼备。",
+  "More than a hundred courses completed across the practice.": "本所已完成逾百门课程。",
+  "Work by our practitioners has reached the industry, and the pages of The Business Times.": "我们从业者的成果已惠及业界，亦见诸《The Business Times》的版面。",
   "Aim for the skies, and one day you look down from them. The sky belongs to whoever learns to reach it, not only to those who could afford the view.": "以天空为志，终有一日你将自天空俯瞰人间。天空属于学会抵达它的人，而非仅属于那些本就负担得起这片景致的人。",
 
   /* ---- home: heritage ---- */
