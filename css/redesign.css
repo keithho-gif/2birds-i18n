@@ -109,11 +109,21 @@ figure, figure img, .tb-hero__bg {
   max-width: 60ch;
 }
 
-/* ---- N · Standing figures: large display numerals, small label beside -- */
-.tb-heritage__cell--fig {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+/* ---- N · Standing markers: small label, display focal/numeral, sentence -- */
+.tb-heritage__cell { display: flex; flex-direction: column; gap: 10px; }
+.tb-heritage__mlabel {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--olive-deep);
+}
+.tb-heritage__focal {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3.4vw, 34px);
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--charcoal);
 }
 .tb-heritage__figure {
   font-family: var(--font-serif);
@@ -122,12 +132,12 @@ figure, figure img, .tb-hero__bg {
   line-height: 0.95;
   color: var(--olive-deep);
 }
-.tb-heritage__numlabel {
+.tb-heritage__body {
   font-family: var(--font-sans);
   font-size: 14px;
-  letter-spacing: 0.04em;
+  line-height: 1.55;
   color: var(--graphite);
-  max-width: 22ch;
+  max-width: 30ch;
 }
 
 /* ---- M · Imagery: one editorial black-and-white treatment for photos --- */
@@ -142,10 +152,77 @@ figure img, .tb-svc__poster, .tb-svc__video, .tb-pair__figure img,
 .tb-cal__day.is-unavailable::after { background: var(--graphite); }
 /* Navy was a second text accent in prose link hover — use the olive accent. */
 .tb-prose__body a:hover { color: var(--olive-deep); }
-/* Light olive is for display / on-dark only: keep it off small body text by
-   grounding any stray small usage to graphite on light backgrounds. */
-.tb-svc__points li, .tb-office__meta, .tb-faq__sub { color: var(--graphite); }
+/* Light olive is reserved for large display text only. Ground small text:
+   on light backgrounds use graphite; on dark backgrounds use Paper. */
+.tb-office__meta, .tb-faq__sub { color: var(--graphite); }
+/* Small labels/eyebrows on dark surfaces read in Paper, never light olive. */
+.on-dark .eyebrow-lockup, .tb-hero .eyebrow-lockup,
+.tb-cta .eyebrow-lockup { color: var(--paper); }
+
+/* ---- Item 15 · service hero tags legible over dark photos -------------- */
+.tb-svc__points li {
+  color: var(--paper);
+  border: 1px solid rgba(250, 248, 242, 0.45);
+  background: rgba(20, 20, 20, 0.28);
+}
 
 /* ---- Finishing · generous clear space around the logo ----------------- */
 .tb-footer__logo { margin-bottom: 20px; }
 .tb-footer__brand { padding-right: 16px; }
+
+/* ---- CASL "What we can build, by sector": light panel, olive bars ----- */
+.tb-build {
+  background: var(--paper);
+  color: var(--charcoal);
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid var(--hairline);
+}
+.tb-build__head { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; margin-bottom: 28px; }
+.tb-build__title { font-family: var(--font-serif); font-size: clamp(24px, 3vw, 32px); font-weight: 500; color: var(--charcoal); margin: 0 0 10px; }
+.tb-build__intro { font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: var(--graphite); max-width: 60ch; margin: 0; }
+.tb-build__count { text-align: right; flex: none; }
+.tb-build__count-num { display: block; font-family: var(--font-serif); font-size: clamp(40px, 5vw, 64px); line-height: 0.9; color: var(--olive-deep); }
+.tb-build__count-cap { display: block; font-family: var(--font-sans); font-size: 12px; color: var(--graphite); max-width: 18ch; margin-left: auto; margin-top: 6px; }
+.tb-build__cols { display: flex; justify-content: space-between; font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.28em; color: var(--olive-deep); padding-bottom: 10px; border-bottom: 1px solid var(--charcoal); }
+.tb-build__row { padding: 16px 0; border-bottom: 1px solid var(--hairline); }
+.tb-build__rowtop { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.tb-build__name { font-family: var(--font-serif); font-size: clamp(16px, 1.8vw, 19px); color: var(--charcoal); }
+.tb-build__n { font-family: var(--font-serif); font-size: clamp(16px, 1.8vw, 19px); color: var(--charcoal); white-space: nowrap; }
+.tb-build__sub { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.02em; color: var(--graphite); margin: 4px 0 10px; }
+.tb-build__bar { height: 6px; background: var(--hairline-soft); width: 100%; }
+.tb-build__fill { display: block; height: 100%; background: var(--olive); }
+.tb-build__foot { font-family: var(--font-serif); font-style: italic; font-size: 13px; color: var(--slate); margin-top: 24px; max-width: 70ch; }
+
+/* ======================================================================
+   MOBILE (items O–V). Two redesign breakpoints (768, 480) on top of the
+   desktop base = three screen sizes overall.
+   ====================================================================== */
+@media (max-width: 768px) {
+  /* P: full-width sections keep a comfortable side margin */
+  .container { padding-left: 22px; padding-right: 22px; }
+  /* G on mobile is side padding, not a fixed narrow column */
+  .tb-hero__sub, .tb-heritage__body, .tb-services__sub, .tb-services__standfirst,
+  .tb-svc__lede, .tb-svc__desc, .tb-faq__sub, .tb-pagehero__lede, .tb-pair__lede,
+  .premium-prose p, .tb-cta__sub, .tb-office__meta,
+  .tb-build__intro, .tb-build__foot { max-width: 100%; }
+  /* Q: step the display sizes down so nothing overflows */
+  .tb-heritage__figure { font-size: clamp(40px, 14vw, 56px); }
+  .tb-heritage__focal  { font-size: clamp(22px, 7vw, 28px); }
+  .tb-build__count-num { font-size: clamp(36px, 12vw, 48px); }
+  /* R: standing markers stack into one column */
+  .tb-heritage__grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  /* R: CASL chart stacks; count moves under the heading, left aligned */
+  .tb-build__head { flex-direction: column; gap: 14px; }
+  .tb-build__count { text-align: left; }
+  .tb-build__count-cap { margin-left: 0; }
+  /* T: editorial footer stacks into a single column */
+  .tb-footer__grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  /* U: comfortable tap targets */
+  .tb-nav__link, .btn, .tb-svc__more, .tb-nav__enq,
+  .tb-build__row { min-height: 44px; }
+}
+@media (max-width: 480px) {
+  .container { padding-left: 20px; padding-right: 20px; }
+  .tb-build__rowtop { gap: 10px; }
+  .tb-build__name, .tb-build__n { font-size: 16px; }
+}

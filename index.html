@@ -61,13 +61,13 @@ const TRUST = [
 
 
 const HERITAGE = [
-{ num: null, label: "By invitation",
-  body: null },
-{ num: "13", label: "ATOs and multiple sectors",
-  body: null },
-{ num: "100+", label: "submissions",
-  body: null },
-{ num: null, label: "Cited in The Business Times",
+{ label: "By design", focal: "Selective", isNum: false,
+  body: "A small number of engagements each quarter, chosen with care." },
+{ label: "Our reach", focal: "Across the sector", isNum: false,
+  body: "Curriculum and advisory across many sectors, in both WSQ and non-WSQ." },
+{ label: "Courses built", focal: "100+", isNum: true,
+  body: "More than a hundred courses completed across the practice." },
+{ label: "Recognition", focal: "Cited", isNum: false,
   body: "Work by our practitioners has reached the industry, and the pages of The Business Times." }];
 
 
@@ -436,11 +436,10 @@ function App() {
             </header>
             <div className="tb-heritage__grid">
               {HERITAGE.map((h, i) =>
-              <div key={i} className={"tb-heritage__cell tb-reveal-child" + (h.num ? " tb-heritage__cell--fig" : "")}>
-                  {h.num
-                    ? <><div className="tb-heritage__figure">{h.num}</div><div className="tb-heritage__numlabel">{h.label}</div></>
-                    : <div className="tb-heritage__label">{h.label}</div>}
-                  {h.body && <p className="tb-heritage__body">{h.body}</p>}
+              <div key={i} className={"tb-heritage__cell tb-reveal-child" + (h.isNum ? " tb-heritage__cell--fig" : "")}>
+                  <div className="tb-heritage__mlabel">{h.label}</div>
+                  <div className={h.isNum ? "tb-heritage__figure" : "tb-heritage__focal"}>{h.focal}</div>
+                  <p className="tb-heritage__body">{h.body}</p>
                 </div>
               )}
             </div>

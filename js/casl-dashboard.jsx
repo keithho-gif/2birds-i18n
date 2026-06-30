@@ -448,68 +448,59 @@ function CaslDashboard() {
         </div>
       </div>
 
-      {/* ---- Industry landscape: where the register concentrates ---- */}
-      <div className={"casl__land" + (barsHeal ? " is-noanim" : barsIn ? " is-anim" : "")}
-           role="group" aria-label="Skills by industry" ref={landRef}>
-        <div className="casl__land-head">
-          <div className="casl__land-head-l">
-            <span className="casl__land-eyebrow">The shape of the register</span>
-            <p className="casl__land-note">
-              Industries ranked by their bench of approved skills. The June 2026
-              additions mark where SkillsFuture Singapore is widening approval, a
-              first signal of demand when weighing what to develop. Select an
-              industry to filter the register below.
+      {/* ---- What we can build, by sector (catalogue, 14 sectors) ---- */}
+      <div className="tb-build" role="group" aria-label="What we can build, by sector">
+        <div className="tb-build__head">
+          <div className="tb-build__head-l">
+            <h3 className="tb-build__title">What we can build, by sector.</h3>
+            <p className="tb-build__intro">
+              The Course Approval Skills List, set out by sector. Each skill is a course we can develop for you, from learning outcomes through to funding submission.
             </p>
           </div>
-          <div className="casl__land-legend" aria-hidden="true">
-            <span className="casl__land-key"><i className="casl__land-swatch is-cur"></i>Current register</span>
-            <span className="casl__land-key"><i className="casl__land-swatch is-new"></i>Added · Jun 2026</span>
+          <div className="tb-build__count">
+            <div className="tb-build__count-num" data-i18n-skip="true">369</div>
+            <div className="tb-build__count-cap">skills, each a course we can develop end to end.</div>
           </div>
         </div>
 
-        <div className="casl__land-rows">
-          {landRows.map((st, i) => {
-            const w = (st.total / landMax) * 100;
-            const curPct = ((st.total - st.added) / st.total) * 100;
-            const active = industry === st.name;
-            return (
-              <button
-                key={st.name}
-                type="button"
-                className={"casl__land-row" + (active ? " is-active" : "")}
-                aria-pressed={active}
-                onClick={() => applyIndustry(st.name)}
-                style={{ transitionDelay: (i * 18) + "ms" }}
-              >
-                <span className="casl__land-ic"><IndustryGlyph name={st.name} /></span>
-                <span className="casl__land-name">{st.name}</span>
-                <span className="casl__land-bar">
-                  <span
-                    className="casl__land-track"
-                    style={{
-                      width: barsIn ? w + "%" : "0%",
-                      transitionDelay: (120 + i * 40) + "ms",
-                      "--sheen-delay": (760 + i * 60) + "ms",
-                    }}
-                  >
-                    <span className="casl__land-seg is-cur" style={{ width: curPct + "%" }}></span>
-                    <span className="casl__land-seg is-new" style={{ width: (100 - curPct) + "%" }}></span>
-                  </span>
-                </span>
-                <span className="casl__land-nums" data-i18n-skip="true">
-                  <CountNum value={st.total} on={barsIn} instant={barsHeal} delay={140 + i * 40} />
-                  {st.added > 0 && <em> · {st.added} new</em>}
-                </span>
-              </button>
-            );
-          })}
+        <div className="tb-build__cols">
+          <div className="tb-build__col-l">CASL sector</div>
+          <div className="tb-build__col-r">Number of skills</div>
         </div>
 
-        {indStats.length > 9 && (
-          <button type="button" className="casl__land-more" onClick={() => setLandOpen(o => !o)}>
-            {landOpen ? "Show fewer industries ↑" : "Show all " + indStats.length + " industries ↓"}
-          </button>
-        )}
+        <div className="tb-build__rows">
+          {[
+            { name: "Engineering, Manufacturing & Industrial", sub: "Engineering 26 · Manufacturing 12 · Industrial 31", n: 69 },
+            { name: "ICT, Data & AI", sub: "ICT 17 · Data 12 · AI 11", n: 40 },
+            { name: "Finance, Audit & Risk", sub: "Finance 14 · Audit 5 · Risk 16", n: 35 },
+            { name: "Business Strategy, Quality & Operations", sub: "Business Strategy 17 · Quality 7 · Operations 7", n: 31 },
+            { name: "Human Capital & Learning", sub: "Human Capital 17 · Learning 10", n: 27 },
+            { name: "Media, Design & Creative Production", sub: "Media 11 · Design 6 · Creative Production 7", n: 24 },
+            { name: "Healthcare, Therapy & Social Services", sub: "Healthcare 10 · Therapy 3 · Social Services 10", n: 23 },
+            { name: "Marine & Logistics", sub: "Marine 18 · Logistics 4", n: 22 },
+            { name: "Food, Beverage, Hospitality & Tourism", sub: "Food 9 · Hospitality 4 · Tourism 7", n: 20 },
+            { name: "Legal, IP & Regulatory", sub: "Legal 5 · IP 8 · Regulatory 7", n: 20 },
+            { name: "Procurement, Supply Chain & Operations", sub: "Procurement 9 · Supply Chain 3 · Operations 5", n: 17 },
+            { name: "Built Environment & Sustainability", sub: "Built Environment 6 · Sustainability 9", n: 15 },
+            { name: "Security, Safety & Emergency Response", sub: "Security 6 · Safety 6 · Emergency Response 2", n: 14 },
+            { name: "Marketing, Retail & Customer Experience", sub: "Marketing 5 · Retail 1 · Customer Experience 6", n: 12 },
+          ].map((s) => (
+            <div className="tb-build__row" key={s.name}>
+              <div className="tb-build__rowtop">
+                <div className="tb-build__name">{s.name}</div>
+                <div className="tb-build__n" data-i18n-skip="true">{s.n}</div>
+              </div>
+              <div className="tb-build__sub">{s.sub}</div>
+              <div className="tb-build__bar" aria-hidden="true">
+                <span className="tb-build__fill" style={{ width: ((s.n / 69) * 100) + "%" }}></span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="tb-build__foot">
+          The grouping into fourteen sectors is our own interpretation, offered to help you read the list. It is not an official classification and is not endorsed by SSG.
+        </p>
       </div>
 
       {/* ---- Filter bar ---- */}
