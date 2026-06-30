@@ -1922,7 +1922,7 @@ body { padding-top: 140px; }
 }
 .tb-heritage__year {
   font-family: var(--font-serif); font-style: italic; font-weight: 400;
-  font-size: 52px; line-height: 1; color: var(--olive-deep);
+  font-size: clamp(24px, 2vw, 28px); line-height: 1.1; color: var(--olive-deep);
   margin-bottom: 18px;
 }
 .tb-heritage__body {
