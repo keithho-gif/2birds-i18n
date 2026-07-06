@@ -186,15 +186,14 @@ body { padding-top: 140px; }
   .tb-nav__brand img { width: clamp(110px, 30vw, 140px); }
   .tb-footer__logo { width: 120px; margin-left: -26px; }
 
-  /* Mobile hero — top-aligned, expensive editorial feel.
-     Content rides high in the section with a confident top padding,
-     and the empty space lives BELOW the CTA. Centering on a phone
-     reads like a generic landing page; top alignment + negative
-     space below reads like a magazine spread. */
+  /* Mobile hero — a confident near-full-height frame with the copy
+     optically centred, so the image reads as a full-bleed statement and
+     the negative space sits balanced around the text rather than pooling
+     below the CTA. */
   .tb-hero {
-    align-items: flex-start;
-    min-height: clamp(360px, 52vh, 440px);
-    padding: clamp(40px, 7vh, 64px) 0 clamp(48px, 9vh, 96px);
+    align-items: center;
+    min-height: clamp(500px, 80vh, 640px);
+    padding: clamp(80px, 12vh, 112px) 0 clamp(68px, 10vh, 96px);
   }
   .tb-hero__title {
     font-size: clamp(34px, 9.2vw, 48px);
@@ -4929,7 +4928,7 @@ image-slot::part(placeholder) {
   img, video, svg { max-width: 100%; height: auto; }
 
   /* HERO + PAGE HERO */
-  .tb-hero { padding: 88px 0 64px; }
+  .tb-hero { padding: clamp(80px, 12vh, 112px) 0 clamp(68px, 10vh, 96px); }
   .tb-hero__title { font-size: 40px !important; line-height: 1.05; letter-spacing: -0.018em; }
   .tb-hero__sub { font-size: 17px; }
   .tb-pagehero { padding: 80px 0 56px; }
