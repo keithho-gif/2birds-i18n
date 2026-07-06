@@ -681,6 +681,9 @@ window.TBI18N.register("th", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "เรารับงานในแต่ละไตรมาสในจำนวนที่จำกัด งานทุกชิ้นจัดทำขึ้นใหม่ตั้งแต่ต้น โดยไม่นำเนื้อหาจากลูกค้ารายก่อนมาใช้ซ้ำ",
   "What we believe": "สิ่งที่เราเชื่อ",
+  "Curriculum and advisory": "หลักสูตรและการให้คำปรึกษา",
+  "We develop curriculum for training providers and advise them through approval and audit.": "เราพัฒนาหลักสูตรให้แก่ผู้ให้บริการฝึกอบรม และให้คำปรึกษาแก่พวกเขาตลอดกระบวนการอนุมัติและการตรวจสอบ",
+  "See what we do": "ดูสิ่งที่เราทำ",
   "We accept a few engagements each quarter.": "เรารับงานเพียงไม่กี่งานในแต่ละไตรมาส",
   "What we bring.": "สิ่งที่เรานำมา",
   "We say little about ourselves. This much, we will.": "เราพูดถึงตัวเองน้อยมาก แต่เพียงเท่านี้ เราจะกล่าว",

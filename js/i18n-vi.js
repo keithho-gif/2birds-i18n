@@ -681,6 +681,9 @@ window.TBI18N.register("vi", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "Mỗi quý chúng tôi chỉ nhận một số lượng dự án giới hạn. Mỗi sản phẩm đều được làm mới từ đầu, không sao chép nội dung từ các khách hàng trước.",
   "What we believe": "Điều chúng tôi tin",
+  "Curriculum and advisory": "Chương trình giảng dạy và tư vấn",
+  "We develop curriculum for training providers and advise them through approval and audit.": "Chúng tôi phát triển chương trình giảng dạy cho các đơn vị đào tạo và tư vấn cho họ suốt quá trình phê duyệt và kiểm định.",
+  "See what we do": "Xem những gì chúng tôi làm",
   "We accept a few engagements each quarter.": "Mỗi quý chúng tôi chỉ nhận một số ít dự án.",
   "What we bring.": "Điều chúng tôi mang lại.",
   "We say little about ourselves. This much, we will.": "Chúng tôi nói ít về bản thân. Chừng này thì chúng tôi sẽ nói.",

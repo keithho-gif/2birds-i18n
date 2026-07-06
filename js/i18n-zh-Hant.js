@@ -681,6 +681,9 @@ window.TBI18N.register("zh-Hant", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "我們每季只承接有限數量的委託。每一份成果皆從白紙開始，不沿用任何先前客戶的內容。",
   "What we believe": "我們的信念",
+  "Curriculum and advisory": "課程開發與顧問",
+  "We develop curriculum for training providers and advise them through approval and audit.": "我們為培訓機構開發課程，並在審批與審核的過程中為其提供顧問服務。",
+  "See what we do": "了解我們的工作",
   "We accept a few engagements each quarter.": "我們每季只承接少數幾項委託。",
   "What we bring.": "我們所帶來的。",
   "We say little about ourselves. This much, we will.": "我們甚少談論自己。這些，我們願意一說。",

@@ -681,6 +681,9 @@ window.TBI18N.register("ja", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "四半期ごとにお引き受けする案件は限られた数のみです。すべての仕事は白紙から作り上げ、過去のクライアントの内容を流用することはありません。",
   "What we believe": "私たちの信念",
+  "Curriculum and advisory": "カリキュラムと助言",
+  "We develop curriculum for training providers and advise them through approval and audit.": "私たちは研修機関のためにカリキュラムを開発し、承認と監査の過程を通じて助言します。",
+  "See what we do": "私たちの仕事を見る",
   "We accept a few engagements each quarter.": "四半期ごとにお引き受けする案件は、わずかな数のみです。",
   "What we bring.": "私たちがもたらすもの。",
   "We say little about ourselves. This much, we will.": "私たちは自らについて多くを語りません。これだけは、申し上げます。",

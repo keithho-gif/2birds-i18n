@@ -681,6 +681,9 @@ window.TBI18N.register("id", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "Kami hanya menerima sejumlah terbatas penugasan setiap kuartal. Setiap karya disusun dari awal, tanpa konten yang dialihkan dari klien sebelumnya.",
   "What we believe": "Keyakinan kami",
+  "Curriculum and advisory": "Kurikulum dan penasihatan",
+  "We develop curriculum for training providers and advise them through approval and audit.": "Kami mengembangkan kurikulum untuk penyedia pelatihan dan mendampingi mereka melewati proses persetujuan dan audit.",
+  "See what we do": "Lihat yang kami lakukan",
   "We accept a few engagements each quarter.": "Kami menerima beberapa penugasan saja setiap kuartal.",
   "What we bring.": "Apa yang kami bawa.",
   "We say little about ourselves. This much, we will.": "Kami sedikit berbicara tentang diri kami. Sebanyak inilah yang akan kami sampaikan.",

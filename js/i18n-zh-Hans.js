@@ -681,6 +681,9 @@ window.TBI18N.register("zh-Hans", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "我们每季度只承接有限数量的委托。每一份成果皆从白纸开始，不沿用任何先前客户的内容。",
   "What we believe": "我们的信念",
+  "Curriculum and advisory": "课程开发与咨询",
+  "We develop curriculum for training providers and advise them through approval and audit.": "我们为培训机构开发课程，并在审批与审核的过程中为其提供咨询。",
+  "See what we do": "了解我们的工作",
   "We accept a few engagements each quarter.": "我们每季度只承接少数几项委托。",
   "What we bring.": "我们带来什么。",
   "We say little about ourselves. This much, we will.": "我们鲜少谈论自己。这些，我们愿意一说。",

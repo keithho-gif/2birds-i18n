@@ -681,6 +681,9 @@ window.TBI18N.register("ko", {
   "We take on a limited number of engagements each quarter. Every piece of work is produced from scratch, with no content carried over from prior clients.":
     "분기마다 제한된 수의 의뢰만 맡습니다. 모든 작업은 백지에서 시작하며, 이전 클라이언트의 내용을 가져다 쓰지 않습니다.",
   "What we believe": "저희의 신념",
+  "Curriculum and advisory": "커리큘럼과 자문",
+  "We develop curriculum for training providers and advise them through approval and audit.": "저희는 교육기관을 위해 커리큘럼을 개발하고, 승인과 심사 과정 전반에 걸쳐 자문을 제공합니다.",
+  "See what we do": "저희가 하는 일 보기",
   "We accept a few engagements each quarter.": "저희는 분기마다 소수의 의뢰만 맡습니다.",
   "What we bring.": "저희가 가져오는 것.",
   "We say little about ourselves. This much, we will.": "저희는 스스로에 대해 좀처럼 말하지 않습니다. 다만 이만큼은 말씀드립니다.",
