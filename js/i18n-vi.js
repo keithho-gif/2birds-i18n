@@ -26,7 +26,7 @@ window.TBI18N.register("vi", {
   "A practice of curriculum developers, subject-matter experts and adult educators, trusted by Approved Training Organisations (ATOs). We take only a handful of engagements each quarter, so that each one has our undivided attention. Every one begins on a blank page, written for the situation in front of us. We keep no templates, and we reuse nothing.": "Một văn phòng gồm các nhà phát triển chương trình, chuyên gia chuyên môn và nhà giáo dục người lớn, được các Approved Training Organisations (ATOs) tin tưởng. Mỗi quý chúng tôi chỉ nhận một số ít dự án, để mỗi dự án nhận được sự chú tâm trọn vẹn của chúng tôi. Mỗi dự án đều bắt đầu từ trang giấy trắng, được viết cho tình huống trước mắt. Chúng tôi không giữ mẫu nào, và không tái sử dụng bất cứ thứ gì.",
   "FROM THE FOUNDER · KEITH HO": "TỪ NGƯỜI SÁNG LẬP · KEITH HO",
   "Four practice areas, one standard of care.": "Bốn lĩnh vực hành nghề, một chuẩn mực tận tâm.",
-  "hello@2birds.sg": "hello@2birds.sg",
+  "hello@2birds.asia": "hello@2birds.asia",
   "Monday to Friday 09:00am to 06:00pm": "Thứ Hai đến thứ Sáu 09:00am đến 06:00pm",
   "The brand": "Thương hiệu",
   "Why 2birds.": "Vì sao là 2birds.",
