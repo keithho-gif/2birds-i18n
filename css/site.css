@@ -4917,7 +4917,10 @@ image-slot::part(placeholder) {
    ========================================================================= */
 @media (max-width: 720px) {
   :root {
-    --gutter: 20px;
+    /* Generous editorial side margins, aligned to the nav gutter (28px) so
+       content lines up with the logo/menu edges — reads more considered
+       than content run tight to the screen edge. */
+    --gutter: 28px;
     --space-section: 64px;
     --space-section-lg: 80px;
   }
@@ -4932,7 +4935,7 @@ image-slot::part(placeholder) {
   .tb-hero__title { font-size: 40px !important; line-height: 1.05; letter-spacing: -0.018em; }
   .tb-hero__sub { font-size: 17px; }
   .tb-pagehero { padding: 80px 0 56px; }
-  .tb-pagehero__title { font-size: 36px !important; line-height: 1.06; }
+  .tb-pagehero__title { font-size: 40px !important; line-height: 1.05; letter-spacing: -0.018em; }
   .tb-pagehero__lede { font-size: 16px; }
   .tb-pagehero__loc { font-size: 12px; }
 
@@ -5063,7 +5066,7 @@ image-slot::part(placeholder) {
     --space-section-lg: 72px;
   }
   .tb-hero__title { font-size: 34px !important; }
-  .tb-pagehero__title { font-size: 30px !important; }
+  .tb-pagehero__title { font-size: 33px !important; }
   .tb-sectionhead__title { font-size: 24px !important; }
   .tb-twocol__title { font-size: 24px !important; }
   .tb-cta__title { font-size: 24px !important; }
