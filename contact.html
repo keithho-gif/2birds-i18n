@@ -73,7 +73,7 @@ const COMPARE = [
   us: "Close to one hundred courseware submissions, made collectively as a team." },
 { row: "Revenue and marketing",
   them: "Referred to a separate vendor.",
-  us: "Handled by the practice." }];
+  us: "Handled by us." }];
 
 
 // Houses where the practice and the community have served, ongoing or recent.
@@ -277,17 +277,17 @@ function App() {
       capacity === "provider" ? "Practice area" :
       capacity === "trainer" ? "Sector / specialism" :
       "Domain expertise";
-    const subject = "Enquiry to 2birds" + (form.name ? " — " + form.name : "");
+    const subject = "Enquiry to 2birds" + (form.name ? " · " + form.name : "");
     const lines = [
       "I am writing as: " + capLabel,
-      "Name: " + (form.name || "—"),
-      "Email: " + (form.email || "—"),
+      "Name: " + (form.name || "-"),
+      "Email: " + (form.email || "-"),
       form.org ? "Organisation: " + form.org : null,
       form.phone ? "Telephone: " + form.phone : null,
       form.area ? areaLabel + ": " + form.area : null,
       "",
       "A short note:",
-      form.note || "—",
+      form.note || "-",
       "",
       "Kind regards,",
       form.name || "",
@@ -310,10 +310,10 @@ function App() {
       <main>
 
         <PageHero
-          location="Practice · V"
+          location="Contact"
           eyebrow="Correspondence"
-          title={<>Write to the <em>practice.</em></>}
-          lede="We would be glad to hear from you. Whether you are a training provider weighing an engagement, a trainer or SME considering joining us, or simply curious, a note is always welcome. You will hear from us within two working days." />
+          title={<>Begin a <em>conversation.</em></>}
+          lede="We would be glad to hear from you. Whether you are a training provider weighing a project, a trainer or subject-matter expert considering joining us, or simply curious, a note is always welcome. You will hear from us within two working days." />
         
 
         {/* WIDE EDITORIAL FIGURE */}
@@ -325,12 +325,12 @@ function App() {
               <div className="premium-figure__brief">
                 <span className="premium-figure__brief-label">A working metaphor</span>
                 <p className="premium-figure__brief-text">
-                  Correspondence with the practice is a quiet thing, the work behind it solid. Write to us and we will write back.
+                  Correspondence with us is a quiet thing, the work behind it solid. Write to us and we will write back.
                 </p>
               </div>
             </figure>
             <p className="premium-figure-caption">
-              The shape of correspondence, monochrome study, the solidity of a working practice.
+              The shape of correspondence, monochrome study, the solidity of a firm at work.
             </p>
           </div>
         </section>
@@ -354,7 +354,7 @@ function App() {
                     Thank you{form.name ? `, ${form.name.split(" ")[0]}` : ""}.
                   </h3>
                   <p className="tb-contact__okBody">
-                    Your note has reached the practice, and is in good hands. You will hear from us at{" "}
+                    Your note has reached us, and is in good hands. You will hear from us at{" "}
                     <a className="t-link-sm" href="mailto:hello@2birds.asia">hello@2birds.asia</a>{" "}
                     within two working days.
                   </p>
@@ -440,7 +440,7 @@ function App() {
                   <aside className="tb-contact__side">
                     <div className="tb-corr">
                       <span className="tb-corr__eb">Correspondence</span>
-                      <h3>The practice is in <em>Singapore.</em></h3>
+                      <h3>We are in <em>Singapore.</em></h3>
                       <ul className="tb-corr__dl">
                         <li><span>Email</span><span>hello@2birds.asia</span></li>
                         <li><span>Hours</span><span>Monday to Friday · 09:00am to 06:00pm</span></li>
@@ -500,7 +500,7 @@ of your choosing.</p>
             <header className="tb-compare__head">
               <EyebrowLockup>§ II · How we differ</EyebrowLockup>
               <h2 className="tb-compare__title">
-                The practice, alongside a <em>typical vendor.</em>
+                2birds, alongside a <em>typical vendor.</em>
               </h2>
               <p className="tb-compare__sub">Six places where the choice of practitioner matters.
 Not in slogan, but in handling.
@@ -564,7 +564,7 @@ Not in slogan, but in handling.
                   He works within SSG frameworks including WSQ and CASL, and has facilitated training delivery and courseware development for the Singapore Furniture Industries Council Institute, Xprienz, Carrie Academy International, Focus Learning Centre, QD Academy, Addison Institute and HY M&amp;E Consultancy, covering artificial intelligence, healthcare, human resources, legal, leadership, food safety, built environment, data science, supply chain and digital analytics.
                 </p>
                 <p>
-                  Correspondence with Keith is welcome by email at <a href="mailto:keith.ho@2birds.asia">keith.ho@2birds.asia</a>.
+                  Correspondence with Keith is welcome by email at <a href="mailto:keith.ho@2birds.asia">keith.ho@2birds.asia</a>
                 </p>
               </div>
             </article>
@@ -577,7 +577,7 @@ Not in slogan, but in handling.
             <header className="tb-compare__head">
               <EyebrowLockup>§ IV · Where we have practised</EyebrowLockup>
               <h2 className="tb-compare__title">
-                Years of practice, and the <em>community</em> that has grown around it.
+                Years of work, and the <em>community</em> that has grown around it.
               </h2>
               <p className="tb-compare__sub">
                 Each is an organisation we have worked in, written for, sat with, or placed a developer, an adult educator or subject-matter expert at.
@@ -622,7 +622,7 @@ Not in slogan, but in handling.
             <header className="tb-faq__head">
               <EyebrowLockup>§ V · Frequent enquiries</EyebrowLockup>
               <h2 className="tb-faq__title">A few <em>questions</em>, answered candidly.</h2>
-              <p className="tb-faq__sub">The questions most often put to the practice ahead of a first enquiry.</p>
+              <p className="tb-faq__sub">The questions most often put to us ahead of a first enquiry.</p>
             </header>
             <div className="tb-faq__list">
               {FAQ.map((f, i) => <FaqItem key={i} q={f.q} a={f.a} />)}
