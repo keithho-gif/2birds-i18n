@@ -9,7 +9,7 @@
 :root {
   /* ---------- Brand / Accent ---------- */
   --charcoal:        #383838;
-  --paper:           #FAF8F2;
+  --paper:           #FFFFFF;
 
   --royal:           #1E3A6F;
   --royal-deep:      #14264A;
@@ -20,13 +20,13 @@
   --olive-light:     #C4BFA0;
 
   /* ---------- Surface ---------- */
-  --canvas:          #FAF8F2;
-  --canvas-warm:     #F5F2E8;
-  --bone:            #F5F2E8;
+  --canvas:          #FFFFFF;
+  --canvas-warm:     #F6F6F4;
+  --bone:            #F6F6F4;
 
   --hairline:        #E8E5DA;
   --hairline-soft:   #EFECE2;
-  --surface-cool:    #F0EEE5;
+  --surface-cool:    #F2F1EE;
 
   --scrim:           #1F1F1D;
   --footer:          #15140F;
