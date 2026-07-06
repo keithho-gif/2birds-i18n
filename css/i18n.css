@@ -148,7 +148,7 @@ body { padding-top: calc(108px + var(--tb-langbar-h)) !important; }
   position: relative;
 }
 .tb-lb-item + .tb-lb-item { box-shadow: inset 0 1px 0 #EFECE2; }
-.tb-lb-item:hover { background: #F0EEE5; }
+.tb-lb-item:hover { background: #F2F1EE; }
 .tb-lb-item.is-active { background: #EEF0E6; }
 .tb-lb-item.is-active::before {
   content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px;
