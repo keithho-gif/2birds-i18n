@@ -26,7 +26,7 @@ window.TBI18N.register("id", {
   "A practice of curriculum developers, subject-matter experts and adult educators, trusted by Approved Training Organisations (ATOs). We take only a handful of engagements each quarter, so that each one has our undivided attention. Every one begins on a blank page, written for the situation in front of us. We keep no templates, and we reuse nothing.": "Sebuah praktik yang terdiri dari pengembang kurikulum, pakar bidang, dan pendidik dewasa, yang dipercaya oleh Approved Training Organisations (ATOs). Kami hanya mengambil segelintir penugasan setiap kuartal, agar setiap penugasan mendapat perhatian penuh kami. Setiap penugasan dimulai dari halaman kosong, ditulis untuk situasi yang ada di hadapan kami. Kami tidak menyimpan templat, dan kami tidak menggunakan ulang apa pun.",
   "FROM THE FOUNDER · KEITH HO": "DARI PENDIRI · KEITH HO",
   "Four practice areas, one standard of care.": "Empat bidang praktik, satu standar kepedulian.",
-  "hello@2birds.sg": "hello@2birds.sg",
+  "hello@2birds.asia": "hello@2birds.asia",
   "Monday to Friday 09:00am to 06:00pm": "Senin hingga Jumat 09:00am hingga 06:00pm",
   "The brand": "Merek",
   "Why 2birds.": "Mengapa 2birds.",

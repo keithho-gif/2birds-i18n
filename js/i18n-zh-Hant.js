@@ -26,7 +26,7 @@ window.TBI18N.register("zh-Hant", {
   "A practice of curriculum developers, subject-matter experts and adult educators, trusted by Approved Training Organisations (ATOs). We take only a handful of engagements each quarter, so that each one has our undivided attention. Every one begins on a blank page, written for the situation in front of us. We keep no templates, and we reuse nothing.": "一家由課程開發人員、領域專家與成人教育工作者組成的事務所，深受 Approved Training Organisations (ATOs) 信賴。我們每季僅承接少數幾項委託，以確保每一項都能獲得我們全心的投入。每一項都從一張白紙開始，針對眼前的情況而撰寫。我們不保留任何範本，也絕不重複使用任何內容。",
   "FROM THE FOUNDER · KEITH HO": "來自創辦人 · KEITH HO",
   "Four practice areas, one standard of care.": "四個執業領域，一套用心標準。",
-  "hello@2birds.sg": "hello@2birds.sg",
+  "hello@2birds.asia": "hello@2birds.asia",
   "Monday to Friday 09:00am to 06:00pm": "週一至週五 09:00am 至 06:00pm",
   "The brand": "品牌",
   "Why 2birds.": "為何選擇 2birds。",
