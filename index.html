@@ -61,33 +61,33 @@ const TRUST = [
 
 const HERITAGE = [
 { label: "By design", year: "Selective",
-  body: "A small number of engagements each quarter, chosen with care." },
+  body: "A small number of projects each quarter, chosen with care." },
 { label: "Our reach", year: "Across the sector",
   body: "Curriculum and advisory across many sectors, in both WSQ and non-WSQ." },
 { label: "Courses built", year: "100+",
-  body: "More than a hundred courses completed across the practice." },
+  body: "More than a hundred courses completed across the firm." },
 { label: "Recognition", year: "Cited",
   body: "Work by our practitioners has reached the industry, and the pages of The Business Times." }];
 
 
 const SERVICES = [
 { id: "i", numeral: "I", href: "wsqcurriculumdevelopment.html",
-  title: "WSQ Curriculum Development",
+  title: "Curriculum Development",
   poster: "assets/curriculum-architecture.jpg", vimeo: "1199227151", video: "assets/svc-curriculum.mp4",
   lede: "Courses mapped to the Skills Framework, written for the room and ready for courseware submission.",
   desc: "We map every course first, to the technical and critical core skills of the relevant Skills Framework, or to the Course Approval Skills List where it sits outside WSQ. From that map we design the rest, the curriculum and lesson plans, the assessment plan and instruments, the trainer and learner guides. We submit the course on TPGateway on your behalf, and stay with it through SSG's queries until it is approved.",
   points: ["Non-WSQ / WSQ courses", "CASL", "TPGateway submission"] },
 { id: "ii", numeral: "II", href: "atosetupadvisory.html",
-  title: "ATO Setup Advisory",
+  title: "ATO Setup",
   poster: "assets/setup-classroom.jpg", vimeo: "1199226286", video: "assets/svc-setup.mp4",
   lede: "The people and the registration, from the first conversation to your first cohort.",
   desc: "We introduce trainers and subject-matter experts to you at no cost, and accompany prospective and first-time training organisations through the whole of setup. From registration and accreditation to the moment your first cohort sits down.",
   points: ["Trainer and SME sourcing", "ATO / OR registration", "Academic operations"] },
 { id: "iii", numeral: "III", href: "ssgauditmatters.html",
-  title: "SSG Audit Matters",
+  title: "Audit and Compliance",
   poster: "assets/compliance-folders.jpg", vimeo: "1199225797", video: "assets/svc-business-man.mp4",
   lede: "Ready for the audit, long before the date is set.",
-  desc: "It begins with a complimentary consultation on your TPQA and CQC standing, with a pre-audit gap analysis against SSG's criteria. We close the gaps, strengthen the operation where it needs it, and leave the documents in order and the work behind them already done.",
+  desc: "It begins with a complimentary consultation on your TPQA and CQC readiness, with a pre-audit gap analysis against SSG's criteria. We close the gaps, strengthen the operation where it needs it, and leave the documents in order and the work behind them already done.",
   points: ["TPQA advisory", "CQC advisory", "Pre-audit gap analysis"] },
 { id: "iv", numeral: "IV", href: "creativemarketing.html",
   title: "Creative Marketing",
@@ -103,9 +103,9 @@ const FAQ = [
 { q: <>May we apply your <em>accreditations</em> to work prepared elsewhere?</>,
   a: "We are not able to do so. Our accreditations attach only to work we have prepared ourselves, and to extend them to courseware authored by another would misrepresent that material to SSG and would not hold up on review. Where you have capable people of your own, we would be glad to work alongside them; what we cannot do is certify work we have not undertaken." },
 { q: <>Who carries out the <em>work</em>?</>,
-  a: "Each engagement is led by a Level 3 Senior Professional Adult Educator under TAEPP, supported by two curriculum developers accredited under DACE / DDDLP, and by three where the engagement calls for it. We do not subcontract, and we are glad to introduce you to the people who will be handling your matter." },
+  a: "Each project is led by a Level 3 Senior Professional Adult Educator under TAEPP, supported by two curriculum developers accredited under DACE / DDDLP, and by three where the project calls for it. We do not subcontract, and we are glad to introduce you to the people who will be handling your project." },
 { q: <>What does the first <em>consultation</em> involve?</>,
-  a: "It is a short conversation, around twenty minutes by call or by note, to understand the engagement, its timeline and the form of SSG funding that suits the course. We will give you a candid view of whether it is a matter we should take on and what it is likely to cost. There is no charge and no obligation on either side." }];
+  a: "It is a short conversation, around twenty minutes by call or by note, to understand the project, its timeline and the form of SSG funding that suits the course. We will give you a candid view of whether it is a matter we should take on and what it is likely to cost. There is no charge and no obligation on either side." }];
 
 
 function FaqItem({ q, a }) {
@@ -353,7 +353,7 @@ function MiniCal() {
           })}
           </div>
           <p className="tb-cal__slots-foot">
-            Reserving an hour opens an engagement correspondence. The practice confirms by return of email, ordinarily within two working days.
+            Reserving an hour opens a conversation. We confirm by return of email, ordinarily within two working days.
           </p>
         </div>
       }
@@ -427,7 +427,7 @@ function App() {
         <section className="tb-heritage tb-reveal">
           <div className="container">
             <header className="tb-heritage__head">
-              <EyebrowLockup>Our practice · our standing</EyebrowLockup>
+              <EyebrowLockup>The firm · approved status</EyebrowLockup>
               <h2 className="tb-heritage__title">What we bring.</h2>
               <p className="tb-heritage__sub">
                 We say little about ourselves. This much, we will.
@@ -452,10 +452,10 @@ function App() {
               <EyebrowLockup>Fields of expertise</EyebrowLockup>
               <div className="tb-services__masthead">
                 <h2 className="tb-services__title">
-                  Four practice areas,<br />one standard of <em className="t-italic">care.</em>
+                  Four areas of work,<br />one standard of <em className="t-italic">care.</em>
                 </h2>
                 <div className="tb-services__aside">
-                  <span className="tb-services__asidelabel">On engagement</span>
+                  <span className="tb-services__asidelabel">On fees</span>
                   <p className="tb-services__sub">
                     We are pleased to draft a formal pricing proposal. Our rates scale
                     with the project's scope, and the per-unit cost decreases for each
@@ -515,7 +515,7 @@ function App() {
             <header className="tb-faq__head">
               <EyebrowLockup>Important answers</EyebrowLockup>
               <h2 className="tb-faq__title">Frequent <em>enquiries</em>.</h2>
-              <p className="tb-faq__sub">The questions most often put to the practice, answered candidly.
+              <p className="tb-faq__sub">The questions most often put to us, answered candidly.
 
               </p>
             </header>
