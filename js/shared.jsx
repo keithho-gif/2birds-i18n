@@ -10,10 +10,10 @@ function EyebrowLockup({ children, dark }) {
 
 function NavBar({ current }) {
   const items = [
-  { id: "brand", label: "The Practice", href: "brand.html" },
-  { id: "curriculum", label: "Curriculum Development", href: "wsqcurriculumdevelopment.html" },
-  { id: "sourcing", label: "ATO Setup", href: "atosetupadvisory.html" },
-  { id: "compliance", label: "Audit and Compliance", href: "ssgauditmatters.html" },
+  { id: "brand", label: "Brand", href: "brand.html" },
+  { id: "curriculum", label: "WSQ Curriculum Development", href: "wsqcurriculumdevelopment.html" },
+  { id: "sourcing", label: "ATO Setup Advisory", href: "atosetupadvisory.html" },
+  { id: "compliance", label: "SSG Audit Matters", href: "ssgauditmatters.html" },
   { id: "branding", label: "Creative Marketing", href: "creativemarketing.html" }];
 
   const [open, setOpen] = React.useState(false);
@@ -147,10 +147,10 @@ function Footer() {
           <div className="tb-footer__col">
             <h4 className="tb-footer__heading">Explore</h4>
             <ul className="tb-footer__list">
-              <li><a href="brand.html">The Practice</a></li>
-              <li><a href="wsqcurriculumdevelopment.html">Curriculum Development</a></li>
-              <li><a href="atosetupadvisory.html">ATO Setup</a></li>
-              <li><a href="ssgauditmatters.html">Audit and Compliance</a></li>
+              <li><a href="brand.html">Brand</a></li>
+              <li><a href="wsqcurriculumdevelopment.html">WSQ Curriculum Development</a></li>
+              <li><a href="atosetupadvisory.html">ATO Setup Advisory</a></li>
+              <li><a href="ssgauditmatters.html">SSG Audit Matters</a></li>
               <li><a href="creativemarketing.html">Creative Marketing</a></li>
             </ul>
           </div>
