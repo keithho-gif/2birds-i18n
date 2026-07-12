@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/main.css?v=27" />
+<link rel="stylesheet" href="css/main.css?v=28" />
 <style>
   .founder-lead { text-align: center; max-width: 58ch; margin: 0 auto clamp(40px,5vw,64px); }
   .founder-role { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--olive); margin-top: 12px; }
@@ -70,7 +70,7 @@
               <p style="font-size:14.5px;margin-top:4px">Within two working days</p>
             </div>
           </div>
-          <p class="prose mt-3" style="font-size:14px">Our office is at 7 Temasek Boulevard, #12-07 Suntec Tower One, Singapore 038987. Meetings are by appointment, at our office, your premises or a venue of your choosing.</p>
+          <p class="prose mt-3" style="font-size:14px">Meetings are by appointment, at our office, your premises or a venue of your convenience.</p>
         </div>
         <form class="form reveal" id="tb-enquiry" style="--d:.1s" novalidate>
           <div class="field">
@@ -86,9 +86,10 @@
             <div class="field"><label for="e-email">Email *</label><input id="e-email" type="email" required /></div>
           </div>
           <div class="form__row">
-            <div class="field"><label for="e-org">Training organisation</label><input id="e-org" /></div>
+            <div class="field"><label for="e-org">Training organisation</label><select id="e-org"><option value="">Select…</option></select></div>
             <div class="field"><label for="e-tel">Telephone · optional</label><input id="e-tel" /></div>
           </div>
+          <div class="field hidden" id="e-org-other-field"><label for="e-org-other">Name your organisation</label><input id="e-org-other" placeholder="If it is not in the list above" /></div>
           <div class="field">
             <label for="e-area">Field of work</label>
             <select id="e-area">
@@ -283,6 +284,7 @@
 </main>
 
 <script src="js/main.js?v=24"></script>
+<script src="js/orgs.js?v=1"></script>
 <script>
 (function () {
   "use strict";
@@ -294,6 +296,29 @@
       });
     });
   });
+
+  /* training organisation dropdown, populated from the prospects list, with an
+     "Others" fallback that reveals a free-text field */
+  var orgSel = document.getElementById("e-org");
+  var orgOtherField = document.getElementById("e-org-other-field");
+  var orgOther = document.getElementById("e-org-other");
+  if (orgSel && window.TB_ORGS) {
+    var frag = document.createDocumentFragment();
+    window.TB_ORGS.forEach(function (name) {
+      var o = document.createElement("option");
+      o.value = name; o.textContent = name;
+      frag.appendChild(o);
+    });
+    var other = document.createElement("option");
+    other.value = "__other"; other.textContent = "Others (not in the list)";
+    frag.appendChild(other);
+    orgSel.appendChild(frag);
+    orgSel.addEventListener("change", function () {
+      var isOther = orgSel.value === "__other";
+      orgOtherField.classList.toggle("hidden", !isOther);
+      if (isOther) orgOther.focus();
+    });
+  }
   /* inline validation: mark the field, say what is missing, focus the first gap */
   var REQUIRED = [
     { id: "e-name", msg: "Your name lets us reply properly." },
@@ -335,12 +360,14 @@
     });
     if (firstGap) { firstGap.focus(); return; }
     var role = document.querySelector("#e-role .chip.is-on");
+    var orgVal = v("e-org");
+    var org = (orgVal === "__other") ? v("e-org-other") : orgVal;
     var body =
       "Hello 2birds,\n\n" + v("e-note") + "\n\n" +
       "Enquiring as: " + (role ? role.dataset.v : "") + "\n" +
       "Name: " + v("e-name") + "\n" +
       "Email: " + v("e-email") + "\n" +
-      (v("e-org") ? "Training organisation: " + v("e-org") + "\n" : "") +
+      (org ? "Training organisation: " + org + "\n" : "") +
       (v("e-tel") ? "Telephone: " + v("e-tel") + "\n" : "") +
       (v("e-area") ? "Field of work: " + v("e-area") + "\n" : "") +
       "\nThank you.";

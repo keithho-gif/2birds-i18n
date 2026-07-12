@@ -1423,6 +1423,8 @@ main [id] { scroll-margin-top: calc(var(--navh, 96px) + 60px); }
   transition: transform 0.1s linear, top 0.4s var(--ease);
 }
 @media (prefers-reduced-motion: reduce) { .readbar { display: none; } }
+/* the reading-progress line has no place over the open mobile menu */
+body.drawer-open .readbar { display: none; }
 
 /* Recommendation #4: give the menu control a full 44px thumb target without
    nudging the icon, via a centred, invisible hit-area overlay (mobile best
