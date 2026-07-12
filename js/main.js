@@ -442,7 +442,6 @@
       '<button class="rgn__close" aria-label="Close">&times;</button>' +
       '<span class="eyebrow">Region &amp; language</span>' +
       '<h2 class="rgn__title">Select your <em>region</em>.</h2>' +
-      '<p class="rgn__sub">View 2birds, curriculum and advisory for training providers, in your preferred language.</p>' +
       '<div class="rgn__group"><span class="rgn__glabel">Asia</span><ul class="rgn__list">' + rows + "</ul></div>" +
       "</div>";
     document.body.appendChild(overlay);
