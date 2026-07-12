@@ -410,19 +410,19 @@
     if (!trigger) return;
 
     var ASIA = [
-      { c: "\u4e2d\u56fd\u5927\u9646", en: "Mainland China", lang: "\u7b80\u4f53\u4e2d\u6587" },
-      { c: "\u65e5\u672c", en: "Japan", lang: "\u65e5\u672c\u8a9e" },
-      { c: "\ub300\ud55c\ubbfc\uad6d", en: "South Korea", lang: "\ud55c\uad6d\uc5b4" },
-      { c: "\u9999\u6e2f\u7279\u5225\u884c\u653f\u5340", en: "Hong Kong SAR", lang: "\u7e41\u9ad4\u4e2d\u6587" },
-      { c: "Singapore", en: "", lang: "English", cur: true },
-      { c: "Malaysia", en: "", lang: "English" },
-      { c: "\u53f0\u7063\u5730\u5340", en: "Taiwan", lang: "\u7e41\u9ad4\u4e2d\u6587" },
-      { c: "\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22", en: "Thailand", lang: "\u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22" },
-      { c: "Vi\u1ec7t Nam", en: "Vietnam", lang: "Ti\u1ebfng Vi\u1ec7t" },
-      { c: "Indonesia", en: "", lang: "English" },
-      { c: "Indonesia", en: "", lang: "Bahasa Indonesia" },
-      { c: "India", en: "", lang: "English" },
-      { c: "Philippines", en: "", lang: "English" }
+      { c: "\u4e2d\u56fd\u5927\u9646", en: "Mainland China", lang: "\u7b80\u4f53\u4e2d\u6587", code: "zh-Hans" },
+      { c: "\u65e5\u672c", en: "Japan", lang: "\u65e5\u672c\u8a9e", code: "ja" },
+      { c: "\ub300\ud55c\ubbfc\uad6d", en: "South Korea", lang: "\ud55c\uad6d\uc5b4", code: "ko" },
+      { c: "\u9999\u6e2f\u7279\u5225\u884c\u653f\u5340", en: "Hong Kong SAR", lang: "\u7e41\u9ad4\u4e2d\u6587", code: "zh-Hant" },
+      { c: "Singapore", en: "", lang: "English", cur: true, code: "en" },
+      { c: "Malaysia", en: "", lang: "English", code: "en" },
+      { c: "\u53f0\u7063\u5730\u5340", en: "Taiwan", lang: "\u7e41\u9ad4\u4e2d\u6587", code: "zh-Hant" },
+      { c: "\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22", en: "Thailand", lang: "\u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22", code: "th" },
+      { c: "Vi\u1ec7t Nam", en: "Vietnam", lang: "Ti\u1ebfng Vi\u1ec7t", code: "vi" },
+      { c: "Indonesia", en: "", lang: "English", code: "en" },
+      { c: "Indonesia", en: "", lang: "Bahasa Indonesia", code: "id" },
+      { c: "India", en: "", lang: "English", code: "en" },
+      { c: "Philippines", en: "", lang: "English", code: "en" }
     ];
 
     function meta(r) { return (r.en ? r.en + " \u00b7 " : "") + r.lang; }
@@ -471,9 +471,26 @@
         overlay.querySelectorAll(".rgn__row").forEach(function (x) { x.classList.remove("is-cur"); });
         b.classList.add("is-cur");
         trigger.textContent = (r.en || r.c) + " · " + r.lang;
+        if (window.TB_I18N) window.TB_I18N.setLang(r.code || "en");
         close();
       });
     });
+
+    /* reflect a previously chosen language in the trigger label and current row */
+    try {
+      var savedLang = localStorage.getItem("tb_lang");
+      if (savedLang && savedLang !== "en") {
+        for (var i = 0; i < ASIA.length; i++) {
+          if (ASIA[i].code === savedLang) {
+            trigger.textContent = (ASIA[i].en || ASIA[i].c) + " · " + ASIA[i].lang;
+            overlay.querySelectorAll(".rgn__row").forEach(function (x) { x.classList.remove("is-cur"); });
+            var cur = overlay.querySelector('.rgn__row[data-i="' + i + '"]');
+            if (cur) cur.classList.add("is-cur");
+            break;
+          }
+        }
+      }
+    } catch (e) {}
   }
 
   /* ---------- reading-progress hairline ---------- */

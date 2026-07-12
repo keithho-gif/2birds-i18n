@@ -280,14 +280,19 @@ h1.display { margin: 26px 0 0; }
 }
 .drawer.is-open { opacity: 1; pointer-events: auto; }
 .drawer a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
   font-family: var(--serif);
-  font-size: clamp(1.4rem, 4.6vw, 2rem);
-  padding: 16px 0;
-  display: block;
-  width: min(420px, 100%);
+  font-weight: 500;
+  font-size: clamp(1.05rem, 3.4vw, 1.35rem);
+  padding: 13px 0;
+  width: 100%;
   border-bottom: 1px solid var(--line);
+  color: var(--ink);
 }
-.drawer a span { display: block; font-family: var(--sans); font-size: 9px; color: var(--ink-faint); letter-spacing: 0.3em; text-transform: uppercase; margin-top: 2px; }
+.drawer a span { font-family: var(--sans); font-size: 9.5px; color: var(--ink-faint); letter-spacing: 0.22em; text-transform: uppercase; }
 
 @media (max-width: 1080px) {
   .nav__menu { display: none; }
@@ -1425,6 +1430,11 @@ main [id] { scroll-margin-top: calc(var(--navh, 96px) + 60px); }
 @media (prefers-reduced-motion: reduce) { .readbar { display: none; } }
 /* the reading-progress line has no place over the open mobile menu */
 body.drawer-open .readbar { display: none; }
+
+/* English-only notices (legal + CASL register) surface only once the reader has
+   switched the site to another language */
+.i18n-en-note { display: none; font-size: 12px; font-style: italic; letter-spacing: 0.02em; color: var(--ink-faint); margin-bottom: 20px; }
+html:not([lang="en"]) .i18n-en-note { display: block; }
 
 /* Recommendation #4: give the menu control a full 44px thumb target without
    nudging the icon, via a centred, invisible hit-area overlay (mobile best

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/main.css?v=28" />
+<link rel="stylesheet" href="css/main.css?v=29" />
 <link rel="preload" as="image" imagesrcset="assets/maison-arches-800.jpg 800w, assets/maison-arches-1280.jpg 1280w, assets/maison-arches.jpg?v=2 1920w" imagesizes="100vw" />
 <style>
   .memo { border: 1px solid var(--line); padding: clamp(26px, 3.4vw, 44px); background: var(--ivory); }
@@ -378,8 +378,9 @@
   </div>
 
   <!-- § V CASL — the whole section is dark navy, driven by the catalogue data -->
-  <section class="section casl-section" id="casl">
+  <section class="section casl-section" id="casl" data-noi18n>
     <div class="container casl-dark">
+      <p class="i18n-en-note" style="color:rgba(255,255,255,.7)">The skills register below is maintained in English only.</p>
       <header class="caslpanel__head center reveal">
         <span class="eyebrow">§ V · Course Approval Skills List</span>
         <h2 class="h2">The CASL register, made navigable.</h2>
@@ -693,7 +694,8 @@
 
 </main>
 
-<script src="js/main.js?v=24"></script>
+<script src="js/main.js?v=25"></script>
+<script src="js/i18n.js?v=1"></script>
 <script src="js/casl-list.js"></script>
 <script src="js/casl.js?v=10"></script>
 </body>
