@@ -24,11 +24,11 @@
       '<div class="nav__top">' +
       '<button class="nav__region" aria-haspopup="dialog">Singapore · English</button>' +
       '<a href="contact.html">Make an enquiry</a>' +
+      '<button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
       "</div>" +
       '<a class="nav__mark" href="index.html" aria-label="2birds, home">' +
       '<img src="assets/logo-text.png" alt="2birds" /></a>' +
-      '<nav class="nav__menu" aria-label="Primary">' + links + "</nav>" +
-      '<button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>';
+      '<nav class="nav__menu" aria-label="Primary">' + links + "</nav>";
     document.body.prepend(header);
 
     /* skip link for keyboard users; lands on <main> */

@@ -252,9 +252,7 @@ h1.display { margin: 26px 0 0; }
 
 .nav__burger {
   display: none;
-  position: absolute;
-  right: var(--pad);
-  top: 26px;
+  position: relative;   /* in-flow flex item in the utility row; anchors the 44px hit overlay */
   flex-direction: column;
   gap: 5px;
   padding: 8px;
@@ -295,9 +293,9 @@ h1.display { margin: 26px 0 0; }
   .nav__menu { display: none; }
   .nav { padding-bottom: 18px; }
   .nav__burger { display: flex; }
-  /* the utility bar keeps only the region and language switcher on mobile;
-     "Make an enquiry" lives in the drawer, so it does not crowd the burger */
-  .nav__top { justify-content: flex-start; padding-right: 56px; }
+  /* utility row on mobile: region switcher (left) and burger (right), both
+     vertically centred by the row's align-items. "Make an enquiry" moves to
+     the drawer so it does not crowd the switcher. */
   .nav__top a { display: none; }
   body.drawer-open { overflow: hidden; }
   body.drawer-open .nav__burger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
