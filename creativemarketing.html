@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>2birds asia | Creative Marketing</title>
-<meta name="description" content="Marketing for training and adult education only. Brand, campaigns and creative built to fill cohorts, held within SWDA's advertising rules, with PixPlaySG and our in-house creative producer." />
+<meta name="description" content="Marketing for training and adult education only. Brand, campaigns and creative built to fill cohorts, held within SWDA's advertising guidelines, with PixPlaySG and our in-house creative producer." />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,6 +38,10 @@
   /* PixPlaySG lockup as the panel's main line */
   .panel__title--xl { font-size: clamp(1.7rem, 2.8vw, 2.35rem); line-height: 1.1; letter-spacing: -0.01em; }
   .panel__title--xl em { font-style: normal; color: var(--olive); font-weight: 400; margin: 0 0.12em; }
+  /* the deliverables and FAQ sections are both on white, so their stacked
+     padding read as one large empty void; tighten the transition between them */
+  #deliver { padding-bottom: clamp(28px, 3.5vw, 52px); }
+  #faq { padding-top: clamp(28px, 3.5vw, 52px); }
 </style>
 </head>
 <body data-page="marketing">
@@ -51,13 +55,21 @@
       <span class="eyebrow reveal">Creative Marketing</span>
       <h1 class="display reveal" style="--d:.1s">Marketing that fills your <em>classes</em>.</h1>
       <hr class="rule reveal" style="--d:.16s" />
-      <p class="lede reveal" style="--d:.22s; margin-top:0; max-width:50ch;">A course only earns when people enrol. We build the brand, the campaigns and the videos that bring learners in, and we keep every piece inside SWDA's advertising rules.</p>
+      <p class="lede reveal" style="--d:.22s; margin-top:0; max-width:50ch;">A course only earns when people enrol. We build the brand, the campaigns and the videos that bring learners in, and we keep every piece inside SWDA's advertising guidelines.</p>
     </div>
   </section>
 
-  <div class="band reveal">
-    <img src="assets/maison-studio.jpg" alt="An empty photography studio with lighting rigged" loading="lazy" />
-  </div>
+  <nav class="secnav" aria-label="Sections on this page">
+    <div class="secnav__inner">
+      <a href="#services">I · What we do</a>
+      <a href="#line">II · The line</a>
+      <a href="#film">III · Film</a>
+      <a href="#design">IV · Design</a>
+      <a href="#deliver">V · Deliverables</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </nav>
+
   <section class="section--tight section">
     <div class="container center">
       <p class="prose reveal" style="margin:0 auto;max-width:52ch;">A brand for a training organisation is built behind the lens. The provider is the one who finally steps in front of it.</p>
@@ -65,7 +77,7 @@
   </section>
 
   <!-- § I WHAT WE DO -->
-  <section class="section section--bone">
+  <section class="section section--bone" id="services">
     <div class="container">
       <header class="sectionhead reveal">
         <span class="eyebrow">§ I · What we do</span>
@@ -131,7 +143,7 @@
   </div>
 
   <!-- § II THE LINE -->
-  <section class="section section--bone">
+  <section class="section section--bone" id="line">
     <div class="container">
       <div class="split">
         <div class="reveal">
@@ -163,7 +175,7 @@
   </section>
 
   <!-- § III FILM -->
-  <section class="section">
+  <section class="section" id="film">
     <div class="container">
       <header class="sectionhead reveal">
         <span class="eyebrow">§ III · Film, with PixPlaySG</span>
@@ -184,11 +196,11 @@
     </div>
   </section>
 
-  <!-- § III·II DESIGN -->
-  <section class="section section--bone">
+  <!-- § IV DESIGN -->
+  <section class="section section--bone" id="design">
     <div class="container">
       <header class="sectionhead reveal">
-        <span class="eyebrow">§ III · Design, with Ng Chen Yao</span>
+        <span class="eyebrow">§ IV · Design, with Ng Chen Yao</span>
         <h2 class="h2">Our in-house creative producer, Ng Chen Yao.</h2>
         <p class="lede">Within 2birds, graphic and social work is led by Ng Chen Yao, a graphic designer whose work spans brand, editorial and digital design. For training providers he makes the online and offline pieces a campaign runs on, banners, flyers, posters and social media, each kept on the permitted side of the guideline.</p>
       </header>
@@ -217,11 +229,11 @@
     </div>
   </section>
 
-  <!-- § IV DELIVERABLES -->
-  <section class="section">
+  <!-- § V DELIVERABLES -->
+  <section class="section" id="deliver">
     <div class="container">
       <header class="sectionhead reveal">
-        <span class="eyebrow">§ IV · What we can deliver</span>
+        <span class="eyebrow">§ V · What we can deliver</span>
         <h2 class="h2">The finished work, itemised.</h2>
         <p class="lede">Every commission is shaped to the provider, but these are the pieces we are most often asked to make. Each sits, by design, on the permitted side of the guideline.</p>
       </header>
@@ -262,7 +274,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="section">
+  <section class="section" id="faq">
     <div class="container container--narrow">
       <header class="sectionhead reveal">
         <span class="eyebrow">Before you ask</span>
@@ -271,7 +283,7 @@
       <div class="acc reveal">
         <div class="acc__item">
           <button class="acc__btn"><span class="acc__ref">01</span><span class="acc__q">Can you just run the ads for us?</span><span class="acc__icon">+</span></button>
-          <div class="acc__panel"><p class="acc__body">No, and neither can anyone else, lawfully. SWDA's guideline forbids a registered provider from having any outside party promote or advertise its courses. What we do instead is build everything up to the moment of publishing, so that pressing the button is genuinely all that is left for you to do.</p></div>
+          <div class="acc__panel"><p class="acc__body">No. SWDA disallows RTPs from engaging, requesting or procuring any third party to promote, advertise or market courses. What we do is provide creative and content development for your training academy.</p></div>
         </div>
         <div class="acc__item">
           <button class="acc__btn"><span class="acc__ref">02</span><span class="acc__q">Do you take marketing clients outside the training sector?</span><span class="acc__icon">+</span></button>
@@ -302,7 +314,7 @@
 
 </main>
 
-<script src="js/main.js?v=23"></script>
+<script src="js/main.js?v=24"></script>
 <script>
 (function () {
   var reel = document.getElementById("tb-reel");

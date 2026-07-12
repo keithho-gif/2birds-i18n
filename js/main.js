@@ -112,10 +112,9 @@
       '<li><a href="wsqcurriculumdevelopment.html#casl">The CASL Register</a></li>' +
       '<li><a href="sourcing.html">Trainers and SMEs Sourcing</a></li>' +
       "</ul></div>" +
-      '<div><h4 class="footer__heading">The Practice</h4><ul class="footer__list">' +
+      '<div><h4 class="footer__heading">Location</h4><ul class="footer__list">' +
       "<li>7 Temasek Boulevard, #12-07</li>" +
       "<li>Suntec Tower One, Singapore 038987</li>" +
-      "<li>Monday to Friday, 9am to 6pm</li>" +
       '<li><a href="tel:+6585953945">Mobile · +65 8595 3945</a></li>' +
       "<li>Fax · +65 6917 8977</li>" +
       "</ul></div>" +
