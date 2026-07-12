@@ -3,641 +3,331 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>2birds asia | Home</title>
-<meta name="description" content="2birds is a growing community of independent practitioners in curriculum development and advisory for Approved Training Organisations (ATOs)." />
+<title>2birds asia | Curriculum and advisory for training providers</title>
+<meta name="description" content="2birds is a growing community of independent practitioners in curriculum development and advisory for Approved Training Organisations (ATOs) in Singapore." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="2birds" />
-<meta property="og:title" content="2birds asia | Home" />
-<meta property="og:description" content="2birds is a growing community of independent practitioners in curriculum development and advisory for Approved Training Organisations (ATOs)." />
+<meta property="og:title" content="2birds asia | Curriculum and advisory" />
+<meta property="og:description" content="Curriculum, developed by practitioners. We develop courses for training providers and stay beside them through approval and audit." />
 <meta property="og:url" content="https://www.2birds.asia/" />
-<meta property="og:image" content="https://www.2birds.asia/assets/og-image.png?v=9" />
-<meta property="og:image:secure_url" content="https://www.2birds.asia/assets/og-image.png?v=9" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="500" />
-<meta property="og:image:height" content="500" />
-<meta property="og:image:alt" content="2birds" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="2birds asia | Home" />
-<meta name="twitter:description" content="2birds is a growing community of independent practitioners in curriculum development and advisory for Approved Training Organisations (ATOs)." />
-<meta name="twitter:image" content="https://www.2birds.asia/assets/og-image.png?v=9" />
-
-<link rel="icon" type="image/png" href="assets/favicon.png?v=9" />
-<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=9" />
-<link rel="apple-touch-icon" href="assets/favicon.png?v=9" />
-<link rel="stylesheet" href="css/foundations.css" />
-<link rel="stylesheet" href="css/site.css" />
-<link rel="stylesheet" href="css/i18n.css" />
-
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-
-
-<script src="js/transition.js"></script>
-<script src="js/i18n.js"></script>
+<meta property="og:image" content="https://www.2birds.asia/assets/og-image.png" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/main.css?v=26" />
+<link rel="preload" as="image" imagesrcset="assets/maison-colonnade-800.jpg 800w, assets/maison-colonnade-1280.jpg 1280w, assets/maison-colonnade.jpg?v=2 1920w" imagesizes="100vw" />
 </head>
-<body data-screen-label="01 Home">
-<div id="root"></div>
+<body data-page="home">
 
-<script type="text/babel" src="js/shared.jsx"></script>
+<main>
 
-<script type="text/babel">
-
-
-
-const { useState, useMemo } = React;
-
-const TRUST = [
-{ seal: "I",
-  title: <>TAEPP-registered <em>practitioners</em></>,
-  sub: "Curriculum developers and adult educators registered on the National Adult Educator Registry." },
-{ seal: "II",
-  title: <>Level 3 <em>Senior</em> AE under TAEPP</>,
-  sub: "Led by a senior professional adult educator with close to one hundred courseware submissions." },
-{ seal: "III",
-  title: <>2025 <em>TPQA Outreach</em> speaker</>,
-  sub: "Invited by SkillsFuture Singapore (SSG) to speak on best practices in strengthening training quality through effective AE systems and practices." }];
-
-
-const HERITAGE = [
-{ label: "By design", year: "Selective",
-  body: "A small number of projects each quarter, chosen with care." },
-{ label: "Our reach", year: "Across the sector",
-  body: "Curriculum and advisory across many sectors, in both WSQ and non-WSQ." },
-{ label: "Courses built", year: "100+",
-  body: "More than a hundred courses completed across the firm." },
-{ label: "Recognition", year: "Cited",
-  body: "Work by our practitioners has reached the industry, and the pages of The Business Times." }];
-
-
-const SERVICES = [
-{ id: "i", numeral: "I", href: "wsqcurriculumdevelopment.html",
-  title: "WSQ Curriculum Development",
-  poster: "assets/curriculum-architecture.jpg", vimeo: "1199227151", video: "assets/svc-curriculum.mp4",
-  lede: "Courses mapped to the Skills Framework, written for the room and ready for courseware submission.",
-  desc: "We map every course first, to the technical and critical core skills of the relevant Skills Framework, or to the Course Approval Skills List where it sits outside WSQ. From that map we design the rest, the curriculum and lesson plans, the assessment plan and instruments, the trainer and learner guides. We submit the course on TPGateway on your behalf, and stay with it through SSG's queries until it is approved.",
-  points: ["Non-WSQ / WSQ courses", "CASL", "TPGateway submission"] },
-{ id: "ii", numeral: "II", href: "atosetupadvisory.html",
-  title: "ATO Setup Advisory",
-  poster: "assets/setup-classroom.jpg", vimeo: "1199226286", video: "assets/svc-setup.mp4",
-  lede: "The people and the registration, from the first conversation to your first cohort.",
-  desc: "We introduce trainers and subject-matter experts to you at no cost, and accompany prospective and first-time training organisations through the whole of setup. From registration and accreditation to the moment your first cohort sits down.",
-  points: ["Trainer and SME sourcing", "ATO / OR registration", "Academic operations"] },
-{ id: "iii", numeral: "III", href: "ssgauditmatters.html",
-  title: "SSG Audit Matters",
-  poster: "assets/compliance-folders.jpg", vimeo: "1199225797", video: "assets/svc-business-man.mp4",
-  lede: "Ready for the audit, long before the date is set.",
-  desc: "It begins with a complimentary consultation on your TPQA and CQC readiness, with a pre-audit gap analysis against SSG's criteria. We close the gaps, strengthen the operation where it needs it, and leave the documents in order and the work behind them already done.",
-  points: ["TPQA advisory", "CQC advisory", "Pre-audit gap analysis"] },
-{ id: "iv", numeral: "IV", href: "creativemarketing.html",
-  title: "Creative Marketing",
-  poster: "assets/marketing-camera.jpg", vimeo: "1199225372", video: "assets/svc-marketing.mp4",
-  lede: "Marketing built to fill seats and turn them into revenue, for the training sector alone.",
-  desc: "We treat marketing as commercial work, not decoration, and only for training and adult education. Brand and campaigns, graphic and social design from our in-house creative producer, and personal branding video with PixPlaySG, our creative collaborator. Each piece is built to move a learner closer to enrolment, so the marketing line and the revenue line move together.",
-  points: ["Brand and campaigns", "Graphic and social design", "Personal branding video"] }];
-
-
-const FAQ = [
-{ q: <>Why are your <em>fees</em> lower?</>,
-  a: "The difference reflects our overheads rather than any compromise in the work. We maintain no staffed office, carry no marketing costs to recover, and take no placement margin on the SMEs we source. Our fees account for the work itself and the people who carry it out, and we are happy to set out that basis for you in detail." },
-{ q: <>May we apply your <em>accreditations</em> to work prepared elsewhere?</>,
-  a: "We are not able to do so. Our accreditations attach only to work we have prepared ourselves, and to extend them to courseware authored by another would misrepresent that material to SSG and would not hold up on review. Where you have capable people of your own, we would be glad to work alongside them; what we cannot do is certify work we have not undertaken." },
-{ q: <>Who carries out the <em>work</em>?</>,
-  a: "Each project is led by a Level 3 Senior Professional Adult Educator under TAEPP, supported by two curriculum developers accredited under DACE / DDDLP, and by three where the project calls for it. We do not subcontract, and we are glad to introduce you to the people who will be handling your project." },
-{ q: <>What does the first <em>consultation</em> involve?</>,
-  a: "It is a short conversation, around twenty minutes by call or by note, to understand the project, its timeline and the form of SSG funding that suits the course. We will give you a candid view of whether it is a matter we should take on and what it is likely to cost. There is no charge and no obligation on either side." }];
-
-
-function FaqItem({ q, a }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className={"tb-faq__item" + (open ? " is-open" : "")}>
-      <button className="tb-faq__q" type="button" onClick={() => setOpen((o) => !o)}>
-        <span>{q}</span>
-        <span className="tb-faq__sign">{open ? "–" : "+"}</span>
-      </button>
-      <div className="tb-faq__a"><p style={{ margin: 0 }}>{a}</p></div>
-    </div>);
-
-}
-
-// Live availability calendar. Pure-client demo: deterministic availability
-// derived from the date so slots stay stable on reload but feel real.
-const CAL_MONTH_NAMES = [
-  "January","February","March","April","May","June",
-  "July","August","September","October","November","December"];
-
-
-// Six daily consult slots, in 24h time.
-const CAL_SLOTS = [
-  { t: "09:30", label: "09:30" },
-  { t: "10:30", label: "10:30" },
-  { t: "11:30", label: "11:30" },
-  { t: "14:00", label: "14:00" },
-  { t: "15:00", label: "15:00" },
-  { t: "16:00", label: "16:00" }];
-
-
-// Cheap deterministic hash → integer.
-function calHash(y, m, d) {
-  let h = (y * 73856093) ^ ((m + 1) * 19349663) ^ (d * 83492791);
-  h = (h ^ h >>> 13) >>> 0;
-  return h;
-}
-
-// Singapore public holidays (MOM-gazetted), keyed "YYYY-M-D" with month 0-indexed.
-// Observed in-lieu Mondays are included; the practice is closed on these days.
-const SG_HOLIDAYS = {
-  // 2026
-  "2026-0-1":  "New Year's Day",
-  "2026-1-17": "Chinese New Year",
-  "2026-1-18": "Chinese New Year",
-  "2026-2-21": "Hari Raya Puasa",
-  "2026-3-3":  "Good Friday",
-  "2026-4-1":  "Labour Day",
-  "2026-4-27": "Hari Raya Haji",
-  "2026-4-31": "Vesak Day",          // 31 May (Sun)
-  "2026-5-1":  "Vesak Day (observed)",
-  "2026-7-9":  "National Day",       // 9 Aug (Sun)
-  "2026-7-10": "National Day (observed)",
-  "2026-10-8": "Deepavali",          // 8 Nov (Sun)
-  "2026-10-9": "Deepavali (observed)",
-  "2026-11-25":"Christmas Day",
-  // 2027 (fixed-date holidays; lunar/Islamic dates gazetted nearer the time)
-  "2027-0-1":  "New Year's Day",
-  "2027-3-1":  "Labour Day",
-  "2027-7-9":  "National Day",
-  "2027-11-25":"Christmas Day"
-};
-
-function calHolidayName(date) {
-  return SG_HOLIDAYS[date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()] || null;
-}
-
-// Availability classification for a calendar cell.
-//  → "past" | "holiday" | "today-closed" | "today-open" | "weekend" | "unavailable" | "open"
-function calStatus(date, today) {
-  const startToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  const isToday = date.getTime() === startToday.getTime();
-  if (date < startToday) return "past";
-  if (calHolidayName(date)) return "holiday";
-  const dow = date.getDay(); // 0=Sun, 6=Sat
-  if (dow === 0 || dow === 6) return isToday ? "today-closed" : "weekend";
-
-  const h = calHash(date.getFullYear(), date.getMonth(), date.getDate());
-  // ~28% of weekdays are fully booked out.
-  const unavailable = h % 100 < 28;
-  if (isToday) return unavailable ? "today-closed" : "today-open";
-  return unavailable ? "unavailable" : "open";
-}
-
-// Which of the six slots are already booked for a given date.
-function calBookedSlots(date) {
-  const h = calHash(date.getFullYear(), date.getMonth(), date.getDate());
-  const booked = new Set();
-  // Two to four slots booked per open day, deterministic by date.
-  const count = 2 + h % 3;
-  for (let i = 0; i < count; i++) {
-    booked.add((h >> i * 3 & 7) % CAL_SLOTS.length);
-  }
-  return booked;
-}
-
-function MiniCal() {
-  const today = useMemo(() => new Date(), []);
-  const startToday = useMemo(
-    () => new Date(today.getFullYear(), today.getMonth(), today.getDate()),
-    [today]);
-
-  const [view, setView] = useState(() => ({ y: today.getFullYear(), m: today.getMonth() }));
-  const [picked, setPicked] = useState(null); // {y,m,d} | null
-
-  // Don't allow paging into the past, or more than 3 months ahead
-  // (current month + the next three).
-  const minIndex = today.getFullYear() * 12 + today.getMonth();
-  const maxIndex = minIndex + 3;
-  const viewIndex = view.y * 12 + view.m;
-  const canPrev = viewIndex > minIndex;
-  const canNext = viewIndex < maxIndex;
-  const step = (delta) => {
-    const next = viewIndex + delta;
-    if (next < minIndex || next > maxIndex) return;
-    setView({ y: Math.floor(next / 12), m: next % 12 });
-  };
-
-  // Build grid cells: 1-indexed weekday Mon..Sun = 0..6.
-  const firstDow = (new Date(view.y, view.m, 1).getDay() + 6) % 7; // shift Sun=0 → Mon=0
-  const daysInMonth = new Date(view.y, view.m + 1, 0).getDate();
-  const cells = [];
-  for (let i = 0; i < firstDow; i++) cells.push({ kind: "empty", key: "e" + i });
-  for (let d = 1; d <= daysInMonth; d++) {
-    const date = new Date(view.y, view.m, d);
-    cells.push({ kind: "day", d, date, status: calStatus(date, today), key: "d" + d });
-  }
-  // Pad to full weeks for nicer alignment.
-  while (cells.length % 7 !== 0) cells.push({ kind: "empty", key: "t" + cells.length });
-
-  const isPickedCell = (c) =>
-  picked && c.kind === "day" &&
-  picked.y === view.y && picked.m === view.m && picked.d === c.d;
-
-  const onDayClick = (c) => {
-    if (c.status !== "open" && c.status !== "today-open") return;
-    setPicked({ y: view.y, m: view.m, d: c.d });
-  };
-
-  // Slot panel state.
-  const pickedDate = picked ? new Date(picked.y, picked.m, picked.d) : null;
-  const booked = pickedDate ? calBookedSlots(pickedDate) : null;
-  const longDate = pickedDate ?
-  pickedDate.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" }) :
-  "";
-
-  const slotMailto = (slot) => {
-    const dateStr = pickedDate.toLocaleDateString("en-GB", {
-      weekday: "long", day: "numeric", month: "long", year: "numeric"
-    });
-    const subj = encodeURIComponent(`Consultation request, ${dateStr} at ${slot.label}`);
-    const body = encodeURIComponent(
-      `Dear 2birds,\n\nI should like to reserve the ${slot.label} slot on ${dateStr} for a complimentary consultation.\n\nMy enquiry concerns:\n\n\nKind regards,\n`);
-
-    return `mailto:hello@2birds.asia?subject=${subj}&body=${body}`;
-  };
-
-  return (
-    <div className="tb-cal" data-i18n-skip>
-      <div className="tb-cal__head">
-        <span className="tb-cal__month">{CAL_MONTH_NAMES[view.m]} <em>{view.y}</em></span>
-        <span className="tb-cal__nav">
-          <button
-            type="button"
-            className="tb-cal__navbtn"
-            aria-label="Previous month"
-            onClick={() => step(-1)}
-            disabled={!canPrev}
-            style={{ opacity: canPrev ? 1 : 0.3, cursor: canPrev ? "pointer" : "not-allowed" }}>
-            ‹
-          </button>
-          <button
-            type="button"
-            className="tb-cal__navbtn"
-            aria-label="Next month"
-            onClick={() => step(1)}
-            disabled={!canNext}
-            style={{ opacity: canNext ? 1 : 0.3, cursor: canNext ? "pointer" : "not-allowed" }}>
-            ›
-          </button>
-        </span>
+  <!-- HERO -->
+  <section class="bhero">
+    <div class="bhero__bg" aria-hidden="true">
+      <img src="assets/maison-colonnade.jpg?v=2" srcset="assets/maison-colonnade-800.jpg 800w, assets/maison-colonnade-1280.jpg 1280w, assets/maison-colonnade.jpg?v=2 1920w" sizes="100vw" width="1920" height="2880" fetchpriority="high" alt="" />
+    </div>
+    <div class="bhero__inner">
+      <span class="eyebrow reveal">Curriculum and advisory · Singapore</span>
+      <h1 class="display reveal" style="--d:.1s">Curriculum,<br />developed by <em>practitioners</em>.</h1>
+      <hr class="rule reveal" style="--d:.18s" />
+      <p class="lede reveal" style="--d:.24s; margin-top:0; max-width:50ch;">We develop curriculum for registered training providers, and provide the advisory that supports a course through approval, audit and everything in between.</p>
+      <div class="bhero__actions reveal" style="--d:.32s">
+        <a class="btn" href="#services">Discover the work</a>
+        <a class="text-link" style="align-self:center" href="contact.html">Make an enquiry</a>
       </div>
-      <div className="tb-cal__week">
-        <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+    </div>
+    <span class="bhero__scroll" aria-hidden="true">Scroll</span>
+  </section>
+
+  <!-- PLAIN WORDS -->
+  <section class="section--tight section">
+    <div class="container container--narrow center">
+      <span class="eyebrow reveal">Terms of engagement</span>
+      <h2 class="h2 reveal" style="--d:.06s">What 2birds does.</h2>
+      <div class="prose mt-3 reveal" style="--d:.12s; margin-left:auto; margin-right:auto; text-align:left;">
+        <p>If you operate as a registered training provider, or intend to become one, three things will decide whether the business holds. Approval decides whether you have a product at all. A course the Skills and Workforce Development Agency (SWDA), formerly SkillsFuture Singapore (SSG), has not endorsed carries no subsidy, and few learners will meet the full fee themselves. Curriculum decides what you then have to build. Once approval is granted you are bound to the course you described, and the materials and assessments must answer to it. Audit decides whether you keep what you have. A provider whose records diverge from its submissions can forfeit the approval it worked to obtain.</p>
+        <p>We attend to all three. We anchor the course to an approved skill on the Course Approval Skills List (CASL). We prepare the submission and build the courseware. We ready you for the audit well before it arrives. We introduce trainers and subject matter experts drawn from our own community. Lastly, we work with you on the marketing contents. One firm undertakes the whole of the work.</p>
+        <p>Training providers come to us the way one goes to a good craftsman. The work is measured precisely, tailored closely, and made to last. We take on a small number of projects each quarter, and we give each one the whole of our attention.</p>
       </div>
-      <div className="tb-cal__grid">
-        {cells.map((c) => {
-          if (c.kind === "empty") {
-            return <button type="button" key={c.key} className="tb-cal__day is-empty" disabled aria-label=""></button>;
-          }
-          const label = c.date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
-          const holidayName = c.status === "holiday" ? calHolidayName(c.date) : null;
-          let cls = "tb-cal__day";
-          let disabled = true;
-          if (c.status === "past") cls += " is-past";else
-          if (c.status === "holiday") cls += " is-holiday";else
-          if (c.status === "weekend") {/* default muted */}else
-          if (c.status === "unavailable") cls += " is-unavailable";else
-          if (c.status === "today-open") {cls += " is-today is-open";disabled = false;}else
-          if (c.status === "today-closed") cls += " is-today";else
-          if (c.status === "open") {cls += " is-open";disabled = false;}
-          if (isPickedCell(c)) cls += " is-selected";
-          return (
-            <button
-              type="button"
-              key={c.key}
-              className={cls}
-              disabled={disabled}
-              title={holidayName ? holidayName + " · public holiday" : undefined}
-              aria-label={label + (holidayName ? ", " + holidayName + ", public holiday, closed" : c.status === "open" || c.status === "today-open" ? ", available" : "")}
-              aria-pressed={isPickedCell(c) || undefined}
-              onClick={() => onDayClick(c)}>
+    </div>
+  </section>
 
-              {c.d}
-            </button>);
-
-        })}
+  <!-- TRUST -->
+  <section class="section section--rule section--bone">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">The firm · approved standing</span>
+        <h2 class="h2">Why training providers trust us.</h2>
+        <p class="small-caps" style="font-size:11px;color:var(--ink-soft);margin-top:16px">Not claims. Credentials.</p>
+      </header>
+      <div class="gridcards">
+        <article class="gcard reveal" style="text-align:center; align-items:center;">
+          <span class="gcard__num">I</span>
+          <h3 class="gcard__title">TAEPP-registered <em>practitioners</em></h3>
+          <p class="gcard__body">Our curriculum developers and adult educators are registered on the National Adult Educator Registry, under the Training and Adult Education Professionalisation Pathway (TAEPP).</p>
+        </article>
+        <article class="gcard reveal" style="--d:.08s; text-align:center; align-items:center;">
+          <span class="gcard__num">II</span>
+          <h3 class="gcard__title">Level 3 <em>Senior</em> Adult Educator</h3>
+          <p class="gcard__body">The work is led by a senior professional adult educator under TAEPP, with close to one hundred courseware submissions behind him.</p>
+        </article>
+        <article class="gcard reveal" style="--d:.16s; text-align:center; align-items:center;">
+          <span class="gcard__num">III</span>
+          <h3 class="gcard__title">2025 <em>TPQA Outreach</em> speaker</h3>
+          <p class="gcard__body">Skills and Workforce Development Agency (SWDA) invited us to speak at its 2025 outreach on strengthening training quality through sound adult educator systems.</p>
+        </article>
       </div>
-      <div className="tb-cal__legend">
-        <span className="tb-cal__legitem"><span className="tb-cal__sw tb-cal__sw--open"></span><span>Open</span></span>
-        <span className="tb-cal__legitem"><span className="tb-cal__sw tb-cal__sw--today"></span><span>Today</span></span>
-        <span className="tb-cal__legitem"><span className="tb-cal__sw tb-cal__sw--picked"></span><span>Unavailable</span></span>
-        <span className="tb-cal__legitem"><span className="tb-cal__sw tb-cal__sw--holiday"></span><span>Public holiday</span></span>
+      <p class="mt-3 center reveal" style="font-size:15px;color:var(--ink-soft);max-width:62ch;margin-left:auto;margin-right:auto;">New to the sector's language? Every abbreviation on this site is spelt out in <a href="glossary.html" style="border-bottom:1px solid var(--olive-bright)">the glossary</a>.</p>
+    </div>
+  </section>
+
+  <!-- THE MOTTO -->
+  <div class="band reveal">
+    <img src="assets/maison-flight.jpg" alt="A plane crossing the sky between towers" loading="lazy" />
+  </div>
+  <section class="section--tight section">
+    <div class="container center">
+      <h2 class="h2 reveal">Dream big. <em>Aim far.</em></h2>
+      <p class="small-caps mt-2 reveal" style="--d:.08s">The house motto · <a href="brand.html" style="border-bottom:1px solid var(--olive-bright)">read the brand story</a></p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats__grid">
+      <div class="stats__cell reveal">
+        <span class="stats__label">By design</span>
+        <span class="stats__value">Selective</span>
+        <span class="stats__note">We take a small number of projects each quarter, chosen with care.</span>
       </div>
+      <div class="stats__cell reveal" style="--d:.07s">
+        <span class="stats__label">Our reach</span>
+        <span class="stats__value">The sector</span>
+        <span class="stats__note">We provide curriculum and advisory across many sectors, in WSQ and non-WSQ forms.</span>
+      </div>
+      <div class="stats__cell reveal" style="--d:.14s">
+        <span class="stats__label">Courses built</span>
+        <span class="stats__value" data-count="100" data-suffix="+">100+</span>
+        <span class="stats__note">The firm has completed more than a hundred courses.</span>
+      </div>
+      <div class="stats__cell reveal" style="--d:.21s">
+        <span class="stats__label">Recognition</span>
+        <span class="stats__value">Cited</span>
+        <span class="stats__note">Work by our practitioners has reached the industry, and the pages of The Business Times.</span>
+      </div>
+    </div>
+  </section>
 
-      {picked &&
-      <div className="tb-cal__slots">
-          <div className="tb-cal__slots-head">
-            <span>{longDate}</span>
-            <em>Singapore time</em>
-          </div>
-          <div className="tb-cal__slots-grid">
-            {CAL_SLOTS.map((s, i) => {
-            const isBooked = booked.has(i);
-            return isBooked ?
-            <span key={s.t} className="tb-cal__slot is-booked" aria-disabled="true">
-                  {s.label}
-                </span> :
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">Fields of expertise</span>
+        <h2 class="h2">Four areas of work,<br />one standard of care.</h2>
+        <p class="lede">Each engagement is scoped precisely, priced in writing before work begins, and finished the way it was promised.</p>
+      </header>
 
-            <a key={s.t} className="tb-cal__slot" href={slotMailto(s)}>
-                  {s.label}
-                </a>;
+      <div class="colgrid">
+        <a class="colcard reveal" href="wsqcurriculumdevelopment.html">
+          <div class="colcard__img"><img src="assets/maison-quill.jpg" alt="A quill pen resting on an open book" loading="lazy" /></div>
+          <span class="colcard__num">I</span>
+          <h3 class="colcard__title">WSQ Curriculum Development</h3>
+          <p class="colcard__desc">Courses are mapped, drafted and submitted on TPGateway, in step with WSQ 2.0.</p>
+          <span class="text-link">Discover</span>
+        </a>
+        <a class="colcard reveal" style="--d:.08s" href="atosetupadvisory.html">
+          <div class="colcard__img"><img src="assets/maison-classroom.jpg" alt="A training room in natural light" loading="lazy" /></div>
+          <span class="colcard__num">II</span>
+          <h3 class="colcard__title">ATO Setup Advisory</h3>
+          <p class="colcard__desc">We guide you from Organisation Registration to the first cohort, in good order.</p>
+          <span class="text-link">Discover</span>
+        </a>
+        <a class="colcard reveal" style="--d:.16s" href="ssgauditmatters.html">
+          <div class="colcard__img"><img src="assets/maison-papers.jpg" alt="Stacks of ordered papers" loading="lazy" /></div>
+          <span class="colcard__num">III</span>
+          <h3 class="colcard__title">SWDA Audit Matters</h3>
+          <p class="colcard__desc">We prepare you for TPQA and CQC audits long before the date is set.</p>
+          <span class="text-link">Discover</span>
+        </a>
+        <a class="colcard reveal" style="--d:.24s" href="creativemarketing.html">
+          <div class="colcard__img"><img src="assets/maison-studio.jpg" alt="An empty photography studio with lighting" loading="lazy" /></div>
+          <span class="colcard__num">IV</span>
+          <h3 class="colcard__title">Creative Marketing</h3>
+          <p class="colcard__desc">We build the brand, campaigns and film that fill cohorts, within SWDA's rules.</p>
+          <span class="text-link">Discover</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-          })}
-          </div>
-          <p className="tb-cal__slots-foot">
-            Reserving an hour opens a conversation. We confirm by return of email, ordinarily within two working days.
-          </p>
+  <!-- HOW IT RUNS -->
+  <section class="section section--bone">
+    <div class="container">
+      <div class="split">
+        <div class="reveal">
+          <div class="figure figure--tall"><img src="assets/maison-boardroom.jpg" alt="An empty boardroom in natural light" loading="lazy" /></div>
         </div>
-      }
-    </div>);
-
-}
-
-
-function App() {
-  return (
-    <>
-      <NavBar current="home" />
-      <main>
-
-        {/* HERO */}
-        <section className="tb-hero">
-          <img
-            className="tb-hero__bg"
-            src="assets/hero/cards-ribbon.jpg"
-            alt="A stack of cards bound with a black ribbon on a dark table"
-          />
-          <div className="tb-hero__overlay" aria-hidden="true"></div>
-          <div className="container tb-hero__inner">
-            <EyebrowLockup dark>Curriculum and advisory</EyebrowLockup>
-            <h1 className="tb-hero__title">
-              Curriculum, <br /><em className="t-italic">written by practitioners.</em>
-            </h1>
-            <p className="tb-hero__sub">
-              We develop curriculum for training providers and advise them through approval and audit.
-            </p>
-            <div className="tb-hero__actions">
-              <a className="btn btn-ghost-on-dark" href="#manifesto">See what we do</a>
-            </div>
-          </div>
-        </section>
-
-        {/* TRUST STRIP */}
-        <section className="tb-trust tb-reveal">
-          <div className="container">
-            <div className="tb-trust__grid">
-              {TRUST.map((t, i) =>
-              <div key={i} className="tb-trust__cell tb-reveal-child">
-                  <div className="tb-trust__seal">{t.seal}</div>
-                  <div>
-                    <h3 className="tb-trust__title">{t.title}</h3>
-                    <p className="tb-trust__sub">{t.sub}</p>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-
-        {/* MANIFESTO */}
-        <section id="manifesto" className="tb-manifesto tb-reveal tb-reveal--blur">
-          <div className="tb-manifesto__glow" aria-hidden="true" />
-          <div className="container tb-manifesto__inner">
-            <div className="tb-manifesto__text">
-              <EyebrowLockup>What we believe</EyebrowLockup>
-              <blockquote className="tb-manifesto__quote">
-                Aim for the skies, and one day you look down from them. The sky belongs
-                to whoever learns to <em>reach</em> it, not only to those who could afford the view.
-              </blockquote>
-              <div className="tb-manifesto__cite">FROM THE FOUNDER · KEITH HO</div>
-            </div>
-            <div className="tb-manifesto__photo" aria-hidden="true"></div>
-          </div>
-        </section>
-
-        {/* HERITAGE */}
-        <section className="tb-heritage tb-reveal">
-          <div className="container">
-            <header className="tb-heritage__head">
-              <EyebrowLockup>The firm · approved status</EyebrowLockup>
-              <h2 className="tb-heritage__title">What we bring.</h2>
-              <p className="tb-heritage__sub">
-                We say little about ourselves. This much, we will.
-              </p>
-            </header>
-            <div className="tb-heritage__grid">
-              {HERITAGE.map((h, i) =>
-              <div key={i} className="tb-heritage__cell tb-reveal-child">
-                  <div className="tb-heritage__label">{h.label}</div>
-                  <div className="tb-heritage__year">{h.year}</div>
-                  <p className="tb-heritage__body">{h.body}</p>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-
-        {/* SERVICES */}
-        <section id="services" className="tb-services tb-reveal">
-          <div className="container">
-            <header className="tb-services__head">
-              <EyebrowLockup>Fields of expertise</EyebrowLockup>
-              <div className="tb-services__masthead">
-                <h2 className="tb-services__title">
-                  Four areas of work,<br />one standard of <em className="t-italic">care.</em>
-                </h2>
-                <div className="tb-services__aside">
-                  <span className="tb-services__asidelabel">On fees</span>
-                  <p className="tb-services__sub">
-                    We are pleased to draft a formal pricing proposal. Our rates scale
-                    with the project's scope, and the per-unit cost decreases for each
-                    additional curriculum.
-                  </p>
-                </div>
+        <div>
+          <span class="eyebrow eyebrow--olive reveal">How an engagement runs</span>
+          <h2 class="h2 reveal" style="--d:.06s">Three steps, no surprises.</h2>
+          <div class="steps mt-4">
+            <div class="step reveal">
+              <span class="step__label">01 · Talk</span>
+              <div>
+                <h3 class="step__title">A free twenty-minute conversation</h3>
+                <p class="step__body">Tell us what you want to build. We will tell you honestly whether it is worth building, which SWDA funding route fits it, and roughly what it would cost. There is no charge and no obligation.</p>
               </div>
-            </header>
-          </div>
-
-          {SERVICES.map((s, i) =>
-            <article key={s.id} className={"tb-svc tb-reveal" + (i % 2 === 1 ? " tb-svc--rev" : "")}>
-              <div className="tb-svc__bg" aria-hidden="true">
-                <img className="tb-svc__poster" src={s.poster} alt="" loading="lazy" />
-                {s.video ? (
-                  <video
-                    className="tb-svc__iframe tb-svc__video"
-                    src={s.video}
-                    poster={s.poster}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"></video>
-                ) : s.vimeo ? (
-                  <iframe
-                    className="tb-svc__iframe"
-                    src={"https://player.vimeo.com/video/" + s.vimeo + "?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1"}
-                    frameBorder="0"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    title={s.title}></iframe>
-                ) : null}
-              </div>
-              <div className="tb-svc__scrim" aria-hidden="true"></div>
-              <div className="container tb-svc__inner">
-                <div className="tb-svc__text">
-                  <div className="tb-svc__num">{s.numeral}</div>
-                  <h3 className="tb-svc__title">{s.title}</h3>
-                  <p className="tb-svc__lede">{s.lede}</p>
-                  <p className="tb-svc__desc">{s.desc}</p>
-                  <ul className="tb-svc__points">
-                    {s.points.map((p, j) => <li key={j}>{p}</li>)}
-                  </ul>
-                  <a className="tb-svc__more" href={s.href}>
-                    <span>Read the overview</span>
-                    <span aria-hidden="true" className="tb-svc__arrow">↗</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-          )}
-        </section>
-
-        {/* FAQ */}
-        <section className="tb-faq tb-reveal">
-          <div className="container">
-            <header className="tb-faq__head">
-              <EyebrowLockup>Important answers</EyebrowLockup>
-              <h2 className="tb-faq__title">Frequent <em>enquiries</em>.</h2>
-              <p className="tb-faq__sub">The questions most often put to us, answered candidly.
-
-              </p>
-            </header>
-            <div className="tb-faq__list">
-              {FAQ.map((f, i) => <FaqItem key={i} q={f.q} a={f.a} />)}
             </div>
-          </div>
-        </section>
-
-        {/* OFFICES */}
-        <section className="tb-offices tb-reveal">
-          <div className="container">
-            <div className="tb-offices__grid">
-              <div className="tb-office tb-reveal-child">
-                <span className="tb-office__label">Practice</span>
-                <span className="tb-office__where">Singapore <em>·</em> by appointment</span>
-                <p className="tb-office__meta">No public office. Meetings held at your premises or a venue of your choosing.</p>
+            <div class="step reveal">
+              <span class="step__label">02 · Agree</span>
+              <div>
+                <h3 class="step__title">A written proposal with a fixed fee</h3>
+                <p class="step__body">You receive a proposal that names the deliverables, the timeline and the fee. Nothing is vague, and nothing changes midway. The people named in it are the people who do the work.</p>
               </div>
-              <div className="tb-office tb-reveal-child">
-                <span className="tb-office__label">Correspondence</span>
-                <span className="tb-office__where"><em>hello</em>@2birds.asia</span>
-                <p className="tb-office__meta">Replies within two working days, during business hours.</p>
-              </div>
-              <div className="tb-office tb-reveal-child">
-                <span className="tb-office__label">Working Hours</span>
-                <span className="tb-office__where"><em>Monday</em> to Friday<br />09:00am to 06:00pm</span>
-                <p className="tb-office__meta">Excluding weekends and public holidays.</p>
+            </div>
+            <div class="step reveal">
+              <span class="step__label">03 · Deliver</span>
+              <div>
+                <h3 class="step__title">We build, submit, and stay</h3>
+                <p class="step__body">We develop the materials, submit them through TPGateway, and answer SWDA's questions until the review is closed. Then we stay reachable, because the audit comes later, and we intend to be there for it.</p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        {/* CTA, split with calendar */}
-        <section className="tb-ctawrap tb-reveal">
-          <div className="container">
-            <aside className="tb-cta tb-cta--split on-dark">
-              <div className="tb-cta__bar" aria-hidden="true" />
-              <div className="tb-cta__atmos" aria-hidden="true" />
-              <div className="tb-cta__inner tb-cta__inner--split">
-                <div className="tb-cta__col">
-                  <EyebrowLockup dark>Make an enquiry</EyebrowLockup>
-                  <h2 className="tb-cta__title">Begin a <em>conversation.</em></h2>
-                  <p className="tb-cta__sub">The consultation is ours to offer, with no obligation. You will hear from us within two working days.</p>
-                  <div className="tb-cta__actions">
-                    <a className="btn btn-on-dark" href="mailto:hello@2birds.asia?subject=Complimentary%20consultation%20enquiry">Book a complimentary consultation</a>
-                  </div>
-                  <LangOnlyNote label="This availability calendar" />
-                </div>
-                <div className="tb-cta__cal">
-                  <MiniCal />
-                </div>
-              </div>
-            </aside>
+  <!-- WHO WE SERVE -->
+  <section class="section">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">Who we work with</span>
+        <h2 class="h2">Wherever you are on the journey.</h2>
+      </header>
+      <div class="colgrid colgrid--3">
+        <div class="colcard reveal">
+          <div class="colcard__img"><img src="assets/maison-seminar2.jpg" alt="A seminar room ready for its class" loading="lazy" /></div>
+          <h3 class="colcard__title">Starting a training business</h3>
+          <p class="colcard__desc">You know your trade and want to teach it. We register the organisation, develop the first course, and walk you to your first class.</p>
+          <a class="text-link" href="atosetupadvisory.html">Discover</a>
+        </div>
+        <div class="colcard reveal" style="--d:.08s">
+          <div class="colcard__img"><img src="assets/maison-hall.jpg" alt="A hall of seats before a seminar" loading="lazy" /></div>
+          <h3 class="colcard__title">Running one already</h3>
+          <p class="colcard__desc">New courses to submit, funding to maintain, audits to prepare for, and classes to fill. We assist with all of it, every day.</p>
+          <a class="text-link" href="wsqcurriculumdevelopment.html">Discover</a>
+        </div>
+        <div class="colcard reveal" style="--d:.16s">
+          <div class="colcard__img"><img src="assets/maison-books.jpg" alt="A stack of well-read books" loading="lazy" /></div>
+          <h3 class="colcard__title">Teaching what you know</h3>
+          <p class="colcard__desc">Trainers and subject-matter experts join our community and are matched to real courses, with no placement fee taken from anyone.</p>
+          <a class="text-link" href="sourcing.html">Discover</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENES -->
+  <section class="section section--bone">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">Scenes from the work</span>
+        <h2 class="h2">Rooms, pages, and the work between them.</h2>
+      </header>
+      <div class="mosaic">
+        <div class="mosaic-row mosaic-row--2up">
+          <figure class="reveal"><img src="assets/maison-lookup.jpg" alt="Looking up an elegant spiral staircase" loading="lazy" /></figure>
+          <figure class="reveal" style="--d:.08s"><img src="assets/maison-auditorium.jpg" alt="A tiered auditorium in daylight" loading="lazy" /></figure>
+        </div>
+        <div class="mosaic-row mosaic-row--3up">
+          <figure class="reveal"><img src="assets/maison-binders.jpg" alt="Binders of organised documents" loading="lazy" /></figure>
+          <figure class="reveal" style="--d:.08s"><img src="assets/maison-arches.jpg" alt="A hall of arches" loading="lazy" /></figure>
+          <figure class="reveal" style="--d:.16s"><img src="assets/contact-singapore.jpg" alt="Singapore towers in monochrome" loading="lazy" /></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container container--narrow">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">Important answers</span>
+        <h2 class="h2">Frequent enquiries.</h2>
+        <p class="lede">These are the questions we hear most often, answered candidly.</p>
+      </header>
+      <div class="acc reveal">
+        <div class="acc__item">
+          <button class="acc__btn"><span class="acc__ref">01</span><span class="acc__q">How do you price the work?</span><span class="acc__icon">+</span></button>
+          <div class="acc__panel"><p class="acc__body">Every engagement is priced as a fixed fee, set out in a written proposal before any work begins. The fee reflects the standard of the work, from accredited developers to two readers on every page, and a firm that stays with the course through approval and audit. We would rather do fewer projects properly than many projects cheaply, and our clients tend to feel the same way.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn"><span class="acc__ref">02</span><span class="acc__q">May we apply your accreditations to work prepared elsewhere?</span><span class="acc__icon">+</span></button>
+          <div class="acc__panel"><p class="acc__body">We are not able to do so. Our accreditations attach only to work we have prepared ourselves. To extend them to courseware developed by others would misrepresent that material to SWDA, and it would not hold up on review. Where you have capable people of your own, we would be glad to work alongside them. What we cannot do is certify work we have not undertaken.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn"><span class="acc__ref">03</span><span class="acc__q">Who carries out the work?</span><span class="acc__icon">+</span></button>
+          <div class="acc__panel"><p class="acc__body">Each project is led by a Level 3 Senior Professional Adult Educator under TAEPP, supported by two curriculum developers accredited under DACE or DDDLP, and by three where the project calls for it. We do not subcontract, and we are glad to introduce you to the people who will be handling your project.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn"><span class="acc__ref">04</span><span class="acc__q">What does the first consultation involve?</span><span class="acc__icon">+</span></button>
+          <div class="acc__panel"><p class="acc__body">It is a short conversation, around twenty minutes by phone or email, to understand the project, its timeline and the form of SWDA funding that suits the course. We will give you a candid view of whether it is work we should take on and what it is likely to cost. There is no charge and no obligation on either side.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / CALENDAR -->
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="reveal">
+          <span class="eyebrow">Make an enquiry</span>
+          <h2 class="h2">Begin a <em>conversation</em>.</h2>
+          <p class="lede mt-2">The first consultation is complimentary, with no obligation. You will hear from us within two working days.</p>
+          <div class="mt-3">
+            <div style="border-top:1px solid var(--line);padding:18px 0;">
+              <span class="small-caps">Location</span>
+              <p class="prose mt-1" style="font-size:13.5px">7 Temasek Boulevard, #12-07 Suntec Tower One, Singapore 038987.</p>
+            </div>
+            <div style="border-top:1px solid var(--line);padding:18px 0;">
+              <span class="small-caps">Correspondence</span>
+              <p class="prose mt-1" style="font-size:13.5px"><a href="mailto:hello@2birds.asia">hello@2birds.asia</a></p>
+            </div>
+            <div style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;">
+              <span class="small-caps">Working hours</span>
+              <p class="prose mt-1" style="font-size:13.5px">Monday to Friday, 9am to 6pm, excluding public holidays.</p>
+            </div>
+            <a class="btn mt-3" href="contact.html">Book a consultation</a>
           </div>
-        </section>
+        </div>
+        <div class="reveal" style="--d:.12s">
+          <div id="tb-calendar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      </main>
-      <Footer />
-    </>);
+  <!-- INVITATION -->
+  <section class="cta">
+    <div class="container cta__inner">
+      <div class="cta__frame reveal">
+        <span class="eyebrow">Ready when you are</span>
+        <h2 class="cta__title">The shortest path is a note.</h2>
+        <p class="cta__sub">Send us a note, in plain words, about the work you have in mind. We reply within two working days, in the same plain manner.</p>
+        <div class="cta__actions">
+          <a class="btn" href="contact.html">Make an enquiry</a>
+          <a class="btn btn--ghost" href="brand.html">Read the brand story</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-}
+</main>
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-</script>
-
-<script>
-/* Service-card video: lazy-load and play on hover, pause and reset on leave.
-   Gracefully shows the poster image when the video file is not present. */
-(function initServiceVideos() {
-  function wire() {
-    document.querySelectorAll('.tb-service').forEach(function (card) {
-      if (card.dataset.vidWired) return;
-      var video = card.querySelector('.tb-service__video');
-      if (!video) return;
-      card.dataset.vidWired = "1";
-      var src = video.getAttribute('data-src');
-      function ensureSrc() {
-        if (src && video.dataset.ready === "1" && !video.getAttribute('src')) {
-          video.setAttribute('src', src);
-        }
-      }
-      card.addEventListener('mouseenter', function () {
-        ensureSrc();
-        var p = video.play();
-        if (p && p.catch) p.catch(function () {});
-      });
-      card.addEventListener('mouseleave', function () {
-        try { video.pause(); video.currentTime = 0; } catch (e) {}
-      });
-    });
-  }
-  wire();
-  setTimeout(wire, 200);
-  setTimeout(wire, 1000);
-})();
-
-/* Cinematic banner: load src and autoplay (muted) once present. */
-(function initFilmstrip() {
-  function go() {
-    var v = document.querySelector('.tb-filmstrip__video');
-    if (!v || v.dataset.fsWired) return;
-    v.dataset.fsWired = "1";
-    var src = v.getAttribute('data-src');
-    if (src && v.dataset.ready === "1") {
-      v.setAttribute('src', src);
-      var p = v.play();
-      if (p && p.catch) p.catch(function () {});
-    }
-  }
-  go();
-  setTimeout(go, 300);
-  setTimeout(go, 1200);
-})();
-</script>
-<template id="__bundler_thumbnail">
-  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100" height="100" fill="#2f3a2a"/>
-    <g fill="none" stroke="#cdbb97" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M30 58 C 38 44, 46 44, 50 54 C 54 44, 62 44, 70 58"/>
-    </g>
-    <text x="50" y="76" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#f5f1e6" font-style="italic">2birds</text>
-  </svg>
-</template>
+<script src="js/main.js?v=22"></script>
+<script src="js/home.js?v=6"></script>
 </body>
 </html>

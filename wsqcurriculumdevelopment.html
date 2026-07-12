@@ -3,363 +3,698 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>2birds asia | Curriculum</title>
-<meta name="description" content="Curriculum development for Approved Training Organisations. Courseware, assessment instruments and trainer guides mapped to the Skills Framework, built to pass TPQA and submitted through TPGateway." />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="2birds" />
-<meta property="og:title" content="2birds asia | Curriculum" />
-<meta property="og:description" content="Curriculum development for Approved Training Organisations. Courseware, assessment instruments and trainer guides mapped to the Skills Framework, built to pass TPQA and submitted through TPGateway." />
-<meta property="og:url" content="https://www.2birds.asia/wsqcurriculumdevelopment" />
-<meta property="og:image" content="https://www.2birds.asia/assets/og-image.png?v=9" />
-<meta property="og:image:secure_url" content="https://www.2birds.asia/assets/og-image.png?v=9" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="500" />
-<meta property="og:image:height" content="500" />
-<meta property="og:image:alt" content="2birds" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="2birds asia | Curriculum" />
-<meta name="twitter:description" content="Curriculum development for Approved Training Organisations. Courseware, assessment instruments and trainer guides mapped to the Skills Framework, built to pass TPQA and submitted through TPGateway." />
-<meta name="twitter:image" content="https://www.2birds.asia/assets/og-image.png?v=9" />
+<title>2birds asia | WSQ Curriculum Development</title>
+<meta name="description" content="Curriculum, in three forms. WSQ 2.0, non-WSQ certifiable and broad-based courses, drafted to withstand TPQA and CQC scrutiny, with the full CASL register made navigable." />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/main.css?v=26" />
+<link rel="preload" as="image" imagesrcset="assets/maison-arches-800.jpg 800w, assets/maison-arches-1280.jpg 1280w, assets/maison-arches.jpg?v=2 1920w" imagesizes="100vw" />
+<style>
+  .memo { border: 1px solid var(--line); padding: clamp(26px, 3.4vw, 44px); background: var(--ivory); }
+  .memo .small-caps { color: var(--olive); }
 
-<link rel="icon" type="image/png" href="assets/favicon.png?v=9" />
-<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=9" />
-<link rel="apple-touch-icon" href="assets/favicon.png?v=9" />
-<link rel="stylesheet" href="css/foundations.css" />
-<link rel="stylesheet" href="css/site.css" />
-<link rel="stylesheet" href="css/i18n.css" />
-<link rel="stylesheet" href="css/premium.css" />
-<link rel="stylesheet" href="css/casl.css" />
-<link rel="stylesheet" href="css/casl-explore.css" />
+  /* =================================================================
+     CASL — the whole section is dark royal navy (echoes the catalogue)
+     ================================================================= */
+  .casl-section { background: var(--royal); color: #fff; }
+  /* section header */
+  .caslpanel__head { max-width: 64ch; margin-left: auto; margin-right: auto; }
+  .caslpanel__head .eyebrow { color: var(--olive-bright); }
+  .caslpanel__head .h2 { color: #fff; }
+  .caslpanel__head .lede { color: rgba(255,255,255,.72); }
+  /* stat row — hairline grid of figures */
+  .caslstats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.15); margin-top: clamp(30px,3.6vw,44px); }
+  .caslstats > div { background: var(--royal); padding: clamp(20px,2.4vw,30px) 16px; text-align: center; }
+  .caslstat__n { display: block; font-family: var(--serif); font-weight: 500; font-size: clamp(1.7rem,3vw,2.35rem); color: #fff; line-height: 1; }
+  .caslstat__l { display: block; margin-top: 11px; font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.58); }
+  @media (max-width: 720px) { .caslstats { grid-template-columns: repeat(2,1fr); } }
+  /* memo, dark variant */
+  .memo--dark { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.03); }
+  .memo--dark .small-caps { color: var(--olive-bright); }
+  .memo--dark h3 { color: #fff; }
+  .memo--dark p { color: rgba(255,255,255,.74); }
+  .memo--dark a { color: #fff; }
+  .memo--dark a:hover { color: #fff; border-color: rgba(255,255,255,.7); }
+  /* sub-headings within the dark section */
+  .caslscape-head .small-caps { color: var(--olive-bright); }
+  .caslscape-head p { color: rgba(255,255,255,.68); }
+  /* --- sector bar chart (rendered by casl.js) --- */
+  .casl-dark .casl__scape { border-top-color: rgba(255,255,255,.16); margin-top: 8px; }
+  .casl-dark .casl__bar { color: rgba(255,255,255,.85); border-bottom-color: rgba(255,255,255,.1); }
+  .casl-dark .casl__bar:hover { background: rgba(255,255,255,.06); }
+  .casl-dark .casl__bar.is-on { background: rgba(255,255,255,.1); color: #fff; }
+  .casl-dark .casl__barline { height: 7px; background: rgba(255,255,255,.13); }
+  .casl-dark .casl__barline i { background: var(--olive-bright); }
+  .casl-dark .casl__barcount { color: #fff; }
+  .casl-dark .casl__more { color: var(--olive-bright); }
+  /* --- register controls (search / filter / sort) — AA contrast on navy --- */
+  .casl-dark .field label { color: rgba(255,255,255,.65); }
+  .casl-dark .field input, .casl-dark .field select { color: #fff; border-bottom-color: rgba(255,255,255,.42); }
+  .casl-dark .field input::placeholder { color: rgba(255,255,255,.68); }
+  .casl-dark .field input:focus, .casl-dark .field select:focus { border-bottom-color: var(--olive-bright); }
+  .casl-dark .field select option { color: #1B1A17; }
+  /* (register cards and the detail modal style themselves in casl.js) */
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-
-<script src="js/transition.js"></script>
-<script src="js/i18n.js"></script>
-<script src="https://unpkg.com/three@0.152.2/build/three.min.js" crossorigin="anonymous"></script>
+  /* ---------- catalogue sections ---------- */
+  /* the team, four roles */
+  .roles { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: clamp(24px,3vw,38px); }
+  .roles > div { background: var(--ivory); padding: 20px 22px; text-align: center; }
+  .roles b { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.05rem; }
+  .roles span { display: block; margin-top: 7px; font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--olive); }
+  @media (max-width: 860px) { .roles { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .roles { grid-template-columns: 1fr; } }
+  /* deliverables + path */
+  .dlv { display: grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: clamp(28px,4.5vw,72px); margin-top: clamp(26px,3.4vw,44px); }
+  @media (max-width: 820px) { .dlv { grid-template-columns: 1fr; } }
+  .dlv__list { list-style: none; border-top: 1px solid var(--line); margin-top: 14px; }
+  .dlv__list li { padding: 12px 2px; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .dlv__list li::before { content: "✓"; color: var(--olive); margin-right: 12px; font-size: 12px; }
+  /* tier 2 band */
+  .tier2 { border: 1px solid rgba(22,37,92,.3); background: rgba(22,37,92,.035); padding: clamp(22px,3vw,34px); text-align: center; margin-top: clamp(18px,2.4vw,30px); }
+  /* pass and fail */
+  .passfail { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); margin-top: clamp(18px,2.4vw,30px); }
+  .passfail > div { padding: clamp(20px,2.6vw,30px); }
+  .passfail > div + div { border-left: 1px solid var(--line); }
+  .passfail p { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; line-height: 1.75; }
+  @media (max-width: 680px) { .passfail { grid-template-columns: 1fr; } .passfail > div + div { border-left: 0; border-top: 1px solid var(--line); } }
+  /* CEB table */
+  .cebs { border-top: 1px solid var(--line); margin-top: clamp(22px,3vw,36px); }
+  .cebs__row { display: grid; grid-template-columns: 44px minmax(0,4fr) minmax(0,4fr) minmax(0,5fr); gap: clamp(12px,2vw,32px); padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; align-items: baseline; }
+  .cebs__row.is-head { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-faint); }
+  .cebs__num { font-family: var(--serif); color: var(--olive); font-size: 12.5px; }
+  .cebs__sector { font-family: var(--serif); font-size: 1rem; }
+  .cebs__area { color: var(--ink-faint); }
+  @media (max-width: 720px) {
+    .cebs__row { grid-template-columns: 32px 1fr; row-gap: 3px; }
+    .cebs__row > .cebs__area, .cebs__row > .cebs__body { grid-column: 2; font-size: 12.5px; }
+    .cebs__row.is-head > .cebs__area, .cebs__row.is-head > .cebs__body { display: none; }
+  }
+  /* the bench, market cost */
+  .bench { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: clamp(22px,3vw,36px); }
+  .bench > div { background: var(--ivory); padding: clamp(20px,2.6vw,30px); text-align: center; }
+  .bench b { display: block; font-family: var(--serif); font-weight: 500; font-size: clamp(1.25rem,1.9vw,1.6rem); margin-top: 8px; }
+  .bench .small-caps { color: var(--olive); }
+  .bench p { font-size: 11.5px; color: var(--ink-faint); margin-top: 8px; }
+  @media (max-width: 720px) { .bench { grid-template-columns: 1fr; } }
+  /* combined-experience chips */
+  .expchips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .expchips span { border: 1px solid var(--line); border-radius: 999px; padding: 9px 18px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+  /* aligned baselines across card rows: lists start on one line at desktop */
+  @media (min-width: 981px) {
+    #offerings .gcard__body { min-height: 10.9em; }
+    #funding .gcard__body { min-height: 3.7em; }
+    #work .gridcards--2 .gcard__title { min-height: 4em; }
+  }
+</style>
 </head>
-<body class="is-premium" data-screen-label="02 Curriculum Development">
-<div id="root"></div>
+<body data-page="curriculum">
 
+<main>
+
+  <section class="bhero bhero--short">
+    <div class="bhero__bg" aria-hidden="true"><img src="assets/maison-arches.jpg?v=2" srcset="assets/maison-arches-800.jpg 800w, assets/maison-arches-1280.jpg 1280w, assets/maison-arches.jpg?v=2 1920w" sizes="100vw" width="1920" height="2559" fetchpriority="high" alt="" /></div>
+    <div class="bhero__inner">
+      <div class="bhero__crumb"><a href="index.html">2birds</a><span>·</span><span>Services · I</span></div>
+      <span class="eyebrow reveal">WSQ Curriculum Development</span>
+      <h1 class="display reveal" style="--d:.1s">Your course, developed<br />and <em>submitted</em>.</h1>
+      <hr class="rule reveal" style="--d:.16s" />
+      <p class="lede reveal" style="--d:.22s; margin-top:0; max-width:52ch;">We develop everything a training course needs, the lesson plans, the slides, the trainer and learner guides, and the assessments. Then we prepare and submit it for SWDA's review, and stay on hand for every query it raises.</p>
+    </div>
+  </section>
+
+  <nav class="secnav" aria-label="Sections on this page">
+    <div class="secnav__inner">
+      <a href="#offerings">Three routes</a>
+      <a href="#wsq2">I · WSQ 2.0</a>
+      <a href="#ae">II · AE Qualifications</a>
+      <a href="#process">III · Process</a>
+      <a href="#delivered">IV · Deliverables</a>
+      <a href="#casl">V · CASL Register</a>
+      <a href="#funding">VI · Funding routes</a>
+      <a href="#work">VII · Our works</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </nav>
+
+  <div class="band reveal">
+    <img src="assets/maison-quill.jpg" alt="A quill pen resting on an open book" loading="lazy" />
+  </div>
+  <section class="section--tight section">
+    <div class="container center">
+      <p class="prose reveal" style="margin:0 auto;max-width:52ch;">Curriculum is skilled work that ends on paper. Structure is what holds a course up over time, and structure is what an auditor reads first.</p>
+    </div>
+  </section>
+
+  <!-- THREE FORMS -->
+  <section class="section section--bone" id="offerings">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">Three offerings</span>
+        <h2 class="h2">Three kinds of courses SWDA funds.</h2>
+        <p class="lede">Every funded course in Singapore takes one of three routes, each asking for different evidence. Choosing the right one is the first decision, and we make it with you before development begins.</p>
+      </header>
+      <div class="gridcards">
+        <article class="gcard reveal">
+          <span class="gcard__kicker">Workforce skills</span>
+          <h3 class="gcard__title">WSQ courses</h3>
+          <p class="gcard__body">Examinable programmes accredited under the Workforce Skills Qualifications framework, mapped to the Skills Framework and eligible for Tier 2 funding. Since 1 May 2026, new courses sit within the sharpened WSQ 2.0 scope described below.</p>
+          <ul>
+            <li>Competency map drawn to the Skills Framework</li>
+            <li>Lesson and Assessment Plans (CP Form)</li>
+            <li>Trainer Guide and marking schemes</li>
+            <li>Slides and Learner Guide</li>
+            <li>Statements of Attainment on completion</li>
+          </ul>
+        </article>
+        <article class="gcard reveal" style="--d:.08s">
+          <span class="gcard__kicker">Non-WSQ · Certifiable</span>
+          <h3 class="gcard__title">Non-WSQ certifiable courses</h3>
+          <p class="gcard__body">Examinable courses with clear learning outcomes, built for employment or upgrading. To qualify, a course must address an industry skills shortage, must not be an academic degree course, and must meet SWDA's Adult Educator Qualifications Requirements.</p>
+          <ul>
+            <li>Course Proposal (CP) Form</li>
+            <li>Documentary proof prepared with the project</li>
+            <li>AE Qualifications check against SWDA requirements</li>
+            <li>Submission guide for TPGateway</li>
+          </ul>
+        </article>
+        <article class="gcard reveal" style="--d:.16s">
+          <span class="gcard__kicker">Non-WSQ · Non-certifiable</span>
+          <h3 class="gcard__title">Broad-based skills courses</h3>
+          <p class="gcard__body">Short, employment-relevant programmes that sit outside the WSQ framework but address an identified industry skills need, for company-sponsored or self-sponsored learners.</p>
+          <ul>
+            <li>Course outline with breakdown of hours</li>
+            <li>Mode of delivery and assessment write-up</li>
+            <li>Industry relevance and demand statement</li>
+            <li>OJT plan where applicable</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- § I WSQ 2.0 -->
+  <section class="section" id="wsq2">
+    <div class="container">
+      <div class="split">
+        <div class="reveal">
+          <div class="figure figure--tall"><img src="assets/maison-blueprint.jpg" alt="Drafting instruments resting on a technical plan" loading="lazy" /></div>
+          <figcaption class="figcap">A framework is read the way a plan is read, from the structure down.</figcaption>
+        </div>
+        <div>
+          <span class="eyebrow eyebrow--olive reveal">§ I · WSQ 2.0</span>
+          <h2 class="h2 reveal" style="--d:.06s">The framework just changed. We work inside the new one.</h2>
+          <div class="prose mt-3 reveal" style="--d:.12s">
+            <p>Under SWDA memorandum SIPD/2026/2, the WSQ 2.0 scope took effect on 1 May 2026 and the moratorium on new courses lifted with it. The framework now rewards two things, training tied to regulatory and safety standards, and credentials that carry across employers.</p>
+            <p>The change has teeth. Whitelisted courses keep their accreditation; those left off lose the WSQ designation when their funding validity ends. New courses face a higher bar, an endorsement from the sector's Course Endorsement Body, or confirmation that a full qualification sits within scope.</p>
+            <p><strong>What this means for you.</strong> Whether a course belongs in WSQ 2.0, crosses to the non-WSQ route, or was never a WSQ matter is now a design decision, made with you at scoping, in writing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- § II AE QUALIFICATIONS -->
+  <section class="section section--bone" id="ae">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">§ II · Adult Educator qualifications</span>
+        <h2 class="h2">The people on the course must clear the bar too.</h2>
+        <p class="lede">Since 1 April 2026, every adult educator who trains or assesses on an SWDA-funded certifiable course must meet the qualifications threshold that has long applied to WSQ. The threshold has two parts.</p>
+      </header>
+      <div class="gridcards gridcards--4">
+        <article class="gcard reveal">
+          <span class="gcard__num">01</span>
+          <span class="gcard__kicker">Part one</span>
+          <h3 class="gcard__title">National AE Registry</h3>
+          <p class="gcard__body">Adult educators assigned to the course must be registered with the National Adult Educator Registry, managed by the Institute for Adult Learning at the Singapore University of Social Sciences.</p>
+        </article>
+        <article class="gcard reveal" style="--d:.06s">
+          <span class="gcard__num">02</span>
+          <span class="gcard__kicker">Part two</span>
+          <h3 class="gcard__title">WSQ ACTA or ACLP</h3>
+          <p class="gcard__body">Each AE who trains or assesses must hold the WSQ Advanced Certificate in Training and Assessment, the WSQ Advanced Certificate in Learning and Performance (ACLP 2.0), or an equivalent recognised by SWDA at its sole discretion.</p>
+        </article>
+        <article class="gcard reveal" style="--d:.12s">
+          <span class="gcard__num">03</span>
+          <span class="gcard__kicker">Timeline</span>
+          <h3 class="gcard__title">In force, and enforced</h3>
+          <p class="gcard__body">The requirements have applied to SWDA-funded non-WSQ certifiable courses since 1 January 2021, and were refined under SWDA Circular MIPD/2026/2, effective 1 April 2026. Assessors read the trainer file at every audit.</p>
+        </article>
+        <article class="gcard reveal" style="--d:.18s">
+          <span class="gcard__num">04</span>
+          <span class="gcard__kicker">Equivalence</span>
+          <h3 class="gcard__title">Equivalent pathways</h3>
+          <p class="gcard__body">IAL operates Recognition of Prior Learning (RPL) and Credit Exemption pathways. We assist long-standing practitioners in assembling the evidence to be recognised under them.</p>
+        </article>
+      </div>
+      <div class="memo mt-4 reveal center">
+        <span class="small-caps">How we staff it</span>
+        <p class="prose mt-1" style="font-size:14px;max-width:70ch;margin-left:auto;margin-right:auto;">2birds keeps a working community of credentialled Adult Educators. Where your project cannot be matched from our community, we <a href="sourcing.html" style="border-bottom:1px solid var(--olive-bright)">source candidates</a> through the usual recruitment channels, and prepare the supporting evidence for SWDA.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="band reveal">
+    <img src="assets/maison-papers.jpg" alt="A course, resolved into its printed instruments and binders" loading="lazy" />
+  </div>
+
+  <!-- § III PROCESS -->
+  <section class="section" id="process">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">§ III · Application process</span>
+        <h2 class="h2">From first conversation to submission, in four steps.</h2>
+        <p class="lede">Each form has its own route through TPGateway. We prepare a complete and accurate submission, then stay on hand for SWDA's clarifications until the review is closed.</p>
+      </header>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step__label">Step I</span>
+          <div>
+            <h3 class="step__title">Discovery and competency map</h3>
+            <p class="step__body">We sit with you to understand the learner, the sector and the standard. From this we draw a single competency map, to the Technical Skills and Competencies of the relevant Skills Framework, or to the Course Approval Skills List where the course sits outside WSQ. The map holds the rest of the programme together.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <span class="step__label">Step II</span>
+          <div>
+            <h3 class="step__title">Course Proposal and course materials</h3>
+            <p class="step__body">We draft the Course Proposal (CP) Form, lesson and assessment plans, trainer guide and learner materials, all version-controlled and submission-ready. Every assessment instrument traces back to the competency map, which is precisely what the Course Quality Check reads for.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <span class="step__label">Step III</span>
+          <div>
+            <h3 class="step__title">Pairing adult educators and evidence</h3>
+            <p class="step__body">Where required, we pair the course with adult educators who meet the SWDA AE Qualifications and are registered on the National AE Registry, and we prepare the supporting evidence file that SWDA expects to sight.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <span class="step__label">Step IV</span>
+          <div>
+            <h3 class="step__title">TPGateway submission</h3>
+            <p class="step__body">We submit the course through TPGateway with a written submission guide, and remain on hand for SWDA's clarifications until the review is complete. Where the review returns queries, the response is drafted by the people who developed the courseware.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 reveal center">
+        <span class="small-caps">The team on every engagement</span>
+      </div>
+      <div class="roles reveal">
+        <div><b>Founder</b><span>In-house legal counsel</span></div>
+        <div><b>Partner</b><span>Curriculum development</span></div>
+        <div><b>Associate</b><span>Curriculum development</span></div>
+        <div><b>Associate</b><span>Creative producer</span></div>
+      </div>
+      <p class="prose mt-3 center reveal" style="margin-left:auto;margin-right:auto;max-width:76ch;">It begins with a scoping consultation, where a Partner or the Founder sits with you to confirm the course and its standing on the CASL. An Associate then drafts your courseware in full, a Partner reviews and improves the draft against SWDA standards, and the Founder gives the final sign-off before submission. When auditors raise queries, the Partner answers them and the Founder assesses the merit of each point raised. On approval, the Partner and Associate finalise every document, and the Creative Producer provides one artwork for your course advertisement in a digital format.</p>
+    </div>
+  </section>
+
+  <!-- § IV DELIVERED -->
+  <section class="section" id="delivered">
+    <div class="container">
+      <div class="split">
+        <div class="reveal">
+          <div class="figure figure--tall"><img src="assets/maison-classroom.jpg" alt="A classroom set and waiting" loading="lazy" /></div>
+          <figcaption class="figcap">The course in the room, exactly as it was written.</figcaption>
+        </div>
+        <div>
+          <span class="eyebrow eyebrow--olive reveal">§ IV · What is delivered</span>
+          <h2 class="h2 reveal" style="--d:.06s">What you receive.</h2>
+          <div class="prose mt-3 reveal" style="--d:.12s">
+        <p>A curriculum project leaves behind printed instruments, not a slide deck. At its narrowest, the Course Proposal Form, the lesson and assessment plans, and the trainer guide. At its broadest, for a full WSQ pathway, the competency map, assessment rubrics, trainer reference pack and moderation procedures.</p>
+        <p>Every artefact carries a version line and change log, and every assessment traces back to the competency map, and from there to the approved Course Application. This is what the Course Quality Check reads for, and what holds a programme together long after the first cohort. Where a project calls for it, marketing collateral is included at no extra charge.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 reveal center">
+        <span class="small-caps">One funded course, fully documented</span>
+        <p class="prose mt-1" style="font-size:14px;margin-left:auto;margin-right:auto;">Every engagement covers the complete set, developed in-house by our own developers and built to satisfy SWDA's approval standards.</p>
+      </div>
+      <div class="dlv">
+        <div class="reveal">
+          <span class="small-caps" style="color:var(--olive)">The deliverables</span>
+          <ul class="dlv__list">
+            <li>Course Proposal to SWDA</li>
+            <li>Guide to submit the course on TPGateway</li>
+            <li>Course developer CVs and certificates</li>
+            <li>Learner Guide</li>
+            <li>Facilitator Guide</li>
+            <li>PowerPoint slides</li>
+            <li>Assessment Plan</li>
+          </ul>
+        </div>
+        <div class="reveal" style="--d:.08s">
+          <span class="small-caps" style="color:var(--olive)">The path, in four steps</span>
+          <div class="steps mt-2">
+            <div class="step">
+              <span class="step__label">01 · Confirm</span>
+              <div><p class="step__body">We lock the course concept, the target sector and the CASL fit together.</p></div>
+            </div>
+            <div class="step">
+              <span class="step__label">02 · Sign</span>
+              <div><p class="step__body">The service agreement is executed, naming the deliverables and the schedule.</p></div>
+            </div>
+            <div class="step">
+              <span class="step__label">03 · First release</span>
+              <div><p class="step__body">The Course Proposal and the course developer CVs are released to you.</p></div>
+            </div>
+            <div class="step">
+              <span class="step__label">04 · On approval</span>
+              <div><p class="step__body">Once SWDA approves the course, the slides, the Assessment Plan and the facilitator and learner guides are handed over.</p></div>
+            </div>
+          </div>
+          <p class="form__note mt-2">Where we cannot match a sector from our own community of subject-matter experts, the training provider sources the SME. We do not subcontract the courseware itself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="band reveal">
+    <img src="assets/maison-catalogue.jpg" alt="Library catalogue drawers, each with its label" loading="lazy" />
+  </div>
+
+  <!-- § V CASL — the whole section is dark navy, driven by the catalogue data -->
+  <section class="section casl-section" id="casl">
+    <div class="container casl-dark">
+      <header class="caslpanel__head center reveal">
+        <span class="eyebrow">§ V · Course Approval Skills List</span>
+        <h2 class="h2">The CASL register, made navigable.</h2>
+        <p class="lede">The CASL is SWDA's register of the skills that support good growth jobs. For a non-WSQ course to draw Tier 2 funding, at least half the skills it delivers must appear here. Browse it below, pin what you are weighing, and send us your working list.</p>
+      </header>
+
+      <div class="caslstats reveal">
+        <div><span class="caslstat__n">369</span><span class="caslstat__l">Approved skills</span></div>
+        <div><span class="caslstat__n">14</span><span class="caslstat__l">Sectors covered</span></div>
+        <div><span class="caslstat__n">50%</span><span class="caslstat__l">Of the skills must be aligned</span></div>
+        <div><span class="caslstat__n">Q3</span><span class="caslstat__l">2026 edition</span></div>
+      </div>
+
+      <div class="memo memo--dark mt-4 reveal">
+        <span class="small-caps">SWDA Information Memorandum · JSID/2026/9</span>
+        <h3 class="h3 mt-1">Upcoming changes to the CASL Dashboard</h3>
+        <p class="prose mt-1" style="font-size:14px;max-width:none">By end June 2026 the CASL Dashboard is replaced by the Integrated Insights Tool on the Jobs-Skills Portal, folding the skills list into a wider labour-market view. <a href="https://jobsandskills.skillsfuture.gov.sg/casl-dashboard-update" target="_blank" rel="noopener" style="border-bottom:1px solid var(--olive-bright)">Learn more here ↗</a></p>
+      </div>
+
+      <div class="caslscape-head center reveal" style="margin-top:clamp(44px,5.5vw,72px)">
+        <span class="small-caps">The shape of the register</span>
+        <p class="prose mt-1" style="font-size:14px;margin-left:auto;margin-right:auto;">Every approved skill, grouped into fourteen sectors. The grouping is our own reading, not an SWDA classification. Select a sector to filter the register below.</p>
+      </div>
+
+      <div id="tb-casl-scape" class="mt-3"></div>
+
+      <div class="caslscape-head center reveal" style="margin-top:clamp(48px,6vw,80px)">
+        <span class="small-caps">The full register</span>
+        <p class="prose mt-1" style="font-size:14px;margin-left:auto;margin-right:auto;">All 369 approved skills are searchable below. Each one is a course we can develop for you, from learning outcomes through to funding submission. Pin what you are weighing, then send the list across.</p>
+      </div>
+
+      <div id="tb-casl" class="mt-3"></div>
+    </div>
+  </section>
+
+  <!-- CHOOSING -->
+  <section class="section">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">Choosing what to develop</span>
+        <h2 class="h2">From register to enrolment.</h2>
+        <p class="lede">A place on the CASL means SWDA will consider a course proposal against the skill. Whether the course fills a classroom is a different question. These are the three readings we take before any courseware is developed.</p>
+      </header>
+      <div class="gridcards">
+        <article class="gcard reveal">
+          <span class="gcard__num">01</span>
+          <h3 class="gcard__title">Demand on paper</h3>
+          <p class="gcard__body">The chart above shows where the register concentrates. The sectors holding the deepest bench of approved skills are where SWDA has opened the most approval lanes, a useful first proxy for demand.</p>
+        </article>
+        <article class="gcard reveal" style="--d:.08s">
+          <span class="gcard__num">02</span>
+          <h3 class="gcard__title">Demand in the market</h3>
+          <p class="gcard__body">A listing is an approval lane, not an audience. Who pays for the course, and how often the skill renews, decide whether it fills. We test this with you at scoping.</p>
+        </article>
+        <article class="gcard reveal" style="--d:.16s">
+          <span class="gcard__num">03</span>
+          <h3 class="gcard__title">Your capability</h3>
+          <p class="gcard__body">The course you can credibly deliver beats the course with the largest market. Your AE bench, assessment capacity and track record set how fast you reach a first cohort, and how well it withstands TPQA.</p>
+        </article>
+      </div>
+      <div class="mt-4 reveal center">
+        <p class="prose" style="margin:0 auto;">Pin skills to a working list as you browse, then send it across. We reply with a frank assessment of marketability and the right funding route, within two working days.</p>
+        <div class="mt-3" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+          <a class="btn" href="mailto:hello@2birds.asia?subject=A%20question%20about%20the%20CASL%20register">Email us about the register</a>
+          <a class="btn btn--ghost" href="contact.html">Book a scoping call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- § VI FUNDING ROUTES -->
+  <section class="section section--bone" id="funding">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">§ VI · SWDA funding routes</span>
+        <h2 class="h2">How a course gets funded.</h2>
+        <p class="lede">Before any curriculum is developed, the course has to qualify for support. SWDA funds a Tier 2 course through one of two routes, and we advise on the right one at scoping. Current as at 1 July 2026.</p>
+      </header>
+      <div class="gridcards gridcards--2">
+        <article class="gcard reveal">
+          <span class="gcard__kicker">Route I · CASL skills</span>
+          <h3 class="gcard__title">The CASL route</h3>
+          <p class="gcard__body">For courses built on skills from the register above. No endorsement from a Course Endorsement Body or sector agency is required, and at least half the skills the course delivers must appear on the CASL.</p>
+        </article>
+        <article class="gcard reveal" style="--d:.08s">
+          <span class="gcard__kicker">Route II · Skills Framework 2.0</span>
+          <h3 class="gcard__title">The WSQ and non-WSQ route</h3>
+          <p class="gcard__body">For courses built from the relevant Skills Framework and offered in WSQ or non-WSQ form. The sector's Course Endorsement Body must endorse the proposal before any course application is submitted, and it may request further information before it does. Endorsement is not a guarantee of funding. SWDA makes the final eligibility assessment, audits the application as part of it, and funds an approved course at the 50 or 70 percent support level.</p>
+        </article>
+      </div>
+      <div class="tier2 reveal">
+        <span class="small-caps" style="color:var(--royal)">Funded under Tier 2</span>
+        <p class="prose mt-1" style="font-size:14px;margin-left:auto;margin-right:auto;max-width:70ch;">Both routes lead to Tier 2 funding, subject to an enrolment cap of 200 places for face-to-face delivery or 350 places online. On reaching the cap, SWDA runs two checks before the funding is renewed.</p>
+      </div>
+      <div class="gridcards gridcards--2 mt-3">
+        <article class="gcard reveal">
+          <span class="gcard__kicker">Check I</span>
+          <h3 class="gcard__title">Course Quality Check (CQC)</h3>
+          <p class="gcard__body">SWDA notifies the provider, and the documents listed in the notification are furnished, including the following.</p>
+          <ul>
+            <li>Learner Guide, or equivalent course materials</li>
+            <li>Trainer Guide or Facilitator Guide</li>
+            <li>Lesson Plan</li>
+            <li>Assessment Plan, with its procedures and questions</li>
+          </ul>
+        </article>
+        <article class="gcard reveal" style="--d:.08s">
+          <span class="gcard__kicker">Check II</span>
+          <h3 class="gcard__title">Funding renewal criteria</h3>
+          <p class="gcard__body">Four measures, read across the course's funding validity period.</p>
+          <ul>
+            <li>At least 75 percent course attendance</li>
+            <li>At least 40 percent of enrolment employer-sponsored</li>
+            <li>At least a 75 percent response rate on the TRAQOM quality survey</li>
+            <li>A TRAQOM rating outside the lowest quantile</li>
+          </ul>
+        </article>
+      </div>
+      <div class="passfail reveal">
+        <div>
+          <span class="small-caps" style="color:var(--olive)">Pass</span>
+          <p>The enrolment cap is lifted, and the course continues to be funded for the remainder of its validity period.</p>
+        </div>
+        <div>
+          <span class="small-caps">Fail</span>
+          <p>A 30-day grace period follows, in which the course is taught out.</p>
+        </div>
+      </div>
+
+      <div class="mt-5 reveal center">
+        <span class="small-caps">The Course Endorsement Bodies</span>
+        <p class="prose mt-1" style="font-size:14px;margin-left:auto;margin-right:auto;">A WSQ or non-WSQ course is endorsed by the CEB for its sector. Twelve are appointed, per the SWDA list updated 22 April 2026.</p>
+      </div>
+      <div class="cebs reveal">
+        <div class="cebs__row is-head"><span>No.</span><span>Sector</span><span class="cebs__area">Area of training in TPGateway</span><span class="cebs__body">Course Endorsement Body</span></div>
+        <div class="cebs__row"><span class="cebs__num">01</span><span class="cebs__sector">Cybersecurity</span><span class="cebs__area">Information &amp; Communications</span><span class="cebs__body">Cyber Security Agency of Singapore (CSA)</span></div>
+        <div class="cebs__row"><span class="cebs__num">02</span><span class="cebs__sector">Early Childhood</span><span class="cebs__area">Education &amp; Training</span><span class="cebs__body">Early Childhood Development Agency (ECDA)</span></div>
+        <div class="cebs__row"><span class="cebs__num">03</span><span class="cebs__sector">Fire Safety</span><span class="cebs__area">Workplace Safety &amp; Health</span><span class="cebs__body">Singapore Civil Defence Force (SCDF)</span></div>
+        <div class="cebs__row"><span class="cebs__num">04</span><span class="cebs__sector">Food Safety</span><span class="cebs__area">Food Services</span><span class="cebs__body">Singapore Food Agency (SFA)</span></div>
+        <div class="cebs__row"><span class="cebs__num">05</span><span class="cebs__sector">Landscape</span><span class="cebs__area">Landscape</span><span class="cebs__body">National Parks Board (NParks)</span></div>
+        <div class="cebs__row"><span class="cebs__num">06</span><span class="cebs__sector">Legal</span><span class="cebs__area">Legal</span><span class="cebs__body">Ministry of Law (MinLaw)</span></div>
+        <div class="cebs__row"><span class="cebs__num">07</span><span class="cebs__sector">Outdoor Adventure Education</span><span class="cebs__area">Education &amp; Training</span><span class="cebs__body">National Youth Council / OAE Council</span></div>
+        <div class="cebs__row"><span class="cebs__num">08</span><span class="cebs__sector">Sea Transport</span><span class="cebs__area">Marine &amp; Port Services</span><span class="cebs__body">Maritime &amp; Port Authority of Singapore (MPA)</span></div>
+        <div class="cebs__row"><span class="cebs__num">09</span><span class="cebs__sector">Security</span><span class="cebs__area">Security</span><span class="cebs__body">Singapore Police Force (SPF)</span></div>
+        <div class="cebs__row"><span class="cebs__num">10</span><span class="cebs__sector">Tourism</span><span class="cebs__area">Tour &amp; Travel, Hotel, MICE &amp; Events</span><span class="cebs__body">Singapore Tourism Board (STB)</span></div>
+        <div class="cebs__row"><span class="cebs__num">11</span><span class="cebs__sector">First Aid &amp; Resuscitation</span><span class="cebs__area">Healthcare</span><span class="cebs__body">Singapore Resuscitation &amp; First Aid Council (SRFAC)</span></div>
+        <div class="cebs__row"><span class="cebs__num">12</span><span class="cebs__sector">Workplace Safety &amp; Health</span><span class="cebs__area">Workplace Safety &amp; Health</span><span class="cebs__body">WSH Council (WSHC)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- § VII THE PRACTICE -->
+  <section class="section" id="work">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">§ VII · Our works</span>
+        <h2 class="h2">Courseware we developed for our clients.</h2>
+        <p class="lede">The team has developed, and secured funding approval for, close to one hundred courses.</p>
+      </header>
+      <div class="gridcards gridcards--2">
+        <article class="gcard reveal">
+          <span class="gcard__kicker">I · Developed for Adept Academy</span>
+          <h3 class="gcard__title">Human Resource Policies and Legislation Framework Management (Level 4)</h3>
+          <ul>
+            <li>Endorsed by the Institute for Human Resource Professionals (IHRP), awarding Skills Badges in Fair and Progressive Practices</li>
+            <li>Attended by 1,056 participants</li>
+          </ul>
+        </article>
+        <article class="gcard reveal" style="--d:.06s">
+          <span class="gcard__kicker">II · Developed for the Singapore Productivity Centre</span>
+          <h3 class="gcard__title">Optimising Lease Negotiations with the FTIC Framework</h3>
+          <ul>
+            <li>A joint collaboration with the Fair Tenancy Industry Committee</li>
+            <li>Delivered by an ACTA-certified legal practitioner, an Advocate and Solicitor</li>
+            <li><a href="https://www.businesstimes.com.sg/singapore/smes/leases-starting-reflect-fair-tenancy-code-conduct-tenants-still-call-legislation" target="_blank" rel="noopener" style="border-bottom:1px solid var(--olive-bright)">Cited by The Business Times for industry impact ↗</a></li>
+          </ul>
+        </article>
+        <article class="gcard reveal" style="--d:.12s">
+          <span class="gcard__kicker">III · Developed for Focus Learning Centre</span>
+          <h3 class="gcard__title">Certificate in Environmental Services (Classroom and Asynchronous)</h3>
+          <ul>
+            <li>SSG Full Qualification awarded in 2025</li>
+            <li>Recognised by the National Environment Agency (NEA)</li>
+          </ul>
+        </article>
+        <article class="gcard reveal" style="--d:.18s">
+          <span class="gcard__kicker">IV · Developed for Carrie Academy</span>
+          <h3 class="gcard__title">(IBM) Enterprise Data Warehousing &amp; Business Intelligence</h3>
+          <ul>
+            <li>Recognised by IBM</li>
+            <li>Participants receive an IBM certification on completing the course</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="mt-5 center reveal">
+        <span class="small-caps">Our combined experience spans</span>
+      </div>
+      <div class="expchips mt-2 reveal">
+        <span>Singapore Airlines</span><span>Scoot</span><span>The St Regis Singapore</span><span>Singapore Chinese Chamber of Commerce &amp; Industry</span><span>ISCA</span><span>Singapore Furniture Industries Council</span><span>Singapore Productivity Centre</span><span>HY Performance</span><span>Focus Learning Centre</span><span>Adept Academy</span><span>Carrie Academy International</span><span>W Academy</span><span>QD Academy</span><span>XpRienz</span><span>Addison Institute</span><span>Academy of Design Arts &amp; Media</span>
+      </div>
+
+      <div class="mt-5 reveal center">
+        <span class="small-caps">Many hands, one standard</span>
+        <p class="prose mt-1" style="font-size:14px;margin-left:auto;margin-right:auto;">Where the difference shows, read alongside a typical curriculum vendor.</p>
+      </div>
+      <div class="compare reveal">
+        <div class="compare__row" aria-hidden="true">
+          <span class="compare__head"></span>
+          <span class="compare__head">A typical curriculum vendor</span>
+          <span class="compare__head" style="color:var(--olive)">2birds</span>
+        </div>
+        <dl class="compare__row">
+          <dt>Subject-matter expert sourcing</dt>
+          <dd>Left to the training provider to source alone, and the SME found may not qualify for SWDA submission.</dd>
+          <dd class="is-us">Sourced for you from our community, so your submission is never held back.</dd>
+        </dl>
+        <dl class="compare__row">
+          <dt>DACE or DDDLP accredited developers</dt>
+          <dd>May not be registered to the TAEPP framework. From 1 April 2026, AEs who wish to deliver SWDA-supported training must be on the National Adult Educator Registry.</dd>
+          <dd class="is-us">Yes, with a public TAEPP record. We provide the CVs of one Level 1 Associate AE and one Level 3 Senior Professional AE for courseware submission.</dd>
+        </dl>
+        <dl class="compare__row">
+          <dt>Audit clarification response</dt>
+          <dd>A single developer answers SWDA's auditor enquiries, typically within a five working day window.</dd>
+          <dd class="is-us">Team delivery means faster turnaround, supported by legal training that lets us justify our pedagogical outcomes to SWDA auditors.</dd>
+        </dl>
+        <dl class="compare__row">
+          <dt>TPGateway submission support</dt>
+          <dd>Typically not offered, or charged separately.</dd>
+          <dd class="is-us">Included with every courseware engagement, as we hold direct access to the TPGateway portal.</dd>
+        </dl>
+        <dl class="compare__row">
+          <dt>Submission record and experience</dt>
+          <dd>Often a single hand, with limited courseware submission experience.</dd>
+          <dd class="is-us">Close to one hundred submissions, made as a team, holding qualifications such as DDDLP, DACE, ACLP, ACTA, IAL-SAE and LL.B.</dd>
+        </dl>
+        <dl class="compare__row">
+          <dt>Marketing assets</dt>
+          <dd>Not provided, or referred to a separate vendor.</dd>
+          <dd class="is-us">Handled by the practice, providing one complimentary marketing asset in a digital copy.</dd>
+        </dl>
+      </div>
+      <p class="form__note mt-2 center reveal">A typical curriculum vendor describes the common market alternative, not any particular provider.</p>
+
+      <div class="memo mt-5 reveal center">
+        <span class="small-caps">The practice is led</span>
+        <p class="prose mt-1" style="font-size:14px;max-width:76ch;margin-left:auto;margin-right:auto;">2birds is led by Keith Ho, founder, in-house legal counsel and courseware developer. He took Adept Academy to a Grade 1 rating at the Training Provider Quality Assessment, an outcome awarded to fewer than one in ten providers in the industry, and he remains the Singapore Productivity Centre's preferred curriculum development partner. At the Institute of Singapore Chartered Accountants he worked with the Civil Service College to co-develop ethics modules for the public sector, and his earlier career in learning and development was spent at TungLok Restaurants and The St Regis Singapore. <a href="contact.html" style="border-bottom:1px solid var(--olive-bright)">Read the full profile</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section class="section--tight section section--rule">
+    <div class="container center">
+      <span class="small-caps reveal">Maintained by 2birds · Reflects the CASL as at 2 May 2026 · The official SWDA register prevails</span>
+      <details class="legalfold reveal" style="max-width:80ch;margin-left:auto;margin-right:auto;">
+        <summary>Legal notice and disclaimer</summary>
+        <div class="legalfold__body prose" style="font-size:12px;max-width:none;color:var(--ink-faint);">
+          <p>This register reproduces, for ease of reference only, selected fields drawn from the Course Approval Skills List (the "CASL") as published and amended from time to time by the Skills and Workforce Development Agency ("SWDA") on TPGateway. It is an unofficial working aid. It possesses no official standing and confers no right, benefit or legitimate expectation of any kind. In the event of any inconsistency between this register and the CASL as officially published, the latter shall prevail in all respects.</p>
+          <p>This register is furnished strictly on an "as is" and "as available" basis. 2birds makes no representation, and gives no warranty or undertaking of any kind, whether express, implied or statutory, including as to the accuracy, completeness, currency or fitness for any particular purpose of the information presented. All skill titles, descriptions and effective dates remain liable to amendment by SWDA at any time and without notice.</p>
+          <p>The "industry" and "intended participants" fields, together with all counts, rankings and market observations derived from them, represent the editorial interpretation of 2birds and are provided solely as an aid to navigation. They carry no regulatory significance, are not SWDA classifications, and must not be relied upon as such. The appearance of a skill in this register does not signify that a course is, or will be, eligible for funding or approved by SWDA, such approval residing at all times in the sole and absolute discretion of SWDA, nor does it constitute an endorsement or recommendation by 2birds. Nothing in this register constitutes legal, financial, regulatory or other professional advice.</p>
+          <p>To the fullest extent permitted by law, 2birds disclaims and excludes all liability for any loss, damage, cost or expense, whether direct, indirect or consequential, howsoever arising, suffered by any person acting or refraining from acting in reliance upon this register. The responsibility for verifying every particular against the officially published register, before acting, rests in every case with the reader alone.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--bone" id="faq">
+    <div class="container container--narrow">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">Before you ask</span>
+        <h2 class="h2">Questions we hear at the first conversation.</h2>
+      </header>
+      <div class="acc reveal">
+        <div class="acc__item">
+          <button class="acc__btn"><span class="acc__ref">01</span><span class="acc__q">How long does a course take to develop?</span><span class="acc__icon">+</span></button>
+          <div class="acc__panel"><p class="acc__body">Most courses reach submission in six to ten weeks, depending on the funding route and how quickly we can sit with your subject-matter expert. SWDA's own review then takes its course. The proposal you sign names the schedule, and we keep to it.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn"><span class="acc__ref">02</span><span class="acc__q">Do we need to bring our own subject-matter expert?</span><span class="acc__icon">+</span></button>
+          <div class="acc__panel"><p class="acc__body">It is useful, but not required. Where you have an expert, we work with them. Where you do not, we pair the course with one from our own community, and we prepare the evidence SWDA expects about their qualifications.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn"><span class="acc__ref">03</span><span class="acc__q">What happens when SWDA comes back with questions?</span><span class="acc__icon">+</span></button>
+          <div class="acc__panel"><p class="acc__body">We answer them. Clarifications are part of every submission, and the response is drafted by the same people who developed the courseware, which is why it comes back in days rather than weeks. This is included in the engagement, not billed as an extra.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn"><span class="acc__ref">04</span><span class="acc__q">Will the course survive an audit years later?</span><span class="acc__icon">+</span></button>
+          <div class="acc__panel"><p class="acc__body">That is the point of how we build. Every assessment traces back to the competency map, every document carries a version line, and the whole set is arranged the way the Course Quality Check reads it. Auditors are calmer when the paperwork already speaks their language.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVITATION -->
+  <section class="cta">
+    <div class="container cta__inner">
+      <div class="cta__frame reveal">
+        <span class="eyebrow">Begin here</span>
+        <h2 class="cta__title">Most of our work begins with one course.</h2>
+        <p class="cta__sub">Tell us the course you have in mind, and we will tell you the form, the funding route and the fee, candidly, within two working days.</p>
+        <div class="cta__actions">
+          <a class="btn" href="contact.html">Make an enquiry</a>
+          <a class="btn btn--ghost" href="ssgauditmatters.html">Read about the audit work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/main.js?v=22"></script>
 <script src="js/casl-list.js"></script>
-<script src="js/casl-field.js"></script>
-<script type="text/babel" src="js/shared.jsx"></script>
-<script type="text/babel" src="js/casl-dashboard.jsx"></script>
-
-<script type="text/babel">
-const COURSE_TYPES = [
-  {
-    roman: "I",
-    eyebrow: "Workforce Skills",
-    title: "WSQ courses",
-    desc: "Programmes accredited under the Workforce Skills Qualifications framework, examinable, competency-mapped to the Skills Framework, and supported at the higher SSG funding tier where eligible.",
-    list: [
-      "Competency map drawn to the Skills Framework",
-      "Lesson and Assessment Plans (CP Form)",
-      "Trainer Guide and marking schemes",
-      "Powerpoint slides and Learner Guide",
-    ],
-  },
-  {
-    roman: "II",
-    eyebrow: "Non-WSQ · Certifiable",
-    title: "Non-WSQ certifiable courses",
-    desc: "Examinable courses leading either to a post-secondary qualification (below degree) or recognised under a Singapore Government agency's regulatory or professional development framework for the sector.",
-    list: [
-      "Course Proposal (CP) Form",
-      "Documentary proof prepared with the project",
-      "AE Qualifications check against SSG requirements",
-      "Submission guide for TPGateway",
-    ],
-  },
-  {
-    roman: "III",
-    eyebrow: "Non-WSQ · Non-Certifiable",
-    title: "Broad-based skills courses",
-    desc: "Short, employment-relevant programmes that sit outside the WSQ framework but address an identified industry skills need, for company-sponsored or self-sponsored learners.",
-    list: [
-      "Course outline with breakdown of hours",
-      "Mode of delivery and assessment write-up",
-      "Industry relevance and demand statement",
-      "OJT plan where applicable",
-    ],
-  },
-];
-
-const STEPS = [
-  { n: "Step I", t: "Discovery and competency map",
-    icon: (
-      <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="14" cy="14" r="8" />
-        <path d="M20 20l6 6" />
-      </svg>
-    ),
-    body: "We sit with you to understand the learner, the sector and the standard. From this we draw a single competency map that holds the rest of the programme together." },
-  { n: "Step II", t: "Course Proposal and course materials",
-    icon: (
-      <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M8 4h11l5 5v19H8z" />
-        <path d="M19 4v5h5" />
-        <path d="M12 16h8M12 20h8M12 12h4" />
-      </svg>
-    ),
-    body: "We draft the Course Proposal (CP) Form, lesson and assessment plans, trainer guide and learner materials, all version-controlled and submission-ready." },
-  { n: "Step III", t: "Pairing adult educators and evidence",
-    icon: (
-      <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="12" r="4" />
-        <circle cx="22" cy="13" r="3.2" />
-        <path d="M4 26c0-4 3.2-6.5 7-6.5s7 2.5 7 6.5" />
-        <path d="M19 26c0-3 1.6-5 4-5.4" />
-      </svg>
-    ),
-    body: "Where required, we pair the course with adult educators who meet the SSG AE Qualifications and are registered on the National AE Registry, and prepare the supporting evidence." },
-  { n: "Step IV", t: "TPGateway submission",
-    icon: (
-      <svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M28 4L13 19" />
-        <path d="M28 4l-5 24-6-11-11-6z" />
-      </svg>
-    ),
-    body: "We submit the project through TPGateway with a written submission guide, and remain on hand for SSG's clarifications until the review is complete." },
-];
-
-const AE_REQS = [
-  { tier: "threshold", kicker: "Part one", dt: <>National AE Registry</>, dd: "Adult educators assigned to the course must be registered with the National Adult Educator Registry, managed by the Institute for Adult Learning at the Singapore University of Social Sciences." },
-  { tier: "threshold", kicker: "Part two", dt: <>WSQ <em>ACTA</em> or <em>ACLP</em></>, dd: "Each AE who trains or assesses must hold the WSQ Advanced Certificate in Training and Assessment, the WSQ Advanced Certificate in Learning and Performance (ACLP 2.0), or an equivalent recognised by SSG at its sole discretion." },
-  { tier: "context", kicker: "Timeline", dt: <>In force since 2026</>, dd: "The requirements have applied to SSG-funded non-WSQ certifiable courses since 1 January 2021. The provisions were further refined under SSG Circular MIPD/2026/2, effective 1 April 2026." },
-  { tier: "context", kicker: "Equivalence", dt: <>Equivalent pathways</>, dd: "IAL operates Recognition of Prior Learning (RPL) and Credit Exemption pathways. We help long-standing practitioners assemble the evidence required to be recognised under these pathways." },
-];
-
-function App() {
-  return (
-    <>
-      <NavBar current="curriculum" />
-      <main>
-
-        <PageHero
-          location="Services · I"
-          eyebrow="Curriculum Development"
-          title={<>Curriculum, in <em>three forms.</em></>}
-          lede="Most of our work begins here. We draft the courseware, the assessment instruments and the trainer guides that hold up to TPQA scrutiny, and we shape the project to the form of SSG funding that fits the course."
-        />
-        {/* WIDE EDITORIAL FIGURE, premium recompose */}
-        <section className="premium-section premium-section--paper tb-reveal" style={{ paddingTop: 0, paddingBottom: 80 }}>
-          <div className="container">
-            <figure className="premium-figure premium-figure--16x9 premium-figure--restrained premium-figure--photo">
-              <img src="assets/curriculum-architecture.jpg" alt="A steel-and-glass tower rising against an open sky, branches in the foreground." />
-              <span className="premium-figure__ratio">16 : 9</span>
-              <div className="premium-figure__brief">
-                <span className="premium-figure__brief-label">A working metaphor</span>
-                <p className="premium-figure__brief-text">
-                  Frame, façade, the work behind the glass, curriculum is the same craft, finished in paper. The structure is what holds a course up over time.
-                </p>
-              </div>
-            </figure>
-            <p className="premium-figure-caption">
-              The architecture of a course · steel-and-glass study, a quiet study in structure.
-            </p>
-          </div>
-        </section>
-
-        {/* ---------- 3 COURSE TYPES ---------- */}
-        <section className="tb-numerals tb-reveal">
-          <div className="container">
-            <SectionHead
-              eyebrow="Three offerings"
-              title={<>What curriculum looks like, in <em>three forms</em>.</>}
-              sub="Each form has its own evidence threshold and its own route through TPGateway. We pick the form to the project, not the other way round."
-            />
-            <div className="tb-numerals__grid is-3">
-              {COURSE_TYPES.map((c, i) => (
-                <article key={i} className="tb-numeral">
-                  <div className="tb-numeral__roman">{c.roman}</div>
-                  <div className="tb-numeral__eyebrow">{c.eyebrow}</div>
-                  <h3 className="tb-numeral__title">{c.title}</h3>
-                  <p className="tb-numeral__desc">{c.desc}</p>
-                  <ul className="tb-numeral__list">
-                    {c.list.map((l, j) => <li key={j}>{l}</li>)}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ---------- AE QUALIFICATIONS (editorial recompose, photo ground) ---------- */}
-        <section className="tb-aeq tb-aeq--photo tb-reveal">
-          <div className="tb-aeq__bg" aria-hidden="true" style={{ backgroundImage: "url('assets/library-bw-web.jpg')" }}></div>
-          <div className="container">
-
-            {/* HEAD — eyebrow spans, then title left / standfirst right align at top */}
-            <EyebrowLockup>§ I · Adult Educator Qualifications</EyebrowLockup>
-            <div className="tb-aeq__head">
-              <div className="tb-aeq__head-l">
-                <h2 className="tb-aeq__title">
-                  SSG's Adult Educator Qualifications Requirements for <em>Certifiable</em> courses.
-                </h2>
-              </div>
-              <p className="tb-aeq__lede">
-                Since 1 April 2026, training providers offering SSG-funded <em>certifiable</em>
-                {" "}courses have been required to ensure that every adult educator deployed to
-                train or assess on the course meets the same qualifications threshold that has
-                long applied to WSQ courses.
-              </p>
-            </div>
-
-            {/* FRAMING — the threshold has two parts */}
-            <div className="tb-aeq__row">
-              <span className="tb-aeq__overline">The qualifications threshold</span>
-              <p className="tb-aeq__row-text">
-                The threshold has two parts. Registration on the National AE Registry, and a
-                recognised credential, typically the WSQ ACTA or the revised ACLP 2.0. SSG
-                retains discretion to recognise equivalent qualifications on a case-by-case basis.
-              </p>
-            </div>
-
-            {/* 2×2 SPECIFICATION MATRIX */}
-            <div className="tb-aeq__grid">
-              {AE_REQS.map((r, i) => (
-                <div key={i} className={"tb-aeq__cell is-" + r.tier}>
-                  <div className="tb-aeq__cell-top">
-                    <span className="tb-aeq__num">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="tb-aeq__kicker">{r.kicker}</span>
-                  </div>
-                  <h3 className="tb-aeq__cell-title">{r.dt}</h3>
-                  <p className="tb-aeq__cell-body">{r.dd}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* CLOSING — how we staff it */}
-            <div className="tb-aeq__row">
-              <span className="tb-aeq__overline">How we staff it</span>
-              <p className="tb-aeq__row-text tb-aeq__row-text--lead">
-                2birds keeps a working community of credentialled AEs. Where your project
-                cannot be matched from our community, we will source candidates through the
-                usual recruitment channels <em>at no markup</em>, and prepare the supporting
-                evidence for SSG.
-              </p>
-            </div>
-
-          </div>
-        </section>
-
-        {/* ---------- APPLICATION PROCESS ---------- */}
-        <section className="tb-steps tb-reveal">
-          <div className="container">
-            <SectionHead
-              eyebrow="§ II · Application process"
-              title={<>From first conversation to <em>submission</em>, in four steps.</>}
-              sub="Each form has its own route through TPGateway. We prepare a complete and accurate submission, then stay on hand for SSG's clarifications until the review is closed."
-            />
-            <div className="tb-steps__list">
-              {STEPS.map((s, i) => (
-                <article key={i} className="tb-step tb-reveal-child">
-                  <div className="tb-step__icon" aria-hidden="true">{s.icon}</div>
-                  <div className="tb-step__n">{s.n}</div>
-                  <h3 className="tb-step__title">{s.t}</h3>
-                  <p className="tb-step__body">{s.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        
-        {/* PULL QUOTE, Deep Olive */}
-        <section className="premium-quote premium-quote--bone tb-reveal">
-          <div className="premium-quote__inner">
-            <span className="premium-quote__mark" aria-hidden="true">“</span>
-            <p className="premium-quote__text">
-              Anyone can write a learning outcome. The craft is making every assessment trace back to one, so a learner is tested on precisely what the course set out to teach, and nothing it did not.
-            </p>
-            <div className="premium-quote__cite">From the firm · Curriculum</div>
-          </div>
-        </section>
-
-        {/* ---------- PROSE: WHAT WE DELIVER ---------- */}
-        <section className="tb-prose tb-prose--withFig tb-reveal">
-          <div className="container">
-            <div className="tb-prose__split">
-              <div className="tb-prose__head">
-                <SectionHead
-                  eyebrow="§ III · What is delivered"
-                  title={<>What you <em>receive.</em></>}
-                />
-                <div className="tb-prose__body">
-                  <p>
-                    A complete curriculum-development project leaves behind a set of
-                    printed instruments, not a slide deck. At its narrowest, that is the
-                    Course Proposal Form, the lesson and assessment plans, and the trainer
-                    guide. At its broadest, for a full WSQ pathway, it extends to the
-                    competency map, the assessment rubrics, the trainer reference pack and
-                    the moderation procedures that hold the programme together over time.
-                  </p>
-                  <p>
-                    Every artefact carries a version line and a change log. Every assessment
-                    instrument is traceable back to the competency map, and from the
-                    competency map back to the project. This is what the auditor looks for
-                    during the Course Quality Check, and what holds the programme together
-                    long after the first cohort.
-                  </p>
-                  <p>
-                    Where your project calls for it, marketing collateral is included at no
-                    additional charge, provided <em>as-is</em>, in the same restrained
-                    register as the rest of the work, and without further revision rounds.
-                  </p>
-                </div>
-              </div>
-              <figure className="tb-prose__fig" aria-hidden="true" style={{ aspectRatio: "3 / 4", maxWidth: 440 }}>
-                <img src="assets/curriculum-stairs.jpg" alt="" style={{ objectPosition: "center center" }} />
-              </figure>
-            </div>
-          </div>
-        </section>
-
-        {/* ---------- CASL DASHBOARD ---------- */}
-        <section className="tb-casl-section tb-reveal" id="casl">
-          <CaslFieldBackdrop />
-          <div className="container">
-            <header className="tb-casl-section__head">
-              <span className="tb-casl-section__eyebrow">§ IV · Course Approval Skills List</span>
-              <h2 className="tb-casl-section__title">
-                The CASL <em>register</em>, made navigable.
-              </h2>
-              <p className="tb-casl-section__sub">
-                The complete Course Approval Skills List as published by SkillsFuture
-                Singapore, Phases 1 and 2, presented as a working reference for training
-                providers. Read the demand signals by industry, pin the skills you are
-                weighing into a working list, and send it to us for a frank view on
-                marketability and the right funding route.
-              </p>
-              <LangOnlyNote label="This skills register" />
-            </header>
-
-            <aside className="tb-casl-notice" role="note">
-              <span className="tb-casl-notice__tag">[SSG INFORMATION MEMORANDUM/JSID/2026/9]</span>
-              <h3 className="tb-casl-notice__title">Upcoming Changes to the Course Approval Skills List (CASL) Dashboard</h3>
-              <p className="tb-casl-notice__body">
-                The Course Approval Skills List (CASL) Dashboard will be replaced by the Integrated Insights Tool on the Jobs-Skills Portal by end June 2026. With rich datasets and a better user experience, the new tool incorporates the updated CASL skills list, alongside additional labour market insights to better support training providers in programme planning and development.
-              </p>
-              <a className="tb-casl-notice__link" href="https://jobsandskills.skillsfuture.gov.sg/casl-dashboard-update" target="_blank" rel="noopener noreferrer">
-                <span>Learn more here</span>
-                <span aria-hidden="true"> ↗</span>
-              </a>
-            </aside>
-
-            <CaslDashboard />
-          </div>
-        </section>
-
-      </main>
-      <Footer />
-    </>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-</script>
+<script src="js/casl.js?v=10"></script>
 </body>
 </html>

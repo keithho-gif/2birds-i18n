@@ -1,0 +1,890 @@
+<meta charset="utf-8" />
+<title>2birds · 20 style directions</title>
+<style>
+  :root {
+    --paper: #F6F4EE;
+    --ink: #24221C;
+    --ink-soft: #5B584C;
+    --ink-faint: #928E7E;
+    --line: rgba(36, 34, 28, 0.16);
+    --card: #FFFFFF;
+    --accent: #6F6C49;
+    --accent-2: #979265;
+    --mono-img: url("data:image/png;base64,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");
+  }
+  :root[data-theme="dark"], :root.dark-shell {
+    --paper: #191813;
+    --ink: #EDEAE0;
+    --ink-soft: #B4B0A2;
+    --ink-faint: #7C7869;
+    --line: rgba(237, 234, 224, 0.16);
+    --card: #201F19;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #191813;
+      --ink: #EDEAE0;
+      --ink-soft: #B4B0A2;
+      --ink-faint: #7C7869;
+      --line: rgba(237, 234, 224, 0.16);
+      --card: #201F19;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 15px/1.65 "Segoe UI", -apple-system, Helvetica, Arial, sans-serif;
+    padding: clamp(20px, 4vw, 56px);
+  }
+  .wrap { max-width: 1480px; margin: 0 auto; }
+
+  header.intro { max-width: 780px; margin-bottom: 56px; }
+  .intro .kicker { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent-2); font-weight: 600; }
+  .intro h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: clamp(30px, 4.4vw, 46px); line-height: 1.1; margin: 14px 0 16px; text-wrap: balance; }
+  .intro p { color: var(--ink-soft); max-width: 64ch; }
+  .intro .how { margin-top: 18px; padding: 16px 20px; border: 1px solid var(--line); font-size: 14px; color: var(--ink-soft); background: var(--card); }
+  .intro .how b { color: var(--ink); font-weight: 600; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+  @media (max-width: 1120px) { .grid { grid-template-columns: 1fr; } }
+
+  .tile { display: flex; flex-direction: column; gap: 14px; }
+  .tile__head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .tile__num { font-family: Georgia, serif; font-size: 26px; color: var(--accent-2); min-width: 44px; }
+  .tile__name { font-family: Georgia, serif; font-size: 23px; font-weight: 500; }
+  .tile__tags { display: flex; gap: 8px; margin-left: auto; }
+  .tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-faint); white-space: nowrap; }
+  .tag--dep { border-color: var(--accent-2); color: var(--accent-2); }
+  .tile__desc { font-size: 14px; color: var(--ink-soft); max-width: 70ch; margin-top: -6px; }
+  .tile__desc b { color: var(--ink); font-weight: 600; }
+  .chipsrow { display: flex; align-items: center; gap: 6px; margin-top: -4px; }
+  .swatch { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.15); }
+  .fonts { font-size: 12px; color: var(--ink-faint); margin-left: 10px; }
+
+  /* ---- mock frame ---- */
+  .frame {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px -22px rgba(30, 28, 20, 0.35);
+    background: #fff;
+  }
+  .frame__bar { display: flex; gap: 5px; padding: 9px 12px; border-bottom: 1px solid var(--line); background: var(--card); }
+  .frame__bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+  .mk { height: 560px; overflow: hidden; position: relative; font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
+
+  .mark { width: 30px; height: 30px; background: var(--mono-img) center/contain no-repeat; flex: none; }
+  .mark--inv { filter: brightness(0) invert(0.94); }
+
+  /* shared mock atoms (restyled per direction) */
+  .mnav { display: flex; align-items: center; gap: 18px; padding: 16px 26px; font-size: 10px; letter-spacing: 0.1em; }
+  .mnav .links { display: flex; gap: 14px; margin-left: auto; }
+  .mcta { padding: 7px 14px; white-space: nowrap; }
+  .mhero { padding: 34px 26px 30px; }
+  .meye { font-size: 8.5px; letter-spacing: 0.26em; text-transform: uppercase; }
+  .mh { text-wrap: balance; }
+  .mlede { max-width: 46ch; }
+  .mstrip { }
+
+  /* ============ 01 · Legora Editorial (as built) ============ */
+  .s01 .mk { background: #FAF8F2; color: #23221E; }
+  .s01 .mnav { border-bottom: 1px solid rgba(35,34,30,.1); }
+  .s01 .links { color: #57544A; }
+  .s01 .mcta { background: #23221E; color: #FAF8F2; border-radius: 999px; }
+  .s01 .meye { color: #6F6C49; }
+  .s01 .mh { font-family: "Playfair Display", Georgia, serif; font-size: 44px; line-height: 1.06; font-weight: 500; margin: 12px 0 12px; }
+  .s01 .mh em { font-style: italic; }
+  .s01 .mlede { color: #57544A; font-size: 13px; }
+  .s01 .btns { display: flex; gap: 10px; margin-top: 18px; }
+  .s01 .b1 { background: #23221E; color: #FAF8F2; border-radius: 999px; padding: 9px 18px; font-size: 10.5px; }
+  .s01 .b2 { box-shadow: inset 0 0 0 1px rgba(35,34,30,.2); border-radius: 999px; padding: 9px 18px; font-size: 10.5px; }
+  .s01 .mstrip { display: grid; grid-template-columns: repeat(4, 1fr); background: #E5E3D3; margin-top: 26px; }
+  .s01 .mstrip div { padding: 20px 16px 16px; border-left: 1px solid rgba(35,34,30,.1); min-height: 128px; display: flex; flex-direction: column; }
+  .s01 .mstrip div:first-child { border-left: 0; }
+  .s01 .mstrip .l { font-size: 8px; letter-spacing: .2em; text-transform: uppercase; color: #6F6C49; }
+  .s01 .mstrip .v { font-family: Georgia, serif; font-size: 26px; margin-top: auto; }
+
+  /* ============ 02 · Maison ============ */
+  .s02 .mk { background: #FFFFFF; color: #1B1A17; text-align: center; }
+  .s02 .mnav { justify-content: center; gap: 26px; border-bottom: 1px solid #ECE8DE; padding: 20px 26px; }
+  .s02 .mnav .links { margin: 0 auto; gap: 26px; font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: #6d6a60; }
+  .s02 .mhero { padding: 64px 26px 44px; }
+  .s02 .meye { color: #8f8a7a; }
+  .s02 .mh { font-family: Didot, "Bodoni MT", "Playfair Display", Georgia, serif; font-size: 40px; line-height: 1.15; font-weight: 400; margin: 22px auto; max-width: 18ch; }
+  .s02 .mlede { margin: 0 auto; color: #6d6a60; font-size: 12.5px; max-width: 40ch; }
+  .s02 .rule { width: 42px; height: 1px; background: #1B1A17; margin: 26px auto 0; }
+  .s02 .link { display: inline-block; margin-top: 22px; font-size: 9px; letter-spacing: .3em; text-transform: uppercase; border-bottom: 1px solid #1B1A17; padding-bottom: 5px; }
+  .s02 .mstrip { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #ECE8DE; margin-top: 48px; }
+  .s02 .mstrip div { padding: 26px 14px; border-left: 1px solid #ECE8DE; }
+  .s02 .mstrip div:first-child { border-left: 0; }
+  .s02 .mstrip .t { font-size: 9px; letter-spacing: .28em; text-transform: uppercase; }
+  .s02 .mstrip .d { font-size: 11.5px; color: #8f8a7a; margin-top: 8px; }
+
+  /* ============ 03 · Swiss Modern ============ */
+  .s03 .mk { background: #FFFFFF; color: #101010; }
+  .s03 .mnav { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; border-bottom: 2px solid #101010; padding: 14px 22px; }
+  .s03 .links { font-size: 10px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #101010; }
+  .s03 .mcta { background: #6F6C49; color: #fff; font-weight: 600; }
+  .s03 .mhero { padding: 40px 22px 28px; }
+  .s03 .meye { color: #6F6C49; font-weight: 700; letter-spacing: .08em; font-size: 10px; }
+  .s03 .mh { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 0.98; letter-spacing: -0.03em; margin: 14px 0; }
+  .s03 .mlede { font-size: 13px; color: #4a4a45; max-width: 42ch; }
+  .s03 .mstrip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 0 22px; margin-top: 34px; }
+  .s03 .mstrip div { border-top: 3px solid #101010; padding-top: 10px; }
+  .s03 .mstrip div:nth-child(2) { border-top-color: #6F6C49; }
+  .s03 .mstrip .n { font-weight: 700; font-size: 22px; }
+  .s03 .mstrip .l { font-size: 10px; color: #6a6a63; }
+
+  /* ============ 04 · Noir Atelier ============ */
+  .s04 .mk { background: radial-gradient(120% 90% at 78% 10%, #23211B 0%, #121110 55%); color: #F0EDE2; }
+  .s04 .mnav { border-bottom: 1px solid rgba(168,155,98,.28); }
+  .s04 .links { color: rgba(240,237,226,.62); }
+  .s04 .mcta { border: 1px solid #A89B62; color: #CFC29A; letter-spacing: .18em; text-transform: uppercase; font-size: 8.5px; }
+  .s04 .mhero { padding: 48px 26px 30px; }
+  .s04 .meye { color: #A89B62; }
+  .s04 .mh { font-family: Constantia, Georgia, serif; font-size: 42px; line-height: 1.1; font-weight: 400; margin: 14px 0; max-width: 16ch; }
+  .s04 .mlede { color: rgba(240,237,226,.55); font-size: 12.5px; }
+  .s04 .mstrip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(168,155,98,.25); border-top: 1px solid rgba(168,155,98,.25); margin-top: 40px; }
+  .s04 .mstrip div { background: #14130F; padding: 20px 16px; min-height: 108px; }
+  .s04 .mstrip .r { font-family: Constantia, Georgia, serif; color: #A89B62; font-size: 13px; }
+  .s04 .mstrip .t { font-size: 12.5px; margin-top: 8px; }
+  .s04 .mstrip .d { font-size: 10.5px; color: rgba(240,237,226,.45); margin-top: 5px; }
+
+  /* ============ 05 · Apothecary Ivory ============ */
+  .s05 .mk { background: #F3EDE0; color: #3B372C; }
+  .s05 .mnav { font-size: 10.5px; letter-spacing: .04em; color: #6d6753; padding: 18px 30px; }
+  .s05 .mcta { border-bottom: 1px solid #3B372C; padding: 0 0 2px; font-size: 10.5px; }
+  .s05 .mhero { padding: 44px 30px 24px; max-width: 560px; }
+  .s05 .meye { color: #7A7457; letter-spacing: .2em; }
+  .s05 .mh { font-family: "Palatino Linotype", Palatino, Georgia, serif; font-size: 30px; line-height: 1.3; font-weight: 400; margin: 14px 0; }
+  .s05 .mlede { font-family: "Palatino Linotype", Palatino, Georgia, serif; font-size: 14.5px; line-height: 1.75; color: #5c5645; max-width: 52ch; }
+  .s05 .mstrip { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 30px; margin-top: 26px; }
+  .s05 .mstrip div { border-top: 1px solid #D8CFBA; padding-top: 12px; }
+  .s05 .mstrip .t { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #7A7457; }
+  .s05 .mstrip .d { font-family: "Palatino Linotype", Palatino, Georgia, serif; font-size: 12.5px; color: #5c5645; margin-top: 8px; line-height: 1.7; }
+
+  /* ============ 06 · Brutalist Ledger ============ */
+  .s06 .mk { background: #FCFCFA; color: #111; }
+  .s06 .mnav { border-bottom: 2px solid #111; padding: 12px 18px; }
+  .s06 .links { font-family: Consolas, "Courier New", monospace; font-size: 10px; text-transform: uppercase; }
+  .s06 .mcta { border: 2px solid #111; font-family: Consolas, monospace; font-size: 9.5px; text-transform: uppercase; }
+  .s06 .mhero { padding: 30px 18px 22px; border-bottom: 2px solid #111; }
+  .s06 .meye { font-family: Consolas, monospace; color: #111; background: #6F6C49; color: #fff; display: inline-block; padding: 3px 8px; letter-spacing: .1em; }
+  .s06 .mh { font-family: "Arial Narrow", Bahnschrift, Arial, sans-serif; font-weight: 700; font-size: 54px; line-height: 0.95; text-transform: uppercase; letter-spacing: -0.01em; margin: 14px 0 10px; }
+  .s06 .mlede { font-family: Consolas, monospace; font-size: 11px; color: #444; max-width: 52ch; }
+  .s06 table { width: 100%; border-collapse: collapse; font-family: Consolas, monospace; font-size: 10.5px; }
+  .s06 td { border: 1px solid #111; padding: 12px 14px; }
+  .s06 td:first-child { width: 46px; font-weight: 700; }
+  .s06 tr:hover td { background: #EFEDDF; }
+
+  /* ============ 07 · Engraved Classic ============ */
+  .s07 .mk { background: #FAF6EC; color: #26241E; text-align: center; }
+  .s07 .mnav { justify-content: center; border-bottom: 3px double #26241E; padding: 18px; }
+  .s07 .links { margin: 0 auto; font-variant: small-caps; letter-spacing: .22em; font-size: 11px; font-family: "Book Antiqua", "Palatino Linotype", Georgia, serif; }
+  .s07 .mhero { padding: 46px 26px 30px; }
+  .s07 .meye { font-family: "Book Antiqua", Georgia, serif; color: #9C8B5A; letter-spacing: .34em; }
+  .s07 .mh { font-family: "Book Antiqua", "Palatino Linotype", Georgia, serif; font-variant: small-caps; font-weight: 400; font-size: 37px; line-height: 1.18; margin: 18px auto 14px; max-width: 20ch; }
+  .s07 .mlede { margin: 0 auto; font-family: Georgia, serif; font-size: 12.5px; color: #5d594c; max-width: 46ch; }
+  .s07 .orn { color: #9C8B5A; font-size: 14px; letter-spacing: .6em; margin-top: 18px; }
+  .s07 .mstrip { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 34px; border-top: 1px solid #D9D0B8; }
+  .s07 .mstrip div { padding: 22px 14px; border-left: 1px solid #D9D0B8; }
+  .s07 .mstrip div:first-child { border-left: 0; }
+  .s07 .mstrip .r { font-family: "Book Antiqua", Georgia, serif; color: #9C8B5A; font-size: 15px; }
+  .s07 .mstrip .t { font-variant: small-caps; font-family: "Book Antiqua", Georgia, serif; font-size: 14px; margin-top: 6px; }
+
+  /* ============ 08 · Ma ============ */
+  .s08 .mk { background: #FBFAF7; color: #2A2925; }
+  .s08 .mnav { padding: 22px 30px; font-size: 9px; letter-spacing: .2em; color: #8b887c; }
+  .s08 .side { position: absolute; right: 24px; top: 120px; writing-mode: vertical-rl; font-size: 8.5px; letter-spacing: .5em; color: #8b887c; text-transform: uppercase; }
+  .s08 .mhero { padding: 84px 30px 0; }
+  .s08 .dot { width: 8px; height: 8px; border-radius: 50%; background: #6F6C49; margin-bottom: 26px; }
+  .s08 .mh { font-family: "Yu Mincho", "MS PMincho", Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.55; max-width: 17ch; }
+  .s08 .mlede { font-size: 11px; color: #8b887c; margin-top: 26px; max-width: 34ch; line-height: 2.1; }
+  .s08 .mstrip { display: flex; justify-content: space-between; padding: 0 30px; margin-top: 64px; }
+  .s08 .mstrip div { font-size: 10px; color: #55534a; letter-spacing: .08em; }
+  .s08 .mstrip .n { font-family: Georgia, serif; font-size: 20px; color: #2A2925; display: block; margin-bottom: 4px; }
+
+  /* ============ 09 · Deco Boutique ============ */
+  .s09 .mk { background: #1C1B17; color: #EFE9D8; }
+  .s09 .inner { position: absolute; inset: 14px; border: 1px solid #B79E5F; outline: 1px solid rgba(183,158,95,.35); outline-offset: 4px; padding: 8px; }
+  .s09 .mnav { justify-content: center; padding: 18px; }
+  .s09 .links { margin: 0; font-family: Didot, "Bodoni MT", Georgia, serif; letter-spacing: .34em; text-transform: uppercase; font-size: 9px; color: #CBB77E; }
+  .s09 .mhero { text-align: center; padding: 40px 20px 24px; }
+  .s09 .meye { color: #B79E5F; letter-spacing: .5em; }
+  .s09 .mh { font-family: Didot, "Bodoni MT", "Playfair Display", Georgia, serif; font-size: 38px; line-height: 1.14; font-weight: 400; margin: 18px auto 12px; max-width: 17ch; }
+  .s09 .mlede { margin: 0 auto; color: rgba(239,233,216,.6); font-size: 11.5px; max-width: 42ch; }
+  .s09 .diamond { color: #B79E5F; margin-top: 16px; letter-spacing: .8em; font-size: 10px; }
+  .s09 .mstrip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 20px; margin-top: 26px; }
+  .s09 .mstrip div { border: 1px solid rgba(183,158,95,.5); padding: 16px 12px; text-align: center; }
+  .s09 .mstrip .r { color: #B79E5F; font-family: Didot, Georgia, serif; font-size: 13px; }
+  .s09 .mstrip .t { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; margin-top: 8px; }
+
+  /* ============ 10 · Chambers Navy ============ */
+  .s10 .mk { background: #101B2D; color: #EDE8DA; }
+  .s10 .mnav { border-bottom: 1px solid rgba(237,232,218,.18); }
+  .s10 .links { color: rgba(237,232,218,.65); font-size: 10px; }
+  .s10 .mcta { background: #9C8B5A; color: #101B2D; font-weight: 600; font-size: 9.5px; letter-spacing: .08em; }
+  .s10 .mhero { display: grid; grid-template-columns: 7fr 5fr; gap: 26px; padding: 46px 26px 30px; align-items: end; }
+  .s10 .meye { color: #9C8B5A; }
+  .s10 .mh { font-family: Cambria, Georgia, serif; font-size: 38px; line-height: 1.14; font-weight: 500; margin-top: 12px; }
+  .s10 .mlede { color: rgba(237,232,218,.6); font-size: 12px; border-left: 1px solid #9C8B5A; padding-left: 16px; }
+  .s10 .mstrip { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(237,232,218,.18); margin-top: 38px; }
+  .s10 .mstrip div { padding: 18px 16px; border-left: 1px solid rgba(237,232,218,.14); }
+  .s10 .mstrip div:first-child { border-left: 0; }
+  .s10 .mstrip .n { font-family: Cambria, Georgia, serif; font-size: 21px; color: #EDE8DA; }
+  .s10 .mstrip .l { font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: rgba(237,232,218,.5); margin-top: 4px; }
+
+  /* ============ 11 · White Cube ============ */
+  .s11 .mk { background: #FFFFFF; color: #161616; }
+  .s11 .mnav { padding: 18px 26px; }
+  .s11 .links { flex-direction: column; gap: 2px; align-items: flex-end; font-size: 10px; color: #7b7b76; }
+  .s11 .mhero { padding: 8px 26px 0; }
+  .s11 .bignum { font-family: "Times New Roman", Georgia, serif; font-size: 130px; line-height: 0.9; color: #161616; }
+  .s11 .mh { font-size: 17px; font-weight: 600; margin-top: 10px; letter-spacing: -0.01em; }
+  .s11 .mlede { font-size: 12px; color: #7b7b76; margin-top: 6px; max-width: 44ch; }
+  .s11 .art { margin: 26px 26px 0; height: 150px; background: linear-gradient(112deg, #d9d7d2 0%, #b9b6af 42%, #8e8b84 100%); position: relative; }
+  .s11 .cap { padding: 10px 26px; font-size: 10px; color: #7b7b76; display: flex; justify-content: space-between; }
+
+  /* ============ 12 · Periodical ============ */
+  .s12 .mk { background: #FBF7EF; color: #26241F; }
+  .s12 .mast { text-align: center; padding: 16px 20px 12px; border-bottom: 1px solid #26241F; }
+  .s12 .mast .t { font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 21px; letter-spacing: .02em; }
+  .s12 .mast .sub { font-size: 8.5px; letter-spacing: .3em; text-transform: uppercase; color: #8d887a; margin-top: 4px; }
+  .s12 .cols { display: grid; grid-template-columns: 7fr 4fr; gap: 22px; padding: 26px; }
+  .s12 .kick { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: #6F6C49; font-weight: 600; }
+  .s12 .mh { font-family: Georgia, serif; font-size: 33px; line-height: 1.16; font-weight: 500; margin: 10px 0 12px; }
+  .s12 .mlede { font-family: Georgia, serif; font-size: 12.5px; color: #55524a; column-count: 2; column-gap: 18px; column-rule: 1px solid #E4DCC9; text-align: justify; }
+  .s12 .mlede::first-letter { font-size: 34px; float: left; line-height: 0.8; padding: 4px 6px 0 0; font-family: Georgia, serif; }
+  .s12 aside { border-left: 1px solid #26241F; padding-left: 18px; }
+  .s12 aside .h { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: #8d887a; margin-bottom: 10px; }
+  .s12 aside .item { font-family: Georgia, serif; font-size: 13px; padding: 9px 0; border-bottom: 1px solid #E4DCC9; }
+  .s12 aside .item span { color: #6F6C49; margin-right: 8px; }
+
+  /* ============ 13 · Scandinavian Soft ============ */
+  .s13 .mk { background: #F5F5F2; color: #26251F; }
+  .s13 .mnav { padding: 18px 26px; }
+  .s13 .links { color: #6e6c64; font-size: 10.5px; letter-spacing: .02em; }
+  .s13 .mcta { background: #26251F; color: #fff; border-radius: 8px; font-size: 10px; }
+  .s13 .mhero { padding: 42px 26px 24px; }
+  .s13 .meye { color: #86835F; letter-spacing: .18em; }
+  .s13 .mh { font-size: 36px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.12; margin: 12px 0; max-width: 18ch; }
+  .s13 .mlede { color: #6e6c64; font-size: 12.5px; }
+  .s13 .mstrip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 0 26px; margin-top: 30px; }
+  .s13 .mstrip div { background: #fff; border-radius: 10px; padding: 18px 16px; box-shadow: 0 8px 22px -14px rgba(38,37,31,.28); }
+  .s13 .mstrip .ic { width: 26px; height: 26px; border-radius: 8px; background: #DDE0D2; margin-bottom: 12px; }
+  .s13 .mstrip .t { font-size: 12.5px; font-weight: 600; }
+  .s13 .mstrip .d { font-size: 10.5px; color: #6e6c64; margin-top: 4px; }
+
+  /* ============ 14 · Bauhaus Discipline ============ */
+  .s14 .mk { background: #FFFFFF; color: #131310; }
+  .s14 .mnav { border-bottom: 4px solid #131310; padding: 14px 22px; }
+  .s14 .links { font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+  .s14 .geo { position: absolute; right: -40px; top: 90px; width: 190px; height: 190px; border-radius: 50%; background: #6F6C49; opacity: .92; }
+  .s14 .geo2 { position: absolute; right: 92px; top: 210px; width: 84px; height: 84px; background: #131310; }
+  .s14 .mhero { padding: 42px 22px 26px; position: relative; }
+  .s14 .meye { font-weight: 700; color: #6F6C49; letter-spacing: .14em; }
+  .s14 .mh { font-family: Bahnschrift, "Arial Black", Arial, sans-serif; font-weight: 700; font-size: 46px; line-height: 1.0; text-transform: uppercase; margin: 12px 0; max-width: 13ch; }
+  .s14 .mh mark { background: #6F6C49; color: #fff; padding: 0 6px; }
+  .s14 .mlede { font-size: 12.5px; color: #4c4c45; max-width: 40ch; }
+  .s14 .mstrip { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 4px solid #131310; margin-top: 34px; }
+  .s14 .mstrip div { padding: 16px; border-left: 1px solid #131310; font-weight: 700; font-size: 11px; text-transform: uppercase; }
+  .s14 .mstrip div:first-child { border-left: 0; }
+  .s14 .mstrip span { display: block; font-size: 20px; color: #6F6C49; }
+
+  /* ============ 15 · Letterpress Heritage ============ */
+  .s15 .mk { background: #F7F1E3; color: #2B2822; text-align: center;
+    background-image: radial-gradient(rgba(43,40,34,0.05) 1px, transparent 1px); background-size: 5px 5px; }
+  .s15 .mnav { justify-content: center; padding: 20px; }
+  .s15 .links { margin: 0 auto; font-family: Garamond, "Palatino Linotype", Georgia, serif; font-size: 12px; letter-spacing: .12em; font-variant: small-caps; }
+  .s15 .mhero { padding: 40px 26px 26px; }
+  .s15 .meye { font-family: Garamond, Georgia, serif; letter-spacing: .3em; color: #8a8266; }
+  .s15 .mh { font-family: Garamond, "Palatino Linotype", Georgia, serif; font-size: 40px; font-weight: 500; line-height: 1.16; margin: 16px auto 12px; max-width: 18ch; }
+  .s15 .mlede { margin: 0 auto; font-family: Garamond, Georgia, serif; font-size: 14px; color: #5a5546; max-width: 46ch; }
+  .s15 .fleuron { font-size: 16px; color: #8a8266; margin-top: 16px; }
+  .s15 .btn { display: inline-block; margin-top: 14px; font-variant: small-caps; letter-spacing: .18em; font-family: Garamond, Georgia, serif; font-size: 13px; padding: 8px 22px; border: 1px solid #2B2822; box-shadow: inset 0 2px 3px rgba(43,40,34,.18); background: #F2EAD8; }
+  .s15 .mstrip { max-width: 380px; margin: 26px auto 0; text-align: left; }
+  .s15 .mstrip div { display: flex; justify-content: space-between; font-family: Garamond, Georgia, serif; font-size: 13.5px; padding: 8px 0; border-bottom: 1px dotted #8a8266; }
+  .s15 .mstrip span { color: #8a8266; }
+
+  /* ============ 16 · Linear Lux ============ */
+  .s16 .mk { background: linear-gradient(160deg, #101211 0%, #161813 60%, #1B1E15 100%); color: #E9E8E0; }
+  .s16 .mnav { border-bottom: 1px solid rgba(233,232,224,.08); }
+  .s16 .links { color: rgba(233,232,224,.55); font-size: 10px; }
+  .s16 .mcta { background: rgba(233,232,224,.08); border: 1px solid rgba(233,232,224,.14); border-radius: 8px; font-size: 10px; }
+  .s16 .mhero { padding: 46px 26px 26px; text-align: center; }
+  .s16 .meye { color: #9AA063; }
+  .s16 .mh { font-size: 37px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; margin: 14px auto; max-width: 18ch;
+    background: linear-gradient(120deg, #F2F1E8, #B9BCA0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .s16 .mlede { margin: 0 auto; color: rgba(233,232,224,.5); font-size: 12px; max-width: 44ch; }
+  .s16 .mstrip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 26px; margin-top: 34px; }
+  .s16 .mstrip div { background: rgba(233,232,224,.05); border: 1px solid rgba(233,232,224,.1); border-radius: 12px; padding: 16px; backdrop-filter: blur(6px); }
+  .s16 .mstrip .n { font-size: 21px; font-weight: 600; color: #D8D9C2; }
+  .s16 .mstrip .l { font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: rgba(233,232,224,.4); margin-top: 4px; }
+
+  /* ============ 17 · Naturalist Arch ============ */
+  .s17 .mk { background: #F8F5EC; color: #37352A;
+    background-image: radial-gradient(60% 46% at 88% 0%, rgba(151,146,101,.16) 0%, transparent 70%), radial-gradient(48% 40% at 0% 100%, rgba(151,146,101,.12) 0%, transparent 70%); }
+  .s17 .mnav { padding: 18px 26px; }
+  .s17 .links { color: #6d6a58; font-size: 10.5px; }
+  .s17 .mhero { display: grid; grid-template-columns: 7fr 4fr; gap: 20px; padding: 36px 26px 0; align-items: center; }
+  .s17 .meye { color: #86835F; letter-spacing: .22em; }
+  .s17 .mh { font-family: Georgia, serif; font-size: 36px; line-height: 1.15; font-weight: 500; margin: 12px 0; }
+  .s17 .mh em { font-style: italic; color: #6F6C49; }
+  .s17 .mlede { font-size: 12px; color: #6d6a58; max-width: 38ch; }
+  .s17 .arch { height: 230px; background: linear-gradient(160deg, #C9C4AE, #8F8B73 70%); border-radius: 999px 999px 0 0; }
+  .s17 .mstrip { display: flex; gap: 30px; padding: 0 26px; margin-top: 26px; }
+  .s17 .mstrip div { font-size: 10.5px; color: #6d6a58; display: flex; align-items: center; gap: 9px; }
+  .s17 .mstrip i { width: 22px; height: 1px; background: #86835F; display: inline-block; }
+
+  /* ============ 18 · Photolith ============ */
+  .s18 .mk { background: linear-gradient(200deg, #6b6b66 0%, #3f3f3b 46%, #232320 100%); color: #FFFFFF; }
+  .s18 .mnav { position: absolute; inset: 0 0 auto; z-index: 2; color: #fff; }
+  .s18 .links { color: rgba(255,255,255,.75); }
+  .s18 .mhero { position: absolute; left: 0; right: 0; bottom: 172px; padding: 0 26px; }
+  .s18 .meye { color: rgba(255,255,255,.7); }
+  .s18 .mh { font-family: Georgia, serif; font-size: 42px; line-height: 1.08; font-weight: 500; margin-top: 12px; max-width: 16ch; text-shadow: 0 2px 24px rgba(0,0,0,.4); }
+  .s18 .mstrip { position: absolute; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #191916; }
+  .s18 .mstrip div { height: 128px; position: relative; overflow: hidden; }
+  .s18 .mstrip div:nth-child(1) { background: linear-gradient(135deg, #8b8b85, #55554f); }
+  .s18 .mstrip div:nth-child(2) { background: linear-gradient(135deg, #77776f, #45453f); }
+  .s18 .mstrip div:nth-child(3) { background: linear-gradient(135deg, #9b9b93, #62625a); }
+  .s18 .mstrip span { position: absolute; left: 12px; bottom: 10px; font-size: 8.5px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.85); }
+
+  /* ============ 19 · Grand Hotel ============ */
+  .s19 .mk { background: #1E3327; color: #F2ECD9; }
+  .s19 .inner { position: absolute; inset: 12px; border: 1px solid rgba(181,152,90,.6); }
+  .s19 .inner::after { content: ""; position: absolute; inset: 5px; border: 1px solid rgba(181,152,90,.3); pointer-events: none; }
+  .s19 .mnav { justify-content: center; padding: 22px 20px 0; }
+  .s19 .links { margin: 0; font-size: 9px; letter-spacing: .32em; text-transform: uppercase; color: #C8B078; }
+  .s19 .mhero { text-align: center; padding: 40px 24px 22px; }
+  .s19 .meye { color: #C8B078; letter-spacing: .4em; }
+  .s19 .mh { font-family: Georgia, "Times New Roman", serif; font-size: 37px; line-height: 1.18; font-weight: 500; margin: 16px auto 12px; max-width: 18ch; }
+  .s19 .mlede { margin: 0 auto; color: rgba(242,236,217,.65); font-size: 11.5px; max-width: 44ch; }
+  .s19 .keys { margin-top: 14px; color: #C8B078; letter-spacing: .5em; font-size: 11px; }
+  .s19 .mstrip { display: grid; grid-template-columns: repeat(3, 1fr); margin: 24px 24px 0; border-top: 1px solid rgba(181,152,90,.4); }
+  .s19 .mstrip div { padding: 18px 12px; text-align: center; border-left: 1px solid rgba(181,152,90,.25); }
+  .s19 .mstrip div:first-child { border-left: 0; }
+  .s19 .mstrip .r { font-family: Georgia, serif; color: #C8B078; font-size: 14px; }
+  .s19 .mstrip .t { font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; margin-top: 8px; }
+
+  /* ============ 20 · Type Only ============ */
+  .s20 .mk { background: #FAF8F2; color: #1E1D18; }
+  .s20 .mnav { padding: 18px 26px; border-bottom: 1px solid rgba(30,29,24,.14); }
+  .s20 .links { color: #686058; }
+  .s20 .mhero { padding: 34px 26px 0; }
+  .s20 .mh { font-family: "Playfair Display", Didot, Georgia, serif; font-weight: 500; font-size: 64px; line-height: 1.02; letter-spacing: -0.02em; }
+  .s20 .mh .row { display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid rgba(30,29,24,.16); padding: 6px 0; }
+  .s20 .mh .row em { font-style: italic; color: #6F6C49; }
+  .s20 .mh .row span { font-family: "Segoe UI", Arial, sans-serif; font-size: 10px; letter-spacing: .2em; color: #8f8b7c; margin-left: auto; text-transform: uppercase; }
+  .s20 .mstrip { padding: 22px 26px 0; display: flex; gap: 26px; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #8f8b7c; }
+
+  footer.note { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--ink-faint); font-size: 13px; max-width: 78ch; }
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <span class="kicker">2birds.asia · Design direction</span>
+    <h1>Twenty styles. Pick the ones worth building.</h1>
+    <p>Each tile below is a live miniature of the 2birds homepage (nav, hero, one content strip) rendered in a distinct direction. The mocks use system fonts as stand-ins; the small note under each tile names the real typefaces the final build would license. Photography, video and the full page set follow whichever direction you choose.</p>
+    <div class="how"><b>How to answer:</b> reply with the numbers you like, e.g. <b>"shortlist 04, 09, 19"</b> — or mix elements: <b>"layout of 03, palette of 10, type of 07"</b>. I'll then build one full homepage per shortlisted direction before committing to the whole site.</div>
+  </header>
+
+  <div class="grid">
+
+    <!-- 01 -->
+    <section class="tile s01">
+      <div class="tile__head"><span class="tile__num">01</span><span class="tile__name">Legora Editorial</span>
+        <span class="tile__tags"><span class="tag">what you saw</span><span class="tag">brand palette</span></span></div>
+      <p class="tile__desc">The direction already built: editorial serif, sage stat band, tracked eyebrows. Here as the reference point to judge the rest against.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#FAF8F2"></span><span class="swatch" style="background:#E5E3D3"></span><span class="swatch" style="background:#6F6C49"></span><span class="swatch" style="background:#23221E"></span><span class="fonts">Playfair Display + Inter</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta">Make an enquiry</span></div>
+          <div class="mhero">
+            <div class="meye">Curriculum and advisory · Singapore</div>
+            <div class="mh">Curriculum,<br />written by <em>practitioners</em>.</div>
+            <div class="mlede">We develop courses for training providers, and we stay beside them through approval and audit.</div>
+            <div class="btns"><span class="b1">See what we do →</span><span class="b2">Make an enquiry</span></div>
+          </div>
+          <div class="mstrip">
+            <div><span class="l">By design</span><span class="v">Selective</span></div>
+            <div><span class="l">Our reach</span><span class="v">The sector</span></div>
+            <div><span class="l">Courses built</span><span class="v">100+</span></div>
+            <div><span class="l">Recognition</span><span class="v">Cited</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="tile s02">
+      <div class="tile__head"><span class="tile__num">02</span><span class="tile__name">Maison</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag">type-led</span></span></div>
+      <p class="tile__desc">Fashion-house minimalism: everything centred, tiny tracked capitals, hairline rules, acres of white. The quietest kind of expensive. <b>Feels like:</b> The Row, Celine.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#FFFFFF"></span><span class="swatch" style="background:#ECE8DE"></span><span class="swatch" style="background:#1B1A17"></span><span class="swatch" style="background:#8f8a7a"></span><span class="fonts">Canela + Suisse Int'l</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span><span>Enquire</span></span></div>
+          <div style="display:flex;justify-content:center;padding-top:16px"><span class="mark"></span></div>
+          <div class="mhero">
+            <div class="meye">Curriculum and advisory · Singapore</div>
+            <div class="mh">Curriculum, written by practitioners.</div>
+            <div class="mlede">We develop courses for training providers, and we stay beside them through approval and audit.</div>
+            <div class="rule"></div>
+            <span class="link">Make an enquiry</span>
+          </div>
+          <div class="mstrip">
+            <div><div class="t">Selective</div><div class="d">A small number of projects each quarter.</div></div>
+            <div><div class="t">100+ courses</div><div class="d">Completed across the firm.</div></div>
+            <div><div class="t">Cited</div><div class="d">In the pages of The Business Times.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="tile s03">
+      <div class="tile__head"><span class="tile__num">03</span><span class="tile__name">Swiss Modern</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag">type-led</span></span></div>
+      <p class="tile__desc">International-style grid: heavy grotesque headlines, hard rules, information set like a beautiful timetable. Confident and unsentimental. <b>Feels like:</b> Vitra, USM Haller.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#FFFFFF"></span><span class="swatch" style="background:#101010"></span><span class="swatch" style="background:#6F6C49"></span><span class="fonts">Neue Haas Grotesk + Suisse Mono</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta">Enquire</span></div>
+          <div class="mhero">
+            <div class="meye">Curriculum + advisory, Singapore</div>
+            <div class="mh">Curriculum, written by practitioners.</div>
+            <div class="mlede">We develop courses for training providers, and we stay beside them through approval and audit.</div>
+          </div>
+          <div class="mstrip">
+            <div><div class="n">Selective</div><div class="l">Projects per quarter, by design</div></div>
+            <div><div class="n">100+</div><div class="l">Courses built across the firm</div></div>
+            <div><div class="n">Grade 1</div><div class="l">TPQA outcomes advised</div></div>
+            <div><div class="n">Cited</div><div class="l">The Business Times, 2022</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="tile s04">
+      <div class="tile__head"><span class="tile__num">04</span><span class="tile__name">Noir Atelier</span>
+        <span class="tile__tags"><span class="tag tag--dep">dark ground</span><span class="tag">image-friendly</span></span></div>
+      <p class="tile__desc">The practice after hours: near-black ground, ivory serif, brass hairlines, a single pool of light. Discreet, senior, expensive. <b>Feels like:</b> Aman resorts, private members' clubs.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#121110"></span><span class="swatch" style="background:#F0EDE2"></span><span class="swatch" style="background:#A89B62"></span><span class="fonts">Freight Display + Founders Grotesk</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark mark--inv"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta">Enquire</span></div>
+          <div class="mhero">
+            <div class="meye">Curriculum and advisory · Singapore</div>
+            <div class="mh">Curriculum, written by practitioners.</div>
+            <div class="mlede">We develop courses for training providers, and we stay beside them through approval and audit.</div>
+          </div>
+          <div class="mstrip">
+            <div><div class="r">I</div><div class="t">WSQ Curriculum Development</div><div class="d">Mapped, drafted, submitted.</div></div>
+            <div><div class="r">II</div><div class="t">ATO Setup Advisory</div><div class="d">Registration to first cohort.</div></div>
+            <div><div class="r">III</div><div class="t">SWDA Audit Matters</div><div class="d">Rehearsed, not feared.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="tile s05">
+      <div class="tile__head"><span class="tile__num">05</span><span class="tile__name">Apothecary Ivory</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag">prose-led</span></span></div>
+      <p class="tile__desc">Warm parchment, modest headline sizes, long considered prose. Trust built through the writing itself rather than scale. <b>Feels like:</b> Aesop, a well-set letter.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#F3EDE0"></span><span class="swatch" style="background:#3B372C"></span><span class="swatch" style="background:#7A7457"></span><span class="fonts">Tiempos Text + National</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta">Enquire</span></div>
+          <div class="mhero">
+            <div class="meye">Curriculum and advisory · Singapore</div>
+            <div class="mh">Curriculum, written by practitioners. We develop courses for training providers, and we stay beside them through approval and audit.</div>
+            <div class="mlede">The work is led by a senior professional adult educator, with close to one hundred courseware submissions behind him, and reviewed by two sets of eyes before any reviewer sees it.</div>
+          </div>
+          <div class="mstrip">
+            <div><div class="t">The first conversation</div><div class="d">Twenty minutes, by call or by note. No charge, and no obligation on either side.</div></div>
+            <div><div class="t">The reply</div><div class="d">Within two working days, during Singapore business hours, in plain words.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="tile s06">
+      <div class="tile__head"><span class="tile__num">06</span><span class="tile__name">Brutalist Ledger</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag tag--dep">high contrast</span></span></div>
+      <p class="tile__desc">Hard borders, condensed capitals, monospace annotations: the audit file as an aesthetic. Bold for the sector, memorable for exactly that reason. <b>Feels like:</b> SSENSE, A-COLD-WALL*.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#FCFCFA"></span><span class="swatch" style="background:#111111"></span><span class="swatch" style="background:#6F6C49"></span><span class="fonts">Druk Condensed + Söhne Mono</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta">Enquire</span></div>
+          <div class="mhero">
+            <div class="meye">CURRICULUM_ADVISORY / SG</div>
+            <div class="mh">Curriculum, written by practitioners.</div>
+            <div class="mlede">// courses for training providers — approval — audit — done properly once</div>
+          </div>
+          <table>
+            <tr><td>I</td><td>WSQ CURRICULUM DEVELOPMENT</td><td>CASL / TPGATEWAY</td></tr>
+            <tr><td>II</td><td>ATO SETUP ADVISORY</td><td>OR + CA</td></tr>
+            <tr><td>III</td><td>SWDA AUDIT MATTERS</td><td>TPQA / CQC</td></tr>
+            <tr><td>IV</td><td>CREATIVE MARKETING</td><td>W/ PIXPLAYSG</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="tile s07">
+      <div class="tile__head"><span class="tile__num">07</span><span class="tile__name">Engraved Classic</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag">centred</span></span></div>
+      <p class="tile__desc">Small caps, double rules, Roman numerals, perfect symmetry: the stationery of a private bank. Tradition worn lightly. <b>Feels like:</b> Smythson, a trust deed.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#FAF6EC"></span><span class="swatch" style="background:#26241E"></span><span class="swatch" style="background:#9C8B5A"></span><span class="fonts">Cormorant small caps + Baskerville</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span><span>Enquire</span></span></div>
+          <div style="display:flex;justify-content:center;padding-top:14px"><span class="mark"></span></div>
+          <div class="mhero">
+            <div class="meye">Est. Singapore</div>
+            <div class="mh">Curriculum, Written by Practitioners</div>
+            <div class="mlede">We develop courses for training providers, and we stay beside them through approval and audit.</div>
+            <div class="orn">✦ ✦ ✦</div>
+          </div>
+          <div class="mstrip">
+            <div><div class="r">I</div><div class="t">Curriculum</div></div>
+            <div><div class="r">II</div><div class="t">Setup &amp; Sourcing</div></div>
+            <div><div class="r">III</div><div class="t">Audit Matters</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="tile s08">
+      <div class="tile__head"><span class="tile__num">08</span><span class="tile__name">Ma · Japanese Air</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag">quietest</span></span></div>
+      <p class="tile__desc">Designed around emptiness: small light type, one olive dot, a vertical margin label, silence as luxury. <b>Feels like:</b> Muji flagship, Kinfolk.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#FBFAF7"></span><span class="swatch" style="background:#2A2925"></span><span class="swatch" style="background:#6F6C49"></span><span class="fonts">Shippori Mincho + Neue Haas Unica</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span></div>
+          <div class="side">Curriculum · Advisory · Singapore</div>
+          <div class="mhero">
+            <div class="dot"></div>
+            <div class="mh">Curriculum, written by practitioners.</div>
+            <div class="mlede">Courses for training providers. Beside them through approval, and through audit.</div>
+          </div>
+          <div class="mstrip">
+            <div><span class="n">100+</span>courses built</div>
+            <div><span class="n">II</span>eyes on every page</div>
+            <div><span class="n">2</span>working days to reply</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="tile s09">
+      <div class="tile__head"><span class="tile__num">09</span><span class="tile__name">Deco Boutique</span>
+        <span class="tile__tags"><span class="tag tag--dep">dark + gold</span><span class="tag">ornamental</span></span></div>
+      <p class="tile__desc">Double gold frames, Didot capitals, geometric ornament on charcoal. Glamorous, ceremonial, unmistakable. <b>Feels like:</b> Claridge's bar menu, a deco lobby.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#1C1B17"></span><span class="swatch" style="background:#B79E5F"></span><span class="swatch" style="background:#EFE9D8"></span><span class="fonts">Ogg + Futura PT caps</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="inner">
+            <div class="mnav"><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span></div>
+            <div style="display:flex;justify-content:center;padding-top:8px"><span class="mark mark--inv"></span></div>
+            <div class="mhero">
+              <div class="meye">Singapore</div>
+              <div class="mh">Curriculum, Written by Practitioners</div>
+              <div class="mlede">Courses for training providers, accompanied through approval and audit.</div>
+              <div class="diamond">◆ ◆ ◆</div>
+            </div>
+            <div class="mstrip">
+              <div><div class="r">I</div><div class="t">Curriculum</div></div>
+              <div><div class="r">II</div><div class="t">Setup</div></div>
+              <div><div class="r">III</div><div class="t">Audit</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="tile s10">
+      <div class="tile__head"><span class="tile__num">10</span><span class="tile__name">Chambers Navy</span>
+        <span class="tile__tags"><span class="tag tag--dep">navy ground</span><span class="tag">institutional</span></span></div>
+      <p class="tile__desc">Deep navy, brass accents, sober serif: the gravitas of a law chambers, softened by warm type. Plays to Keith's LLB heritage. <b>Feels like:</b> a modern chambers, FT Weekend.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#101B2D"></span><span class="swatch" style="background:#EDE8DA"></span><span class="swatch" style="background:#9C8B5A"></span><span class="fonts">Financier Display + Graphik</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark mark--inv"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta">Enquire</span></div>
+          <div class="mhero">
+            <div>
+              <div class="meye">Curriculum and advisory · Singapore</div>
+              <div class="mh">Curriculum, written by practitioners.</div>
+            </div>
+            <div class="mlede">We develop courses for training providers, and we stay beside them through approval and audit.</div>
+          </div>
+          <div class="mstrip">
+            <div><div class="n">100+</div><div class="l">Courses built</div></div>
+            <div><div class="n">Grade 1</div><div class="l">TPQA outcomes</div></div>
+            <div><div class="n">L3</div><div class="l">Senior AE, TAEPP</div></div>
+            <div><div class="n">2025</div><div class="l">SWDA outreach speaker</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="tile s11">
+      <div class="tile__head"><span class="tile__num">11</span><span class="tile__name">White Cube</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag">gallery</span></span></div>
+      <p class="tile__desc">The gallery hang: giant index numerals, small factual captions, photography treated as exhibited work. Curated, not sold. <b>Feels like:</b> Gagosian, David Zwirner.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#FFFFFF"></span><span class="swatch" style="background:#161616"></span><span class="swatch" style="background:#b9b6af"></span><span class="fonts">Untitled Sans + Times Ten</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark"></span><span class="links"><span>01 Brand</span><span>02 Curriculum</span><span>03 Setup</span><span>04 Audit</span></span></div>
+          <div class="mhero">
+            <div class="bignum">01</div>
+            <div class="mh">Curriculum, written by practitioners</div>
+            <div class="mlede">Courses for training providers, accompanied through approval and audit. Singapore.</div>
+          </div>
+          <div class="art"></div>
+          <div class="cap"><span>Two birds, one pier · the brand as originally pictured</span><span>2birds · SG</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="tile s12">
+      <div class="tile__head"><span class="tile__num">12</span><span class="tile__name">Periodical</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag">editorial</span></span></div>
+      <p class="tile__desc">A masthead, column rules, a drop cap, a sidebar index: the site as a beautifully set journal about training. <b>Feels like:</b> Monocle, The Gentlewoman.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#FBF7EF"></span><span class="swatch" style="background:#26241F"></span><span class="swatch" style="background:#6F6C49"></span><span class="fonts">Miller Display + Franklin Gothic</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mast"><div class="t">2birds</div><div class="sub">Curriculum &amp; Advisory · Singapore · Issue nº 1</div></div>
+          <div class="cols">
+            <div>
+              <div class="kick">The lead</div>
+              <div class="mh">Curriculum, written by practitioners.</div>
+              <div class="mlede">We develop courses for training providers, and we stay beside them through approval and audit. The work is led by a senior professional adult educator with close to one hundred courseware submissions behind him, and every page is read twice before any reviewer sees it. The first conversation is twenty minutes, and it costs nothing.</div>
+            </div>
+            <aside>
+              <div class="h">In this practice</div>
+              <div class="item"><span>I</span>WSQ Curriculum Development</div>
+              <div class="item"><span>II</span>ATO Setup Advisory</div>
+              <div class="item"><span>III</span>SWDA Audit Matters</div>
+              <div class="item"><span>IV</span>Creative Marketing</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="tile s13">
+      <div class="tile__head"><span class="tile__num">13</span><span class="tile__name">Scandinavian Soft</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag">approachable</span></span></div>
+      <p class="tile__desc">Calm grey-ivory, soft cards, gentle shadows, friendly weight. Premium but warm: the least intimidating direction here. <b>Feels like:</b> Norm Architects, &amp;Tradition.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#F5F5F2"></span><span class="swatch" style="background:#26251F"></span><span class="swatch" style="background:#DDE0D2"></span><span class="fonts">Söhne + GT America</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta">Enquire</span></div>
+          <div class="mhero">
+            <div class="meye">Curriculum and advisory</div>
+            <div class="mh">Curriculum, written by practitioners.</div>
+            <div class="mlede">Courses for training providers, accompanied through approval and audit.</div>
+          </div>
+          <div class="mstrip">
+            <div><div class="ic"></div><div class="t">Curriculum</div><div class="d">Mapped, drafted, submitted on TPGateway.</div></div>
+            <div><div class="ic"></div><div class="t">Setup</div><div class="d">Registration to first cohort, in order.</div></div>
+            <div><div class="ic"></div><div class="t">Audit</div><div class="d">TPQA and CQC, quietly rehearsed.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="tile s14">
+      <div class="tile__head"><span class="tile__num">14</span><span class="tile__name">Bauhaus Discipline</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag tag--dep">graphic</span></span></div>
+      <p class="tile__desc">Geometry as identity: the olive circle, the black square, four-point rules and shouting-but-disciplined type. <b>Feels like:</b> Vitsœ, Braun archive.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#FFFFFF"></span><span class="swatch" style="background:#131310"></span><span class="swatch" style="background:#6F6C49"></span><span class="fonts">Neue Haas Display + Marr Sans</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta" style="background:#131310;color:#fff">Enquire</span></div>
+          <div class="geo"></div><div class="geo2"></div>
+          <div class="mhero">
+            <div class="meye">Curriculum + advisory</div>
+            <div class="mh">Courses, <mark>written</mark> by practitioners.</div>
+            <div class="mlede">For training providers. Through approval. Through audit.</div>
+          </div>
+          <div class="mstrip">
+            <div><span>I</span>Curriculum</div>
+            <div><span>II</span>Setup</div>
+            <div><span>III</span>Audit</div>
+            <div><span>IV</span>Marketing</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="tile s15">
+      <div class="tile__head"><span class="tile__num">15</span><span class="tile__name">Letterpress Heritage</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag">tactile</span></span></div>
+      <p class="tile__desc">Cream stock with a printed grain, Garamond, a fleuron, a pressed button. The site as fine stationery. <b>Feels like:</b> a letterpress studio, old-school publishers.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#F7F1E3"></span><span class="swatch" style="background:#2B2822"></span><span class="swatch" style="background:#8a8266"></span><span class="fonts">Caslon + Atlas Grotesk</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span><span>Enquire</span></span></div>
+          <div style="display:flex;justify-content:center;padding-top:10px"><span class="mark"></span></div>
+          <div class="mhero">
+            <div class="meye">Singapore · By appointment</div>
+            <div class="mh">Curriculum, written by practitioners.</div>
+            <div class="mlede">We develop courses for training providers, and we stay beside them through approval and audit.</div>
+            <div class="fleuron">❦</div>
+            <span class="btn">Begin a Conversation</span>
+          </div>
+          <div class="mstrip">
+            <div>WSQ Curriculum Development <span>I</span></div>
+            <div>ATO Setup Advisory <span>II</span></div>
+            <div>SWDA Audit Matters <span>III</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section class="tile s16">
+      <div class="tile__head"><span class="tile__num">16</span><span class="tile__name">Linear Lux</span>
+        <span class="tile__tags"><span class="tag tag--dep">dark tech</span><span class="tag">modern</span></span></div>
+      <p class="tile__desc">Software-grade polish in warm charcoal: glass cards, gradient type, precise small text. Signals a firm comfortable with data and systems. <b>Feels like:</b> Linear, Vercel, but warmed to the brand.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#131511"></span><span class="swatch" style="background:#E9E8E0"></span><span class="swatch" style="background:#9AA063"></span><span class="fonts">Suisse Int'l + Söhne Mono</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark mark--inv"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta">Enquire</span></div>
+          <div class="mhero">
+            <div class="meye">Curriculum and advisory · Singapore</div>
+            <div class="mh">Curriculum, written by practitioners.</div>
+            <div class="mlede">Courses for training providers, carried through approval and audit.</div>
+          </div>
+          <div class="mstrip">
+            <div><div class="n">100+</div><div class="l">Courses built</div></div>
+            <div><div class="n">369</div><div class="l">CASL skills tracked</div></div>
+            <div><div class="n">2 days</div><div class="l">Reply time</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section class="tile s17">
+      <div class="tile__head"><span class="tile__num">17</span><span class="tile__name">Naturalist Arch</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag">organic</span></span></div>
+      <p class="tile__desc">Soft sage washes, arched imagery, italic serif accents: the olive in the palette allowed to breathe. Gentle, botanical, humane. <b>Feels like:</b> Perfumer H, boutique wellness.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#F8F5EC"></span><span class="swatch" style="background:#37352A"></span><span class="swatch" style="background:#97926540"></span><span class="swatch" style="background:#6F6C49"></span><span class="fonts">Canela + Founders Grotesk</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta">Enquire</span></div>
+          <div class="mhero">
+            <div>
+              <div class="meye">Curriculum and advisory</div>
+              <div class="mh">Curriculum, written by <em>practitioners</em>.</div>
+              <div class="mlede">Courses that lift people up, not screen them out. Beside you through approval and audit.</div>
+            </div>
+            <div class="arch"></div>
+          </div>
+          <div class="mstrip">
+            <div><i></i>Selective by design</div>
+            <div><i></i>100+ courses built</div>
+            <div><i></i>Two working days to reply</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 18 -->
+    <section class="tile s18">
+      <div class="tile__head"><span class="tile__num">18</span><span class="tile__name">Photolith</span>
+        <span class="tile__tags"><span class="tag">image-first</span><span class="tag">brand palette</span></span></div>
+      <p class="tile__desc">Full-bleed monochrome photography carries everything; type sits sparingly on top. Your existing B&amp;W image library becomes the whole identity. <b>Feels like:</b> Leica, Hermès editorials.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#3f3f3b"></span><span class="swatch" style="background:#FFFFFF"></span><span class="swatch" style="background:#191916"></span><span class="fonts">Chronicle Display + Helvetica Now</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark mark--inv"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta" style="border:1px solid rgba(255,255,255,.5)">Enquire</span></div>
+          <div class="mhero">
+            <div class="meye">Curriculum and advisory · Singapore</div>
+            <div class="mh">Curriculum, written by practitioners.</div>
+          </div>
+          <div class="mstrip">
+            <div><span>I · Curriculum</span></div>
+            <div><span>II · Setup</span></div>
+            <div><span>III · Audit</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 19 -->
+    <section class="tile s19">
+      <div class="tile__head"><span class="tile__num">19</span><span class="tile__name">Grand Hotel</span>
+        <span class="tile__tags"><span class="tag tag--dep">deep green</span><span class="tag">framed</span></span></div>
+      <p class="tile__desc">Deep bottle green, cream, brass, and a double frame around every page: the concierge desk of training advisory. <b>Feels like:</b> Claridge's, The Connaught.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#1E3327"></span><span class="swatch" style="background:#F2ECD9"></span><span class="swatch" style="background:#B5985A"></span><span class="fonts">Sackers Gothic + Freight Text</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="inner"></div>
+          <div style="position:relative">
+            <div class="mnav"><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span></div>
+            <div style="display:flex;justify-content:center;padding-top:14px"><span class="mark mark--inv"></span></div>
+            <div class="mhero">
+              <div class="meye">Singapore</div>
+              <div class="mh">Curriculum, written by practitioners.</div>
+              <div class="mlede">Courses for training providers, accompanied through approval and audit. At your service, by appointment.</div>
+              <div class="keys">⚜</div>
+            </div>
+            <div class="mstrip">
+              <div><div class="r">I</div><div class="t">Curriculum</div></div>
+              <div><div class="r">II</div><div class="t">Setup</div></div>
+              <div><div class="r">III</div><div class="t">Audit</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 20 -->
+    <section class="tile s20">
+      <div class="tile__head"><span class="tile__num">20</span><span class="tile__name">Type Only</span>
+        <span class="tile__tags"><span class="tag">brand palette</span><span class="tag">no imagery</span></span></div>
+      <p class="tile__desc">No photography at all: gigantic serif words on ruled lines, the services as a typographic index. Radical restraint; the cheapest to keep timeless. <b>Feels like:</b> a design studio's own site, D&amp;AD annual.</p>
+      <div class="chipsrow"><span class="swatch" style="background:#FAF8F2"></span><span class="swatch" style="background:#1E1D18"></span><span class="swatch" style="background:#6F6C49"></span><span class="fonts">Editorial New + Neue Montreal</span></div>
+      <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div>
+        <div class="mk">
+          <div class="mnav"><span class="mark"></span><span class="links"><span>Brand</span><span>Curriculum</span><span>Setup</span><span>Audit</span></span><span class="mcta" style="border-bottom:1px solid #1E1D18;padding:0 0 2px;font-size:10px">Enquire</span></div>
+          <div class="mhero">
+            <div class="mh">
+              <div class="row">Curriculum,<span>Singapore</span></div>
+              <div class="row">written by<span>Est. 2026</span></div>
+              <div class="row"><em>practitioners.</em><span>By appointment</span></div>
+            </div>
+          </div>
+          <div class="mstrip">
+            <span>01 Curriculum</span><span>02 Setup</span><span>03 Audit</span><span>04 Marketing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="note">
+    All twenty use your monogram and keep the copy voice constant, so you are comparing pure style. Directions tagged "brand palette" keep ivory / olive / charcoal; tagged departures shift the ground colour while keeping the olive-gold family as accent. Mocks render in system stand-in fonts; each caption names the licensed faces the real build would use. Photography, motion and all 12 pages follow the shortlisted direction.
+  </footer>
+</div>

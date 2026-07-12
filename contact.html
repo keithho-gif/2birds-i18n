@@ -4,639 +4,351 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>2birds asia | Make an enquiry</title>
-<meta name="description" content="Write to 2birds. A note about a curriculum, audit, ATO setup or sourcing project is enough to begin. You will hear from us within two working days." />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="2birds" />
-<meta property="og:title" content="2birds asia | Make an enquiry" />
-<meta property="og:description" content="Write to 2birds. A note about a curriculum, audit, ATO setup or sourcing project is enough to begin. You will hear from us within two working days." />
-<meta property="og:url" content="https://www.2birds.asia/contact" />
-<meta property="og:image" content="https://www.2birds.asia/assets/og-image.png?v=9" />
-<meta property="og:image:secure_url" content="https://www.2birds.asia/assets/og-image.png?v=9" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="500" />
-<meta property="og:image:height" content="500" />
-<meta property="og:image:alt" content="2birds" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="2birds asia | Make an enquiry" />
-<meta name="twitter:description" content="Write to 2birds. A note about a curriculum, audit, ATO setup or sourcing project is enough to begin. You will hear from us within two working days." />
-<meta name="twitter:image" content="https://www.2birds.asia/assets/og-image.png?v=9" />
-
-<link rel="icon" type="image/png" href="assets/favicon.png?v=9" />
-<link rel="shortcut icon" type="image/png" href="assets/favicon.png?v=9" />
-<link rel="apple-touch-icon" href="assets/favicon.png?v=9" />
-<link rel="stylesheet" href="css/foundations.css" />
-<link rel="stylesheet" href="css/site.css" />
-<link rel="stylesheet" href="css/i18n.css" />
-<link rel="stylesheet" href="css/premium.css" />
-
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-
-<script src="js/transition.js"></script>
-<script src="js/i18n.js"></script>
+<meta name="description" content="Begin a conversation with 2birds. Send us a note about your curriculum, setup or audit project and hear back within two working days." />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/main.css?v=26" />
+<style>
+  .founder-lead { text-align: center; max-width: 58ch; margin: 0 auto clamp(40px,5vw,64px); }
+  .founder-role { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--olive); margin-top: 12px; }
+  .founder-grid { display: grid; grid-template-columns: minmax(0,4fr) minmax(0,8fr); gap: clamp(36px,6vw,88px); align-items: start; }
+  @media (max-width: 860px) { .founder-grid { grid-template-columns: 1fr; gap: 34px; } }
+  .founder-rail { display: flex; flex-direction: column; gap: 28px; position: sticky; top: 128px; }
+  @media (max-width: 860px) { .founder-rail { position: static; } }
+  .founder-rail__block { display: flex; flex-direction: column; gap: 12px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .founder-rail__label { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-faint); }
+  .founder-rail__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+  .founder-rail__list li { font-size: 12.5px; line-height: 1.4; color: var(--ink); }
+  .founder-rail__block .text-link { font-size: 13px; }
+  .founder-body { max-width: 66ch; }
+  .founder-body p:first-of-type { font-family: var(--serif); font-weight: 500; font-size: clamp(1.02rem,1.35vw,1.2rem); line-height: 1.62; color: var(--ink); }
+  .orglist { border-top:1px solid var(--line); columns: 2; column-gap: clamp(24px,4vw,64px); }
+  @media (max-width: 720px) { .orglist { columns: 1; } }
+  .orglist div { display:flex; gap:18px; padding:16px 0; border-bottom:1px solid var(--line); break-inside:avoid; font-size:14.5px; }
+  .orglist .n { font-family:var(--serif); color:var(--olive); font-size:13px; min-width:24px; }
+</style>
 </head>
-<body class="is-premium" data-screen-label="06 Contact">
-<div id="root"></div>
+<body data-page="contact">
 
-<script src="js/ato-list.js"></script>
-<script type="text/babel" src="js/shared.jsx"></script>
+<main>
 
-<script type="text/babel">
+  <section class="bhero bhero--short">
+    <div class="bhero__bg" aria-hidden="true"><img src="assets/contact-singapore.jpg" alt="" /></div>
+    <div class="bhero__inner">
+      <div class="bhero__crumb"><a href="index.html">2birds</a><span>·</span><span>Contact</span></div>
+      <span class="eyebrow reveal">Correspondence</span>
+      <h1 class="display reveal" style="--d:.1s">Begin a <em>conversation</em>.</h1>
+      <hr class="rule reveal" style="--d:.16s" />
+      <p class="lede reveal" style="--d:.22s; margin-top:0; max-width:48ch;">Whether you are a training provider weighing a project, a practitioner considering joining us, or simply curious, a note is always welcome. You will hear from us within two working days.</p>
+    </div>
+  </section>
 
-
-
-const { useState, useMemo, useRef, useEffect } = React;
-
-const CAPACITIES = [
-{ id: "provider", label: "Training provider" },
-{ id: "trainer", label: "Trainer or AE" },
-{ id: "sme", label: "Subject-matter expert" }];
-
-
-// Comparison: how the practice differs from a typical curriculum vendor.
-const COMPARE = [
-{ row: "Subject-matter expert sourcing",
-  them: "Left to the provider to find on their own, and without one the course cannot be submitted.",
-  us: "Sourced for you from our community, so your submission is never held back." },
-{ row: "DACE or DDDLP accredited developers",
-  them: "Not always credentialled to the SSG framework.",
-  us: "Yes, with a public TAEPP record." },
-{ row: "Audit clarification response",
-  them: "Left to a lone developer, so the turnaround drifts.",
-  us: "Worked as a team, and returned in days rather than weeks." },
-{ row: "TPGateway submission support",
-  them: "Typically not offered, or charged separately.",
-  us: "Included with every courseware project." },
-{ row: "Submission record and experience",
-  them: "Often a single hand, with limited submission experience.",
-  us: "Close to one hundred courseware submissions, made collectively as a team." },
-{ row: "Revenue and marketing",
-  them: "Referred to a separate vendor.",
-  us: "Handled by us." }];
-
-
-// Houses where the practice and the community have served, ongoing or recent.
-const STANDING = [
-{ name: "1ST Aid & Healthcare Academy", url: "https://www.1staidhealthcare.edu.sg/" },
-{ name: "Adept Academy", url: "https://adeptacademy.com/" },
-{ name: "Addison Institute", url: "https://www.addison.edu.sg/" },
-{ name: "Carrie Academy International", url: "https://carrieacademy.com/" },
-{ name: "Focus Learning Centre", url: "https://focuslearning.sg/" },
-{ name: "HY M&E Engineering Consultancy", url: "https://hy-me.com.sg/" },
-{ name: "Institute of Singapore Chartered Accountants, ISCA", url: "https://www.isca.org.sg/" },
-{ name: "QD Academy", url: "https://theqdacademy.com/" },
-{ name: "Singapore Chamber of Commerce and Industry, SCCI", url: "https://scci.sg/" },
-{ name: "Singapore Furniture Industries Council Institute", url: "https://www.singaporefurniture.com/sfic-institute" },
-{ name: "Singapore Productivity Centre, SGPC", url: "https://www.sgpc.sg/" },
-{ name: "Wong Fong Academy", url: "https://wfa.edu.sg/" },
-{ name: "Xprienz", url: "https://xprienz.com/" }];
-
-
-const FAQ = [
-{ q: <>What should we include in a first <em>enquiry</em>?</>,
-  a: "A short note of what you are looking to achieve is enough to begin. If you are able to tell us the nature of the course, your intended timeline and whether you are an existing or prospective training organisation, we can come to the first conversation already prepared. Nothing formal is required at this stage." },
-{ q: <>Is the first <em>consultation</em> chargeable?</>,
-  a: "It is not. The first consultation, around twenty minutes by call or by note, is offered without charge and without obligation. Its purpose is to understand the project, its timeline and the form of SSG funding that suits the course, and to give you a candid view of whether it is a project we should take on and what it is likely to cost." },
-{ q: <>Do you work with <em>new training organisations</em>?</>,
-  a: "We do, and frequently. Much of our ATO setup work is undertaken for organisations entering the sector for the first time. If you are still weighing whether to do so, the first conversation is the right place to begin." },
-{ q: <>Are our discussions treated in <em>confidence</em>?</>,
-  a: "They are. Anything you share with us, whether in the first conversation or thereafter, is treated as confidential and is not disclosed to any third party. Where a project calls for it, we are glad to put a formal confidentiality undertaking in place before we begin." }];
-
-
-function FaqItem({ q, a }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className={"tb-faq__item" + (open ? " is-open" : "")}>
-      <button className="tb-faq__q" type="button" onClick={() => setOpen((o) => !o)}>
-        <span>{q}</span>
-        <span className="tb-faq__sign">{open ? "–" : "+"}</span>
-      </button>
-      <div className="tb-faq__a"><p style={{ margin: 0 }}>{a}</p></div>
-    </div>);
-}
-
-// Standard text input.
-function Field({ label, required, type = "text", value, onChange, placeholder }) {
-  const [focused, setFocused] = useState(false);
-  return (
-    <label className="tb-field">
-      <span className="tb-field__label">
-        {label}
-        {required && <em className="tb-field__req"> *</em>}
-      </span>
-      <input
-        className={"tb-field__input" + (focused ? " is-focused" : "")}
-        type={type}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)} />
-      
-    </label>);
-
-}
-
-function TextArea({ label, required, value, onChange, placeholder }) {
-  const [focused, setFocused] = useState(false);
-  return (
-    <label className="tb-field">
-      <span className="tb-field__label">
-        {label}
-        {required && <em className="tb-field__req"> *</em>}
-      </span>
-      <textarea
-        rows={3}
-        className={"tb-field__input tb-field__textarea" + (focused ? " is-focused" : "")}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)} />
-      
-    </label>);
-
-}
-
-// Typeahead combobox used for the Training organisation field.
-function Combobox({ label, required, value, onChange, placeholder, options = [], maxShown = 10 }) {
-  const [focused, setFocused] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [highlight, setHighlight] = useState(0);
-  const inputRef = useRef(null);
-  const wrapRef = useRef(null);
-
-  const matches = useMemo(() => {
-    const q = (value || "").trim().toLowerCase();
-    if (!q) return options.slice(0, maxShown);
-    const starts = [],includes = [];
-    for (const opt of options) {
-      const lo = opt.toLowerCase();
-      if (lo.startsWith(q)) starts.push(opt);else
-      if (lo.includes(q)) includes.push(opt);
-      if (starts.length >= maxShown) break;
-    }
-    return [...starts, ...includes].slice(0, maxShown);
-  }, [value, options, maxShown]);
-
-  useEffect(() => {
-    function onDocDown(e) {
-      if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false);
-    }
-    if (open) document.addEventListener("mousedown", onDocDown);
-    return () => document.removeEventListener("mousedown", onDocDown);
-  }, [open]);
-
-  const choose = (val) => {
-    onChange({ target: { value: val } });
-    setOpen(false);
-    setHighlight(0);
-    inputRef.current && inputRef.current.blur();
-  };
-
-  const onKeyDown = (e) => {
-    if (!open && (e.key === "ArrowDown" || e.key === "ArrowUp")) {setOpen(true);return;}
-    if (!open) return;
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      setHighlight((h) => Math.min(h + 1, matches.length - 1));
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      setHighlight((h) => Math.max(h - 1, 0));
-    } else if (e.key === "Enter") {
-      if (matches[highlight]) {e.preventDefault();choose(matches[highlight]);}
-    } else if (e.key === "Escape") {setOpen(false);}
-  };
-
-  return (
-    <label className="tb-field tb-combo" ref={wrapRef}>
-      <span className="tb-field__label">
-        {label}
-        {required && <em className="tb-field__req"> *</em>}
-      </span>
-      <div className="tb-combo__wrap">
-        <input
-          ref={inputRef}
-          className={"tb-field__input" + (focused ? " is-focused" : "")}
-          type="text"
-          value={value}
-          onChange={(e) => {onChange(e);setOpen(true);setHighlight(0);}}
-          onFocus={() => {setFocused(true);setOpen(true);}}
-          onBlur={() => setFocused(false)}
-          onKeyDown={onKeyDown}
-          placeholder={placeholder}
-          autoComplete="off"
-          role="combobox"
-          aria-expanded={open} />
-        
-        <span className="tb-combo__caret" aria-hidden="true">
-          <svg viewBox="0 0 12 8" width="12" height="8">
-            <path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.5"
-            strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
-        {open && matches.length > 0 &&
-        <ul className="tb-combo__list" role="listbox">
-            {matches.map((opt, i) =>
-          <li
-            key={opt}
-            className={"tb-combo__opt" + (i === highlight ? " is-active" : "")}
-            role="option"
-            aria-selected={i === highlight}
-            onMouseDown={(e) => {e.preventDefault();choose(opt);}}
-            onMouseEnter={() => setHighlight(i)}>
-            
-                {opt}
-              </li>
-          )}
-            {value && !options.some((o) => o.toLowerCase() === value.toLowerCase()) &&
-          <li className="tb-combo__hint">
-                Press <kbd>Enter</kbd> to use “{value}” as your own entry.
-              </li>
-          }
-          </ul>
-        }
+  <!-- § I FORM -->
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="split__meta reveal">
+          <span class="eyebrow">§ I · The form</span>
+          <h2 class="h2">Tell us what the project looks like.</h2>
+          <p class="lede mt-2">Describe it in your own words. We reply within two working days, during Singapore business hours.</p>
+          <div class="mt-4">
+            <div style="border-top:1px solid var(--line);padding:16px 0;">
+              <span class="small-caps">Office</span>
+              <p style="font-size:14.5px;margin-top:4px">7 Temasek Boulevard, #12-07<br />Suntec Tower One, Singapore 038987</p>
+            </div>
+            <div style="border-top:1px solid var(--line);padding:16px 0;">
+              <span class="small-caps">Email</span>
+              <p style="font-size:14.5px;margin-top:4px"><a href="mailto:hello@2birds.asia">hello@2birds.asia</a></p>
+            </div>
+            <div style="border-top:1px solid var(--line);padding:16px 0;">
+              <span class="small-caps">Hours</span>
+              <p style="font-size:14.5px;margin-top:4px">Monday to Friday · 9am to 6pm</p>
+            </div>
+            <div style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;">
+              <span class="small-caps">Reply</span>
+              <p style="font-size:14.5px;margin-top:4px">Within two working days</p>
+            </div>
+          </div>
+          <p class="prose mt-3" style="font-size:14px">Our office is at 7 Temasek Boulevard, #12-07 Suntec Tower One, Singapore 038987. Meetings are by appointment, at our office, your premises or a venue of your choosing.</p>
+        </div>
+        <form class="form reveal" id="tb-enquiry" style="--d:.1s" novalidate>
+          <div class="field">
+            <label>I am enquiring as</label>
+            <div class="chips" data-single id="e-role">
+              <span class="chip is-on" data-v="Training provider">Training provider</span>
+              <span class="chip" data-v="Trainer or AE">Trainer or AE</span>
+              <span class="chip" data-v="Subject-matter expert">Subject-matter expert</span>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="field"><label for="e-name">Your name *</label><input id="e-name" required /></div>
+            <div class="field"><label for="e-email">Email *</label><input id="e-email" type="email" required /></div>
+          </div>
+          <div class="form__row">
+            <div class="field"><label for="e-org">Training organisation</label><input id="e-org" /></div>
+            <div class="field"><label for="e-tel">Telephone · optional</label><input id="e-tel" /></div>
+          </div>
+          <div class="field">
+            <label for="e-area">Field of work</label>
+            <select id="e-area">
+              <option value="">Select…</option>
+              <option>WSQ Curriculum Development</option>
+              <option>ATO Setup Advisory</option>
+              <option>SWDA Audit Matters</option>
+              <option>Creative Marketing</option>
+              <option>Trainers and SMEs Sourcing</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field"><label for="e-note">A short note *</label><textarea id="e-note" required></textarea></div>
+          <div>
+            <button class="btn" type="submit">Send the note <span class="arrow">→</span></button>
+            <p class="form__note mt-2">By sending, you agree to our <a href="engagement.html" style="border-bottom:1px solid var(--olive-bright)">correspondence terms</a>.</p>
+          </div>
+        </form>
       </div>
-    </label>);
+    </div>
+  </section>
 
-}
+  <!-- FEES PANEL -->
+  <section class="section--tight section">
+    <div class="container">
+      <div class="panel reveal">
+        <div class="panel__body">
+          <span class="eyebrow eyebrow--dark">Curious about our development fees?</span>
+          <h3 class="panel__title mt-2">A conversation before a quote.</h3>
+          <p class="panel__sub">Twenty minutes, by phone or by email. We will tell you, candidly, whether the work is something we should take on, and what it would cost.</p>
+          <a class="btn btn--light" href="mailto:hello@2birds.asia?subject=Complimentary%20consultation%20enquiry">Begin the conversation <span class="arrow">→</span></a>
+        </div>
+        <div class="panel__media"><img src="assets/maison-quill.jpg" alt="A quill pen resting on an open book" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
 
-function App() {
-  const [capacity, setCapacity] = useState("provider");
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
-    name: "", email: "", org: "", phone: "", area: "", note: ""
-  });
-  const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+  <!-- § II HOW WE DIFFER -->
+  <section class="section section--bone">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">§ II · How we differ</span>
+        <h2 class="h2">2birds, alongside a typical vendor.</h2>
+        <p class="lede">Six places where the choice of practitioner matters, in handling rather than in slogans.</p>
+      </header>
+      <div class="compare reveal">
+        <div class="compare__row" aria-hidden="true">
+          <span class="compare__head"></span>
+          <span class="compare__head">A typical curriculum vendor</span>
+          <span class="compare__head">2birds</span>
+        </div>
+        <dl class="compare__row">
+          <dt>Subject-matter expert sourcing</dt>
+          <dd>Left to the training provider to source alone, and the SME found may not qualify for SWDA submission.</dd>
+          <dd class="is-us">Sourced for you from our community, so your submission is never held back.</dd>
+        </dl>
+        <dl class="compare__row">
+          <dt>DACE or DDDLP accredited developers</dt>
+          <dd>May not be registered to the TAEPP framework. From 1 April 2026, AEs who wish to deliver SWDA-supported training must be on the National Adult Educator Registry.</dd>
+          <dd class="is-us">Yes, with a public TAEPP record. We provide the CVs of one Level 1 Associate AE and one Level 3 Senior Professional AE for courseware submission.</dd>
+        </dl>
+        <dl class="compare__row">
+          <dt>Audit clarification response</dt>
+          <dd>A single developer answers SWDA's auditor enquiries, typically within a five working day window.</dd>
+          <dd class="is-us">Team delivery means faster turnaround, supported by legal training that lets us justify our pedagogical outcomes to SWDA auditors.</dd>
+        </dl>
+        <dl class="compare__row">
+          <dt>TPGateway submission support</dt>
+          <dd>Typically not offered, or charged separately.</dd>
+          <dd class="is-us">Included with every courseware engagement, as we hold direct access to the TPGateway portal.</dd>
+        </dl>
+        <dl class="compare__row">
+          <dt>Submission record and experience</dt>
+          <dd>Often a single hand, with limited courseware submission experience.</dd>
+          <dd class="is-us">Close to one hundred submissions, made as a team, holding qualifications such as DDDLP, DACE, ACLP, ACTA, IAL-SAE and LL.B.</dd>
+        </dl>
+        <dl class="compare__row">
+          <dt>Marketing assets</dt>
+          <dd>Not provided, or referred to a separate vendor.</dd>
+          <dd class="is-us">Handled by the practice, providing one complimentary marketing asset in a digital copy.</dd>
+        </dl>
+      </div>
+      <p class="form__note mt-2 center reveal">A typical curriculum vendor describes the common market alternative, not any particular provider.</p>
+    </div>
+  </section>
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const capLabel = (CAPACITIES.find((c) => c.id === capacity) || {}).label || "Enquiry";
-    const areaLabel =
-      capacity === "provider" ? "Practice area" :
-      capacity === "trainer" ? "Sector / specialism" :
-      "Domain expertise";
-    const subject = "Enquiry to 2birds" + (form.name ? " · " + form.name : "");
-    const lines = [
-      "I am writing as: " + capLabel,
-      "Name: " + (form.name || "-"),
-      "Email: " + (form.email || "-"),
-      form.org ? "Organisation: " + form.org : null,
-      form.phone ? "Telephone: " + form.phone : null,
-      form.area ? areaLabel + ": " + form.area : null,
-      "",
-      "A short note:",
-      form.note || "-",
-      "",
-      "Kind regards,",
-      form.name || "",
-    ].filter((l) => l !== null);
-    window.location.href =
-      "mailto:hello@2birds.asia?subject=" + encodeURIComponent(subject) +
-      "&body=" + encodeURIComponent(lines.join("\n"));
-    setSubmitted(true);
-  };
-
-  const subByCapacity = {
-    provider: "Tell us, in your own words, what the project looks like. We will reply within two working days during Singapore business hours.",
-    trainer: "Tell us a little about your sector and the courses you train. We will be in touch about adding you to the community.",
-    sme: "Tell us about your domain and where you have practised. We will write back about engagements we are working on that may fit your standing."
-  };
-
-  return (
-    <>
-      <NavBar current="contact" />
-      <main>
-
-        <PageHero
-          location="Contact"
-          eyebrow="Correspondence"
-          title={<>Begin a <em>conversation.</em></>}
-          lede="We would be glad to hear from you. Whether you are a training provider weighing a project, a trainer or subject-matter expert considering joining us, or simply curious, a note is always welcome. You will hear from us within two working days." />
-        
-
-        {/* WIDE EDITORIAL FIGURE */}
-        <section className="premium-section premium-section--paper tb-reveal" style={{ paddingTop: 0, paddingBottom: 96 }}>
-          <div className="container">
-            <figure className="premium-figure premium-figure--16x9 premium-figure--restrained premium-figure--photo">
-              <img src="assets/contact-flatiron.jpg" alt="A landmark building seen from below, against an open sky. Order, solidity, an open conversation about to begin." />
-              <span className="premium-figure__ratio">16 : 9</span>
-              <div className="premium-figure__brief">
-                <span className="premium-figure__brief-label">A working metaphor</span>
-                <p className="premium-figure__brief-text">
-                  Correspondence with us is a quiet thing, the work behind it solid. Write to us and we will write back.
-                </p>
-              </div>
-            </figure>
-            <p className="premium-figure-caption">
-              The shape of correspondence, monochrome study, the solidity of a firm at work.
-            </p>
-          </div>
-        </section>
-
-        {/* ---------- CONTACT FORM ---------- */}
-        <section className="tb-contact tb-reveal" id="form">
-          <div className="container">
-            <header className="tb-contact__head">
-              <EyebrowLockup>§ I · The form</EyebrowLockup>
-              <h2 className="tb-contact__title">
-                Begin a <em>conversation.</em>
-              </h2>
-              <p className="tb-contact__sub">{subByCapacity[capacity]}</p>
-            </header>
-
-            <div className="tb-contact__pane">
-              {submitted ?
-              <div className="tb-contact__ok">
-                  <EyebrowLockup>Received</EyebrowLockup>
-                  <h3 className="tb-contact__okTitle">
-                    Thank you{form.name ? `, ${form.name.split(" ")[0]}` : ""}.
-                  </h3>
-                  <p className="tb-contact__okBody">
-                    Your note has reached us, and is in good hands. You will hear from us at{" "}
-                    <a className="t-link-sm" href="mailto:hello@2birds.asia">hello@2birds.asia</a>{" "}
-                    within two working days.
-                  </p>
-                </div> :
-
-              <div className="tb-contact__layout">
-                  <form onSubmit={onSubmit} noValidate>
-                    {/* Capacity */}
-                    <div className="tb-capacity">
-                      <span className="tb-capacity__label">I am writing as</span>
-                      <div className="tb-capacity__options">
-                        {CAPACITIES.map((c) =>
-                      <div key={c.id}
-                      className={"tb-capacity__opt" + (capacity === c.id ? " is-active" : "")}
-                      onClick={() => setCapacity(c.id)}>
-                            {c.label}
-                          </div>
-                      )}
-                      </div>
-                    </div>
-
-                    <div className="tb-contact__grid">
-                      <Field label="Your name" required value={form.name} onChange={set("name")}
-                    placeholder="As you'd like it to appear" />
-                      <Field label="Email" required type="email" value={form.email} onChange={set("email")}
-                    placeholder="hello@example.com" />
-                    </div>
-
-                    <div className="tb-contact__grid">
-                      {capacity === "provider" ?
-                    <Combobox
-                      label="Training organisation"
-                      value={form.org}
-                      onChange={set("org")}
-                      placeholder="Start typing your organisation's name"
-                      options={typeof window !== "undefined" && window.TB_ATO_LIST || []} /> :
-
-
-                    <Field
-                      label="Organisation (optional)"
-                      value={form.org} onChange={set("org")}
-                      placeholder="Where you currently practise" />
-
-                    }
-                      <Field label="Telephone (optional)" type="tel" value={form.phone} onChange={set("phone")}
-                    placeholder="+65" />
-                    </div>
-
-                    <div className="tb-field-block">
-                      <Field
-                      label={
-                      capacity === "provider" ? "Practice area" :
-                      capacity === "trainer" ? "Sector / specialism" :
-                      "Domain expertise"
-                      }
-                      value={form.area} onChange={set("area")}
-                      placeholder={
-                      capacity === "provider" ? "Sourcing, audit, ATO setup, courseware…" :
-                      capacity === "trainer" ? "e.g. Healthcare, ICT, Financial Services" :
-                      "e.g. Cybersecurity, Sustainability, F&B"
-                      } />
-                    
-                    </div>
-
-                    <div className="tb-field-block">
-                      <TextArea
-                      label="A short note"
-                      required
-                      value={form.note} onChange={set("note")}
-                      placeholder="The fewer words, the better, we'll write back to gather the rest." />
-                    
-                    </div>
-
-                    <div className="tb-contact__actions">
-                      <button type="submit" className="btn btn-primary">Send the note</button>
-                      <span className="tb-contact__finePrint">
-                        By writing, you agree to our correspondence terms.
-                      </span>
-                    </div>
-                  </form>
-
-                  {/* RIGHT: CORRESPONDENCE PANEL */}
-                  <aside className="tb-contact__side">
-                    <div className="tb-corr">
-                      <span className="tb-corr__eb">Correspondence</span>
-                      <h3>We are in <em>Singapore.</em></h3>
-                      <ul className="tb-corr__dl">
-                        <li><span>Email</span><span>hello@2birds.asia</span></li>
-                        <li><span>Hours</span><span>Monday to Friday · 09:00am to 06:00pm</span></li>
-                        <li><span>Reply</span><span>Within two working days</span></li>
-                      </ul>
-                      <p style={{ fontSize: 14, lineHeight: 1.6, color: "var(--graphite)", margin: 0 }}>
-                        We do not maintain a public office. Meetings, where required,
-                        are held at your premises or at a venue of your choosing.
-                      </p>
-                    </div>
-
-                    <div className="tb-corr" id="consultation" style={{ marginTop: 24 }}>
-                      <span className="tb-corr__eb">Curious about our development fees?</span>
-                      <h3>A <em>conversation</em> before a quote.</h3>
-                      <p style={{ fontSize: 14, lineHeight: 1.6, color: "var(--graphite)", margin: "8px 0 16px" }}>
-                        Twenty minutes by call or by note. We will tell you, candidly, whether
-                        the work is something we should take on, and what it would cost.
-                      </p>
-                      <a className="btn btn-ghost" href="mailto:hello@2birds.asia?subject=Complimentary%20consultation%20enquiry">
-                        Begin the conversation
-                      </a>
-                    </div>
-                  </aside>
-                </div>
-              }
-            </div>
-          </div>
-        </section>
-
-        {/* ---------- OFFICES ---------- */}
-        <section className="tb-offices tb-reveal">
-          <div className="container">
-            <div className="tb-offices__grid">
-              <div className="tb-office tb-reveal-child">
-                <span className="tb-office__label">Practice</span>
-                <span className="tb-office__where">Singapore <em>·</em> by appointment</span>
-                <p className="tb-office__meta">No public office. Meetings held at your premises or a venue
-of your choosing.</p>
-              </div>
-              <div className="tb-office tb-reveal-child">
-                <span className="tb-office__label">Correspondence</span>
-                <span className="tb-office__where"><em>hello</em>@2birds.asia</span>
-                <p className="tb-office__meta">Replies within two working days, during business hours.</p>
-              </div>
-              <div className="tb-office tb-reveal-child">
-                <span className="tb-office__label">Working Hours</span>
-                <span className="tb-office__where"><em>Monday</em> to Friday<br />09:00am to 06:00pm</span>
-                <p className="tb-office__meta">Excluding weekends and public holidays.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ---------- § II · HOW WE DIFFER ---------- */}
-        <section className="tb-compare tb-reveal">
-          <div className="container">
-            <header className="tb-compare__head">
-              <EyebrowLockup>§ II · How we differ</EyebrowLockup>
-              <h2 className="tb-compare__title">
-                2birds, alongside a <em>typical vendor.</em>
-              </h2>
-              <p className="tb-compare__sub">Six places where the choice of practitioner matters.
-Not in slogan, but in handling.
-              </p>
-            </header>
-            <div className="tb-compare__table">
-              <div className="tb-compare__row tb-compare__row--head">
-                <div className="tb-compare__cell tb-compare__cell--axis">Where it shows</div>
-                <div className="tb-compare__cell tb-compare__cell--them">A typical curriculum vendor</div>
-                <div className="tb-compare__cell tb-compare__cell--us">2birds</div>
-              </div>
-              {COMPARE.map((c, i) => <div key={i} className="tb-compare__row">
-                  <div className="tb-compare__cell tb-compare__cell--axis">{c.row}</div>
-                  <div className="tb-compare__cell tb-compare__cell--them">{c.them}</div>
-                  <div className="tb-compare__cell tb-compare__cell--us">{c.us}</div>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-
-        {/* ---------- § III · THE FOUNDER ---------- */}
-        <section className="tb-foundercard tb-reveal" id="founder">
-          <div className="container">
-            <header className="tb-compare__head">
-              <EyebrowLockup>§ III · The founder</EyebrowLockup>
-            </header>
-            <article className="tb-foundercard__inner">
-              <aside className="tb-foundercard__meta">
-                <div className="tb-foundercard__name">Keith Ho</div>
-                <div className="tb-foundercard__role">Founder · Curriculum Developer</div>
-                <div className="tb-foundercard__creds">
-                  Bachelor of Laws (Hons) (UK)<br />
-                  SDip (HRM), MSHRI<br />
-                  DACE, ACLP, ACTA, IAL-SAE<br />
-                  TAEPP Level 3 Senior Professional AE<br />
-                  HRD Corp Accredited Trainer (Msia){" "}
-                  <a className="tb-foundercard__verify"
-                  href="https://taepp.sg/publicportal/ae-detail/9ef55322-3c45-46d2-9219-5344bb4f7e47"
-                  target="_blank" rel="noopener"
-                  aria-label="Verify TAEPP registration on the public portal">
-                    <span>Verify TAEPP</span>
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                </div>
-                <a className="tb-foundercard__mail" href="mailto:keith.ho@2birds.asia">
-                  keith.ho@2birds.asia
-                </a>
-              </aside>
-              <div className="tb-foundercard__body">
-                <p>
-                  Keith Ho is a training and education professional with more than a decade in the Training and Adult Education sector. He serves as General Manager of 1ST Aid and Healthcare Pte. Ltd. and runs 2birds, an independent advisory and course development practice.
-                </p>
-                <p>
-                  He holds a Bachelor of Laws (Hons) from Birmingham City University, an Allied Certificate in Legal Skills from Temasek Polytechnic, a Specialist Diploma in Human Resource Management from Nanyang Polytechnic, a Diploma in Adult and Continuing Education (DACE) and an Advanced Certificate in Training and Assessment (ACTA) from the Institute for Adult Learning. He is a recognised IAL Specialist Adult Educator, a member of the Singapore Human Resources Institute (MSHRI) and a HRD Corp certified trainer in Malaysia.
-                </p>
-                <p>
-                  His career has spanned the Singapore Productivity Centre, the Institute of Singapore Chartered Accountants and Adept Academy. At SGPC, he developed courses including the Fair Tenancy Industry Committee programme, which <a href="https://www.businesstimes.com.sg/singapore/smes/leases-starting-reflect-fair-tenancy-code-conduct-tenants-still-call-legislation" target="_blank" rel="noopener noreferrer">The Business Times</a> featured in 2022 for promoting the Fair Tenancy Code of Conduct between landlords and tenants. At Adept Academy, he contributed to curriculum development and training innovation and achieved a Grade 1 outcome under SSG's Training Provider Quality Assurance framework. In 2025, SSG invited him as a speaker to share best practices with the training provider community.
-                </p>
-                <p>
-                  He works within SSG frameworks including WSQ and CASL, and has facilitated training delivery and courseware development for the Singapore Furniture Industries Council Institute, Xprienz, Carrie Academy International, Focus Learning Centre, QD Academy, Addison Institute and HY M&amp;E Consultancy, covering artificial intelligence, healthcare, human resources, legal, leadership, food safety, built environment, data science, supply chain and digital analytics.
-                </p>
-                <p>
-                  Correspondence with Keith is welcome by email at <a href="mailto:keith.ho@2birds.asia">keith.ho@2birds.asia</a>
-                </p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        {/* ---------- § IV · STANDING ---------- */}
-        <section className="tb-standing tb-reveal">
-          <div className="container">
-            <header className="tb-compare__head">
-              <EyebrowLockup>§ IV · Where we have practised</EyebrowLockup>
-              <h2 className="tb-compare__title">
-                Years of work, and the <em>community</em> that has grown around it.
-              </h2>
-              <p className="tb-compare__sub">
-                Each is an organisation we have worked in, written for, sat with, or placed a developer, an adult educator or subject-matter expert at.
-              </p>
-            </header>
-            <ul className="tb-standing__list">
-              {STANDING.map((s, i) =>
-              <li key={i} className="tb-standing__item">
-                  <span className="tb-standing__num">{String(i + 1).padStart(2, "0")}</span>
-                  <div className="tb-standing__body">
-                    <a className="tb-standing__name" href={s.url} target="_blank" rel="noopener">{s.name}<span className="tb-standing__ext" aria-hidden="true">↗</span></a>
-                  </div>
-                </li>
-              )}
+  <!-- § III FOUNDER -->
+  <section class="section">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">§ III · The founder</span>
+        <h2 class="h2">Keith Ho</h2>
+        <p class="founder-role">Founder · Curriculum Developer</p>
+      </header>
+      <div class="founder-grid">
+        <aside class="founder-rail reveal">
+          <div class="founder-rail__block">
+            <span class="founder-rail__label">Credentials</span>
+            <ul class="founder-rail__list">
+              <li>Bachelor of Laws (Hons) (UK)</li>
+              <li>SDip (HRM), MSHRI</li>
+              <li>DACE, ACLP, ACTA, IAL-SAE</li>
+              <li>TAEPP Level 3 Senior Professional AE</li>
+              <li>HRD Corp Accredited Trainer (Malaysia)</li>
             </ul>
           </div>
-        </section>
-
-        {/* ---------- ONE LAST NOTE ---------- */}
-        <section className="tb-onenote tb-reveal">
-          <div className="tb-onenote__bg" aria-hidden="true"></div>
-          <div className="container">
-            <div className="tb-onenote__inner">
-              <span className="tb-onenote__eb">One last note</span>
-              <h2 className="tb-onenote__title">
-                The shortest path is <em>a note.</em>
-              </h2>
-              <p className="tb-onenote__lede">
-                If you have read this far, the proposal is simple. Write to us, in plain words, about the work you have in mind. We will reply within two working days, in the same plain manner.
-              </p>
-              <a className="tb-onenote__cta" href="mailto:hello@2birds.asia?subject=An%20enquiry%20to%202birds">
-                <span>hello@2birds.asia</span>
-                <span aria-hidden="true" className="tb-onenote__arrow">↗</span>
-              </a>
-            </div>
+          <div class="founder-rail__block">
+            <span class="founder-rail__label">Verify and contact</span>
+            <a class="text-link" href="https://taepp.sg/publicportal/ae-detail/9ef55322-3c45-46d2-9219-5344bb4f7e47" target="_blank" rel="noopener">Verify TAEPP ↗</a>
+            <a class="text-link" href="mailto:keith.ho@2birds.asia">keith.ho@2birds.asia</a>
           </div>
-        </section>
+        </aside>
+        <div class="founder-body prose reveal" style="--d:.08s">
+        <p>Keith is a TAEPP-registered Level 3 Senior Professional Adult Educator, holding both the WSQ Advanced Certificate in Training and Assessment (ACTA) and the WSQ Advanced Certificate in Learning and Performance (ACLP), and a curriculum developer credentialled with the Diploma in Adult and Continuing Education (DACE) from the Institute for Adult Learning. He read law at Birmingham City University, taking his Bachelor of Laws with Honours, alongside an Allied Certificate in Legal Skills from Temasek Polytechnic and a Specialist Diploma in Human Resource Management from Nanyang Polytechnic. He is a recognised IAL Specialist Adult Educator, a member of the Singapore Human Resources Institute (MSHRI), and recognised by HRD Corp as an accredited trainer in Malaysia.</p>
+        <p>He serves as General Manager of 1ST Aid and Healthcare Pte. Ltd. and leads 2birds, an independent curriculum-development and advisory practice. His career has spanned the Singapore Productivity Centre, the Institute of Singapore Chartered Accountants and Adept Academy. At SGPC he developed courses including the Fair Tenancy Industry Committee programme, which <a href="https://www.businesstimes.com.sg/singapore/smes/leases-starting-reflect-fair-tenancy-code-conduct-tenants-still-call-legislation" target="_blank" rel="noopener">The Business Times featured in 2022</a> for promoting the Fair Tenancy Code of Conduct between landlords and tenants. At Adept Academy he achieved a Grade 1 outcome under SWDA's Training Provider Quality Assurance framework, and in 2025 SWDA invited him to speak on best practices with the training-provider community.</p>
+        <p>He works within SWDA frameworks including WSQ and CASL, and has led training delivery and courseware development for the Singapore Furniture Industries Council Institute, Xprienz, Carrie Academy International, Focus Learning Centre, QD Academy, Addison Institute and HY M&amp;E Consultancy, across artificial intelligence, healthcare, human resources, legal, leadership, food safety, built environment, data science, supply chain and digital analytics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        {/* ---------- FAQ ---------- */}
-        <section className="tb-faq tb-reveal">
-          <div className="container">
-            <header className="tb-faq__head">
-              <EyebrowLockup>§ V · Frequent enquiries</EyebrowLockup>
-              <h2 className="tb-faq__title">A few <em>questions</em>, answered candidly.</h2>
-              <p className="tb-faq__sub">The questions most often put to us ahead of a first enquiry.</p>
-            </header>
-            <div className="tb-faq__list">
-              {FAQ.map((f, i) => <FaqItem key={i} q={f.q} a={f.a} />)}
-            </div>
+  <!-- § IV WHERE WE HAVE WORKED -->
+  <section class="section section--bone">
+    <div class="container">
+      <header class="sectionhead reveal">
+        <span class="eyebrow">§ IV · The record</span>
+        <h2 class="h2">Years of work, and the community that has grown around it.</h2>
+        <p class="lede">Each is an organisation we have worked in, developed for, sat with, or supplied with a developer, an adult educator or a subject-matter expert.</p>
+      </header>
+      <div class="orglist reveal">
+        <div><span class="n">01</span>1ST Aid &amp; Healthcare Academy</div>
+        <div><span class="n">02</span>Adept Academy</div>
+        <div><span class="n">03</span>Addison Institute</div>
+        <div><span class="n">04</span>Carrie Academy International</div>
+        <div><span class="n">05</span>Focus Learning Centre</div>
+        <div><span class="n">06</span>HY M&amp;E Engineering Consultancy</div>
+        <div><span class="n">07</span>Institute of Singapore Chartered Accountants, ISCA</div>
+        <div><span class="n">08</span>QD Academy</div>
+        <div><span class="n">09</span>Singapore Chamber of Commerce and Industry, SCCI</div>
+        <div><span class="n">10</span>Singapore Furniture Industries Council Institute</div>
+        <div><span class="n">11</span>Singapore Productivity Centre, SGPC</div>
+        <div><span class="n">12</span>Wong Fong Academy</div>
+        <div><span class="n">13</span>Xprienz</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- § V FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="split__meta reveal">
+          <span class="eyebrow">§ V · Frequent enquiries</span>
+          <h2 class="h2">A few questions, answered candidly.</h2>
+          <p class="lede mt-1">These are the questions we hear most often ahead of a first enquiry.</p>
+        </div>
+        <div class="acc reveal" style="--d:.1s">
+          <div class="acc__item">
+            <button class="acc__btn"><span class="acc__ref">01</span><span class="acc__q">What should we include in a first enquiry?</span><span class="acc__icon">+</span></button>
+            <div class="acc__panel"><p class="acc__body">A short note of what you are looking to achieve is enough to begin. If you are able to tell us the nature of the course, your intended timeline and whether you are an existing or prospective training organisation, we can come to the first conversation already prepared. Nothing formal is required at this stage.</p></div>
           </div>
-        </section>
+          <div class="acc__item">
+            <button class="acc__btn"><span class="acc__ref">02</span><span class="acc__q">Is the first consultation chargeable?</span><span class="acc__icon">+</span></button>
+            <div class="acc__panel"><p class="acc__body">It is not. The first consultation, around twenty minutes by phone or email, is offered without charge and without obligation. Its purpose is to understand the project, its timeline and the form of SWDA funding that suits the course, and to give you a candid view of whether it is a project we should take on and what it is likely to cost.</p></div>
+          </div>
+          <div class="acc__item">
+            <button class="acc__btn"><span class="acc__ref">03</span><span class="acc__q">Do you work with new training organisations?</span><span class="acc__icon">+</span></button>
+            <div class="acc__panel"><p class="acc__body">We do, and frequently. Much of our ATO setup work is undertaken for organisations entering the sector for the first time. If you are still weighing whether to do so, the first conversation is the right place to begin.</p></div>
+          </div>
+          <div class="acc__item">
+            <button class="acc__btn"><span class="acc__ref">04</span><span class="acc__q">Are our discussions treated in confidence?</span><span class="acc__icon">+</span></button>
+            <div class="acc__panel"><p class="acc__body">They are. Anything you share with us, whether in the first conversation or thereafter, is treated as confidential and is not disclosed to any third party. Where a project calls for it, we are glad to put a formal confidentiality undertaking in place before we begin.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      </main>
-      <Footer />
-    </>);
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta__inner">
+      <span class="eyebrow eyebrow--dark reveal">One last note</span>
+      <h2 class="cta__title reveal mt-2" style="--d:.08s">The shortest path is a note.</h2>
+      <p class="cta__sub reveal" style="--d:.14s">If you have read this far, the proposal is simple. Send us a note, in plain words, about the work you have in mind. We will reply within two working days, in the same plain manner.</p>
+      <div class="cta__actions reveal" style="--d:.2s">
+        <a class="btn btn--light" href="mailto:hello@2birds.asia?subject=An%20enquiry%20to%202birds">hello@2birds.asia <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
 
-}
+</main>
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+<script src="js/main.js?v=22"></script>
+<script>
+(function () {
+  "use strict";
+  document.querySelectorAll(".chips[data-single]").forEach(function (group) {
+    group.querySelectorAll(".chip").forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        group.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("is-on"); });
+        chip.classList.add("is-on");
+      });
+    });
+  });
+  /* inline validation: mark the field, say what is missing, focus the first gap */
+  var REQUIRED = [
+    { id: "e-name", msg: "Your name lets us reply properly." },
+    { id: "e-email", msg: "We need your email to write back." },
+    { id: "e-note", msg: "A short note tells us where to begin." }
+  ];
+  function clearErr(input) {
+    var f = input.closest(".field");
+    if (!f) return;
+    f.classList.remove("is-err");
+    var m = f.querySelector(".field__err");
+    if (m) m.remove();
+  }
+  function setErr(input, msg) {
+    var f = input.closest(".field");
+    if (!f || f.classList.contains("is-err")) return;
+    f.classList.add("is-err");
+    var m = document.createElement("span");
+    m.className = "field__err";
+    m.textContent = msg;
+    f.appendChild(m);
+  }
+  REQUIRED.forEach(function (r) {
+    var el = document.getElementById(r.id);
+    el.addEventListener("input", function () { clearErr(el); });
+  });
+  document.getElementById("tb-enquiry").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = function (id) { return (document.getElementById(id).value || "").trim(); };
+    var firstGap = null;
+    REQUIRED.forEach(function (r) {
+      var el = document.getElementById(r.id);
+      if (!v(r.id)) {
+        setErr(el, r.msg);
+        if (!firstGap) firstGap = el;
+      } else {
+        clearErr(el);
+      }
+    });
+    if (firstGap) { firstGap.focus(); return; }
+    var role = document.querySelector("#e-role .chip.is-on");
+    var body =
+      "Hello 2birds,\n\n" + v("e-note") + "\n\n" +
+      "Enquiring as: " + (role ? role.dataset.v : "") + "\n" +
+      "Name: " + v("e-name") + "\n" +
+      "Email: " + v("e-email") + "\n" +
+      (v("e-org") ? "Training organisation: " + v("e-org") + "\n" : "") +
+      (v("e-tel") ? "Telephone: " + v("e-tel") + "\n" : "") +
+      (v("e-area") ? "Field of work: " + v("e-area") + "\n" : "") +
+      "\nThank you.";
+    window.location.href = "mailto:hello@2birds.asia?subject=" +
+      encodeURIComponent("An enquiry to 2birds · " + v("e-name")) +
+      "&body=" + encodeURIComponent(body);
+  });
+})();
 </script>
 </body>
 </html>
