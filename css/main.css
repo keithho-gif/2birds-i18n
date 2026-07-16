@@ -555,6 +555,7 @@ h1.display { margin: 26px 0 0; }
 }
 .split--rev { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 .split__meta { position: sticky; top: 150px; }
+.split__sticky { position: sticky; top: calc(var(--navh, 100px) + 64px); align-self: start; }
 .split__meta .roman {
   font-family: var(--serif);
   font-size: 14px;
@@ -565,6 +566,7 @@ h1.display { margin: 26px 0 0; }
 @media (max-width: 900px) {
   .split, .split--rev { grid-template-columns: 1fr; }
   .split__meta { position: static; }
+  .split__sticky { position: static; top: auto; }
 }
 
 /* media figure */
