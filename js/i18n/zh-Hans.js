@@ -1192,7 +1192,7 @@ window.TB_DICT["zh-Hans"] = {
   "V · CASL Directory": "V · CASL名录",
   "V · Deliverables": "V · 交付成果",
   "V · How we teach": "V · 我们如何教学",
-  "V · OR directory": "V · OR注册",
+  "V · OR directory": "V · OR名录",
   "V · The return": "V · 回报",
   "VARK": "VARK",
   "VI · CQC": "VI · CQC",
