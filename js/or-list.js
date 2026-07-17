@@ -83,7 +83,7 @@ window.TB_OR_STAGES = [
         body:
           "The Training Provider must publish course title, training duration, fees, funding validity period, modes of training, course objectives, names of Senior Management staff and trainers, organisation structure, and facilities and equipment. A sample brochure or mock-up website must be submitted to demonstrate compliance. SSG and SkillsFuture logos may not be used in advertising material; the Marketing Guidelines in the Terms for Training Providers govern the rest.",
         assist:
-          "We draft the disclosure copy and a sample brochure to SSG's content schedule, and produce a mock-up of the website pages SSG will inspect during assessment. The copywriting is held to the same plain-language register as the rest of the practice."
+          "We draft the disclosure copy and a sample brochure to SSG's content schedule, and produce a mock-up of the website pages SSG will inspect during assessment. The copywriting is held to the same plain-language directory as the rest of the practice."
       },
       {
         id: "2b",

@@ -41,7 +41,7 @@
           practice: "A short pre-enrolment questionnaire is mapped to the course objectives. Learners outside the profile are referred elsewhere with a written note. The drop-out rate falls and the testimonial rate rises." },
         { id: "2.3", name: "System for Adult Educator (AE) Management",
           benefit: "The trainer is the product. A defensible AE roster, properly credentialled and prepared, is the most visible signal of training quality there is.",
-          practice: "An onboarded register of trainers carries credentials, course matches, observation records and continuing professional development. It is renewed annually, audited at every TPQA, and prepared before every cohort." },
+          practice: "An onboarded directory of trainers carries credentials, course matches, observation records and continuing professional development. It is renewed annually, audited at every TPQA, and prepared before every cohort." },
         { id: "2.4", name: "Plan-Do-Check-Act (PDCA) System",
           benefit: "Continuous improvement built into the operating rhythm, not bolted on at audit time. Compounds across cycles.",
           practice: "Each cycle carries a plan reviewed quarterly, a do tracked in operations, a check at month-end, and an act recorded as a corrective action that is closed at the next review. The cycle is visible at every level of the operation." }

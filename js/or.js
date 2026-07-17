@@ -1,4 +1,4 @@
-/* 2birds — Organisation Registration register (vanilla, data from or-list.js) */
+/* 2birds — Organisation Registration directory (vanilla, data from or-list.js) */
 (function () {
   "use strict";
   var host = document.getElementById("tb-or");

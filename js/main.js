@@ -109,7 +109,7 @@
       '<div><h4 class="footer__heading">Client Services</h4><ul class="footer__list">' +
       '<li><a href="contact.html">Make an Enquiry</a></li>' +
       '<li><a href="contact.html">Book a Consultation</a></li>' +
-      '<li><a href="wsqcurriculumdevelopment.html#casl">The CASL Register</a></li>' +
+      '<li><a href="wsqcurriculumdevelopment.html#casl">The CASL Directory</a></li>' +
       '<li><a href="sourcing.html">Trainers and SMEs Sourcing</a></li>' +
       "</ul></div>" +
       '<div><h4 class="footer__heading">Location</h4><ul class="footer__list">' +
@@ -318,7 +318,7 @@
       dock.innerHTML =
         '<div class="dock__panel" hidden><div class="dock__panelhead">' +
         '<span class="small-caps">Your working list</span>' +
-        '<a href="wsqcurriculumdevelopment.html#casl">Open the register</a></div>' +
+        '<a href="wsqcurriculumdevelopment.html#casl">Open the directory</a></div>' +
         '<ul class="dock__list"></ul></div>' +
         '<div class="dock__bar">' +
         '<button class="dock__info" type="button">Your working list <span class="dock__count"></span></button>' +
