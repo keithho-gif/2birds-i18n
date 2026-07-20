@@ -15,7 +15,7 @@
    the sector taxonomy. */
 (function () {
   "use strict";
-  var KEY = "tb_lang", BASE = "en", DV = "3";
+  var KEY = "tb_lang", BASE = "en", DV = "4";
   window.TB_DICT = window.TB_DICT || {};
   var lang = BASE, observer = null, queued = false;
 

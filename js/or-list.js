@@ -83,7 +83,7 @@ window.TB_OR_STAGES = [
         body:
           "The Training Provider must publish course title, training duration, fees, funding validity period, modes of training, course objectives, names of Senior Management staff and trainers, organisation structure, and facilities and equipment. A sample brochure or mock-up website must be submitted to demonstrate compliance. SSG and SkillsFuture logos may not be used in advertising material; the Marketing Guidelines in the Terms for Training Providers govern the rest.",
         assist:
-          "We draft the disclosure copy and a sample brochure to SSG's content schedule, and produce a mock-up of the website pages SSG will inspect during assessment. The copywriting is held to the same plain-language directory as the rest of the practice."
+          "We draft the disclosure copy and a sample brochure to SSG's content schedule, and produce a mock-up of the website pages SSG will inspect during assessment. The copywriting is held to the same plain-language register as the rest of the practice."
       },
       {
         id: "2b",
@@ -116,7 +116,7 @@ window.TB_OR_STAGES = [
         body:
           "The Policies and Operations Manual is the central documentary deliverable: it sets out the Training Provider's processes across Course Administration and Outcomes, collectively known as Systems and Capabilities. The submission is evaluated against SSG's Requirements Specifications and Document Preparation List, and is followed by a half-day onsite assessment by SSG officers.",
         assist:
-          "This is the centre of the practice's work on an OR application. We draft the full Policies and Operations Manual from the Requirements Specifications outward, version-stamp every component, rehearse the leadership team for the half-day onsite assessment, and remain on hand throughout the assessment day."
+          "This is the centre of the practice's work on an OR application. We draft the full Policies and Operations Manual from the Requirements Specifications outward, version-stamp every component, prepare the leadership team for the half-day onsite assessment, and remain on hand throughout the assessment day."
       },
       {
         id: "2e",

@@ -1,10 +1,10 @@
-/* 2birds — CASL directory (vanilla, data from casl-list.js: window.TB_CASL)
+/* 2birds — CASL register (vanilla, data from casl-list.js: window.TB_CASL)
    v6 — card grid + detail modal, in the manner of the previous 2birds site. */
 (function () {
   "use strict";
   var host = document.getElementById("tb-casl");
   if (!host || !window.TB_CASL) return;
-  /* optional separate mount for the sector landscape (dark directory panel) */
+  /* optional separate mount for the sector landscape (dark register panel) */
   var scapeHost = document.getElementById("tb-casl-scape");
 
   var DATA = window.TB_CASL;
@@ -109,14 +109,14 @@
         "</article>";
     }).join("");
 
-    return '<div class="caslr__meta"><span>' + (state.industry ? esc(state.industry) : "The full directory") + "</span>" +
+    return '<div class="caslr__meta"><span>' + (state.industry ? esc(state.industry) : "The full register") + "</span>" +
       '<span class="caslr__count"><strong>' + rows.length + "</strong> skills shown</span></div>" +
       '<div class="caslr__grid">' + cards + "</div>" +
       (rows.length > state.shown
         ? '<div class="caslr__foot"><button class="caslr__morebtn" data-more>Show ' + Math.min(PAGE_SIZE, rows.length - state.shown) + " more</button>" +
           '<span class="caslr__paging">Showing ' + Math.min(state.shown, rows.length) + " of " + rows.length + "</span></div>"
         : "") +
-      (rows.length === 0 ? '<p class="caslr__empty">Nothing in the directory answers that search. Try a broader word, or clear the industry filter.</p>' : "");
+      (rows.length === 0 ? '<p class="caslr__empty">Nothing on the register answers that search. Try a broader word, or clear the industry filter.</p>' : "");
   }
 
   /* ---------- detail modal ---------- */
@@ -131,7 +131,7 @@
       "</div>";
   }
 
-  /* extra intended-participant roles per sector, appended to the directory's own */
+  /* extra intended-participant roles per sector, appended to the register's own */
   var SECTOR_ROLES = {
     engineering: ["Plant supervisors", "Maintenance leads", "Production engineers"],
     ict: ["IT managers", "Systems analysts", "Data specialists"],
@@ -204,7 +204,7 @@
       '<div class="caslm__stats">' +
       '<div><strong>' + rank + " of 14</strong><span>Sector rank by depth</span></div>" +
       '<div><strong>' + inSector + "</strong><span>Skills in this sector</span></div>" +
-      '<div><strong>369</strong><span>In the directory</span></div>' +
+      '<div><strong>369</strong><span>On the register</span></div>' +
       "</div>" +
 
       '<div class="caslm__cols">' +
@@ -213,9 +213,9 @@
       '<p class="caslm__desc">' + esc(d.desc) + "</p>" +
       (chips.length ? '<span class="caslm__label">Intended participants</span><div class="caslm__chips">' +
         chips.map(function (c) { return '<span class="caslm__chip">' + esc(c) + "</span>"; }).join("") + "</div>" : "") +
-      '<span class="caslm__label">Directory status</span>' +
+      '<span class="caslm__label">Register status</span>' +
       '<div class="caslm__timeline">' +
-      '<div class="caslm__stop is-done"><i></i><b>2 May 2026</b><span>In the directory</span></div>' +
+      '<div class="caslm__stop is-done"><i></i><b>2 May 2026</b><span>On the register</span></div>' +
       '<div class="caslm__stop is-now"><i></i><b>Today</b><span>In force</span></div>' +
       '<div class="caslm__stop"><i></i><b>Q3 2026</b><span>Carried into this edition</span></div>' +
       "</div>" +
