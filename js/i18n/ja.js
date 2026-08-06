@@ -1,4 +1,7 @@
 window.TB_DICT["ja"] = {
+  "Notes from the Practice": "実務ノート",
+  "Becoming an ATO in Singapore · read the full guide ↗": "シンガポールでATOになるには · ガイド全文を読む ↗",
+  "What the TPQA assesses · read the full guide ↗": "TPQAは何を評価するのか · ガイド全文を読む ↗",
   "(IBM) Enterprise Data Warehousing & Business Intelligence": "(IBM) エンタープライズデータウェアハウジング＆ビジネスインテリジェンス",
   "01": "01",
   "01 · Confirm": "01 · 確認",

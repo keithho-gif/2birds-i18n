@@ -109,7 +109,7 @@
       '<div><h4 class="footer__heading">Client Services</h4><ul class="footer__list">' +
       '<li><a href="contact.html">Make an Enquiry</a></li>' +
       '<li><a href="contact.html">Book a Consultation</a></li>' +
-      '<li><a href="wsqcurriculumdevelopment.html#casl">The CASL Register</a></li>' +
+      '<li><a href="wsqcurriculumdevelopment.html#casl">The CASL Directory</a></li>' +
       '<li><a href="sourcing.html">Trainers and SMEs Sourcing</a></li>' +
       "</ul></div>" +
       '<div><h4 class="footer__heading">Location</h4><ul class="footer__list">' +
@@ -120,6 +120,7 @@
       "</ul></div>" +
       '<div><h4 class="footer__heading">The House of 2birds</h4><ul class="footer__list">' +
       '<li><a href="brand.html">The Brand Story</a></li>' +
+      '<li><a href="notes.html">Notes from the Practice</a></li>' +
       '<li><a href="glossary.html">Glossary of Abbreviations</a></li>' +
       '<li><a href="engagement.html">Terms of Engagement</a></li>' +
       '<li><a href="privacy.html">Privacy Policy</a></li>' +

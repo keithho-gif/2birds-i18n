@@ -34,4 +34,10 @@ Key facts:
   cohorts within SWDA's advertising rules.
 - [Glossary](https://www.2birds.asia/glossary): plain definitions of WSQ, DACE,
   DDDLP, CASL, TPQA, TPGateway and other sector terms.
+- [Notes from the Practice](https://www.2birds.asia/notes): long-form guides,
+  English only.
+- [Becoming an ATO in Singapore](https://www.2birds.asia/becoming-an-ato):
+  the Organisation Registration guide, requirement by requirement.
+- [What the TPQA assesses](https://www.2birds.asia/what-tpqa-assesses): the
+  audit-readiness guide, grades, mechanics and preparation.
 - [Contact](https://www.2birds.asia/contact): begin a conversation.

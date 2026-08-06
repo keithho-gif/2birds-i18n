@@ -1,4 +1,7 @@
 window.TB_DICT["vi"] = {
+  "Notes from the Practice": "Ghi chép nghiệp vụ",
+  "Becoming an ATO in Singapore · read the full guide ↗": "Trở thành ATO tại Singapore · đọc hướng dẫn đầy đủ ↗",
+  "What the TPQA assesses · read the full guide ↗": "TPQA đánh giá những gì · đọc hướng dẫn đầy đủ ↗",
   "(IBM) Enterprise Data Warehousing & Business Intelligence": "(IBM) Kho Dữ liệu Doanh nghiệp & Trí tuệ Kinh doanh",
   "01": "01",
   "01 · Confirm": "01 · Xác nhận",

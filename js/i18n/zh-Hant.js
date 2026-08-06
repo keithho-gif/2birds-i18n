@@ -1,4 +1,7 @@
 window.TB_DICT["zh-Hant"] = {
+  "Notes from the Practice": "實務札記",
+  "Becoming an ATO in Singapore · read the full guide ↗": "在新加坡成為 ATO · 閱讀完整指南 ↗",
+  "What the TPQA assesses · read the full guide ↗": "TPQA 評估什麼 · 閱讀完整指南 ↗",
   "(IBM) Enterprise Data Warehousing & Business Intelligence": "(IBM) 企業資料倉儲與商業智慧",
   "01": "01",
   "01 · Confirm": "01 · 確認",
