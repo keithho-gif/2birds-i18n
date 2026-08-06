@@ -2541,7 +2541,7 @@ image-slot::part(placeholder) {
 .tb-experience__list { counter-reset: exp-counter; }
 
 /* =========================================================================
-   Profile card (Keith)
+   Profile card
    ========================================================================= */
 .tb-profile {
   background: var(--canvas);
@@ -5177,7 +5177,7 @@ image-slot::part(placeholder) {
 }
 
 /* =========================================================================
-   Contact page · Founder profile (Keith Ho)
+   Contact page · Founder profile (removed)
    ========================================================================= */
 .tb-foundercard { padding: 88px 0 96px; background: var(--bone); }
 .tb-foundercard__inner {
