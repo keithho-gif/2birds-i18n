@@ -4583,3 +4583,70 @@ main .cm-end .lv-media img{width:100%;height:100% !important;object-fit:cover;ob
 /* dg scroller · hide fade once scrolled to the end */
 @media (min-width:600px) and (max-width:1080px){footer .ft__main,.footer .ft__main,.ft .ft__main,.ft__main{grid-template-columns:repeat(2,minmax(0,1fr)) !important}footer .ft__sign,footer .ft__base{grid-column:1/-1 !important}}
 @media (max-width:560px){.ct-map__svg text{font-size:14px !important}.ct-map__svg text[data-minor]{display:none !important}}
+
+/* ===== Phone and tablet audit, round three ===== */
+/* 1 · moment 05 learner list and moment 06 file grid hold between 560 and 1080 */
+@media (min-width:561px) and (max-width:1080px){
+  .nx-att2{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 18px}
+  .nx-att2 li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .nx-att2 li > span:first-child{flex:1 1 auto;overflow:hidden;text-overflow:ellipsis}
+  .nx-conv__col{min-width:0}
+  .nx-conv__grid,.nx-conv__oc,.nx-conv__pdf{display:grid;grid-template-columns:repeat(auto-fill,minmax(56px,1fr));gap:10px 8px}
+  .nx-conv__i{min-width:0}
+  .nx-conv__n{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--fs-ui-sm)}
+}
+.nx-conv__i{min-width:0}
+.nx-conv__n{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* 3 · Nest map labels at 11px or more, file icon captions removed (column headings name the type) */
+.nx-fi__t{display:none}
+.nx-map__rl,.nx-map__vl{font-size:8px;font-weight:500}
+.nx-map__dl{font-size:7.5px}
+@media (max-width:1080px){.nx-map__rl,.nx-map__vl{font-size:11px}.nx-map__dl{display:none}}
+@media (max-width:560px){.nx-map__rl,.nx-map__vl{font-size:15px}}
+/* m02 registration table on phones · drop Employer and Sponsorship so names do not collide */
+@media (max-width:560px){
+  .nx-tbl:has(th:nth-child(5)) :is(th,td):nth-child(2),.nx-tbl:has(th:nth-child(5)) :is(th,td):nth-child(3){display:none}
+  .nx-tbl td:first-child{white-space:normal;overflow-wrap:anywhere}
+}
+/* 4 · contact map labels · 11px minimum at every width */
+.ct-map__svg text{font-size:10.5px !important}
+@media (max-width:1080px){.ct-map__svg text[data-minor]{display:none !important}}
+@media (max-width:560px){.ct-map__svg text{font-size:14px !important}}
+.nx-map{display:block;width:100%;max-width:100%;height:auto;overflow:hidden}
+.nx-mapwrap{overflow:hidden}
+@media (max-width:560px){.nx-map__rl,.nx-map__vl{font-size:17px}}
+@media (max-width:560px){.nx-tbl tr.nx-in{transform:none !important}}
+@media (max-width:560px){.nx-map__rl,.nx-map__vl{font-size:18px}}
+
+/* ===== Round four ===== */
+/* 1 · compact header · calendar icon */
+.hdr__cta--icon{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0;margin-right:-11px;color:inherit;text-indent:0}
+.hdr__cal{display:block;width:22px;height:22px}
+.hdr__cta--icon:focus-visible{outline:2px solid var(--royal);outline-offset:2px;border-radius:2px}
+@media (max-width:1080px){.site-header .hdr__cta.u-mob{padding:0 !important;justify-self:end}}
+/* 2 · auto swap on touch · 1.2 s crossfade */
+@media (hover:none){.ph--swap .ph__alt{transition:opacity 1.2s ease-in-out}.ph--swap.is-swapped .ph__alt{opacity:1}}
+@media (prefers-reduced-motion:reduce){.ph--swap .ph__alt{transition:none}.ph--swap.is-swapped .ph__alt{opacity:0}}
+/* 3 · home service cards · subgrid rows */
+@media (min-width:481px){
+  .row--4{display:grid;grid-template-rows:auto auto auto auto;align-items:start}
+  .row--4 .colitem{display:grid;grid-template-rows:subgrid;grid-row:span 4;height:auto;align-items:start}
+  .row--4 .colitem .h3{min-height:0 !important;margin-top:var(--sp-3);align-self:start}
+  .row--4 .colitem .colitem__desc{margin-top:12px;align-self:start}
+  .row--4 .colitem .tlink{align-self:start;margin-top:var(--sp-3)}
+}
+@media (max-width:480px){.row--4 .colitem .h3{min-height:0 !important;white-space:normal}}
+
+/* round five · header labels, one per breakpoint */
+@media (min-width:1080px){.site-header .hdr .hdr__cta.u-mob,.site-header .hdr .hdr__cta--icon{display:none !important}.site-header .hdr .hdr__cta.u-desk{display:inline-flex !important}}
+@media (max-width:1079.98px){.site-header .hdr .hdr__cta.u-desk{display:none !important}.site-header .hdr .hdr__cta.u-mob{display:inline-flex !important}}
+/* round five · subgrid cards keep their own spacing */
+@media (min-width:481px){
+  .row--4{row-gap:0}
+  .row--4 .colitem{row-gap:0;gap:0}
+  .row--4 .colitem .ph{margin:0}
+  .row--4 .colitem .h3{margin-top:var(--sp-3) !important}
+  .row--4 .colitem .colitem__desc{margin-top:12px !important}
+  .row--4 .colitem .tlink{margin-top:var(--sp-3) !important}
+}
+@media (min-width:481px) and (max-width:1080px){.row--4 .colitem:nth-child(n+3){margin-top:var(--sp-6)}}

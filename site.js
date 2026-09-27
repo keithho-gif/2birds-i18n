@@ -374,3 +374,26 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 /* dg-scroll end */
 (function(){function init(){var s=document.querySelector('.dg-scroll');if(!s||s.__end)return;s.__end=1;var w=s.closest('.dg-wrap');function u(){w.classList.toggle('is-end',s.scrollLeft+s.clientWidth>=s.scrollWidth-4)}s.addEventListener('scroll',u,{passive:true});u();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();setTimeout(init,1500);})();
+
+/* ---- Photograph swaps · auto crossfade on touch devices ------------------- */
+(function autoSwap(){
+  if(!window.matchMedia||!matchMedia('(hover: none)').matches)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var HOLD=4000,STAGGER=1000;
+  function arm(){
+    var els=[].slice.call(document.querySelectorAll('.ph--swap:not([data-autoswap])'));
+    if(!els.length)return;
+    els.forEach(function(el,i){
+      el.setAttribute('data-autoswap','');
+      var alt=el.querySelector('.ph__alt');if(!alt)return;
+      var on=false,timer=null,visible=false,order=i%4;
+      function tick(){ if(!visible||document.hidden){timer=null;return;} on=!on; el.classList.toggle('is-swapped',on); timer=setTimeout(tick,HOLD); }
+      function start(){ if(timer)return; timer=setTimeout(tick,HOLD+order*STAGGER); }
+      function stop(){ if(timer){clearTimeout(timer);timer=null;} }
+      var io=new IntersectionObserver(function(en){ visible=en[0].isIntersecting; visible?start():stop(); },{threshold:.25});
+      io.observe(el);
+      document.addEventListener('visibilitychange',function(){ document.hidden?stop():(visible&&start()); });
+    });
+  }
+  arm(); new MutationObserver(arm).observe(document.documentElement,{childList:true,subtree:true});
+})();
