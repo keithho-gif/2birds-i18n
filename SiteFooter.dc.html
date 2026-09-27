@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js?v=d568b663"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/site.css?v=615b7462">
+  <script src="/site.js?v=cf4677e2"></script>
+</helmet>
+<a class="wa-fab" href="https://wa.me/6585953945" target="_blank" rel="noopener" aria-label="Message 2BIRDS on WhatsApp">
+  <span class="wa-fab__label">Message us</span>
+  <span class="wa-fab__disc"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.5h-.01a9.5 9.5 0 0 1-4.83-1.32l-.35-.21-3.6.94.96-3.5-.23-.36a9.46 9.46 0 0 1-1.45-5.05c0-5.24 4.27-9.5 9.52-9.5 2.54 0 4.93.99 6.72 2.79a9.43 9.43 0 0 1 2.78 6.72c0 5.24-4.27 9.5-9.51 9.5m8.1-17.6A11.37 11.37 0 0 0 12.04.5C5.73.5.6 5.63.6 11.94c0 2.02.53 3.99 1.53 5.72L.5 23.5l5.98-1.57a11.4 11.4 0 0 0 5.56 1.42h.01c6.31 0 11.44-5.13 11.44-11.44 0-3.06-1.19-5.93-3.35-8.1"></path></svg></span>
+</a>
+<footer class="footer">
+  <div class="wrap">
+    <div class="ft__main">
+      <div class="ft__sign">
+        <h2 class="ft__nl-k">Newsletter</h2>
+        <p class="ft__nl-p">Occasional notes on funding, accreditation and audit.</p>
+        <form class="ft__nl" onSubmit="{{ onSign }}" noValidate="{{ true }}">
+          <label class="u-sr" for="ft-email">Email address</label>
+          <input id="ft-email" name="email" type="email" autocomplete="email" placeholder="Your email address" aria-invalid="{{ signBad }}" aria-describedby="ft-email-msg" onInput="{{ onSignInput }}">
+          <button type="submit" disabled="{{ signing }}">{{ signLabel }}</button>
+        </form>
+        <p class="ft__nl-msg" id="ft-email-msg" aria-live="polite">{{ signMsg }}</p>
+              </div>
+      <nav class="ft__col" aria-label="Services"><h2 class="ft__h">Services</h2>
+        <a href="/wsqcurriculumdevelopment">WSQ Curriculum Development</a>
+        <a href="/atosetupadvisory">Organisation Registration</a>
+        <a href="/ssgauditmatters">TPQA Audit Matters</a>
+        <a href="/creativemarketing">Creative Marketing</a>
+      </nav>
+      <nav class="ft__col" aria-label="Client services"><h2 class="ft__h">Client Services</h2>
+        <a href="/contact#book">Book a Consultation</a>
+        <a href="/customised-tms">Customised TMS</a>
+        <a href="/workshops">Workshops</a>
+      </nav>
+      <nav class="ft__col" aria-label="The house"><h2 class="ft__h">The House of 2BIRDS</h2>
+        <a href="/brand">The Brand Story</a>
+        <a href="/join">Join our Community</a>
+      </nav>
+      <nav class="ft__col" aria-label="Legal"><h2 class="ft__h">Legal</h2>
+        <a href="/legal-statement">Legal Statement</a>
+        <a href="/terms">Website Terms of Use</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/engagement">Terms of Engagement</a>
+      </nav>
+    </div>
+    <div class="ft__base">
+      <address class="ft__follow"><span class="ft__label">Address</span>7 Temasek Boulevard, #12-07<br>Suntec Tower One, Singapore 038987</address>
+      <a class="ft__mark" href="/" aria-label="2BIRDS, home"><img class="logo" src="assets/logo-full.png" alt="2BIRDS, the dove mark above the wordmark"></a>
+      <div class="ft__region">
+        <label class="u-sr" for="ft-region">Country or region</label>
+        <span class="ft__rkey" aria-hidden="true">Region</span>
+        <span class="ft__rsel"><select id="ft-region" value="{{ region }}" onChange="{{ onRegion }}">
+          <sc-for list="{{ regionGroups }}" as="g" hint-placeholder-count="5">
+            <optgroup label="{{ g.name }}">
+              <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="4"><option value="{{ c }}">{{ c }}</option></sc-for>
+            </optgroup>
+          </sc-for>
+        </select></span>
+        <span class="ft__rsep" aria-hidden="true"></span>
+        <span class="ft__rlang">{{ langName }}</span>
+      </div>
+    </div>
+    <p class="ft__legal">© 2BIRDS PRIVATE LIMITED · UEN 202625717Z · ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:760}}">
+class Component extends DCLogic {
+  WEB3FORMS_KEY = "58bc65b2-17fa-4f22-8c30-526ef5af1460";
+  state = { signed: false, signing: false, signFail: false, region: "Singapore", lang: "en" };
+  static REGIONS = [
+    { name: "Southeast Asia", items: ["Singapore", "Brunei", "Cambodia", "Indonesia", "Laos", "Malaysia", "Myanmar", "Philippines", "Thailand", "Timor-Leste", "Vietnam"] },
+    { name: "East Asia", items: ["China", "Hong Kong", "Japan", "Macau", "Mongolia", "South Korea", "Taiwan"] },
+    { name: "South Asia", items: ["Afghanistan", "Bangladesh", "Bhutan", "India", "Maldives", "Nepal", "Pakistan", "Sri Lanka"] },
+    { name: "Central Asia", items: ["Kazakhstan", "Kyrgyzstan", "Tajikistan", "Turkmenistan", "Uzbekistan"] },
+    { name: "West Asia", items: ["Armenia", "Azerbaijan", "Bahrain", "Cyprus", "Georgia", "Iraq", "Israel", "Jordan", "Kuwait", "Lebanon", "Oman", "Palestine", "Qatar", "Saudi Arabia", "Syria", "Türkiye", "United Arab Emirates", "Yemen"] }
+  ];
+  static LANG_NAMES = { en: "English", zh: "简体中文", ms: "Bahasa Melayu", ta: "தமிழ்", zht: "繁體中文", ja: "日本語", ko: "한국어", id: "Bahasa Indonesia", th: "ภาษาไทย", vi: "Tiếng Việt", fil: "Filipino", hi: "हिन्दी" };
+  componentDidMount() {
+    try {
+      var r = localStorage.getItem("tb-region"); if (r) this.setState({ region: r });
+      var l = localStorage.getItem("tb-lang"); if (l) this.setState({ lang: l });
+    } catch (e) {}
+    this._lang = (e) => this.setState({ lang: e.detail });
+    window.addEventListener("tb-lang", this._lang);
+    this._reg = (e) => { if (e.detail !== this.state.region) this.setState({ region: e.detail }); };
+    window.addEventListener("tb-region", this._reg);
+  }
+  componentWillUnmount() { window.removeEventListener("tb-lang", this._lang); window.removeEventListener("tb-region", this._reg); }
+  renderVals() {
+    return {
+      signed: this.state.signed,
+      signing: this.state.signing,
+      signFail: this.state.signFail,
+      signLabel: this.state.signing ? "Sending" : "Subscribe →",
+      signBad: this.state.signBad ? "true" : "false",
+      signMsg: this.state.signBad ? "Please enter a full email address, such as name@organisation.sg." : this.state.signed ? "Thank you. You are subscribed to the SWDA circulars newsletter." : this.state.signFail ? "We could not subscribe you just now. Please try again, or write to keith.ho@2birds.asia." : "",
+      onSignInput: () => { if (this.state.signBad || this.state.signed || this.state.signFail) this.setState({ signBad: false, signed: false, signFail: false }); },
+      onSign: (e) => {
+        e.preventDefault();
+        if (this.state.signing) return;
+        var form = e.target;
+        var email = String(form.elements.email.value || "").trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { this.setState({ signBad: true, signed: false, signFail: false }); return; }
+        this.setState({ signing: true, signFail: false, signed: false, signBad: false });
+        var page = "";
+        try { page = document.title; } catch (x) {}
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({
+            access_key: this.WEB3FORMS_KEY,
+            subject: "Newsletter subscription · " + email,
+            from_name: "2BIRDS website",
+            replyto: email,
+            email: email,
+            "Subscribed from": page,
+            botcheck: ""
+          })
+        }).then(function (r) { return r.json(); })
+          .then((res) => {
+            if (res && res.success) { form.reset(); this.setState({ signing: false, signed: true }); }
+            else this.setState({ signing: false, signFail: true });
+          })
+          .catch(() => this.setState({ signing: false, signFail: true }));
+      },
+      region: this.state.region,
+      regionGroups: Component.REGIONS,
+      langName: Component.LANG_NAMES[this.state.lang] || "English",
+      onRegion: (e) => {
+        var v = e.target.value;
+        try { localStorage.setItem("tb-region", v); } catch (err) {}
+        try { window.dispatchEvent(new CustomEvent("tb-region", { detail: v })); } catch (err) {}
+        this.setState({ region: v });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

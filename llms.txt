@@ -1,46 +1,47 @@
-# 2birds
+# 2BIRDS
 
 > 2BIRDS is a management consultancy specialising in the training and adult
 > education sector. We advise leading training providers on operational
 > governance, accreditation standards and instructional design.
 >
-> In practice that covers WSQ and non-WSQ courseware development, setting up
-> Approved Training Organisations (ATOs), preparing providers for the Training
-> Provider Quality Assessment (TPQA) and Course Quality Check (CQC), and cohort
-> marketing within SWDA's advertising rules.
+> In practice that covers WSQ and CASL-aligned courseware development,
+> Organisation Registration with the Skills and Workforce Development Agency
+> (SWDA), preparation for the Training Provider Quality Assessment (TPQA),
+> a customised training management system (Nest), professional workshops for
+> training operations, and creative marketing within SWDA's Marketing Code of
+> Practice.
 
 Key facts:
+- 2BIRDS PRIVATE LIMITED (UEN 202625717Z), 7 Temasek Boulevard, #12-07 Suntec
+  Tower One, Singapore 038987. hello@2birds.asia. +65 8595 3945.
 - Courseware and curriculum development for Singapore's funded-training sector,
   mapped to the Skills Framework and the Course Approval Skills List (CASL),
-  submitted through TPGateway.
-- Curriculum developers are accredited under DACE (Diploma in Adult and
-  Continuing Education) or DDDLP (Diploma in Design and Development of Learning
-  for Performance), with TAEPP-registered adult educators, led at
-  Level 3 Senior Adult Educator tier. Work is not subcontracted.
-- 2birds was a speaker at SWDA's 2025 TPQA Outreach on courseware best practices.
-- More than one hundred courses completed across the practice; work cited in
-  The Business Times.
-- For clients of 2birds, the consultation on TPQA and CQC readiness is pro bono.
-- Contact: hello@2birds.asia · 7 Temasek Boulevard, #12-07 Suntec Tower One,
-  Singapore 038987.
+  submitted through TPGateway. Curriculum developers are accredited under DACE
+  (Diploma in Adult and Continuing Education) or DDDLP (Diploma in Design and
+  Development of Learning for Performance).
+- The regulator is the Skills and Workforce Development Agency (SWDA). Scheme
+  names such as SkillsFuture Credit are unchanged.
+- 2BIRDS is a private consultancy. It is not part of, appointed by or acting
+  for SWDA or any public authority. Regulatory outcomes rest with SWDA.
+- TPQA advisory is reserved for training providers with an active engagement
+  with 2BIRDS.
+- No fees are published on the website. Every engagement is priced in a written
+  proposal after a scoping discussion.
 
-## Pages
-- [Home](https://www.2birds.asia/): what 2birds does, credentials, services.
-- [WSQ Curriculum Development](https://www.2birds.asia/wsqcurriculumdevelopment):
-  courseware in three forms (WSQ, non-WSQ certifiable, broad-based), the CASL
-  directory, the four-step process from discovery to TPGateway submission.
-- [ATO Setup Advisory](https://www.2birds.asia/atosetupadvisory): becoming an
-  Approved Training Organisation, Organisation Registration requirements.
-- [SWDA Audit Matters](https://www.2birds.asia/ssgauditmatters): TPQA and CQC
-  readiness, the four pillars of audit advisory.
-- [Creative Marketing](https://www.2birds.asia/creativemarketing): filling
-  cohorts within SWDA's advertising rules.
-- [Glossary](https://www.2birds.asia/glossary): plain definitions of WSQ, DACE,
-  DDDLP, CASL, TPQA, TPGateway and other sector terms.
-- [Notes from the Practice](https://www.2birds.asia/notes): long-form guides,
-  English only.
-- [Becoming an ATO in Singapore](https://www.2birds.asia/becoming-an-ato):
-  the Organisation Registration guide, requirement by requirement.
-- [What the TPQA assesses](https://www.2birds.asia/what-tpqa-assesses): the
-  audit-readiness guide, grades, mechanics and preparation.
-- [Contact](https://www.2birds.asia/contact): begin a conversation.
+Pages:
+- https://www.2birds.asia/ : Home
+- https://www.2birds.asia/brand : The brand story
+- https://www.2birds.asia/wsqcurriculumdevelopment : WSQ Curriculum Development
+- https://www.2birds.asia/atosetupadvisory : Organisation Registration with SWDA
+- https://www.2birds.asia/ssgauditmatters : TPQA Audit Matters
+- https://www.2birds.asia/creativemarketing : Creative Marketing
+- https://www.2birds.asia/customised-tms : Customised TMS (Nest)
+- https://www.2birds.asia/workshops : Workshops, training operations and compliance
+- https://www.2birds.asia/workshops-ai : Workshops, AI and robotics
+- https://www.2birds.asia/what-tpqa-assesses : What the TPQA assesses
+- https://www.2birds.asia/join : Join our community (trainers, assessors, SMEs, developers)
+- https://www.2birds.asia/contact : Book a consultation
+- https://www.2birds.asia/legal-statement : Legal Statement
+- https://www.2birds.asia/terms : Website Terms of Use
+- https://www.2birds.asia/privacy : Privacy Policy
+- https://www.2birds.asia/engagement : Terms of Engagement

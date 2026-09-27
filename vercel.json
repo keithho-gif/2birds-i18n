@@ -14,17 +14,29 @@
     { "source": "/audit", "destination": "/ssgauditmatters", "permanent": true },
     { "source": "/audit.html", "destination": "/ssgauditmatters", "permanent": true },
     { "source": "/revenue", "destination": "/creativemarketing", "permanent": true },
-    { "source": "/revenue.html", "destination": "/creativemarketing", "permanent": true }
+    { "source": "/revenue.html", "destination": "/creativemarketing", "permanent": true },
+    { "source": "/becoming-an-ato", "destination": "/atosetupadvisory", "permanent": true },
+    { "source": "/sourcing", "destination": "/join", "permanent": true },
+    { "source": "/glossary", "destination": "/what-tpqa-assesses", "permanent": true },
+    { "source": "/notes", "destination": "/what-tpqa-assesses", "permanent": true },
+    { "source": "/index.dc.html", "destination": "/", "permanent": true }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https: https://flagcdn.com; media-src 'self' https: blob:; frame-src https:;"
-        }
+        { "key": "Content-Security-Policy", "value": "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https: blob:; media-src 'self' https: blob:; frame-src https:;" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
+    },
+    {
+      "source": "/(assets|vendor)/(.*)",
+      "headers": [ { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" } ]
+    },
+    {
+      "source": "/(site\\.css|site\\.js|support\\.js)",
+      "headers": [ { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" } ]
     }
   ]
 }

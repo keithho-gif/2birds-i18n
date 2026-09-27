@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /_styles.html
+Disallow: /SiteHeader.dc.html
+Disallow: /SiteFooter.dc.html
+Disallow: /vendor/
 
 # AI assistants and answer engines are welcome to read and cite this site.
 User-agent: GPTBot

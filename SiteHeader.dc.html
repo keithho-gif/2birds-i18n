@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js?v=d568b663"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/site.css?v=615b7462">
+  <script src="/site.js?v=cf4677e2"></script>
+</helmet>
+<header class="{{ headerClass }}">
+  <div class="hdr__full">
+    <div class="wrap hdr__util">
+      <div class="hdr__lang">
+        <button class="hdr__pill" type="button" aria-haspopup="listbox" aria-expanded="{{ langOpen }}" onClick="{{ toggleLang }}"><span>{{ region }}&nbsp;·&nbsp;{{ langLabel }}</span><span class="hdr__caret" aria-hidden="true"></span></button>
+        <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ false }}">
+          <div class="hdr__langlist" aria-label="Country and language">
+            <div class="lang__region">
+              <label class="lang__head" for="hdr-region">Country or region</label>
+              <select id="hdr-region" value="{{ region }}" onChange="{{ onRegion }}">
+                <sc-for list="{{ regionGroups }}" as="g" hint-placeholder-count="5">
+                  <optgroup label="{{ g.name }}">
+                    <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="4"><option value="{{ c }}">{{ c }}</option></sc-for>
+                  </optgroup>
+                </sc-for>
+              </select>
+            </div>
+            <p class="lang__head">Language</p>
+            <sc-for list="{{ langs }}" as="l" hint-placeholder-count="12">
+              <button type="button" role="option" aria-selected="{{ l.selected }}" onClick="{{ l.pick }}"><span>{{ l.name }}</span><span class="lang__code">{{ l.code }}</span></button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <a class="hdr__cta" href="/contact">{{ t.enquiry }}</a>
+    </div>
+    <div class="wrap hdr__brand">
+      <a href="/" aria-label="2BIRDS, home"><img class="logo" src="assets/logo-text.png" alt="2BIRDS"></a>
+    </div>
+    <nav class="wrap hdr__nav" aria-label="Practice areas">
+      <ul>
+        <li><a href="/brand">{{ t.brand }}</a></li>
+        <li><a href="/wsqcurriculumdevelopment">{{ t.wsq }}</a></li>
+        <li class="hdr__has" data-open="{{ subOpen }}">
+          <button type="button" class="hdr__parent" aria-haspopup="true" aria-expanded="{{ subOpen }}" onClick="{{ toggleSub }}">{{ t.ato }}</button>
+          <ul class="hdr__sub" aria-label="SWDA Advisory">
+            <li><a href="/atosetupadvisory">Organisation Registration</a></li>
+            <li><a href="/workshops">Workshops</a></li>
+            <li><a href="/customised-tms">Customised TMS</a></li>
+          </ul>
+        </li>
+        <li><a href="/ssgauditmatters">{{ t.audit }}</a></li>
+        <li><a href="/creativemarketing">{{ t.marketing }}</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap hdr">
+    <button class="hdr__menu" type="button" aria-controls="tb-drawer" aria-expanded="{{ open }}" onClick="{{ openMenu }}">
+      <span class="hdr__bars"><i></i><i></i><i></i></span>
+      <span>{{ t.menu }}</span>
+    </button>
+    <a class="hdr__mark" href="/" aria-label="2BIRDS, home">
+      <img class="logo" src="assets/logo-text.png" alt="2BIRDS">
+    </a>
+    <div class="hdr__right">
+      <a class="hdr__cta u-desk" href="/contact">{{ t.enquiry }}</a>
+      <a class="hdr__cta u-mob" href="/contact">{{ t.enquireShort }}</a>
+    </div>
+  </div>
+</header>
+<div class="{{ drawerClass }}" id="tb-drawer" data-open="{{ open }}" aria-hidden="{{ closed }}">
+  <div class="drawer__topwrap"><div class="drawer__top">
+    <a href="/" aria-label="2BIRDS, home"><img class="logo" src="assets/logo-text.png" alt="2BIRDS"></a>
+    <button class="drawer__close" type="button" onClick="{{ closeMenu }}">Close</button>
+  </div></div>
+  <div class="drawer__body">
+    <nav class="drawer__main" aria-label="Practice areas">
+      <a href="/brand">
+        <span class="drawer__label">I</span>
+        <span><span class="drawer__title">Brand</span></span>
+      </a>
+      <a href="/wsqcurriculumdevelopment">
+        <span class="drawer__label">II</span>
+        <span><span class="drawer__title">WSQ Curriculum Development</span></span>
+      </a>
+      <a href="/atosetupadvisory">
+        <span class="drawer__label">III</span>
+        <span><span class="drawer__title">{{ t.ato }}</span></span>
+      </a>
+        <a class="drawer__subitem" href="/atosetupadvisory"><span class="drawer__label"></span><span><span class="drawer__title">Organisation Registration</span></span></a>
+        <a class="drawer__subitem" href="/workshops"><span class="drawer__label"></span><span><span class="drawer__title">Workshops</span></span></a>
+        <a class="drawer__subitem" href="/customised-tms"><span class="drawer__label"></span><span><span class="drawer__title">Customised TMS</span></span></a>
+      <a href="/ssgauditmatters">
+        <span class="drawer__label">IV</span>
+        <span><span class="drawer__title">TPQA Audit Matters</span></span>
+      </a>
+      <a href="/creativemarketing">
+        <span class="drawer__label">V</span>
+        <span><span class="drawer__title">Creative Marketing</span></span>
+      </a>
+    </nav>
+    <img class="drawer__mono" src="assets/monogram.png" alt="" aria-hidden="true">
+    <div class="drawer__aside">
+      <div class="drawer__group">
+        <h3 class="drawer__label">Client services</h3>
+        <nav class="drawer__sub" aria-label="Client services">
+          <a href="/contact">Book a consultation</a>
+        </nav>
+      </div>
+      <div class="drawer__group">
+        <h3 class="drawer__label">The house of <span class="brand">2BIRDS</span></h3>
+        <nav class="drawer__sub" aria-label="More from 2BIRDS">
+          <a href="/legal-statement">Legal Statement</a>
+          <a href="/terms">Website Terms of Use</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/engagement">Terms of Engagement</a>
+        </nav>
+      </div>
+      <div class="drawer__group">
+        <h3 class="drawer__label">Location</h3>
+        <address class="drawer__foot">
+          7 Temasek Boulevard, #12-07<br>
+          Suntec Tower One, Singapore 038987<br>
+          <span class="drawer__foot-l">Mobile · <a href="tel:+6585953945">+65 8595 3945</a></span><br>
+          <span class="drawer__foot-l"><a href="mailto:hello@2birds.asia">hello@2birds.asia</a></span>
+        </address>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:320},&quot;tone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;\&quot;dark\&quot; | \&quot;light\&quot;&quot;,&quot;section&quot;:&quot;Header&quot;}}">
+class Component extends DCLogic {
+  state = { subOpen: false, open: false, scrolled: false, lang: "en", langOpen: false, region: "Singapore" };
+
+  static LANGS = [
+    { id: "en", name: "English", code: "EN", label: "English", html: "en-SG",
+      t: { brand: "Brand", wsq: "WSQ Curriculum Development", ato: "SWDA Advisory", audit: "TPQA Audit Matters", marketing: "Creative Marketing", enquiry: "Book a consultation", enquireShort: "Book", menu: "Menu" } },
+    { id: "zh", name: "简体中文", code: "中文", label: "中文", html: "zh-Hans-SG",
+      t: { brand: "品牌", wsq: "WSQ 课程开发", ato: "SWDA 咨询", audit: "TPQA 审核事务", marketing: "创意营销", enquiry: "预约咨询", enquireShort: "预约", menu: "菜单" } },
+    { id: "ms", name: "Bahasa Melayu", code: "BM", label: "Melayu", html: "ms-SG",
+      t: { brand: "Jenama", wsq: "Pembangunan Kurikulum WSQ", ato: "Nasihat SWDA", audit: "Hal Ehwal Audit TPQA", marketing: "Pemasaran Kreatif", enquiry: "Tempah konsultasi", enquireShort: "Tempah", menu: "Menu" } },
+    { id: "ta", name: "தமிழ்", code: "TA", label: "தமிழ்", html: "ta-SG",
+      t: { brand: "பிராண்ட்", wsq: "WSQ பாடத்திட்ட மேம்பாடு", ato: "SWDA ஆலோசனை", audit: "TPQA தணிக்கை விவகாரங்கள்", marketing: "படைப்பாற்றல் சந்தைப்படுத்தல்", enquiry: "ஆலோசனைக்கு முன்பதிவு", enquireShort: "முன்பதிவு", menu: "பட்டியல்" } },
+    { id: "zht", name: "繁體中文", code: "繁", label: "繁體中文", html: "zh-Hant",
+      t: { brand: "品牌", wsq: "WSQ 課程開發", ato: "SWDA 諮詢", audit: "TPQA 審核事務", marketing: "創意行銷", enquiry: "預約諮詢", enquireShort: "預約", menu: "選單" } },
+    { id: "ja", name: "日本語", code: "JA", label: "日本語", html: "ja",
+      t: { brand: "ブランド", wsq: "WSQ カリキュラム開発", ato: "SWDA アドバイザリー", audit: "TPQA 監査対応", marketing: "クリエイティブ・マーケティング", enquiry: "ご相談の予約", enquireShort: "予約", menu: "メニュー" } },
+    { id: "ko", name: "한국어", code: "KO", label: "한국어", html: "ko",
+      t: { brand: "브랜드", wsq: "WSQ 교육과정 개발", ato: "SWDA 자문", audit: "TPQA 감사 대응", marketing: "크리에이티브 마케팅", enquiry: "상담 예약", enquireShort: "예약", menu: "메뉴" } },
+    { id: "id", name: "Bahasa Indonesia", code: "ID", label: "Indonesia", html: "id",
+      t: { brand: "Merek", wsq: "Pengembangan Kurikulum WSQ", ato: "Konsultasi SWDA", audit: "Urusan Audit TPQA", marketing: "Pemasaran Kreatif", enquiry: "Pesan konsultasi", enquireShort: "Pesan", menu: "Menu" } },
+    { id: "th", name: "ภาษาไทย", code: "TH", label: "ไทย", html: "th",
+      t: { brand: "แบรนด์", wsq: "การพัฒนาหลักสูตร WSQ", ato: "ที่ปรึกษา SWDA", audit: "งานตรวจสอบ TPQA", marketing: "การตลาดเชิงสร้างสรรค์", enquiry: "จองการปรึกษา", enquireShort: "จอง", menu: "เมนู" } },
+    { id: "vi", name: "Tiếng Việt", code: "VI", label: "Tiếng Việt", html: "vi",
+      t: { brand: "Thương hiệu", wsq: "Phát triển chương trình WSQ", ato: "Tư vấn SWDA", audit: "Kiểm toán TPQA", marketing: "Tiếp thị sáng tạo", enquiry: "Đặt lịch tư vấn", enquireShort: "Đặt lịch", menu: "Danh mục" } },
+    { id: "fil", name: "Filipino", code: "FIL", label: "Filipino", html: "fil",
+      t: { brand: "Brand", wsq: "Pagbuo ng Kurikulum ng WSQ", ato: "Payo sa SWDA", audit: "Mga Usapin sa Audit ng TPQA", marketing: "Malikhaing Marketing", enquiry: "Mag-book ng konsultasyon", enquireShort: "Mag-book", menu: "Menu" } },
+    { id: "hi", name: "हिन्दी", code: "HI", label: "हिन्दी", html: "hi",
+      t: { brand: "ब्रांड", wsq: "WSQ पाठ्यक्रम विकास", ato: "SWDA परामर्श", audit: "TPQA ऑडिट मामले", marketing: "रचनात्मक मार्केटिंग", enquiry: "परामर्श बुक करें", enquireShort: "बुक करें", menu: "मेनू" } }
+  ];
+
+  static REGIONS = [
+    { name: "Southeast Asia", items: ["Singapore", "Brunei", "Cambodia", "Indonesia", "Laos", "Malaysia", "Myanmar", "Philippines", "Thailand", "Timor-Leste", "Vietnam"] },
+    { name: "East Asia", items: ["China", "Hong Kong", "Japan", "Macau", "Mongolia", "South Korea", "Taiwan"] },
+    { name: "South Asia", items: ["Afghanistan", "Bangladesh", "Bhutan", "India", "Maldives", "Nepal", "Pakistan", "Sri Lanka"] },
+    { name: "Central Asia", items: ["Kazakhstan", "Kyrgyzstan", "Tajikistan", "Turkmenistan", "Uzbekistan"] },
+    { name: "West Asia", items: ["Armenia", "Azerbaijan", "Bahrain", "Cyprus", "Georgia", "Iraq", "Israel", "Jordan", "Kuwait", "Lebanon", "Oman", "Palestine", "Qatar", "Saudi Arabia", "Syria", "Türkiye", "United Arab Emirates", "Yemen"] }
+  ];
+
+  // Official language per country, where the site offers it. Otherwise English.
+  static REGION_LANG = {
+    "Singapore": "en", "Malaysia": "ms", "Brunei": "ms", "Indonesia": "id", "Philippines": "fil",
+    "Thailand": "th", "Vietnam": "vi", "China": "zh", "Hong Kong": "zht", "Macau": "zht",
+    "Taiwan": "zht", "Japan": "ja", "South Korea": "ko", "India": "hi", "Sri Lanka": "ta"
+  };
+
+  setRegion(v) {
+    try { localStorage.setItem("tb-region", v); } catch (e) {}
+    try { window.dispatchEvent(new CustomEvent("tb-region", { detail: v })); } catch (e) {}
+    this.setState({ region: v });
+    this.setLang(Component.REGION_LANG[v] || "en");
+  }
+
+  setLang(id) {
+    try { localStorage.setItem("tb-lang", id); } catch (e) {}
+    var l = Component.LANGS.find((x) => x.id === id);
+    if (l) document.documentElement.lang = l.html;
+    try { window.dispatchEvent(new CustomEvent("tb-lang", { detail: id })); } catch (e) {}
+    this.setState({ lang: id, langOpen: false });
+  }
+
+  componentDidMount() {
+    this._subOff = (e) => { if (this.state.subOpen && !(e.target.closest && e.target.closest(".hdr__has"))) this.setState({ subOpen: false }); };
+    document.addEventListener("click", this._subOff);
+    this._subEsc = (e) => { if (e.key === "Escape" && this.state.subOpen) this.setState({ subOpen: false }); };
+    document.addEventListener("keydown", this._subEsc);
+    try { var saved = localStorage.getItem("tb-lang"); if (saved && saved !== "en") this.setLang(saved); } catch (e) {}
+    try { var r = localStorage.getItem("tb-region"); if (r) this.setState({ region: r }); } catch (e) {}
+    this._region = (e) => { if (e.detail !== this.state.region) { this.setState({ region: e.detail }); this.setLang(Component.REGION_LANG[e.detail] || "en"); } };
+    window.addEventListener("tb-region", this._region);
+    this._outside = (e) => { if (this.state.langOpen && !e.target.closest(".hdr__lang")) this.setState({ langOpen: false }); };
+    document.addEventListener("click", this._outside);
+    this._esc = (e) => { if (e.key === "Escape") { this.setState({ langOpen: false }); this.close(); } };
+    document.addEventListener("keydown", this._esc);
+    this._sync = () => {
+      var y = window.scrollY || window.pageYOffset || 0;
+      var next = y > 40;
+      if (next !== this.state.scrolled) this.setState({ scrolled: next });
+    };
+    window.addEventListener("scroll", this._sync, { passive: true });
+    window.addEventListener("resize", this._sync);
+    window.addEventListener("pageshow", this._sync);
+    window.addEventListener("hashchange", this._sync);
+    window.addEventListener("load", this._sync);
+    this._sync();
+    [0, 300, 1000].forEach((d) => window.setTimeout(this._sync, d));
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this._esc);
+    document.removeEventListener("click", this._outside);
+    window.removeEventListener("scroll", this._sync);
+    window.removeEventListener("resize", this._sync);
+    window.removeEventListener("pageshow", this._sync);
+    window.removeEventListener("hashchange", this._sync);
+    window.removeEventListener("load", this._sync);
+    document.body.style.overflow = "";
+  }
+
+  open() { document.body.style.overflow = "hidden"; this.setState({ open: true }); }
+  close() { document.body.style.overflow = ""; this.setState({ open: false }); }
+
+  renderVals() {
+    var cur = Component.LANGS.find((x) => x.id === this.state.lang) || Component.LANGS[0];
+    return {
+      subOpen: this.state.subOpen,
+      toggleSub: (e) => { e.stopPropagation(); this.setState({ subOpen: !this.state.subOpen }); },
+      t: cur.t,
+      langLabel: cur.label,
+      region: this.state.region,
+      regionGroups: Component.REGIONS,
+      onRegion: (e) => this.setRegion(e.target.value),
+      langOpen: this.state.langOpen,
+      toggleLang: () => this.setState((s) => ({ langOpen: !s.langOpen })),
+      langs: Component.LANGS.map((l) => ({ name: l.name, code: l.code, selected: l.id === cur.id, pick: () => this.setLang(l.id) })),
+      open: this.state.open,
+      headerClass: this.state.scrolled
+        ? "site-header is-scrolled"
+        : (this.props.tone === "light" ? "site-header is-on-light" : "site-header"),
+      drawerClass: this.state.open ? "drawer drawer--open" : "drawer",
+      closed: !this.state.open,
+      openMenu: () => this.open(),
+      closeMenu: () => this.close()
+    };
+  }
+}
+</script>
+</body>
+</html>

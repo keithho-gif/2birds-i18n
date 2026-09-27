@@ -1,462 +1,221 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-SG">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>2birds asia | SWDA Audit Matters</title>
-<meta name="description" content="Ready for every SWDA audit. TPQA and CQC advisory for SWDA-funded training providers, with pre-audit gap analysis, documentation, governance, and preparation for the day SWDA arrives." />
-<link rel="icon" type="image/png" href="assets/favicon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-<link rel="canonical" href="https://www.2birds.asia/ssgauditmatters" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2BIRDS asia | TPQA Audit Matters · Prepare for TPQA with established operational systems</title>
+<meta name="description" content="How SWDA's Training Provider Quality Assessment works, criterion by criterion, with the practices that strengthen an application and how 2BIRDS advises its clients.">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/og-image.png">
+<link rel="canonical" href="https://www.2birds.asia/ssgauditmatters">
+<meta name="theme-color" content="#f7f5ef">
 <!-- social share -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="2birds" />
-<meta property="og:locale" content="en_SG" />
-<meta property="og:title" content="2birds asia | SWDA Audit Matters" />
-<meta property="og:description" content="2BIRDS is a management consultancy specialising in the training and adult education sector. We advise leading training providers on operational governance, accreditation standards and instructional design." />
-<meta property="og:url" content="https://www.2birds.asia/ssgauditmatters" />
-<meta property="og:image" content="https://www.2birds.asia/assets/og-image.png" />
-<meta property="og:image:width" content="500" />
-<meta property="og:image:height" content="500" />
-<meta property="og:image:alt" content="2birds" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="2birds asia | SWDA Audit Matters" />
-<meta name="twitter:description" content="2BIRDS is a management consultancy specialising in the training and adult education sector. We advise leading training providers on operational governance, accreditation standards and instructional design." />
-<meta name="twitter:image" content="https://www.2birds.asia/assets/og-image.png" />
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="2BIRDS">
+<meta property="og:locale" content="en_SG">
+<meta property="og:title" content="2BIRDS asia | TPQA Audit Matters · Prepare for TPQA with established operational systems">
+<meta property="og:description" content="2BIRDS is a management consultancy specialising in the training and adult education sector. We advise leading training providers on operational governance, accreditation standards and instructional design.">
+<meta property="og:url" content="https://www.2birds.asia/ssgauditmatters">
+<meta property="og:image" content="https://www.2birds.asia/assets/og-image.png">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="500">
+<meta property="og:image:alt" content="2BIRDS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2BIRDS asia | TPQA Audit Matters · Prepare for TPQA with established operational systems">
+<meta name="twitter:description" content="2BIRDS is a management consultancy specialising in the training and adult education sector. We advise leading training providers on operational governance, accreditation standards and instructional design.">
+<meta name="twitter:image" content="https://www.2birds.asia/assets/og-image.png">
 <!-- /social share -->
-<link rel="stylesheet" href="css/main.css?v=30" />
-<link rel="preload" as="image" imagesrcset="assets/maison-corridor-800.jpg 800w, assets/maison-corridor-1280.jpg 1280w, assets/maison-corridor.jpg?v=2 1920w" imagesizes="100vw" />
-<style>
-  .paper { display:inline-flex; align-items:center; gap:10px; min-height:44px; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); border:1px solid var(--line); padding:12px 20px; margin:8px 10px 0 0; transition:all .3s; }
-  .paper:hover { border-color:var(--ink); color:var(--ink); }
-  .paper .small-caps { font-size:8.5px; color:var(--olive); }
-  .grade { border-top:1px solid var(--line); }
-  .grade__row { display:grid; grid-template-columns: 80px minmax(0,4fr) minmax(0,7fr); gap:clamp(16px,3vw,44px); padding:clamp(24px,3.4vw,40px) 0; border-bottom:1px solid var(--line); }
-  @media(max-width:760px){
-    .grade__row { display:block; padding-left:16px; border-left:2px solid var(--olive); }
-    .grade__row:nth-of-type(2) { border-left-color:var(--ink); }
-    .grade__row:nth-of-type(3) { border-left-color:var(--royal); }
-    .grade__num { float:left; margin-right:14px; line-height:1.25; }
-    .grade__row p { clear:both; margin-top:12px; }
-  }
-  .grade__num { font-family:var(--serif); font-size:1.3rem; color:var(--olive); }
-  .outcomes { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); }
-  @media(max-width:680px){ .outcomes{ grid-template-columns:1fr; } }
-  .outcome { padding:clamp(26px,3.4vw,44px); display:flex; flex-direction:column; gap:10px; align-items:center; text-align:center; }
-  .outcome + .outcome { border-left:1px solid var(--line); }
-  @media(max-width:680px){ .outcome + .outcome { border-left:0; border-top:1px solid var(--line); } }
-  .outcome__grade { font-family:var(--serif); font-size:clamp(1.5rem,2.8vw,2rem); }
-  .speak { display:grid; grid-template-columns:repeat(2,1fr); border:1px solid var(--line); }
-  @media(max-width:680px){ .speak{ grid-template-columns:1fr; } }
-  .speak > div { padding:20px 24px; border-left:1px solid var(--line); border-top:1px solid var(--line); font-size:13px; }
-  .speak > div:nth-child(1), .speak > div:nth-child(2) { border-top:0; }
-  .speak > div:nth-child(2n+1) { border-left:0; }
-  .speak .small-caps { display:block; margin-bottom:4px; }
-  /* pro bono, emphasised */
-  .probono .h2 { font-size: clamp(2.1rem, 4vw, 3.1rem); line-height: 1.12; }
-  .probono .h2 em { color: var(--royal); font-style: italic; }
-  .probono__lead { font-family: var(--serif); font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.6; color: var(--ink); max-width: 64ch; margin: 0 auto; }
-</style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"TPQA and CQC Audit Readiness","description":"Preparation for SWDA's Training Provider Quality Assessment (TPQA) and Course Quality Check (CQC). For clients of 2birds, the consultation is pro bono.","url":"https://www.2birds.asia/ssgauditmatters","areaServed":{"@type":"Country","name":"Singapore"},"provider":{"@id":"https://www.2birds.asia/#org","@type":"ProfessionalService","name":"2birds","url":"https://www.2birds.asia/"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/site.css?v=615b7462">
+<script src="/support.js?v=d568b663"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"TPQA Audit Preparation","description":"Preparation for the Training Provider Quality Assessment (TPQA) conducted by the Skills and Workforce Development Agency (SWDA), criterion by criterion, for current 2BIRDS clients.","url":"https://www.2birds.asia/ssgauditmatters","areaServed":{"@type":"Country","name":"Singapore"},"provider":{"@id":"https://www.2birds.asia/#org","@type":"ProfessionalService","name":"2BIRDS","url":"https://www.2birds.asia/"}}</script>
 </head>
-<body data-page="audit">
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/site.css?v=615b7462">
+  <script src="/site.js?v=cf4677e2"></script>
+</helmet>
 
-<main>
+<dc-import name="SiteHeader" hint-size="100%,0" style="height:0"></dc-import>
 
-  <section class="bhero bhero--short">
-    <div class="bhero__bg" aria-hidden="true"><img src="assets/maison-corridor.jpg?v=2" srcset="assets/maison-corridor-800.jpg 800w, assets/maison-corridor-1280.jpg 1280w, assets/maison-corridor.jpg?v=2 1920w" sizes="100vw" width="1920" height="2880" fetchpriority="high" alt="" /></div>
-    <div class="bhero__inner">
-      <div class="bhero__crumb"><a href="index.html">2birds</a><span>·</span><span>Services · III</span></div>
-      <span class="eyebrow reveal">SWDA Audit Matters</span>
-      <h1 class="display reveal" style="--d:.1s">Ready for every <em>SWDA audit</em>.</h1>
-      <hr class="rule reveal" style="--d:.16s" />
-      <p class="lede reveal" style="--d:.22s; margin-top:0; max-width:50ch;">SWDA audits the training providers it funds, and a poor result can end your funding. We get your documents, your team and your day-to-day operation ready, months before the letter arrives.</p>
+<main class="or tq" data-screen-label="TPQA Audit Matters">
+
+  <section class="hero" data-block="tq-hero">
+    <div class="hero__media"><img src="assets/tq2-hero.jpg" alt="Sweeping white curved balconies of a modern building, in black and white"></div>
+    <div class="hero__scrim"></div>
+    <div class="hero__inner">
+      <p class="kicker role-kicker">TPQA Audit Matters</p>
+      <h1 class="display">Prepare for TPQA with established operational systems.</h1>
+      <hr class="rule">
+      <p class="lede role-lead">SWDA evaluates registered providers through the Training Provider Quality Assessment (TPQA) to monitor continuing compliance. Our team explains each regulatory standard, outlines agency governance expectations, and helps keep your routine training operations resilient and compliant.</p>
     </div>
   </section>
 
-  <nav class="secnav" aria-label="Sections on this page">
-    <div class="secnav__inner">
-      <a href="#tpqa">I · TPQA</a>
-      <a href="#approach">II · Approach</a>
-      <a href="#procedure">III · Procedure</a>
-      <a href="#grades">IV · Grades</a>
-      <a href="#roi">V · The return</a>
-      <a href="#cqc">VI · CQC</a>
-      <a href="#faq">FAQ</a>
-    </div>
-  </nav>
+  <section class="or-sec lv-sec or-chap" id="assessment" data-block="tq-chap1">
+    <figure class="lv-media"><img src="assets/tq-drawers.jpg" alt="Rows of labelled wooden catalogue drawers, in black and white" loading="lazy"></figure>
+    <div class="wrap"><header class="or-head reveal"><p class="or-kicker role-kicker">I · The assessment</p><h2 class="or-h2 role-title">Scope of the TPQA evaluation</h2></header></div>
+  </section>
 
-  <!-- PLAIN TERMS -->
-  <section class="section--tight section">
-    <div class="container container--narrow center">
-      <span class="eyebrow reveal">In plain terms</span>
-      <h2 class="h2 reveal" style="--d:.06s">Two audits. One preparation.</h2>
-      <div class="prose mt-3 reveal" style="--d:.12s; margin-left:auto; margin-right:auto; text-align:left;">
-        <p>SWDA checks its funded training providers in two ways. The first is the <strong>Training Provider Quality Assessment (TPQA)</strong>, a review of your whole organisation, from how you handle learner feedback to how your board signs off on policy. The grade decides whether you keep full funding, partial funding, or lose your registered status altogether.</p>
-        <p>The second is the <strong>Course Quality Check (CQC)</strong>, a closer look at the actual course materials you teach from, to confirm they still match what SWDA approved. Materials that have drifted from the approved version are one of the most common findings in the sector.</p>
-        <p>Both are manageable, and neither should be frightening, provided the preparation starts early. That preparation is exactly what this service provides.</p>
-            <p class="mt-2"><a class="text-link" href="what-tpqa-assesses.html">What the TPQA assesses · read the full guide ↗</a></p>
+  <section class="or-sec tq3-sec" id="criteria" data-block="tq-criteria">
+    <div class="wrap">
+      <p class="or-p tq3-intro reveal role-body">SWDA requires each training provider to document its governance systems and provide verifiable audit evidence of operational compliance. Select a criterion below to view its specific assessment items.</p>
+      <div class="lv-tiles lv-tiles--3 lv-tiles--in">
+        <button class="lv-tile lv-tile--btn reveal" type="button" aria-controls="tq-crit-1" aria-expanded="{{ sel1 }}" onClick="{{ tile1 }}"><span class="lv-tile__img"><img src="assets/tq2-k1.jpg" alt="Two white archive box files side by side" loading="lazy"><span class="lv-tile__tag" aria-hidden="true">Criterion 1</span><span class="lv-tile__over"><span class="lv-tile__num role-kicker">Criterion 1</span><span class="lv-tile__cap role-subtitle">Course Administration and Corporate Governance</span><span class="lv-tile__cta">Show the items →</span></span></span></button>
+        <button class="lv-tile lv-tile--btn reveal" type="button" aria-controls="tq-crit-2" aria-expanded="{{ sel2 }}" onClick="{{ tile2 }}"><span class="lv-tile__img"><img src="assets/tq2-k2.jpg" alt="Broad outdoor steps with a steel handrail under a lattice roof" loading="lazy"><span class="lv-tile__tag" aria-hidden="true">Criterion 2</span><span class="lv-tile__over"><span class="lv-tile__num role-kicker">Criterion 2</span><span class="lv-tile__cap role-subtitle">Course Quality Assurance</span><span class="lv-tile__cta">Show the items →</span></span></span></button>
+        <button class="lv-tile lv-tile--btn reveal" type="button" aria-controls="tq-crit-3" aria-expanded="{{ sel3 }}" onClick="{{ tile3 }}"><span class="lv-tile__img"><img src="assets/tq2-k3.jpg" alt="Rows of carved stone stepwell stairs" loading="lazy"><span class="lv-tile__tag" aria-hidden="true">Criterion 3</span><span class="lv-tile__over"><span class="lv-tile__num role-kicker">Criterion 3</span><span class="lv-tile__cap role-subtitle">Outcomes</span><span class="lv-tile__cta">Show the items →</span></span></span></button>
       </div>
-    </div>
-  </section>
-
-  <!-- PRO BONO -->
-  <section class="section probono">
-    <div class="container container--narrow center">
-      <span class="eyebrow eyebrow--royal reveal">Our commitment</span>
-      <h2 class="h2 reveal" style="--d:.06s">For our existing clients, consulting is always <em>pro bono</em>.</h2>
-      <div class="prose mt-3 reveal" style="--d:.12s; margin-left:auto; margin-right:auto;">
-        <p class="probono__lead">We want every learning experience to be at its best. When a training provider runs its processes well, the learners are the ones who gain. So we walk alongside our existing clients and advise them pro bono, for the sake of every learner in the room.</p>
-        <p class="mt-3">For our existing clients, the consultation, an honest reading of TPQA and CQC readiness, and a gap analysis against SWDA's criteria are given without charge and without obligation. Deeper work is scoped and priced in writing, but the guidance that shows you where you stand is always ours to give.</p>
-      </div>
-      <a class="btn mt-3 reveal" href="contact.html">Ask for a complimentary reading</a>
-    </div>
-  </section>
-
-  <!-- § I WHAT TPQA IS -->
-  <section class="section section--bone" id="tpqa" style="padding-bottom:clamp(34px,5vw,60px)">
-    <div class="container">
-      <div class="split">
-        <div class="reveal" style="position:sticky;top:calc(var(--navh,100px) + 64px);align-self:start;">
-          <div class="figure figure--tall"><img src="assets/maison-boardroom.jpg" alt="An empty boardroom in natural light" loading="lazy" /></div>
-          <figcaption class="figcap">The room where the preparation is done.</figcaption>
-        </div>
-        <div>
-          <span class="eyebrow eyebrow--olive reveal">§ I · What TPQA is</span>
-          <h2 class="h2 reveal" style="--d:.06s">A thorough quality assessment, not a paper exercise.</h2>
-          <div class="prose mt-3 reveal" style="--d:.08s">
-            <p>The Training Provider Quality Assessment is SWDA's holistic assessment of a funded Registered Training Provider. It asks whether the provider has adopted a systematic approach to good training methods and industry-relevant courses, supported by sound administration and corporate governance, and whether those processes show up in real outcomes for learners and enterprises.</p>
-            <p>In practice, this means SWDA reads your documented procedures and your implementation evidence side by side. Where documents and practice do not match, the grade suffers.</p>
-            <p>The mechanics are fixed. SWDA notifies a provider roughly two months before the application deadline; the Management Representative submits the documents through TPGateway; a team of SWDA assessors then conducts a one-day onsite visit. There is no application fee. The grade and the assessment report return through TPGateway, and a provider that disputes the outcome has ten working days to request a review, at a fee of $3,052 inclusive of GST, on the narrow grounds that procedure failed or that findings contradict the evidence examined.</p>
-            <p>Two recent details matter. Providers holding a four-year EduTrust certification may qualify for TPQA on a reduced scope. And the item covering the management of marketing activities was updated with effect from 1 December 2025, which is one reason our <a href="creativemarketing.html" style="border-bottom:1px solid var(--olive-bright)">Creative Marketing</a> work is built to the same audit standard as everything else.</p>
+      <sc-if value="{{ show1 }}" hint-placeholder-val="{{ false }}">
+        <div class="tq3-crit" id="tq-crit-1">
+          <div class="or-accs">
+            <details class="or-acc" id="tq-i1-1"><summary class="or-acc__sum"><span class="or-acc__n">1.1</span><span class="or-acc__t">Learner communication, feedback, requests, and appeals</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>Learners receive accurate course information, while every enquiry, piece of feedback, and appeal is resolved and formally closed.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>Information checked and approved before release, and tracked response times across all communication channels.</p></div></div></details>
+            <details class="or-acc" id="tq-i1-2"><summary class="or-acc__sum"><span class="or-acc__n">1.2</span><span class="or-acc__t">Pre-course and post-course advice</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>Prospective learners receive clear advice before enrolment, and graduates receive guidance on progression pathways after completion.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>Course advisors who are formally trained and monitored, supported by documented advisory records.</p></div></div></details>
+            <details class="or-acc" id="tq-i1-3"><summary class="or-acc__sum"><span class="or-acc__n">1.3</span><span class="or-acc__t">Administration systems</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>Assessment outcomes upload accurately to TPGateway, and the digital learning platform satisfies SWDA delivery standards.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>Documented operational workflows, including clear delivery procedures for planned e-learning programmes.</p></div></div></details>
+            <details class="or-acc" id="tq-i1-4"><summary class="or-acc__sum"><span class="or-acc__n">1.4</span><span class="or-acc__t">Corporate governance</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>Leadership maintains strategic plans with measurable targets, ensures sound financial oversight, and reviews internal systems regularly.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>Formal management review records showing operational findings, designated owners, and agreed timelines for every follow-up action.</p></div></div></details>
+            <details class="or-acc" id="tq-i1-5"><summary class="or-acc__sum"><span class="or-acc__n">1.5</span><span class="or-acc__t">Management of marketing activities</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>All promotional activities comply with SWDA marketing standards and conditions, reinforced by a code of conduct for marketing personnel and representatives, updated from 1 December 2025.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>Valid course reference numbers displayed in advertisements, and testimonials stating the learner full name, completed course, and completion year.</p></div></div></details>
+            <details class="or-acc" id="tq-i1-6"><summary class="or-acc__sum"><span class="or-acc__n">1.6</span><span class="or-acc__t">Tracking organisational outcomes</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>The outcomes established under Criterion 3 are measured consistently and used to guide organisational improvements.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>Every outcome clearly defined, tracked systematically, and reviewed within scheduled management meetings.</p></div></div></details>
           </div>
         </div>
+      </sc-if>
+      <sc-if value="{{ show2 }}" hint-placeholder-val="{{ false }}">
+        <div class="tq3-crit" id="tq-crit-2">
+          <div class="or-accs">
+            <details class="or-acc" id="tq-i2-1"><summary class="or-acc__sum"><span class="or-acc__n">2.1</span><span class="or-acc__t">Course quality assurance</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>Lesson plans, training materials, and assessment plans align fully with the approved course proposal and learning outcomes, as well as statutory skill proficiency descriptions for WSQ courses.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>Documented consistency across all instructional materials, alongside recorded evidence of industry consultation.</p></div></div></details>
+            <details class="or-acc" id="tq-i2-2"><summary class="or-acc__sum"><span class="or-acc__n">2.2</span><span class="or-acc__t">Screening and profiling learners</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>Enrolment is restricted strictly to learners who satisfy all published course entry prerequisites.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>Verified entry qualification certificates on file prior to course commencement, including for candidates sponsored by corporate clients.</p></div></div></details>
+            <details class="or-acc" id="tq-i2-3"><summary class="or-acc__sum"><span class="or-acc__n">2.3</span><span class="or-acc__t">Adult educator management</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>Adult educators are recruited, inducted, observed, appraised, and supported through a structured development system.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>A formal code of conduct for adult educators, explicit definitions of underperformance, and documented intervention logs.</p></div></div></details>
+            <details class="or-acc" id="tq-i2-4"><summary class="or-acc__sum"><span class="or-acc__n">2.4</span><span class="or-acc__t">Plan-Do-Check-Act</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>Courses undergo scheduled evaluations according to a documented cycle using performance data and stakeholder feedback.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>Completed review cycles adhering to documented schedules, incorporating learner and industry input, with assigned owners and timelines for each corrective action.</p></div></div></details>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ show3 }}" hint-placeholder-val="{{ false }}">
+        <div class="tq3-crit" id="tq-crit-3">
+          <div class="or-accs">
+            <details class="or-acc" id="tq-i3-1"><summary class="or-acc__sum"><span class="or-acc__n">3.1</span><span class="or-acc__t">Organisational outcomes</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>Reported formally through the prescribed Required Information Template issued by SWDA.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>Accurate and consistent metrics that reconcile fully with the internal operating records of the provider.</p></div></div></details>
+            <details class="or-acc" id="tq-i3-2"><summary class="or-acc__sum"><span class="or-acc__n">3.2</span><span class="or-acc__t">Training outcomes</span></summary><div class="or-acc__body"><div class="or-item__body role-body"><p class="or-label role-kicker">Requirement</p><p>Evaluated through the SWDA <a class="ilink role-link" href="https://www.tpgateway.gov.sg/resources/digitalisation/training-quality-and-outcomes-measurement-(traqom)" target="_blank" rel="noopener">Training Quality and Outcomes Measurement (TRAQOM)</a> framework.</p></div><div class="or-item__sub"><p class="or-label role-kicker">What assessors may look for</p><p>Performance indicators tracked across cohorts and actively applied to enhance instructional delivery.</p></div></div></details>
+          </div>
+        </div>
+      </sc-if>
+      <div class="or-accs tq3-more">
+        <details class="or-acc" id="tq-process"><summary class="or-acc__sum"><span class="or-acc__n"></span><span class="or-acc__t">How the assessment runs</span></summary><div class="or-acc__body or-acc__body--full">
+          <ol class="tq-tl">
+            <li><span class="tq-tl__n">01</span><h3 class="tq-tl__t">Notification</h3><p>About three months before the site assessment, SWDA emails you four documents to prepare.</p></li>
+            <li><span class="tq-tl__n">02</span><h3 class="tq-tl__t">Self-assessment</h3><p>Your team conducts an internal review against the SWDA self-assessment checklist.</p></li>
+            <li><span class="tq-tl__n">03</span><h3 class="tq-tl__t">Submission</h3><p>About two months later, your Management Representative submits the documents on TPGateway. There is no fee.</p></li>
+            <li><span class="tq-tl__n">04</span><h3 class="tq-tl__t">Onsite assessment</h3><p>SWDA assessors spend one day on site, interviewing your team and clarifying on the documents that you have submitted.</p></li>
+            <li><span class="tq-tl__n">05</span><h3 class="tq-tl__t">Outcome</h3><p>You receive your grade and the Assessment Report on TPGateway.</p></li>
+          </ol>
+          <p class="tq-tl__docs">The four documents are the TPQA Requirements, the Document Submission List, the Required Information Template and the Course Information Template.</p>
+          <div class="tq-notes">
+            <p><span class="or-label role-kicker">EDUTRUST PROVISIONS</span>Training providers holding a four-year EduTrust certification are evaluated under a reduced assessment scope.</p>
+            <p><span class="or-label role-kicker">GROUNDS FOR APPEAL</span>A formal review may be requested solely if the assessment team failed to observe established procedures, or if audit findings depart manifestly from the evidence presented. An unfavourable evaluation, subsequent corrections, or supplementary documentation do not constitute valid grounds for review.</p>
+          </div>
+        </div></details>
+        <details class="or-acc" id="tq-docs"><summary class="or-acc__sum"><span class="or-acc__n"></span><span class="or-acc__t">Official sources</span></summary><div class="or-acc__body or-acc__body--full">
+          <ul class="or-links">
+            <li><a class="ilink role-link" href="https://www.tpgateway.gov.sg/plan-courses/training-provider-quality-assessment-(tpqa)" target="_blank" rel="noopener">SWDA, Training Provider Quality Assessment (TPQA)</a></li>
+            <li><a class="ilink role-link" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/acrobat-document.pdf?sfvrsn=8fab8552_3" target="_blank" rel="noopener">TPQA Requirements, effective 1 December 2025 (PDF)</a></li>
+            <li><a class="ilink role-link" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/acrobat-document-2.pdf?sfvrsn=47889251_3" target="_blank" rel="noopener">Document Submission List, effective 1 December 2025 (PDF)</a></li>
+            <li><a class="ilink role-link" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/self-assessment-checklist_tpqa_v1-1_202512.pdf?sfvrsn=1a15b21a_3" target="_blank" rel="noopener">Self-Assessment Checklist (PDF)</a></li>
+            <li><a class="ilink role-link" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/faqs-(tpqa)_july-2025_final.pdf?sfvrsn=2d1fdf52_5" target="_blank" rel="noopener">TPQA FAQs (PDF)</a></li>
+            <li><a class="ilink role-link" href="https://www.tpgateway.gov.sg/resources/regulation/terms-for-training-providers" target="_blank" rel="noopener">SWDA Terms for Training Providers</a></li>
+            <li><a class="ilink role-link" href="https://www.tpgateway.gov.sg/resources/digitalisation/training-quality-and-outcomes-measurement-(traqom)" target="_blank" rel="noopener">Training Quality and Outcomes Measurement (TRAQOM)</a></li>
+            <li><a class="ilink role-link" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/tpqa-outreach-deck-(november-2025).pdf" target="_blank" rel="noopener">TPQA Outreach Event deck, November 2025 (PDF)</a></li>
+            <li><a class="ilink role-link" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/tpqa-outreach-deck-(may-2026).pdf?sfvrsn=98e80a59_3" target="_blank" rel="noopener">TPQA Outreach Event deck, May 2026 (PDF)</a></li>
+          </ul>
+        </div></details>
       </div>
     </div>
   </section>
 
-  <!-- § II APPROACH -->
-  <section class="section" id="approach" style="padding-top:clamp(34px,5vw,60px)">
-    <div class="container">
-      <header class="sectionhead reveal">
-        <span class="eyebrow">§ II · Our approach</span>
-        <h2 class="h2">Not a transfer of responsibility.</h2>
-        <p class="lede">Engaging 2birds is not a way to outsource regulatory accountability. Under the SWDA framework, the obligation to deliver quality training rests, at all times, with the Registered Training Provider. Our work is advisory, and it is intended to leave the training provider better governed than we found it. It falls into four pillars.</p>
-      </header>
-      <div class="gridcards gridcards--4">
-        <article class="gcard reveal">
-          <span class="gcard__num">I</span>
-          <h3 class="gcard__title">Advisory, not assumption</h3>
-          <p class="gcard__body">The training provider remains the regulated entity, and the duty of care to the learner remains the training provider's. We work alongside the in-house team, never in place of it.</p>
+  <section class="or-sec lv-sec or-chap" id="advisory" data-block="tq-chap2">
+    <figure class="lv-media"><img src="assets/tq2-adv.jpg" alt="A dim corridor lined with tall dark columns" loading="lazy"></figure>
+    <div class="wrap"><header class="or-head reveal"><p class="or-kicker role-kicker">II · The advisory</p><h2 class="or-h2 role-title">How we support your preparation</h2></header></div>
+  </section>
+
+  <section class="or-sec tq3-sec" id="advise" data-block="tq-advise">
+    <div class="wrap">
+      <ol class="tq-three reveal">
+        <li><span>01</span><h3>Explain</h3><p>We guide your team through each TPQA requirement, clarifying what SWDA looks for during an evaluation.</p></li>
+        <li><span>02</span><h3>Benchmark</h3><p>We provide insight into how providers meet each standard effectively, and highlight common compliance gaps to avoid.</p></li>
+        <li><span>03</span><h3>Review</h3><p>We assess your documented records and day to day processes to ensure your operational evidence is robust and ready for inspection.</p></li>
+      </ol>
+      <p class="or-whole reveal">Your internal team conducts the presentation directly with SWDA assessors, as 2BIRDS does not attend the onsite audit on behalf of clients.</p>
+      <p class="or-label tq3-prhead reveal role-kicker">Practices that strengthen an application</p>
+      <div class="tq3-prs reveal">
+        <div class="tq3-pr"><h3 class="tq3-pr__t">Trainer observation</h3><p class="tq3-pr__g">Managers observe a new trainer's first training session in full and deliver structured feedback at the end of the day. Managers continue routine observations periodically using a standard rubric focused on professional growth.</p></div>
+        <div class="tq3-pr"><h3 class="tq3-pr__t">Response to feedback</h3><p class="tq3-pr__g">Learner ratings are evaluated after every run. Any score falling below four out of five triggers a targeted improvement plan, with disputed findings escalated to an objective review panel.</p></div>
+        <div class="tq3-pr"><h3 class="tq3-pr__t">Assessment supervision</h3><p class="tq3-pr__g">An administrative assistant supports class operations and invigilates assessments independently, leaving the instructor to concentrate on delivery.</p></div>
+        <div class="tq3-pr"><h3 class="tq3-pr__t">Pre-enrolment screening</h3><p class="tq3-pr__g">Entry criteria are confirmed against actual certificates prior to course start dates for all enrolled learners.</p></div>
+        <div class="tq3-pr"><h3 class="tq3-pr__t">Courseware consistency</h3><p class="tq3-pr__g">Lesson schedules, learner guides, and assessment instruments align completely with the authorised curriculum proposal.</p></div>
+        <div class="tq3-pr"><h3 class="tq3-pr__t">Advertising standards</h3><p class="tq3-pr__g">Marketing materials include valid course reference numbers, and testimonials state the graduate name, course relation, and completion year.</p></div>
+        <div class="tq3-pr"><h3 class="tq3-pr__t">Enquiry and appeal channels</h3><p class="tq3-pr__g">Distinct workflows manage learner feedback, service requests, and academic appeals, with logged response standards maintained across all communication channels.</p></div>
+        <div class="tq3-pr"><h3 class="tq3-pr__t">Pre-release approval</h3><p class="tq3-pr__g">Course literature is reviewed and authorised for factual accuracy prior to learner dissemination.</p></div>
+        <div class="tq3-pr"><h3 class="tq3-pr__t">Management oversight</h3><p class="tq3-pr__g">Management reviews track key indicators and establish firm accountability by assigning an owner and resolution timeline to every action item.</p></div>
+        <div class="tq3-pr"><h3 class="tq3-pr__t">Educator capability building</h3><p class="tq3-pr__g">Adult educators participate in peer observations, full-time employees complete annual external training, and all capability development under the Training and Adult Education Professional Pathway is recorded.</p></div></div>
+      </div>
+
+    
+  </section>
+
+  <section class="or-sec or-sec--bone tq3-sec" id="case" data-block="tq-chap3">
+    <div class="wrap">
+      <header class="or-head reveal"><p class="or-kicker role-kicker">III · The case for 2BIRDS</p><h2 class="or-h2 role-title">Why prepare with 2BIRDS</h2></header>
+      <div class="tq-rec">
+        <article class="tq-rec__card reveal">
+          <figure class="tq-rec__media"><img src="assets/tq-rec-trophy.jpg" alt="A silver cup on a marble base against a dark backdrop, in black and white" loading="lazy"></figure>
+          <p class="or-label tq-rec__k role-kicker">TPQA outcomes</p>
+          <p class="tq-rec__s">Through our consultations, Adept Academy and QD Academy each achieved a Grade 1 TPQA outcome.</p>
         </article>
-        <article class="gcard reveal" style="--d:.06s">
-          <span class="gcard__num">II</span>
-          <h3 class="gcard__title">Documentation, when manpower is short</h3>
-          <p class="gcard__body">Where the Management Representative and the in-house team are stretched, we draft, version-control and prepare the documentation for submission, in the training provider's own voice and on the training provider's letterhead.</p>
-        </article>
-        <article class="gcard reveal" style="--d:.12s">
-          <span class="gcard__num">III</span>
-          <h3 class="gcard__title">Corporate governance, strengthened</h3>
-          <p class="gcard__body">We advise on the governance structures that support good training, the policy stack, the management review cycle, the trainer-records regime, and the assessment integrity controls. A robust system pays for itself across cycles.</p>
-        </article>
-        <article class="gcard reveal" style="--d:.18s">
-          <span class="gcard__num">IV</span>
-          <h3 class="gcard__title">Complimentary consultation</h3>
-          <p class="gcard__body">The first conversation is, and remains, free. We discuss industry best practices, the protocols in the latest SWDA circulars, and the specific areas in which a training provider may fall short. There is no fee to ask, and no obligation to engage.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <div class="band reveal">
-    <img src="assets/maison-binders.jpg" alt="Binders of organised documents" loading="lazy" />
-  </div>
-
-  <!-- TRACK RECORD -->
-  <section class="section">
-    <div class="container container--narrow">
-      <header class="sectionhead reveal">
-        <span class="eyebrow">Track record</span>
-        <h2 class="h2">Two training providers, two Grade 1 outcomes.</h2>
-      </header>
-      <div class="prose reveal" style="margin:0 auto;">
-        <p>We have walked alongside the senior teams at both <a href="https://adeptacademy.com/" target="_blank" rel="noopener">Adept Academy</a> and <a href="https://theqdacademy.com/" target="_blank" rel="noopener">QD Academy</a> through their respective TPQA cycles. In each case the grade returned was Grade 1. The outcome rests with the training providers themselves; the structure that supported the outcome is one we are glad to have played a part in building.</p>
-        <p>We congratulate the senior teams at both academies on their Grade 1 outcomes, and wish them continued success in their operations, in the standing they have earned with their learners, and in the work that will follow from it.</p>
-      </div>
-      <div class="outcomes mt-4 reveal">
-        <div class="outcome">
-          <span class="small-caps">TPQA · Grade 1 outcome</span>
-          <span class="outcome__grade">Adept Academy</span>
-        </div>
-        <div class="outcome">
-          <span class="small-caps">TPQA · Grade 1 outcome</span>
-          <span class="outcome__grade">QD Academy</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- § III PROCEDURE -->
-  <section class="section section--bone" id="procedure">
-    <div class="container">
-      <header class="sectionhead reveal">
-        <span class="eyebrow">§ III · The procedure</span>
-        <h2 class="h2">The TPQA procedure, in four movements.</h2>
-        <p class="lede">The procedure is fixed by SWDA. Where 2birds adds value is in the preparation, so your team, your documents and your operating reality are in good order for the day SWDA arrives. The working papers SWDA publishes are linked alongside the step at which they apply.</p>
-      </header>
-      <div class="steps">
-        <div class="step reveal">
-          <span class="step__label">Step I</span>
-          <div>
-            <h3 class="step__title">Self-Assessment Checklist</h3>
-            <p class="step__body">We work the SWDA-issued checklist against your operating reality, page by page, and surface the gaps before SWDA sees them.</p>
-            <div class="mt-1">
-              <a class="paper" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/acrobat-document.pdf?sfvrsn=8fab8552_3" target="_blank" rel="noopener"><span class="small-caps">PDF</span>TPQA Requirements Document</a>
-            </div>
-          </div>
-        </div>
-        <div class="step reveal">
-          <span class="step__label">Step II</span>
-          <div>
-            <h3 class="step__title">Application via TPGateway</h3>
-            <p class="step__body">Your Management Representative submits the application through TPGateway. We assemble and version-control the supporting documents in advance, so the two-month preparation window is spent improving the operation rather than hunting for evidence.</p>
-            <div class="mt-1">
-              <a class="paper" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/acrobat-document-2.pdf?sfvrsn=47889251_3" target="_blank" rel="noopener"><span class="small-caps">PDF</span>Document Submission List</a>
-              <a class="paper" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/tpqa-required-information_jul-24_v3.docx?sfvrsn=4fea5a96_3" target="_blank" rel="noopener"><span class="small-caps">DOCX</span>Required Information Template</a>
-              <a class="paper" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/course-information-template_oct-23_v22b4d0027-0031-49df-92db-133bdb8e358d.docx?sfvrsn=511bf085_3" target="_blank" rel="noopener"><span class="small-caps">DOCX</span>Course Information Template</a>
-            </div>
-          </div>
-        </div>
-        <div class="step reveal">
-          <span class="step__label">Step III</span>
-          <div>
-            <h3 class="step__title">Onsite Assessment</h3>
-            <p class="step__body">A team of SWDA assessors conducts a one-day onsite visit, interviews staff and clarifies the documents examined. We prepare your team in the fortnight leading up to it, so the people who meet the assessors know their own processes well.</p>
-          </div>
-        </div>
-        <div class="step reveal">
-          <span class="step__label">Step IV</span>
-          <div>
-            <h3 class="step__title">Case Closure</h3>
-            <p class="step__body">The grade and the assessment report are returned through TPGateway. Where a review is appropriate, the request must be lodged within ten working days on the grounds SWDA allows, and we assist in drafting it within that procedure.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- § IV GRADES -->
-  <section class="section" id="grades">
-    <div class="container">
-      <header class="sectionhead reveal">
-        <span class="eyebrow">§ IV · Consequence of grade</span>
-        <h2 class="h2">Three grades. Three outcomes.</h2>
-        <p class="lede">Under SWDA Circular RD/2023/1, in force from 22 November 2023, the assessment produces one of three grades, and each carries a different consequence for the training provider's funding eligibility.</p>
-      </header>
-      <div class="grade">
-        <div class="grade__row reveal">
-          <span class="grade__num">I</span>
-          <div>
-            <h3 class="h3">Grade 1 · the strong outcome</h3>
-            <span class="small-caps" style="color:var(--olive)">Full funding retained</span>
-          </div>
-          <p class="prose" style="font-size:14px">The training provider retains full eligibility for SWDA funding under both Tier 1 and Tier 2 of the revised funding framework. This is the grade we work towards.</p>
-        </div>
-        <div class="grade__row reveal">
-          <span class="grade__num">II</span>
-          <div>
-            <h3 class="h3">Grade 2 · the conditional outcome</h3>
-            <span class="small-caps" style="color:var(--olive)">Tier 1 funding only</span>
-          </div>
-          <p class="prose" style="font-size:14px">The training provider retains eligibility for Tier 1 SWDA funding only. Tier 2 funding is unavailable until reassessment. For PWM training providers, transitional provisions apply until 31 December 2026.</p>
-        </div>
-        <div class="grade__row reveal">
-          <span class="grade__num">III</span>
-          <div>
-            <h3 class="h3">Grade 3 · the terminal outcome</h3>
-            <span class="small-caps" style="color:var(--olive)">Status terminated</span>
-          </div>
-          <p class="prose" style="font-size:14px">Failure to undergo TPQA when requested, failure to submit by the stipulated deadline, or failure to obtain the minimum quality grade leads to termination of Registered Training Provider status, of SWDA funding, and of eligibility for SkillsFuture Credit. A terminated training provider may only reapply after twelve months, and the list of terminated providers is published on TPGateway. <a href="https://www.tpgateway.gov.sg/plan-courses/training-provider-quality-assessment-(tpqa)/termination-and-debarment" target="_blank" rel="noopener" style="border-bottom:1px solid var(--olive-bright)">Read the SWDA notice ↗</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- § V ROI DASHBOARD -->
-  <section class="section section--bone" id="roi">
-    <div class="container">
-      <header class="sectionhead reveal">
-        <span class="eyebrow">§ V · The other side of the assessment</span>
-        <h2 class="h2">Each criterion is also a return on investment.</h2>
-        <p class="lede">SWDA measures a training provider across three criteria and twelve items. Each item, done well, returns something measurable to the business, whether in learner retention, governance posture or enterprise standing. Score yourself below, or read the market best practice for each item.</p>
-      </header>
-      <div id="tb-tpqa" class="reveal"></div>
-      <div class="mt-4 reveal center">
-        <p class="prose" style="margin:0 auto;max-width:70ch;">Read in this light, the assessment looks less like an annual cost and more like a five-year investment. The training providers we advise return to us because the year between assessments is the year in which an operation is quietly tightened, or quietly left to drift.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPEAKER -->
-  <section class="section">
-    <div class="container container--narrow">
-      <header class="sectionhead reveal">
-        <span class="eyebrow">From the firm</span>
-        <h2 class="h2">2birds was a speaker at the 2025 TPQA Engagement.</h2>
-      </header>
-      <div class="prose reveal" style="margin:0 auto;">
-        <p>In November 2025, SWDA held its annual TPQA outreach with training providers from across the sector. 2birds was invited to speak on best practices in courseware development and pre-audit preparation.</p>
-        <p>Our belief is that the sharing of knowledge in our field should remain free. The deck SWDA distributed at the event is available below. Email us if you would like to discuss how its practices might apply to your training organisation.</p>
-      </div>
-      <div class="mt-3 reveal center" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
-        <a class="btn" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/tpqa-outreach-deck-(november-2025).pdf?sfvrsn=5a0b3b9f_3" target="_blank" rel="noopener">Read the SWDA deck</a>
-        <a class="btn btn--ghost" href="contact.html">Discuss best practices</a>
-      </div>
-      <div class="speak mt-4 reveal">
-        <div><span class="small-caps">Speaking engagement</span>TPQA Outreach 2025 · Best practices in courseware development</div>
-        <div><span class="small-caps">Convenor</span>Skills and Workforce Development Agency (SWDA)</div>
-        <div><span class="small-caps">Date</span>November 2025</div>
-        <div><span class="small-caps">Audience</span>Registered Training Providers</div>
-        <div><span class="small-caps">Document</span>TPQA Outreach Deck (PDF)</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- § VI CQC -->
-  <section class="section section--bone" id="cqc">
-    <div class="container">
-      <div class="split">
-        <div class="reveal">
-          <div class="figure figure--tall"><img src="assets/maison-catalogue2.jpg" alt="Catalogue drawers with numbered labels" loading="lazy" /></div>
-          <figcaption class="figcap">The materials in delivery, kept as approved.</figcaption>
-        </div>
-        <div>
-          <span class="eyebrow eyebrow--olive reveal">§ VI · Course Quality Check</span>
-          <h2 class="h2 reveal" style="--d:.06s">The check that sits alongside TPQA.</h2>
-          <div class="prose mt-3 reveal" style="--d:.08s">
-            <p>CQC was introduced in SWDA Circular QMD/2024/7 and rolled out in phases from January 2025. Where TPQA looks at the training provider in the round, CQC looks at the courseware itself, the Learner Guide, the Trainer Guide, the Lesson Plan and the Assessment Plan as they are actually used in delivery.</p>
-            <p>CQC is typically a document review rather than a site visit. SWDA places greater emphasis on newly approved courses, courses with high enrolment, and courses with weaker TRAQOM performance, and considers whether a training provider has recently undergone TPQA when selecting for the check.</p>
-            <p><strong>The impact.</strong> CQC findings can lead to remedial action and, in serious cases, the withdrawal of funded-course status. Because CQC looks at materials currently in use, frequent review of courseware is no longer optional. We assist training providers in keeping their courseware current with market conditions, the latest Skills Framework iteration and the prevailing assessment standards.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="gridcards mt-4">
-        <article class="gcard reveal">
-          <span class="gcard__num">01</span>
-          <h3 class="gcard__title">Alignment of courseware</h3>
-          <p class="gcard__body">With the approved learning outcomes and the Technical Skills and Competencies on the course application.</p>
-        </article>
-        <article class="gcard reveal" style="--d:.08s">
-          <span class="gcard__num">02</span>
-          <h3 class="gcard__title">Principles of Assessment</h3>
-          <p class="gcard__body">And the Rules of Evidence, applied to the actual assessment instruments in use, not the ones submitted at approval.</p>
-        </article>
-        <article class="gcard reveal" style="--d:.16s">
-          <span class="gcard__num">03</span>
-          <h3 class="gcard__title">Relevance of instruction</h3>
-          <p class="gcard__body">Courseware, instructional methods and learning materials measured against the course objectives and outline currently in market.</p>
+        <article class="tq-rec__card reveal">
+          <figure class="tq-rec__media"><img src="assets/tq-rec-chairs.jpg" alt="Rows of empty grey chairs set out for an audience, in black and white" loading="lazy"></figure>
+          <p class="or-label tq-rec__k role-kicker">TPQA Outreach Event</p>
+          <p class="tq-rec__s">Our founder spoke at the TPQA Outreach Event on 10 November 2025, on strengthening training quality through effective adult educator systems and practices.</p>
+          <a class="ilink tq-rec__link role-link" href="https://www.tpgateway.gov.sg/docs/default-source/default-document-library/plan-courses/tpqa-outreach-deck-(november-2025).pdf" target="_blank" rel="noopener">Download the event deck (PDF, 2.5 MB) →</a>
         </article>
       </div>
+      <p class="tq-rec__note reveal">TPQA advisory is reserved exclusively for training providers with an active engagement with 2BIRDS.</p>
     </div>
   </section>
 
-  <!-- § VI·II HOW WE ASSIST -->
-  <section class="section">
-    <div class="container">
-      <header class="sectionhead reveal">
-        <span class="eyebrow">§ VI · II · How we assist</span>
-        <h2 class="h2">Keeping the courseware in use audit-ready.</h2>
-        <p class="lede">Because CQC reviews the materials a training provider is actually delivering, the work cannot wait until a notification from SWDA arrives. We support training providers across the CQC lifecycle in five ways.</p>
-      </header>
-      <div class="steps">
-        <div class="step reveal">
-          <span class="step__label">01</span>
-          <div>
-            <h3 class="step__title">Pre-notification readiness review</h3>
-            <p class="step__body">We benchmark the Learner Guide, Trainer Guide, Lesson Plan and Assessment Plan against the approved Course Application, the latest Skills Framework iteration and the prevailing Principles of Assessment.</p>
-          </div>
-        </div>
-        <div class="step reveal">
-          <span class="step__label">02</span>
-          <div>
-            <h3 class="step__title">Courseware refresh and version control</h3>
-            <p class="step__body">Where the documents in delivery have drifted from the documents at approval, we revise, re-align and version-stamp the materials so that what is taught matches what was approved.</p>
-          </div>
-        </div>
-        <div class="step reveal">
-          <span class="step__label">03</span>
-          <div>
-            <h3 class="step__title">Assessment instrument audit</h3>
-            <p class="step__body">We apply the Rules of Evidence to actual question banks, rubrics and learner submissions, with corrective recommendations tied to each finding.</p>
-          </div>
-        </div>
-        <div class="step reveal">
-          <span class="step__label">04</span>
-          <div>
-            <h3 class="step__title">Submission preparation</h3>
-            <p class="step__body">We assemble the document pack SWDA requests on notification, in the order and format SWDA expects, with a covering note explaining the materials and the version history.</p>
-          </div>
-        </div>
-        <div class="step reveal">
-          <span class="step__label">05</span>
-          <div>
-            <h3 class="step__title">Improvement plan drafting</h3>
-            <p class="step__body">Where SWDA returns findings, we prepare the response and the timeline that addresses each item, within the procedure set out in the SWDA Terms for Training Providers.</p>
-          </div>
-        </div>
-      </div>
-      <div class="mt-3 reveal center">
-        <p class="prose" style="margin:0 auto;">CQC is not a one-off exercise. The training providers we support keep their courseware under quarterly review, so that when an SWDA notification does arrive, the materials are already where they need to be.</p>
+  <section class="or-sec or-sec--tight" data-block="tq-disclaimer">
+    <div class="wrap">
+      <div class="or-disc">
+        <h2 class="or-disc__t role-kicker">Please note</h2>
+        <p>TPQA grades are decided solely by SWDA. 2BIRDS does not guarantee any grade or outcome, and engaging 2BIRDS does not mean a provider will achieve a particular grade. The training provider remains responsible for its documentation, its evidence and its conduct at the assessment. This page summarises SWDA's published TPQA information as at September 2026 and does not replace it. Always check TPGateway for the current requirements.</p>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section section--bone" id="faq">
-    <div class="container container--narrow">
-      <header class="sectionhead reveal">
-        <span class="eyebrow">Before you ask</span>
-        <h2 class="h2">Questions providers bring us about audits.</h2>
-      </header>
-      <div class="acc reveal">
-        <div class="acc__item">
-          <button class="acc__btn"><span class="acc__ref">01</span><span class="acc__q">How much notice will we get?</span><span class="acc__icon">+</span></button>
-          <div class="acc__panel"><p class="acc__body">For TPQA, roughly two months to prepare and submit your documents, with the one-day onsite visit about a month after that. It sounds generous. It is not, if the evidence has to be created rather than collected. The comfortable position is to be ready before the letter exists.</p></div>
-        </div>
-        <div class="acc__item">
-          <button class="acc__btn"><span class="acc__ref">02</span><span class="acc__q">Can you guarantee us a Grade 1?</span><span class="acc__icon">+</span></button>
-          <div class="acc__panel"><p class="acc__body">No, and you should be wary of anyone who says otherwise. The grade rests with SWDA's assessors alone. What we can do, and have done, is close every gap the checklist can find, put the evidence in the order assessors expect, and prepare your team in the processes the interviews will cover. The two providers we have walked through TPQA both returned Grade 1.</p></div>
-        </div>
-        <div class="acc__item">
-          <button class="acc__btn"><span class="acc__ref">03</span><span class="acc__q">What if we disagree with the outcome?</span><span class="acc__icon">+</span></button>
-          <div class="acc__panel"><p class="acc__body">SWDA allows a review, requested within ten working days of the outcome, at a fee of $3,052 including GST, and only on narrow grounds, a failure of procedure, or findings that contradict the evidence examined. We assist you in judging honestly whether those grounds exist, and we draft the request if they do.</p></div>
-        </div>
-      </div>
+  <section class="or-sec or-close lv-closewrap" data-block="tq-close">
+    <div class="wrap">
+      <h2 class="lv-title lv-title--ink reveal role-title">Speak with our advisory team regarding your upcoming TPQA audit preparations</h2>
+      <div class="or-actions or-actions--c reveal"><a class="btn btn--primary" href="/contact">Book a consultation</a></div>
     </div>
-  </section>
-
-  <!-- INVITATION -->
-  <section class="cta">
-    <div class="container cta__inner">
-      <div class="cta__frame reveal">
-        <span class="eyebrow">Before the date is set</span>
-        <h2 class="cta__title">Ready for the audit, long before the audit.</h2>
-        <p class="cta__sub">The first consultation on your TPQA and CQC readiness is complimentary, with a pre-audit gap analysis against SWDA's criteria.</p>
-        <div class="cta__actions">
-          <a class="btn" href="contact.html">Book the consultation</a>
-          <a class="btn btn--ghost" href="wsqcurriculumdevelopment.html">See the curriculum work</a>
-        </div>
-      </div>
+    <div class="lv-tiles lv-tiles--3 lv-close">
+      <a class="lv-tile reveal" href="/atosetupadvisory"><span class="lv-tile__img"><img src="assets/tq2-c1.jpg" alt="A concrete stairwell lit by a single bulb" loading="lazy"><span class="lv-tile__tag" aria-hidden="true">Organisation Registration</span><span class="lv-tile__over"><span class="lv-tile__cap role-subtitle">Organisation Registration</span><span class="lv-tile__sub">From company to Registered Training Provider.</span><span class="lv-tile__cta">Discover →</span></span></span></a>
+      <a class="lv-tile reveal" href="/customised-tms"><span class="lv-tile__img"><img src="assets/tq2-c2.jpg" alt="A carved stone balcony above a curving palace staircase" loading="lazy"><span class="lv-tile__tag" aria-hidden="true">Customised TMS</span><span class="lv-tile__over"><span class="lv-tile__cap role-subtitle">Customised TMS</span><span class="lv-tile__sub">Nest, built around the way you operate.</span><span class="lv-tile__cta">Discover →</span></span></span></a>
+      <a class="lv-tile reveal" href="/contact"><span class="lv-tile__img"><img src="assets/tq2-c3.jpg" alt="A narrow stairwell descending between grey walls" loading="lazy"><span class="lv-tile__tag" aria-hidden="true">Contact</span><span class="lv-tile__over"><span class="lv-tile__cap role-subtitle">Contact</span><span class="lv-tile__sub">Begin a conversation with the practice.</span><span class="lv-tile__cta">Discover →</span></span></span></a>
     </div>
   </section>
 
 </main>
 
-<script src="js/main.js?v=27"></script>
-<script src="js/i18n.js?v=4"></script>
-<script src="js/tpqa.js?v=4"></script>
+<dc-import name="SiteFooter" hint-size="100%,760px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { c: 0 };
+  renderVals() {
+    var self = this, c = this.state.c, o = {};
+    [1, 2, 3].forEach(function (n) {
+      o["sel" + n] = c === n ? "true" : "false";
+      o["show" + n] = c === n;
+      o["tile" + n] = function () { self.setState({ c: c === n ? 0 : n }); };
+    });
+    return o;
+  }
+}
+</script>
 </body>
 </html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2BIRDS asia | Join our community</title>
+<meta name="description" content="Trainers, assessors, subject-matter experts and curriculum developers can deposit their details with 2BIRDS to be considered for training and courseware projects.">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/og-image.png">
+<link rel="canonical" href="https://www.2birds.asia/join">
+<meta name="theme-color" content="#f7f5ef">
+<!-- social share -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="2BIRDS">
+<meta property="og:locale" content="en_SG">
+<meta property="og:title" content="2BIRDS asia | Join our community">
+<meta property="og:description" content="2BIRDS is a management consultancy specialising in the training and adult education sector. We advise leading training providers on operational governance, accreditation standards and instructional design.">
+<meta property="og:url" content="https://www.2birds.asia/join">
+<meta property="og:image" content="https://www.2birds.asia/assets/og-image.png">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="500">
+<meta property="og:image:alt" content="2BIRDS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2BIRDS asia | Join our community">
+<meta name="twitter:description" content="2BIRDS is a management consultancy specialising in the training and adult education sector. We advise leading training providers on operational governance, accreditation standards and instructional design.">
+<meta name="twitter:image" content="https://www.2birds.asia/assets/og-image.png">
+<!-- /social share -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/site.css?v=615b7462">
+<script src="/support.js?v=d568b663"></script>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/site.css?v=615b7462">
+  <script src="/site.js?v=cf4677e2"></script>
+</helmet>
+
+<dc-import name="SiteHeader" hint-size="100%,0" style="height:0"></dc-import>
+
+<main data-screen-label="Join our community">
+  <section class="ja" id="join" data-block="join-application">
+
+    <aside class="ja__side">
+      <div class="ja__media"><img src="assets/fp-11061905-outer-corridor.jpg" alt="A stone colonnade with bands of sunlight across the floor"></div>
+      <div class="ja__scrim"></div>
+      <div class="ja__sideinner">
+        <div>
+          <p class="ja__kicker role-kicker">THE ADVISORY NETWORK</p>
+          <h1 class="ja__title">Join our community.</h1>
+          <p class="ja__lede">We bring together experienced trainers, course developers, and industry specialists. As new projects arise, we connect the right experts to each programme.</p>
+        </div>
+        <div class="ja__terms">
+          <div class="ja__term"><span>I</span><p><strong>SUBMISSION</strong>We treat your details with care and share your profile for projects only with your direct consent.</p></div>
+          <div class="ja__term"><span>II</span><p><strong>ASSESSMENT</strong>We evaluate how your track record aligns with active and upcoming training assignments.</p></div>
+          <div class="ja__term"><span>III</span><p><strong>ASSIGNMENT</strong>When a suitable project arises, we will reach out to you directly.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="ja__main">
+
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div class="ja__done">
+          <p class="ja__count">SUBMISSION RECEIVED</p>
+          <h2 class="ja__q role-title">Thank you, <span style="text-transform:none">{{ firstName }}</span>.</h2>
+          <p>We have received your profile and credentials. Our team reviews all submissions directly and will be in touch at <span style="text-transform:none">{{ email }}</span> if your background aligns with an active or upcoming project.</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form class="ja__form" id="tb-join" onSubmit="{{ onSubmit }}" novalidate="">
+
+          <div class="ja__progress" aria-live="polite">
+            <div class="ja__meta">
+              <p class="ja__count">Step {{ stepNo }} of 3</p>
+            </div>
+            <div class="ja__rail"><i style="width:{{ pct }}"></i></div>
+          </div>
+
+          <fieldset class="ja__panel" hidden="{{ hide1 }}">
+            <legend class="ja__head"><span class="ja__eyebrow">§ I · Your role</span><span class="ja__q role-title">Bring your practice to our network.</span><span class="ja__hint">Select all roles that fit your background and current practice.</span></legend>
+            <div class="jn-roles">
+              <label class="jn-tile"><input type="checkbox" name="role" value="Trainer"><span class="jn-tick"></span><span class="jn-tile__txt"><span class="jn-tile__name">Trainer</span><span class="jn-tile__desc role-small">Delivering adult learning programmes in person or online.</span></span></label>
+              <label class="jn-tile"><input type="checkbox" name="role" value="Assessor"><span class="jn-tick"></span><span class="jn-tile__txt"><span class="jn-tile__name">Assessor</span><span class="jn-tile__desc role-small"><p data-path-to-node="8">Conducting competency evaluations and validating learner outcomes.</p><p data-path-to-node="9"></p></span></span></label>
+              <label class="jn-tile"><input type="checkbox" name="role" value="Subject-matter expert"><span class="jn-tick"></span><span class="jn-tile__txt"><span class="jn-tile__name">Subject-matter expert</span><span class="jn-tile__desc role-small"><p data-path-to-node="10">Contributing domain expertise and industry insights to course development.</p><p data-path-to-node="11"></p></span></span></label>
+              <label class="jn-tile"><input type="checkbox" name="role" value="Curriculum developer"><span class="jn-tick"></span><span class="jn-tile__txt"><span class="jn-tile__name">Curriculum developer</span><span class="jn-tile__desc role-small">Designing end-to-end curriculum architectures and accredited courseware.</span></span></label>
+            </div>
+            <sc-if value="{{ errRole }}" hint-placeholder-val="{{ false }}"><p class="field__error">{{ errRole }}</p></sc-if>
+          </fieldset>
+
+          <fieldset class="ja__panel" hidden="{{ hide2 }}">
+            <legend class="ja__head"><span class="ja__eyebrow">§ II · About you</span><span class="ja__q role-title">Tell us about yourself.</span><span class="ja__hint">How we should address you, and where to write.</span></legend>
+            <div class="jn-grid2">
+              <div class="field">
+                <label for="join-name">Full name *</label>
+                <input id="join-name" name="name" type="text" autocomplete="name" aria-invalid="{{ invName }}">
+                <sc-if value="{{ errName }}" hint-placeholder-val="{{ false }}"><p class="field__error">{{ errName }}</p></sc-if>
+              </div>
+              <div class="field">
+                <label for="join-email">Email *</label>
+                <input id="join-email" name="email" type="email" autocomplete="email" aria-invalid="{{ invEmail }}">
+                <sc-if value="{{ errEmail }}" hint-placeholder-val="{{ false }}"><p class="field__error">{{ errEmail }}</p></sc-if>
+              </div>
+              <div class="field">
+                <label for="join-mobile">Mobile</label>
+                <input id="join-mobile" name="mobile" type="tel" autocomplete="tel">
+              </div>
+              <div class="field">
+                <label for="join-link">LinkedIn or portfolio</label>
+                <input id="join-link" name="link" type="url" placeholder="https://">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="ja__panel" hidden="{{ hide3 }}">
+            <legend class="ja__head"><span class="ja__eyebrow">§ III · Your practice</span><span class="ja__q role-title">Your practice.</span><span class="ja__hint">Where you work, and the credentials the Skills and Workforce Development Agency (SWDA) will ask to see.</span></legend>
+            <div class="jn-grid2">
+              <div class="field">
+                <label for="join-sector" id="lbl-sector">Main sector *</label>
+                <div class="jd" data-open="{{ open_sector }}">
+                  <input type="hidden" name="sector" value="{{ val_sector }}">
+                  <button class="jd__btn" type="button" id="join-sector" aria-haspopup="listbox" aria-expanded="{{ open_sector }}" aria-invalid="{{ invSector }}" data-empty="{{ empty_sector }}" onClick="{{ tog_sector }}"><span>{{ show_sector }}</span><i class="jd__chev" aria-hidden="true"></i></button>
+                  <sc-if value="{{ open_sector }}" hint-placeholder-val="{{ false }}">
+                    <ul class="jd__list" role="listbox" aria-labelledby="join-sector">
+                      <sc-for list="{{ opts_sector }}" as="o" hint-placeholder-count="4">
+                        <li><button class="jd__opt" type="button" role="option" aria-selected="{{ o.sel }}" onClick="{{ o.pick }}">{{ o.label }}</button></li>
+                      </sc-for>
+                    </ul>
+                  </sc-if>
+                </div>
+                <sc-if value="{{ errSector }}" hint-placeholder-val="{{ false }}"><p class="field__error">{{ errSector }}</p></sc-if>
+              </div>
+              <div class="field">
+                <label for="join-years">Years of practice</label>
+                <div class="jd" data-open="{{ open_years }}">
+                  <input type="hidden" name="years" value="{{ val_years }}">
+                  <button class="jd__btn" type="button" id="join-years" aria-haspopup="listbox" aria-expanded="{{ open_years }}" data-empty="{{ empty_years }}" onClick="{{ tog_years }}"><span>{{ show_years }}</span><i class="jd__chev" aria-hidden="true"></i></button>
+                  <sc-if value="{{ open_years }}" hint-placeholder-val="{{ false }}">
+                    <ul class="jd__list" role="listbox" aria-labelledby="join-years">
+                      <sc-for list="{{ opts_years }}" as="o" hint-placeholder-count="4">
+                        <li><button class="jd__opt" type="button" role="option" aria-selected="{{ o.sel }}" onClick="{{ o.pick }}">{{ o.label }}</button></li>
+                      </sc-for>
+                    </ul>
+                  </sc-if>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="jn-sublabel role-kicker">Adult educator credentials · select all that apply</p>
+              <div class="jn-tiles">
+                <label class="jn-tile"><input type="checkbox" name="credentials" value="ACTA"><span class="jn-tick"></span><span class="jn-tile__name">ACTA</span></label>
+                <label class="jn-tile"><input type="checkbox" name="credentials" value="ACLP"><span class="jn-tick"></span><span class="jn-tile__name">ACLP</span></label>
+                <label class="jn-tile"><input type="checkbox" name="credentials" value="DACE"><span class="jn-tick"></span><span class="jn-tile__name">DACE</span></label>
+                <label class="jn-tile"><input type="checkbox" name="credentials" value="DDDLP"><span class="jn-tick"></span><span class="jn-tile__name">DDDLP</span></label>
+                <label class="jn-tile"><input type="checkbox" name="credentials" value="None yet"><span class="jn-tick"></span><span class="jn-tile__name">NONE</span></label>
+              </div>
+            </div>
+            <div>
+              <p class="jn-sublabel role-kicker">Availability</p>
+              <div class="jn-tiles jn-tiles--3">
+                <label class="jn-tile jn-tile--radio"><input type="radio" name="availability" value="Weekdays" defaultChecked="{{ true }}"><span class="jn-tick"></span><span class="jn-tile__name">Weekdays</span></label>
+                <label class="jn-tile jn-tile--radio"><input type="radio" name="availability" value="Weekends"><span class="jn-tick"></span><span class="jn-tile__name">Weekends</span></label>
+                <label class="jn-tile jn-tile--radio"><input type="radio" name="availability" value="Both"><span class="jn-tick"></span><span class="jn-tile__name">Both</span></label>
+              </div>
+            </div>
+            <div class="field">
+              <label for="join-note">What you teach or know best</label>
+              <textarea id="join-note" name="note" rows="3"></textarea>
+            </div>
+            <sc-if value="{{ sendError }}" hint-placeholder-val="{{ false }}"><p class="field__error">We could not send your details just now. Please try again in a moment, or <a class="ilink role-link" href="{{ mailtoHref }}">email them to keith.ho@2birds.asia</a>.</p></sc-if>
+            <p class="ja__note">By submitting, you consent to 2BIRDS holding these details and contacting you about suitable projects, as set out in our <a class="ilink role-link" href="/privacy">Privacy Policy</a>.</p>
+          </fieldset>
+
+          <div class="ja__nav">
+            <button class="ja__back" type="button" disabled="{{ atFirst }}" onClick="{{ back }}">← Back</button>
+            <sc-if value="{{ notLast }}" hint-placeholder-val="{{ true }}">
+              <button class="btn btn--primary" type="button" onClick="{{ next }}">Continue →</button>
+            </sc-if>
+            <sc-if value="{{ isLast }}" hint-placeholder-val="{{ false }}">
+              <button class="btn btn--primary" type="submit" disabled="{{ sending }}">{{ sendLabel }}</button>
+            </sc-if>
+          </div>
+        </form>
+      </sc-if>
+
+    </div>
+  </section>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,760px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  TO = "keith.ho@2birds.asia";
+  // Paste the deployed resend-worker.js URL here to send through Resend instead of FormSubmit.
+  RESEND_ENDPOINT = "";
+  // Paste the Web3Forms access key here (free, from web3forms.com) to send without the activation step.
+  WEB3FORMS_KEY = "58bc65b2-17fa-4f22-8c30-526ef5af1460";
+  state = { open: null, sector: "", years: "", step: 1, errors: {}, sent: false, sending: false, sendError: false, mailto: "", name: "", email: "" };
+
+  form() { return document.getElementById("tb-join"); }
+
+  check(step) {
+    var f = this.form(); if (!f) return {};
+    var v = function (n) { var el = f.elements[n]; return el && el.value ? String(el.value).trim() : ""; };
+    var e = {};
+    if (step === 1 && !f.querySelector('input[name="role"]:checked')) e.role = "Please choose at least one way you would like to join.";
+    if (step === 2) {
+      if (!v("name")) e.name = "Please tell us your name.";
+      var em = v("email");
+      if (!em) e.email = "Please give us an email address.";
+      else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) e.email = "That email address looks incomplete.";
+    }
+    if (step === 3 && !v("sector")) e.sector = "Please choose the sector you work in.";
+    return e;
+  }
+
+  top() {
+    var el = document.getElementById("join");
+    if (el && window.innerWidth <= 1080) window.scrollTo(0, Math.max(0, el.querySelector(".ja__main").offsetTop - 80));
+  }
+
+  renderVals() {
+    var self = this, s = this.state, er = s.errors;
+    var SECT = ["Healthcare","Artificial Intelligence","Digital Marketing","Sustainability","Food Services","Human Resource","Leadership","Risk Management","Legal","Another sector"];
+    var YRS = ["Under 3 years","3 to 5 years","6 to 10 years","More than 10 years"];
+    var dd = function (key, list) {
+      var o = {};
+      o["open_" + key] = s.open === key;
+      o["val_" + key] = s[key];
+      o["empty_" + key] = !s[key];
+      o["show_" + key] = s[key] || "Select";
+      o["tog_" + key] = function () { self.setState({ open: s.open === key ? null : key }); };
+      o["opts_" + key] = list.map(function (l) { return { label: l, sel: s[key] === l, pick: function () { var n = { open: null }; n[key] = l; if (key === "sector") n.errors = Object.assign({}, s.errors, { sector: undefined }); self.setState(n); } }; });
+      return o;
+    };
+    return Object.assign({}, dd("sector", SECT), dd("years", YRS), {
+      stepNo: s.step,
+      st1: s.step === 1 ? "now" : "done",
+      st2: s.step === 2 ? "now" : (s.step > 2 ? "done" : "todo"),
+      st3: s.step === 3 ? "now" : "todo",
+      d1: s.step > 1 ? "✓" : "1",
+      d2: s.step > 2 ? "✓" : "2",
+      pct: (s.step === 1 ? 33.34 : s.step === 2 ? 66.67 : 100) + "%",
+      on2: s.step >= 2, on3: s.step >= 3,
+      hide1: s.step !== 1, hide2: s.step !== 2, hide3: s.step !== 3,
+      atFirst: s.step === 1,
+      notLast: s.step < 3, isLast: s.step === 3,
+      sent: s.sent, notSent: !s.sent,
+      firstName: (s.name || "").split(" ")[0],
+      email: s.email,
+      errRole: er.role, errName: er.name, errEmail: er.email, errSector: er.sector,
+      invName: er.name ? "true" : "false",
+      invEmail: er.email ? "true" : "false",
+      invSector: er.sector ? "true" : "false",
+      back: function () { self.setState({ step: Math.max(1, s.step - 1), errors: {} }, function () { self.top(); }); },
+      next: function () {
+        var e = self.check(s.step);
+        if (Object.keys(e).length) { self.setState({ errors: e }); return; }
+        self.setState({ step: s.step + 1, errors: {} }, function () { self.top(); });
+      },
+      sending: s.sending,
+      sendLabel: s.sending ? "Sending…" : "Submit my details →",
+      sendError: s.sendError,
+      mailtoHref: s.mailto,
+      onSubmit: function (ev) {
+        ev.preventDefault();
+        if (s.step < 3 || s.sending) return;
+        var e = self.check(3);
+        if (Object.keys(e).length) { self.setState({ errors: e }); return; }
+        var f = ev.target;
+        var val = function (n) { var el = f.elements[n]; return el && el.value ? String(el.value).trim() : ""; };
+        var all = function (n) { return [].map.call(f.querySelectorAll('input[name="' + n + '"]:checked'), function (i) { return i.value; }).join(", "); };
+        var name = val("name"), email = val("email");
+        var data = {
+          "Name": name, "Email": email, "Mobile": val("mobile"),
+          "Joining as": all("role"), "LinkedIn or portfolio": val("link"),
+          "Main sector": val("sector"), "Years of practice": val("years"),
+          "Credentials": all("credentials"), "Availability": all("availability"),
+          "What they teach or know best": val("note")
+        };
+        var body = Object.keys(data).map(function (k) { return k + ": " + (data[k] || "-"); }).join("\n");
+        var mailto = "mailto:" + self.TO + "?subject=" + encodeURIComponent("Join our community · " + name) + "&body=" + encodeURIComponent(body);
+        var done = function () { self.setState({ sending: false, sent: true, errors: {}, name: name, email: email }, function () { self.top(); }); };
+        var fail = function () { self.setState({ sending: false, sendError: true, mailto: mailto }); };
+        self.setState({ sending: true, sendError: false });
+        var payload = Object.assign({ _subject: "Join our community · " + name, _replyto: email, _template: "table", _captcha: "false" }, data);
+        if (self.RESEND_ENDPOINT) {
+          fetch(self.RESEND_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+            .then(function (r) { r.ok ? done() : fail(); })
+            .catch(fail);
+          return;
+        }
+        if (self.WEB3FORMS_KEY) {
+          fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(Object.assign({ access_key: self.WEB3FORMS_KEY, subject: "Join our community · " + name, from_name: "2BIRDS website", replyto: email }, data))
+          }).then(function (r) { return r.json(); })
+            .then(function (res) { res && res.success ? done() : fail(); })
+            .catch(fail);
+          return;
+        }
+        try {
+          var sink = document.getElementById("tb-join-sink");
+          if (!sink) {
+            sink = document.createElement("iframe");
+            sink.name = "tb-join-sink"; sink.id = "tb-join-sink"; sink.title = "Submission";
+            sink.setAttribute("aria-hidden", "true");
+            sink.style.cssText = "position:absolute;width:0;height:0;border:0;visibility:hidden";
+            document.body.appendChild(sink);
+          }
+          var post = document.createElement("form");
+          post.method = "POST";
+          post.action = "https://formsubmit.co/" + self.TO;
+          post.target = "tb-join-sink";
+          post.style.display = "none";
+          Object.keys(payload).forEach(function (k) {
+            var i = document.createElement("input");
+            i.type = "hidden"; i.name = k; i.value = payload[k] || "-";
+            post.appendChild(i);
+          });
+          document.body.appendChild(post);
+          post.submit();
+          setTimeout(function () { post.remove(); done(); }, 600);
+        } catch (x) { fail(); }
+      }
+    });
+  }
+}
+</script>
+</body>
+</html>

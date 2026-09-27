@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2BIRDS asia | Customised TMS · Nest training management system</title>
+<meta name="description" content="Nest is the training management system 2birds builds and customises for each registered training provider, connected to TPGateway under the training provider's own SWDA credentials.">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/og-image.png">
+<link rel="canonical" href="https://www.2birds.asia/customised-tms">
+<meta name="theme-color" content="#f7f5ef">
+<!-- social share -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="2BIRDS">
+<meta property="og:locale" content="en_SG">
+<meta property="og:title" content="2BIRDS asia | Customised TMS · Nest training management system">
+<meta property="og:description" content="2BIRDS is a management consultancy specialising in the training and adult education sector. We advise leading training providers on operational governance, accreditation standards and instructional design.">
+<meta property="og:url" content="https://www.2birds.asia/customised-tms">
+<meta property="og:image" content="https://www.2birds.asia/assets/og-image.png">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="500">
+<meta property="og:image:alt" content="2BIRDS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2BIRDS asia | Customised TMS · Nest training management system">
+<meta name="twitter:description" content="2BIRDS is a management consultancy specialising in the training and adult education sector. We advise leading training providers on operational governance, accreditation standards and instructional design.">
+<meta name="twitter:image" content="https://www.2birds.asia/assets/og-image.png">
+<!-- /social share -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/site.css?v=615b7462">
+<script src="/support.js?v=d568b663"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Customised Training Management System (Nest)","description":"Nest, the training management system 2BIRDS builds and customises for training providers, connected to TPGateway.","url":"https://www.2birds.asia/customised-tms","areaServed":{"@type":"Country","name":"Singapore"},"provider":{"@id":"https://www.2birds.asia/#org","@type":"ProfessionalService","name":"2BIRDS","url":"https://www.2birds.asia/"}}</script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/site.css?v=615b7462">
+  <script src="/site.js?v=cf4677e2"></script>
+</helmet>
+
+<dc-import name="SiteHeader" hint-size="100%,0" style="height:0"></dc-import>
+
+<main data-screen-label="Customised TMS" class="nx">
+
+  <section class="nx-hero" id="nx-hero" data-block="tms-hero">
+    <div class="wrap nx-hero__grid">
+      <div class="nx-hero__text">
+        <p class="nx-kicker role-kicker">Customised TMS</p>
+        <h1 class="nx-h1">A training management system built around the way you operate.</h1>
+        <p class="nx-lede role-lead">Nest runs registration, funding, attendance, certification, finance and quality records in one system. Each training provider runs its own Nest, connected to TPGateway under its own credentials from the Skills and Workforce Development Agency (SWDA).</p>
+        <div class="actions" style="margin-top:40px">
+          <a class="btn btn--primary" href="/contact#book">Book a walkthrough</a>
+        </div>
+      </div>
+      <div class="nx-hero__panel">
+      <div class="nx-glass nx-show">
+        <img class="logo nx-show__logo" src="assets/nest-logo.png" alt="Nest by 2BIRDS">
+        <div class="nx-app" role="img" aria-label="Nest TPGateway queue sending enrolments">
+          <div class="nx-bar"><span class="nx-bar__brand">Nest</span><span class="nx-bar__org">2BIRDS ACADEMY</span><span class="nx-bar__date nx-mono">07 Oct 2026</span></div>
+          <nav class="nx-rail" aria-hidden="true">
+            <p class="nx-rail__g">Operate</p>
+            <p class="nx-rail__g">People</p>
+            <p class="nx-rail__g">Sales</p>
+            <p class="nx-rail__g">Finance</p>
+            <p class="nx-rail__g is-on">SkillsFuture</p><p class="nx-rail__sub">TPGateway queue</p>
+            <p class="nx-rail__g">Quality</p>
+            <p class="nx-rail__g">Reports</p>
+            <p class="nx-rail__g">System</p>
+          </nav>
+          <div class="nx-main nx-loop" data-fade="{{ hfade }}">
+            <div class="nx-top"><p class="nx-top__t">TPGateway queue</p><p class="nx-top__m">Accepted today <strong class="nx-num nx-count">{{ heroCount }}</strong></p></div>
+            <table class="nx-tbl">
+              <thead><tr><th>Learner</th><th class="nx-col-ref">Enrolment</th><th>Status</th></tr></thead>
+              <tbody>
+                <sc-for list="{{ heroRows }}" as="r" hint-placeholder-count="4">
+                  <tr><td>{{ r.name }}</td><td class="nx-mono">{{ r.ref }}</td><td><span class="nx-chip" data-h="{{ r.h }}">{{ r.l }}</span></td></tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="nx-show__cap">The TPGateway queue, updating as records are accepted.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nx-oblig" data-block="tms-obligation">
+    <div class="wrap nx-oblig__grid">
+      <div>
+        <p class="nx-kicker role-kicker">In force since</p>
+        <p class="nx-date nx-h2 role-title">31 December 2021</p>
+      </div>
+      <div>
+        <p class="nx-oblig__p">Registered training providers that run funded courses must use a training management system linked to SWDA's systems, so that enrolment, attendance and assessment data reach TPGateway and the training grant can be processed.</p>
+        <p class="nx-src role-small"><a class="nx-src__a" href="https://www.tpgateway.gov.sg/resources/digitalisation/training-management-system" target="_blank" rel="noopener">Source. TPGateway, TMS requirement for registered training providers.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="{{ flowCls }}" id="follow" data-io="flow" data-block="tms-follow" onKeyDown="{{ onFlowKey }}">
+    <div class="wrap nx-flow__head">
+      <p class="nx-kicker role-kicker">One class, eight moments</p>
+      <h2 class="nx-h2 role-title">Follow one class through Nest</h2>
+      <p class="nx-stand">A two-day funded class of twelve trainees, four of them company-sponsored. Move through the class and watch what Nest does at each moment.</p>
+      <a class="nx-skip" href="#calculator">Skip to the nett fee calculator ↓</a>
+    </div>
+    <div class="nx-pin" id="nx-pin">
+      <div class="nx-sticky"><div class="nx-fit" id="nx-fit"><div class="nx-loop" data-fade="{{ mfade }}">
+        <div class="wrap">
+          <nav class="nx-scrub" aria-label="Moments in the class">
+            <sc-for list="{{ scrub }}" as="s" hint-placeholder-count="8">
+              <button class="nx-scrub__b" type="button" aria-current="{{ s.cur }}" onClick="{{ s.go }}"><span class="nx-scrub__n">{{ s.n }}</span><span class="nx-scrub__l">{{ s.l }}</span></button>
+            </sc-for>
+          </nav>
+          <div class="nx-prog" aria-hidden="true"><i style="width:{{ progPct }}"></i></div>
+        </div>
+        <div class="wrap nx-chs">
+        <article class="{{ ch0 }}" id="moment-01" aria-labelledby="mh-01">
+          <div class="nx-ch__text">
+            <p class="nx-ch__n">Moment 01 · Enquiry and quote</p>
+            <h3 class="nx-ch__h" id="mh-01">Quote the nett fee before the trainee commits.</h3>
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">A trainee's fee depends on age, citizenship and whether an employer is sponsoring the place. Nest applies the current SWDA funding rules to the course and returns the exact nett fee in the enquiry, so the quote holds when the invoice is issued.</p></sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Staff read the funding tables, work out the percentages manually and correct the quote after the enrolment is rejected.</p></sc-if>
+            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
+            </div>
+            <div class="nx-ctl"><button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button></div>
+          </div>
+          <div class="nx-ch__panel">
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
+      <div class="nx-glass" role="img" aria-label="Nest quotation screen producing a nett fee">
+        <div class="nx-app">
+          <div class="nx-bar"><span class="nx-bar__brand">Nest</span><span class="nx-bar__org">2BIRDS ACADEMY</span><span class="nx-bar__date nx-mono">07 Oct 2026</span></div>
+          <nav class="nx-rail" aria-hidden="true">
+            <p class="nx-rail__g">Operate</p>
+            <p class="nx-rail__g">People</p>
+            <p class="nx-rail__g is-on">Sales</p><p class="nx-rail__sub">Quotations</p>
+            <p class="nx-rail__g">Finance</p>
+            <p class="nx-rail__g">SkillsFuture</p>
+            <p class="nx-rail__g">Quality</p>
+            <p class="nx-rail__g">Reports</p>
+            <p class="nx-rail__g">System</p>
+          </nav>
+          <div class="nx-main">
+            <div class="nx-top"><p class="nx-top__t">New quotation</p><p class="nx-top__m">Enquiry from Darren Koh</p></div>
+            <div class="nx-card">
+              <div class="nx-kv"><span>Quotation</span><span class="nx-mono">Q-2026-0418</span></div>
+              <div class="nx-kv"><span>Course</span><span>Service Excellence for Frontline Teams</span></div>
+              <div class="nx-kv"><span>Course reference</span><span class="nx-mono">TGS-2026004815</span></div>
+              <div class="nx-kv"><span>Learner profile</span><span>Singapore Citizen, aged 40 and above</span></div>
+              <div class="nx-kv"><span>Full Course Fees (Before GST)</span><span class="nx-num">S$1,000.00</span></div>
+              <sc-if value="{{ m1g }}" hint-placeholder-val="{{ true }}"><div class="nx-kv nx-in"><span>9% GST on Full Course Fees</span><span class="nx-num">S$90.00</span></div><div class="nx-kv nx-in"><span>Baseline SkillsFuture Funding (50%)</span><span class="nx-num">-S$500.00</span></div><div class="nx-kv nx-in"><span>Mid-Career Enhanced Subsidy (20%)</span><span class="nx-num">-S$200.00</span></div></sc-if>
+              <div class="nx-kv nx-kv--total"><span>Nett Fees Payable</span><span class="nx-num nx-big">{{ m1nett }}</span></div>
+            </div>
+            <div class="nx-foot"><span class="nx-chip" data-h="{{ m1h }}">{{ m1l }}</span><span class="nx-note">Funding rules as at 07 Oct 2026</span></div>
+          </div>
+        </div>
+      </div>
+          </sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}">
+      <div class="nx-glass" role="img" aria-label="Manual quote worked out in a spreadsheet">
+        <div class="mx">
+          <div class="mx-bar"><span class="mx-bar__t">Funding rates.xlsx</span><span class="mx-clock nx-num">{{ xc1 }}</span></div>
+          <div class="mx-body">
+            <div class="mx-fx"><span class="mx-ref">D3</span><span class="mx-fx__v">{{ x1fx }}<i class="mx-caret"></i></span></div>
+            <table class="mx-grid">
+              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+              <tbody>
+                <tr><th>1</th><td>Profile</td><td>Rate</td><td>Full fee</td><td>Nett</td></tr>
+                <tr><th>2</th><td>Citizen 21 to 39</td><td class="{{ x1b2 }}">50%</td><td class="{{ x1c2 }}">1000</td><td>500</td></tr>
+                <tr><th>3</th><td>Citizen 40 and above</td><td class="{{ x1b3 }}">70%</td><td>1000</td><td class="{{ x1d3 }}">{{ x1cell }}</td></tr>
+                <tr><th>4</th><td>Permanent Resident</td><td>50%</td><td>1000</td><td></td></tr>
+                <tr><th>5</th><td>SME-sponsored</td><td>70%</td><td>1000</td><td></td></tr>
+              </tbody>
+            </table>
+            <sc-if value="{{ x1mail }}" hint-placeholder-val="{{ false }}"><div class="mx-mail nx-in"><span class="mx-mail__f">To Darren Koh</span><span>Quote for Service Excellence, S$500.00</span><span class="mx-tag">Sent</span></div></sc-if>
+            <sc-if value="{{ x1err }}" hint-placeholder-val="{{ false }}"><div class="mx-mail mx-mail--err nx-in"><span class="mx-mail__f">Re. Quote</span><span>Quote corrected after enrolment rejected</span><span class="mx-tag mx-tag--err">Correction</span></div></sc-if>
+          </div>
+        </div>
+      </div>
+            </sc-if>
+          </div>
+        </article>
+        <article class="{{ ch1 }}" id="moment-02" aria-labelledby="mh-02">
+          <div class="nx-ch__text">
+            <p class="nx-ch__n">Moment 02 · Registration</p>
+            <h3 class="nx-ch__h" id="mh-02">Take registration once, with every field the regulator needs.</h3>
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">The training provider's own registration form collects the trainee, the employer and the sponsorship in one pass. Nest checks each field against what TPGateway will ask for and assigns the registration to the consultant who brought it in.</p></sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Details arrive by email, chat and spreadsheet, and each one is typed again into the portal.</p></sc-if>
+            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
+            </div>
+            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+          </div>
+          <div class="nx-ch__panel">
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
+      <div class="nx-glass" role="img" aria-label="Nest registrations list with a new registration arriving">
+        <div class="nx-app">
+          <div class="nx-bar"><span class="nx-bar__brand">Nest</span><span class="nx-bar__org">2BIRDS ACADEMY</span><span class="nx-bar__date nx-mono">07 Oct 2026</span></div>
+          <nav class="nx-rail" aria-hidden="true">
+            <p class="nx-rail__g">Operate</p>
+            <p class="nx-rail__g">People</p>
+            <p class="nx-rail__g is-on">Sales</p><p class="nx-rail__sub">Registrations</p>
+            <p class="nx-rail__g">Finance</p>
+            <p class="nx-rail__g">SkillsFuture</p>
+            <p class="nx-rail__g">Quality</p>
+            <p class="nx-rail__g">Reports</p>
+            <p class="nx-rail__g">System</p>
+          </nav>
+          <div class="nx-main">
+            <div class="nx-top"><p class="nx-top__t">Registrations</p><p class="nx-top__m">This month {{ m2count }}</p></div>
+            <table class="nx-tbl">
+              <thead><tr><th>Learner</th><th>Employer</th><th>Sponsorship</th><th>Consultant</th><th>Status</th></tr></thead>
+              <tbody>
+                <sc-for list="{{ m2rows }}" as="r" hint-placeholder-count="4">
+                  <tr class="{{ r.cls }}"><td>{{ r.name }}</td><td>{{ r.emp }}</td><td>{{ r.sp }}</td><td class="{{ r.consCls }}">{{ r.cons }}</td><td><span class="nx-chip" data-h="{{ r.h }}">{{ r.l }}</span></td></tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+          </sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}">
+      <div class="nx-glass" role="img" aria-label="Registration details typed again into a portal">
+        <div class="mx">
+          <div class="mx-bar"><span class="mx-bar__t">Inbox and Portal</span><span class="mx-clock nx-num">{{ xc2 }}</span></div>
+          <div class="mx-body">
+            <div class="mx-split">
+              <ul class="mx-inbox">
+                <sc-for list="{{ x2in }}" as="m" hint-placeholder-count="3"><li class="nx-in"><span class="mx-inbox__k">{{ m.k }}</span><span class="mx-inbox__s">{{ m.s }}</span></li></sc-for>
+              </ul>
+              <div class="mx-portal">
+                <p class="mx-portal__h">Portal · New registration</p>
+                <sc-for list="{{ x2f }}" as="f" hint-placeholder-count="4"><div class="mx-field"><span>{{ f.l }}</span><span class="{{ f.cls }}">{{ f.v }}<sc-if value="{{ f.cur }}" hint-placeholder-val="{{ false }}"><i class="mx-caret"></i></sc-if></span></div></sc-for>
+                <sc-if value="{{ x2err }}" hint-placeholder-val="{{ false }}"><p class="mx-err nx-in">NRIC does not match the registration email, S****567A</p></sc-if>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            </sc-if>
+          </div>
+        </article>
+        <article class="{{ ch2 }}" id="moment-03" aria-labelledby="mh-03">
+          <div class="nx-ch__text">
+            <p class="nx-ch__n">Moment 03 · Enrolment</p>
+            <h3 class="nx-ch__h" id="mh-03">Send the enrolment to TPGateway from the same record.</h3>
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">The enrolment leaves Nest with its fee collection status already set. The queue shows what was sent, what was accepted and what needs attention, so nothing sits unsent over a weekend.</p></sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Enrolments are keyed into the portal one by one, and a rejected record is found days later.</p></sc-if>
+            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
+            </div>
+            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+          </div>
+          <div class="nx-ch__panel">
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
+      <div class="nx-glass" role="img" aria-label="Nest TPGateway queue sending twelve enrolments">
+        <div class="nx-app">
+          <div class="nx-bar"><span class="nx-bar__brand">Nest</span><span class="nx-bar__org">2BIRDS ACADEMY</span><span class="nx-bar__date nx-mono">07 Oct 2026</span></div>
+          <nav class="nx-rail" aria-hidden="true">
+            <p class="nx-rail__g">Operate</p>
+            <p class="nx-rail__g">People</p>
+            <p class="nx-rail__g">Sales</p>
+            <p class="nx-rail__g">Finance</p>
+            <p class="nx-rail__g is-on">SkillsFuture</p><p class="nx-rail__sub">TPGateway queue</p>
+            <p class="nx-rail__g">Quality</p>
+            <p class="nx-rail__g">Reports</p>
+            <p class="nx-rail__g">System</p>
+          </nav>
+          <div class="nx-main">
+            <div class="nx-top"><p class="nx-top__t">TPGateway queue</p><p class="nx-top__m">Class 2BA-SE-1007</p></div>
+            <div class="nx-sum"><span class="nx-chip" data-h="sand">Queued {{ m3q }}</span><span class="nx-chip" data-h="sky">Sent {{ m3s }}</span><span class="nx-chip" data-h="mint">Accepted {{ m3a }}</span></div>
+            <table class="nx-tbl nx-tbl--tight">
+              <thead><tr><th>Learner</th><th class="nx-col-ref">Enrolment</th><th>Status</th></tr></thead>
+              <tbody>
+                <sc-for list="{{ m3rows }}" as="r" hint-placeholder-count="12">
+                  <tr><td>{{ r.name }}<sc-if value="{{ r.reason }}" hint-placeholder-val="{{ false }}"><span class="nx-reason">{{ r.reason }}</span></sc-if></td><td class="nx-mono">{{ r.ref }}</td><td><span class="nx-chip" data-h="{{ r.h }}">{{ r.l }}</span></td></tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+          </sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}">
+      <div class="nx-glass" role="img" aria-label="Enrolments keyed into a portal one at a time">
+        <div class="mx">
+          <div class="mx-bar"><span class="mx-bar__t">Portal</span><span class="mx-clock nx-num">{{ xc3 }}</span></div>
+          <div class="mx-body">
+            <div class="mx-portal mx-portal--wide">
+              <div class="mx-portal__top"><p class="mx-portal__h">Portal · Enrolment {{ x3n }} of 12</p><span class="mx-count nx-num">{{ x3togo }} to go</span></div>
+              <sc-for list="{{ x3f }}" as="f" hint-placeholder-count="4"><div class="mx-field"><span>{{ f.l }}</span><span>{{ f.v }}<sc-if value="{{ f.cur }}" hint-placeholder-val="{{ false }}"><i class="mx-caret"></i></sc-if></span></div></sc-for>
+              <div class="mx-btnrow"><span class="mx-btn">Submit</span></div>
+            </div>
+            <sc-if value="{{ x3err }}" hint-placeholder-val="{{ false }}"><div class="mx-mail mx-mail--err nx-in"><span class="mx-mail__f">3 days later</span><span>Enrolment rejected, fee collection status missing for Grace Wong</span><span class="mx-tag mx-tag--err">Rejected</span></div></sc-if>
+          </div>
+        </div>
+      </div>
+            </sc-if>
+          </div>
+        </article>
+        <article class="{{ ch3 }}" id="moment-04" aria-labelledby="mh-04">
+          <div class="nx-ch__text">
+            <p class="nx-ch__n">Moment 04 · Before class</p>
+            <h3 class="nx-ch__h" id="mh-04">Brief trainees and trainers without writing a single email.</h3>
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">Joining instructions, venue directions and reminders go out by email on a schedule the training provider sets, with the right attachments and copies to employers. When a trainee needs a personal word, the administrator sends a WhatsApp message straight from the class record.</p></sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Someone sends reminders manually the night before and hopes the list is current.</p></sc-if>
+            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
+            </div>
+            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+          </div>
+          <div class="nx-ch__panel">
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
+      <div class="nx-glass" role="img" aria-label="Nest scheduled emails and a WhatsApp reminder sent by the administrator">
+        <div class="nx-app">
+          <div class="nx-bar"><span class="nx-bar__brand">Nest</span><span class="nx-bar__org">2BIRDS ACADEMY</span><span class="nx-bar__date nx-mono">07 Oct 2026</span></div>
+          <nav class="nx-rail" aria-hidden="true">
+            <p class="nx-rail__g">Operate</p>
+            <p class="nx-rail__g">People</p>
+            <p class="nx-rail__g">Sales</p>
+            <p class="nx-rail__g">Finance</p>
+            <p class="nx-rail__g">SkillsFuture</p>
+            <p class="nx-rail__g">Quality</p>
+            <p class="nx-rail__g">Reports</p>
+            <p class="nx-rail__g is-on">System</p><p class="nx-rail__sub">Message automation</p>
+          </nav>
+          <div class="nx-main">
+            <div class="nx-top"><p class="nx-top__t">Message automation</p><p class="nx-top__m">Class 2BA-SE-1007</p></div>
+            <ol class="nx-steps">
+              <sc-for list="{{ m4rows }}" as="r" hint-placeholder-count="3">
+                <li class="nx-card nx-step"><div><p class="nx-step__when">{{ r.when }}</p><p class="nx-step__what">{{ r.what }}</p></div><div class="nx-step__st"><span class="nx-chip" data-h="{{ r.h }}">{{ r.l }}</span><span class="nx-note">{{ r.count }}</span></div></li>
+              </sc-for>
+            </ol>
+            <div class="nx-card nx-wac">
+              <p class="nx-wac__h"><svg class="nx-walogo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.2a10.8 10.8 0 0 0-9.33 16.24L1.2 22.8l5.5-1.44A10.8 10.8 0 1 0 12 1.2Z"></path><path fill="#fff" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z"></path></svg><span>WhatsApp from the class record</span></p>
+              <ul class="nx-wac__list">
+                <sc-for list="{{ m4wa }}" as="r" hint-placeholder-count="3"><li><span class="nx-tick" data-on="{{ r.tick }}"></span><span class="nx-wac__n">{{ r.name }}</span><sc-if value="{{ r.del }}" hint-placeholder-val="{{ false }}"><span class="nx-chip nx-in" data-h="mint">Delivered</span></sc-if></li></sc-for>
+              </ul>
+              <div class="nx-wac__act"><span class="nx-wabtn" data-press="{{ m4press }}"><svg class="nx-walogo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.2a10.8 10.8 0 0 0-9.33 16.24L1.2 22.8l5.5-1.44A10.8 10.8 0 1 0 12 1.2Z"></path><path fill="#fff" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z"></path></svg><span>Send WhatsApp</span></span><span class="nx-note">{{ m4sel }}</span></div>
+              <sc-if value="{{ m4bub }}" hint-placeholder-val="{{ false }}"><div class="nx-wa__b nx-wa__b--out nx-in"><span>Good afternoon. A reminder that your class at 2BIRDS ACADEMY starts at 9.00 am tomorrow at Suntec. Please bring your NRIC.</span><span class="nx-wa__time">2.30 pm</span></div></sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+          </sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}">
+      <div class="nx-glass" role="img" aria-label="Reminder emails written one by one late at night">
+        <div class="mx">
+          <div class="mx-bar"><span class="mx-bar__t">Mail · New message</span><span class="mx-clock nx-num">{{ xc4 }}</span></div>
+          <div class="mx-body">
+            <div class="mx-compose">
+              <div class="mx-field"><span>To</span><span>{{ x4to }}</span></div>
+              <div class="mx-field"><span>Subject</span><span>Reminder, class tomorrow at Suntec</span></div>
+              <p class="mx-compose__b">{{ x4body }}<i class="mx-caret"></i></p>
+            </div>
+            <ul class="mx-sent">
+              <sc-for list="{{ x4sent }}" as="m" hint-placeholder-count="3"><li class="nx-in"><span>{{ m.to }}</span><span class="mx-tag">Sent</span></li></sc-for>
+            </ul>
+            <sc-if value="{{ x4err }}" hint-placeholder-val="{{ false }}"><div class="mx-mail mx-mail--err nx-in"><span class="mx-mail__f">Mail delivery</span><span>Message to Grace Wong bounced, address not found</span><span class="mx-tag mx-tag--err">Bounced</span></div></sc-if>
+          </div>
+        </div>
+      </div>
+            </sc-if>
+          </div>
+        </article>
+        <article class="{{ ch4 }}" id="moment-05" aria-labelledby="mh-05">
+          <div class="nx-ch__text">
+            <p class="nx-ch__n">Moment 05 · On the day</p>
+            <h3 class="nx-ch__h" id="mh-05">Mark attendance by session and act on absence at once.</h3>
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">Nest shows the venue, the class list and the rain forecast for the morning. When a trainee has not signed in, the administrator sends a WhatsApp message from the class screen to ask whether they are on the way or would like to postpone, and the reply is recorded against the class. Attendance goes to TPGateway from the same screen.</p></sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Paper sheets are collected, checked and uploaded after the class, when an absence can no longer be recovered.</p></sc-if>
+            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
+            </div>
+            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+          </div>
+          <div class="nx-ch__panel">
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
+      <div class="nx-glass" role="img" aria-label="Nest morning-of-class view with rain forecast and WhatsApp replies">
+        <div class="nx-app">
+          <div class="nx-bar"><span class="nx-bar__brand">Nest</span><span class="nx-bar__org">2BIRDS ACADEMY</span><span class="nx-bar__date nx-mono">07 Oct 2026</span></div>
+          <nav class="nx-rail" aria-hidden="true">
+            <p class="nx-rail__g is-on">Operate</p><p class="nx-rail__sub">Attendance</p>
+            <p class="nx-rail__g">People</p>
+            <p class="nx-rail__g">Sales</p>
+            <p class="nx-rail__g">Finance</p>
+            <p class="nx-rail__g">SkillsFuture</p>
+            <p class="nx-rail__g">Quality</p>
+            <p class="nx-rail__g">Reports</p>
+            <p class="nx-rail__g">System</p>
+          </nav>
+          <div class="nx-main">
+            <div class="nx-top"><p class="nx-top__t">Morning of class</p><p class="nx-top__m">07 Oct 2026, AM session</p></div>
+            <p class="nx-strip">Thundery showers expected 8 am to 10 am. Source NEA two-hour forecast.</p>
+            <div class="nx-mapwrap" data-on="{{ m5map }}"><svg class="nx-map" viewBox="0 0 400 190" role="presentation" aria-hidden="true">
+                <defs><clipPath id="nx-rc1"><circle cx="300" cy="62" r="48"></circle></clipPath><clipPath id="nx-rc2"><circle cx="118" cy="44" r="34"></circle></clipPath></defs>
+                <rect width="400" height="190" class="nx-map__land"></rect>
+                <path class="nx-map__water" d="M0 150 C 60 140, 120 160, 180 150 C 210 145, 230 128, 250 132 C 270 136, 280 150, 300 146 C 340 138, 370 150, 400 146 L 400 190 L 0 190 Z"></path>
+                <path class="nx-map__water" d="M236 132 C 246 110, 270 104, 290 108 C 312 112, 326 100, 338 88 C 346 96, 340 114, 322 122 C 300 130, 270 126, 250 134 Z"></path>
+                <path class="nx-map__road" d="M20 40 L 380 70"></path><path class="nx-map__road" d="M40 120 L 360 40"></path><path class="nx-map__road" d="M150 0 L 190 150"></path><path class="nx-map__road" d="M260 0 L 230 132"></path><path class="nx-map__road" d="M0 96 L 230 110"></path>
+                <g class="nx-map__rain" clip-path="url(#nx-rc1)"><circle cx="300" cy="62" r="48" class="nx-map__area"></circle><line x1="258" y1="14" x2="255" y2="22" style="animation-delay:-0.00s"></line><line x1="264" y1="37" x2="261" y2="45" style="animation-delay:-0.17s"></line><line x1="270" y1="60" x2="267" y2="68" style="animation-delay:-0.34s"></line><line x1="276" y1="23" x2="273" y2="31" style="animation-delay:-0.51s"></line><line x1="282" y1="46" x2="279" y2="54" style="animation-delay:-0.68s"></line><line x1="288" y1="69" x2="285" y2="77" style="animation-delay:-0.85s"></line><line x1="294" y1="32" x2="291" y2="40" style="animation-delay:-1.02s"></line><line x1="300" y1="55" x2="297" y2="63" style="animation-delay:-1.19s"></line><line x1="306" y1="18" x2="303" y2="26" style="animation-delay:-1.36s"></line><line x1="312" y1="41" x2="309" y2="49" style="animation-delay:-1.53s"></line><line x1="318" y1="64" x2="315" y2="72" style="animation-delay:-1.70s"></line><line x1="324" y1="27" x2="321" y2="35" style="animation-delay:-1.87s"></line><line x1="330" y1="50" x2="327" y2="58" style="animation-delay:-2.04s"></line><line x1="336" y1="73" x2="333" y2="81" style="animation-delay:-2.21s"></line></g>
+                <g class="nx-map__rain" clip-path="url(#nx-rc2)"><circle cx="118" cy="44" r="34" class="nx-map__area"></circle><line x1="90" y1="12" x2="87" y2="20" style="animation-delay:-0.00s"></line><line x1="97" y1="31" x2="94" y2="39" style="animation-delay:-0.21s"></line><line x1="104" y1="50" x2="101" y2="58" style="animation-delay:-0.42s"></line><line x1="111" y1="19" x2="108" y2="27" style="animation-delay:-0.63s"></line><line x1="118" y1="38" x2="115" y2="46" style="animation-delay:-0.84s"></line><line x1="125" y1="57" x2="122" y2="65" style="animation-delay:-1.05s"></line><line x1="132" y1="26" x2="129" y2="34" style="animation-delay:-1.26s"></line><line x1="139" y1="45" x2="136" y2="53" style="animation-delay:-1.47s"></line><line x1="90" y1="14" x2="87" y2="22" style="animation-delay:-1.68s"></line></g>
+                <circle cx="300" cy="62" r="48" class="nx-map__ring"></circle><circle cx="118" cy="44" r="34" class="nx-map__ring"></circle>
+                <text x="276" y="22" class="nx-map__rl">Thundery showers, Kallang</text>
+                <text x="84" y="90" class="nx-map__rl">Showers, Farrer Park</text>
+                <text x="186" y="64" class="nx-map__dl">Bugis</text><text x="318" y="100" class="nx-map__dl">Kallang</text><text x="96" y="30" class="nx-map__dl">Farrer Park</text><text x="178" y="140" class="nx-map__dl">Marina Centre</text>
+                <circle cx="214" cy="118" r="6" class="nx-map__venue"></circle>
+                <text x="224" y="122" class="nx-map__vl">2BIRDS ACADEMY, Suntec</text>
+              </svg></div>
+            <div class="nx-day">
+              <ul class="nx-att2">
+                <sc-for list="{{ m5rows }}" as="r" hint-placeholder-count="12"><li class="{{ r.cls }}"><span class="nx-dot" data-h="{{ r.dh }}"></span><span class="nx-att2__n">{{ r.name }}</span><sc-if value="{{ r.wa }}" hint-placeholder-val="{{ false }}"><span class="nx-wabtn nx-wabtn--sm nx-in" data-press="{{ r.waP }}"><svg class="nx-walogo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.2a10.8 10.8 0 0 0-9.33 16.24L1.2 22.8l5.5-1.44A10.8 10.8 0 1 0 12 1.2Z"></path><path fill="#fff" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z"></path></svg><span>Send WhatsApp</span></span></sc-if><sc-if value="{{ r.chip }}" hint-placeholder-val="{{ false }}"><span class="nx-chip nx-in" data-h="{{ r.ch }}">{{ r.chip }}</span></sc-if></li></sc-for>
+              </ul>
+              <div class="nx-wa" aria-label="WhatsApp conversation">
+                <p class="nx-wa__h"><svg class="nx-walogo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.2a10.8 10.8 0 0 0-9.33 16.24L1.2 22.8l5.5-1.44A10.8 10.8 0 1 0 12 1.2Z"></path><path fill="#fff" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z"></path></svg><span>WhatsApp, sent by the administrator</span></p>
+                <sc-for list="{{ m5chat }}" as="b" hint-placeholder-count="2"><div class="{{ b.cls }}"><span>{{ b.t }}</span><span class="nx-wa__time">{{ b.time }}</span></div></sc-for>
+              </div>
+            </div>
+            <div class="nx-foot"><sc-if value="{{ m5note }}" hint-placeholder-val="{{ false }}"><span class="nx-note nx-in">Message sent to Darren Koh and Marina Logistics at 9.14 am</span></sc-if><span class="nx-chip" data-h="{{ m5h }}">{{ m5l }}</span></div>
+          </div>
+        </div>
+      </div>
+          </sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}">
+      <div class="nx-glass" role="img" aria-label="Paper attendance sheet waiting to be scanned">
+        <div class="mx">
+          <div class="mx-bar"><span class="mx-bar__t">Attendance sheet, AM session</span><span class="mx-clock nx-num">{{ xc5 }}</span></div>
+          <div class="mx-body">
+            <div class="mx-paper">
+              <p class="mx-paper__h">2BA-SE-1007 · 07 Oct 2026 · AM</p>
+              <sc-for list="{{ x5rows }}" as="r" hint-placeholder-count="12"><div class="{{ r.cls }}"><span>{{ r.name }}</span><span class="mx-paper__sig"><svg class="mx-sig" viewBox="0 0 80 20" aria-hidden="true"><path d="M2 14 C 8 2, 12 18, 18 10 S 26 4, 30 12 S 40 16, 44 8 C 48 2, 52 16, 58 11 S 70 6, 78 9"></path></svg></span></div></sc-for>
+            </div>
+            <div class="mx-foot">
+              <sc-if value="{{ x5err }}" hint-placeholder-val="{{ false }}"><span class="mx-err nx-in">Absence noticed after class, Darren Koh</span></sc-if>
+              <sc-if value="{{ x5wait }}" hint-placeholder-val="{{ false }}"><span class="mx-tag nx-in">Waiting to be scanned and uploaded</span></sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+            </sc-if>
+          </div>
+        </article>
+        <article class="{{ ch5 }}" id="moment-06" aria-labelledby="mh-06">
+          <div class="nx-ch__text">
+            <p class="nx-ch__n">Moment 06 · Assessment and certification</p>
+            <h3 class="nx-ch__h" id="mh-06">Record the assessment and issue the certificate in one sitting.</h3>
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">Assessment results are recorded against each trainee and submitted to TPGateway. Nest converts the OpenCerts files into PDFs in a single batch and sends each certificate to the right trainee.</p></sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Certificates are downloaded, renamed and emailed one at a time.</p></sc-if>
+            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
+            </div>
+            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+          </div>
+          <div class="nx-ch__panel">
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
+      <div class="nx-glass" role="img" aria-label="Nest converting OpenCerts files to PDF and sending each certificate">
+        <div class="nx-app">
+          <div class="nx-bar"><span class="nx-bar__brand">Nest</span><span class="nx-bar__org">2BIRDS ACADEMY</span><span class="nx-bar__date nx-mono">07 Oct 2026</span></div>
+          <nav class="nx-rail" aria-hidden="true">
+            <p class="nx-rail__g">Operate</p>
+            <p class="nx-rail__g">People</p>
+            <p class="nx-rail__g">Sales</p>
+            <p class="nx-rail__g">Finance</p>
+            <p class="nx-rail__g is-on">SkillsFuture</p><p class="nx-rail__sub">Certificates</p>
+            <p class="nx-rail__g">Quality</p>
+            <p class="nx-rail__g">Reports</p>
+            <p class="nx-rail__g">System</p>
+          </nav>
+          <div class="nx-main">
+            <div class="nx-top"><p class="nx-top__t">Assessment and certificates</p><p class="nx-top__m">Class 2BA-SE-1007</p></div>
+            <sc-if value="{{ m6assess }}" hint-placeholder-val="{{ false }}">
+              <div class="nx-assess">
+                <sc-for list="{{ m6rows }}" as="r" hint-placeholder-count="12"><span class="nx-assess__i"><span class="nx-dot" data-h="{{ r.h }}"></span>{{ r.name }}<span class="nx-assess__o">{{ r.l }}</span></span></sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ m6conv }}" hint-placeholder-val="{{ true }}">
+              <p class="nx-note nx-in">12 of 12 assessed Competent and submitted to TPGateway.</p>
+              <div class="nx-conv">
+                <div class="nx-conv__col">
+                  <p class="nx-conv__h">OpenCerts files</p>
+                  <div class="nx-conv__grid">
+                    <sc-for list="{{ m6oc }}" as="c" hint-placeholder-count="12"><div class="{{ c.cls }}"><svg class="nx-fi" viewBox="0 0 24 30" aria-hidden="true"><path d="M1.5 1.5h14l7 7v20h-21z" fill="#fff" stroke="#c3c8cf"></path><path d="M15.5 1.5v7h7" fill="#eef1f4" stroke="#c3c8cf"></path><rect x="1.5" y="15" width="21" height="7.5" fill="#1d8fb5"></rect><text x="12" y="20.3" text-anchor="middle" class="nx-fi__t nx-fi__t--oc">OPENCERT</text></svg><span class="nx-conv__n">{{ c.n }}</span></div></sc-for>
+                  </div>
+                </div>
+                <div class="nx-conv__arrow" aria-hidden="true"><i></i></div>
+                <div class="nx-conv__col">
+                  <p class="nx-conv__h">PDF certificates <span class="nx-num">{{ m6cv }}</span></p>
+                  <div class="nx-conv__grid">
+                    <sc-for list="{{ m6pdf }}" as="c" hint-placeholder-count="12"><div class="{{ c.cls }}"><svg class="nx-fi" viewBox="0 0 24 30" aria-hidden="true"><path d="M1.5 1.5h14l7 7v20h-21z" fill="#fff" stroke="#c3c8cf"></path><path d="M15.5 1.5v7h7" fill="#eef1f4" stroke="#c3c8cf"></path><rect x="1.5" y="15" width="21" height="7.5" fill="#d7372c"></rect><text x="12" y="21" text-anchor="middle" class="nx-fi__t">PDF</text></svg><span class="nx-conv__n">{{ c.n }}</span></div></sc-for>
+                  </div>
+                </div>
+                <div class="nx-conv__arrow" aria-hidden="true"><i></i></div>
+                <div class="nx-conv__col nx-conv__col--mail">
+                  <p class="nx-conv__h">Sent</p>
+                  <ul class="nx-conv__mail">
+                    <sc-for list="{{ m6mail }}" as="m" hint-placeholder-count="4"><li class="nx-in"><svg class="nx-env" viewBox="0 0 16 12" aria-hidden="true"><rect x="0.5" y="0.5" width="15" height="11" rx="1.5" fill="#fff" stroke="#8e96a1"></rect><path d="M1 1.6l7 5.4 7-5.4" fill="none" stroke="#8e96a1"></path></svg><span class="nx-conv__to"><span>{{ m.to }}</span><sc-if value="{{ m.cc }}" hint-placeholder-val="{{ false }}"><span class="nx-conv__cc">{{ m.cc }}</span></sc-if></span><span class="nx-chip" data-h="mint">Sent</span></li></sc-for>
+                  </ul>
+                </div>
+                <div class="{{ m6fcls }}" style="left:{{ m6fx }}" aria-hidden="true"><span class="nx-fly__oc"><svg class="nx-fi" viewBox="0 0 24 30" aria-hidden="true"><path d="M1.5 1.5h14l7 7v20h-21z" fill="#fff" stroke="#c3c8cf"></path><path d="M15.5 1.5v7h7" fill="#eef1f4" stroke="#c3c8cf"></path><rect x="1.5" y="15" width="21" height="7.5" fill="#1d8fb5"></rect><text x="12" y="20.3" text-anchor="middle" class="nx-fi__t nx-fi__t--oc">OPENCERT</text></svg></span><span class="nx-fly__pdf"><svg class="nx-fi" viewBox="0 0 24 30" aria-hidden="true"><path d="M1.5 1.5h14l7 7v20h-21z" fill="#fff" stroke="#c3c8cf"></path><path d="M15.5 1.5v7h7" fill="#eef1f4" stroke="#c3c8cf"></path><rect x="1.5" y="15" width="21" height="7.5" fill="#d7372c"></rect><text x="12" y="21" text-anchor="middle" class="nx-fi__t">PDF</text></svg></span></div>
+              </div>
+              <div class="nx-foot"><span class="nx-note">OpenCerts to PDF, then sent by email</span><span class="nx-chip" data-h="{{ m6h }}">Certificates sent {{ m6n }} of 12</span></div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+          </sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}">
+      <div class="nx-glass" role="img" aria-label="Certificates downloaded, renamed and emailed one at a time">
+        <div class="mx">
+          <div class="mx-bar"><span class="mx-bar__t">Downloads and Mail</span><span class="mx-clock nx-num">{{ xc6 }}</span></div>
+          <div class="mx-body">
+            <div class="mx-dl">
+              <p class="mx-dl__h">Downloading certificate {{ x6d }} of 12</p>
+              <div class="mx-prog"><i style="width:{{ x6dp }}"></i></div>
+              <p class="mx-dl__r"><span class="nx-num">{{ x6file }}</span> renamed to <span>{{ x6name }}</span></p>
+            </div>
+            <div class="mx-compose">
+              <div class="mx-field"><span>To</span><span>{{ x6to }}</span></div>
+              <div class="mx-field"><span>Attach</span><span>{{ x6name }}</span></div>
+            </div>
+            <div class="mx-foot"><span class="mx-count nx-num">{{ x6sent }} of 12 sent</span></div>
+          </div>
+        </div>
+      </div>
+            </sc-if>
+          </div>
+        </article>
+        <article class="{{ ch6 }}" id="moment-07" aria-labelledby="mh-07">
+          <div class="nx-ch__text">
+            <p class="nx-ch__n">Moment 07 · Fees and claims</p>
+            <h3 class="nx-ch__h" id="mh-07">Invoice, collect and claim without a second spreadsheet.</h3>
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">Invoices follow from the enrolment. Payments, SkillsFuture Credit claims and grant deadlines are tracked against each class, and Nest informs the team well before a grant lapses for a late submission.</p></sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Finance works from a separate spreadsheet and learns about a missed deadline when the grant is lost.</p></sc-if>
+            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
+            </div>
+            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+          </div>
+          <div class="nx-ch__panel">
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
+      <div class="nx-glass" role="img" aria-label="Nest class fee card with grant deadline">
+        <div class="nx-app">
+          <div class="nx-bar"><span class="nx-bar__brand">Nest</span><span class="nx-bar__org">2BIRDS ACADEMY</span><span class="nx-bar__date nx-mono">07 Oct 2026</span></div>
+          <nav class="nx-rail" aria-hidden="true">
+            <p class="nx-rail__g">Operate</p>
+            <p class="nx-rail__g">People</p>
+            <p class="nx-rail__g">Sales</p>
+            <p class="nx-rail__g is-on">Finance</p><p class="nx-rail__sub">Class fees</p>
+            <p class="nx-rail__g">SkillsFuture</p>
+            <p class="nx-rail__g">Quality</p>
+            <p class="nx-rail__g">Reports</p>
+            <p class="nx-rail__g">System</p>
+          </nav>
+          <div class="nx-main">
+            <div class="nx-top"><p class="nx-top__t">Fees and claims</p><p class="nx-top__m">Class 2BA-SE-1007</p></div>
+            <div class="nx-card">
+              <div class="nx-kv"><span>Full fee</span><span class="nx-num">S$12,000.00</span></div>
+              <div class="nx-kv"><span>Course fee grant</span><span class="nx-num">S$7,400.00</span></div>
+              <div class="nx-kv"><span>Nett fee</span><span class="nx-num">S$4,600.00</span></div>
+              <div class="nx-kv nx-kv--total"><span>Collected</span><span class="nx-num nx-big">{{ m7col }}</span></div>
+            </div>
+            <div class="nx-grid2">
+              <div class="nx-card nx-mini"><span>Invoices issued</span><strong class="nx-num">12</strong></div>
+              <div class="nx-card nx-mini"><span>SkillsFuture Credit claims</span><strong class="nx-num">3</strong></div>
+            </div>
+            <div class="nx-foot"><span class="nx-chip" data-h="{{ m7h }}">{{ m7l }}</span><span class="nx-note">Training grant, class 2BA-SE-1007</span></div>
+          </div>
+        </div>
+      </div>
+          </sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}">
+      <div class="nx-glass" role="img" aria-label="Separate finance spreadsheet with a lapsed grant deadline">
+        <div class="mx">
+          <div class="mx-bar"><span class="mx-bar__t">Class fees.xlsx</span><span class="mx-clock nx-num">{{ xc7 }}</span></div>
+          <div class="mx-body">
+            <table class="mx-grid">
+              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr></thead>
+              <tbody>
+                <tr><th>1</th><td>Class</td><td>Invoiced</td><td>Collected</td><td>Claim deadline</td><td>Status</td></tr>
+                <tr><th>2</th><td>2BA-SE-0930</td><td>9,600</td><td>9,600</td><td>12 Oct 2026</td><td>Claimed</td></tr>
+                <tr><th>3</th><td>2BA-SE-1007</td><td>12,000</td><td>{{ x7col }}</td><td class="{{ x7dl }}">19 Oct 2026</td><td class="{{ x7st }}">{{ x7stv }}</td></tr>
+                <tr><th>4</th><td>2BA-SE-1014</td><td>7,200</td><td>2,400</td><td>26 Oct 2026</td><td>Open</td></tr>
+              </tbody>
+            </table>
+            <div class="mx-fx"><span class="mx-ref">Today</span><span class="mx-fx__v nx-num">{{ x7today }}</span></div>
+            <sc-if value="{{ x7err }}" hint-placeholder-val="{{ false }}"><p class="mx-err nx-in">Grant lapsed. Claim for 2BA-SE-1007 was not submitted by 19 Oct 2026.</p></sc-if>
+          </div>
+        </div>
+      </div>
+            </sc-if>
+          </div>
+        </article>
+        <article class="{{ ch7 }}" id="moment-08" aria-labelledby="mh-08">
+          <div class="nx-ch__text">
+            <p class="nx-ch__n">Moment 08 · Audit</p>
+            <h3 class="nx-ch__h" id="mh-08">Keep the evidence ready before the auditor asks.</h3>
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">Every class carries its own evidence, attendance, assessment records, feedback and a full audit trail of who changed what and when. Quality records and TPQA reporting draw on the same data the class produced, so the audit reflects the operation rather than a rebuild of it.</p></sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Evidence is gathered from folders and inboxes in the weeks before the audit.</p></sc-if>
+            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
+              <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
+            </div>
+            <a class="nx-next role-link" href="#calculator">Calculate a nett fee ↓</a>
+          </div>
+          <div class="nx-ch__panel">
+            <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
+      <div class="nx-glass" role="img" aria-label="Nest class evidence file and audit trail">
+        <div class="nx-app">
+          <div class="nx-bar"><span class="nx-bar__brand">Nest</span><span class="nx-bar__org">2BIRDS ACADEMY</span><span class="nx-bar__date nx-mono">07 Oct 2026</span></div>
+          <nav class="nx-rail" aria-hidden="true">
+            <p class="nx-rail__g">Operate</p>
+            <p class="nx-rail__g">People</p>
+            <p class="nx-rail__g">Sales</p>
+            <p class="nx-rail__g">Finance</p>
+            <p class="nx-rail__g">SkillsFuture</p>
+            <p class="nx-rail__g is-on">Quality</p><p class="nx-rail__sub">TPQA evidence</p>
+            <p class="nx-rail__g">Reports</p>
+            <p class="nx-rail__g">System</p>
+          </nav>
+          <div class="nx-main">
+            <div class="nx-top"><p class="nx-top__t">Class evidence file</p><p class="nx-top__m">Class 2BA-SE-1007</p></div>
+            <ul class="nx-ev">
+              <sc-for list="{{ m8ev }}" as="r" hint-placeholder-count="8">
+                <li class="nx-in"><span>{{ r.doc }}</span><span class="nx-chip" data-h="mint">Filed</span></li>
+              </sc-for>
+            </ul>
+            <sc-if value="{{ m8trShow }}" hint-placeholder-val="{{ true }}">
+              <div class="nx-card nx-trail nx-in"><p class="nx-trail__h">Audit trail</p>
+                <sc-for list="{{ m8tr }}" as="r" hint-placeholder-count="4"><p class="nx-in"><span class="nx-mono">{{ r.t }}</span><span>{{ r.e }}</span></p></sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+          </sc-if>
+            <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}">
+      <div class="nx-glass" role="img" aria-label="Audit evidence scattered across folders and inbox searches">
+        <div class="mx">
+          <div class="mx-bar"><span class="mx-bar__t">Search</span><span class="mx-clock nx-num">{{ xc8 }}</span></div>
+          <div class="mx-body">
+            <div class="mx-scatter">
+              <sc-for list="{{ x8items }}" as="c" hint-placeholder-count="6"><div class="{{ c.cls }}" style="left:{{ c.x }};top:{{ c.y }}"><span class="mx-scatter__k">{{ c.k }}</span><span>{{ c.s }}</span></div></sc-for>
+            </div>
+            <div class="mx-foot"><span class="mx-count nx-num">Evidence found {{ x8n }} of 27</span></div>
+          </div>
+        </div>
+      </div>
+            </sc-if>
+          </div>
+        </article>
+        </div>
+        <div class="wrap">
+          <dl class="{{ ledCls }}" aria-live="polite">
+            <div><dt>{{ ledL1 }}</dt><dd class="nx-num">{{ led1 }}</dd></div>
+            <div><dt>{{ ledL2 }}</dt><dd class="nx-num">{{ led2 }}</dd></div>
+            <div class="nx-ledger__key"><dt>Figures re-keyed manually</dt><dd class="nx-num">{{ led3 }}</dd></div>
+            <div><dt>{{ ledL4 }}</dt><dd class="nx-num">{{ led4 }}</dd></div>
+          </dl>
+          <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-src role-small">Illustrative figures for one class of twelve trainees.</p></sc-if>
+        </div>
+      </div>
+    </div></div></div>
+  </section>
+
+  <section class="section section--bone nc2" id="calculator" data-block="tms-calculator">
+    <div class="wrap">
+      <div class="nc2__band">
+        <div class="nc2__head">
+          <p class="nx-kicker">Funding</p>
+          <h2 class="nx-h2">Calculate the nett fee a trainee pays</h2>
+        </div>
+        <div class="nc2__ctl">
+          <label class="nc2__lab" for="nc-fee">Full course fee before GST</label>
+          <div class="nc2__fee"><span class="nc2__cur">S$</span><input id="nc-fee" class="nc2__num" type="number" inputmode="decimal" min="0" step="50" value="{{ fee }}" onChange="{{ onFee }}"></div>
+          <input class="nc2__range" type="range" min="100" max="5000" step="50" value="{{ feeRange }}" onChange="{{ onRange }}" aria-label="Full course fee, from S$100 to S$5,000">
+          <div class="nc2__ends"><span>S$100</span><span>S$5,000</span></div>
+        </div>
+      </div>
+
+      <div class="nc2__tabs" role="tablist" aria-label="Who is paying">
+        <button class="nc2__tab" type="button" role="tab" id="nc-tab-corp" aria-selected="{{ calcCorp }}" aria-controls="nc-panel" tabindex="{{ tiCorp }}" onClick="{{ pickCorp }}" onKeyDown="{{ onCalcTabKey }}">Corporate</button>
+        <button class="nc2__tab" type="button" role="tab" id="nc-tab-ind" aria-selected="{{ calcInd }}" aria-controls="nc-panel" tabindex="{{ tiInd }}" onClick="{{ pickInd }}" onKeyDown="{{ onCalcTabKey }}">Individual</button>
+      </div>
+
+      <div class="nc2__sheet" id="nc-panel" role="tabpanel" aria-labelledby="{{ calcTabId }}" aria-live="polite">
+        <table class="nc2__t" data-cols="{{ calcCols }}">
+          <thead>
+            <tr>
+              <th scope="col" class="nc2__rh"><span class="u-sr">Fee line</span></th>
+              <sc-for list="{{ calcGroups }}" as="g" hint-placeholder-count="2"><th scope="col" class="nc2__ch">{{ g.name }}</th></sc-for>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ calcRows }}" as="r" hint-placeholder-count="4">
+              <tr>
+                <th scope="row" class="nc2__rl">{{ r.d }}</th>
+                <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="2"><td class="{{ c.cls }}">{{ c.a }}</td></sc-for>
+              </tr>
+            </sc-for>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" class="nc2__rl">Nett Fees Payable</th>
+              <sc-for list="{{ calcGroups }}" as="g" hint-placeholder-count="2"><td class="nc2__tot">{{ g.nett }}</td></sc-for>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="nc2__cards">
+          <sc-for list="{{ calcGroups }}" as="g" hint-placeholder-count="2">
+            <section class="nc2__card" aria-label="{{ g.name }}">
+              <h3 class="nc2__cardh">{{ g.name }}</h3>
+              <dl class="nc2__cdl">
+                <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="4"><div><dt>{{ r.d }}</dt><dd class="{{ r.cls }}">{{ r.a }}</dd></div></sc-for>
+                <div class="nc2__crow-tot"><dt>Nett Fees Payable</dt><dd class="nc2__tot">{{ g.nett }}</dd></div>
+              </dl>
+            </section>
+          </sc-for>
+        </div>
+      </div>
+
+      <p class="nc2__note">Indicative only. Funding caps and eligibility follow the SWDA rules for each course, and Nest applies them to every quote.</p>
+    </div>
+  </section>
+
+  <section class="section" id="identity" data-block="tms-custom">
+    <div class="wrap nx-cust">
+      <div class="nx-cust__demo">
+        <div class="nx-glass" role="img" aria-label="Nest registration form and consultant results for 2BIRDS ACADEMY">
+          <div class="nx-app nx-app--solo" style="--acc:{{ acc }};--acc2:{{ acc2 }}">
+            <div class="nx-bar"><span class="nx-mark">{{ mark }}</span><span class="nx-bar__brand">{{ provName }}</span><span class="nx-bar__org">{{ ciLabel }}</span><span class="nx-bar__date">Powered by Nest</span></div>
+            <div class="ci nx-loop" data-fade="{{ cfade }}">
+              <div class="ci__track" data-beat="{{ ciBeat }}">
+                <div class="ci__beat">
+                  <p class="ci__h">Course registration</p>
+                  <ol class="ci__steps">
+                    <sc-for list="{{ ciSteps }}" as="s" hint-placeholder-count="5"><li data-state="{{ s.st }}"><span class="ci__sn nx-num">{{ s.n }}</span><span class="ci__sl">{{ s.l }}</span></li></sc-for>
+                  </ol>
+                  <div class="ci__fields">
+                    <sc-for list="{{ ciFields }}" as="f" hint-placeholder-count="8"><div class="ci__f"><span class="ci__l">{{ f.l }}</span><span class="{{ f.cls }}">{{ f.v }}<sc-if value="{{ f.cur }}" hint-placeholder-val="{{ false }}"><i class="mx-caret"></i></sc-if></span></div></sc-for>
+                  </div>
+                  <sc-if value="{{ ciDrop }}" hint-placeholder-val="{{ false }}">
+                    <ul class="ci__drop nx-in"><sc-for list="{{ ciCons }}" as="c" hint-placeholder-count="4"><li class="{{ c.cls }}">{{ c.n }}</li></sc-for></ul>
+                  </sc-if>
+                  <div class="ci__decl"><span class="ci__box" data-on="{{ ciTick }}"></span><span>I confirm the particulars are correct and consent to 2BIRDS ACADEMY submitting them to TPGateway.</span></div>
+                  <div class="ci__act"><span class="ci__submit" data-press="{{ ciPress }}">Submit registration</span>
+                    <sc-if value="{{ ciDone }}" hint-placeholder-val="{{ false }}"><span class="nx-chip nx-in" data-h="mint">Registration received, nett fees payable S$390.00</span></sc-if>
+                  </div>
+                </div>
+                <div class="ci__beat">
+                  <div class="nx-top"><p class="nx-top__t">Registrations by consultant</p><p class="nx-top__m">October 2026</p></div>
+                  <div class="ci__thead"><span>Consultant</span><span>Registrations this month</span><span>Course fees</span></div>
+                  <div class="ci__rows">
+                    <sc-for list="{{ ciSales }}" as="r" hint-placeholder-count="4">
+                      <div class="{{ r.cls }}" style="top:{{ r.top }}">
+                        <div class="ci__cells"><span class="ci__name">{{ r.n }}</span><span class="nx-num">{{ r.regs }}</span><span class="nx-num">{{ r.fees }}</span></div>
+                        <div class="ci__bar"><i style="width:{{ r.w }}"></i></div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nx-cust__text">
+        <p class="nx-kicker role-kicker">Customised to your practice</p>
+        <h2 class="nx-h2 role-title">Built around the way you operate</h2>
+        <p class="nx-body">Nest functions entirely as your proprietary training platform. Trainees and company-sponsored applicants interact exclusively with your visual identity and editorial tone, backed by enrolment workflows and administrative controls configured to your exact operating guidelines.</p>
+        <ul class="nx-list">
+          <li>Registration form fields and consent wording reflect your organisation's internal policies and data protection standards.</li>
+          <li>Message templates, attachments and schedules follow the training provider's calendar.</li>
+          <li>Each consultant's registrations are tracked from the form to the enrolment.</li>
+          <li>Reports and exports match the training provider's accounts.</li>
+          <li>All course registrations route directly through your organisation's authorised TPGateway integration and SWDA credentials.</li>
+        </ul>
+      
+    </div>
+  </div></section>
+
+  <section class="section section--bone" data-block="tms-compare">
+    <div class="wrap">
+      <p class="nx-kicker role-kicker">Without a TMS, and with Nest</p>
+      <h2 class="nx-h2 role-title">Why training providers move to Nest</h2>
+      <div class="nx-cmp-wrap">
+        <table class="compare nx-cmp">
+          <thead><tr><th scope="col">The task</th><th scope="col">Manual workflows</th><th scope="col" class="col-2b">In Nest</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">TPGateway Synchronisation</th><td data-col="Manual workflows">Administrators rekey learner records manually into the portal, resulting in delayed rejection notices and duplicate administrative work.</td><td class="col-2b" data-col="In Nest">Class enrolments synchronise with TPGateway through direct API integration, providing instant status updates on submissions and errors.</td></tr>
+            <tr><th scope="row">Nett Fee Calculation</th><td data-col="Manual workflows">Commercial teams calculate subsidies manually using statutory tables, leading to billing discrepancies and post-enrolment adjustments.</td><td class="col-2b" data-col="In Nest">Nest calculates funding tiers automatically, ensuring quotations match final invoices and official grant disbursements precisely.</td></tr>
+            <tr><th scope="row">Commercial Attribution</th><td data-col="Manual workflows">Admissions and revenue tallies are reconciled manually from separate spreadsheets at the close of each billing cycle.</td><td class="col-2b" data-col="In Nest">Every registration links directly to its source consultant, giving leadership real-time visibility over pipeline conversion and cohort targets.</td></tr>
+            <tr><th scope="row">TPQA Audit Governance</th><td data-col="Manual workflows">Course documentation and assessment records are gathered manually across shared drives and individual inboxes ahead of regulatory audits.</td><td class="col-2b" data-col="In Nest">Courseware, attendance records, and assessment evidence archive automatically as training progresses, creating a continuous audit trail.</td></tr>
+            <tr><th scope="row">Learner Correspondence</th><td data-col="Manual workflows">Joining instructions, reminders, and timetable details are compiled and dispatched individually for each cohort.</td><td class="col-2b" data-col="In Nest">Pre-course briefings and required materials dispatch automatically based on intake dates and established operational templates.</td></tr>
+            <tr><th scope="row">Certificate Issuance</th><td data-col="Manual workflows">OpenCerts files are downloaded individually, renamed manually, and distributed across separate emails.</td><td class="col-2b" data-col="In Nest">OpenCerts records convert to accessible PDF documents in automated batches and distribute directly to learners upon completion.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section nx-secband" data-block="tms-security">
+    <div class="nx-secband__media" aria-hidden="true"><img src="assets/tms-security.jpg" alt=""></div>
+    <div class="nx-secband__scrim" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="nx-sec">
+        <div>
+          <p class="nx-kicker role-kicker">Security</p>
+          <h2 class="nx-h2 role-title">Built to be tested</h2>
+        </div>
+        <p class="nx-sec__body">2BIRDS is in discussions with the School of Computing at the National University of Singapore (NUS) to submit the Nest Training Management System for IFS4103. The objective is to designate Nest as an Enterprise Security Target, subjecting our codebase and architecture to rigorous evaluation by cybersecurity researchers trained to find subtle vulnerabilities.</p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+<dc-import name="SiteFooter" hint-size="100%,760px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  L = ["Aisha Rahman","Benjamin Tan","Chloe Lim","Darren Koh","Esther Ng","Farid Ismail","Grace Wong","Hafiz Salleh","Isabel Chua","Jonathan Lee","Kavitha Raj","Lucas Teo"];
+  SP = { "Aisha Rahman": "Lumen Engineering Pte Ltd", "Darren Koh": "Marina Logistics Pte Ltd", "Farid Ismail": "Lumen Engineering Pte Ltd", "Lucas Teo": "Lumen Engineering Pte Ltd" };
+  H = ["Marcus Yeo","Nadia Hassan","Oliver Sim","Priya Menon","Aisha Rahman","Benjamin Tan","Chloe Lim","Darren Koh","Esther Ng","Farid Ismail","Grace Wong","Hafiz Salleh","Isabel Chua","Jonathan Lee","Kavitha Raj","Lucas Teo"];
+  LABELS = ["Enquiry and quote","Registration","Enrolment","Before class","On the day","Assessment and certification","Fees and claims","Audit"];
+  REC = [0,0,12,12,24,36,38,38];
+  MSG = [1,3,3,39,41,53,61,61];
+  DOC = [1,2,2,2,4,18,22,27];
+  REC_M = [0,1,12,12,24,36,38,38];
+  MSG_M = [1,3,3,39,41,53,61,61];
+  KEY_M = [4,40,112,112,136,172,196,196];
+  DOC_M = [27,27,27,27,25,21,16,13];
+  PROF = [
+    { label: "Singapore Citizen aged 21 to 39", rate: 0.5, scheme: "Baseline funding", line: "Baseline course fee funding at 50 per cent." },
+    { label: "Singapore Citizen aged 40 and above", rate: 0.7, scheme: "SkillsFuture Mid-career Enhanced Subsidy", line: "SkillsFuture Mid-career Enhanced Subsidy at 70 per cent." },
+    { label: "Permanent Resident", rate: 0.5, scheme: "Baseline funding", line: "Baseline course fee funding at 50 per cent." },
+    { label: "Sponsored by a Singapore SME", rate: 0.7, scheme: "Enhanced Training Support for SMEs", line: "Enhanced Training Support for SMEs at 70 per cent, for Singapore Citizens and Permanent Residents." }
+  ];
+  PROVS = [
+    { name: "2BIRDS ACADEMY", mark: "2B", acc: "#1a1916", acc2: "#7d7a52" }
+          ];
+  CONS = [
+    { n: "Mei Ling Tan", regs: 14, fees: 16800 },
+    { n: "Daniel Ong", regs: 13, fees: 16200 },
+    { n: "Rashid Yusof", regs: 11, fees: 13200 },
+    { n: "Priya Menon", regs: 8, fees: 9600 }
+  ];
+  state = { heroT: 0, heroB: 0, active: 0, t: 0, mode: "with", stack: false, pin: false, reduce: false,
+    fee: "1000", prof: 1, shown: 300, prov: 0, fit: 1, c: 0, heroVis: false, flowVis: false, ciVis: false };
+
+  money(n, bare) { var s = Number(n).toLocaleString("en-SG", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); return bare ? s : "S$" + s; }
+  _ncCount() {
+    clearTimeout(this._nct);
+    var to = this.feeNum();
+    var from = this.state.ncF != null ? this.state.ncF : to;
+    if (this.state.reduce || from === to) { this.setState({ ncF: null }); return; }
+    var n = 8, k = 0, self = this;
+    var step = function () { k++; var e = 1 - Math.pow(1 - k / n, 3); self.setState({ ncF: k >= n ? null : from + (to - from) * e }); if (k < n) self._nct = setTimeout(step, 30); };
+    step();
+  }
+  feeNum() { return Math.max(0, Number(String(this.state.fee).replace(/[^0-9.]/g, "")) || 0); }
+  nettFor(p) { var f = this.feeNum(); return Math.round((f - Math.round(f * p.rate * 100) / 100) * 100) / 100; }
+  maxT() { return this.state.mode === "with" ? 96 : 130; }
+
+  componentDidMount() {
+    this._rm = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+    this._layout = () => {
+      var w = window.innerWidth, h = window.innerHeight;
+      if (!w) return;
+      var st = w < 768;
+      this._hm = {};
+      this.setState({ stack: st, pin: !st, reduce: !!(this._rm && this._rm.matches) }, () => { this._scroll(); this._tick(); });
+    };
+    this._vis = () => {
+      var chk = (id) => { var el = document.getElementById(id); if (!el) return false; var r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight && r.height > 0; };
+      var h = chk("nx-hero"), f = chk("follow"), c = chk("identity"), s = this.state, n = {};
+      if (h !== s.heroVis) n.heroVis = h;
+      if (f !== s.flowVis) n.flowVis = f;
+      if (c !== s.ciVis) n.ciVis = c;
+      if (Object.keys(n).length) this.setState(n, () => { if ("heroVis" in n) this._hero(); if ("flowVis" in n) this._tick(); if ("ciVis" in n) this._ci(); });
+    };
+    this._scroll = () => {
+      this._vis();
+      if (!this.state.pin) return;
+      var el = document.getElementById("nx-pin"); if (!el) return;
+      var p = (76 - el.getBoundingClientRect().top) / (window.innerHeight * 0.8);
+      var i = Math.max(0, Math.min(7, Math.floor(p + 0.3)));
+      if (i !== this.state.active) this.setActive(i);
+    };
+    window.addEventListener("resize", this._layout);
+    window.addEventListener("scroll", this._scroll, { passive: true });
+    if (this._rm && this._rm.addEventListener) this._rm.addEventListener("change", this._layout);
+    this._layout();
+    this._onload = () => this._layout();
+    window.addEventListener("load", this._onload);
+    [0, 120, 400, 1000, 2000].forEach((d) => setTimeout(() => this._layout(), d));
+    if ("IntersectionObserver" in window) {
+      this._io = new IntersectionObserver((es) => {
+        es.forEach((e) => {
+          var id = e.target.id, v = e.isIntersecting;
+          if (id === "nx-hero" && v !== this.state.heroVis) this.setState({ heroVis: v }, () => this._hero());
+          if (id === "follow" && v !== this.state.flowVis) this.setState({ flowVis: v }, () => this._tick());
+          if (id === "identity" && v !== this.state.ciVis) this.setState({ ciVis: v }, () => this._ci());
+        });
+      }, { threshold: 0.12 });
+      ["nx-hero", "follow", "identity"].forEach((id) => { var el = document.getElementById(id); if (el) this._io.observe(el); });
+    }
+  }
+  componentDidUpdate() { this._fitNow(); }
+  _fitNow() {
+    var el = document.getElementById("nx-fit"); if (!el) return;
+    if (!this.state.pin) { el.style.transform = ""; this._fit = 1; return; }
+    this._hm = this._hm || {};
+    var key = this.state.active + this.state.mode, h = el.offsetHeight;
+    if (!h) return;
+    if (!this._hm[key] || h > this._hm[key]) this._hm[key] = h;
+    var avail = window.innerHeight - 76 - 28;
+    var f = Math.min(1, Math.floor(avail / this._hm[key] * 100) / 100);
+    if (this._fit !== f) { this._fit = f; el.style.transform = f < 1 ? "scale(" + f + ")" : ""; }
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._layout);
+    window.removeEventListener("scroll", this._scroll);
+    window.removeEventListener("load", this._onload);
+    if (this._rm && this._rm.removeEventListener) this._rm.removeEventListener("change", this._layout);
+    if (this._io) this._io.disconnect();
+    clearTimeout(this._ht); clearTimeout(this._mt); clearTimeout(this._ct); clearTimeout(this._cit);
+  }
+  _hero() {
+    clearTimeout(this._ht);
+    if (this.state.reduce || !this.state.heroVis) return;
+    this._ht = setTimeout(() => {
+      if (this.state.heroT >= 9) { this._loopFade("hfade", () => this.setState((s) => ({ heroT: 0, heroB: s.heroB + 1 }), () => this._hero())); return; }
+      this.setState((s) => ({ heroT: s.heroT + 1 }), () => this._hero());
+    }, this.state.heroT >= 8 ? 3000 : 1000);
+  }
+  _tick() {
+    clearTimeout(this._mt);
+    if (this.state.reduce || this.state.stack || !this.state.flowVis) return;
+    if (this.state.t >= this.maxT()) { this._mt = setTimeout(() => this._loopFade("mfade", () => this.setState({ t: 0 }, () => this._tick())), 3000); return; }
+    this._mt = setTimeout(() => this.setState((s) => ({ t: s.t + 1 }), () => this._tick()), 90);
+  }
+  _loopFade(key, then) {
+    var o = {}; o[key] = true;
+    this.setState(o, () => setTimeout(() => { then(); setTimeout(() => { var p = {}; p[key] = false; this.setState(p); }, 60); }, 260));
+  }
+  _restart() { clearTimeout(this._mt); this.setState({ t: 0 }, () => this._tick()); }
+  _ci() {
+    clearTimeout(this._cit);
+    if (this.state.reduce || !this.state.ciVis) return;
+    if (this.state.c >= 100) { this._cit = setTimeout(() => this._loopFade("cfade", () => this.setState({ c: 0 }, () => this._ci())), 3000); return; }
+    this._cit = setTimeout(() => this.setState((s) => ({ c: s.c + 1 }), () => this._ci()), 90);
+  }
+  setActive(i) {
+    i = Math.max(0, Math.min(7, i));
+    if (i === this.state.active) return;
+    this.setState({ active: i }, () => this._restart());
+  }
+  go(i) {
+    i = Math.max(0, Math.min(7, i));
+    if (this.state.pin) {
+      var el = document.getElementById("nx-pin");
+      if (el) window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 76 + i * window.innerHeight * 0.8 + 4);
+    }
+    this.setActive(i);
+  }
+  _count() {
+    clearTimeout(this._ct);
+    var target = this.nettFor(this.PROF[this.state.prof]);
+    if (this.state.reduce) { this.setState({ shown: target }); return; }
+    var from = this.state.shown, k = 0, n = 12;
+    var step = () => {
+      k++;
+      var e = 1 - Math.pow(1 - k / n, 3);
+      this.setState({ shown: k >= n ? target : from + (target - from) * e });
+      if (k < n) this._ct = setTimeout(step, 24);
+    };
+    step();
+  }
+
+  clock(start, per, T, cap) {
+    var m = Math.round(start + Math.min(T, 130) * per);
+    if (cap != null) m = Math.min(m, cap);
+    var h = Math.floor(m / 60) % 24, mm = m % 60, ap = h >= 12 ? "pm" : "am", h12 = h % 12 || 12;
+    return h12 + "." + (mm < 10 ? "0" : "") + mm + " " + ap;
+  }
+  typed(str, T, start, per) { var n = Math.floor((T - start) / (per || 1)); return n <= 0 ? "" : str.slice(0, n); }
+
+  renderVals() {
+    var self = this, s = this.state, L = this.L;
+    var fin = s.stack || s.reduce;
+    var T = fin ? 999 : s.t;
+    var tp = (str, st, per) => this.typed(str, T, st, per);
+    var chip = (h, l) => ({ h: h, l: l });
+    var out = {};
+    for (var i = 0; i < 8; i++) out["ch" + i] = "nx-ch" + (i === s.active ? " is-on" : "");
+
+    // hero
+    var ht = s.reduce ? 99 : s.heroT, acc = 0;
+    out.heroRows = [0, 1, 2, 3].map(function (i) {
+      var st = ht >= 3 + i ? chip("mint", "Accepted") : ht >= 1 + i ? chip("sky", "Sent") : chip("sand", "Queued");
+      if (st.l === "Accepted") acc++;
+      return { name: self.H[(s.heroB * 4 + i) % 16], ref: "ENR-26" + (20500 + s.heroB * 4 + i), h: st.h, l: st.l };
+    });
+    out.hfade = s.hfade ? "true" : "false"; out.mfade = s.mfade ? "true" : "false"; out.cfade = s.cfade ? "true" : "false";
+    out.heroCount = s.reduce ? 30 : 26 + s.heroB * 4 + acc;
+
+    // moment 01
+    out.m1g = T >= 5; out.m1nett = T >= 9 ? "S$390.00" : "Calculating"; out.m1h = T >= 13 ? "mint" : "sand"; out.m1l = T >= 13 ? "Quote sent" : "Draft";
+    // moment 02
+    var m2rows = [];
+    if (T >= 5) m2rows.push({ cls: "nx-in nx-new", name: "Lucas Teo", emp: "Lumen Engineering Pte Ltd", sp: "Company-sponsored", cons: T >= 12 ? "Daniel Ong" : "Unassigned", consCls: T >= 12 ? "nx-in" : "nx-muted", h: "lavender", l: "New" });
+    m2rows.push({ cls: "", name: "Chloe Lim", emp: "Self", sp: "Self-sponsored", cons: "Mei Ling Tan", consCls: "", h: "mint", l: "Enrolled" });
+    m2rows.push({ cls: "", name: "Farid Ismail", emp: "Lumen Engineering Pte Ltd", sp: "Company-sponsored", cons: "Rashid Yusof", consCls: "", h: "mint", l: "Enrolled" });
+    m2rows.push({ cls: "", name: "Isabel Chua", emp: "Self", sp: "Self-sponsored", cons: "Daniel Ong", consCls: "", h: "mint", l: "Enrolled" });
+    out.m2rows = m2rows; out.m2count = T >= 5 ? 48 : 47;
+    // moment 03
+    var q3 = 0, s3 = 0, a3 = 0;
+    out.m3rows = L.map(function (n, i) {
+      var st, reason = "";
+      if (T < 3 + i) st = chip("sand", "Queued");
+      else if (T < 16 + i) st = chip("sky", "Sent");
+      else if (i === 6 && T < 38) { st = chip("rose", "Needs attention"); reason = "Employer UEN does not match the sponsorship record"; }
+      else st = chip("mint", "Accepted");
+      if (st.l === "Queued") q3++; else if (st.l === "Sent") s3++; else if (st.l === "Accepted") a3++;
+      return { name: n, ref: "ENR-26" + (10431 + i), h: st.h, l: st.l, reason: reason };
+    });
+    out.m3q = q3; out.m3s = s3; out.m3a = a3;
+    // moment 04
+    out.m4rows = [["7 days before", "Joining instructions and course outline", 16, 5], ["1 day before", "Venue directions and reminder", 16, 12], ["Morning of class", "Trainer briefing with class list and forecast", 4, 19]].map(function (r) { var d = T >= r[3]; return { when: r[0], what: r[1], h: d ? "mint" : "sand", l: d ? "Sent" : "Scheduled", count: d ? r[2] + " sent" : r[2] + " recipients" }; });
+    out.m4wa = [["Grace Wong", 24], ["Lucas Teo", 28], ["Aisha Rahman", 0]].map(function (r) { return { name: r[0], tick: r[1] > 0 && T >= r[1], del: r[1] > 0 && T >= 42 }; });
+    out.m4press = T >= 32 && T < 35; out.m4bub = T >= 36;
+    out.m4sel = T >= 42 ? "Delivered to 2 learners" : (T >= 28 ? "2 learners selected" : (T >= 24 ? "1 learner selected" : "Select learners"));
+
+    // moment 05
+    out.m5map = T >= 2;
+    out.m5rows = L.map(function (n, i) {
+      var late = n === "Darren Koh" || n === "Esther Ng";
+      var on = T >= 8 + i;
+      var r = { name: n, cls: "", dh: late ? "none" : (on ? "mint" : "none"), chip: "", ch: "" };
+      if (n === "Darren Koh") { r.cls = "is-wide"; r.wa = T >= 20 && T < 34; r.waP = T >= 22 && T < 25; if (T >= 34) { r.chip = "On the way, 9.20 am"; r.ch = "sky"; } else if (T >= 20) { r.chip = "Not signed in"; r.ch = "peach"; } }
+      if (n === "Esther Ng") { r.cls = "is-wide"; r.wa = T >= 36 && T < 50; r.waP = T >= 38 && T < 41; if (T >= 50) { r.chip = "Postponement requested, 21 Oct class"; r.ch = "sand"; } else if (T >= 20) { r.chip = "Not signed in"; r.ch = "peach"; } }
+      return r;
+    });
+    var chat = [];
+    if (T >= 24) chat.push({ cls: "nx-wa__b nx-wa__b--out nx-in", t: "Good morning Darren. Your class at 2BIRDS ACADEMY started at 9.00 am and showers are expected near Kallang. Reply 1 if you are on the way, or 2 to postpone to the next class.", time: "9.14 am" });
+    if (T >= 31) chat.push({ cls: "nx-wa__b nx-wa__b--in nx-in", t: "1", time: "9.15 am" });
+    if (T >= 40) chat.push({ cls: "nx-wa__b nx-wa__b--out nx-in", t: "Good morning Esther. Your class at 2BIRDS ACADEMY started at 9.00 am. Reply 1 if you are on the way, or 2 to postpone to the next class.", time: "9.14 am" });
+    if (T >= 47) chat.push({ cls: "nx-wa__b nx-wa__b--in nx-in", t: "2", time: "9.18 am" });
+    out.m5chat = chat.slice(-3);
+    out.m5note = T >= 54; out.m5h = T >= 60 ? "mint" : "sand"; out.m5l = T >= 60 ? "Submitted to TPGateway" : "Awaiting attendance";
+
+    // moment 06
+    out.m6assess = T < 14;
+    out.m6conv = T >= 14;
+    out.m6rows = L.map(function (n, i) { return T >= 1 + i ? { name: n, h: "mint", l: "Competent" } : { name: n, h: "none", l: "Pending" }; });
+    var P = 6, S0 = 16, cur = T < S0 ? -1 : Math.floor((T - S0) / P), ph = T < S0 ? -1 : (T - S0) % P;
+    if (cur > 11) { cur = 12; ph = -1; }
+    var conv = function (i) { return i < cur || (i === cur && ph >= 3); };
+    var sentF = function (i) { return i < cur || (i === cur && ph >= 5); };
+    var first = function (n) { return n.split(" ")[0]; };
+    out.m6oc = L.map(function (n, i) { return { n: first(n), cls: "nx-conv__i" + (conv(i) ? " is-done" : (i === cur ? " is-lift" : "")) }; });
+    out.m6pdf = L.map(function (n, i) { return { n: first(n), cls: "nx-conv__i nx-conv__i--pdf" + (conv(i) ? (i === cur && ph <= 4 ? " is-on is-new" : " is-on") : "") }; });
+    var nConv = L.filter(function (n, i) { return conv(i); }).length, nSent = L.filter(function (n, i) { return sentF(i); }).length;
+    out.m6cv = "Converted " + nConv + " of 12";
+    out.m6n = nSent; out.m6h = nSent >= 12 ? "mint" : "sky";
+    out.m6mail = L.filter(function (n, i) { return sentF(i); }).map(function (n) { var e = self.SP[n]; return { to: "To " + n, cc: e ? "Copy to " + e : "" }; }).slice(-4).reverse();
+    var fly = cur >= 0 && cur < 12 && ph >= 0 && ph <= 4;
+    out.m6fx = ["16%", "33%", "50%", "50%", "68%"][Math.max(0, Math.min(4, ph))];
+    out.m6fcls = "nx-fly" + (fly ? " is-on" : "") + (ph >= 2 ? " is-pdf" : "") + (ph === 2 ? " is-flip" : "");
+
+    // moment 07
+    var f7 = Math.max(0, Math.min(1, (T - 4) / 20));
+    out.m7col = this.money(4600 * f7); out.m7h = T >= 26 ? "mint" : "sand"; out.m7l = T >= 26 ? "Submitted" : "Grant deadline in 12 days";
+    // moment 08
+    var docs = ["Class list and enrolment records", "Attendance, AM and PM sessions", "Assessment records", "Assessment scripts and evidence", "Certificates issued", "Trainee feedback evaluations", "Trainer assignment and qualifications", "Fee, invoice and grant records"];
+    var trail = [["07 Oct 2026, 9.14 am", "Darren Koh marked on the way, AM session, by Mei Ling Tan"], ["07 Oct 2026, 1.02 pm", "Esther Ng moved to the 21 Oct class by Mei Ling Tan"], ["08 Oct 2026, 5.40 pm", "Assessment outcomes submitted by Ravi Kumar"], ["09 Oct 2026, 10.05 am", "Grant claim submitted by Finance"]];
+    out.m8ev = docs.filter(function (d, k) { return T >= 2 + k * 2; }).map(function (d) { return { doc: d }; });
+    out.m8trShow = T >= 20;
+    out.m8tr = trail.filter(function (r, k) { return T >= 22 + k * 2; }).map(function (r) { return { t: r[0], e: r[1] }; });
+
+    // ---------- manual scenes ----------
+    out.xc1 = this.clock(540, 0.5, T); out.xc2 = this.clock(570, 0.45, T); out.xc3 = this.clock(840, 0.6, T);
+    out.xc4 = this.clock(1334, 0.2, T, 1360); out.xc5 = this.clock(1085, 0.3, T); out.xc6 = this.clock(960, 0.55, T);
+    out.xc8 = this.clock(915, 0.6, T);
+    var d7 = Math.min(21, 7 + Math.floor(T / 7));
+    out.xc7 = (d7 < 10 ? "0" : "") + d7 + " Oct 2026";
+    // 01
+    var fx = tp("=1000 x 0.5", 30, 2);
+    out.x1fx = fx; out.x1cell = T >= 54 ? "500" : fx;
+    out.x1b2 = T < 10 ? "mx-sel" : ""; out.x1c2 = T >= 10 && T < 20 ? "mx-sel" : ""; out.x1b3 = T >= 20 && T < 30 ? "mx-sel" : "";
+    out.x1d3 = T >= 30 ? (T >= 110 ? "mx-sel mx-bad" : "mx-sel") : "";
+    out.x1mail = T >= 64; out.x1err = T >= 110;
+    // 02
+    var inbox = [["Email", "Registration for Service Excellence, Lucas Teo"], ["Chat", "Lucas Teo, NRIC and employer details"], ["Attachment", "registrations_october.xlsx"]];
+    out.x2in = inbox.filter(function (m, k) { return T >= 2 + k * 8; }).map(function (m) { return { k: m[0], s: m[1] }; });
+    var f2 = [["Full name", "Lucas Teo", 28], ["NRIC", "S****576A", 50], ["Employer", "Lumen Engineering Pte Ltd", 70], ["Sponsorship", "Company-sponsored", 100]];
+    out.x2f = f2.map(function (f, k) {
+      var per = 2, v = tp(f[1], f[2], per), done = v.length === f[1].length, next = f2[k + 1];
+      var cur = !done && T >= f[2]; if (!next && done) cur = false;
+      return { l: f[0], v: v, cur: cur, cls: k === 1 && T >= 116 ? "mx-bad" : "" };
+    });
+    out.x2err = T >= 116;
+    // 03
+    var f3 = [["Course reference", "TGS-2026004815", 6], ["Learner", "Aisha Rahman", 40], ["Sponsorship", "Company-sponsored", 64], ["Course fee", "1,000.00", 96]];
+    out.x3f = f3.map(function (f) { var v = tp(f[1], f[2], 2); return { l: f[0], v: v, cur: v.length > 0 && v.length < f[1].length }; });
+    var done3 = Math.min(3, Math.floor(T / 40));
+    out.x3n = done3 + 1 > 12 ? 12 : done3 + 1; out.x3togo = 11 - done3;
+    out.x3err = T >= 112;
+    // 04
+    var ppl = ["Aisha Rahman", "Benjamin Tan", "Chloe Lim", "Darren Koh", "Esther Ng", "Farid Ismail"];
+    var nSent = Math.min(5, Math.floor(T / 22));
+    out.x4to = ppl[Math.min(nSent, 5)];
+    out.x4body = this.typed("Dear " + ppl[Math.min(nSent, 5)].split(" ")[0] + ", this is a reminder that your class starts tomorrow at 9.00 am at Suntec Tower One. Please bring your NRIC.", fin ? 999 : (T % 22) * 5, 0, 1);
+    out.x4sent = ppl.slice(0, nSent).map(function (p) { return { to: "To " + p }; });
+    out.x4err = T >= 104;
+    // 05
+    out.x5rows = L.map(function (n, i) { var gap = n === "Darren Koh"; var on = T >= 2 + i * 5; return { name: n, cls: "mx-paper__r" + (gap ? " is-empty" : on ? " is-signed" : ""), }; });
+    out.x5err = T >= 76; out.x5wait = T >= 90;
+    // 06
+    var sent6 = Math.min(3, Math.floor(T / 38));
+    var cur6 = Math.min(11, sent6);
+    out.x6d = cur6 + 1; out.x6dp = Math.min(100, ((T % 38) / 30) * 100) + "%";
+    out.x6file = "OpenCert_8812" + (cur6 + 1) + ".opencert";
+    out.x6name = T % 38 >= 18 || fin ? L[cur6].replace(" ", "_") + ".pdf" : "";
+    out.x6to = T % 38 >= 26 || fin ? L[cur6] : "";
+    out.x6sent = sent6;
+    // 07
+    out.x7today = out.xc7;
+    var lapsed = d7 > 19;
+    out.x7col = "4,600"; out.x7dl = lapsed ? "mx-bad" : (d7 >= 16 ? "mx-sel" : ""); out.x7st = lapsed ? "mx-bad" : ""; out.x7stv = lapsed ? "Grant lapsed" : "Open"; out.x7err = lapsed && T >= 104;
+    // 08
+    var sc = [["Folder", "Class 2BA-SE-1007, attendance scans", "4%", "6%"], ["Inbox search", "attendance 1007, 23 results", "52%", "4%"], ["Folder", "Assessment scripts, October", "30%", "30%"], ["Inbox search", "feedback forms, 9 results", "62%", "34%"], ["Folder", "Trainer CVs, final, v3", "6%", "58%"], ["Desktop", "certificates_renamed", "44%", "62%"], ["Inbox search", "grant claim 1007, 2 results", "68%", "66%"]];
+    out.x8items = sc.filter(function (c, k) { return T >= 2 + k * 12; }).map(function (c) { return { k: c[0], s: c[1], x: c[2], y: c[3], cls: "mx-scatter__c nx-in" }; });
+    out.x8n = Math.min(14, Math.floor(T / 8));
+
+    // ledger
+    var W = s.mode === "without";
+    var led = function (arr) {
+      if (s.stack) return arr[7];
+      var prev = s.active > 0 ? arr[s.active - 1] : (W && arr === self.DOC_M ? 27 : 0), cur = arr[s.active];
+      var f = s.reduce ? 1 : Math.min(1, s.t / 10);
+      return Math.round(prev + (cur - prev) * f);
+    };
+    out.ledCls = "nx-ledger" + (W ? " is-without" : "");
+    out.ledL1 = W ? "Records keyed into the portal" : "Records sent to TPGateway";
+    out.ledL2 = W ? "Messages written manually" : "Messages sent automatically";
+    out.ledL4 = W ? "Documents still to find" : "Documents filed for audit";
+    out.led1 = led(W ? this.REC_M : this.REC); out.led2 = led(W ? this.MSG_M : this.MSG); out.led3 = W ? led(this.KEY_M) : 0; out.led4 = led(W ? this.DOC_M : this.DOC);
+
+    // flow controls
+    out.flowCls = "nx-flow" + (s.stack ? " is-stack" : "") + (s.pin ? " is-pin" : "") + (s.flowVis ? " is-live" : "");
+    out.scrub = this.LABELS.map(function (l, i) { return { n: "0" + (i + 1), l: l, cur: i === s.active ? "step" : "false", go: function () { self.go(i); } }; });
+    out.progPct = ((s.active + 1) / 8 * 100) + "%";
+    out.modeWith = !W; out.modeWithout = W;
+    out.setWith = function () { if (s.mode !== "with") self.setState({ mode: "with" }, function () { self._restart(); }); };
+    out.setWithout = function () { if (s.mode !== "without") self.setState({ mode: "without" }, function () { self._restart(); }); };
+    out.next = function () { self.go(s.active + 1); };
+    out.onFlowKey = function (e) {
+      var tg = e.target && e.target.tagName;
+      if (tg === "INPUT" || tg === "TEXTAREA" || tg === "SELECT") return;
+      if (e.key === "ArrowRight") { e.preventDefault(); self.go(s.active + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); self.go(s.active - 1); }
+    };
+
+    // calculator, formula breakdown with GST
+    (function () {
+      var F = Math.max(0, Math.round((s.ncF != null ? s.ncF : (self.feeNum() || 0)) * 100) / 100);
+      var c2 = function (x) { return Math.round(x * 100) / 100; };
+      var mny = function (x, neg) { return (neg ? "\u2212" : "") + "S$" + Math.abs(x).toLocaleString("en-SG", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+      var gst = c2(F * 0.09), base = c2(F * 0.5), enh = c2(F * 0.2);
+      var cell = function (v, neg) { return v === null ? { a: "N/A", cls: "nc2__na" } : { a: mny(v, neg), cls: "nc2__amt" }; };
+      var corp = s.calcTab !== "ind";
+      var eLabel = corp ? "Enhanced Training Support for SMEs (20%)" : "Mid-Career Enhanced Subsidy (20%)";
+      var G = corp ? [["Citizens, PRs and LTVP+ Holders (any age)", true, true], ["Foreigners (any age)", false, false]]
+        : [["Citizens aged 40 and above", true, true], ["Citizens aged 21 to 39, PRs and LTVP+ Holders (any age)", true, false], ["Foreigners (any age)", false, false]];
+      var lines = [["Full Course Fees (Before GST)", function () { return cell(F); }], ["9% GST on Full Course Fees", function () { return cell(gst); }], ["Baseline SkillsFuture Funding (50%)", function (g) { return cell(g[1] ? base : null, true); }], [eLabel, function (g) { return cell(g[2] ? enh : null, true); }]];
+      out.calcGroups = G.map(function (g) {
+        var nett = c2(F + gst - (g[1] ? base : 0) - (g[2] ? enh : 0));
+        return { name: g[0], nett: mny(nett), rows: lines.map(function (l) { var c = l[1](g); return { d: l[0], a: c.a, cls: c.cls }; }) };
+      });
+      out.calcRows = lines.map(function (l) { return { d: l[0], cells: G.map(function (g) { return l[1](g); }) }; });
+      out.calcCols = String(G.length);
+      out.calcCorp = corp; out.calcInd = !corp;
+      out.tiCorp = corp ? 0 : -1; out.tiInd = corp ? -1 : 0;
+      out.calcTabId = corp ? "nc-tab-corp" : "nc-tab-ind";
+      var pick = function (t) { self.setState({ calcTab: t }, function () { var el = document.getElementById(t === "ind" ? "nc-tab-ind" : "nc-tab-corp"); if (el) el.focus(); }); };
+      out.pickCorp = function () { self.setState({ calcTab: "corp" }); };
+      out.pickInd = function () { self.setState({ calcTab: "ind" }); };
+      out.onCalcTabKey = function (e) {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); e.stopPropagation(); pick(corp ? "ind" : "corp"); }
+        if (e.key === "Home") { e.preventDefault(); pick("corp"); }
+        if (e.key === "End") { e.preventDefault(); pick("ind"); }
+      };
+    })();
+    // calculator
+    var fee = this.feeNum(), p = this.PROF[s.prof];
+    var grant = Math.round(fee * p.rate * 100) / 100, nett = Math.round((fee - grant) * 100) / 100;
+    out.fee = s.fee;
+    out.feeRange = Math.max(100, Math.min(5000, Math.round(fee / 50) * 50 || 100));
+    out.onFee = function (e) { self.setState({ fee: e.target.value }, function () { self._count(); self._ncCount(); }); };
+    out.onRange = function (e) { self.setState({ fee: String(e.target.value) }, function () { self._count(); self._ncCount(); }); };
+    out.profilesOld = this.PROF.map(function (q, i) { return { label: q.label, scheme: q.scheme, nett: self.money(self.nettFor(q)), sel: i === s.prof, pick: function () { self.setState({ prof: i }, function () { self._count(); }); } }; });
+    out.cFull = this.money(fee); out.cGrant = this.money(grant); out.cNettExact = this.money(nett);
+    out.cRate = Math.round(p.rate * 100); out.cScheme = p.line;
+    out.cGrantPct = (fee > 0 ? p.rate * 100 : 50) + "%"; out.cNettPct = (fee > 0 ? (1 - p.rate) * 100 : 50) + "%";
+    out.cNettShown = this.money(s.shown, true);
+
+    // identity demo
+    var C = s.reduce ? 999 : s.c, pv = this.PROVS[s.prov];
+    out.acc = pv.acc; out.acc2 = pv.acc2; out.mark = pv.mark; out.provName = pv.name;
+    var FL = [["Course", "Service Excellence for Frontline Teams", 0], ["Class", "2BA-SE-1007, 07 Oct 2026", 0], ["Full name", "Esther Ng", 1], ["NRIC", "S****567A", 1], ["Employer", "Lumen Engineering Pte Ltd", 2], ["Employer UEN", "201912345K", 2], ["Sponsorship", "Company-sponsored", 2], ["Consultant", "Daniel Ong, referral code DO-2BA-14", 3]];
+    var at = 2, fields = [], curStep = 0;
+    FL.forEach(function (f) {
+      var per = Math.max(1, Math.ceil(f[1].length / 6)), v = self.typed(f[1], C, at, 1 / per);
+      var n = Math.floor((C - at) * per); v = n <= 0 ? "" : f[1].slice(0, n);
+      var cur = v.length > 0 && v.length < f[1].length;
+      if (v.length > 0) curStep = f[2];
+      fields.push({ l: f[0], v: v, cur: cur, cls: "ci__v" + (v.length ? "" : " is-empty") });
+      at += 6;
+    });
+    if (C >= at + 2) curStep = 4;
+    out.ciFields = fields;
+    out.ciDrop = C >= 44 && C < 52;
+    out.ciCons = this.CONS.map(function (c) { return { n: c.n, cls: c.n === "Daniel Ong" && C >= 47 ? "is-sel" : "" }; });
+    out.ciTick = C >= 54; out.ciPress = C >= 57 && C < 60; out.ciDone = C >= 60;
+    out.ciSteps = ["Course and class", "Particulars", "Employer and sponsorship", "Consultant", "Declaration"].map(function (l, i) { return { n: "0" + (i + 1), l: l, st: C >= 60 || i < curStep ? "done" : i === curStep ? "now" : "todo" }; });
+    out.ciBeat = C >= 68 ? "2" : "1";
+    out.ciLabel = C >= 68 ? "Sales" : "Registration form";
+    var gro = Math.max(0, Math.min(1, (C - 74) / 12));
+    var rows = this.CONS.map(function (c) {
+      var d = c.n === "Daniel Ong";
+      return { n: c.n, d: d, regs: c.regs + (d && C >= 74 ? 1 : 0), fees: c.fees + (d ? 1000 * gro : 0) };
+    });
+    var max = Math.max.apply(null, rows.map(function (r) { return r.fees; }));
+    var order = rows.slice().sort(function (a, b) { return b.fees - a.fees; });
+    var reorder = C >= 86;
+    out.ciSales = rows.map(function (r, i) {
+      var rank = reorder ? order.indexOf(r) : i;
+      return { n: r.n, regs: r.regs, fees: self.money(Math.round(r.fees)), w: (C >= 72 ? (r.fees / max * 100) : 0) + "%", top: (rank * 52) + "px", cls: "ci__row" + (r.d && C >= 70 ? " is-hi" : "") };
+    });
+    return out;
+  }
+}
+</script>
+</body>
+</html>
