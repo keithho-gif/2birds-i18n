@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>2BIRDS Asia | Customised TMS · Nest training management system</title>
-<meta name="description" content="Nest is the training management system 2birds builds and customises for each registered training provider, connected to TPGateway under the training provider's own SWDA credentials.">
+<title>2BIRDS Asia | Customised TMS · A training management system built around the way you operate.</title>
+<meta name="description" content="Nest is the training management system 2BIRDS builds and customises for each registered training provider, connected to TPGateway under the training provider's own SWDA credentials.">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/og-image.png">
 <link rel="canonical" href="https://www.2birds.asia/customised-tms">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="2BIRDS">
 <meta property="og:locale" content="en_SG">
-<meta property="og:title" content="2BIRDS Asia | Customised TMS · Nest training management system">
+<meta property="og:title" content="2BIRDS Asia | Customised TMS · A training management system built around the way you operate.">
 <meta property="og:description" content="2BIRDS is a management consultancy specialising in the training and adult education sector. We advise leading training providers on operational governance, accreditation standards and instructional design.">
 <meta property="og:url" content="https://www.2birds.asia/customised-tms">
 <meta property="og:image" content="https://www.2birds.asia/assets/og-image.png">
@@ -21,20 +21,20 @@
 <meta property="og:image:height" content="500">
 <meta property="og:image:alt" content="2BIRDS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2BIRDS Asia | Customised TMS · Nest training management system">
+<meta name="twitter:title" content="2BIRDS Asia | Customised TMS · A training management system built around the way you operate.">
 <meta name="twitter:description" content="2BIRDS is a management consultancy specialising in the training and adult education sector. We advise leading training providers on operational governance, accreditation standards and instructional design.">
 <meta name="twitter:image" content="https://www.2birds.asia/assets/og-image.png">
 <!-- /social share -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/site.css?v=02f5ebb8">
+<link rel="stylesheet" href="/site.css?v=b0d67d78">
 <script src="/support.js?v=d568b663"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Customised Training Management System (Nest)","description":"Nest, the training management system 2BIRDS builds and customises for training providers, connected to TPGateway.","url":"https://www.2birds.asia/customised-tms","areaServed":{"@type":"Country","name":"Singapore"},"provider":{"@id":"https://www.2birds.asia/#org","@type":"ProfessionalService","name":"2BIRDS","url":"https://www.2birds.asia/"}}</script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=02f5ebb8">
+  <link rel="stylesheet" href="/site.css?v=b0d67d78">
   <script src="/site.js?v=1010040a"></script>
 </helmet>
 
@@ -119,14 +119,13 @@
         <article class="{{ ch0 }}" id="moment-01" aria-labelledby="mh-01">
           <div class="nx-ch__text">
             <p class="nx-ch__n">Moment 01 · Enquiry and quote</p>
-            <h3 class="nx-ch__h" id="mh-01">Quote the nett fee before the trainee commits.</h3>
+            <h3 class="nx-ch__h" id="mh-01">Quote the accurate net fee before registration</h3>
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">A trainee's fee depends on age, citizenship and whether an employer is sponsoring the place. Nest applies the current SWDA funding rules to the course and returns the exact nett fee in the enquiry, so the quote holds when the invoice is issued.</p></sc-if>
             <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Staff read the funding tables, work out the percentages manually and correct the quote after the enrolment is rejected.</p></sc-if>
-            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+            <div class="nx-ctlrow"><div class="nx-ctlrow"><div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
-            </div>
-            <div class="nx-ctl"><button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button></div>
+            </div></div>
           </div>
           <div class="nx-ch__panel">
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
@@ -186,14 +185,13 @@
         <article class="{{ ch1 }}" id="moment-02" aria-labelledby="mh-02">
           <div class="nx-ch__text">
             <p class="nx-ch__n">Moment 02 · Registration</p>
-            <h3 class="nx-ch__h" id="mh-02">Take registration once, with every field the regulator needs.</h3>
+            <h3 class="nx-ch__h" id="mh-02">Capture complete registration records in a single submission</h3>
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">The training provider's own registration form collects the trainee, the employer and the sponsorship in one pass. Nest checks each field against what TPGateway will ask for and assigns the registration to the consultant who brought it in.</p></sc-if>
             <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Details arrive by email, chat and spreadsheet, and each one is typed again into the portal.</p></sc-if>
             <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
-            </div>
-            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+            </div></div>
           </div>
           <div class="nx-ch__panel">
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
@@ -248,14 +246,13 @@
         <article class="{{ ch2 }}" id="moment-03" aria-labelledby="mh-03">
           <div class="nx-ch__text">
             <p class="nx-ch__n">Moment 03 · Enrolment</p>
-            <h3 class="nx-ch__h" id="mh-03">Send the enrolment to TPGateway from the same record.</h3>
+            <h3 class="nx-ch__h" id="mh-03">Submit enrolments to TPGateway from the same record</h3>
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">The enrolment leaves Nest with its fee collection status already set. The queue shows what was sent, what was accepted and what needs attention, so nothing sits unsent over a weekend.</p></sc-if>
             <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Enrolments are keyed into the portal one by one, and a rejected record is found days later.</p></sc-if>
-            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+            <div class="nx-ctlrow"><div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
-            </div>
-            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+            </div></div>
           </div>
           <div class="nx-ch__panel">
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
@@ -307,14 +304,13 @@
         <article class="{{ ch3 }}" id="moment-04" aria-labelledby="mh-04">
           <div class="nx-ch__text">
             <p class="nx-ch__n">Moment 04 · Before class</p>
-            <h3 class="nx-ch__h" id="mh-04">Brief trainees and trainers without writing a single email.</h3>
+            <h3 class="nx-ch__h" id="mh-04">Automate pre-course communications across learners and trainers</h3>
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">Joining instructions, venue directions and reminders go out by email on a schedule the training provider sets, with the right attachments and copies to employers. When a trainee needs a personal word, the administrator sends a WhatsApp message straight from the class record.</p></sc-if>
             <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Someone sends reminders manually the night before and hopes the list is current.</p></sc-if>
-            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+            <div class="nx-ctlrow"><div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
-            </div>
-            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+            </div></div>
           </div>
           <div class="nx-ch__panel">
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
@@ -373,14 +369,13 @@
         <article class="{{ ch4 }}" id="moment-05" aria-labelledby="mh-05">
           <div class="nx-ch__text">
             <p class="nx-ch__n">Moment 05 · On the day</p>
-            <h3 class="nx-ch__h" id="mh-05">Mark attendance by session and act on absence at once.</h3>
+            <h3 class="nx-ch__h" id="mh-05">Live attendance management with weather forecast</h3>
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">Nest shows the venue, the class list and the rain forecast for the morning. When a trainee has not signed in, the administrator sends a WhatsApp message from the class screen to ask whether they are on the way or would like to postpone, and the reply is recorded against the class. Attendance goes to TPGateway from the same screen.</p></sc-if>
             <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Paper sheets are collected, checked and uploaded after the class, when an absence can no longer be recovered.</p></sc-if>
-            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+            <div class="nx-ctlrow"><div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
-            </div>
-            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+            </div></div>
           </div>
           <div class="nx-ch__panel">
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
@@ -400,7 +395,7 @@
           <div class="nx-main">
             <div class="nx-top"><p class="nx-top__t">Morning of class</p><p class="nx-top__m">07 Oct 2026, AM session</p></div>
             <p class="nx-strip">Thundery showers expected 8 am to 10 am. Source NEA two-hour forecast.</p>
-            <div class="nx-mapwrap" data-on="{{ m5map }}"><svg class="nx-map" viewBox="0 0 400 190" role="presentation" aria-hidden="true">
+            <div class="nx-mapwrap" data-on="{{ m5map }}"><svg class="nx-map" viewBox="0 0 400 190" preserveAspectRatio="xMidYMid slice" role="presentation" aria-hidden="true">
                 <defs><clipPath id="nx-rc1"><circle cx="300" cy="62" r="48"></circle></clipPath><clipPath id="nx-rc2"><circle cx="118" cy="44" r="34"></circle></clipPath></defs>
                 <rect width="400" height="190" class="nx-map__land"></rect>
                 <path class="nx-map__water" d="M0 150 C 60 140, 120 160, 180 150 C 210 145, 230 128, 250 132 C 270 136, 280 150, 300 146 C 340 138, 370 150, 400 146 L 400 190 L 0 190 Z"></path>
@@ -451,14 +446,13 @@
         <article class="{{ ch5 }}" id="moment-06" aria-labelledby="mh-06">
           <div class="nx-ch__text">
             <p class="nx-ch__n">Moment 06 · Assessment and certification</p>
-            <h3 class="nx-ch__h" id="mh-06">Record the assessment and issue the certificate in one sitting.</h3>
+            <h3 class="nx-ch__h" id="mh-06">Submit assessment outcomes and distribute e-certificates in a single workflow</h3>
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">Assessment results are recorded against each trainee and submitted to TPGateway. Nest converts the OpenCerts files into PDFs in a single batch and sends each certificate to the right trainee.</p></sc-if>
             <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Certificates are downloaded, renamed and emailed one at a time.</p></sc-if>
-            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+            <div class="nx-ctlrow"><div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
-            </div>
-            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+            </div></div>
           </div>
           <div class="nx-ch__panel">
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
@@ -537,14 +531,13 @@
         <article class="{{ ch6 }}" id="moment-07" aria-labelledby="mh-07">
           <div class="nx-ch__text">
             <p class="nx-ch__n">Moment 07 · Fees and claims</p>
-            <h3 class="nx-ch__h" id="mh-07">Invoice, collect and claim without a second spreadsheet.</h3>
+            <h3 class="nx-ch__h" id="mh-07">Manage invoicing, fee collection, and grants disbursements without additional spreadsheets</h3>
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">Invoices follow from the enrolment. Payments, SkillsFuture Credit claims and grant deadlines are tracked against each class, and Nest informs the team well before a grant lapses for a late submission.</p></sc-if>
             <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Finance works from a separate spreadsheet and learns about a missed deadline when the grant is lost.</p></sc-if>
-            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+            <div class="nx-ctlrow"><div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
-            </div>
-            <button class="nx-next role-link" type="button" onClick="{{ next }}">Next moment →</button>
+            </div></div>
           </div>
           <div class="nx-ch__panel">
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
@@ -603,14 +596,13 @@
         <article class="{{ ch7 }}" id="moment-08" aria-labelledby="mh-08">
           <div class="nx-ch__text">
             <p class="nx-ch__n">Moment 08 · Audit</p>
-            <h3 class="nx-ch__h" id="mh-08">Keep the evidence ready before the auditor asks.</h3>
+            <h3 class="nx-ch__h" id="mh-08">Manage TPQA requirements seamlessly with built-in audit trails</h3>
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">Every class carries its own evidence, attendance, assessment records, feedback and a full audit trail of who changed what and when. Quality records and TPQA reporting draw on the same data the class produced, so the audit reflects the operation rather than a rebuild of it.</p></sc-if>
             <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Evidence is gathered from folders and inboxes in the weeks before the audit.</p></sc-if>
-            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+            <div class="nx-ctlrow"><div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
-            </div>
-            <a class="nx-next role-link" href="#calculator">Calculate a nett fee ↓</a>
+            </div></div>
           </div>
           <div class="nx-ch__panel">
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}">
@@ -873,6 +865,7 @@ class Component extends DCLogic {
   maxT() { return this.state.mode === "with" ? 96 : 130; }
 
   componentDidMount() {
+    setTimeout(() => this._liveUI(), 1500);
     this._rm = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
     this._layout = () => {
       var w = window.innerWidth, h = window.innerHeight;
@@ -937,19 +930,27 @@ class Component extends DCLogic {
       for (var mi = 0; mi < 8; mi++) { var p = document.querySelector("#moment-0" + (mi + 1) + " .nx-ch__panel"); if (p) { p.setAttribute("data-mi", mi); this._sio.observe(p); } }
     }
   }
-  componentDidUpdate() { this._fitNow(); }
+  componentDidUpdate(pp, ps) { this._fitNow(); if (ps && (ps.active !== this.state.active || ps.mode !== this.state.mode || ps.sv !== this.state.sv)) this._liveRestore(); }
   _fitNow() {
     var el = document.getElementById("nx-fit"); if (!el) return;
-    if (!this.state.pin) { el.style.transform = ""; this._fit = 1; return; }
-    this._hm = this._hm || {};
-    var key = this.state.active + this.state.mode, h = el.offsetHeight;
-    if (!h) return;
-    if (!this._hm[key] || h > this._hm[key]) this._hm[key] = h;
-    var avail = window.innerHeight - 76 - 28;
-    var f = Math.min(1, Math.floor(avail / this._hm[key] * 100) / 100);
-    if (this._fit !== f) { this._fit = f; el.style.transform = f < 1 ? "scale(" + f + ")" : ""; }
+    if (!this.state.pin) { el.style.transform = ""; this._fit = 1; this._fitKey = null; return; }
+    var key = window.innerWidth + "x" + window.innerHeight + this.state.mode;
+    if (this._fitKey !== key) {
+      var chs = el.querySelectorAll(".nx-ch"), act = el.querySelector(".nx-ch.is-on"), maxCh = 0;
+      for (var i = 0; i < chs.length; i++) { var c = chs[i], s = c.getAttribute("style"); if (c !== act) { c.style.display = "grid"; c.style.visibility = "hidden"; c.style.position = "absolute"; c.style.left = "0"; c.style.right = "0"; } maxCh = Math.max(maxCh, c.offsetHeight); if (c !== act) { if (s == null) c.removeAttribute("style"); else c.setAttribute("style", s); } }
+      var base = el.offsetHeight - (act ? act.offsetHeight : 0);
+      if (!el.offsetHeight) return;
+      this._fitKey = key; this._fitH = base + maxCh;
+      var avail = window.innerHeight - 76 - 28;
+      this._fit = Math.min(1, Math.floor(avail / this._fitH * 100) / 100);
+      el.style.transform = this._fit < 1 ? "scale(" + this._fit + ")" : "";
+      el.setAttribute("data-fit", this._fit + "|" + this._fitH);
+    }
   }
   componentWillUnmount() {
+    clearInterval(this._tagT);
+    clearTimeout(this._lt);
+    if (this._vh2) document.removeEventListener("visibilitychange", this._vh2);
     if (this._mo) this._mo.disconnect();
     if (this._vh) document.removeEventListener("visibilitychange", this._vh);
     window.removeEventListener("resize", this._layout);
@@ -970,7 +971,7 @@ class Component extends DCLogic {
   _tick() {
     clearTimeout(this._mt);
     if (this.state.reduce || !this.state.flowVis || document.hidden) return;
-    if (this.state.stack && !(this.state.sv >= 0)) return;
+    if (this.state.stack) { this._live(); return; }
     this._watch();
     var now = Date.now(), still = now - (this._lastMut || now), key = (this.state.stack ? this.state.sv : this.state.active) + this.state.mode;
     this._endT = this._endT || {};
@@ -978,10 +979,145 @@ class Component extends DCLogic {
     var atEnd = this.state.t >= this.maxT() || (this.state.t > 8 && still > 1300 && (known == null || this.state.t >= known));
     if (atEnd) {
       if (known == null || this.state.t < known) this._endT[key] = Math.min(this.state.t, this.maxT());
-      this._mt = setTimeout(() => this._loopFade("mfade", () => { this._lastMut = Date.now(); this.setState({ t: 0 }, () => this._tick()); }), 200);
+      this._live();
       return;
     }
     this._mt = setTimeout(() => this.setState((s) => ({ t: s.t + 1 }), () => this._tick()), 90);
+  }
+  _setT(el, v) { var tn = el.firstChild; if (tn && tn.nodeType === 3 && !tn.nextSibling) { tn.nodeValue = v; return; } for (var n = el.firstChild; n; n = n.nextSibling) if (n.nodeType === 3) { n.nodeValue = v; return; } el.appendChild(document.createTextNode(v)); }
+  _live() {
+    clearTimeout(this._lt);
+    if (!this._vh2) { this._vh2 = () => { if (!document.hidden) this._tick(); }; document.addEventListener("visibilitychange", this._vh2); }
+    this._liveUI();
+    if (this.state.reduce || !this.state.flowVis || document.hidden) return;
+    var root = document.getElementById("follow"); if (!root) return;
+    var vh = window.innerHeight, pick = null;
+    var best = 0; [].slice.call(root.querySelectorAll(".nx-ch__panel")).forEach(function (p) { var r = p.getBoundingClientRect(); if (!r.height) return; var vis = Math.min(r.bottom, vh * 0.9) - Math.max(r.top, vh * 0.1); if (vis > best) { best = vis; pick = p; } });
+    this._lt = setTimeout(() => this._live(), 1100);
+    if (pick) { try {
+      this._lk = (this._lk || 0) + 1; var k = this._lk;
+      var self = this, run = function (f) { try { f.call(self, pick, k); } catch (err) {} };
+      run(this._liveNums); run(this._liveChips); run(this._liveTimes); run(this._liveRows); run(this._liveSign);
+      if (k % 2 === 0) run(this._liveList);
+      if (k % 3 === 1) run(this._liveBars);
+      this._liveManual(pick, k);
+      this._liveAny(pick, k);
+    } catch (err) {} }
+  }
+  _liveRows(pick, k) {
+    var body = pick.querySelector(".nx-tbl tbody"); if (!body) return;
+    var rows = body.querySelectorAll("tr"); if (rows.length < 3) return;
+    var first = rows[0], nr = first.cloneNode(true);
+    var NAMES = ["Nurul Huda", "Daniel Lim", "Priya Nair", "Wei Jie Tan", "Siti Rahmah", "Marcus Ong", "Hui Min Goh", "Arjun Pillai"];
+    var cells = nr.querySelectorAll("td"); var nm = NAMES[k % NAMES.length];
+    for (var i = 0; i < cells.length; i++) { var c = cells[i], s = c.textContent.trim(); if (!c.querySelector(".nx-chip") && /^[A-Z][a-z]+ [A-Z]/.test(s)) { c.textContent = nm; break; } }
+    [].forEach.call(nr.querySelectorAll("*"), function (e) { if (e.children.length) return; var s = e.textContent; var m = s.match(/^(.*?)(\d{3,})(\D*)$/); if (m && !/Oct|Nov|Sep|:|\./.test(s)) e.textContent = m[1] + String(Number(m[2]) + 1).padStart(m[2].length, "0") + m[3]; });
+    var chip = nr.querySelector(".nx-chip"); if (chip) { var lab = chip.lastChild && chip.lastChild.nodeType === 3 ? chip.lastChild : null; if (lab) lab.nodeValue = "New"; chip.className = chip.className.replace(/nx-chip--\w+/, "nx-chip--lav"); }
+    nr.setAttribute("data-live-row", "1"); nr.style.transform = "translateY(-8px)"; nr.style.transition = "transform 320ms ease-out";
+    body.insertBefore(nr, first); requestAnimationFrame(function () { nr.style.transform = ""; });
+    this._rec(body, "rows");
+    var vis = [].filter.call(body.querySelectorAll("tr"), function (r) { return r.style.display !== "none"; });
+    if (vis.length > rows.length) { var last = vis[vis.length - 1]; if (last.hasAttribute("data-live-row")) last.remove(); else { this._rec(last, "hide"); last.style.display = "none"; } }
+  }
+  _liveSign(pick, k) {
+    var rs = pick.querySelectorAll(".mx-paper__r"); if (!rs.length) return;
+    var i = k % (rs.length + 1);
+    if (i === rs.length) { [].forEach.call(rs, function (r) { r.classList.remove("is-signed"); }); return; }
+    rs[i].classList.add("is-signed");
+  }
+  _liveAny(pick, k) {
+    var MON = /(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/;
+    var leaves = this._leaves(pick, /\d/).filter(function (e) { var s = e.textContent.trim(); return !MON.test(s) && s.length < 48 && !/^(S\$)?[\d,]+(\.\d\d)?$/.test(s) && !/^\d{1,2}[.:]\d{2}/.test(s); });
+    var self = this;
+    [leaves[k % Math.max(1, leaves.length)], leaves[(k * 5 + 1) % Math.max(1, leaves.length)]].forEach(function (el) {
+      if (!el || el.__tbLive) return; var txt = el.textContent, m = txt.match(/^([^\d]*)(\d[\d,]*)(.*)$/); if (!m) return;
+      var v = Number(m[2].replace(/,/g, "")); if (!(v > 1)) return; el.__tbLive = true; var from = Math.max(0, Math.round(v * 0.7)), t0 = performance.now(), gen = self._gen || 0;
+      var step = function (now) { if (gen !== (self._gen || 0)) { el.__tbLive = false; return; } var p = Math.min(1, (now - t0) / 700), cur = Math.round(from + (v - from) * (1 - Math.pow(1 - p, 3))); self._setT(el, m[1] + cur.toLocaleString("en-SG") + m[3]); if (p < 1) requestAnimationFrame(step); else { self._setT(el, txt); el.__tbLive = false; } };
+      requestAnimationFrame(step);
+    });
+  }
+  _rec(el, kind) { this._lr = this._lr || []; if (el.__tbRec) return; el.__tbRec = true; this._lr.push({ el: el, kind: kind, txt: el.textContent, st: el.getAttribute("style") }); }
+  _liveRestore() {
+    var self2 = this;
+    (this._lr || []).forEach(function (r) { if (r.kind === "clone") { if (r.el.parentNode) r.el.parentNode.removeChild(r.el); return; } if (r.kind === "hide") { r.el.style.display = ""; } else { if (r.kind === "txt") self2._setT(r.el, r.txt); else if (r.kind === "rows") { [].forEach.call(r.el.querySelectorAll("tr[data-live-row]"), function (x) { x.remove(); }); } if (r.st == null) r.el.removeAttribute("style"); else r.el.setAttribute("style", r.st); } r.el.__tbRec = false; });
+    this._gen = (this._gen || 0) + 1; this._lr = []; var tip = document.querySelector(".nx-rowtip"); if (tip) tip.remove(); this._pinRow = null;
+  }
+  _leaves(pick, re) { return [].slice.call(pick.querySelectorAll("*")).filter(function (e) { return e.children.length === 0 && re.test((e.textContent || "").trim()) && !e.__tbLive && e.offsetParent !== null; }); }
+  _liveNums(pick, k) { var n = this._leaves(pick, /^(S\$)?[\d,]+(\.\d\d)?$/); if (!n.length) return; this._countUp(n[k % n.length]); if (n.length > 3) this._countUp(n[(k * 7 + 3) % n.length]); }
+  _liveBars(pick, k) { var b = [].slice.call(pick.querySelectorAll("[style*='width']")).filter(function (e) { return /width:\s*[\d.]+%/.test(e.getAttribute("style") || "") && e.animate; }); if (!b.length) return; var bw = b[k % b.length]; bw.animate([{ width: "0%" }, { width: bw.style.width }], { duration: 900, easing: "cubic-bezier(.22,.61,.36,1)" }); }
+  _liveChips(pick, k) {
+    var NEXT = { "Queued": "Sent", "Sent": "Accepted", "New": "Enrolled", "Needs attention": "Resolved", "Absent": "Messaged", "Not signed in": "Messaged", "Draft": "Quote sent", "Pending": "Filed", "Due": "Submitted", "Scheduled": "Sent" };
+    var COL = { "Sent": ["#e7f0fe", "#1d5fc4"], "Accepted": ["#e3f4ec", "#1f7a4d"], "Enrolled": ["#e3f4ec", "#1f7a4d"], "Resolved": ["#e3f4ec", "#1f7a4d"], "Messaged": ["#e7f0fe", "#1d5fc4"], "Quote sent": ["#e7f0fe", "#1d5fc4"], "Filed": ["#e3f4ec", "#1f7a4d"], "Submitted": ["#e3f4ec", "#1f7a4d"] };
+    var chips = [].slice.call(pick.querySelectorAll(".nx-chip, .mx-tag")).filter(function (c) { return c.offsetParent !== null; }); if (!chips.length) return;
+    var self = this, sel = [chips[k % chips.length]]; if (chips.length > 2 && k % 2) sel.push(chips[(k * 5 + 2) % chips.length]);
+    sel.forEach(function (c) {
+      var lab = c.querySelector("span:last-child") || c, cur = (lab.textContent || "").trim(), nx = NEXT[cur];
+      if (!nx) { if (c.animate) c.animate([{ filter: "saturate(.3)" }, { filter: "none" }], { duration: 300, easing: "ease-out" }); return; }
+      self._rec(lab, "txt"); self._rec(c, "sty");
+      if (c.animate) c.animate([{ opacity: .35 }, { opacity: 1 }], { duration: 260, easing: "ease-out" });
+      self._setT(lab, nx); var col = COL[nx]; if (col) { c.style.background = col[0]; c.style.color = col[1]; }
+      setTimeout(function () { if (!c.isConnected || !lab.__tbRec) return; if (c.animate) c.animate([{ opacity: .35 }, { opacity: 1 }], { duration: 260, easing: "ease-out" }); var r = (self._lr || []).filter(function (x) { return x.el === lab || x.el === c; }); r.forEach(function (x) { if (x.kind === "txt") self._setT(x.el, x.txt); else if (x.st == null) x.el.removeAttribute("style"); else x.el.setAttribute("style", x.st); x.el.__tbRec = false; }); self._lr = (self._lr || []).filter(function (x) { return r.indexOf(x) < 0; }); }, 2600 + (k % 3) * 400);
+    });
+  }
+  _liveTimes(pick, k) {
+    var self = this;
+    this._leaves(pick, /^\d{1,2}[.:]\d{2}(\s?[ap]m)?$/i).slice(0, 3).forEach(function (el, i) {
+      if ((k + i) % 2) return; var m = el.textContent.trim().match(/^(\d{1,2})([.:])(\d{2})(\s?[ap]m)?$/i); if (!m) return; self._rec(el, "txt");
+      var h = +m[1], mi = +m[3] + 1; if (mi > 59) { mi = 0; h = h % 12 + 1; } self._setT(el, h + m[2] + (mi < 10 ? "0" : "") + mi + (m[4] || ""));
+    });
+    this._leaves(pick, /(\d+) (to go|of \d+|sent|filed|in place)$/).slice(0, 2).forEach(function (el) {
+      var m = el.textContent.trim().match(/^(.*?)(\d+)( (to go|of \d+|sent|filed|in place))$/); if (!m) return; self._rec(el, "txt");
+      var base = +((el.__tbBase = el.__tbBase || m[2])), cap = /of (\d+)/.test(m[3]) ? +m[3].match(/of (\d+)/)[1] : base + 6, v = +m[2];
+      v = /to go/.test(m[3]) ? (v > 1 ? v - 1 : base) : (v < cap ? v + 1 : base); self._setT(el, m[1] + v + m[3]);
+    });
+  }
+  _liveList(pick, k) {
+    var lists = [].slice.call(pick.querySelectorAll("tbody, .nx-wac__list, ul, ol")).filter(function (l) { var rows = [].slice.call(l.children).filter(function (r) { return r.style.display !== "none" && r.offsetParent !== null; }); return rows.length >= 3; });
+    if (!lists.length) return; var l = lists[k % lists.length], rows = [].slice.call(l.children).filter(function (r) { return r.style.display !== "none"; });
+    var first = rows[0], last = rows[rows.length - 1], cl = first.cloneNode(true), names = this.H, nm = names[(k * 3) % names.length];
+    [].slice.call(cl.querySelectorAll("*")).concat([cl]).forEach(function (e) { if (e.children.length) return; var s = (e.textContent || "").trim();
+      if (names.indexOf(s) >= 0) e.textContent = nm;
+      else if (/^[A-Z0-9]{2,}-[A-Z0-9-]*\d{3,}$/.test(s)) e.textContent = s.replace(/(\d+)$/, function (d) { return String(+d + 1 + (k % 7)).padStart(d.length, "0"); });
+      else if (/^\d{1,2}[.:]\d{2}(\s?[ap]m)?$/i.test(s)) { var m = s.match(/^(\d{1,2})([.:])(\d{2})(.*)$/), mi = Math.min(59, +m[3] + 2); e.textContent = m[1] + m[2] + (mi < 10 ? "0" : "") + mi + m[4]; } });
+    cl.__tbLive = true; l.insertBefore(cl, first); this._lr = this._lr || []; this._lr.push({ el: cl, kind: "clone" });
+    if (cl.animate) cl.animate([{ transform: "translateY(-10px)", clipPath: "inset(0 0 100% 0)" }, { transform: "none", clipPath: "inset(0 0 0 0)" }], { duration: 320, easing: "cubic-bezier(.22,.61,.36,1)" });
+    this._rec(last, "hide"); last.style.display = "none";
+  }
+  _liveManual(pick, k) {
+    if (this.state.mode !== "without") return; var self = this;
+    var caret = pick.querySelector(".mx-caret"), cells = [].slice.call(pick.querySelectorAll(".mx-grid *, .mx-fx__v, .mx-field")).filter(function (e) { return e.children.length === 0 && (e.textContent || "").trim().length > 1 && e.offsetParent !== null; });
+    if (cells.length && k % 2) { var c = cells[k % cells.length], full = c.textContent, i = 0; this._rec(c, "txt"); var type = function () { if (!c.isConnected || !c.__tbRec) return; i++; self._setT(c, full.slice(0, i) + (i < full.length ? "|" : "")); if (i < full.length) setTimeout(type, 70); }; self._setT(c, ""); type(); }
+    var draft = pick.querySelector(".mx-compose__b"); if (draft && draft.children.length === 0) { this._rec(draft, "txt"); var words = (draft.__tbFull = draft.__tbFull || draft.textContent).split(" "), n = (draft.__tbN = ((draft.__tbN || 0) % words.length) + 3); self._setT(draft, words.slice(0, Math.min(n, words.length)).join(" ")); }
+    if (caret && caret.animate) caret.animate([{ transform: "translateX(0)" }, { transform: "translateX(6px)" }, { transform: "translateX(0)" }], { duration: 900, easing: "steps(3)" });
+  }
+  _liveUI() {
+    if (this._uiOn) return; var root = document.getElementById("follow"); if (!root) return; this._uiOn = true; var self = this;
+    var TIPS = { "Enrolled": "Enrolled: confirmed on TPGateway", "Accepted": "Accepted: TPGateway has accepted the record", "Sent": "Sent: submitted to TPGateway, awaiting reply", "Queued": "Queued: ready to send to TPGateway", "New": "New: registration received, not yet enrolled", "Needs attention": "Needs attention: TPGateway returned an error", "Resolved": "Resolved: corrected and resent", "Present": "Present: signed in for the session", "Absent": "Absent: not signed in when the session opened", "Competent": "Competent: assessment outcome recorded", "Filed": "Filed: stored in the class evidence file", "Submitted": "Submitted: sent to TPGateway", "Delivered": "Delivered: the message reached the learner", "Messaged": "Messaged: a WhatsApp message was sent" };
+    var tipFor = function (c) { var s = (c.textContent || "").trim(); for (var key in TIPS) if (s.indexOf(key) === 0) return TIPS[key]; return s; };
+    var tagChips = function () { [].slice.call(root.querySelectorAll(".nx-chip, .mx-tag")).forEach(function (c) { c.setAttribute("data-tip", tipFor(c)); if (!c.hasAttribute("tabindex")) c.setAttribute("tabindex", "0"); }); };
+    this._tagT = setInterval(tagChips, 1000); tagChips();
+    var rowOf = function (e) { var r = e.target.closest && e.target.closest(".nx-ch__panel tbody tr, .nx-ch__panel .nx-wac__list > li, .nx-ch__panel ul > li, .nx-ch__panel ol > li"); return r && root.contains(r) ? r : null; };
+    var show = function (r) {
+      var p = r.closest(".nx-ch__panel"); if (!p) return; var tip = document.querySelector(".nx-rowtip"); if (!tip) { tip = document.createElement("div"); tip.className = "nx-rowtip"; tip.setAttribute("role", "status"); }
+      if (tip.parentNode !== p) p.appendChild(tip);
+      var txt = r.textContent || "", nm = (self.H || []).filter(function (n) { return txt.indexOf(n) >= 0; })[0], idx = [].slice.call(r.parentNode.children).indexOf(r);
+      var d = 7 + (idx % 20), date = (d < 10 ? "0" : "") + d + " Oct 2026";
+      tip.textContent = nm ? nm + " · Course 2BA-SE-1007 · " + date : "Record 2BA-" + (1041 + idx) + " · updated " + date;
+      var pr = p.getBoundingClientRect(), rr = r.getBoundingClientRect(); tip.style.left = Math.max(8, rr.left - pr.left) + "px"; tip.style.top = (rr.bottom - pr.top + 2) + "px"; tip.style.maxWidth = Math.max(160, rr.width - 8) + "px";
+      [].slice.call(p.querySelectorAll(".is-rowhl")).forEach(function (x) { x.classList.remove("is-rowhl"); }); r.classList.add("is-rowhl"); tip.hidden = false;
+    };
+    var hide = function () { var tip = document.querySelector(".nx-rowtip"); if (tip) tip.hidden = true; [].slice.call(root.querySelectorAll(".is-rowhl")).forEach(function (x) { x.classList.remove("is-rowhl"); }); };
+    root.addEventListener("mouseover", function (e) { if (self._pinRow) return; var r = rowOf(e); if (r) show(r); });
+    root.addEventListener("mouseout", function (e) { if (self._pinRow) return; var r = rowOf(e); if (r && !(e.relatedTarget && r.contains(e.relatedTarget))) hide(); });
+    root.addEventListener("click", function (e) { var r = rowOf(e); if (!r) return; if (self._pinRow === r) { self._pinRow = null; hide(); } else { self._pinRow = r; show(r); } });
+  }
+  _countUp(el) {
+    var txt = (el.textContent || "").trim(), cur = txt.indexOf("S$") === 0, dec = /\.\d\d$/.test(txt);
+    var v = Number(txt.replace(/[^0-9.]/g, "")); if (!isFinite(v) || v <= 0) return;
+    el.__tbLive = true; var from = v * 0.82, t0 = performance.now(), D = 800;
+    var fmt = function (x) { var s = x.toLocaleString("en-SG", { minimumFractionDigits: dec ? 2 : 0, maximumFractionDigits: dec ? 2 : 0 }); return (cur ? "S$" : "") + s; };
+    var self = this, gen = this._gen || 0; var step = function (now) { if (gen !== (self._gen || 0)) { el.__tbLive = false; return; } var p = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - p, 3); self._setT(el, fmt(from + (v - from) * e)); if (p < 1) requestAnimationFrame(step); else { self._setT(el, txt); el.__tbLive = false; } };
+    requestAnimationFrame(step);
   }
   _watch() {
     if (this._mo) return;
@@ -998,7 +1134,7 @@ class Component extends DCLogic {
   }
   _T(i) {
     var s = this.state;
-    if (s.reduce) return 999;
+    if (s.reduce || s.stack) return 999;
     if (!s.stack) return s.t;
     if (i === s.sv) return s.t;
     var v = this._tm && this._tm[i];
@@ -1018,7 +1154,7 @@ class Component extends DCLogic {
       this.setState({ sv: -1 });
     }
   }
-  _restart() { clearTimeout(this._mt); this._tm = []; this._lastMut = Date.now(); this.setState({ t: 0 }, () => this._tick()); }
+  _restart() { clearTimeout(this._mt); clearTimeout(this._lt); this._liveRestore(); this._tm = []; this._lastMut = Date.now(); this.setState({ t: 0 }, () => this._tick()); }
   _ci() {
     clearTimeout(this._cit);
     if (this.state.reduce || !this.state.ciVis) return;

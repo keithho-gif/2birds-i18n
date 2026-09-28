@@ -2112,7 +2112,6 @@ button.calendar__day--open{cursor:pointer}
 .nx-scrub__l{font-size:var(--fs-caption);line-height:1.3}
 .nx-scrub__b:hover{color:var(--royal)}
 .nx-scrub__b[aria-current="step"]{color:var(--ink)}
-.nx-scrub__b:focus-visible,.nx-mode__b:focus-visible,.nx-next:focus-visible,.nx-seg__b:focus-visible{outline:2px solid var(--royal);outline-offset:3px}
 .nx-prog{height:1px;background:var(--hairline);position:relative}
 .nx-prog i{position:absolute;left:0;top:-1px;height:2px;background:var(--ink);transition:width 300ms var(--ease)}
 .nx-chs{margin-top:var(--sp-5)}
@@ -2128,8 +2127,6 @@ button.calendar__day--open{cursor:pointer}
 .nx-mode__b + .nx-mode__b{border-left:1px solid var(--hairline)}
 .nx-mode__b[aria-pressed="true"]{background:var(--ink);color:#fff}
 .nx-mode__b:hover:not([aria-pressed="true"]){color:var(--royal)}
-.nx-next{display:table;margin-top:28px;padding:0;background:none;border:0;cursor:pointer;font:500 var(--fs-kicker)/1.4 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
-.nx-next:hover{color:var(--royal)}
 .nx-ledger{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:var(--sp-5) 0 0;border-top:1px solid var(--ink)}
 .nx-ledger > div{padding:16px 20px 4px;border-left:1px solid var(--hairline)}
 .nx-ledger > div:first-child{border-left:0;padding-left:0}
@@ -2145,7 +2142,6 @@ button.calendar__day--open{cursor:pointer}
 .nx-flow.is-stack .nx-ch{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-4);padding:var(--sp-6) 0;border-top:1px solid var(--hairline)}
 .nx-flow.is-stack .nx-ch:first-child{border-top:0;padding-top:0}
 .nx-flow.is-stack .nx-ch__p{min-height:0}
-.nx-flow.is-stack .nx-next{display:none}
 
 /* ---- calculator ---- */
 .nx-calc{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:var(--sp-7);align-items:start}
@@ -4358,8 +4354,6 @@ main :is(.eyebrow,.or-kicker,.lv-kicker,.kicker,.pp__k,.wq-stage__n,.stat__label
 
 /* Customised TMS · moment controls separated */
 .nx-mode{display:inline-flex;margin-top:var(--space-element);border:1px solid var(--hairline)}
-.nx-ctl{margin-top:var(--space-element);display:flex;justify-content:flex-start}
-.nx-next{margin-top:0;display:inline-flex;align-items:center;min-height:44px}
 /* Customised TMS · comparison table shares the site's one design */
 .nx-cmp.compare thead th{padding-bottom:var(--sp-3) !important}
 .nx-cmp.compare tbody tr:first-child{border-top:1px solid var(--ink)}
@@ -4523,7 +4517,6 @@ main .cm-end .lv-media img{position:absolute;inset:0;width:100%;height:100% !imp
   .mx-grid th{width:auto}
   .mx-grid td:nth-child(n+4),.mx-grid th:nth-child(n+4){display:none}
   .nx-app th,.nx-app td,.nx-app span,.nx-wa__time,.mx th,.mx td,.mx span{font-size:12px}
-  .nx-ch__n,.nx-mode__b,.nx-next{font-size:11px}
 }
 @media (max-width:560px){.mx span[style],.mx-compose span,.mx-sent span{font-size:12px !important}}
 
@@ -5065,6 +5058,97 @@ main #cost .cf-head .or-kicker{margin:0 !important}
 main #cost .cf-head .or-h2{margin:12px 0 0 !important}
 @media (max-width:1079px){main #cost .cf-head{margin-bottom:32px}}
 @media (max-width:767px){main #cost .cf-head{margin-bottom:24px}}
+
+/* ========== Customised TMS only · phone panels still, moment controls spaced ========== */
+@media (max-width:767px){main #follow .nx-loop[data-fade="true"]{opacity:1 !important}main #follow .nx-loop{transition:none !important}}
+main #follow .nx-ctlrow{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:32px;row-gap:16px;margin-top:var(--space-element)}
+/* ========== Organisation Registration only · film text centred on phones ========== */
+@media (max-width:767px){
+  main #cost .cf-scene:not(.cf-scene--team){padding:16px !important}
+  main #cost .cf-scene:not(.cf-scene--team) > .cf-art{width:min(46cqi,160px) !important;margin:24px 0 calc(-24px - min(25.875cqi,90px)) !important}
+}
+
+/* ========== Organisation Registration only · cost film, more in every scene ========== */
+@keyframes cfDraw{from{stroke-dashoffset:var(--len,80)}to{stroke-dashoffset:0}}
+@keyframes cfIn{from{opacity:0}to{opacity:1}}
+@keyframes cfBlip{0%,99.9%{opacity:1}100%{opacity:0}}
+@keyframes cfTick{from{background:transparent}to{background:#CFCBA8}}
+@keyframes cfLit{from{opacity:.4}to{opacity:1}}
+@keyframes cfThread{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+main #cost .cf-ln{stroke-dasharray:80;stroke-dashoffset:0}
+main #cost .cf-scene[data-on="true"] .cf-ln{animation:cfDraw 700ms cubic-bezier(.22,.61,.36,1) calc(200ms + var(--i) * 520ms) both}
+main #cost .cf-slt{opacity:1}
+main #cost .cf-scene[data-on="true"] .cf-slt{animation:cfIn 400ms ease-out calc(300ms + var(--i) * 520ms) both}
+main #cost .cf-mo{opacity:0}
+main #cost .cf-mo:last-child{opacity:1}
+main #cost .cf-scene[data-on="true"] .cf-mo{animation:cfBlip 370ms linear calc(200ms + var(--i) * 370ms) 1 none}
+main #cost .cf-scene[data-on="true"] .cf-mo:last-child{animation:cfIn 1ms linear calc(200ms + 11 * 370ms) both}
+main #cost .cf-tickrow{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:12px;position:relative;z-index:1}
+main #cost .cf-tickrow i{display:block;width:clamp(8px,1.6cqi,16px);height:clamp(8px,1.6cqi,16px);border:1px solid rgba(255,255,255,.45);background:#CFCBA8;box-sizing:border-box}
+main #cost .cf-scene[data-on="true"] .cf-tickrow:not(.cf-tickrow--late) i{animation:cfTick 200ms ease-out calc(300ms + var(--i) * 280ms) both}
+main #cost .cf-later[data-on="true"] .cf-tickrow--late i{animation:cfTick 200ms ease-out calc(200ms + var(--i) * 160ms) both}
+main #cost .cf-rate{margin-left:10px;font:500 clamp(10px,1.3cqi,13px)/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#CFCBA8;white-space:nowrap}
+main #cost .cf-scene[data-on="true"] .cf-tickrow:not(.cf-tickrow--late) .cf-rate{animation:cfIn 500ms ease-out 600ms both}
+main #cost .cf-later[data-on="true"] .cf-rate{animation:cfIn 500ms ease-out 400ms both}
+main #cost .cf-scene--bar .cf-bar i{cursor:pointer;transition:width 300ms ease-out,opacity 200ms ease-out}
+main #cost .cf-bar[data-sel]:not([data-sel="0"]) i{opacity:.35}
+main #cost .cf-bar[data-sel="1"] .cf-b1,main #cost .cf-bar[data-sel="2"] .cf-b2,main #cost .cf-bar[data-sel="3"] .cf-b3,main #cost .cf-bar[data-sel="4"] .cf-b4,main #cost .cf-bar[data-sel="5"] .cf-b5{opacity:1}
+main #cost .cf-legend button{appearance:none;background:none;border:0;padding:4px 2px;margin:0;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit}
+main #cost .cf-legend button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+main #cost .cf-scene[data-on="true"] .cf-legend li{animation:cfLit 400ms ease-out backwards}
+main #cost .cf-scene[data-on="true"] .cf-legend li:nth-child(1){animation-delay:500ms}
+main #cost .cf-scene[data-on="true"] .cf-legend li:nth-child(2){animation-delay:1100ms}
+main #cost .cf-scene[data-on="true"] .cf-legend li:nth-child(3){animation-delay:1700ms}
+main #cost .cf-scene[data-on="true"] .cf-legend li:nth-child(4){animation-delay:2300ms}
+main #cost .cf-scene[data-on="true"] .cf-legend li:nth-child(5){animation-delay:2900ms}
+main #cost .cf-legend[data-sel]:not([data-sel="0"]) li{opacity:.45}
+main #cost .cf-legend[data-sel="1"] li:nth-child(1),main #cost .cf-legend[data-sel="2"] li:nth-child(2),main #cost .cf-legend[data-sel="3"] li:nth-child(3),main #cost .cf-legend[data-sel="4"] li:nth-child(4),main #cost .cf-legend[data-sel="5"] li:nth-child(5){opacity:1}
+main #cost .cf-segamt{margin:10px 0 0;min-height:1.4em;position:relative;z-index:1;font:400 clamp(11px,1.4cqi,15px)/1.4 var(--sans);color:#CFCBA8;font-variant-numeric:tabular-nums;text-align:center}
+main #cost .cf-scene--team[data-beat="2"] .cf-team{position:relative !important}
+main #cost .cf-scene--team[data-beat="2"] .cf-team::before{content:"";position:absolute;left:12%;right:12%;top:50%;height:1px;background:#CFCBA8;opacity:.5;transform-origin:left center;z-index:0}
+main #cost .cf-scene--team[data-beat="2"][data-on="true"] .cf-team::before{animation:cfThread 2600ms cubic-bezier(.22,.61,.36,1) 600ms both}
+main #cost .cf-team__pile li{position:relative;z-index:1;background:#0d0d0c;transition:translate 220ms ease-out,border-color 220ms ease-out;cursor:default}
+main #cost .cf-team__pile li:hover,main #cost .cf-team__pile li:focus-visible{translate:0 -3px;border-color:#fff !important;outline:0}
+main #cost .cf-frame[data-paused="true"] *,main #cost .cf-frame[data-paused="true"] *::before{animation-play-state:paused !important}
+@media (prefers-reduced-motion:reduce){main #cost .cf-frame *,main #cost .cf-frame *::before{animation:none !important}}
+/* ========== Customised TMS only · row detail and chip meanings ========== */
+main #follow .nx-ch__panel{position:relative}
+main #follow .nx-ch__panel tbody tr,main #follow .nx-ch__panel ul > li,main #follow .nx-ch__panel ol > li{cursor:pointer;transition:background 160ms ease-out}
+main #follow .nx-ch__panel .is-rowhl{background:rgba(45,127,249,.06)}
+main #follow .nx-rowtip{position:absolute;z-index:5;pointer-events:none;padding:6px 10px;background:#fff;border:1px solid rgba(14,13,10,.14);border-radius:6px;font:400 11px/1.4 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+main #follow .nx-rowtip[hidden]{display:none}
+main #follow .nx-chip[data-tip],main #follow .mx-tag[data-tip]{position:relative}
+main #follow .nx-chip[data-tip]:hover::after,main #follow .nx-chip[data-tip]:focus::after,main #follow .mx-tag[data-tip]:hover::after,main #follow .mx-tag[data-tip]:focus::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);z-index:6;padding:5px 8px;background:var(--ink);color:#fff;border-radius:4px;font:400 11px/1.3 var(--sans);letter-spacing:0;text-transform:none;white-space:nowrap;pointer-events:none}
+main #follow .nx-chip:focus{outline:2px solid var(--royal);outline-offset:2px}
+/* ========== Workshop listings only · titles fill the card on phones ========== */
+@media (max-width:767px){main .wkg__card .wkg__title,main .wkg__card .wkg__sum{text-wrap:wrap !important;max-width:none !important;width:auto}}
+
+/* ========== Footer · phones and tablets, inset top rule and tighter start ========== */
+@media (max-width:1079px){
+  footer.footer{border-top:0 !important}
+  footer.footer > .wrap::before{content:"";display:block;height:1px;background:var(--hairline);margin:0 0 48px}
+  footer.footer .ft__main{padding-top:0 !important}
+}
+@media (max-width:767px){footer.footer > .wrap::before{margin-bottom:40px}}
+
+/* Customised TMS · one fixed stage scale; moment 05 fits the common panel height */
+.nx-flow.is-pin .nx-chs{position:relative}
+.nx-flow.is-pin #moment-05 .nx-day{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:start}
+.nx-flow.is-pin #moment-05 .nx-day > *{grid-column:auto;min-width:0}
+.nx-flow.is-pin #moment-05 .nx-day > :not(.nx-att2):not(.nx-wa){grid-column:1 / -1}
+.nx-flow.is-pin #moment-05 .nx-map{height:104px}
+.nx-flow.is-pin #moment-05 .nx-att2{grid-template-columns:1fr 1fr;padding:6px 8px}
+.nx-flow.is-pin #moment-05 .nx-wa{padding:6px;gap:4px}
+.nx-flow.is-pin #moment-05 .nx-strip{margin:0}
+
+/* Customised TMS · phones, nothing inside a moment panel fades */
+@media (max-width:767px){
+  main #follow .nx-ch__panel *,main #follow .nx-ch__panel{opacity:1 !important}
+  main #follow .nx-ch__panel .nx-fly{display:none !important}
+  main #follow .nx-ch__panel .nx-card3.is-sent{display:none !important}
+  main #follow .mx-sig{clip-path:inset(0 100% 0 0);transition:clip-path 600ms ease-out}
+  main #follow .mx-paper__r.is-signed .mx-sig{clip-path:inset(0 0 0 0)}
+}
 
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
