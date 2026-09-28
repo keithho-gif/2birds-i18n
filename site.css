@@ -4913,7 +4913,31 @@ select.tb-dd-native{position:absolute !important;width:1px !important;height:1px
 .mp__mono{min-height:48px;align-items:center;margin-left:auto}
 .mp__mono img{height:48px !important;width:auto}
 
+/* ========== Same-background joins · explicit, at source ========== */
+:root{--join:96px}
+@media (max-width:1079px){:root{--join:72px}}
+@media (max-width:767px){:root{--join:56px}}
+/* Brand · founder band to The name */
+main .br-band .band__inner{padding-top:var(--join) !important;padding-bottom:var(--join) !important}
+main section[data-block="brand-name"]{padding-top:0 !important}
+/* TPQA and WSQ · Please note to the closing band */
+main [data-block="tq-disclaimer"] + section,main [data-block="wq-disclaimer"] + section{padding-top:calc(var(--join) - var(--space-block) - 1px) !important}
+main [data-block="wq-disclaimer"] + section > .wrap::before{display:none !important}
+/* Workshop pages · In-house delivery to the pager */
+main section[data-block="wk-cta"]{padding-bottom:calc(var(--join) - 56px) !important}
+/* Phone header · calendar on the same 20px gutter as the bars */
+@media (max-width:767px){.site-header .hdr__cta--icon{margin-right:0 !important;justify-content:flex-end !important}}
+/* verifier follow-ups · founder band sized by its padding; workshop gap measured to the pager rule */
+main .br-band{min-height:0 !important}
+main section[data-block="wk-cta"]{padding-bottom:calc(var(--join) - 1px) !important}
+@media (max-width:860px){main section[data-block="wk-cta"]{padding-bottom:calc(var(--join) - 29px) !important}}
+
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
 html:lang(ko) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:keep-all;overflow-wrap:anywhere}
 html:is(:lang(zh),:lang(ja),:lang(ko)) :is(h1,h2,h3,.display){text-wrap:balance}
+
+/* hotfixes (added by the build) */
+@media (min-width:1081px){.row--4 .colitem{container-type:normal}.row--4 .colitem .h3{font-size:clamp(18px,1.66vw,var(--fs-h3)) !important}}
+main section#cost.or-film{padding-top:120px !important}
+@media (max-width:1080px){main section#cost.or-film{padding-top:72px !important}}
