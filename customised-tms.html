@@ -864,7 +864,50 @@ class Component extends DCLogic {
   nettFor(p) { var f = this.feeNum(); return Math.round((f - Math.round(f * p.rate * 100) / 100) * 100) / 100; }
   maxT() { return this.state.mode === "with" ? 96 : 130; }
 
+  _phoneDrive() {
+    var self = this, mq = window.matchMedia("(max-width: 767px)");
+    var targets = [2, 5].map(function (n) { return document.querySelector("#moment-0" + n + " .nx-ch__panel"); }).filter(Boolean);
+    this._pdVis = this._pdVis || {};
+    this._pdIO = new IntersectionObserver(function (es) { es.forEach(function (e) { self._pdVis[e.target.getAttribute("data-pd")] = e.isIntersecting; }); }, { threshold: 0 });
+    targets.forEach(function (p, i) { p.setAttribute("data-pd", i ? "5" : "2"); self._pdIO.observe(p); });
+    var NAMES = ["Nurul Huda", "Daniel Lim", "Priya Nair", "Wei Jie Tan", "Siti Rahmah", "Marcus Ong", "Hui Min Goh", "Arjun Pillai"];
+    var EMP = ["Self", "Lumen Engineering Pte Ltd", "Harbour Logistics Pte Ltd", "Self"];
+    var k = 0;
+    this._pdT = setInterval(function () {
+      if (!mq.matches || self.state.reduce || document.hidden) return;
+      k++;
+      var p2 = targets[0], p5 = targets[1];
+      if (p2 && self._pdVis["2"]) {
+        var body = p2.querySelector(".nx-tbl tbody");
+        if (body) {
+          var rows = [].filter.call(body.querySelectorAll("tr"), function (r) { return r.style.display !== "none"; });
+          var chips = body.querySelectorAll(".nx-chip");
+          [].forEach.call(chips, function (c, i) { if (c.closest("tr[data-pd-row]") && (k + i) % 3 === 0 && /New/.test(c.textContent)) { self._setT(c, "Enrolled"); c.setAttribute("data-h", "mint"); } });
+          if (k % 2 === 0 && rows.length) {
+            var nr = rows[0].cloneNode(true); nr.setAttribute("data-pd-row", "1"); nr.className = "";
+            var td = nr.querySelectorAll("td"); if (td[0]) td[0].textContent = NAMES[k % NAMES.length]; if (td[1]) td[1].textContent = EMP[k % EMP.length]; if (td[2]) td[2].textContent = EMP[k % EMP.length] === "Self" ? "Self-sponsored" : "Company-sponsored";
+            var ch = nr.querySelector(".nx-chip"); if (ch) { ch.textContent = "New"; ch.setAttribute("data-h", "lavender"); }
+            nr.style.transform = "translateY(-10px)"; nr.style.transition = "transform 320ms ease-out";
+            body.insertBefore(nr, body.firstChild); requestAnimationFrame(function () { requestAnimationFrame(function () { nr.style.transform = ""; }); });
+            var live = body.querySelectorAll("tr[data-pd-row]"); if (live.length > 3) live[live.length - 1].remove();
+            var last = [].filter.call(body.querySelectorAll("tr:not([data-pd-row])"), function (r) { return r.style.display !== "none"; }).pop(); if (last && body.querySelectorAll("tr").length > 5) last.style.display = "none";
+          }
+        }
+        var cnt = p2.querySelector(".nx-top__m"); if (cnt) { var m = cnt.textContent.match(/(\d+)/); if (m) self._setT(cnt, "This month " + (Number(m[1]) + 1 > 60 ? 48 : Number(m[1]) + 1)); }
+        var clk = p2.querySelector(".mx-clock"); if (clk) { var c = clk.textContent.match(/(\d{1,2})[.:](\d{2})(.*)/); if (c) { var mi = (Number(c[2]) + 1) % 60, h = Number(c[1]) + (mi === 0 ? 1 : 0); self._setT(clk, h + "." + String(mi).padStart(2, "0") + c[3]); } }
+        var fields = p2.querySelectorAll(".mx-field > span:last-child");
+        if (fields.length) { var f = fields[k % fields.length]; var full = f.getAttribute("data-full") || f.textContent.replace(/\|$/, ""); f.setAttribute("data-full", full); var pos = (k * 3) % (full.length + 4); self._setT(f, full.slice(0, Math.min(pos, full.length)) + (pos < full.length ? "|" : "")); }
+      }
+      if (p5 && self._pdVis["5"]) {
+        var rs = p5.querySelectorAll(".mx-paper__r");
+        if (rs.length) { var i = k % (rs.length + 1); if (i === rs.length) [].forEach.call(rs, function (r) { r.classList.remove("is-signed"); }); else rs[i].classList.add("is-signed"); }
+        var clk5 = p5.querySelector(".mx-clock"); if (clk5) { var c5 = clk5.textContent.match(/(\d{1,2})[.:](\d{2})(.*)/); if (c5) { var m5 = (Number(c5[2]) + 1) % 60, h5 = Number(c5[1]) + (m5 === 0 ? 1 : 0); self._setT(clk5, h5 + "." + String(m5).padStart(2, "0") + c5[3]); } }
+        [].forEach.call(p5.querySelectorAll(".mx-paper__r"), function (r, j) { var tm = r.querySelector(".mx-paper__t, .nx-num"); if (tm && j === k % rs.length) { var mm = tm.textContent.match(/(\d{1,2})[.:](\d{2})/); if (mm) self._setT(tm, mm[1] + "." + String((Number(mm[2]) + 2) % 60).padStart(2, "0")); } });
+      }
+    }, 900);
+  }
   componentDidMount() {
+    try { this._phoneDrive(); } catch (err) {}
     setTimeout(() => this._liveUI(), 1500);
     this._rm = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
     this._layout = () => {
@@ -948,6 +991,7 @@ class Component extends DCLogic {
     }
   }
   componentWillUnmount() {
+    clearInterval(this._pdT); if (this._pdIO) this._pdIO.disconnect();
     clearInterval(this._tagT);
     clearTimeout(this._lt);
     if (this._vh2) document.removeEventListener("visibilitychange", this._vh2);
