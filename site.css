@@ -5042,6 +5042,26 @@ main .or-film + section[data-block="or-chap1"].lv-sec.or-chap .or-head{padding-t
 }
 @media (max-width:360px){.md__mark img{height:34px !important}}
 
+/* ========== Organisation Registration only · spot spacing (Keith, round eleven) ========== */
+/* 1 · cost film note to I · The requirements */
+main #cost.or-film{padding-bottom:0 !important}
+main #requirements.lv-sec.or-chap{padding-top:72px !important}
+main #requirements.lv-sec.or-chap .or-head{padding-top:0 !important}
+@media (max-width:1079px){main #requirements.lv-sec.or-chap{padding-top:56px !important}}
+@media (max-width:767px){
+  main #cost.or-film > .wrap::after{margin-top:32px !important}
+  main #requirements.lv-sec.or-chap{padding-top:32px !important}
+}
+/* 2 · package note to III · The case for 2BIRDS (phones unchanged) */
+@media (min-width:768px){main #package.or-sec.lv-sec{padding-bottom:0 !important}main #case.or-sec.lv-sec.or-chap{padding-top:56px !important}}
+@media (min-width:1080px){main #case.or-sec.lv-sec.or-chap{padding-top:72px !important}}
+/* 3 · cost film scenes on phones · one centred group, drawing below the figure */
+@media (max-width:767px){
+  main #cost .cf-scene:not(.cf-scene--team){display:flex !important;flex-direction:column;align-items:center;justify-content:center;padding:16px 16px 40px !important;box-sizing:border-box}
+  main #cost .cf-scene:not(.cf-scene--team) > .cf-art{position:relative !important;inset:auto !important;order:9;flex:0 0 auto;width:min(46%,160px) !important;height:auto !important;aspect-ratio:400/225;max-height:none;margin:24px 0 0 !important;opacity:.22}
+  main #cost .cf-scene--end > .cf-art{display:none}
+}
+
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
 html:lang(ko) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:keep-all;overflow-wrap:anywhere}
