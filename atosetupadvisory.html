@@ -27,14 +27,14 @@
 <!-- /social share -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/site.css?v=b0d67d78">
+<link rel="stylesheet" href="/site.css?v=5ca5e3a7">
 <script src="/support.js?v=d568b663"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Organisation Registration with SWDA","description":"Advisory and preparation for Organisation Registration and Course Accreditation with the Skills and Workforce Development Agency (SWDA), from company to registered training provider.","url":"https://www.2birds.asia/atosetupadvisory","areaServed":{"@type":"Country","name":"Singapore"},"provider":{"@id":"https://www.2birds.asia/#org","@type":"ProfessionalService","name":"2BIRDS","url":"https://www.2birds.asia/"}}</script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=b0d67d78">
+  <link rel="stylesheet" href="/site.css?v=5ca5e3a7">
   <script src="/site.js?v=1010040a"></script>
 </helmet>
 
@@ -302,7 +302,7 @@ class Component extends DCLogic {
   KEY = "2b-or-ready-v2";
   LABELS = ["Corppass account","PayNow account","Target training group decided","Organisation registered with ACRA or the Registry of Societies","Latest final Notice of Assessment showing positive trade income","At least one year of training, held in every quarter","Evidence of training records","Course objectives, lesson plans and assessment plans","Website or brochure with the required information","Training premises and office with proof, not a P.O. Box","Learner registration form or contract","Policies and Operations Manual"];
   state = { on: {}, ft: 0, playing: false, userPaused: false };
-  DUR = [4000, 5000, 5000, 5000, 6000, 4000, 6000, 10500, 22000, 9000];
+  DUR = [4300, 3500, 3500, 5100, 6500, 4500, 7500, 6700, 6900, 4300];
   componentDidMount() {
     try { var v = JSON.parse(window.localStorage.getItem(this.KEY) || "{}"); if (v && typeof v === "object") this.setState({ on: v }); } catch (e) {}
     var self = this;
@@ -358,7 +358,7 @@ class Component extends DCLogic {
     var money = function (v, dp) { return "S$" + v.toLocaleString("en-SG", { minimumFractionDigits: dp, maximumFractionDigits: dp }); };
     for (var k = 0; k < 10; k++) out["sc" + (k + 1)] = sc === k ? "true" : "false";
     out.vSalary = money(Math.round(3500 * (sc === 1 ? pr(500, 1600) : 1)), 0);
-    var mf = sc === 2 ? Math.min(12, Math.floor(lt / 300)) : (sc > 2 ? 12 : 0);
+    var mf = sc === 2 ? Math.min(12, Math.floor(lt / ((D[2] - 700) / 12))) : (sc > 2 ? 12 : 0);
     for (var m = 0; m < 12; m++) out["m" + m] = m < mf ? "true" : "false";
     out.vYear = money(mf * 3500, 2);
     out.vCpf = "+" + money(7140 * (sc === 3 ? pr(500, 1600) : 1), 2);
@@ -374,11 +374,11 @@ class Component extends DCLogic {
     [42000, 7140 * p4, 3500 * p5a, 595 * p5b, 105 * p6].forEach(function (v, i) { out["h" + (i + 1)] = (v / T * 100).toFixed(2) + "%"; });
     [42000, 7140, 3500, 595, 105].forEach(function (v, i) { out["w" + (i + 1)] = (v / T * 100 * bp).toFixed(2) + "%"; });
     out.vTotal = money(T * (sc === 6 ? pr(600, 2000) : 1), 2);
-    var shown = sc === 7 ? Math.max(0, Math.min(7, Math.floor((lt - 1200) / 1100) + 1)) : 7;
+    var iv8 = (D[7] - 1400) / 7, shown = sc === 7 ? Math.max(0, Math.min(7, Math.floor((lt - 700) / iv8) + 1)) : 7;
     for (var r = 0; r < 7; r++) out["o" + r] = r >= shown ? "off" : (r === shown - 1 ? "new" : (r >= shown - 3 ? "dim" : "dimmer"));
-    for (var q = 0; q < 7; q++) out["q" + q] = sc === 8 && lt < 1800 + q * 500 ? "false" : "true";
-    out.capOn = sc === 8 && lt >= 600 ? "true" : "false";
-    out.svcOn = sc === 8 && lt >= 1800 + 6 * 500 + 1400 ? "true" : "false";
+    var iv9 = (D[8] - 2800) / 7; for (var q = 0; q < 7; q++) out["q" + q] = sc === 8 && lt < 900 + q * iv9 ? "false" : "true";
+    out.capOn = sc === 8 && lt >= 400 ? "true" : "false";
+    out.svcOn = sc === 8 && lt >= 900 + 7 * iv9 + 400 ? "true" : "false";
     out.fade = !this._reduce && t > this._total - 500 ? "true" : "false";
     out.btnTab = sc === 9 ? "0" : "-1";
     for (var k2 = 9; k2 < 10; k2++) out["sc" + (k2 + 1)] = sc === k2 ? "true" : "false";

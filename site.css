@@ -2104,9 +2104,7 @@ button.calendar__day--open{cursor:pointer}
 .nx-flow{padding:var(--sec-y) 0 0}
 .nx-flow__head{margin-bottom:var(--sp-5)}
 .nx-skip{display:inline-block;margin-top:20px;font:500 var(--fs-kicker)/1 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--muted);text-decoration:underline;text-underline-offset:6px}
-.nx-skip:hover{color:var(--royal)}
-.nx-sticky{padding-bottom:var(--sec-y)}
-.nx-scrub{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+.nx-skip:hover{color:var(--royal)}.nx-scrub{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
 .nx-scrub__b{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:0 0 14px;background:none;border:0;text-align:left;cursor:pointer;color:var(--muted);font:inherit}
 .nx-scrub__n{font:500 var(--fs-micro)/1 var(--sans);letter-spacing:var(--track-micro)}
 .nx-scrub__l{font-size:var(--fs-caption);line-height:1.3}
@@ -2115,9 +2113,6 @@ button.calendar__day--open{cursor:pointer}
 .nx-prog{height:1px;background:var(--hairline);position:relative}
 .nx-prog i{position:absolute;left:0;top:-1px;height:2px;background:var(--ink);transition:width 300ms var(--ease)}
 .nx-chs{margin-top:var(--sp-5)}
-.nx-flow:not(.is-stack) .nx-ch{display:none}
-.nx-flow:not(.is-stack) .nx-ch.is-on{display:grid}
-.nx-ch{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--sp-6);align-items:start}
 .nx-ch__n{font:500 var(--fs-micro)/1.4 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--olive-deep)}
 .nx-ch__h{margin-top:14px;font-family:var(--serif);font-weight:500;font-size:var(--fs-h2);line-height:1.2;letter-spacing:var(--track-display);text-wrap:balance}
 .nx-ch__p{margin-top:18px;font-size:var(--fs-body);line-height:1.65;max-width:52ch;min-height:6.6em;text-wrap:pretty}
@@ -2131,17 +2126,9 @@ button.calendar__day--open{cursor:pointer}
 .nx-ledger > div{padding:16px 20px 4px;border-left:1px solid var(--hairline)}
 .nx-ledger > div:first-child{border-left:0;padding-left:0}
 .nx-ledger dt{font:500 var(--fs-micro)/1.4 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--muted)}
-.nx-ledger dd{margin:8px 0 0;font-family:var(--serif);font-weight:500;font-size:var(--fs-figure);line-height:1}
-/* pinned on tall desktop screens */
-.nx-flow.is-pin .nx-pin{height:calc(100vh + 7 * 80vh)}
-.nx-flow.is-pin .nx-sticky{position:sticky;top:var(--header-h);height:calc(100vh - var(--header-h));display:flex;flex-direction:column;justify-content:center;padding:24px 0}
-.nx-flow.is-pin .nx-chs{margin-top:28px}
-.nx-flow.is-pin .nx-ledger{margin-top:28px}
-/* stacked chapters on small screens */
-.nx-flow.is-stack .nx-scrub,.nx-flow.is-stack .nx-prog{display:none}
-.nx-flow.is-stack .nx-ch{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-4);padding:var(--sp-6) 0;border-top:1px solid var(--hairline)}
-.nx-flow.is-stack .nx-ch:first-child{border-top:0;padding-top:0}
-.nx-flow.is-stack .nx-ch__p{min-height:0}
+.nx-ledger dd{margin:8px 0 0;font-family:var(--serif);font-weight:500;font-size:var(--fs-figure);line-height:1}/* stacked chapters on small screens */
+.nx-ch{display:grid;grid-template-columns:minmax(0,1fr);gap:0;padding:var(--sp-6) 0;border-top:1px solid var(--hairline)}
+.nx-ch__p{min-height:0}
 
 /* ---- calculator ---- */
 .nx-calc{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:var(--sp-7);align-items:start}
@@ -2253,8 +2240,6 @@ html,body,button,input,select,textarea,optgroup,option,table,th,td,legend,label,
 .nx-num{font-variant-numeric:tabular-nums lining-nums}
 .nx-close{font-style:normal;font-weight:400}
 .nx-mark{background:var(--acc)}
-.nx-flow.is-pin .nx-sticky{justify-content:flex-start;padding-top:20px}
-
 /* ledger in manual mode */
 .nx-ledger.is-without .nx-ledger__key dd,.nx-ledger.is-without .nx-ledger__key dt{color:#c0392b}
 
@@ -2474,10 +2459,7 @@ html,body,button,input,select,textarea,optgroup,option,table,th,td,legend,label,
 /* ---------- Customised TMS · round 3 ------------------------------------------------ */
 .nx-logo{display:block;width:150px;height:auto;margin:0 0 48px}
 .nx-src__a,.nx-src__a:link,.nx-src__a:visited,.nx-src__a:hover,.nx-src__a:active,.nx-src__a:focus{color:inherit;font:inherit;text-decoration:none;outline:none}
-.nx-src__a:focus-visible{outline:2px solid var(--royal);outline-offset:3px}
-.nx-flow.is-pin .nx-sticky{overflow:hidden}
-.nx-fit{transform-origin:top center}
-.nx-walogo{width:14px;height:14px;flex:0 0 auto;display:inline-block}
+.nx-src__a:focus-visible{outline:2px solid var(--royal);outline-offset:3px}.nx-walogo{width:14px;height:14px;flex:0 0 auto;display:inline-block}
 .nx-wa__h{display:flex;align-items:center;gap:6px}
 .nx-wac{display:flex;flex-direction:column;gap:8px}
 .nx-wac__h{display:flex;align-items:center;gap:6px;font-weight:500;font-size:var(--fs-ui)}
@@ -2646,8 +2628,6 @@ html,body,button,input,select,textarea,optgroup,option,table,th,td,legend,label,
 
 .nc2__head .nx-h2{max-width:none;text-wrap:balance}
 /* Customised TMS · auto-replay fade and date size */
-.nx-loop{transition:opacity 260ms ease-out}
-.nx-loop[data-fade="true"]{opacity:0}
 @media (prefers-reduced-motion:reduce){.nx-loop{transition:none}.nx-loop[data-fade="true"]{opacity:1}}
 .nx-oblig .nx-date.nx-h2{margin:14px 0 0;max-width:none;font-variant-numeric:lining-nums}
 .nx-oblig{padding:var(--sp-6) 0}
@@ -4498,10 +4478,7 @@ main .cm-end .lv-media img{position:absolute;inset:0;width:100%;height:100% !imp
   .mx-paper__r{grid-template-columns:minmax(0,1fr) 72px}
   .mx-sig{width:64px}
   .mx-inbox li span,.mx-sent li span{white-space:normal;overflow-wrap:anywhere}
-  .mx-clock,.mx-count,.mx-tag{font-size:11px}
-  /* the panel column itself never overflows */
-  .nx-ch,.nx-ch__panel,.nx-chs,.nx-sticky{min-width:0;max-width:100%}
-  .nx-ch__panel > *{max-width:100%}
+  .mx-clock,.mx-count,.mx-tag{font-size:11px}  .nx-ch__panel > *{max-width:100%}
   .nx-flow .wrap{overflow-x:clip}
   /* ledger */
   .nx-ledger{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:16px 12px}
@@ -5105,8 +5082,7 @@ main #cost .cf-legend[data-sel]:not([data-sel="0"]) li{opacity:.45}
 main #cost .cf-legend[data-sel="1"] li:nth-child(1),main #cost .cf-legend[data-sel="2"] li:nth-child(2),main #cost .cf-legend[data-sel="3"] li:nth-child(3),main #cost .cf-legend[data-sel="4"] li:nth-child(4),main #cost .cf-legend[data-sel="5"] li:nth-child(5){opacity:1}
 main #cost .cf-segamt{margin:10px 0 0;min-height:1.4em;position:relative;z-index:1;font:400 clamp(11px,1.4cqi,15px)/1.4 var(--sans);color:#CFCBA8;font-variant-numeric:tabular-nums;text-align:center}
 main #cost .cf-scene--team[data-beat="2"] .cf-team{position:relative !important}
-main #cost .cf-scene--team[data-beat="2"] .cf-team::before{content:"";position:absolute;left:12%;right:12%;top:50%;height:1px;background:#CFCBA8;opacity:.5;transform-origin:left center;z-index:0}
-main #cost .cf-scene--team[data-beat="2"][data-on="true"] .cf-team::before{animation:cfThread 2600ms cubic-bezier(.22,.61,.36,1) 600ms both}
+main #cost .cf-scene--team[data-beat="2"] .cf-team::before{content:none !important;display:none !important}
 main #cost .cf-team__pile li{position:relative;z-index:1;background:#0d0d0c;transition:translate 220ms ease-out,border-color 220ms ease-out;cursor:default}
 main #cost .cf-team__pile li:hover,main #cost .cf-team__pile li:focus-visible{translate:0 -3px;border-color:#fff !important;outline:0}
 main #cost .cf-frame[data-paused="true"] *,main #cost .cf-frame[data-paused="true"] *::before{animation-play-state:paused !important}
@@ -5130,17 +5106,6 @@ main #follow .nx-chip:focus{outline:2px solid var(--royal);outline-offset:2px}
   footer.footer .ft__main{padding-top:0 !important}
 }
 @media (max-width:767px){footer.footer > .wrap::before{margin-bottom:40px}}
-
-/* Customised TMS · one fixed stage scale; moment 05 fits the common panel height */
-.nx-flow.is-pin .nx-chs{position:relative}
-.nx-flow.is-pin #moment-05 .nx-day{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:start}
-.nx-flow.is-pin #moment-05 .nx-day > *{grid-column:auto;min-width:0}
-.nx-flow.is-pin #moment-05 .nx-day > :not(.nx-att2):not(.nx-wa){grid-column:1 / -1}
-.nx-flow.is-pin #moment-05 .nx-map{height:104px}
-.nx-flow.is-pin #moment-05 .nx-att2{grid-template-columns:1fr 1fr;padding:6px 8px}
-.nx-flow.is-pin #moment-05 .nx-wa{padding:6px;gap:4px}
-.nx-flow.is-pin #moment-05 .nx-strip{margin:0}
-
 /* Customised TMS · phones, nothing inside a moment panel fades */
 @media (max-width:767px){
   main #follow .nx-ch__panel *,main #follow .nx-ch__panel{opacity:1 !important}
@@ -5148,6 +5113,83 @@ main #follow .nx-chip:focus{outline:2px solid var(--royal);outline-offset:2px}
   main #follow .nx-ch__panel .nx-card3.is-sent{display:none !important}
   main #follow .mx-sig{clip-path:inset(0 100% 0 0);transition:clip-path 600ms ease-out}
   main #follow .mx-paper__r.is-signed .mx-sig{clip-path:inset(0 0 0 0)}
+}/* ===== Customised TMS · phone panels as compact cards ===== */
+@media (max-width:767px){
+  main #follow .nx-ch__panel{margin-top:16px;border:1px solid var(--hairline);padding:12px;border-radius:0}
+  main #follow .nx-ch__panel .nx-glass{border:0;padding:0;background:transparent}
+  main #follow .nx-ch__panel .nx-app,main #follow .nx-ch__panel .mx{border:0;border-radius:0;font-size:13px !important}
+  main #follow .nx-ch__panel .nx-app *,main #follow .nx-ch__panel .mx *{font-size:max(13px,1em)}
+  main #follow .nx-ch__panel .nx-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--hairline);padding-bottom:8px;margin-bottom:8px}
+  main #follow .nx-ch__panel .nx-top__m{font-weight:500}
+  main #follow .nx-ch__panel .nx-tbl thead{display:none}
+  main #follow .nx-ch__panel .nx-tbl tr{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--hairline)}
+  main #follow .nx-ch__panel .nx-tbl td{padding:0;border:0;min-width:0}
+  main #follow .nx-ch__panel .nx-tbl td:not(:first-child):not(:last-child){display:none}
+  main #follow .nx-ch__panel .nx-tbl td:first-child{flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  main #follow .nx-ch__panel .nx-tbl tbody tr:nth-child(n+6){display:none}
+  main #follow .nx-ch__panel .nx-att2{grid-template-columns:minmax(0,1fr)}
+  main #follow .nx-ch__panel .nx-att2 li:nth-child(n+6),main #follow .nx-ch__panel .nx-conv__i:nth-child(n+6),main #follow .nx-ch__panel .mx-inbox li:nth-child(n+6),main #follow .nx-ch__panel .nx-docs li:nth-child(n+6){display:none}
+  main #follow .nx-ch__panel .nx-att2 li,main #follow .nx-ch__panel .mx-inbox li,main #follow .nx-ch__panel .mx-field,main #follow .nx-ch__panel .nx-docs li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--hairline)}
+  main #follow .nx-ch__panel .nx-chip{flex:0 0 auto}
+}
+/* ===== Comparison tables on phones · row title full width above its two cells ===== */
+@media (max-width:767px){
+  main .nx-cmp.compare tbody tr,main .wq-compare.compare tbody tr{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 12px;padding:16px 0}
+  main .nx-cmp.compare tbody th,main .wq-compare.compare tbody th{grid-column:1 / -1;display:block;width:auto;padding:0 0 12px !important;font-size:var(--fs-h3);line-height:1.3;white-space:normal}
+  main .nx-cmp.compare tbody td,main .wq-compare.compare tbody td{display:block;padding:0 !important}
+  main .nx-cmp.compare tbody td.col-2b,main .wq-compare.compare tbody td.col-2b{border-left:2px solid var(--olive);padding-left:10px !important}
+}
+/* ===== Footer top rule · olive on phones and tablets ===== */
+@media (max-width:1079px){footer.footer > .wrap::before{background:var(--olive) !important}}
+
+/* ===== Customised TMS · class flow as ordinary flowing sections, every width ===== */
+.nx-flow__body{position:relative}
+.nx-scrubbar{display:none}
+.nx-scrub,.nx-prog{display:none}
+@media (min-width:768px){
+  .nx-scrubbar{display:block;position:sticky;top:var(--header-h);z-index:6;background:var(--paper);padding:14px 0 0}
+  .nx-scrub{display:grid}
+  .nx-prog{display:block}
+  .nx-ch{padding:var(--sp-7) 0}
+  .nx-chs > .nx-ch:first-of-type{border-top:0;padding-top:var(--sp-6)}
+  .nx-ch__panel{margin-top:0}
+}
+@media (min-width:1024px){
+  .nx-ch{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--sp-6);align-items:start}
+  .nx-ledgerbar{position:sticky;bottom:0;z-index:5;background:var(--paper);border-top:1px solid var(--ink)}
+  .nx-ledgerbar .nx-ledger{margin:0;border-top:0;padding:10px 0 12px}
+  .nx-ledgerbar .nx-ledger > div{padding:0 20px}
+  .nx-ledgerbar .nx-ledger dd{font-size:var(--fs-h3) !important;margin-top:4px}
+  .nx-ledgerbar .nx-src{margin:0 0 10px;font-size:var(--fs-caption)}
+  .nx-chs{padding-bottom:var(--sp-5)}
+}
+.nx-ch__panel,.nx-ch__panel *{transform:none}
+.nx-ch__panel{height:auto !important;max-height:none !important;overflow:visible !important}
+.nx-ch__panel .nx-glass,.nx-ch__panel .nx-app,.nx-ch__panel .mx{max-height:none !important;overflow:visible !important}
+@media (max-width:767px){
+  main #follow .nx-ctlrow{margin-bottom:0 !important}
+  main #follow .nx-ch__panel{margin-top:16px !important}
+  main #follow .nx-ch__panel .nx-tbl td:last-child{display:flex !important;flex:0 0 auto;justify-content:flex-end}
+  main #follow .nx-ch__panel .nx-chip,main #follow .nx-ch__panel .mx-tag{display:inline-flex !important}
+  main #follow .nx-ch__panel .nx-att2 li .nx-chip,main #follow .nx-ch__panel .nx-docs li .nx-chip,main #follow .nx-ch__panel .nx-conv__i .nx-chip{margin-left:auto}
+  main #follow .nx-ch__panel .nx-q__r,main #follow .nx-ch__panel .nx-q__tot,main #follow .nx-ch__panel .nx-fee__r,main #follow .nx-ch__panel .nx-fee__tot,main #follow .nx-ch__panel .nx-card3__h,main #follow .nx-ch__panel .nx-card3__f,main #follow .nx-ch__panel .nx-wac__list > li,main #follow .nx-ch__panel .nx-out__r,main #follow .nx-ch__panel .nx-ev li,main #follow .nx-ch__panel .nx-trail li,main #follow .nx-ch__panel .nx-conv__i{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  main #follow .nx-ch__panel .nx-conv{grid-template-columns:minmax(0,1fr) !important}
+  main #follow .nx-ch__panel .nx-conv__col{display:block}
+  main #follow .nx-ch__panel .nx-conv__col:nth-child(2),main #follow .nx-ch__panel .nx-conv__arrow{display:none}
+}
+/* comparison tables · stacked layout, question headings fill the width */
+@media (max-width:1023px){
+  main .compare tbody th,main .compare tbody th > *:not(.compare__tag){text-wrap:pretty !important;text-wrap-style:pretty;max-width:none !important;width:auto !important;display:block}
+  main .compare tbody th{white-space:normal !important;grid-column:1 / -1}
+  main .compare tbody th .compare__tag{display:block}
+}
+
+/* Customised TMS · moment 05 attendance rows below 1024, dot then name, left-aligned */
+@media (max-width:1023px){
+  main #follow #moment-05 .nx-att2 li{display:flex !important;justify-content:flex-start !important;align-items:center !important;gap:6px !important;flex-wrap:nowrap}
+  main #follow #moment-05 .nx-att2 li .nx-dot{flex:none !important;width:8px !important;height:8px !important;min-width:8px;border-radius:50%;display:inline-block;padding:0;margin:0}
+  main #follow #moment-05 .nx-att2 li .nx-att2__n{flex:0 1 auto;text-align:left;margin:0}
+  main #follow #moment-05 .nx-att2 li .nx-chip{margin-left:auto;flex:none}
 }
 
 /* translated typography (added by the build) */

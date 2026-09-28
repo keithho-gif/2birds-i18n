@@ -27,14 +27,14 @@
 <!-- /social share -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/site.css?v=b0d67d78">
+<link rel="stylesheet" href="/site.css?v=5ca5e3a7">
 <script src="/support.js?v=d568b663"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Customised Training Management System (Nest)","description":"Nest, the training management system 2BIRDS builds and customises for training providers, connected to TPGateway.","url":"https://www.2birds.asia/customised-tms","areaServed":{"@type":"Country","name":"Singapore"},"provider":{"@id":"https://www.2birds.asia/#org","@type":"ProfessionalService","name":"2BIRDS","url":"https://www.2birds.asia/"}}</script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=b0d67d78">
+  <link rel="stylesheet" href="/site.css?v=5ca5e3a7">
   <script src="/site.js?v=1010040a"></script>
 </helmet>
 
@@ -105,16 +105,15 @@
       <p class="nx-stand">A two-day funded class of twelve trainees, four of them company-sponsored. Move through the class and watch what Nest does at each moment.</p>
       <a class="nx-skip" href="#calculator">Skip to the nett fee calculator ↓</a>
     </div>
-    <div class="nx-pin" id="nx-pin">
-      <div class="nx-sticky"><div class="nx-fit" id="nx-fit"><div class="nx-loop" data-fade="{{ mfade }}">
-        <div class="wrap">
+    <div class="nx-flow__body">
+      <div class="nx-scrubbar"><div class="wrap">
           <nav class="nx-scrub" aria-label="Moments in the class">
             <sc-for list="{{ scrub }}" as="s" hint-placeholder-count="8">
               <button class="nx-scrub__b" type="button" aria-current="{{ s.cur }}" onClick="{{ s.go }}"><span class="nx-scrub__n">{{ s.n }}</span><span class="nx-scrub__l">{{ s.l }}</span></button>
             </sc-for>
           </nav>
           <div class="nx-prog" aria-hidden="true"><i style="width:{{ progPct }}"></i></div>
-        </div>
+      </div></div>
         <div class="wrap nx-chs">
         <article class="{{ ch0 }}" id="moment-01" aria-labelledby="mh-01">
           <div class="nx-ch__text">
@@ -122,7 +121,7 @@
             <h3 class="nx-ch__h" id="mh-01">Quote the accurate net fee before registration</h3>
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">A trainee's fee depends on age, citizenship and whether an employer is sponsoring the place. Nest applies the current SWDA funding rules to the course and returns the exact nett fee in the enquiry, so the quote holds when the invoice is issued.</p></sc-if>
             <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Staff read the funding tables, work out the percentages manually and correct the quote after the enrolment is rejected.</p></sc-if>
-            <div class="nx-ctlrow"><div class="nx-ctlrow"><div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+            <div class="nx-ctlrow"><div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
             </div></div>
@@ -188,7 +187,7 @@
             <h3 class="nx-ch__h" id="mh-02">Capture complete registration records in a single submission</h3>
             <sc-if value="{{ modeWith }}" hint-placeholder-val="{{ true }}"><p class="nx-ch__p role-body">The training provider's own registration form collects the trainee, the employer and the sponsorship in one pass. Nest checks each field against what TPGateway will ask for and assigns the registration to the consultant who brought it in.</p></sc-if>
             <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-ch__p nx-ch__p--without role-body">Details arrive by email, chat and spreadsheet, and each one is typed again into the portal.</p></sc-if>
-            <div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
+            <div class="nx-ctlrow"><div class="nx-mode" role="group" aria-label="Compare the manual way with Nest">
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWithout }}" onClick="{{ setWithout }}">Without a TMS</button>
               <button class="nx-mode__b" type="button" aria-pressed="{{ modeWith }}" onClick="{{ setWith }}">With Nest</button>
             </div></div>
@@ -651,7 +650,7 @@
           </div>
         </article>
         </div>
-        <div class="wrap">
+        <div class="nx-ledgerbar"><div class="wrap">
           <dl class="{{ ledCls }}" aria-live="polite">
             <div><dt>{{ ledL1 }}</dt><dd class="nx-num">{{ led1 }}</dd></div>
             <div><dt>{{ ledL2 }}</dt><dd class="nx-num">{{ led2 }}</dd></div>
@@ -659,9 +658,8 @@
             <div><dt>{{ ledL4 }}</dt><dd class="nx-num">{{ led4 }}</dd></div>
           </dl>
           <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-src role-small">Illustrative figures for one class of twelve trainees.</p></sc-if>
-        </div>
-      </div>
-    </div></div></div>
+        </div></div>
+    </div>
   </section>
 
   <section class="section section--bone nc2" id="calculator" data-block="tms-calculator">
@@ -885,7 +883,8 @@ class Component extends DCLogic {
           [].forEach.call(chips, function (c, i) { if (c.closest("tr[data-pd-row]") && (k + i) % 3 === 0 && /New/.test(c.textContent)) { self._setT(c, "Enrolled"); c.setAttribute("data-h", "mint"); } });
           if (k % 2 === 0 && rows.length) {
             var nr = rows[0].cloneNode(true); nr.setAttribute("data-pd-row", "1"); nr.className = "";
-            var td = nr.querySelectorAll("td"); if (td[0]) td[0].textContent = NAMES[k % NAMES.length]; if (td[1]) td[1].textContent = EMP[k % EMP.length]; if (td[2]) td[2].textContent = EMP[k % EMP.length] === "Self" ? "Self-sponsored" : "Company-sponsored";
+            self._ni = ((self._ni || 0) + 1) % NAMES.length; var cur = rows[0].querySelector("td") ? rows[0].querySelector("td").textContent.trim() : ""; if (NAMES[self._ni] === cur) self._ni = (self._ni + 1) % NAMES.length;
+            var td = nr.querySelectorAll("td"); if (td[0]) td[0].textContent = NAMES[self._ni]; if (td[1]) td[1].textContent = EMP[k % EMP.length]; if (td[2]) td[2].textContent = EMP[k % EMP.length] === "Self" ? "Self-sponsored" : "Company-sponsored";
             var ch = nr.querySelector(".nx-chip"); if (ch) { ch.textContent = "New"; ch.setAttribute("data-h", "lavender"); }
             nr.style.transform = "translateY(-10px)"; nr.style.transition = "transform 320ms ease-out";
             body.insertBefore(nr, body.firstChild); requestAnimationFrame(function () { requestAnimationFrame(function () { nr.style.transform = ""; }); });
@@ -907,16 +906,16 @@ class Component extends DCLogic {
     }, 900);
   }
   componentDidMount() {
-    try { this._phoneDrive(); } catch (err) {}
-    setTimeout(() => this._liveUI(), 1500);
+    var self0 = this, armed = false, arm = function () { if (armed) return; armed = true; try { self0._phoneDrive(); } catch (err) {} self0._liveUI(); self0._pollT = setInterval(self0._stackPoll, 400); };
+    this._arm = arm;
+    if ("IntersectionObserver" in window) { var f0 = document.getElementById("follow"); if (f0) { this._aio = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { arm(); self0._aio.disconnect(); } }, { rootMargin: "600px 0px" }); this._aio.observe(f0); } else setTimeout(arm, 2000); } else setTimeout(arm, 1500);
     this._rm = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
     this._layout = () => {
       var w = window.innerWidth, h = window.innerHeight;
       if (!w) return;
-      var st = w < 768;
-      this._hm = {};
+      var st = window.matchMedia("(max-width: 1023px)").matches;
       if (st !== this.state.stack) { this._tm = []; }
-      this.setState({ stack: st, pin: !st, sv: st ? this.state.sv : -1, reduce: !!(this._rm && this._rm.matches) }, () => { this._scroll(); this._tick(); });
+      this.setState({ stack: st, pin: false, reduce: !!(this._rm && this._rm.matches) }, () => { this._scroll(); this._tick(); });
     };
     this._vis = () => {
       var chk = (id) => { var el = document.getElementById(id); if (!el) return false; var r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight && r.height > 0; };
@@ -928,11 +927,6 @@ class Component extends DCLogic {
     };
     this._scroll = () => {
       this._vis();
-      if (!this.state.pin) return;
-      var el = document.getElementById("nx-pin"); if (!el) return;
-      var p = (76 - el.getBoundingClientRect().top) / (window.innerHeight * 0.8);
-      var i = Math.max(0, Math.min(7, Math.floor(p + 0.3)));
-      if (i !== this.state.active) this.setActive(i);
     };
     this._stackPoll = () => {
       this._vis();
@@ -948,14 +942,13 @@ class Component extends DCLogic {
       if (best >= 0 && best !== cur) this._stackSee(best, true);
       else if (best < 0 && cur >= 0) this._stackSee(cur, false);
     };
-    this._pollT = setInterval(this._stackPoll, 400);
     window.addEventListener("resize", this._layout);
     window.addEventListener("scroll", this._scroll, { passive: true });
     if (this._rm && this._rm.addEventListener) this._rm.addEventListener("change", this._layout);
     this._layout();
     this._onload = () => this._layout();
     window.addEventListener("load", this._onload);
-    [0, 120, 400, 1000, 2000].forEach((d) => setTimeout(() => this._layout(), d));
+    setTimeout(() => this._layout(), 400);
     if ("IntersectionObserver" in window) {
       this._io = new IntersectionObserver((es) => {
         es.forEach((e) => {
@@ -967,31 +960,14 @@ class Component extends DCLogic {
       }, { threshold: [0, 0.01, 0.12] });
       ["nx-hero", "follow", "identity"].forEach((id) => { var el = document.getElementById(id); if (el) this._io.observe(el); });
       this._sio = new IntersectionObserver((es) => {
-        if (!this.state.stack) return;
         es.forEach((e) => { var i = +e.target.getAttribute("data-mi"); this._stackSee(i, e.isIntersecting && e.intersectionRatio >= 0.4); });
       }, { threshold: [0, 0.4, 0.6] });
       for (var mi = 0; mi < 8; mi++) { var p = document.querySelector("#moment-0" + (mi + 1) + " .nx-ch__panel"); if (p) { p.setAttribute("data-mi", mi); this._sio.observe(p); } }
     }
   }
-  componentDidUpdate(pp, ps) { this._fitNow(); if (ps && (ps.active !== this.state.active || ps.mode !== this.state.mode || ps.sv !== this.state.sv)) this._liveRestore(); }
-  _fitNow() {
-    var el = document.getElementById("nx-fit"); if (!el) return;
-    if (!this.state.pin) { el.style.transform = ""; this._fit = 1; this._fitKey = null; return; }
-    var key = window.innerWidth + "x" + window.innerHeight + this.state.mode;
-    if (this._fitKey !== key) {
-      var chs = el.querySelectorAll(".nx-ch"), act = el.querySelector(".nx-ch.is-on"), maxCh = 0;
-      for (var i = 0; i < chs.length; i++) { var c = chs[i], s = c.getAttribute("style"); if (c !== act) { c.style.display = "grid"; c.style.visibility = "hidden"; c.style.position = "absolute"; c.style.left = "0"; c.style.right = "0"; } maxCh = Math.max(maxCh, c.offsetHeight); if (c !== act) { if (s == null) c.removeAttribute("style"); else c.setAttribute("style", s); } }
-      var base = el.offsetHeight - (act ? act.offsetHeight : 0);
-      if (!el.offsetHeight) return;
-      this._fitKey = key; this._fitH = base + maxCh;
-      var avail = window.innerHeight - 76 - 28;
-      this._fit = Math.min(1, Math.floor(avail / this._fitH * 100) / 100);
-      el.style.transform = this._fit < 1 ? "scale(" + this._fit + ")" : "";
-      el.setAttribute("data-fit", this._fit + "|" + this._fitH);
-    }
-  }
+  componentDidUpdate(pp, ps) { if (ps && (ps.active !== this.state.active || ps.mode !== this.state.mode || ps.sv !== this.state.sv)) this._liveRestore(); }
   componentWillUnmount() {
-    clearInterval(this._pdT); if (this._pdIO) this._pdIO.disconnect();
+    clearInterval(this._pdT); if (this._pdIO) this._pdIO.disconnect(); if (this._aio) this._aio.disconnect();
     clearInterval(this._tagT);
     clearTimeout(this._lt);
     if (this._vh2) document.removeEventListener("visibilitychange", this._vh2);
@@ -1015,9 +991,8 @@ class Component extends DCLogic {
   _tick() {
     clearTimeout(this._mt);
     if (this.state.reduce || !this.state.flowVis || document.hidden) return;
-    if (this.state.stack) { this._live(); return; }
     this._watch();
-    var now = Date.now(), still = now - (this._lastMut || now), key = (this.state.stack ? this.state.sv : this.state.active) + this.state.mode;
+    var now = Date.now(), still = now - (this._lastMut || now), key = this.state.sv + this.state.mode;
     this._endT = this._endT || {};
     var known = this._endT[key];
     var atEnd = this.state.t >= this.maxT() || (this.state.t > 8 && still > 1300 && (known == null || this.state.t >= known));
@@ -1049,6 +1024,7 @@ class Component extends DCLogic {
     } catch (err) {} }
   }
   _liveRows(pick, k) {
+    if (pick.hasAttribute("data-pd") && window.matchMedia("(max-width: 767px)").matches) return;
     var body = pick.querySelector(".nx-tbl tbody"); if (!body) return;
     var rows = body.querySelectorAll("tr"); if (rows.length < 3) return;
     var first = rows[0], nr = first.cloneNode(true);
@@ -1167,7 +1143,7 @@ class Component extends DCLogic {
     if (this._mo) return;
     var el = document.getElementById("follow"); if (!el || !window.MutationObserver) return;
     this._lastMut = Date.now();
-    this._mo = new MutationObserver((ms) => { for (var i = 0; i < ms.length; i++) { var n = ms[i].target; n = n.nodeType === 1 ? n : n.parentElement; if (n && n.closest && n.closest(".nx-ch__panel, #nx-fit")) { this._lastMut = Date.now(); return; } } });
+    this._mo = new MutationObserver((ms) => { for (var i = 0; i < ms.length; i++) { var n = ms[i].target; n = n.nodeType === 1 ? n : n.parentElement; if (n && n.closest && n.closest(".nx-ch__panel")) { this._lastMut = Date.now(); return; } } });
     this._mo.observe(el, { subtree: true, childList: true, characterData: true, attributes: true });
     this._vh = () => { if (!document.hidden) this._tick(); };
     document.addEventListener("visibilitychange", this._vh);
@@ -1178,8 +1154,7 @@ class Component extends DCLogic {
   }
   _T(i) {
     var s = this.state;
-    if (s.reduce || s.stack) return 999;
-    if (!s.stack) return s.t;
+    if (s.reduce) return 999;
     if (i === s.sv) return s.t;
     var v = this._tm && this._tm[i];
     return v == null ? 0 : v;
@@ -1191,14 +1166,14 @@ class Component extends DCLogic {
       if (s.sv === i) return;
       if (s.sv >= 0) this._tm[s.sv] = s.t;
       var start = this._tm[i] || 0;
-      this.setState({ sv: i, t: start, flowVis: true }, () => this._tick());
+      this.setState({ sv: i, active: i, seen: Math.max(s.seen || 0, i), t: start, flowVis: true }, () => this._tick());
     } else if (s.sv === i) {
       this._tm[i] = s.t;
       clearTimeout(this._mt);
       this.setState({ sv: -1 });
     }
   }
-  _restart() { clearTimeout(this._mt); clearTimeout(this._lt); this._liveRestore(); this._tm = []; this._lastMut = Date.now(); this.setState({ t: 0 }, () => this._tick()); }
+  _restart() { clearTimeout(this._mt); clearTimeout(this._lt); this._liveRestore(); this._tm = []; this._endT = {}; this._lastMut = Date.now(); this.setState({ t: 0 }, () => this._tick()); }
   _ci() {
     clearTimeout(this._cit);
     if (this.state.reduce || !this.state.ciVis) return;
@@ -1208,14 +1183,12 @@ class Component extends DCLogic {
   setActive(i) {
     i = Math.max(0, Math.min(7, i));
     if (i === this.state.active) return;
-    this.setState({ active: i }, () => this._restart());
+    this.setState({ active: i });
   }
   go(i) {
     i = Math.max(0, Math.min(7, i));
-    if (this.state.pin) {
-      var el = document.getElementById("nx-pin");
-      if (el) window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 76 + i * window.innerHeight * 0.8 + 4);
-    }
+    var el = document.getElementById("moment-0" + (i + 1)), bar = document.querySelector(".nx-scrubbar");
+    if (el) { var off = 76 + (bar ? bar.offsetHeight : 0) + 16; var red = this.state.reduce; window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: red ? "auto" : "smooth" }); }
     this.setActive(i);
   }
   _count() {
@@ -1256,7 +1229,7 @@ class Component extends DCLogic {
       if (st.l === "Accepted") acc++;
       return { name: self.H[(s.heroB * 4 + i) % 16], ref: "ENR-26" + (20500 + s.heroB * 4 + i), h: st.h, l: st.l };
     });
-    out.hfade = s.hfade ? "true" : "false"; out.mfade = s.mfade ? "true" : "false"; out.cfade = s.cfade ? "true" : "false";
+    out.hfade = s.hfade ? "true" : "false"; out.cfade = s.cfade ? "true" : "false";
     out.heroCount = s.reduce ? 30 : 26 + s.heroB * 4 + acc;
 
     // moment 01
@@ -1408,9 +1381,8 @@ class Component extends DCLogic {
     T = fin ? 999 : s.t;
     var W = s.mode === "without";
     var led = function (arr) {
-      if (s.stack) return arr[7];
-      var prev = s.active > 0 ? arr[s.active - 1] : (W && arr === self.DOC_M ? 27 : 0), cur = arr[s.active];
-      var f = s.reduce ? 1 : Math.min(1, s.t / 10);
+      var sn = s.seen || 0, prev = sn > 0 ? arr[sn - 1] : (W && arr === self.DOC_M ? 27 : 0), cur = arr[sn];
+      var f = s.reduce || s.sv !== sn ? 1 : Math.min(1, s.t / 10);
       return Math.round(prev + (cur - prev) * f);
     };
     out.ledCls = "nx-ledger" + (W ? " is-without" : "");
