@@ -4918,8 +4918,6 @@ select.tb-dd-native{position:absolute !important;width:1px !important;height:1px
 @media (max-width:1079px){:root{--join:72px}}
 @media (max-width:767px){:root{--join:56px}}
 /* Brand · founder band to The name */
-main .br-band .band__inner{padding-top:var(--join) !important;padding-bottom:var(--join) !important}
-main section[data-block="brand-name"]{padding-top:0 !important}
 /* TPQA and WSQ · Please note to the closing band */
 main [data-block="tq-disclaimer"] + section,main [data-block="wq-disclaimer"] + section{padding-top:calc(var(--join) - var(--space-block) - 1px) !important}
 main [data-block="wq-disclaimer"] + section > .wrap::before{display:none !important}
@@ -4928,7 +4926,6 @@ main section[data-block="wk-cta"]{padding-bottom:calc(var(--join) - 56px) !impor
 /* Phone header · calendar on the same 20px gutter as the bars */
 @media (max-width:767px){.site-header .hdr__cta--icon{margin-right:0 !important;justify-content:flex-end !important}}
 /* verifier follow-ups · founder band sized by its padding; workshop gap measured to the pager rule */
-main .br-band{min-height:0 !important}
 main section[data-block="wk-cta"]{padding-bottom:calc(var(--join) - 1px) !important}
 @media (max-width:860px){main section[data-block="wk-cta"]{padding-bottom:calc(var(--join) - 29px) !important}}
 
@@ -5061,6 +5058,13 @@ main #requirements.lv-sec.or-chap .or-head{padding-top:0 !important}
   main #cost .cf-scene:not(.cf-scene--team) > .cf-art{position:relative !important;inset:auto !important;order:9;flex:0 0 auto;width:min(46%,160px) !important;height:auto !important;aspect-ratio:400/225;max-height:none;margin:24px 0 0 !important;opacity:.22}
   main #cost .cf-scene--end > .cf-art{display:none}
 }
+
+/* Organisation Registration · heading above the cost film (scoped to #cost) */
+main #cost .cf-head{text-align:center;margin:0 0 40px}
+main #cost .cf-head .or-kicker{margin:0 !important}
+main #cost .cf-head .or-h2{margin:12px 0 0 !important}
+@media (max-width:1079px){main #cost .cf-head{margin-bottom:32px}}
+@media (max-width:767px){main #cost .cf-head{margin-bottom:24px}}
 
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
