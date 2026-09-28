@@ -994,7 +994,7 @@ button.calendar__day--open{cursor:pointer}
 }
 @media (max-width:640px){
   .br-clients .br-logos{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .br-clients .br-logo:nth-child(3n+2){border-left:0;border-right:0}
+  
   .br-clients .br-logo:nth-child(odd){border-right:1px solid rgba(255,255,255,.22)}
   .br-clients .br-logo{min-height:120px;opacity:.8}
 }
@@ -1010,20 +1010,20 @@ button.calendar__day--open{cursor:pointer}
 .br-clients .br-logos{grid-template-columns:repeat(5,minmax(0,1fr))}
 .br-clients .br-logo{min-height:0;padding:var(--sp-4) var(--sp-2);grid-template-rows:56px auto;row-gap:12px}
 .br-clients .br-logo__slot{max-width:150px;height:56px}
-.br-clients .br-logo:nth-child(3n+2){border-left:0;border-right:0}
+
 .br-clients .br-logo{border-right:1px solid rgba(255,255,255,.22)}
-.br-clients .br-logo:nth-child(5n){border-right:0}
+
 @media (max-width:1080px){
   .br-clients__intro{grid-template-columns:minmax(0,1fr);row-gap:0}
   .br-clients__intro .br-sub{grid-column:1;grid-row:auto;margin-top:var(--sp-3)}
   .br-clients .br-logos{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .br-clients .br-logo:nth-child(5n){border-right:1px solid rgba(255,255,255,.22)}
-  .br-clients .br-logo:nth-child(3n){border-right:0}
+  
+  
 }
 @media (max-width:640px){
   .br-clients .br-logos{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .br-clients .br-logo:nth-child(n){border-right:1px solid rgba(255,255,255,.22)}
-  .br-clients .br-logo:nth-child(2n){border-right:0}
+  
+  
 }
 
 /* ---------- Brand · client wall, clean lines ------------------------------------ */
@@ -3253,7 +3253,7 @@ html,body,button,input,select,textarea,optgroup,option,table,th,td,legend,label,
   .lv-hero{aspect-ratio:auto;height:72vh;min-height:420px}
   .lv-tiles--4,.lv-tiles--3{grid-template-columns:minmax(0,1fr)}
   .lv-wide,.lv-close{padding-left:20px;padding-right:20px}
-  .lv-media{margin-bottom:40px}
+  .lv-media{margin-bottom:0}
 }
 
 /* ========== Organisation Registration round 3 and TPQA round 3 ==========
@@ -3686,7 +3686,7 @@ b,strong,th{font-weight:500}
 .or-disc{max-width:900px;margin-inline:auto;border-top:1px solid var(--hairline);padding-top:28px}
 .or-disc p{font:400 var(--fs-small)/1.65 var(--sans);color:var(--muted)}
 /* Chapter openers and closing */
-.lv-media{margin-bottom:var(--space-block)}
+.lv-media{margin-bottom:0}
 .or-head{margin-bottom:var(--space-block)}
 .or-close .or-h2,.ct-close h2{font:400 var(--fs-h2)/1.1 var(--sans);letter-spacing:var(--track-display)}
 .lv-close{padding-top:var(--space-block)}
@@ -4212,7 +4212,7 @@ footer .ft__col a,footer .ft__promo-t,footer .ft__nl a,footer .ft__nl button,foo
    ===================================================================== */
 main > section:where(:not(.hero,.band,.wkd-banner,.or-under,[data-block$="-disclaimer"],.or-close,.lv-sec.or-chap,[data-block="join-application"],[data-block="tms-hero"])),main .ct-cmp,main .section,main .or-sec:where(:not(.or-chap,.or-close,[data-block$="-disclaimer"])){padding-top:var(--sec-y) !important;padding-bottom:var(--sec-y) !important}
 main .lv-sec.or-chap{padding-top:0 !important;padding-bottom:0 !important}
-main .lv-sec.or-chap .or-head{padding-top:var(--space-block) !important;padding-bottom:var(--space-block) !important}
+main .lv-sec.or-chap .or-head{padding-top:var(--chap-gap) !important;padding-bottom:0 !important}
 main .lv-sec.or-chap:where(:not(:has(> .lv-media))) .or-head,main .cm-ch1--plain .or-head,main .wq-chap-plain .or-head{padding-top:var(--sec-y) !important}
 main [data-block$="-disclaimer"]{padding-top:var(--sec-y) !important;padding-bottom:0 !important}
 main .or-close{padding-top:var(--space-block) !important;padding-bottom:var(--sec-y) !important}
@@ -4388,7 +4388,7 @@ main .nx-hero .nx-hero__text p.nx-kicker,main .hero:not(:has(.hero__media)) p.ki
 .cm-end--contained{padding:var(--sec-y) 0 !important}
 .cm-end--contained .cm-end__media{border:1px solid var(--hairline);background:var(--bone)}
 /* 6 · chapter openers and section heads · one gap */
-main .lv-sec.or-chap .or-head{padding-top:var(--space-block) !important;padding-bottom:0 !important;margin-bottom:0 !important}
+main .lv-sec.or-chap .or-head{padding-top:var(--chap-gap) !important;padding-bottom:0 !important;margin-bottom:24px !important}
 main .or-chap + section,main .or-chap + .or-sec,main .or-chap + .section{padding-top:var(--space-block) !important}
 main .lv-sec.or-chap:where(:not(:has(> .lv-media))) .or-head,main .cm-ch1--plain .or-head,main .wq-chap-plain .or-head{padding-top:var(--sec-y) !important}
 main .or-head,main .sectionhead,main .lv-wide > .or-head{margin-bottom:var(--space-block) !important}
@@ -4413,7 +4413,7 @@ main [data-block$="-disclaimer"]{padding-bottom:0 !important}
 main [data-block$="-disclaimer"] + .or-close{padding-top:var(--space-block) !important}
 .or-disc{border-top:0 !important}
 main [data-block$="-disclaimer"]{border-top:1px solid var(--hairline)}
-main [data-block$="-disclaimer"] .wrap > .or-disc{padding-top:var(--space-block) !important}
+main [data-block$="-disclaimer"] .wrap > .or-disc{padding-top:var(--note-gap) !important}
 .lg__cl > div > p{margin:0 0 12px}
 .lg__doc .lg__cl a.ilink,.lg__doc .lg__list a.ilink{font:inherit !important;text-transform:none !important;letter-spacing:0 !important;color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .lg__doc .lg__cl a.ilink:hover{color:var(--royal)}
@@ -4422,14 +4422,14 @@ main .wq-chap-plain{padding-top:var(--sec-y) !important;padding-bottom:0 !import
 main .wq-chap-plain + .or-sec{padding-top:var(--space-block) !important}
 main [data-block="wq-deliver"] > .wrap > .wq-subhead:first-of-type{padding-top:0 !important;margin-top:0 !important;border-top:0 !important}
 main [data-block="wq-deliver"]{padding-top:var(--sec-y) !important}
-main .lv-sec.or-chap{padding-bottom:var(--space-block) !important}
+main .lv-sec.or-chap{padding-bottom:0 !important}
 main .lv-sec.or-chap + section{padding-top:var(--sec-y) !important}
 main .lv-sec.or-chap + .or-sec:not(.or-rule):not([class*="band"]){padding-top:0 !important}
-main .lv-sec.or-chap .or-head:not(:last-child){margin-bottom:var(--space-block) !important}
+main .lv-sec.or-chap .or-head:not(:last-child){margin-bottom:24px !important}
 main .cm-end{padding:var(--space-block) 0 0 !important;background:var(--paper)}
 main .cm-end .lv-media{margin:0}
-main .cm-end .lv-media{aspect-ratio:auto !important;height:clamp(280px,38vw,560px) !important;max-height:none !important;overflow:hidden}
-main .cm-end .lv-media img{width:100%;height:100% !important;object-fit:cover;object-position:center 45%}
+main .cm-end .lv-media{position:relative;display:grid;align-items:center;aspect-ratio:4/1;height:auto !important;max-height:400px;min-height:0;overflow:hidden}
+main .cm-end .lv-media img{position:absolute;inset:0;width:100%;height:100% !important;object-fit:cover;object-position:50% 60%}
 
 /* ===== Phone fixes · header, footer, drawer ===== */
 @media (max-width:1080px){
@@ -4536,7 +4536,7 @@ main .cm-end .lv-media img{width:100%;height:100% !important;object-fit:cover;ob
 @media (hover:hover) and (pointer:fine){.lv-tile__over{opacity:0}.lv-tile:hover .lv-tile__over,.lv-tile:focus-visible .lv-tile__over{opacity:1}}
 @media (max-width:1080px){.hdr__cta--long,.hdr__cta[data-long]{display:none !important}.hdr__cta--short{display:inline-flex !important}}
 /* 3 · trust cards size to content below 1080 */
-@media (max-width:1080px){.fc{height:auto !important}.fc__inner{height:auto}.fc__face{position:relative}.fc__front{padding:28px 24px;gap:20px}.fc__front .fc__hint,.fc__front .fc__hint--touch{margin-top:4px}.fc__back{position:absolute;inset:0;padding:28px 24px}}
+@media (max-width:1080px){.fc{height:auto !important}.fc__inner{height:auto}.fc__face{position:relative}.fc__front{padding:28px 24px;gap:20px}.fc__front .fc__hint,.fc__front .fc__hint--touch{margin-top:4px}.fc__back{position:relative;inset:auto;padding:36px 28px 32px;justify-content:flex-start;gap:16px}}
 /* 4 · services one column below 480 */
 @media (max-width:480px){.row--4{grid-template-columns:minmax(0,1fr) !important;gap:40px}.row--4 .colitem .ph{aspect-ratio:3/2}.row--4 .colitem .h3{min-height:0}.row--4 .colitem .colitem__desc{font-size:var(--fs-body)}.row--4 .colitem .tlink{display:inline-flex;margin-top:16px}}
 /* 5 · footer two columns between 600 and 1080 */
@@ -4570,7 +4570,7 @@ main .cm-end .lv-media img{width:100%;height:100% !important;object-fit:cover;ob
 @container (max-width:600px){.cf-scene--team[data-beat="2"]{gap:16px;padding:5cqi}.cf-scene--team[data-beat="2"] .cf-team[data-mode="row"] .cf-team__pile li{font-size:11px;padding:7px 10px}}
 /* 9 · brand monogram frame and client band */
 @media (max-width:640px){.mgp__frame{aspect-ratio:auto;padding:24px}.mgp__frame img{height:auto;max-height:260px}}
-@media (max-width:560px){.br-clients .br-logos li:last-child:nth-child(odd){grid-column:1/-1;max-width:50%;justify-self:center}}
+@media (max-width:560px){.br-clients .br-logos li:last-child:nth-child(odd){grid-column:1/-1;max-width:none;width:auto;justify-self:stretch;justify-items:center;text-align:center}}
 /* 10 · contact map labels on phones */
 @media (max-width:560px){.ct-map__svg text{font-size:13px}.ct-map__svg text.ct-map__minor,.ct-map__svg .ct-map__scale text,.ct-map__svg text[data-minor]{display:none}}
 /* 11 · workshop tabs scroller */
@@ -4650,3 +4650,75 @@ main .cm-end .lv-media img{width:100%;height:100% !important;object-fit:cover;ob
   .row--4 .colitem .tlink{margin-top:var(--sp-3) !important}
 }
 @media (min-width:481px) and (max-width:1080px){.row--4 .colitem:nth-child(n+3){margin-top:var(--sp-6)}}
+
+/* ===== Round six ===== */
+:root{--chap-gap:48px;--note-gap:64px}
+@media (max-width:1080px){:root{--chap-gap:40px;--note-gap:48px}}
+@media (max-width:560px){:root{--chap-gap:32px;--note-gap:40px}}
+/* G · chapter openers · kicker 12 above title, next block from the title */
+main .lv-sec.or-chap .or-head .or-kicker{margin:0 !important}
+main .lv-sec.or-chap .or-head :is(h2,h3,.or-h2){margin-top:12px !important}
+main .lv-sec.or-chap + .or-sec:not(.or-rule):not([class*="band"]) > .wrap > :first-child{margin-top:0 !important}
+main .lv-sec.or-chap + :is(.or-rule,.wq-dband,.wq-pband,[class*="band"]){margin-top:var(--space-block)}
+/* G · band before the note, and the note */
+main section:has(+ [data-block$="-disclaimer"]){padding-bottom:var(--note-gap) !important}
+main section:has(+ [data-block$="-disclaimer"]) .wrap > :last-child,main .tq-rec__note{margin-bottom:0 !important}
+main [data-block$="-disclaimer"]{padding-top:0 !important}
+/* B · trust cards stack both faces below 1080 */
+@media (max-width:1080px){
+  .fc-row{grid-auto-rows:1fr}
+  .fc{height:100% !important}
+  .fc__inner{display:grid;height:100%}
+  .fc__face{position:relative !important;inset:auto !important;grid-area:1 / 1}
+  .fc__back{display:flex;flex-direction:column;justify-content:flex-start !important;gap:16px;padding:36px 28px 32px !important}
+  .fc__back > *{margin:0 !important}
+  .fc__back .fc__body{font-size:var(--fs-body);line-height:1.6}
+}
+/* A · logo cells centred */
+.br-clients .br-logo{justify-items:center;text-align:center}
+/* D · home service titles fit the four-column range */
+@media (min-width:1081px){.row--4 .colitem{container-type:inline-size}.row--4 .colitem .h3{font-size:clamp(18px,9.2cqi,var(--fs-h3)) !important}}
+/* E · drawer monogram at the top, desktop only */
+@media (min-width:1024px){
+  .drawer__body{padding-top:0 !important;grid-template-rows:auto auto !important;row-gap:0 !important}
+  .drawer__mono{grid-column:1 !important;grid-row:1 !important;align-self:center !important;justify-self:start !important;height:52px !important;margin:22px 0 !important}
+  .drawer__main{grid-row:2 !important}
+  .drawer__aside{grid-row:2 !important;align-self:start !important}
+}
+/* F · closing band · text on the photograph */
+.cm-end__over{position:relative;z-index:1;padding:24px 0;background:linear-gradient(90deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.86) 32%,rgba(255,255,255,0) 55%);align-self:stretch;display:flex;align-items:center}
+.cm-end__over .wrap{width:100%}
+.cm-end__over p{margin:0;max-width:60ch;font:400 var(--fs-body)/1.6 var(--sans);color:var(--ink);text-wrap:pretty}
+@media (max-width:1080px){main .cm-end .lv-media{aspect-ratio:3/1}.cm-end__over p{max-width:52ch}}
+@media (max-width:560px){main .cm-end .lv-media{aspect-ratio:16/9;max-height:none}.cm-end__over{background:rgba(255,255,255,.84)}.cm-end__over p{max-width:none}}
+
+main .lv-sec.or-chap + .or-sec > .wrap > .tq-three{padding-top:0 !important;margin-top:0 !important}
+main .lv-sec.or-chap + .or-sec > .wrap > .tq-three > li{padding-top:0 !important}
+main .lv-sec.or-chap:has(+ [data-block$="-disclaimer"]),main .or-sec:has(+ [data-block$="-disclaimer"]){padding-bottom:var(--note-gap) !important}
+@media (min-width:1024px){.drawer__mono{margin:22px 0 !important}}
+.cm-end__over{background:linear-gradient(90deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.88) 40%,rgba(255,255,255,.6) 50%,rgba(255,255,255,0) 58%)}
+@media (max-width:560px){.cm-end__over{background:rgba(255,255,255,.84)}}
+
+
+/* G · first chapter directly under the hero (or the under-hero button row) · same opener gap */
+main :is(.hero,.or-under) + .lv-sec.or-chap:where(:not(:has(> .lv-media))){padding-top:0 !important}
+main :is(.hero,.or-under) + .lv-sec.or-chap:where(:not(:has(> .lv-media))) .or-head{padding-top:var(--chap-gap) !important}
+
+/* Route tiles · static photographs, no link */
+.lv-tile--static{cursor:default}
+.lv-tile--static:focus,.lv-tile--static:focus-visible{outline:none}
+.lv-tile--static .lv-tile__cta{display:none}
+/* Cost film · headcount line wraps balanced on phones */
+.cf-big{text-wrap:balance}
+
+/* Please note · 64 / 48 / 40 text to text, split across the section rule */
+main :is(section,.lv-sec.or-chap,.or-sec):has(+ [data-block$="-disclaimer"]){padding-bottom:calc(var(--note-gap) / 2) !important}
+main [data-block$="-disclaimer"] .wrap > .or-disc{padding-top:calc(var(--note-gap) / 2 - 1px) !important;padding-bottom:var(--note-gap) !important}
+main [data-block$="-disclaimer"] + section{padding-top:0 !important}
+main [data-block$="-disclaimer"] + section > .wrap > :first-child,main [data-block$="-disclaimer"] + section > :first-child{margin-top:0 !important;padding-top:0 !important}
+main [data-block$="-disclaimer"] + section{padding-top:var(--note-gap) !important}
+main #case > :last-child,main #case > .wrap > :last-child,main #case .cf-wrap:last-child,main #case :is(.or-reasons,.cf-wrap,.cf-table,.cf-note,.cf-sources):last-child{margin-bottom:0 !important;padding-bottom:0 !important}
+/* the note's rule closes the reasons grid */
+main #case .cf-reasons article:nth-last-child(-n+2){padding-bottom:0;border-bottom:0}
+@media (max-width:760px){main #case .cf-reasons article:nth-last-child(2){padding-bottom:24px;border-bottom:1px solid var(--hairline)}}
+main section[data-block$="-disclaimer"] + section.or-close{padding-top:var(--note-gap) !important}
