@@ -27,15 +27,15 @@
 <!-- /social share -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/site.css?v=acd2bca8">
+<link rel="stylesheet" href="/site.css?v=7770d0aa">
 <script src="/support.js?v=d568b663"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Customised Training Management System (Nest)","description":"Nest, the training management system 2BIRDS builds and customises for training providers, connected to TPGateway.","url":"https://www.2birds.asia/customised-tms","areaServed":{"@type":"Country","name":"Singapore"},"provider":{"@id":"https://www.2birds.asia/#org","@type":"ProfessionalService","name":"2BIRDS","url":"https://www.2birds.asia/"}}</script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=acd2bca8">
-  <script src="/site.js?v=6a4f7beb"></script>
+  <link rel="stylesheet" href="/site.css?v=7770d0aa">
+  <script src="/site.js?v=58ace5c3"></script>
 </helmet>
 
 <dc-import name="SiteHeader" hint-size="100%,0" style="height:0"></dc-import>
@@ -950,6 +950,8 @@ class Component extends DCLogic {
     if (this._fit !== f) { this._fit = f; el.style.transform = f < 1 ? "scale(" + f + ")" : ""; }
   }
   componentWillUnmount() {
+    if (this._mo) this._mo.disconnect();
+    if (this._vh) document.removeEventListener("visibilitychange", this._vh);
     window.removeEventListener("resize", this._layout);
     window.removeEventListener("scroll", this._scroll);
     window.removeEventListener("load", this._onload);
@@ -967,10 +969,28 @@ class Component extends DCLogic {
   }
   _tick() {
     clearTimeout(this._mt);
-    if (this.state.reduce || !this.state.flowVis) return;
+    if (this.state.reduce || !this.state.flowVis || document.hidden) return;
     if (this.state.stack && !(this.state.sv >= 0)) return;
-    if (this.state.t >= this.maxT()) { this._mt = setTimeout(() => this._loopFade("mfade", () => this.setState({ t: 0 }, () => this._tick())), 3000); return; }
+    this._watch();
+    var now = Date.now(), still = now - (this._lastMut || now), key = (this.state.stack ? this.state.sv : this.state.active) + this.state.mode;
+    this._endT = this._endT || {};
+    var known = this._endT[key];
+    var atEnd = this.state.t >= this.maxT() || (this.state.t > 8 && still > 1300 && (known == null || this.state.t >= known));
+    if (atEnd) {
+      if (known == null || this.state.t < known) this._endT[key] = Math.min(this.state.t, this.maxT());
+      this._mt = setTimeout(() => this._loopFade("mfade", () => { this._lastMut = Date.now(); this.setState({ t: 0 }, () => this._tick()); }), 200);
+      return;
+    }
     this._mt = setTimeout(() => this.setState((s) => ({ t: s.t + 1 }), () => this._tick()), 90);
+  }
+  _watch() {
+    if (this._mo) return;
+    var el = document.getElementById("follow"); if (!el || !window.MutationObserver) return;
+    this._lastMut = Date.now();
+    this._mo = new MutationObserver((ms) => { for (var i = 0; i < ms.length; i++) { var n = ms[i].target; n = n.nodeType === 1 ? n : n.parentElement; if (n && n.closest && n.closest(".nx-ch__panel, #nx-fit")) { this._lastMut = Date.now(); return; } } });
+    this._mo.observe(el, { subtree: true, childList: true, characterData: true, attributes: true });
+    this._vh = () => { if (!document.hidden) this._tick(); };
+    document.addEventListener("visibilitychange", this._vh);
   }
   _loopFade(key, then) {
     var o = {}; o[key] = true;
@@ -998,7 +1018,7 @@ class Component extends DCLogic {
       this.setState({ sv: -1 });
     }
   }
-  _restart() { clearTimeout(this._mt); this._tm = []; this.setState({ t: 0 }, () => this._tick()); }
+  _restart() { clearTimeout(this._mt); this._tm = []; this._lastMut = Date.now(); this.setState({ t: 0 }, () => this._tick()); }
   _ci() {
     clearTimeout(this._cit);
     if (this.state.reduce || !this.state.ciVis) return;

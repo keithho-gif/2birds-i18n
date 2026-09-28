@@ -4854,6 +4854,65 @@ main section[data-block="or-chap3"] > .wrap:last-child > .cf-reasons{margin-top:
 main section[data-block="or-chap3"] > .wrap:last-child{padding-top:var(--space-block) !important}
 @media (min-width:1080px){.or-pb__card{margin-top:31px}}
 
+/* Workshops · fee row in the facts table */
+.wkc-card__facts > .wkc-card__feerow dt{color:var(--muted)}
+.wkc-card__facts > .wkc-card__feerow dd{margin:0;color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums}
+.wkc-card__feenote{margin:12px 0 0;font:400 var(--fs-caption)/1.6 var(--sans);color:var(--muted)}
+
+/* cost film · no leftover grid behind the total; the bar has no box */
+.cf-scene--bar .cf-bar{border:0 !important}
+/* cost film · team scene, two centred rows (4 + 3) */
+.cf-scene--team[data-beat="2"]{gap:28px !important}
+.cf-scene--team[data-beat="2"] .cf-team[data-mode="row"] .cf-team__pile{gap:12px !important;row-gap:12px !important;max-width:none !important}
+.cf-scene--team[data-beat="2"] .cf-team[data-mode="row"] .cf-team__pile li{padding:10px 18px !important;white-space:nowrap !important}
+.cf-scene--team[data-beat="2"] .cf-team[data-mode="row"] .cf-team__pile li.cf-team__break{flex-basis:100% !important;height:0 !important;padding:0 !important;margin:0 !important;border:0 !important;opacity:1 !important;min-height:0 !important}
+.cf-team__break{display:none}
+.cf-scene--team[data-beat="2"] .cf-team__break{display:block}
+@container (max-width:600px){
+  .cf-scene--team[data-beat="2"]{gap:20px !important}
+  .cf-scene--team[data-beat="2"] .cf-team[data-mode="row"] .cf-team__pile{display:grid !important;grid-template-columns:repeat(2,auto);justify-content:center;gap:12px !important}
+  .cf-scene--team[data-beat="2"] .cf-team[data-mode="row"] .cf-team__pile li{padding:8px 12px !important;font-size:11px !important;text-align:center}
+  .cf-scene--team[data-beat="2"] .cf-team[data-mode="row"] .cf-team__pile li.cf-team__break{display:none !important}
+  .cf-scene--team[data-beat="2"] .cf-team[data-mode="row"] .cf-team__pile li:last-child{grid-column:1 / -1;justify-self:center}
+}
+
+/* ========== Site dropdown · header pill, menu and footer ========== */
+select.tb-dd-native{position:absolute !important;width:1px !important;height:1px !important;opacity:0 !important;pointer-events:none !important;overflow:hidden}
+.tb-ddb{appearance:none;background:none;border:0;padding:0;margin:0;display:inline-flex;align-items:center;gap:8px;cursor:pointer;font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;min-height:32px}
+.tb-ddb__c{width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:translateY(-2px) rotate(45deg);flex:0 0 auto}
+.tb-ddb[aria-expanded="true"] .tb-ddb__c{transform:translateY(1px) rotate(-135deg)}
+.tb-ddb:focus-visible{outline:2px solid var(--royal);outline-offset:3px}
+.tb-dd{position:fixed;z-index:1000;background:#fff;border:1px solid var(--hairline);padding:8px;overflow-y:auto;overscroll-behavior:contain;max-width:min(360px,calc(100vw - 16px));box-sizing:border-box;font-family:var(--sans);font-synthesis:none;outline:none}
+.tb-dd__g{margin:16px 0 6px;padding:0 16px;font:500 var(--fs-label)/1.4 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--olive-deep,#5C5935)}
+.tb-dd__g:first-child{margin-top:8px}
+.tb-dd__o{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:40px;box-sizing:border-box;padding:10px 16px;font:400 14px/1.4 var(--sans);color:var(--ink);cursor:pointer;white-space:nowrap;text-transform:none;letter-spacing:0}
+.tb-dd__o:hover,.tb-dd__o.is-active{background:var(--bone)}
+.tb-dd__o[aria-selected="true"]{font-weight:500}
+.tb-dd__o[aria-selected="true"]::after{content:"";width:9px;height:5px;border-left:1.5px solid var(--olive-deep,#5C5935);border-bottom:1.5px solid var(--olive-deep,#5C5935);transform:translateY(-2px) rotate(-45deg);flex:0 0 auto}
+/* header pill panel · language list in the same rows */
+.hdr__langlist button[role="option"]{min-height:40px;padding:10px 16px !important;font:400 14px/1.4 var(--sans) !important;letter-spacing:0 !important;text-transform:none !important;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hdr__langlist button[role="option"]:hover{background:var(--bone)}
+.hdr__langlist button[role="option"][aria-selected="true"]{font-weight:500 !important}
+.hdr__langlist .lang__head{margin:16px 0 6px;padding:0 16px;font:500 var(--fs-label)/1.4 var(--sans) !important;letter-spacing:var(--track-micro) !important;text-transform:uppercase;color:var(--olive-deep,#5C5935) !important}
+.hdr__langlist{padding:8px !important}
+
+/* ========== Phone header · bars only, symmetric with the calendar ========== */
+@media (max-width:767px){
+  .site-header .wrap.hdr{grid-template-columns:44px minmax(0,1fr) 44px !important}
+  .site-header .wrap.hdr > .hdr__menu{width:44px !important;min-width:44px !important;height:44px;min-height:44px;padding:0 !important;gap:0 !important;justify-content:flex-start !important;justify-self:start !important}
+  .site-header .hdr__menu > span:not(.hdr__bars){position:absolute !important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+  .site-header .hdr__bars{width:22px;height:22px;justify-content:center;gap:5px;padding:0}
+  .site-header .hdr__bars i{height:1.5px}
+  .site-header .hdr__right{justify-self:end !important;width:44px;display:flex;justify-content:flex-end}
+  .site-header .hdr__cta--icon{width:44px;height:44px;min-width:44px;min-height:44px;display:inline-flex !important;align-items:center;justify-content:flex-end;padding:0 !important}
+  .site-header .hdr__cal{width:22px;height:22px}
+  .site-header .hdr__mark{justify-self:center !important}
+}
+/* ========== Menu panel · monogram 48px, right gutter, centred with Close ========== */
+.mp__top{align-items:center}
+.mp__mono{min-height:48px;align-items:center;margin-left:auto}
+.mp__mono img{height:48px !important;width:auto}
+
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
 html:lang(ko) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:keep-all;overflow-wrap:anywhere}
