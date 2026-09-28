@@ -4932,6 +4932,83 @@ main .br-band{min-height:0 !important}
 main section[data-block="wk-cta"]{padding-bottom:calc(var(--join) - 1px) !important}
 @media (max-width:860px){main section[data-block="wk-cta"]{padding-bottom:calc(var(--join) - 29px) !important}}
 
+/* =====================================================================
+   ROUND TEN
+   ===================================================================== */
+/* 1 · desktop menu panel · every item in the Legal type, one continuous list */
+@media (min-width:1080px){
+  .mp .mp__list a,.mp .mp__list button,.mp .mp__list--sm a,.mp .mp__list--sm button,.mp .mp__langs button,.mp .mp__back{font:400 14px/1.3 var(--sans) !important;letter-spacing:0 !important;text-transform:none !important;color:var(--ink) !important;min-height:36px !important}
+  .mp .mp__sel select{font:400 14px/1.3 var(--sans) !important;min-height:36px}
+  .mp .mp__list + .mp__list,.mp nav + .mp__list,.mp .mp__pane--main > * + ul{margin-top:0 !important}
+}
+/* 2 · phones and tablets · the full-screen drawer; desktop panel untouched */
+.md{display:none}
+@media (max-width:1079px){
+  .mp__veil,.mp__panel{display:none !important}
+  .md{display:flex;flex-direction:column;position:absolute;inset:0;background:#fff;color:var(--ink);opacity:0;transition:opacity 280ms ease-out;font-family:var(--sans);font-synthesis:none}
+  .mp--open .md{opacity:1}
+  .md__bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 var(--gutter);border-bottom:1px solid var(--hairline)}
+  .md__mark{display:inline-flex;align-items:center;min-height:44px}
+  .md__mark img{height:12px;width:auto;display:block}
+  .md__close{appearance:none;background:none;border:0;padding:0;min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:flex-end;cursor:pointer;font:500 var(--fs-label)/1 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--ink)}
+  .md__body{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:48px var(--gutter) 56px}
+  .md__list,.md__sub,.md__links{list-style:none;margin:0;padding:0}
+  .md__list{border-top:1px solid var(--hairline)}
+  .md__list > li{border-bottom:1px solid var(--hairline)}
+  .md__list > li > a{display:grid;grid-template-columns:45px minmax(0,1fr);align-items:center;min-height:48px;font:500 var(--fs-label)/1.3 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--ink);text-decoration:none}
+  .md__n{color:var(--olive-deep,#5C5935);font-weight:500}
+  .md__sub li{border-top:1px solid var(--hairline)}
+  .md__sub a{display:flex;align-items:center;min-height:44px;padding-left:45px;font:500 var(--fs-label)/1.3 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--muted);text-decoration:none}
+  .md__grp{margin-top:53px;padding-top:14px;border-top:1px solid var(--hairline)}
+  .md__h{margin:0 0 4px;font:500 var(--fs-label)/1.4 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--olive-deep,#5C5935)}
+  .md__links a{display:flex;align-items:center;min-height:44px;font:500 var(--fs-label)/1.3 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--ink);text-decoration:none}
+  .md__addr{margin:6px 0 0;font:400 14px/1.65 var(--sans);font-style:normal;color:var(--muted)}
+  .md__addr a{color:inherit;text-decoration:none}
+  .md a:hover,.md__close:hover{color:var(--royal)}
+  .md a:focus-visible,.md__close:focus-visible,.md select:focus-visible{outline:2px solid var(--royal);outline-offset:3px}
+  .md [data-cur="true"]{color:var(--ink)}
+  .md__sels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:12px}
+  .md__f{display:block}
+  .md__k{display:block;font:500 var(--fs-label)/1.4 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--muted)}
+  .md__sel{display:block;position:relative;border-bottom:1px solid var(--hairline);margin-top:4px}
+  .md__sel select{width:100%;min-height:44px;appearance:none;-webkit-appearance:none;background:transparent;border:0;padding:0 24px 0 0;font:400 16px/1.3 var(--sans);color:var(--ink)}
+  .md__sel::after{content:"";position:absolute;right:4px;top:50%;width:7px;height:7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:translateY(-70%) rotate(45deg);pointer-events:none}
+}
+@media (max-width:767px){.md__sels{grid-template-columns:minmax(0,1fr);gap:16px}}
+@media (prefers-reduced-motion:reduce){.md{transition:none}}
+/* 3 · joins in the stylesheet, last content to first content */
+main section[data-block="or-film"]{padding-top:var(--sec-y) !important;padding-bottom:0 !important}
+main section[data-block="or-chap1"] .or-head{padding-top:var(--join) !important}
+main section[data-block="tpqa-guide-standfirst"]{padding-bottom:0 !important}
+main section[data-block="tpqa-guide-body"]{padding-top:var(--join) !important}
+main section[data-block="wk-body"]{padding-bottom:var(--join) !important}
+main section[data-block="wk-body"] + section[data-block="wk-cta"]{padding-top:0 !important}
+main section[data-block="wk-intro"]{padding-bottom:0 !important}
+main section[data-block="wk-list"]{padding-top:var(--join) !important}
+@media (max-width:767px){main section[data-block="or-package"]{padding-bottom:calc(var(--join) - 48px) !important}}
+/* 6 · OR · divider between the film note and chapter I on phones */
+@media (max-width:767px){
+  main section[data-block="or-film"]{padding-bottom:var(--join) !important}
+  main section[data-block="or-film"] > .wrap::after{content:"";display:block;height:1px;background:var(--hairline);margin-top:var(--join)}
+}
+/* 4 · home service cards · no containment, so the subgrid holds */
+@media (min-width:1081px){
+  .row--4 .colitem{container-type:normal !important}
+  .row--4 .colitem .h3{font-size:clamp(18px,1.66vw,var(--fs-h3)) !important}
+}
+/* 5a · workshop pages · tab bar to OVERVIEW */
+main section[data-block="wk-body"]{padding-top:48px !important}
+@media (max-width:1079px){main section[data-block="wk-body"]{padding-top:40px !important}}
+@media (max-width:767px){main section[data-block="wk-body"]{padding-top:32px !important}}
+/* 5b · workshop pages · no empty boxed row after the last module */
+.wkc__sec#programme + .wkc__sec{border-top:0 !important;padding-top:0 !important}
+.wkc__sec#programme .wkx-part:last-of-type .faq details:last-child{border-bottom:1px solid var(--hairline)}
+/* 7 · Contact · natural wrapping for the enquiry cards on phones */
+@media (max-width:767px){.jn-tile__desc{text-wrap:wrap !important;max-width:none !important}}
+/* OR · film to chapter I, beats the earlier zero rule */
+main .or-film + section[data-block="or-chap1"].lv-sec.or-chap .or-head{padding-top:var(--join) !important}
+@media (max-width:767px){main .or-film + section[data-block="or-chap1"].lv-sec.or-chap .or-head{padding-top:0 !important}}
+
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
 html:lang(ko) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:keep-all;overflow-wrap:anywhere}

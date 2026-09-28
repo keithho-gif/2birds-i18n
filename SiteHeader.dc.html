@@ -8,8 +8,8 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=9b74566d">
-  <script src="/site.js?v=bc33d369"></script>
+  <link rel="stylesheet" href="/site.css?v=f06a1bb6">
+  <script src="/site.js?v=1010040a"></script>
 </helmet>
 <header class="{{ headerClass }}">
   <div class="hdr__full">
@@ -138,6 +138,42 @@
       </div>
     </div>
   </div>
+  <div class="md" role="dialog" aria-modal="true" aria-label="{{ t.menu }}">
+    <div class="md__bar">
+      <a class="md__mark" href="/" aria-label="2BIRDS, home"><img class="logo" src="assets/logo-text.png" alt="2BIRDS"></a>
+      <button class="md__close" type="button" onClick="{{ closeMenu }}">Close</button>
+    </div>
+    <div class="md__body">
+      <nav aria-label="Practice areas"><ol class="md__list">
+        <li><a href="/brand" data-cur="{{ cur.brand }}"><span class="md__n">I</span><span>{{ t.brand }}</span></a></li>
+        <li><a href="/wsqcurriculumdevelopment" data-cur="{{ cur.wsq }}"><span class="md__n">II</span><span>{{ t.wsq }}</span></a></li>
+        <li><a href="/atosetupadvisory" data-cur="{{ cur.swda }}"><span class="md__n">III</span><span>{{ t.ato }}</span></a>
+          <ul class="md__sub">
+            <li><a href="/atosetupadvisory" data-cur="{{ cur.reg }}">— Organisation Registration</a></li>
+            <li><a href="/workshops" data-cur="{{ cur.wks }}">— Workshops</a></li>
+            <li><a href="/customised-tms" data-cur="{{ cur.tms }}">— Customised TMS</a></li>
+          </ul></li>
+        <li><a href="/ssgauditmatters" data-cur="{{ cur.audit }}"><span class="md__n">IV</span><span>{{ t.audit }}</span></a></li>
+        <li><a href="/creativemarketing" data-cur="{{ cur.mkt }}"><span class="md__n">V</span><span>{{ t.marketing }}</span></a></li>
+      </ol></nav>
+      <div class="md__grp"><p class="md__h">Client services</p><ul class="md__links"><li><a href="/contact">{{ t.enquiry }}</a></li></ul></div>
+      <div class="md__grp"><p class="md__h">The House of 2BIRDS</p><ul class="md__links">
+        <li><a href="/legal-statement">Legal Statement</a></li>
+        <li><a href="/terms">Website Terms of Use</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/engagement">Terms of Engagement</a></li>
+      </ul></div>
+      <div class="md__grp"><p class="md__h">Location</p><address class="md__addr">7 Temasek Boulevard, #12-07<br>Suntec Tower One, Singapore 038987<br><a href="tel:+6585953945">Mobile · +65 8595 3945</a><br><a href="mailto:hello@2birds.asia">hello@2birds.asia</a></address></div>
+      <div class="md__grp"><p class="md__h">Country and language</p><div class="md__sels">
+        <label class="md__f"><span class="md__k">Country or region</span><span class="md__sel"><select value="{{ region }}" onChange="{{ onRegion }}">
+          <sc-for list="{{ regionGroups }}" as="g" hint-placeholder-count="5"><optgroup label="{{ g.name }}"><sc-for list="{{ g.items }}" as="c" hint-placeholder-count="4"><option value="{{ c }}">{{ c }}</option></sc-for></optgroup></sc-for>
+        </select></span></label>
+        <label class="md__f"><span class="md__k">Language</span><span class="md__sel"><select value="{{ langId }}" onChange="{{ onLangSel }}">
+          <sc-for list="{{ langs }}" as="l" hint-placeholder-count="12"><option value="{{ l.id }}" lang="{{ l.html }}">{{ l.name }}</option></sc-for>
+        </select></span></label>
+      </div></div>
+    </div>
+  </div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:320},&quot;tone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;\&quot;dark\&quot; | \&quot;light\&quot;&quot;,&quot;section&quot;:&quot;Header&quot;}}">
@@ -254,7 +290,7 @@ class Component extends DCLogic {
 
   open() {
     document.body.style.overflow = "hidden"; document.documentElement.style.overflow = "hidden";
-    this.setState({ open: true, level: "main", langOpen: false }, () => setTimeout(() => { var c = document.querySelector(".mp__close"); if (c) c.focus(); }, 60));
+    this.setState({ open: true, level: "main", langOpen: false }, () => setTimeout(() => { var c = window.innerWidth < 1080 ? document.querySelector(".md__close") : document.querySelector(".mp__close"); if (c) c.focus(); }, 60));
   }
   close() {
     if (!this.state.open) return;
@@ -282,7 +318,9 @@ class Component extends DCLogic {
       onRegion: (e) => this.setRegion(e.target.value),
       langOpen: this.state.langOpen,
       toggleLang: () => this.setState((s) => ({ langOpen: !s.langOpen })),
-      langs: Component.LANGS.map((l) => ({ name: l.name, code: l.code, html: l.html, selected: l.id === cur.id, pick: () => this.setLang(l.id) })),
+      langs: Component.LANGS.map((l) => ({ id: l.id, name: l.name, code: l.code, html: l.html, selected: l.id === cur.id, pick: () => this.setLang(l.id) })),
+      langId: cur.id,
+      onLangSel: (e) => this.setLang(e.target.value),
       open: this.state.open,
       headerClass: this.state.scrolled
         ? "site-header is-scrolled"
