@@ -8,8 +8,8 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=1f6d1f36">
-  <script src="/site.js?v=f167ddaa"></script>
+  <link rel="stylesheet" href="/site.css?v=acd2bca8">
+  <script src="/site.js?v=6a4f7beb"></script>
 </helmet>
 <header class="{{ headerClass }}">
   <div class="hdr__full">
@@ -71,62 +71,70 @@
     </div>
   </div>
 </header>
-<div class="{{ drawerClass }}" id="tb-drawer" data-open="{{ open }}" aria-hidden="{{ closed }}">
-  <div class="drawer__topwrap"><div class="drawer__top">
-    <a href="/" aria-label="2BIRDS, home"><img class="logo" src="assets/logo-text.png" alt="2BIRDS"></a>
-    <button class="drawer__close" type="button" onClick="{{ closeMenu }}">Close</button>
-  </div></div>
-  <div class="drawer__body">
-    <nav class="drawer__main" aria-label="Practice areas">
-      <a href="/brand">
-        <span class="drawer__label">I</span>
-        <span><span class="drawer__title">Brand</span></span>
-      </a>
-      <a href="/wsqcurriculumdevelopment">
-        <span class="drawer__label">II</span>
-        <span><span class="drawer__title">WSQ Curriculum Development</span></span>
-      </a>
-      <a href="/atosetupadvisory">
-        <span class="drawer__label">III</span>
-        <span><span class="drawer__title">{{ t.ato }}</span></span>
-      </a>
-        <a class="drawer__subitem" href="/atosetupadvisory"><span class="drawer__label"></span><span><span class="drawer__title">Organisation Registration</span></span></a>
-        <a class="drawer__subitem" href="/workshops"><span class="drawer__label"></span><span><span class="drawer__title">Workshops</span></span></a>
-        <a class="drawer__subitem" href="/customised-tms"><span class="drawer__label"></span><span><span class="drawer__title">Customised TMS</span></span></a>
-      <a href="/ssgauditmatters">
-        <span class="drawer__label">IV</span>
-        <span><span class="drawer__title">TPQA Audit Matters</span></span>
-      </a>
-      <a href="/creativemarketing">
-        <span class="drawer__label">V</span>
-        <span><span class="drawer__title">Creative Marketing</span></span>
-      </a>
-    </nav>
-    <img class="drawer__mono" src="assets/monogram.png" alt="" aria-hidden="true">
-    <div class="drawer__aside">
-      <div class="drawer__group">
-        <h3 class="drawer__label">Client services</h3>
-        <nav class="drawer__sub" aria-label="Client services">
-          <a href="/contact">Book a consultation</a>
-        </nav>
+<div class="{{ mpClass }}" id="tb-drawer" aria-hidden="{{ closed }}">
+  <div class="mp__veil" onClick="{{ closeMenu }}"></div>
+  <div class="mp__panel" role="dialog" aria-modal="true" aria-label="{{ t.menu }}" onKeyDown="{{ trap }}">
+    <div class="mp__top">
+      <button class="mp__close" type="button" onClick="{{ closeMenu }}"><svg class="mp__x" viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13" fill="none" stroke="currentColor" stroke-width="1"></path></svg><span>Close</span></button>
+      <a class="mp__mono" href="/" aria-label="2BIRDS, home"><img src="assets/monogram.png" alt=""></a>
+    </div>
+    <div class="mp__track" data-level="{{ track }}">
+      <div class="mp__pane mp__pane--main" aria-hidden="{{ subActive }}">
+        <nav aria-label="Practice areas"><ul class="mp__list">
+          <li><a href="/brand" data-cur="{{ cur.brand }}"><span class="mp__lbl">{{ t.brand }}</span></a></li>
+          <li><a href="/wsqcurriculumdevelopment" data-cur="{{ cur.wsq }}"><span class="mp__lbl">{{ t.wsq }}</span></a></li>
+          <li><button type="button" class="mp__more" data-cur="{{ cur.swda }}" aria-haspopup="true" data-go="swda" onClick="{{ goSwda }}"><span class="mp__lbl">{{ t.ato }}</span><svg class="mp__chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1"></path></svg></button></li>
+          <li><a href="/ssgauditmatters" data-cur="{{ cur.audit }}"><span class="mp__lbl">{{ t.audit }}</span></a></li>
+          <li><a href="/creativemarketing" data-cur="{{ cur.mkt }}"><span class="mp__lbl">{{ t.marketing }}</span></a></li>
+        </ul></nav>
+        <ul class="mp__list">
+          <li><a href="/contact" data-cur="{{ cur.contact }}"><span class="mp__lbl">{{ t.enquiry }}</span></a></li>
+          <li><a href="/join" data-cur="{{ cur.join }}"><span class="mp__lbl">Join our community</span></a></li>
+        </ul>
+        <ul class="mp__list mp__list--sm">
+          <li><button type="button" class="mp__more" data-cur="{{ cur.legal }}" aria-haspopup="true" data-go="legal" onClick="{{ goLegal }}"><span class="mp__lbl">Legal</span><svg class="mp__chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1"></path></svg></button></li>
+          <li><a href="tel:+6585953945"><span class="mp__lbl">+65 8595 3945</span></a></li>
+          <li><a href="mailto:hello@2birds.asia"><span class="mp__lbl">hello@2birds.asia</span></a></li>
+          <li><button type="button" class="mp__more" aria-haspopup="true" data-go="locale" onClick="{{ goLocale }}"><span class="mp__lbl">{{ region }} · {{ langLabel }}</span><svg class="mp__chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1"></path></svg></button></li>
+        </ul>
+        <address class="mp__addr">7 Temasek Boulevard, #12-07, Suntec Tower One, Singapore 038987</address>
       </div>
-      <div class="drawer__group">
-        <h3 class="drawer__label">The house of <span class="brand">2BIRDS</span></h3>
-        <nav class="drawer__sub" aria-label="More from 2BIRDS">
-          <a href="/legal-statement">Legal Statement</a>
-          <a href="/terms">Website Terms of Use</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/engagement">Terms of Engagement</a>
-        </nav>
-      </div>
-      <div class="drawer__group">
-        <h3 class="drawer__label">Location</h3>
-        <address class="drawer__foot">
-          7 Temasek Boulevard, #12-07<br>
-          Suntec Tower One, Singapore 038987<br>
-          <span class="drawer__foot-l">Mobile · <a href="tel:+6585953945">+65 8595 3945</a></span><br>
-          <span class="drawer__foot-l"><a href="mailto:hello@2birds.asia">hello@2birds.asia</a></span>
-        </address>
+      <div class="mp__pane mp__pane--sub" aria-hidden="{{ mainActive }}">
+        <button type="button" class="mp__back" onClick="{{ goMain }}"><svg class="mp__chev mp__chev--back" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M7 1L1 7l6 6" fill="none" stroke="currentColor" stroke-width="1"></path></svg><span class="mp__lbl">Back</span></button>
+        <sc-if value="{{ lvSwda }}" hint-placeholder-val="{{ false }}">
+          <p class="mp__h">{{ t.ato }}</p>
+          <ul class="mp__list">
+            <li><a href="/atosetupadvisory" data-cur="{{ cur.reg }}"><span class="mp__lbl">Organisation Registration</span></a></li>
+            <li><a href="/workshops" data-cur="{{ cur.wks }}"><span class="mp__lbl">Workshops</span></a></li>
+            <li><a href="/customised-tms" data-cur="{{ cur.tms }}"><span class="mp__lbl">Customised TMS</span></a></li>
+          </ul>
+        </sc-if>
+        <sc-if value="{{ lvLegal }}" hint-placeholder-val="{{ false }}">
+          <p class="mp__h">Legal</p>
+          <ul class="mp__list">
+            <li><a href="/legal-statement" data-cur="{{ cur.ls }}"><span class="mp__lbl">Legal Statement</span></a></li>
+            <li><a href="/terms" data-cur="{{ cur.tou }}"><span class="mp__lbl">Website Terms of Use</span></a></li>
+            <li><a href="/privacy" data-cur="{{ cur.pp }}"><span class="mp__lbl">Privacy Policy</span></a></li>
+            <li><a href="/engagement" data-cur="{{ cur.toe }}"><span class="mp__lbl">Terms of Engagement</span></a></li>
+          </ul>
+        </sc-if>
+        <sc-if value="{{ lvLocale }}" hint-placeholder-val="{{ false }}">
+          <p class="mp__h">Country and language</p>
+          <label class="mp__k" for="mp-region">Country or region</label>
+          <span class="mp__sel"><select id="mp-region" value="{{ region }}" onChange="{{ onRegion }}">
+            <sc-for list="{{ regionGroups }}" as="g" hint-placeholder-count="5">
+              <optgroup label="{{ g.name }}">
+                <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="4"><option value="{{ c }}">{{ c }}</option></sc-for>
+              </optgroup>
+            </sc-for>
+          </select></span>
+          <p class="mp__k" id="mp-lang-k">Language</p>
+          <ul class="mp__langs" role="listbox" aria-labelledby="mp-lang-k">
+            <sc-for list="{{ langs }}" as="l" hint-placeholder-count="12">
+              <li><button type="button" role="option" aria-selected="{{ l.selected }}" lang="{{ l.html }}" onClick="{{ l.pick }}"><span class="mp__lbl">{{ l.name }}</span></button></li>
+            </sc-for>
+          </ul>
+        </sc-if>
       </div>
     </div>
   </div>
@@ -134,7 +142,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:320},&quot;tone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;\&quot;dark\&quot; | \&quot;light\&quot;&quot;,&quot;section&quot;:&quot;Header&quot;}}">
 class Component extends DCLogic {
-  state = { subOpen: false, open: false, scrolled: false, lang: "en", langOpen: false, region: "Singapore" };
+  state = { subOpen: false, open: false, level: "main", scrolled: false, lang: "en", langOpen: false, region: "Singapore", page: "" };
 
   static LANGS = [
     { id: "en", name: "English", code: "EN", label: "English", html: "en-SG",
@@ -178,19 +186,12 @@ class Component extends DCLogic {
     "Taiwan": "zht", "Japan": "ja", "South Korea": "ko", "India": "hi", "Sri Lanka": "ta"
   };
 
-  setRegion(v) {
-    try { localStorage.setItem("tb-region", v); } catch (e) {}
-    try { window.dispatchEvent(new CustomEvent("tb-region", { detail: v })); } catch (e) {}
-    this.setState({ region: v });
-    this.setLang(Component.REGION_LANG[v] || "en");
-  }
-
-  setLang(id) {
-    try { localStorage.setItem("tb-lang", id); } catch (e) {}
-    var l = Component.LANGS.find((x) => x.id === id);
-    if (l) document.documentElement.lang = l.html;
-    try { window.dispatchEvent(new CustomEvent("tb-lang", { detail: id })); } catch (e) {}
-    this.setState({ lang: id, langOpen: false });
+  setRegion(v) { this.choose(v, Component.REGION_LANG[v] || "en"); }
+  setLang(id) { this.choose(this.state.region, id); this.setState({ langOpen: false }); }
+  choose(region, lang) {
+    if (window.TBLocale) window.TBLocale.set(region, lang, "user");
+    else { try { localStorage.setItem("tb-region", region); localStorage.setItem("tb-lang", lang); localStorage.setItem("tb-locale-src", "user"); } catch (e) {} }
+    this.setState({ region: region, lang: lang });
   }
 
   componentDidMount() {
@@ -198,13 +199,30 @@ class Component extends DCLogic {
     document.addEventListener("click", this._subOff);
     this._subEsc = (e) => { if (e.key === "Escape" && this.state.subOpen) this.setState({ subOpen: false }); };
     document.addEventListener("keydown", this._subEsc);
-    try { var saved = localStorage.getItem("tb-lang"); if (saved && saved !== "en") this.setLang(saved); } catch (e) {}
+    try { var saved = localStorage.getItem("tb-lang"); if (saved) this.setState({ lang: saved }); } catch (e) {}
     try { var r = localStorage.getItem("tb-region"); if (r) this.setState({ region: r }); } catch (e) {}
-    this._region = (e) => { if (e.detail !== this.state.region) { this.setState({ region: e.detail }); this.setLang(Component.REGION_LANG[e.detail] || "en"); } };
+    this._region = (e) => { if (e.detail !== this.state.region) this.setState({ region: e.detail }); };
     window.addEventListener("tb-region", this._region);
+    this._langEv = (e) => { if (e.detail !== this.state.lang) this.setState({ lang: e.detail }); };
+    window.addEventListener("tb-lang", this._langEv);
+    try { this.setState({ page: (location.pathname.split("/").pop() || "/").toLowerCase() }); } catch (e) {}
+    var go = () => { if (window.TBLocale) window.TBLocale.detect(); };
+    if (window.TBLocale) go(); else window.addEventListener("load", go, { once: true });
+    this._trapKey = (e) => {
+      if (!this.state.open) return;
+      if (e.key === "Escape") { e.preventDefault(); this.close(); return; }
+      if (e.key !== "Tab") return;
+      var panel = document.querySelector(".mp__panel"); if (!panel) return;
+      var f = Array.prototype.filter.call(panel.querySelectorAll("a[href],button,select,[tabindex]:not([tabindex='-1'])"), function (el) { if (el.disabled) return false; var cs = getComputedStyle(el); if (cs.visibility === "hidden" || cs.display === "none") return false; var r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0; });
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && (document.activeElement === first || !panel.contains(document.activeElement))) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && (document.activeElement === last || !panel.contains(document.activeElement))) { e.preventDefault(); first.focus(); }
+    };
+    document.addEventListener("keydown", this._trapKey, true);
     this._outside = (e) => { if (this.state.langOpen && !e.target.closest(".hdr__lang")) this.setState({ langOpen: false }); };
     document.addEventListener("click", this._outside);
-    this._esc = (e) => { if (e.key === "Escape") { this.setState({ langOpen: false }); this.close(); } };
+    this._esc = (e) => { if (e.key === "Escape" && !this.state.open) this.setState({ langOpen: false }); };
     document.addEventListener("keydown", this._esc);
     this._sync = () => {
       var y = window.scrollY || window.pageYOffset || 0;
@@ -228,11 +246,29 @@ class Component extends DCLogic {
     window.removeEventListener("pageshow", this._sync);
     window.removeEventListener("hashchange", this._sync);
     window.removeEventListener("load", this._sync);
-    document.body.style.overflow = "";
+    document.removeEventListener("keydown", this._trapKey, true);
+    window.removeEventListener("tb-region", this._region);
+    window.removeEventListener("tb-lang", this._langEv);
+    document.body.style.overflow = ""; document.documentElement.style.overflow = "";
   }
 
-  open() { document.body.style.overflow = "hidden"; this.setState({ open: true }); }
-  close() { document.body.style.overflow = ""; this.setState({ open: false }); }
+  open() {
+    document.body.style.overflow = "hidden"; document.documentElement.style.overflow = "hidden";
+    this.setState({ open: true, level: "main", langOpen: false }, () => setTimeout(() => { var c = document.querySelector(".mp__close"); if (c) c.focus(); }, 60));
+  }
+  close() {
+    if (!this.state.open) return;
+    document.body.style.overflow = ""; document.documentElement.style.overflow = "";
+    this.setState({ open: false }, () => { var b = document.querySelector(".hdr__menu"); if (b && b.offsetParent !== null) b.focus(); });
+  }
+  level(l) {
+    var from = this.state.level;
+    this.setState({ level: l }, () => setTimeout(() => {
+      var sel = l === "main" ? ".mp__pane--main .mp__more[data-go='" + from + "'], .mp__pane--main a, .mp__pane--main button" : ".mp__back";
+      var el = document.querySelector(l === "main" ? ".mp__pane--main [data-go='" + from + "']" : ".mp__back") || document.querySelector(sel);
+      if (el) el.focus();
+    }, 380));
+  }
 
   renderVals() {
     var cur = Component.LANGS.find((x) => x.id === this.state.lang) || Component.LANGS[0];
@@ -246,12 +282,28 @@ class Component extends DCLogic {
       onRegion: (e) => this.setRegion(e.target.value),
       langOpen: this.state.langOpen,
       toggleLang: () => this.setState((s) => ({ langOpen: !s.langOpen })),
-      langs: Component.LANGS.map((l) => ({ name: l.name, code: l.code, selected: l.id === cur.id, pick: () => this.setLang(l.id) })),
+      langs: Component.LANGS.map((l) => ({ name: l.name, code: l.code, html: l.html, selected: l.id === cur.id, pick: () => this.setLang(l.id) })),
       open: this.state.open,
       headerClass: this.state.scrolled
         ? "site-header is-scrolled"
         : (this.props.tone === "light" ? "site-header is-on-light" : "site-header"),
-      drawerClass: this.state.open ? "drawer drawer--open" : "drawer",
+      mpClass: this.state.open ? "mp mp--open" : "mp",
+      track: this.state.level === "main" ? "main" : "sub",
+      subActive: this.state.level !== "main",
+      mainActive: this.state.level === "main",
+      lvSwda: this.state.level === "swda",
+      lvLegal: this.state.level === "legal",
+      lvLocale: this.state.level === "locale",
+      goSwda: () => this.level("swda"),
+      goLegal: () => this.level("legal"),
+      goLocale: () => this.level("locale"),
+      goMain: () => this.level("main"),
+      trap: () => {},
+      cur: (() => {
+        var p = this.state.page, is = (f) => p === f;
+        var wk = /^workshop/.test(p);
+        return { brand: is("/brand"), wsq: is("/wsqcurriculumdevelopment"), swda: is("/atosetupadvisory") || wk || is("/customised-tms"), audit: is("/ssgauditmatters") || is("/what-tpqa-assesses"), mkt: is("/creativemarketing"), contact: is("/contact"), join: is("/join"), legal: is("/legal-statement") || is("/terms") || is("/privacy") || is("/engagement"), reg: is("/atosetupadvisory"), wks: wk, tms: is("/customised-tms"), ls: is("/legal-statement"), tou: is("/terms"), pp: is("/privacy"), toe: is("/engagement") };
+      })(),
       closed: !this.state.open,
       openMenu: () => this.open(),
       closeMenu: () => this.close()

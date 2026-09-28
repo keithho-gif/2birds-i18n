@@ -27,15 +27,15 @@
 <!-- /social share -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/site.css?v=1f6d1f36">
+<link rel="stylesheet" href="/site.css?v=acd2bca8">
 <script src="/support.js?v=d568b663"></script>
 
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=1f6d1f36">
-  <script src="/site.js?v=f167ddaa"></script>
+  <link rel="stylesheet" href="/site.css?v=acd2bca8">
+  <script src="/site.js?v=6a4f7beb"></script>
 </helmet>
 
 <dc-import name="SiteHeader" hint-size="100%,0" style="height:0"></dc-import>
@@ -66,7 +66,8 @@
 
   <section class="section" style="padding-top:0" id="list" data-block="wk-list">
     <div class="wrap">
-      <nav class="wkp-tabs" aria-label="Workshop categories">
+      <p class="wkp-choose" id="wkp-choose">Choose a series</p>
+      <nav class="wkp-tabs" aria-label="Workshop categories" aria-describedby="wkp-choose">
         <a href="/workshops#list">Training operations and compliance</a>
         <a href="/workshops-ai#list" aria-current="page">AI and robotics</a>
       </nav>

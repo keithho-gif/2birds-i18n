@@ -27,15 +27,15 @@
 <!-- /social share -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/site.css?v=1f6d1f36">
+<link rel="stylesheet" href="/site.css?v=acd2bca8">
 <script src="/support.js?v=d568b663"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Customised Training Management System (Nest)","description":"Nest, the training management system 2BIRDS builds and customises for training providers, connected to TPGateway.","url":"https://www.2birds.asia/customised-tms","areaServed":{"@type":"Country","name":"Singapore"},"provider":{"@id":"https://www.2birds.asia/#org","@type":"ProfessionalService","name":"2BIRDS","url":"https://www.2birds.asia/"}}</script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=1f6d1f36">
-  <script src="/site.js?v=f167ddaa"></script>
+  <link rel="stylesheet" href="/site.css?v=acd2bca8">
+  <script src="/site.js?v=6a4f7beb"></script>
 </helmet>
 
 <dc-import name="SiteHeader" hint-size="100%,0" style="height:0"></dc-import>
@@ -855,7 +855,7 @@ class Component extends DCLogic {
     { n: "Rashid Yusof", regs: 11, fees: 13200 },
     { n: "Priya Menon", regs: 8, fees: 9600 }
   ];
-  state = { heroT: 0, heroB: 0, active: 0, t: 0, mode: "with", stack: false, pin: false, reduce: false,
+  state = { sv: -1, heroT: 0, heroB: 0, active: 0, t: 0, mode: "with", stack: false, pin: false, reduce: false,
     fee: "1000", prof: 1, shown: 300, prov: 0, fit: 1, c: 0, heroVis: false, flowVis: false, ciVis: false };
 
   money(n, bare) { var s = Number(n).toLocaleString("en-SG", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); return bare ? s : "S$" + s; }
@@ -879,7 +879,8 @@ class Component extends DCLogic {
       if (!w) return;
       var st = w < 768;
       this._hm = {};
-      this.setState({ stack: st, pin: !st, reduce: !!(this._rm && this._rm.matches) }, () => { this._scroll(); this._tick(); });
+      if (st !== this.state.stack) { this._tm = []; }
+      this.setState({ stack: st, pin: !st, sv: st ? this.state.sv : -1, reduce: !!(this._rm && this._rm.matches) }, () => { this._scroll(); this._tick(); });
     };
     this._vis = () => {
       var chk = (id) => { var el = document.getElementById(id); if (!el) return false; var r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight && r.height > 0; };
@@ -897,6 +898,21 @@ class Component extends DCLogic {
       var i = Math.max(0, Math.min(7, Math.floor(p + 0.3)));
       if (i !== this.state.active) this.setActive(i);
     };
+    this._stackPoll = () => {
+      this._vis();
+      if (!this.state.stack) return;
+      var vh = window.innerHeight || document.documentElement.clientHeight, best = -1, bestR = 0;
+      for (var k = 0; k < 8; k++) {
+        var p = document.querySelector("#moment-0" + (k + 1) + " .nx-ch__panel"); if (!p) continue;
+        var r = p.getBoundingClientRect(); if (!r.height) continue;
+        var seen = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0)) / Math.min(r.height, vh);
+        if (seen >= 0.4 && seen > bestR) { bestR = seen; best = k; }
+      }
+      var cur = this.state.sv;
+      if (best >= 0 && best !== cur) this._stackSee(best, true);
+      else if (best < 0 && cur >= 0) this._stackSee(cur, false);
+    };
+    this._pollT = setInterval(this._stackPoll, 400);
     window.addEventListener("resize", this._layout);
     window.addEventListener("scroll", this._scroll, { passive: true });
     if (this._rm && this._rm.addEventListener) this._rm.addEventListener("change", this._layout);
@@ -912,8 +928,13 @@ class Component extends DCLogic {
           if (id === "follow" && v !== this.state.flowVis) this.setState({ flowVis: v }, () => this._tick());
           if (id === "identity" && v !== this.state.ciVis) this.setState({ ciVis: v }, () => this._ci());
         });
-      }, { threshold: 0.12 });
+      }, { threshold: [0, 0.01, 0.12] });
       ["nx-hero", "follow", "identity"].forEach((id) => { var el = document.getElementById(id); if (el) this._io.observe(el); });
+      this._sio = new IntersectionObserver((es) => {
+        if (!this.state.stack) return;
+        es.forEach((e) => { var i = +e.target.getAttribute("data-mi"); this._stackSee(i, e.isIntersecting && e.intersectionRatio >= 0.4); });
+      }, { threshold: [0, 0.4, 0.6] });
+      for (var mi = 0; mi < 8; mi++) { var p = document.querySelector("#moment-0" + (mi + 1) + " .nx-ch__panel"); if (p) { p.setAttribute("data-mi", mi); this._sio.observe(p); } }
     }
   }
   componentDidUpdate() { this._fitNow(); }
@@ -933,7 +954,7 @@ class Component extends DCLogic {
     window.removeEventListener("scroll", this._scroll);
     window.removeEventListener("load", this._onload);
     if (this._rm && this._rm.removeEventListener) this._rm.removeEventListener("change", this._layout);
-    if (this._io) this._io.disconnect();
+    if (this._io) this._io.disconnect(); if (this._sio) this._sio.disconnect(); clearInterval(this._pollT);
     clearTimeout(this._ht); clearTimeout(this._mt); clearTimeout(this._ct); clearTimeout(this._cit);
   }
   _hero() {
@@ -946,7 +967,8 @@ class Component extends DCLogic {
   }
   _tick() {
     clearTimeout(this._mt);
-    if (this.state.reduce || this.state.stack || !this.state.flowVis) return;
+    if (this.state.reduce || !this.state.flowVis) return;
+    if (this.state.stack && !(this.state.sv >= 0)) return;
     if (this.state.t >= this.maxT()) { this._mt = setTimeout(() => this._loopFade("mfade", () => this.setState({ t: 0 }, () => this._tick())), 3000); return; }
     this._mt = setTimeout(() => this.setState((s) => ({ t: s.t + 1 }), () => this._tick()), 90);
   }
@@ -954,7 +976,29 @@ class Component extends DCLogic {
     var o = {}; o[key] = true;
     this.setState(o, () => setTimeout(() => { then(); setTimeout(() => { var p = {}; p[key] = false; this.setState(p); }, 60); }, 260));
   }
-  _restart() { clearTimeout(this._mt); this.setState({ t: 0 }, () => this._tick()); }
+  _T(i) {
+    var s = this.state;
+    if (s.reduce) return 999;
+    if (!s.stack) return s.t;
+    if (i === s.sv) return s.t;
+    var v = this._tm && this._tm[i];
+    return v == null ? 0 : v;
+  }
+  _stackSee(i, on) {
+    this._tm = this._tm || [];
+    var s = this.state;
+    if (on) {
+      if (s.sv === i) return;
+      if (s.sv >= 0) this._tm[s.sv] = s.t;
+      var start = this._tm[i] || 0;
+      this.setState({ sv: i, t: start, flowVis: true }, () => this._tick());
+    } else if (s.sv === i) {
+      this._tm[i] = s.t;
+      clearTimeout(this._mt);
+      this.setState({ sv: -1 });
+    }
+  }
+  _restart() { clearTimeout(this._mt); this._tm = []; this.setState({ t: 0 }, () => this._tick()); }
   _ci() {
     clearTimeout(this._cit);
     if (this.state.reduce || !this.state.ciVis) return;
@@ -998,7 +1042,7 @@ class Component extends DCLogic {
 
   renderVals() {
     var self = this, s = this.state, L = this.L;
-    var fin = s.stack || s.reduce;
+    var fin = s.reduce;
     var T = fin ? 999 : s.t;
     var tp = (str, st, per) => this.typed(str, T, st, per);
     var chip = (h, l) => ({ h: h, l: l });
@@ -1016,8 +1060,10 @@ class Component extends DCLogic {
     out.heroCount = s.reduce ? 30 : 26 + s.heroB * 4 + acc;
 
     // moment 01
+    T = self._T(0);
     out.m1g = T >= 5; out.m1nett = T >= 9 ? "S$390.00" : "Calculating"; out.m1h = T >= 13 ? "mint" : "sand"; out.m1l = T >= 13 ? "Quote sent" : "Draft";
     // moment 02
+    T = self._T(1);
     var m2rows = [];
     if (T >= 5) m2rows.push({ cls: "nx-in nx-new", name: "Lucas Teo", emp: "Lumen Engineering Pte Ltd", sp: "Company-sponsored", cons: T >= 12 ? "Daniel Ong" : "Unassigned", consCls: T >= 12 ? "nx-in" : "nx-muted", h: "lavender", l: "New" });
     m2rows.push({ cls: "", name: "Chloe Lim", emp: "Self", sp: "Self-sponsored", cons: "Mei Ling Tan", consCls: "", h: "mint", l: "Enrolled" });
@@ -1025,6 +1071,7 @@ class Component extends DCLogic {
     m2rows.push({ cls: "", name: "Isabel Chua", emp: "Self", sp: "Self-sponsored", cons: "Daniel Ong", consCls: "", h: "mint", l: "Enrolled" });
     out.m2rows = m2rows; out.m2count = T >= 5 ? 48 : 47;
     // moment 03
+    T = self._T(2);
     var q3 = 0, s3 = 0, a3 = 0;
     out.m3rows = L.map(function (n, i) {
       var st, reason = "";
@@ -1037,12 +1084,14 @@ class Component extends DCLogic {
     });
     out.m3q = q3; out.m3s = s3; out.m3a = a3;
     // moment 04
+    T = self._T(3);
     out.m4rows = [["7 days before", "Joining instructions and course outline", 16, 5], ["1 day before", "Venue directions and reminder", 16, 12], ["Morning of class", "Trainer briefing with class list and forecast", 4, 19]].map(function (r) { var d = T >= r[3]; return { when: r[0], what: r[1], h: d ? "mint" : "sand", l: d ? "Sent" : "Scheduled", count: d ? r[2] + " sent" : r[2] + " recipients" }; });
     out.m4wa = [["Grace Wong", 24], ["Lucas Teo", 28], ["Aisha Rahman", 0]].map(function (r) { return { name: r[0], tick: r[1] > 0 && T >= r[1], del: r[1] > 0 && T >= 42 }; });
     out.m4press = T >= 32 && T < 35; out.m4bub = T >= 36;
     out.m4sel = T >= 42 ? "Delivered to 2 learners" : (T >= 28 ? "2 learners selected" : (T >= 24 ? "1 learner selected" : "Select learners"));
 
     // moment 05
+    T = self._T(4);
     out.m5map = T >= 2;
     out.m5rows = L.map(function (n, i) {
       var late = n === "Darren Koh" || n === "Esther Ng";
@@ -1061,6 +1110,7 @@ class Component extends DCLogic {
     out.m5note = T >= 54; out.m5h = T >= 60 ? "mint" : "sand"; out.m5l = T >= 60 ? "Submitted to TPGateway" : "Awaiting attendance";
 
     // moment 06
+    T = self._T(5);
     out.m6assess = T < 14;
     out.m6conv = T >= 14;
     out.m6rows = L.map(function (n, i) { return T >= 1 + i ? { name: n, h: "mint", l: "Competent" } : { name: n, h: "none", l: "Pending" }; });
@@ -1080,9 +1130,11 @@ class Component extends DCLogic {
     out.m6fcls = "nx-fly" + (fly ? " is-on" : "") + (ph >= 2 ? " is-pdf" : "") + (ph === 2 ? " is-flip" : "");
 
     // moment 07
+    T = self._T(6);
     var f7 = Math.max(0, Math.min(1, (T - 4) / 20));
     out.m7col = this.money(4600 * f7); out.m7h = T >= 26 ? "mint" : "sand"; out.m7l = T >= 26 ? "Submitted" : "Grant deadline in 12 days";
     // moment 08
+    T = self._T(7);
     var docs = ["Class list and enrolment records", "Attendance, AM and PM sessions", "Assessment records", "Assessment scripts and evidence", "Certificates issued", "Trainee feedback evaluations", "Trainer assignment and qualifications", "Fee, invoice and grant records"];
     var trail = [["07 Oct 2026, 9.14 am", "Darren Koh marked on the way, AM session, by Mei Ling Tan"], ["07 Oct 2026, 1.02 pm", "Esther Ng moved to the 21 Oct class by Mei Ling Tan"], ["08 Oct 2026, 5.40 pm", "Assessment outcomes submitted by Ravi Kumar"], ["09 Oct 2026, 10.05 am", "Grant claim submitted by Finance"]];
     out.m8ev = docs.filter(function (d, k) { return T >= 2 + k * 2; }).map(function (d) { return { doc: d }; });
@@ -1090,18 +1142,20 @@ class Component extends DCLogic {
     out.m8tr = trail.filter(function (r, k) { return T >= 22 + k * 2; }).map(function (r) { return { t: r[0], e: r[1] }; });
 
     // ---------- manual scenes ----------
-    out.xc1 = this.clock(540, 0.5, T); out.xc2 = this.clock(570, 0.45, T); out.xc3 = this.clock(840, 0.6, T);
-    out.xc4 = this.clock(1334, 0.2, T, 1360); out.xc5 = this.clock(1085, 0.3, T); out.xc6 = this.clock(960, 0.55, T);
-    out.xc8 = this.clock(915, 0.6, T);
-    var d7 = Math.min(21, 7 + Math.floor(T / 7));
+    out.xc1 = this.clock(540, 0.5, self._T(0)); out.xc2 = this.clock(570, 0.45, self._T(1)); out.xc3 = this.clock(840, 0.6, self._T(2));
+    out.xc4 = this.clock(1334, 0.2, self._T(3), 1360); out.xc5 = this.clock(1085, 0.3, self._T(4)); out.xc6 = this.clock(960, 0.55, self._T(5));
+    out.xc8 = this.clock(915, 0.6, self._T(7));
+    var d7 = Math.min(21, 7 + Math.floor(self._T(6) / 7));
     out.xc7 = (d7 < 10 ? "0" : "") + d7 + " Oct 2026";
     // 01
+    T = self._T(0);
     var fx = tp("=1000 x 0.5", 30, 2);
     out.x1fx = fx; out.x1cell = T >= 54 ? "500" : fx;
     out.x1b2 = T < 10 ? "mx-sel" : ""; out.x1c2 = T >= 10 && T < 20 ? "mx-sel" : ""; out.x1b3 = T >= 20 && T < 30 ? "mx-sel" : "";
     out.x1d3 = T >= 30 ? (T >= 110 ? "mx-sel mx-bad" : "mx-sel") : "";
     out.x1mail = T >= 64; out.x1err = T >= 110;
     // 02
+    T = self._T(1);
     var inbox = [["Email", "Registration for Service Excellence, Lucas Teo"], ["Chat", "Lucas Teo, NRIC and employer details"], ["Attachment", "registrations_october.xlsx"]];
     out.x2in = inbox.filter(function (m, k) { return T >= 2 + k * 8; }).map(function (m) { return { k: m[0], s: m[1] }; });
     var f2 = [["Full name", "Lucas Teo", 28], ["NRIC", "S****576A", 50], ["Employer", "Lumen Engineering Pte Ltd", 70], ["Sponsorship", "Company-sponsored", 100]];
@@ -1112,12 +1166,14 @@ class Component extends DCLogic {
     });
     out.x2err = T >= 116;
     // 03
+    T = self._T(2);
     var f3 = [["Course reference", "TGS-2026004815", 6], ["Learner", "Aisha Rahman", 40], ["Sponsorship", "Company-sponsored", 64], ["Course fee", "1,000.00", 96]];
     out.x3f = f3.map(function (f) { var v = tp(f[1], f[2], 2); return { l: f[0], v: v, cur: v.length > 0 && v.length < f[1].length }; });
     var done3 = Math.min(3, Math.floor(T / 40));
     out.x3n = done3 + 1 > 12 ? 12 : done3 + 1; out.x3togo = 11 - done3;
     out.x3err = T >= 112;
     // 04
+    T = self._T(3);
     var ppl = ["Aisha Rahman", "Benjamin Tan", "Chloe Lim", "Darren Koh", "Esther Ng", "Farid Ismail"];
     var nSent = Math.min(5, Math.floor(T / 22));
     out.x4to = ppl[Math.min(nSent, 5)];
@@ -1125,9 +1181,11 @@ class Component extends DCLogic {
     out.x4sent = ppl.slice(0, nSent).map(function (p) { return { to: "To " + p }; });
     out.x4err = T >= 104;
     // 05
+    T = self._T(4);
     out.x5rows = L.map(function (n, i) { var gap = n === "Darren Koh"; var on = T >= 2 + i * 5; return { name: n, cls: "mx-paper__r" + (gap ? " is-empty" : on ? " is-signed" : ""), }; });
     out.x5err = T >= 76; out.x5wait = T >= 90;
     // 06
+    T = self._T(5);
     var sent6 = Math.min(3, Math.floor(T / 38));
     var cur6 = Math.min(11, sent6);
     out.x6d = cur6 + 1; out.x6dp = Math.min(100, ((T % 38) / 30) * 100) + "%";
@@ -1136,15 +1194,18 @@ class Component extends DCLogic {
     out.x6to = T % 38 >= 26 || fin ? L[cur6] : "";
     out.x6sent = sent6;
     // 07
+    T = self._T(6);
     out.x7today = out.xc7;
     var lapsed = d7 > 19;
     out.x7col = "4,600"; out.x7dl = lapsed ? "mx-bad" : (d7 >= 16 ? "mx-sel" : ""); out.x7st = lapsed ? "mx-bad" : ""; out.x7stv = lapsed ? "Grant lapsed" : "Open"; out.x7err = lapsed && T >= 104;
     // 08
+    T = self._T(7);
     var sc = [["Folder", "Class 2BA-SE-1007, attendance scans", "4%", "6%"], ["Inbox search", "attendance 1007, 23 results", "52%", "4%"], ["Folder", "Assessment scripts, October", "30%", "30%"], ["Inbox search", "feedback forms, 9 results", "62%", "34%"], ["Folder", "Trainer CVs, final, v3", "6%", "58%"], ["Desktop", "certificates_renamed", "44%", "62%"], ["Inbox search", "grant claim 1007, 2 results", "68%", "66%"]];
     out.x8items = sc.filter(function (c, k) { return T >= 2 + k * 12; }).map(function (c) { return { k: c[0], s: c[1], x: c[2], y: c[3], cls: "mx-scatter__c nx-in" }; });
     out.x8n = Math.min(14, Math.floor(T / 8));
 
     // ledger
+    T = fin ? 999 : s.t;
     var W = s.mode === "without";
     var led = function (arr) {
       if (s.stack) return arr[7];

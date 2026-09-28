@@ -397,3 +397,64 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   }
   arm(); new MutationObserver(arm).observe(document.documentElement,{childList:true,subtree:true});
 })();
+
+/* ========== Region and language · one source for header, menu and footer ========== */
+(function () {
+  if (window.TBLocale) return;
+  var REGION_LANG = { "Singapore": "en", "Malaysia": "ms", "Brunei": "ms", "Indonesia": "id", "Philippines": "fil", "Thailand": "th", "Vietnam": "vi", "China": "zh", "Hong Kong": "zht", "Macau": "zht", "Taiwan": "zht", "Japan": "ja", "South Korea": "ko", "India": "hi", "Sri Lanka": "ta" };
+  var HTML = { en: "en-SG", zh: "zh-Hans-SG", ms: "ms-SG", ta: "ta-SG", zht: "zh-Hant", ja: "ja", ko: "ko", id: "id", th: "th", vi: "vi", fil: "fil", hi: "hi" };
+  var ISO = { SG: "Singapore", BN: "Brunei", KH: "Cambodia", ID: "Indonesia", LA: "Laos", MY: "Malaysia", MM: "Myanmar", PH: "Philippines", TH: "Thailand", TL: "Timor-Leste", VN: "Vietnam", CN: "China", HK: "Hong Kong", JP: "Japan", MO: "Macau", MN: "Mongolia", KR: "South Korea", TW: "Taiwan", AF: "Afghanistan", BD: "Bangladesh", BT: "Bhutan", IN: "India", MV: "Maldives", NP: "Nepal", PK: "Pakistan", LK: "Sri Lanka", KZ: "Kazakhstan", KG: "Kyrgyzstan", TJ: "Tajikistan", TM: "Turkmenistan", UZ: "Uzbekistan", AM: "Armenia", AZ: "Azerbaijan", BH: "Bahrain", CY: "Cyprus", GE: "Georgia", IQ: "Iraq", IL: "Israel", JO: "Jordan", KW: "Kuwait", LB: "Lebanon", OM: "Oman", PS: "Palestine", QA: "Qatar", SA: "Saudi Arabia", SY: "Syria", TR: "Türkiye", AE: "United Arab Emirates", YE: "Yemen" };
+  var TZ = { "Asia/Singapore": "Singapore", "Asia/Kuala_Lumpur": "Malaysia", "Asia/Kuching": "Malaysia", "Asia/Jakarta": "Indonesia", "Asia/Pontianak": "Indonesia", "Asia/Makassar": "Indonesia", "Asia/Jayapura": "Indonesia", "Asia/Manila": "Philippines", "Asia/Bangkok": "Thailand", "Asia/Ho_Chi_Minh": "Vietnam", "Asia/Saigon": "Vietnam", "Asia/Phnom_Penh": "Cambodia", "Asia/Vientiane": "Laos", "Asia/Yangon": "Myanmar", "Asia/Rangoon": "Myanmar", "Asia/Brunei": "Brunei", "Asia/Dili": "Timor-Leste", "Asia/Shanghai": "China", "Asia/Urumqi": "China", "Asia/Chongqing": "China", "Asia/Harbin": "China", "Asia/Hong_Kong": "Hong Kong", "Asia/Macau": "Macau", "Asia/Taipei": "Taiwan", "Asia/Tokyo": "Japan", "Asia/Seoul": "South Korea", "Asia/Ulaanbaatar": "Mongolia", "Asia/Hovd": "Mongolia", "Asia/Choibalsan": "Mongolia", "Asia/Kolkata": "India", "Asia/Calcutta": "India", "Asia/Colombo": "Sri Lanka", "Asia/Dhaka": "Bangladesh", "Asia/Kathmandu": "Nepal", "Asia/Katmandu": "Nepal", "Asia/Thimphu": "Bhutan", "Indian/Maldives": "Maldives", "Asia/Karachi": "Pakistan", "Asia/Kabul": "Afghanistan", "Asia/Almaty": "Kazakhstan", "Asia/Qostanay": "Kazakhstan", "Asia/Aqtobe": "Kazakhstan", "Asia/Aqtau": "Kazakhstan", "Asia/Atyrau": "Kazakhstan", "Asia/Oral": "Kazakhstan", "Asia/Qyzylorda": "Kazakhstan", "Asia/Bishkek": "Kyrgyzstan", "Asia/Dushanbe": "Tajikistan", "Asia/Ashgabat": "Turkmenistan", "Asia/Tashkent": "Uzbekistan", "Asia/Samarkand": "Uzbekistan", "Asia/Yerevan": "Armenia", "Asia/Baku": "Azerbaijan", "Asia/Bahrain": "Bahrain", "Asia/Nicosia": "Cyprus", "Asia/Famagusta": "Cyprus", "Europe/Nicosia": "Cyprus", "Asia/Tbilisi": "Georgia", "Asia/Baghdad": "Iraq", "Asia/Jerusalem": "Israel", "Asia/Tel_Aviv": "Israel", "Asia/Amman": "Jordan", "Asia/Kuwait": "Kuwait", "Asia/Beirut": "Lebanon", "Asia/Muscat": "Oman", "Asia/Gaza": "Palestine", "Asia/Hebron": "Palestine", "Asia/Qatar": "Qatar", "Asia/Riyadh": "Saudi Arabia", "Asia/Damascus": "Syria", "Europe/Istanbul": "Türkiye", "Asia/Istanbul": "Türkiye", "Asia/Dubai": "United Arab Emirates", "Asia/Aden": "Yemen" };
+  function get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function put(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function fromNav() {
+    var list = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ""];
+    for (var i = 0; i < list.length; i++) {
+      var t = String(list[i] || "").toLowerCase();
+      if (!t) continue;
+      if (/^zh-(tw|hk|mo)|^zh-hant/.test(t)) return "zht";
+      if (/^zh/.test(t)) return "zh";
+      if (/^(fil|tl)\b/.test(t)) return "fil";
+      var b = t.split("-")[0];
+      if (["ms", "ta", "ja", "ko", "id", "th", "vi", "hi", "en"].indexOf(b) >= 0) return b;
+    }
+    return null;
+  }
+  var api = {
+    REGION_LANG: REGION_LANG,
+    read: function () { return { region: get("tb-region") || "Singapore", lang: get("tb-lang") || "en", src: get("tb-locale-src") || ((get("tb-region") || get("tb-lang")) ? "user" : "") }; },
+    set: function (region, lang, src) {
+      var cur = api.read();
+      if (src === "auto" && cur.src === "user") return;
+      region = region || cur.region; lang = lang || cur.lang;
+      put("tb-region", region); put("tb-lang", lang); put("tb-locale-src", src || "user");
+      document.documentElement.lang = HTML[lang] || "en-SG";
+      try { window.dispatchEvent(new CustomEvent("tb-region", { detail: region })); } catch (e) {}
+      try { window.dispatchEvent(new CustomEvent("tb-lang", { detail: lang })); } catch (e) {}
+      try { window.dispatchEvent(new CustomEvent("tb-locale", { detail: { region: region, lang: lang, src: src || "user" } })); } catch (e) {}
+    },
+    last: null,
+    detect: function () {
+      if (api._p) return api._p;
+      var cur = api.read();
+      if (cur.src) { document.documentElement.lang = HTML[cur.lang] || "en-SG"; api.last = { source: "stored", region: cur.region, lang: cur.lang }; return (api._p = Promise.resolve(api.last)); }
+      var how = "default";
+      api._p = fetch("/api/geo", { cache: "no-store" }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (j) {
+        var code = String((j && j.country) || "").toUpperCase(); if (!code) throw 0;
+        how = "geo"; return ISO[code] || "Singapore";
+      }).catch(function () {
+        var tz = ""; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+        if (TZ[tz]) { how = "timezone " + tz; return TZ[tz]; }
+        how = "default (timezone " + (tz || "unknown") + ")"; return "Singapore";
+      }).then(function (country) {
+        var n = fromNav(), lang = n || REGION_LANG[country] || "en";
+        api.last = { source: how, region: country, lang: lang, langFrom: n ? "browser" : (REGION_LANG[country] ? "country" : "default") };
+        api.set(country, lang, "auto");
+        return api.last;
+      });
+      return api._p;
+    }
+  };
+  window.TBLocale = api;
+  api.detect();
+})();

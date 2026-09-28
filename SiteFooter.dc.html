@@ -8,8 +8,8 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=1f6d1f36">
-  <script src="/site.js?v=f167ddaa"></script>
+  <link rel="stylesheet" href="/site.css?v=acd2bca8">
+  <script src="/site.js?v=6a4f7beb"></script>
 </helmet>
 <a class="wa-fab" href="https://wa.me/6585953945" target="_blank" rel="noopener" aria-label="Message 2BIRDS on WhatsApp">
   <span class="wa-fab__label">Message us</span>
@@ -64,7 +64,11 @@
           </sc-for>
         </select></span>
         <span class="ft__rsep" aria-hidden="true"></span>
-        <span class="ft__rlang">{{ langName }}</span>
+        <label class="u-sr" for="ft-lang">Language</label>
+        <span class="ft__rkey" aria-hidden="true">Language</span>
+        <span class="ft__rsel"><select id="ft-lang" value="{{ lang }}" onChange="{{ onLang }}">
+          <sc-for list="{{ langOpts }}" as="o" hint-placeholder-count="12"><option value="{{ o.id }}" lang="{{ o.html }}">{{ o.name }}</option></sc-for>
+        </select></span>
       </div>
     </div>
     <p class="ft__legal">© 2BIRDS PRIVATE LIMITED · UEN 202625717Z · ALL RIGHTS RESERVED.</p>
@@ -82,6 +86,9 @@ class Component extends DCLogic {
     { name: "Central Asia", items: ["Kazakhstan", "Kyrgyzstan", "Tajikistan", "Turkmenistan", "Uzbekistan"] },
     { name: "West Asia", items: ["Armenia", "Azerbaijan", "Bahrain", "Cyprus", "Georgia", "Iraq", "Israel", "Jordan", "Kuwait", "Lebanon", "Oman", "Palestine", "Qatar", "Saudi Arabia", "Syria", "Türkiye", "United Arab Emirates", "Yemen"] }
   ];
+  static LANG_ORDER = ["en", "zh", "zht", "ms", "ta", "id", "fil", "th", "vi", "ja", "ko", "hi"];
+  static LANG_HTML = { en: "en-SG", zh: "zh-Hans-SG", ms: "ms-SG", ta: "ta-SG", zht: "zh-Hant", ja: "ja", ko: "ko", id: "id", th: "th", vi: "vi", fil: "fil", hi: "hi" };
+  static REGION_LANG = { "Singapore": "en", "Malaysia": "ms", "Brunei": "ms", "Indonesia": "id", "Philippines": "fil", "Thailand": "th", "Vietnam": "vi", "China": "zh", "Hong Kong": "zht", "Macau": "zht", "Taiwan": "zht", "Japan": "ja", "South Korea": "ko", "India": "hi", "Sri Lanka": "ta" };
   static LANG_NAMES = { en: "English", zh: "简体中文", ms: "Bahasa Melayu", ta: "தமிழ்", zht: "繁體中文", ja: "日本語", ko: "한국어", id: "Bahasa Indonesia", th: "ภาษาไทย", vi: "Tiếng Việt", fil: "Filipino", hi: "हिन्दी" };
   componentDidMount() {
     try {
@@ -134,11 +141,17 @@ class Component extends DCLogic {
       region: this.state.region,
       regionGroups: Component.REGIONS,
       langName: Component.LANG_NAMES[this.state.lang] || "English",
+      lang: this.state.lang,
+      langOpts: Component.LANG_ORDER.map((id) => ({ id: id, name: Component.LANG_NAMES[id], html: Component.LANG_HTML[id] })),
       onRegion: (e) => {
-        var v = e.target.value;
-        try { localStorage.setItem("tb-region", v); } catch (err) {}
-        try { window.dispatchEvent(new CustomEvent("tb-region", { detail: v })); } catch (err) {}
-        this.setState({ region: v });
+        var v = e.target.value, l = Component.REGION_LANG[v] || "en";
+        if (window.TBLocale) window.TBLocale.set(v, l, "user");
+        this.setState({ region: v, lang: l });
+      },
+      onLang: (e) => {
+        var l = e.target.value;
+        if (window.TBLocale) window.TBLocale.set(this.state.region, l, "user");
+        this.setState({ lang: l });
       }
     };
   }
