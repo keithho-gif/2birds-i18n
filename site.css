@@ -4722,3 +4722,10 @@ main #case > :last-child,main #case > .wrap > :last-child,main #case .cf-wrap:la
 main #case .cf-reasons article:nth-last-child(-n+2){padding-bottom:0;border-bottom:0}
 @media (max-width:760px){main #case .cf-reasons article:nth-last-child(2){padding-bottom:24px;border-bottom:1px solid var(--hairline)}}
 main section[data-block$="-disclaimer"] + section.or-close{padding-top:var(--note-gap) !important}
+
+/* Organisation Registration · cost film opens the page */
+main .or-film{background:var(--paper);padding:var(--sec-y) 0 !important}
+main .or-film .cf{margin-top:0}
+main .or-film + .lv-sec.or-chap:where(:not(:has(> .lv-media))){padding-top:0 !important}
+main .or-film + .lv-sec.or-chap:where(:not(:has(> .lv-media))) .or-head{padding-top:0 !important}
+main #case .or-head + .cf-reasons{margin-top:0}

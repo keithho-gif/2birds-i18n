@@ -27,14 +27,14 @@
 <!-- /social share -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/site.css?v=37362112">
+<link rel="stylesheet" href="/site.css?v=1f6d1f36">
 <script src="/support.js?v=d568b663"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Organisation Registration with SWDA","description":"Advisory and preparation for Organisation Registration and Course Accreditation with the Skills and Workforce Development Agency (SWDA), from company to registered training provider.","url":"https://www.2birds.asia/atosetupadvisory","areaServed":{"@type":"Country","name":"Singapore"},"provider":{"@id":"https://www.2birds.asia/#org","@type":"ProfessionalService","name":"2BIRDS","url":"https://www.2birds.asia/"}}</script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=37362112">
+  <link rel="stylesheet" href="/site.css?v=1f6d1f36">
   <script src="/site.js?v=f167ddaa"></script>
 </helmet>
 
@@ -50,6 +50,52 @@
       <h1 class="display">From corporate entity to registered training provider</h1>
       <hr class="rule">
       <p class="lede role-lead">To offer SWDA-funded courses, an organisation must first be approved as a Registered Training Provider by the Skills and Workforce Development Agency (SWDA). Our advisors assist your leadership team at every step, developing compliant internal frameworks and ensuring your application meets all statutory prerequisites.</p>
+    </div>
+  </section>
+
+  <section class="or-sec or-film" id="cost" data-block="or-film">
+    <div class="wrap">
+      <div class="cf reveal">
+        <div class="cf-frame" id="cf-frame" role="group" aria-roledescription="animated film" aria-label="What one ACLP-certified training executive costs a provider in a year. The same figures are in the table below.">
+          <span class="cf-fade" data-on="{{ fade }}" aria-hidden="true"></span>
+          <div class="cf-scene" data-on="{{ sc1 }}"><svg class="cf-art" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g fill="none" stroke-width="1"><g stroke="#fff"><path d="M30 196H370"></path><path d="M112 124H292V130H112Z"></path><path d="M120 130V196M284 130V196"></path><path d="M232 130H284V166H232ZM232 148H284"></path><path d="M152 72H222V114H152ZM187 114V124M172 124H202"></path><path d="M62 156H102M66 156L70 104H96L98 156M70 156V196M98 156V196"></path></g><g stroke="#CFCBA8"><path d="M262 124V88L278 78M272 74L286 84"></path><path d="M122 118H146"></path></g></g></svg><p class="cf-big">One ACLP-certified training executive.</p><p class="cf-line">What does a year cost?</p></div>
+          <div class="cf-scene" data-on="{{ sc2 }}"><svg class="cf-art" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g fill="none" stroke-width="1"><g stroke="#fff"><path d="M150 26H236L254 44V204H150Z"></path><path d="M236 26V44H254"></path></g><g stroke="#CFCBA8"><path d="M166 64H212M166 80H238M166 96H238M166 112H224M166 176H238"></path><path d="M166 160H200"></path></g></g></svg><p class="cf-kick">Monthly salary</p><p class="cf-num">{{ vSalary }}</p></div>
+          <div class="cf-scene" data-on="{{ sc3 }}"><svg class="cf-art" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g fill="none" stroke-width="1"><g stroke="#fff"><path d="M58 38H342V200H58Z"></path><path d="M58 70H342"></path><path d="M110 26V48M290 26V48"></path></g><g stroke="#CFCBA8"><path d="M58 113H342M58 156H342M129 70V200M200 70V200M271 70V200"></path></g></g></svg><p class="cf-kick">Salary for twelve months</p><div class="cf-months" aria-hidden="true"><span class="cf-m" data-on="{{ m0 }}"></span><span class="cf-m" data-on="{{ m1 }}"></span><span class="cf-m" data-on="{{ m2 }}"></span><span class="cf-m" data-on="{{ m3 }}"></span><span class="cf-m" data-on="{{ m4 }}"></span><span class="cf-m" data-on="{{ m5 }}"></span><span class="cf-m" data-on="{{ m6 }}"></span><span class="cf-m" data-on="{{ m7 }}"></span><span class="cf-m" data-on="{{ m8 }}"></span><span class="cf-m" data-on="{{ m9 }}"></span><span class="cf-m" data-on="{{ m10 }}"></span><span class="cf-m" data-on="{{ m11 }}"></span></div><p class="cf-num">{{ vYear }}</p></div>
+          <div class="cf-scene cf-scene--stack" data-on="{{ sc4 }}"><div class="cf-stack" aria-hidden="true"><i class="cf-b1" style="height:{{ h1 }}"></i><i class="cf-b2" style="height:{{ h2 }}"></i><i class="cf-b3" style="height:{{ h3 }}"></i><i class="cf-b4" style="height:{{ h4 }}"></i><i class="cf-b5" style="height:{{ h5 }}"></i></div><p class="cf-kick">Employer CPF at 17 per cent</p><p class="cf-num cf-num--add">{{ vCpf }}</p><p class="cf-run">Running total <span>{{ vRun4 }}</span></p></div>
+          <div class="cf-scene cf-scene--stack" data-on="{{ sc5 }}"><div class="cf-stack" aria-hidden="true"><i class="cf-b1" style="height:{{ h1 }}"></i><i class="cf-b2" style="height:{{ h2 }}"></i><i class="cf-b3" style="height:{{ h3 }}"></i><i class="cf-b4" style="height:{{ h4 }}"></i><i class="cf-b5" style="height:{{ h5 }}"></i></div><p class="cf-kick">Annual wage supplement, one month</p><p class="cf-num cf-num--add">{{ vAws }}</p><div class="cf-later" data-on="{{ aws2 }}"><p class="cf-kick">Employer CPF on the supplement</p><p class="cf-num cf-num--add cf-num--sm">{{ vAwsCpf }}</p></div><p class="cf-run">Running total <span>{{ vRun5 }}</span></p></div>
+          <div class="cf-scene cf-scene--stack" data-on="{{ sc6 }}"><div class="cf-stack" aria-hidden="true"><i class="cf-b1" style="height:{{ h1 }}"></i><i class="cf-b2" style="height:{{ h2 }}"></i><i class="cf-b3" style="height:{{ h3 }}"></i><i class="cf-b4" style="height:{{ h4 }}"></i><i class="cf-b5" style="height:{{ h5 }}"></i></div><p class="cf-kick">Skills Development Levy</p><p class="cf-num cf-num--add">{{ vSdl }}</p><p class="cf-run">Running total <span>{{ vRun6 }}</span></p></div>
+          <div class="cf-scene cf-scene--bar" data-on="{{ sc7 }}"><svg class="cf-art" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g fill="none" stroke-width="1"><g stroke="#fff"><path d="M40 196H360"></path></g><g stroke="#CFCBA8"><path d="M40 30V196M104 30V196M168 30V196M232 30V196M296 30V196M360 30V196"></path></g></g></svg><p class="cf-kick">One year, in total</p>
+            <div class="cf-bar" aria-hidden="true"><i class="cf-b1" style="width:{{ w1 }}"></i><i class="cf-b2" style="width:{{ w2 }}"></i><i class="cf-b3" style="width:{{ w3 }}"></i><i class="cf-b4" style="width:{{ w4 }}"></i><i class="cf-b5" style="width:{{ w5 }}"></i></div>
+            <ul class="cf-legend" aria-hidden="true"><li><i class="cf-b1"></i>Salary</li><li><i class="cf-b2"></i>Employer CPF</li><li><i class="cf-b3"></i>Wage supplement</li><li><i class="cf-b4"></i>CPF on supplement</li><li><i class="cf-b5"></i>Levy</li></ul>
+            <p class="cf-num">{{ vTotal }}</p><p class="cf-line">A year, before recruitment, training, benefits and statutory leave benefits.</p></div>
+          <div class="cf-scene cf-scene--team cf-scene--one" data-on="{{ sc8 }}" data-beat="1">
+            <div class="cf-bgs" aria-hidden="true"><img class="cf-bg cf-bg--a" src="assets/cf-desk-night.jpg" alt="" loading="lazy"><span class="cf-bgscrim"></span></div>
+            <p class="cf-big cf-team__h">And that’s only a single headcount.</p>
+            <ul class="cf-ring"><li style="--i:0" data-st="{{ o0 }}">Data protection officer</li><li style="--i:1" data-st="{{ o1 }}">Courseware developer</li><li style="--i:2" data-st="{{ o2 }}">Legal associates</li><li style="--i:3" data-st="{{ o3 }}">Web developer</li><li style="--i:4" data-st="{{ o4 }}">Brand designer</li><li style="--i:5" data-st="{{ o5 }}">Qualified trainers</li><li style="--i:6" data-st="{{ o6 }}">Training assistants</li></ul></div>
+          <div class="cf-scene cf-scene--team" data-on="{{ sc9 }}" data-beat="2">
+            <div class="cf-bgs" aria-hidden="true"><img class="cf-bg cf-bg--b" src="assets/cf-dark-room.jpg" alt="" loading="lazy"><span class="cf-bgscrim"></span></div>
+            <div class="cf-team" data-mode="row">
+              <ul class="cf-team__pile"><li style="--i:0" data-land="{{ q0 }}">Data protection officer</li><li style="--i:1" data-land="{{ q1 }}">Courseware developer</li><li style="--i:2" data-land="{{ q2 }}">Legal associates</li><li style="--i:3" data-land="{{ q3 }}">Web developer</li><li style="--i:4" data-land="{{ q4 }}">Brand designer</li><li style="--i:5" data-land="{{ q5 }}">Qualified trainers</li><li style="--i:6" data-land="{{ q6 }}">Training assistants</li></ul>
+            </div>
+            <p class="cf-pack cf-team__cap" data-on="{{ capOn }}">A team of professionals</p><p class="cf-pack cf-team__svc" data-on="{{ svcOn }}">AT YOUR SERVICE</p></div>
+          <div class="cf-scene cf-scene--end" data-on="{{ sc10 }}"><svg class="cf-art" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g fill="none" stroke-width="1"><g stroke="#fff"><path d="M112 44H196V196H112Z"></path><path d="M158 34H242V186H158Z"></path><path d="M204 24H288V176H204Z"></path></g><g stroke="#CFCBA8"><path d="M218 48H274M218 62H274M218 76H260M218 150H250"></path></g></g></svg><p class="cf-big">One package, built around the requirements.</p><div class="or-actions or-actions--c"><a class="btn cf-btn" href="/contact" tabindex="{{ btnTab }}">Book a consultation</a></div></div>
+        </div>
+        <div class="cf-controls"><button class="cf-ctl" type="button" onClick="{{ togglePlay }}" aria-label="{{ playLabel }}">{{ playText }}</button><button class="cf-ctl" type="button" onClick="{{ replay }}">Replay</button><div class="cf-progress" role="group" aria-label="Scenes"><sc-for list="{{ marks }}" as="k" hint-placeholder-count="10"><button class="cf-dot" type="button" data-on="{{ k.on }}" aria-label="{{ k.label }}" aria-current="{{ k.cur }}" onClick="{{ k.go }}"></button></sc-for></div></div>
+      </div>
+
+      <table class="cf-table reveal">
+        <caption class="or-label role-kicker">ONE ACLP QUALIFIED TRAINING EXECUTIVE</caption>
+        <tbody>
+          <tr><th scope="row">Monthly salary</th><td>S$3,500.00</td></tr>
+          <tr><th scope="row">Salary for twelve months</th><td>S$42,000.00</td></tr>
+          <tr><th scope="row">Employer CPF at 17 per cent</th><td>S$7,140.00</td></tr>
+          <tr><th scope="row">Annual wage supplement, one month</th><td>S$3,500.00</td></tr>
+          <tr><th scope="row">Employer CPF on the supplement</th><td>S$595.00</td></tr>
+          <tr><th scope="row">Skills Development Levy</th><td>S$105.00</td></tr>
+        </tbody>
+        <tfoot><tr><th scope="row">Total</th><td>S$53,340.00</td></tr></tfoot>
+      </table>
+      <p class="cf-note reveal">Illustrative only, for a Singapore Citizen or Permanent Resident aged 55 or below earning S$3,500 a month, using CPF contribution rates from 1 January 2026 and a one-month annual wage supplement paid in December. The Skills Development Levy is 0.25 per cent of monthly wages, S$8.75 a month here, within the cap of S$11.25 a month.</p>
     </div>
   </section>
 
@@ -310,47 +356,7 @@
     <div class="wrap">
       <header class="or-head reveal"><p class="or-kicker role-kicker">III · The case for 2BIRDS</p><h2 class="or-h2 role-title">How 2BIRDS guides your application</h2></header>
 
-      <div class="cf reveal">
-        <div class="cf-frame" id="cf-frame" role="group" aria-roledescription="animated film" aria-label="What one ACLP-certified training executive costs a provider in a year. The same figures are in the table below.">
-          <span class="cf-fade" data-on="{{ fade }}" aria-hidden="true"></span>
-          <div class="cf-scene" data-on="{{ sc1 }}"><svg class="cf-art" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g fill="none" stroke-width="1"><g stroke="#fff"><path d="M30 196H370"></path><path d="M112 124H292V130H112Z"></path><path d="M120 130V196M284 130V196"></path><path d="M232 130H284V166H232ZM232 148H284"></path><path d="M152 72H222V114H152ZM187 114V124M172 124H202"></path><path d="M62 156H102M66 156L70 104H96L98 156M70 156V196M98 156V196"></path></g><g stroke="#CFCBA8"><path d="M262 124V88L278 78M272 74L286 84"></path><path d="M122 118H146"></path></g></g></svg><p class="cf-big">One ACLP-certified training executive.</p><p class="cf-line">What does a year cost?</p></div>
-          <div class="cf-scene" data-on="{{ sc2 }}"><svg class="cf-art" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g fill="none" stroke-width="1"><g stroke="#fff"><path d="M150 26H236L254 44V204H150Z"></path><path d="M236 26V44H254"></path></g><g stroke="#CFCBA8"><path d="M166 64H212M166 80H238M166 96H238M166 112H224M166 176H238"></path><path d="M166 160H200"></path></g></g></svg><p class="cf-kick">Monthly salary</p><p class="cf-num">{{ vSalary }}</p></div>
-          <div class="cf-scene" data-on="{{ sc3 }}"><svg class="cf-art" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g fill="none" stroke-width="1"><g stroke="#fff"><path d="M58 38H342V200H58Z"></path><path d="M58 70H342"></path><path d="M110 26V48M290 26V48"></path></g><g stroke="#CFCBA8"><path d="M58 113H342M58 156H342M129 70V200M200 70V200M271 70V200"></path></g></g></svg><p class="cf-kick">Salary for twelve months</p><div class="cf-months" aria-hidden="true"><span class="cf-m" data-on="{{ m0 }}"></span><span class="cf-m" data-on="{{ m1 }}"></span><span class="cf-m" data-on="{{ m2 }}"></span><span class="cf-m" data-on="{{ m3 }}"></span><span class="cf-m" data-on="{{ m4 }}"></span><span class="cf-m" data-on="{{ m5 }}"></span><span class="cf-m" data-on="{{ m6 }}"></span><span class="cf-m" data-on="{{ m7 }}"></span><span class="cf-m" data-on="{{ m8 }}"></span><span class="cf-m" data-on="{{ m9 }}"></span><span class="cf-m" data-on="{{ m10 }}"></span><span class="cf-m" data-on="{{ m11 }}"></span></div><p class="cf-num">{{ vYear }}</p></div>
-          <div class="cf-scene cf-scene--stack" data-on="{{ sc4 }}"><div class="cf-stack" aria-hidden="true"><i class="cf-b1" style="height:{{ h1 }}"></i><i class="cf-b2" style="height:{{ h2 }}"></i><i class="cf-b3" style="height:{{ h3 }}"></i><i class="cf-b4" style="height:{{ h4 }}"></i><i class="cf-b5" style="height:{{ h5 }}"></i></div><p class="cf-kick">Employer CPF at 17 per cent</p><p class="cf-num cf-num--add">{{ vCpf }}</p><p class="cf-run">Running total <span>{{ vRun4 }}</span></p></div>
-          <div class="cf-scene cf-scene--stack" data-on="{{ sc5 }}"><div class="cf-stack" aria-hidden="true"><i class="cf-b1" style="height:{{ h1 }}"></i><i class="cf-b2" style="height:{{ h2 }}"></i><i class="cf-b3" style="height:{{ h3 }}"></i><i class="cf-b4" style="height:{{ h4 }}"></i><i class="cf-b5" style="height:{{ h5 }}"></i></div><p class="cf-kick">Annual wage supplement, one month</p><p class="cf-num cf-num--add">{{ vAws }}</p><div class="cf-later" data-on="{{ aws2 }}"><p class="cf-kick">Employer CPF on the supplement</p><p class="cf-num cf-num--add cf-num--sm">{{ vAwsCpf }}</p></div><p class="cf-run">Running total <span>{{ vRun5 }}</span></p></div>
-          <div class="cf-scene cf-scene--stack" data-on="{{ sc6 }}"><div class="cf-stack" aria-hidden="true"><i class="cf-b1" style="height:{{ h1 }}"></i><i class="cf-b2" style="height:{{ h2 }}"></i><i class="cf-b3" style="height:{{ h3 }}"></i><i class="cf-b4" style="height:{{ h4 }}"></i><i class="cf-b5" style="height:{{ h5 }}"></i></div><p class="cf-kick">Skills Development Levy</p><p class="cf-num cf-num--add">{{ vSdl }}</p><p class="cf-run">Running total <span>{{ vRun6 }}</span></p></div>
-          <div class="cf-scene cf-scene--bar" data-on="{{ sc7 }}"><svg class="cf-art" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g fill="none" stroke-width="1"><g stroke="#fff"><path d="M40 196H360"></path></g><g stroke="#CFCBA8"><path d="M40 30V196M104 30V196M168 30V196M232 30V196M296 30V196M360 30V196"></path></g></g></svg><p class="cf-kick">One year, in total</p>
-            <div class="cf-bar" aria-hidden="true"><i class="cf-b1" style="width:{{ w1 }}"></i><i class="cf-b2" style="width:{{ w2 }}"></i><i class="cf-b3" style="width:{{ w3 }}"></i><i class="cf-b4" style="width:{{ w4 }}"></i><i class="cf-b5" style="width:{{ w5 }}"></i></div>
-            <ul class="cf-legend" aria-hidden="true"><li><i class="cf-b1"></i>Salary</li><li><i class="cf-b2"></i>Employer CPF</li><li><i class="cf-b3"></i>Wage supplement</li><li><i class="cf-b4"></i>CPF on supplement</li><li><i class="cf-b5"></i>Levy</li></ul>
-            <p class="cf-num">{{ vTotal }}</p><p class="cf-line">A year, before recruitment, training, benefits and statutory leave benefits.</p></div>
-          <div class="cf-scene cf-scene--team cf-scene--one" data-on="{{ sc8 }}" data-beat="1">
-            <div class="cf-bgs" aria-hidden="true"><img class="cf-bg cf-bg--a" src="assets/cf-desk-night.jpg" alt="" loading="lazy"><span class="cf-bgscrim"></span></div>
-            <p class="cf-big cf-team__h">And that’s only a single headcount.</p>
-            <ul class="cf-ring"><li style="--i:0" data-st="{{ o0 }}">Data protection officer</li><li style="--i:1" data-st="{{ o1 }}">Courseware developer</li><li style="--i:2" data-st="{{ o2 }}">Legal associates</li><li style="--i:3" data-st="{{ o3 }}">Web developer</li><li style="--i:4" data-st="{{ o4 }}">Brand designer</li><li style="--i:5" data-st="{{ o5 }}">Qualified trainers</li><li style="--i:6" data-st="{{ o6 }}">Training assistants</li></ul></div>
-          <div class="cf-scene cf-scene--team" data-on="{{ sc9 }}" data-beat="2">
-            <div class="cf-bgs" aria-hidden="true"><img class="cf-bg cf-bg--b" src="assets/cf-dark-room.jpg" alt="" loading="lazy"><span class="cf-bgscrim"></span></div>
-            <div class="cf-team" data-mode="row">
-              <ul class="cf-team__pile"><li style="--i:0" data-land="{{ q0 }}">Data protection officer</li><li style="--i:1" data-land="{{ q1 }}">Courseware developer</li><li style="--i:2" data-land="{{ q2 }}">Legal associates</li><li style="--i:3" data-land="{{ q3 }}">Web developer</li><li style="--i:4" data-land="{{ q4 }}">Brand designer</li><li style="--i:5" data-land="{{ q5 }}">Qualified trainers</li><li style="--i:6" data-land="{{ q6 }}">Training assistants</li></ul>
-            </div>
-            <p class="cf-pack cf-team__cap" data-on="{{ capOn }}">A team of professionals</p><p class="cf-pack cf-team__svc" data-on="{{ svcOn }}">AT YOUR SERVICE</p></div>
-          <div class="cf-scene cf-scene--end" data-on="{{ sc10 }}"><svg class="cf-art" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g fill="none" stroke-width="1"><g stroke="#fff"><path d="M112 44H196V196H112Z"></path><path d="M158 34H242V186H158Z"></path><path d="M204 24H288V176H204Z"></path></g><g stroke="#CFCBA8"><path d="M218 48H274M218 62H274M218 76H260M218 150H250"></path></g></g></svg><p class="cf-big">One package, built around the requirements.</p><div class="or-actions or-actions--c"><a class="btn cf-btn" href="/contact" tabindex="{{ btnTab }}">Book a consultation</a></div></div>
-        </div>
-        <div class="cf-controls"><button class="cf-ctl" type="button" onClick="{{ togglePlay }}" aria-label="{{ playLabel }}">{{ playText }}</button><button class="cf-ctl" type="button" onClick="{{ replay }}">Replay</button><div class="cf-progress" role="group" aria-label="Scenes"><sc-for list="{{ marks }}" as="k" hint-placeholder-count="10"><button class="cf-dot" type="button" data-on="{{ k.on }}" aria-label="{{ k.label }}" aria-current="{{ k.cur }}" onClick="{{ k.go }}"></button></sc-for></div></div>
-      </div>
-
-      <table class="cf-table reveal">
-        <caption class="or-label role-kicker">ONE ACLP QUALIFIED TRAINING EXECUTIVE</caption>
-        <tbody>
-          <tr><th scope="row">Monthly salary</th><td>S$3,500.00</td></tr>
-          <tr><th scope="row">Salary for twelve months</th><td>S$42,000.00</td></tr>
-          <tr><th scope="row">Employer CPF at 17 per cent</th><td>S$7,140.00</td></tr>
-          <tr><th scope="row">Annual wage supplement, one month</th><td>S$3,500.00</td></tr>
-          <tr><th scope="row">Employer CPF on the supplement</th><td>S$595.00</td></tr>
-          <tr><th scope="row">Skills Development Levy</th><td>S$105.00</td></tr>
-        </tbody>
-        <tfoot><tr><th scope="row">Total</th><td>S$53,340.00</td></tr></tfoot>
-      </table>
-      <p class="cf-note reveal">Illustrative only, for a Singapore Citizen or Permanent Resident aged 55 or below earning S$3,500 a month, using CPF contribution rates from 1 January 2026 and a one-month annual wage supplement paid in December. The Skills Development Levy is 0.25 per cent of monthly wages, S$8.75 a month here, within the cap of S$11.25 a month.</p>
+      
 
       <div class="cf-reasons">
         <article class="reveal"><h3>A full advisory team</h3><p>The package brings together several specialists spanning data protection, courseware development, web infrastructure, branding, and TPGateway submission management. Rather than relying on an individual internal hire, your organisation benefits from the combined capability of an established advisory team.</p></article>
@@ -386,16 +392,24 @@ class Component extends DCLogic {
     this._start = []; var a = 0; this.DUR.forEach(function (d) { self._start.push(a); a += d; }); this._total = a;
     this._reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (this._reduce) { this.setState({ ft: this._start[6] + this.DUR[6] - 1 }); }
-    var el = document.getElementById("cf-frame");
-    if (el && "IntersectionObserver" in window) {
-      this._io = new IntersectionObserver(function (es) { es.forEach(function (e) { self._vis = e.isIntersecting && e.intersectionRatio > 0.35; if (self._vis && !self._reduce && !self.state.userPaused) self.play(); else if (!self._vis) self.stop(); }); }, { threshold: [0, 0.35, 0.6] });
-      this._io.observe(el);
-    }
+    this._check = function () {
+      var el = document.getElementById("cf-frame"); if (!el) return;
+      var r = el.getBoundingClientRect(), vh = window.innerHeight || document.documentElement.clientHeight;
+      var seen = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0));
+      var vis = r.height > 0 && seen / Math.min(r.height, vh) > 0.35;
+      if (vis === self._vis) return; self._vis = vis;
+      if (vis && !self._reduce && !self.state.userPaused) self.play(); else if (!vis) self.stop();
+    };
+    this._vis = null;
+    window.addEventListener("scroll", this._check, { passive: true });
+    window.addEventListener("resize", this._check);
+    this._poll = setInterval(this._check, 400);
+    this._check();
     this._hash = function () { var h = location.hash.slice(1); var d = h && document.getElementById(h); if (d && d.tagName === "DETAILS") d.open = true; };
     this._click = function (e) { var a = e.target.closest && e.target.closest('a[href^="#s"]'); if (a) { var d = document.getElementById(a.getAttribute("href").slice(1)); if (d && d.tagName === "DETAILS") d.open = true; } };
     window.addEventListener("hashchange", this._hash); document.addEventListener("click", this._click, true); this._hash();
   }
-  componentWillUnmount() { this.stop(); if (this._io) this._io.disconnect(); window.removeEventListener("hashchange", this._hash); document.removeEventListener("click", this._click, true); }
+  componentWillUnmount() { this.stop(); clearInterval(this._poll); window.removeEventListener("scroll", this._check); window.removeEventListener("resize", this._check); window.removeEventListener("hashchange", this._hash); document.removeEventListener("click", this._click, true); }
   play() {
     if (this._tm) return; var self = this;
     if (this.state.ft >= this._total) this.setState({ ft: 0 });
