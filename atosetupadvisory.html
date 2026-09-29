@@ -27,14 +27,14 @@
 <!-- /social share -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/site.css?v=e6550662">
+<link rel="stylesheet" href="/site.css?v=aa93bf97">
 <script src="/support.js?v=d568b663"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Organisation Registration with SWDA","description":"Advisory and preparation for Organisation Registration and Course Accreditation with the Skills and Workforce Development Agency (SWDA), from company to registered training provider.","url":"https://www.2birds.asia/atosetupadvisory","areaServed":{"@type":"Country","name":"Singapore"},"provider":{"@id":"https://www.2birds.asia/#org","@type":"ProfessionalService","name":"2BIRDS","url":"https://www.2birds.asia/"}}</script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=e6550662">
+  <link rel="stylesheet" href="/site.css?v=aa93bf97">
   <script src="/site.js?v=0bde17da"></script>
 </helmet>
 
@@ -302,7 +302,7 @@ class Component extends DCLogic {
   KEY = "2b-or-ready-v2";
   LABELS = ["Corppass account","PayNow account","Target training group decided","Organisation registered with ACRA or the Registry of Societies","Latest final Notice of Assessment showing positive trade income","At least one year of training, held in every quarter","Evidence of training records","Course objectives, lesson plans and assessment plans","Website or brochure with the required information","Training premises and office with proof, not a P.O. Box","Learner registration form or contract","Policies and Operations Manual"];
   state = { on: {}, ft: 0, playing: false, userPaused: false };
-  DUR = [4300, 3500, 3500, 5100, 6500, 4500, 7500, 6700, 6900, 4300];
+  DUR = [4300, 3500, 3500, 5100, 6500, 4500, 7500, 6700, 9900, 4300];
   componentDidMount() {
     try { var v = JSON.parse(window.localStorage.getItem(this.KEY) || "{}"); if (v && typeof v === "object") this.setState({ on: v }); } catch (e) {}
     var self = this;

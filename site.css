@@ -5226,6 +5226,22 @@ main .nc2--photo .nc2__sheet .nc2__ch,main .nc2--photo .nc2__sheet .nc2__rl{colo
 main .nc2--photo .nc2__fee{border-bottom:1px solid rgba(255,255,255,.25) !important}
 main .fc,main .fc *,main .fc__inner,main .fc__front,main .fc__back{cursor:default !important}
 
+/* Customised TMS · the class flow ends at moment 08's own padding */
+main section#follow.nx-flow,main section#follow.nx-flow .nx-chs,main section#follow.nx-flow .nx-flow__body{padding-bottom:0 !important;margin-bottom:0 !important}
+main section#follow.nx-flow .nx-ch:last-of-type{padding-bottom:96px !important;margin-bottom:0 !important;border-bottom:0}
+@media (max-width:767px){main section#follow.nx-flow .nx-ch:last-of-type{padding-bottom:64px !important}}
+
+/* 1 · underlined small-caps links that wrap · room between lines */
+main .or a.ilink.role-link,main .tq a.ilink.role-link,main .wq a.ilink.role-link,main .or-pkg a.ilink.role-link,main .or-three a.ilink.role-link,main .or-pb a.ilink.role-link,main a.ilink.role-link{line-height:2 !important;text-underline-offset:5px !important}
+/* 2 · inline links in legal running text are exempt from the 44px target */
+main .lg__doc a.ilink,main .lg__doc .lg__cl a,main .lg__doc .lg__list a,main .lg__doc p a,main .lg__doc li a,main p > a.ilink,main li > a.ilink,main dd > a.ilink{display:inline !important;min-height:0 !important;align-items:normal !important;padding:0 !important;line-height:inherit !important}
+/* 3 · comparison cell labels · two lines, equal height across the row */
+@media (max-width:759px){
+  main .nx-cmp.compare tbody td::before,main .wq-compare.compare tbody td::before{display:block;min-height:calc(2 * 1.4em);letter-spacing:.12em !important;text-wrap:pretty;margin-bottom:6px}
+  main .nx-cmp.compare tbody tr,main .wq-compare.compare tbody tr{align-items:stretch}
+}
+@media (max-width:379px){main .wq-compare.compare tbody td::before{letter-spacing:.1em !important}}
+
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
 html:lang(ko) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:keep-all;overflow-wrap:anywhere}
@@ -5236,7 +5252,3 @@ br.tb-soft{display:none}
 @media (min-width:1081px){.row--4 .colitem{container-type:normal}.row--4 .colitem .h3{font-size:clamp(18px,1.66vw,var(--fs-h3)) !important}}
 main section#cost.or-film{padding-top:120px !important}
 @media (max-width:1080px){main section#cost.or-film{padding-top:72px !important}}
-/* Customised TMS: the calculator photo band follows moment 08 at the same distance as a divider
-   follows a moment's panel (Keith, 29 Sep 2026; not yet in the Claude Design source): the white gap
-   is moment 08's own bottom padding only, 96px at 768+ and 64px on phones. */
-main section#follow.nx-flow,main section#follow.nx-flow .nx-chs{padding-bottom:0 !important}
