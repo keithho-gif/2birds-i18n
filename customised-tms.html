@@ -27,15 +27,15 @@
 <!-- /social share -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/site.css?v=5ca5e3a7">
+<link rel="stylesheet" href="/site.css?v=bbdb6310">
 <script src="/support.js?v=d568b663"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Customised Training Management System (Nest)","description":"Nest, the training management system 2BIRDS builds and customises for training providers, connected to TPGateway.","url":"https://www.2birds.asia/customised-tms","areaServed":{"@type":"Country","name":"Singapore"},"provider":{"@id":"https://www.2birds.asia/#org","@type":"ProfessionalService","name":"2BIRDS","url":"https://www.2birds.asia/"}}</script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=5ca5e3a7">
-  <script src="/site.js?v=1010040a"></script>
+  <link rel="stylesheet" href="/site.css?v=bbdb6310">
+  <script src="/site.js?v=0bde17da"></script>
 </helmet>
 
 <dc-import name="SiteHeader" hint-size="100%,0" style="height:0"></dc-import>
@@ -650,15 +650,6 @@
           </div>
         </article>
         </div>
-        <div class="nx-ledgerbar"><div class="wrap">
-          <dl class="{{ ledCls }}" aria-live="polite">
-            <div><dt>{{ ledL1 }}</dt><dd class="nx-num">{{ led1 }}</dd></div>
-            <div><dt>{{ ledL2 }}</dt><dd class="nx-num">{{ led2 }}</dd></div>
-            <div class="nx-ledger__key"><dt>Figures re-keyed manually</dt><dd class="nx-num">{{ led3 }}</dd></div>
-            <div><dt>{{ ledL4 }}</dt><dd class="nx-num">{{ led4 }}</dd></div>
-          </dl>
-          <sc-if value="{{ modeWithout }}" hint-placeholder-val="{{ false }}"><p class="nx-src role-small">Illustrative figures for one class of twelve trainees.</p></sc-if>
-        </div></div>
     </div>
   </section>
 
@@ -823,13 +814,6 @@ class Component extends DCLogic {
   SP = { "Aisha Rahman": "Lumen Engineering Pte Ltd", "Darren Koh": "Marina Logistics Pte Ltd", "Farid Ismail": "Lumen Engineering Pte Ltd", "Lucas Teo": "Lumen Engineering Pte Ltd" };
   H = ["Marcus Yeo","Nadia Hassan","Oliver Sim","Priya Menon","Aisha Rahman","Benjamin Tan","Chloe Lim","Darren Koh","Esther Ng","Farid Ismail","Grace Wong","Hafiz Salleh","Isabel Chua","Jonathan Lee","Kavitha Raj","Lucas Teo"];
   LABELS = ["Enquiry and quote","Registration","Enrolment","Before class","On the day","Assessment and certification","Fees and claims","Audit"];
-  REC = [0,0,12,12,24,36,38,38];
-  MSG = [1,3,3,39,41,53,61,61];
-  DOC = [1,2,2,2,4,18,22,27];
-  REC_M = [0,1,12,12,24,36,38,38];
-  MSG_M = [1,3,3,39,41,53,61,61];
-  KEY_M = [4,40,112,112,136,172,196,196];
-  DOC_M = [27,27,27,27,25,21,16,13];
   PROF = [
     { label: "Singapore Citizen aged 21 to 39", rate: 0.5, scheme: "Baseline funding", line: "Baseline course fee funding at 50 per cent." },
     { label: "Singapore Citizen aged 40 and above", rate: 0.7, scheme: "SkillsFuture Mid-career Enhanced Subsidy", line: "SkillsFuture Mid-career Enhanced Subsidy at 70 per cent." },
@@ -1166,7 +1150,7 @@ class Component extends DCLogic {
       if (s.sv === i) return;
       if (s.sv >= 0) this._tm[s.sv] = s.t;
       var start = this._tm[i] || 0;
-      this.setState({ sv: i, active: i, seen: Math.max(s.seen || 0, i), t: start, flowVis: true }, () => this._tick());
+      this.setState({ sv: i, active: i, t: start, flowVis: true }, () => this._tick());
     } else if (s.sv === i) {
       this._tm[i] = s.t;
       clearTimeout(this._mt);
@@ -1377,20 +1361,7 @@ class Component extends DCLogic {
     out.x8items = sc.filter(function (c, k) { return T >= 2 + k * 12; }).map(function (c) { return { k: c[0], s: c[1], x: c[2], y: c[3], cls: "mx-scatter__c nx-in" }; });
     out.x8n = Math.min(14, Math.floor(T / 8));
 
-    // ledger
-    T = fin ? 999 : s.t;
     var W = s.mode === "without";
-    var led = function (arr) {
-      var sn = s.seen || 0, prev = sn > 0 ? arr[sn - 1] : (W && arr === self.DOC_M ? 27 : 0), cur = arr[sn];
-      var f = s.reduce || s.sv !== sn ? 1 : Math.min(1, s.t / 10);
-      return Math.round(prev + (cur - prev) * f);
-    };
-    out.ledCls = "nx-ledger" + (W ? " is-without" : "");
-    out.ledL1 = W ? "Records keyed into the portal" : "Records sent to TPGateway";
-    out.ledL2 = W ? "Messages written manually" : "Messages sent automatically";
-    out.ledL4 = W ? "Documents still to find" : "Documents filed for audit";
-    out.led1 = led(W ? this.REC_M : this.REC); out.led2 = led(W ? this.MSG_M : this.MSG); out.led3 = W ? led(this.KEY_M) : 0; out.led4 = led(W ? this.DOC_M : this.DOC);
-
     // flow controls
     out.flowCls = "nx-flow" + (s.stack ? " is-stack" : "") + (s.pin ? " is-pin" : "") + (s.flowVis ? " is-live" : "");
     out.scrub = this.LABELS.map(function (l, i) { return { n: "0" + (i + 1), l: l, cur: i === s.active ? "step" : "false", go: function () { self.go(i); } }; });

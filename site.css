@@ -2121,12 +2121,7 @@ button.calendar__day--open{cursor:pointer}
 .nx-mode__b{background:none;border:0;padding:10px 16px;cursor:pointer;font:500 var(--fs-micro)/1 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--muted)}
 .nx-mode__b + .nx-mode__b{border-left:1px solid var(--hairline)}
 .nx-mode__b[aria-pressed="true"]{background:var(--ink);color:#fff}
-.nx-mode__b:hover:not([aria-pressed="true"]){color:var(--royal)}
-.nx-ledger{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:var(--sp-5) 0 0;border-top:1px solid var(--ink)}
-.nx-ledger > div{padding:16px 20px 4px;border-left:1px solid var(--hairline)}
-.nx-ledger > div:first-child{border-left:0;padding-left:0}
-.nx-ledger dt{font:500 var(--fs-micro)/1.4 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--muted)}
-.nx-ledger dd{margin:8px 0 0;font-family:var(--serif);font-weight:500;font-size:var(--fs-figure);line-height:1}/* stacked chapters on small screens */
+.nx-mode__b:hover:not([aria-pressed="true"]){color:var(--royal)}/* stacked chapters on small screens */
 .nx-ch{display:grid;grid-template-columns:minmax(0,1fr);gap:0;padding:var(--sp-6) 0;border-top:1px solid var(--hairline)}
 .nx-ch__p{min-height:0}
 
@@ -2187,11 +2182,7 @@ button.calendar__day--open{cursor:pointer}
   .nx-eng li:nth-child(3){border-left:0;padding-left:0}
   .nx-eng li:nth-child(n+3){border-top:1px solid var(--hairline)}
 }
-@media (max-width:860px){
-  .nx-ledger{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .nx-ledger > div:nth-child(3){border-left:0;padding-left:0}
-  .nx-ledger > div:nth-child(n+3){border-top:1px solid var(--hairline);padding-top:16px}
-  .nx-cmp thead{display:none}
+@media (max-width:860px){  .nx-cmp thead{display:none}
   .nx-cmp,.nx-cmp tbody,.nx-cmp tr,.nx-cmp th,.nx-cmp td{display:block;width:auto}
   .nx-cmp tr{padding:20px 0;border-bottom:1px solid var(--hairline)}
   .nx-cmp th,.nx-cmp td{border:0;padding:6px 0}
@@ -2240,9 +2231,6 @@ html,body,button,input,select,textarea,optgroup,option,table,th,td,legend,label,
 .nx-num{font-variant-numeric:tabular-nums lining-nums}
 .nx-close{font-style:normal;font-weight:400}
 .nx-mark{background:var(--acc)}
-/* ledger in manual mode */
-.nx-ledger.is-without .nx-ledger__key dd,.nx-ledger.is-without .nx-ledger__key dt{color:#c0392b}
-
 /* ---- manual scenes · deliberately not Nest ---- */
 .mx{background:#fff;border:1px solid #c9c9c9;border-radius:0;overflow:hidden;font:400 var(--fs-ui)/1.45 var(--sans);color:#333}
 .mx-bar{display:flex;justify-content:space-between;align-items:center;height:30px;padding:0 10px;background:#e4e4e4;border-bottom:1px solid #c9c9c9;font-size:var(--fs-ui-sm);color:#444}
@@ -4299,14 +4287,15 @@ main .nx-secband .nx-kicker{color:var(--on-dark-olive) !important}
 .compare tbody tr:last-child{border-bottom:1px solid var(--hairline)}
 .compare td::before{display:none}
 @media (max-width:760px){
-  .compare,.compare tbody,.compare tr,.compare th,.compare td{display:block;width:auto}
+  .compare,.compare tbody{display:block;width:auto}
   .compare thead{display:none}
+  .compare:not(.wq-compare):not(.nx-cmp) tr,.compare:not(.wq-compare):not(.nx-cmp) th,.compare:not(.wq-compare):not(.nx-cmp) td{display:block;width:auto}
   .compare tbody tr{padding:var(--sp-3) 0}
-  .compare tbody th{padding:0 0 var(--sp-2) !important;width:auto}
-  .compare tbody td{padding:var(--sp-2) 0 var(--sp-2) var(--sp-3) !important;border-left:1px solid var(--hairline)}
-  .compare tbody td.col-2b{border-left:2px solid var(--olive)}
-  .compare td::before{display:block;content:attr(data-col);font:500 var(--fs-label)/1.4 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-  .compare tbody td.col-2b::before{color:var(--olive-deep)}
+  .compare:not(.wq-compare):not(.nx-cmp) tbody th{padding:0 0 var(--sp-2) !important;width:auto}
+  .compare:not(.wq-compare):not(.nx-cmp) tbody td{padding:var(--sp-2) 0 var(--sp-2) var(--sp-3) !important;border-left:1px solid var(--hairline)}
+  .compare:not(.wq-compare):not(.nx-cmp) tbody td.col-2b{border-left:2px solid var(--olive)}
+  .compare:not(.wq-compare):not(.nx-cmp) td::before{display:block;content:attr(data-col);font:500 var(--fs-label)/1.4 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .compare:not(.wq-compare):not(.nx-cmp) tbody td.col-2b::before{color:var(--olive-deep)}
 }
 
 /* founder statement · lead size, 20 words a line */
@@ -4462,9 +4451,7 @@ main .cm-end .lv-media img{position:absolute;inset:0;width:100%;height:100% !imp
   .nx-mapwrap{max-width:100%}
   .nx-mapwrap svg{width:100%;height:auto}
   .nx-wac,.nx-wa{max-width:100%}
-  .nx-wa__b{max-width:92%;font-size:12px}
-  .nx-num,.nx-ledger dd{font-size:inherit}
-  /* manual scenes */
+  .nx-wa__b{max-width:92%;font-size:12px}  /* manual scenes */
   .mx{font-size:12px}
   .mx-body{padding:10px;min-height:0}
   .mx-split{grid-template-columns:minmax(0,1fr)}
@@ -4479,10 +4466,7 @@ main .cm-end .lv-media img{position:absolute;inset:0;width:100%;height:100% !imp
   .mx-sig{width:64px}
   .mx-inbox li span,.mx-sent li span{white-space:normal;overflow-wrap:anywhere}
   .mx-clock,.mx-count,.mx-tag{font-size:11px}  .nx-ch__panel > *{max-width:100%}
-  .nx-flow .wrap{overflow-x:clip}
-  /* ledger */
-  .nx-ledger{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:16px 12px}
-  /* calculator */
+  .nx-flow .wrap{overflow-x:clip}  /* calculator */
   .nc2__band{grid-template-columns:minmax(0,1fr)}
   .nc2__tbl{display:block}
 }
@@ -5155,13 +5139,7 @@ main #follow .nx-chip:focus{outline:2px solid var(--royal);outline-offset:2px}
   .nx-ch__panel{margin-top:0}
 }
 @media (min-width:1024px){
-  .nx-ch{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--sp-6);align-items:start}
-  .nx-ledgerbar{position:sticky;bottom:0;z-index:5;background:var(--paper);border-top:1px solid var(--ink)}
-  .nx-ledgerbar .nx-ledger{margin:0;border-top:0;padding:10px 0 12px}
-  .nx-ledgerbar .nx-ledger > div{padding:0 20px}
-  .nx-ledgerbar .nx-ledger dd{font-size:var(--fs-h3) !important;margin-top:4px}
-  .nx-ledgerbar .nx-src{margin:0 0 10px;font-size:var(--fs-caption)}
-  .nx-chs{padding-bottom:var(--sp-5)}
+  .nx-ch{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--sp-6);align-items:start}  .nx-chs{padding-bottom:var(--sp-5)}
 }
 .nx-ch__panel,.nx-ch__panel *{transform:none}
 .nx-ch__panel{height:auto !important;max-height:none !important;overflow:visible !important}
@@ -5192,10 +5170,36 @@ main #follow .nx-chip:focus{outline:2px solid var(--royal);outline-offset:2px}
   main #follow #moment-05 .nx-att2 li .nx-chip{margin-left:auto;flex:none}
 }
 
+/* comparison tables · stacked layout, cells inset from their rules */
+@media (max-width:759px){
+  main .nx-cmp.compare tbody tr,main .wq-compare.compare tbody tr{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 12px;padding:16px 0}
+  main .nx-cmp.compare tbody th,main .wq-compare.compare tbody th{grid-column:1 / -1;display:block;width:auto;padding:0 0 12px !important;white-space:normal}
+  main .nx-cmp.compare tbody td,main .wq-compare.compare tbody td{display:block;padding:0 16px !important;border-left:1px solid var(--hairline);background:transparent}
+  main .nx-cmp.compare tbody td.col-2b,main .wq-compare.compare tbody td.col-2b{border-left:2px solid var(--olive);background:rgba(151,146,101,.06);padding:0 16px !important}
+  main .nx-cmp.compare tbody td > *,main .wq-compare.compare tbody td > *{margin-left:0;margin-right:0}
+}
+
+/* comparison tables · stacked layout, table and body are blocks so the grid rows take the full width */
+@media (max-width:759px){
+  main .nx-cmp.compare,main .wq-compare.compare,main .nx-cmp.compare tbody,main .wq-compare.compare tbody{display:block !important;width:100% !important}
+  main .nx-cmp.compare thead,main .wq-compare.compare thead{display:none !important}
+  main .nx-cmp.compare tbody tr,main .wq-compare.compare tbody tr{width:100%;box-sizing:border-box}
+}
+/* Organisation Registration · package tile titles fill the line on phones and tablets */
+@media (max-width:1079px){main #package .or-pkg__t,main .or-pkg__t{text-wrap:pretty !important;text-wrap-style:pretty}}
+
+/* comparison tables · stacked layout, cell labels restored on the grid tables */
+@media (max-width:759px){
+  main .nx-cmp.compare tbody td::before,main .wq-compare.compare tbody td::before{display:block !important;content:attr(data-col);font:500 var(--fs-label)/1.4 var(--sans);letter-spacing:var(--track-micro);text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+  main .nx-cmp.compare tbody td.col-2b::before,main .wq-compare.compare tbody td.col-2b::before{color:var(--olive-deep)}
+  main .nx-cmp.compare tbody td,main .wq-compare.compare tbody td{align-self:stretch}
+}
+
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
 html:lang(ko) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:keep-all;overflow-wrap:anywhere}
 html:is(:lang(zh),:lang(ja),:lang(ko)) :is(h1,h2,h3,.display){text-wrap:balance}
+br.tb-soft{display:none}
 
 /* hotfixes (added by the build) */
 @media (min-width:1081px){.row--4 .colitem{container-type:normal}.row--4 .colitem .h3{font-size:clamp(18px,1.66vw,var(--fs-h3)) !important}}

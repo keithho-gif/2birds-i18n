@@ -116,11 +116,39 @@
     if (!on && b) b.remove();
   }
 
+
+  var CJK = /[\u3000-\u303F\u3040-\u30FF\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/;
+  var PUNCT = { ".": "\u3002", ",": "\uFF0C", ":": "\uFF1A", ";": "\uFF1B", "!": "\uFF01", "?": "\uFF1F" };
+  function cjkLang() { return lang === "zh" || lang === "zht" || lang === "ja"; }
+  function tbJoin(p, t) {
+    var lead = p[1], trail = p[3];
+    if (cjkLang()) { if (CJK.test(t.charAt(t.length - 1))) trail = ""; if (CJK.test(t.charAt(0))) lead = ""; }
+    return lead + t + trail;
+  }
+  function prevText(n) { var s = n.previousSibling; while (s && s.nodeType === 3 && !s.nodeValue.trim()) s = s.previousSibling; if (!s) return ""; return (s.nodeType === 3 ? s.nodeValue : s.textContent).replace(/\s+$/, ""); }
+  function tbTidy(on) {
+    var soft = on && lang !== "en", brs = document.querySelectorAll("br"), i;
+    for (i = 0; i < brs.length; i++) {
+      var br = brs[i]; if (br.closest(SKIP)) continue;
+      var prev = br.previousSibling; if (!prev || prev.nodeType !== 3) continue;
+      var s = orig.has(prev) ? orig.get(prev) : prev.nodeValue;
+      if (!/\S\s+$/.test(s) || /[.!?\u3002\uFF01\uFF1F]\s+$/.test(s)) continue;
+      br.classList.toggle("tb-soft", soft);
+    }
+    var cj = on && cjkLang(), w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null), n;
+    while ((n = w.nextNode())) {
+      var pe = n.parentElement; if (!pe || pe.closest(SKIP)) continue;
+      var cur = n.nodeValue, src = orig.has(n) ? orig.get(n) : cur;
+      if (!/^\s*[.,:;!?]\s*$/.test(src)) continue;
+      if (cj && CJK.test(prevText(n).slice(-1))) { var v = src.replace(/[.,:;!?]/, function (ch) { return PUNCT[ch]; }); if (!orig.has(n)) orig.set(n, src); if (cur !== v) write(n, v); }
+      else if (orig.has(n) && cur !== src) write(n, src);
+    }
+  }
   function applyFromCache(c) {
     var missing = [];
     nodes().forEach(function (n) {
       var s = source(n), p = split(s), key = p[2].replace(/\s+/g, " ");
-      if (c[key]) { var v = p[1] + c[key] + p[3]; if (n.nodeValue !== v) write(n, v); }
+      if (c[key]) { var v = tbJoin(p, c[key]); if (n.nodeValue !== v) write(n, v); }
       else missing.push(key);
     });
     fields().forEach(function (el) {
@@ -129,10 +157,12 @@
       if (c[k]) el.placeholder = c[k]; else missing.push(k);
     });
     groups().forEach(function (g) { if (!g.dataset.tbLb) g.dataset.tbLb = g.label; var k = g.dataset.tbLb; if (c[k]) g.label = c[k]; });
+    tbTidy(true);
     return missing.filter(function (v, i, a) { return a.indexOf(v) === i; });
   }
 
   function restore() {
+    tbTidy(false);
     nodes().forEach(function (n) { if (orig.has(n) && n.nodeValue !== orig.get(n)) write(n, orig.get(n)); orig.delete(n); });
     fields().forEach(function (el) { if (el.dataset.tbPh) el.placeholder = el.dataset.tbPh; });
     groups().forEach(function (g) { if (g.dataset.tbLb) g.label = g.dataset.tbLb; });
