@@ -5236,8 +5236,7 @@ br.tb-soft{display:none}
 @media (min-width:1081px){.row--4 .colitem{container-type:normal}.row--4 .colitem .h3{font-size:clamp(18px,1.66vw,var(--fs-h3)) !important}}
 main section#cost.or-film{padding-top:120px !important}
 @media (max-width:1080px){main section#cost.or-film{padding-top:72px !important}}
-/* Customised TMS: tighter join between moment 08 and the calculator photo band (Keith, 29 Sep 2026;
-   not yet in the Claude Design source). White gap 264 -> 160px at 1024+, 168/136 -> 96px below. */
-@media (min-width:1024px){main section#follow.nx-flow .nx-chs{padding-bottom:0 !important}main section#follow.nx-flow{padding-bottom:64px !important}}
-@media (min-width:768px) and (max-width:1023px){main section#follow.nx-flow{padding-bottom:0 !important}}
-@media (max-width:767px){main section#follow.nx-flow{padding-bottom:32px !important}}
+/* Customised TMS: the calculator photo band follows moment 08 at the same distance as a divider
+   follows a moment's panel (Keith, 29 Sep 2026; not yet in the Claude Design source): the white gap
+   is moment 08's own bottom padding only, 96px at 768+ and 64px on phones. */
+main section#follow.nx-flow,main section#follow.nx-flow .nx-chs{padding-bottom:0 !important}
