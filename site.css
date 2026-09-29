@@ -5200,6 +5200,32 @@ main #follow .nx-chip:focus{outline:2px solid var(--royal);outline-offset:2px}
   main .nx-cmp.compare tbody td,main .wq-compare.compare tbody td,main .nx-cmp.compare tbody td.col-2b,main .wq-compare.compare tbody td.col-2b{padding:12px 16px !important;align-self:stretch;box-sizing:border-box}
 }
 
+/* ===== Customised TMS · nett fee calculator on the abacus photograph ===== */
+main .nc2--photo{position:relative;isolation:isolate;background:#0e0d0a !important;color:#fff}
+main .nc2--photo .nc2__bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+main .nc2--photo .nc2__bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:grayscale(1) !important;transform:none}
+main .nc2--photo .nc2__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,13,10,.8) 0%,rgba(14,13,10,.72) 40%,rgba(14,13,10,.72) 100%)}
+main .nc2--photo .nx-kicker,main .nc2--photo .nx-h2,main .nc2--photo .nc2__lab,main .nc2--photo .nc2__fee,main .nc2--photo .nc2__cur,main .nc2--photo .nc2__num{color:#fff !important}
+main .nc2--photo .nc2__num{background:transparent;border-color:rgba(255,255,255,.3)}
+main .nc2--photo .nc2__ends span{color:rgba(255,255,255,.7) !important}
+main .nc2--photo .nc2__range{accent-color:#fff}
+main .nc2--photo .nc2__range::-webkit-slider-runnable-track{background:rgba(255,255,255,.3)}
+main .nc2--photo .nc2__range::-moz-range-track{background:rgba(255,255,255,.3)}
+main .nc2--photo .nc2__range::-moz-range-progress{background:#fff}
+main .nc2--photo .nc2__range::-webkit-slider-thumb{background:#fff;border-color:#fff}
+main .nc2--photo .nc2__range::-moz-range-thumb{background:#fff;border-color:#fff}
+main .nc2--photo .nc2__tabs{border-bottom-color:rgba(255,255,255,.25) !important}
+main .nc2--photo .nc2__tab{color:rgba(255,255,255,.7) !important}
+main .nc2--photo .nc2__tab[aria-selected="true"]{color:#fff !important;border-bottom-color:#fff !important;box-shadow:0 1px 0 #fff}
+main .nc2--photo .nc2__note,main .nc2--photo .nc2__src{color:rgba(255,255,255,.8) !important}
+main .nc2--photo .nc2__sheet{background:#fff;color:var(--ink)}
+main .nc2--photo .nc2__sheet *{color:inherit}
+main .nc2--photo .nc2__sheet .nc2__tot,main .nc2--photo .nc2__sheet .nc2__cardh{color:var(--olive-deep)}
+main .nc2--photo .nc2__sheet .nc2__na{color:var(--muted)}
+main .nc2--photo .nc2__sheet .nc2__ch,main .nc2--photo .nc2__sheet .nc2__rl{color:var(--ink)}
+main .nc2--photo .nc2__fee{border-bottom:1px solid rgba(255,255,255,.25) !important}
+main .fc,main .fc *,main .fc__inner,main .fc__front,main .fc__back{cursor:default !important}
+
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
 html:lang(ko) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:keep-all;overflow-wrap:anywhere}
