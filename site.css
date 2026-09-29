@@ -5195,6 +5195,11 @@ main #follow .nx-chip:focus{outline:2px solid var(--royal);outline-offset:2px}
   main .nx-cmp.compare tbody td,main .wq-compare.compare tbody td{align-self:stretch}
 }
 
+/* comparison tables · stacked layout, cells padded above and below their rules */
+@media (max-width:759px){
+  main .nx-cmp.compare tbody td,main .wq-compare.compare tbody td,main .nx-cmp.compare tbody td.col-2b,main .wq-compare.compare tbody td.col-2b{padding:12px 16px !important;align-self:stretch;box-sizing:border-box}
+}
+
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
 html:lang(ko) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:keep-all;overflow-wrap:anywhere}
