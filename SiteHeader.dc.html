@@ -8,7 +8,7 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="/site.css?v=aa93bf97">
+  <link rel="stylesheet" href="/site.css?v=72ef9742">
   <script src="/site.js?v=0bde17da"></script>
 </helmet>
 <header class="{{ headerClass }}">
@@ -47,7 +47,7 @@
         <li class="hdr__has" data-open="{{ subOpen }}">
           <button type="button" class="hdr__parent" aria-haspopup="true" aria-expanded="{{ subOpen }}" onClick="{{ toggleSub }}">{{ t.ato }}</button>
           <ul class="hdr__sub" aria-label="SWDA Advisory">
-            <li><a href="/atosetupadvisory">Organisation registration</a></li>
+            <li><a href="/atosetupadvisory">ATO Application</a></li>
             <li><a href="/workshops">Workshops</a></li>
             <li><a href="/customised-tms">Customised TMS</a></li>
           </ul>
@@ -104,7 +104,7 @@
         <sc-if value="{{ lvSwda }}" hint-placeholder-val="{{ false }}">
           <p class="mp__h">{{ t.ato }}</p>
           <ul class="mp__list">
-            <li><a href="/atosetupadvisory" data-cur="{{ cur.reg }}"><span class="mp__lbl">Organisation registration</span></a></li>
+            <li><a href="/atosetupadvisory" data-cur="{{ cur.reg }}"><span class="mp__lbl">ATO Application</span></a></li>
             <li><a href="/workshops" data-cur="{{ cur.wks }}"><span class="mp__lbl">Workshops</span></a></li>
             <li><a href="/customised-tms" data-cur="{{ cur.tms }}"><span class="mp__lbl">Customised TMS</span></a></li>
           </ul>
@@ -149,7 +149,7 @@
         <li><a href="/wsqcurriculumdevelopment" data-cur="{{ cur.wsq }}"><span class="md__n">II</span><span>{{ t.wsq }}</span></a></li>
         <li><a href="/atosetupadvisory" data-cur="{{ cur.swda }}"><span class="md__n">III</span><span>{{ t.ato }}</span></a>
           <ul class="md__sub">
-            <li><a href="/atosetupadvisory" data-cur="{{ cur.reg }}">— Organisation registration</a></li>
+            <li><a href="/atosetupadvisory" data-cur="{{ cur.reg }}">— ATO Application</a></li>
             <li><a href="/workshops" data-cur="{{ cur.wks }}">— Workshops</a></li>
             <li><a href="/customised-tms" data-cur="{{ cur.tms }}">— Customised TMS</a></li>
           </ul></li>

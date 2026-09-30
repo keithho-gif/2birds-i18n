@@ -5242,6 +5242,16 @@ main .lg__doc a.ilink,main .lg__doc .lg__cl a,main .lg__doc .lg__list a,main .lg
 }
 @media (max-width:379px){main .wq-compare.compare tbody td::before{letter-spacing:.1em !important}}
 
+/* comparison cells below 760 · shared label row and text row via subgrid */
+@media (max-width:759px){
+  main .nx-cmp.compare tbody tr,main .wq-compare.compare tbody tr{grid-template-rows:auto auto auto;align-items:stretch}
+  main .nx-cmp.compare tbody th,main .wq-compare.compare tbody th{grid-row:1}
+  main .nx-cmp.compare tbody td,main .wq-compare.compare tbody td{grid-row:2 / span 2;display:grid !important;grid-template-rows:subgrid;align-content:start;row-gap:0}
+  main .nx-cmp.compare tbody td::before,main .wq-compare.compare tbody td::before{grid-row:1;min-height:0 !important;align-self:start;margin-bottom:6px;overflow-wrap:normal;word-break:normal;hyphens:none;letter-spacing:.12em !important}
+}
+@media (max-width:399px){main .nx-cmp.compare tbody td::before,main .wq-compare.compare tbody td::before{font-size:10px !important;letter-spacing:.08em !important}}
+@media (max-width:359px){main .nx-cmp.compare tbody td::before,main .wq-compare.compare tbody td::before{font-size:10px !important;letter-spacing:.06em !important}}
+
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
 html:lang(ko) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:keep-all;overflow-wrap:anywhere}
