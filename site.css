@@ -5252,6 +5252,14 @@ main .lg__doc a.ilink,main .lg__doc .lg__cl a,main .lg__doc .lg__list a,main .lg
 @media (max-width:399px){main .nx-cmp.compare tbody td::before,main .wq-compare.compare tbody td::before{font-size:10px !important;letter-spacing:.08em !important}}
 @media (max-width:359px){main .nx-cmp.compare tbody td::before,main .wq-compare.compare tbody td::before{font-size:10px !important;letter-spacing:.06em !important}}
 
+/* comparison tables below 760 · one wrapper per cell so the text sits in one track */
+@media (max-width:759px){
+  main .nx-cmp.compare tbody td > .cmp-cell__t,main .wq-compare.compare tbody td > .cmp-cell__t{grid-row:2;display:block;min-width:0}
+  main .nx-cmp.compare tbody td > .cmp-cell__t > *,main .wq-compare.compare tbody td > .cmp-cell__t > *{margin-top:0}
+  main .nx-cmp.compare tbody td > .cmp-cell__t a,main .wq-compare.compare tbody td > .cmp-cell__t a{display:inline;min-height:0}
+}
+.cmp-cell__t{display:block}
+
 /* translated typography (added by the build) */
 html:lang(ja) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:auto-phrase}
 html:lang(ko) :is(h1,h2,h3,h4,.display,.lede,p,li,a,button,span,dd,dt,td,th,label){word-break:keep-all;overflow-wrap:anywhere}
