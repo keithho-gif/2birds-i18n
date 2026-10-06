@@ -379,11 +379,11 @@ class Component extends DCLogic {
         };
       });
     }
-    var bookLabel = "Book a consultation", bookHref = "mailto:keith.ho@2birds.asia?subject=" + encodeURIComponent("Consultation request");
+    var bookLabel = "Book a consultation", bookHref = "mailto:hello@2birds.asia?subject=" + encodeURIComponent("Consultation request");
     if (selDate && this.state.slot) {
       var when = this.fmt(selDate) + " " + y + ", " + this.state.slot + " SGT";
       bookLabel = "Request " + this.fmt(selDate) + " · " + this.state.slot;
-      bookHref = "mailto:keith.ho@2birds.asia?subject=" + encodeURIComponent("Consultation request, " + when) +
+      bookHref = "mailto:hello@2birds.asia?subject=" + encodeURIComponent("Consultation request, " + when) +
         "&body=" + encodeURIComponent("I would like to request the twenty-minute consultation on " + when + ".\n\nName\nOrganisation\nTelephone\n");
     }
     var statusLine = openN === 0 ? "Fully booked this month" : openN + " of " + workN + " working days still open";
