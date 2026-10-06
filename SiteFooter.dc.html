@@ -108,7 +108,7 @@ class Component extends DCLogic {
       signFail: this.state.signFail,
       signLabel: this.state.signing ? "Sending" : "Subscribe →",
       signBad: this.state.signBad ? "true" : "false",
-      signMsg: this.state.signBad ? "Please enter a full email address, such as name@organisation.sg." : this.state.signed ? "Thank you. You are subscribed to the SWDA circulars newsletter." : this.state.signFail ? "We could not subscribe you just now. Please try again, or write to keith.ho@2birds.asia." : "",
+      signMsg: this.state.signBad ? "Please enter a full email address, such as name@organisation.sg." : this.state.signed ? "Thank you. You are subscribed to the SWDA circulars newsletter." : this.state.signFail ? "We could not subscribe you just now. Please try again, or write to hello@2birds.asia." : "",
       onSignInput: () => { if (this.state.signBad || this.state.signed || this.state.signFail) this.setState({ signBad: false, signed: false, signFail: false }); },
       onSign: (e) => {
         e.preventDefault();

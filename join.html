@@ -170,7 +170,7 @@
               <label for="join-note">What you teach or know best</label>
               <textarea id="join-note" name="note" rows="3"></textarea>
             </div>
-            <sc-if value="{{ sendError }}" hint-placeholder-val="{{ false }}"><p class="field__error">We could not send your details just now. Please try again in a moment, or <a class="ilink role-link" href="{{ mailtoHref }}">email them to keith.ho@2birds.asia</a>.</p></sc-if>
+            <sc-if value="{{ sendError }}" hint-placeholder-val="{{ false }}"><p class="field__error">We could not send your details just now. Please try again in a moment, or <a class="ilink role-link" href="{{ mailtoHref }}">email them to hello@2birds.asia</a>.</p></sc-if>
             <p class="ja__note">By submitting, you consent to 2BIRDS holding these details and contacting you about suitable projects, as set out in our <a class="ilink role-link" href="/privacy">Privacy Policy</a>.</p>
           </fieldset>
 
@@ -194,7 +194,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  TO = "keith.ho@2birds.asia";
+  TO = "hello@2birds.asia";
   // Paste the deployed resend-worker.js URL here to send through Resend instead of FormSubmit.
   RESEND_ENDPOINT = "";
   // Paste the Web3Forms access key here (free, from web3forms.com) to send without the activation step.
